@@ -1,0 +1,9 @@
+{
+  "label": "3 Basic Application Development",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/Basic_Application",
+    "description": "System introductory applications, including image input, audio input, and interface development, etc"
+  }
+}

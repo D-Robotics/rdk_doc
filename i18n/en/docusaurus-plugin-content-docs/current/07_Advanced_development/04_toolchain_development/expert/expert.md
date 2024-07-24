@@ -1,0 +1,7 @@
+# 7.4.3.4 Advanced Guide
+
+Quantization refers to the technique of performing calculations and storing tensors with a bit width lower than floating-point precision. Quantized models use integers instead of floating-point values to perform partial or complete operations on tensors. Compared to typical FP32 models, horizon_plugin_pytorch supports INT8 quantization, which reduces the model size by 4 times and reduces the memory bandwidth requirement by 4 times. Hardware support for INT8 calculations is usually 2 to 4 times faster than FP32 calculations. Quantization is mainly a technique for accelerating inference, and quantization operations only support forward calculations.
+
+horizon_plugin_pytorch provides quantization operations adapted to BPU, supporting quantization-aware training. This training uses pseudo-quantization modules to model quantization errors in forward calculations and backpropagation. Please note that the entire computation process of quantization-aware training is performed using floating-point operations. At the end of quantization-aware training, horizon_plugin_pytorch provides conversion functions to transform the trained model into a fixed-point model, using a more compact model representation and high-performance vectorized operations on BPU.
+
+This chapter provides a detailed introduction to the quantization training tool of horizon_plugin_pytorch developed based on PyTorch.

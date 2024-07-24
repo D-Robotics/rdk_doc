@@ -1,0 +1,9 @@
+{
+  "label": "8. FAQ",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "slug": "/FAQ",
+    "description": "FAQ"
+  }
+}

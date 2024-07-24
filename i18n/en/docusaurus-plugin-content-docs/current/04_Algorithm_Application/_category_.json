@@ -1,0 +1,9 @@
+{
+  "label": "4. Algorithm Application",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "slug": "/Basic_Development",
+    "description": "Provide algorithm development case studies, including interfaces in Python/C++ and other languages, as well as algorithm repositories and other content."
+  }
+}
