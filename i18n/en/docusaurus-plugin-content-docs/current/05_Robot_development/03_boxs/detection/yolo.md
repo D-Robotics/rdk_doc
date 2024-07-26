@@ -159,7 +159,7 @@ The log shows that the topic for publishing the inference results is `hobot_dnn_
 
 You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the Horizon RDK):
 
-![render_web](./image/box_basic/yolov2_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg)
 
 ### Use Local Data Offline
 
@@ -179,4 +179,4 @@ The terminal output during execution shows the following information:
 
 The log shows that the algorithm infers 8 targets from the input image and outputs the coordinates of the object detection boxes (the order of the coordinates is the top-left x and y coordinates and the bottom-right x and y coordinates of the bounding box) and the object categories. The rendered image file is saved as render_feedback_0_0.jpeg, and the rendering effect is shown below:
 
-![render_feedback](./image/box_basic/yolov2_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg)

@@ -118,4 +118,4 @@ The output log shows that the body_kps data is subscribed and the pose event is 
 
 In the PC's browser, enter `http://IP:8000`, and the body detection frame, keypoints, and pose detection results will be displayed in the web interface (IP refers to the IP address of the Horizon RDK):
 
-![](./image/fall_detection/falldown.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg)

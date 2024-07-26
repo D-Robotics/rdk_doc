@@ -98,4 +98,4 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 渲染后的图片render_feedback_0_0.jpeg：
 
-![](./image/ai_predict/render1.jpg)
+![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)

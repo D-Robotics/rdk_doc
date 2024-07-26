@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 
 人体关键点算法结果索引如下图：
 
-![](./image/box_adv/kps_index.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg)
 
 
 代码仓库： (https://github.com/D-Robotics/mono2d_body_detection)
@@ -236,4 +236,4 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪ID，人体关键点）渲染效果（IP为地平线RDK/X86设备的IP地址）：
 
-![](./image/box_adv/body_render.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)

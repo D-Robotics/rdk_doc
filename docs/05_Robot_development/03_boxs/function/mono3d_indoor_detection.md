@@ -132,4 +132,4 @@ log截取显示了一帧的处理结果，结果显示，订阅到的算法msg�
 
 读取本地图片（可以通过修改mono3d_indoor_detection.launch.py中feed_image字段替换图片）渲染的结果保存成图片在程序运行的result目录下。对应图片推理结果以及渲染信息如下：
 
-![](./image/box_adv/indoor_render.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg)

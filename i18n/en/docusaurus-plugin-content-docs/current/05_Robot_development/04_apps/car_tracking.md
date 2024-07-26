@@ -13,11 +13,11 @@ import TabItem from '@theme/TabItem';
 
 The app is used to control the robot to follow the movement of the human body. The app consists of MIPI image acquisition, body detection and tracking, body tracking strategy, image coding and decoding, and a web display interface. The workflow is shown in the following diagram:
 
-![](./image/car_tracking/body_tracking_workflow.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/car_tracking/body_tracking_workflow.jpg)
 
 The app is demonstrated using a virtual car in the PC-side Gazebo simulation environment, but the control commands can also be directly used to control a physical robot.
 
-Code Repository:  (https://github.com/D-Robotics/body_tracking>
+Code Repository:  (https://github.com/D-Robotics/body_tracking)
 
 ## Supported Platforms
 
@@ -96,7 +96,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful launch, the car effect in the simulation environment is as follows:
 
-![](./image/car_gesture_control/gazebo.jpeg)
+![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gazebo.jpeg)
 
 
 **Publish images using MIPI camera**
@@ -228,4 +228,4 @@ z: -0.5
 
 In the PC simulation environment, the car follows the movement of the human body. The simulated car movement effect is as follows:
 
-![](./image/car_tracking/tracking.gif)
+![](/../static/img/05_Robot_development/04_apps/image/car_tracking/tracking.gif)

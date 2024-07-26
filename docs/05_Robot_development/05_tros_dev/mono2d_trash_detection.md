@@ -107,7 +107,7 @@ config_file配置文件格式为json格式，本示例[ppyoloworkconfig.json](ht
 
 完整算法开发部署流程图：
 
-![](./image/mono2d_trash_detection/workflow.png)
+![](/../static/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
 
 其中第一步Paddle模型训练、第二部工具链模型转换，将在下方链接中介绍，这里将主要介绍上板部署相关流程。
 
@@ -289,7 +289,7 @@ package初始化后，在运行终端输出如下信息：
 
 实时运行效果：
 
-![](./image/mono2d_trash_detection/realtime.gif)
+![](/../static/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif)
 
 **使用单张回灌图片**
 
@@ -318,4 +318,4 @@ package初始化后，在终端输出如下信息：
 
 本地渲染效果：
 
-![](./image/mono2d_trash_detection/render.jpeg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg)

@@ -121,7 +121,7 @@ Taking Horizon RDK as an example:
     ```
 
 5. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000` (where IP is the Horizon RDK IP address). Click on the upper left corner to view the real-time image from the USB camera.
-![image-usb-camera](./image/demo_sensor/usb_cam_pic.png)
+![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 ### Usage Method 2 (usb_pixel_format is yuyv2rgb)
 
@@ -237,7 +237,7 @@ Here is an example using the Horizon RDK platform:
     ```
 
 6. Open a browser on your PC (chrome/firefox/edge) and enter  `http://IP:8000` (IP is the Horizon RDK IP address), click on the top left to display the web side to view the real-time image from the USB camera
-    ![image-usb-camera](./image/demo_sensor/usb_cam_pic.png)
+    ![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
     
 ### Notes
 
@@ -324,7 +324,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 1. Confirm that the camera is correctly connected to Horizon RDK. For example, the connection between the F37 camera and RDK X3 is shown in the following figure:
 
-    ![image-X3-PI-Camera](./image/demo_sensor/image-X3-PI-Camera.png)
+    ![image-X3-PI-Camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X3-PI-Camera.png)
 
 2. Horizon RDK is flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon
 
@@ -409,7 +409,7 @@ Take the F37 as an example to introduce the method of acquiring and previewing i
     ```
 
 5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the Horizon RDK) to see the real-time display of the F37 camera's output.
-    ![web-f37-codec](./image/demo_sensor/web-f37-codec.png "Real-time image")
+    ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-f37-codec.png "Real-time image")
 
 6. To query the camera's intrinsic parameters on the PC (the specific data may vary depending on the calibrated camera file), use the following command and view the results:
 
@@ -554,7 +554,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 1. Make sure the camera is correctly connected to the Horizon RDK. The connection for RGBD module to RDK X3 is shown as below:
 
-    ![hobot_rgbd](./image/demo_sensor/hobot_rgbd.png)
+    ![hobot_rgbd](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
 
     **Note: The RGBD module needs an additional adapter board to connect to Horizon RDK X3**.
 2. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
@@ -734,7 +734,7 @@ ros2 topic list
 
     Click the "add" button in the rviz2 interface to add topics published by rgbd_sensor (refer to the rgbd_CP3AM related topics indicated in section 3). To subscribe to point cloud data, modify the "Fixed Frame" option in the Global Options of rviz2 configuration to "depth". Then you can view real-time point cloud information. In the point topic configuration, select "points" as the point type.
 
-    ![hobot_rgbd_sensor](./image/demo_sensor/hobot_rgbd_sensor.png "Real-time Image")
+    ![hobot_rgbd_sensor](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png "Real-time Image")
 
 5. Query camera intrinsics on a PC.
 

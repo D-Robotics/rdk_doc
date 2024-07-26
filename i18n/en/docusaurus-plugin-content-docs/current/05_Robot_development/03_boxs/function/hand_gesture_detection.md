@@ -24,9 +24,9 @@ The supported gesture recognition categories and their corresponding values in t
 
 Code repositories:
 
- (https://github.com/D-Robotics/hand_lmk_detection>
+ (https://github.com/D-Robotics/hand_lmk_detection)
 
- (https://github.com/D-Robotics/hand_gesture_detection>
+ (https://github.com/D-Robotics/hand_gesture_detection)
 
  (https://github.com/D-Robotics/mono2d_body_detection)
 
@@ -169,4 +169,4 @@ The output log shows that the subscribed algorithm message includes hand informa
 
 On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the Horizon RDK).
 
-![Gesture Rendering](./image/box_adv/gesture_render.jpeg)
+![Gesture Rendering](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)

@@ -108,4 +108,4 @@ The log displays the processing result of a frame. The result shows that the tar
 
 The rendered result of a local image (which can be replaced by modifying the feed_image field in mono3d_indoor_detection.launch.py) is saved as an image in the result directory of the program. The corresponding inference result and rendering information of the image are as follows:
 
-![](./image/box_adv/indoor_render.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg)

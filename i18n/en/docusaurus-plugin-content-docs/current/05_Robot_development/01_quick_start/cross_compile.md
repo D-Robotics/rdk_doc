@@ -156,7 +156,7 @@ Q1: How to determine if VCS successfully pulled the code?
 
 A1: As shown in the image below, during the vcs import process, a "." indicates a successful repo pull, and an "E" indicates a failed repo pull. Specific failed repos can be seen in the log after execution. If this happens, you can try deleting the contents in the src directory and re-run vcs import or manually pull the failed repos.
 
-![vcs_import](./image/cross_compile/vcs_import_error.png "vcs_import")
+![vcs_import](/../static/img/05_Robot_development/01_quick_start/image/cross_compile/vcs_import_error.png "vcs_import")
 
 Q2: Limited conditions prevent code retrieval from GitHub
 

@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 elevation_net is a monocular elevation network detection algorithm example developed based on the hobot_dnn package. It uses an elevation network model and indoor data with BPU for model inference on the horizon RDK to obtain algorithm inference results.
 
-Code Repository:  (https://github.com/D-Robotics/elevation_net>
+Code Repository:  (https://github.com/D-Robotics/elevation_net)
 
 Application Scenarios: The monocular elevation network detection algorithm parses images to obtain depth and height information of pixels, mainly used in autonomous driving, smart homes, intelligent transportation, and other fields.
 

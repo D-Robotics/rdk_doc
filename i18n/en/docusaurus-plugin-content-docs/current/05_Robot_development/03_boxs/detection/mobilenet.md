@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The MobileNet_SSD detection algorithm uses images as input, performs inference using BPU, and publishes messages that include target categories and detection boxes.
 
-MobileNet_SSD is a caffe model obtained from  (https://github.com/chuanqi305/MobileNet-SSD>, trained using the VOC dataset (http://host.robots.ox.ac.uk/pascal/VOC/voc2012/). It supports 20 types of target detection, including humans, animals, fruits, and vehicles.
+MobileNet_SSD is a caffe model obtained from  (https://github.com/chuanqi305/MobileNet-SSD), trained using the VOC dataset (http://host.robots.ox.ac.uk/pascal/VOC/voc2012/). It supports 20 types of target detection, including humans, animals, fruits, and vehicles.
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -155,7 +155,7 @@ The log shows that the topic for publishing inference results is `hobot_dnn_dete
 
 To view the image and algorithm, input http://IP:8000 in the browser on the PC (where IP is the IP address of the Horizon RDK):
 
-![render_web](./image/box_basic/mobilenet_ssd_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/mobilenet_ssd_render_web.jpeg)
 
 ### Use Local Images offline
 
@@ -171,4 +171,4 @@ The following information is displayed in the terminal output:
 
 The log shows that the algorithm infers 2 targets from the input image and outputs the coordinates of the bounding boxes (the order of the output coordinates is the top-left x and y coordinates, and the bottom-right x and y coordinates) and the class. The image is named render_feedback_0_0.jpeg, and the rendering effect is:
 
-![render_feedback](./image/box_basic/mobilenet_ssd_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/mobilenet_ssd_render_feedback.jpeg)

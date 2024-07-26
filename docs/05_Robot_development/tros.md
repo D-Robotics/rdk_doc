@@ -7,7 +7,7 @@ TogetheROS.Bot是地平线面向机器人厂商和生态开发者推出的机器
 
 Horizon Robotics Developer Kits，简称[地平线RDK套件](https://developer.horizon.cc/documents_rdk/)，是基于地平线智能芯片打造的机器人开发者套件，包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK Ultra**。目前TogetheROS.Bot支持在地平线RDK平台上运行，同时提供模拟器版本在X86平台上运行。地平线RDK平台涵盖下图所示的全部功能，X86平台支持以图片回灌方式体验部分功能，提高用户算法开发和验证效率，并能够快速迁移到地平线RDK平台。
 
-![TROS-Diagram](./image/TogetheROS.png)
+![TROS-Diagram](/../static/img/05_Robot_development/image/TogetheROS.png)
 
 TogetheROS.Bot源码托管在GitHub地平线[D-Robotics组织](https://github.com/D-Robotics)。
 

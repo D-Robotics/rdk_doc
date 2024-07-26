@@ -129,7 +129,7 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
 
 仿真环境如下图所示：
-![](./image/slam/gazebo.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/slam/gazebo.jpg)
 
 PC端开启另外一个控制台，启动Rviz2 用于观察建图效果：
 
@@ -155,7 +155,7 @@ ros2 launch turtlebot3_bringup rviz2.launch.py
 ```
 
 打开Rviz2后，需要添加“map”可视化选项，用于展示建立的地图，步骤如下所示：
-![](./image/slam/rvizsetting.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg)
 
 地平线RDK板端运行SLAM-Toolbox：
 
@@ -209,7 +209,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 控制小车行驶，随着小车雷达探测到更多的环境信息，SLAM算法也建立起环境地图，可以在Rviz2上观察到建图效果。
-![](./image/slam/map.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/slam/map.jpg)
 
 ## 结果分析
 

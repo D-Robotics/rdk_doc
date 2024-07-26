@@ -101,7 +101,7 @@ Note: The actual size of each preset anchor is anchors_table x strides.
 
 Complete algorithm development and deployment workflow diagram:
 
-![](./image/mono2d_trash_detection/workflow.png)
+![](/../static/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
 
 The first step, Paddle model training, and the second step, toolchain model conversion, will be introduced in the links below. Here, we will mainly introduce the on-board deployment process.
 
@@ -250,7 +250,7 @@ After package initialization, the following information will be output to the te
 
 The result is as below：
 
-![](./image/mono2d_trash_detection/realtime.gif)
+![](/../static/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif)
 
 **Use A Local Image Offline**
 
@@ -279,4 +279,4 @@ After initializing the package, output the following information on the terminal
 
 The result is as below：
 
-![](./image/mono2d_trash_detection/render.jpeg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg)

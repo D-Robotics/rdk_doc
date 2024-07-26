@@ -122,7 +122,7 @@ sudo chmod +x ./Examples/Monocular/mono_euroc
 ```
 
 程序运行后需要一段时间加载词袋库，等待片刻后程序会打印出当前处理的帧率。
-![](./image/box_adv/euroc_result.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/euroc_result.png)
 
 ### 使用RealSense D435i相机
 
@@ -189,7 +189,7 @@ ros2 launch realsense2_camera rs_launch.py enable_depth:=false enable_color:=fal
 ```
 
 相机启动后，可从控制台观察到以下log：
-![](./image/box_adv/realsense.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/realsense.png)
 
 下一步，我们启动视觉SLAM节点：
 
@@ -232,18 +232,18 @@ X3端的视觉SLAM节点启动并接收到相机图像数据后开始打印当�
 
 同时在PC端（和地平线RDK在同一网段）打开Rviz2可视化软件，添加相关可视化信息，并订阅以下话题：
 
-![](./image/box_adv/rviz2_1.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2_1.png)
 
 订阅话题后，可以从RVIZ2 软件观察到特征点的渲染结果，
 同时随着相机的运动也可以观察到窗口右侧生成的白色地图点云和绿色的相机轨迹信息。
-![](./image/box_adv/rviz2_2.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2_2.png)
 
 ### 使用基于SuperPoint优化的ORB-SLAM3
 
 众所周知，深度学习方法具有传统算法无法比拟的优势和潜力，尤其是在检测和分类任务的稳定性、效率和精度方面，深度学习方法表现出了惊人的优势。在视觉SLAM领域，也涌现出了很多使用深度学习方法代替传统SLAM前端和后端的工作，并表现出明显的优势。
 
 其中SuperPoint和SuperGlue就是典型。SuperPoint是一款自监督深度学习网络模型，能够同时提取图像特征点的位置以及描述子。Tros.b整合SuperPoint与ORB-SLAM3，开发者可以在 `/opt/tros/${TROS_DISTRO}/share/orb_slam3/Examples/\*/*.yaml` 配置文件里自由切换使用的特征点提取方法。如下图所示，使用的特征点提取算法为“SUPERPOINT”：
-![](./image/box_adv/superpoint.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/superpoint.png)
 
 使用Superpoint特征提取算法的结果如下图所示，可以看到，特征点提取非常稠密，检测出了物体的轮廓。
-![](./image/box_adv/superpoint_result.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/superpoint_result.png)

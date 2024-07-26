@@ -177,4 +177,4 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为地平线RDK的IP地址）：
 
-![](./image/box_adv/gesture_render.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)

@@ -25,7 +25,7 @@ The supported detection categories and their corresponding data types in the alg
 
 The index of the body keypoints algorithm result is shown in the following figure:
 
-![](./image/box_adv/kps_index.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg)
 
 
 Code Repository:  (https://github.com/D-Robotics/mono2d_body_detection)
@@ -207,4 +207,4 @@ The log shows that frame rates of the algorithm during inference are 30fps, and 
 
 On the PC browser, enter http://IP:8000 to view the rendering effect of the image and the algorithm (body, head, face, and hand detection boxes, detection box type and target tracking ID, and human body keypoints) (IP is the IP address of the Horizon RDK):
 
-![](./image/box_adv/body_render.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)

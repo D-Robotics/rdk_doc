@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 车位寻找控制App功能为通过车位检测算法指导机器人运动到停车位，包括左右旋转和前后平移运动。App由MIPI图像采集、车位检测算法、车位寻找控制策略、图像编解码、Web展示端组成，流程如下图：
 
-![](./image/parking_search/msg_workflow.png)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png)
 
 App通过车位寻找控制策略发布的控制指令直接控制实物小车，也可以利用PC端Gazebo仿真环境下的虚拟小车进行测试。
 
@@ -31,7 +31,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 将视野场景区域分为“左”、“中”、“右”三个区域。计算每个区域内停车区域和行车区域的IOU，根据阈值判断对应区域类型，从而完成小车运动决策。
 
-![](./image/parking_search/view_area.png)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/view_area.png)
 
 2.阈值设置:
 
@@ -51,7 +51,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 4.算法流程:
 
-![](./image/parking_search/workflow.png)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/workflow.png)
 
 ## 准备工作
 
@@ -65,7 +65,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 4. 一台古月居小车作为控制下位机。
 
-![](./image/parking_search/car.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/car.jpg)
 
 ## 使用介绍
 
@@ -208,7 +208,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1661942399.449585563] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
 ```
 
-![](./image/parking_search/cap1.gif)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
 
 2.小车发现车位后转向时在地平线RDK运行终端输出log信息:
 
@@ -222,7 +222,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1662539779.604272498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
 ```
 
-![](./image/parking_search/cap2.gif)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
 
 3.小车确定车位后前进并最终停止时在地平线RDK运行终端输出log信息:
 
@@ -240,7 +240,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ```
 
-![](./image/parking_search/cap3.gif)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
 
 PC端在终端使用`ros2 topic list`命令可以查询到地平线RDK的topic信息：
 

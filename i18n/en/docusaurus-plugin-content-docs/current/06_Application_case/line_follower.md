@@ -19,7 +19,7 @@ The line following task refers to the ability of a robot car to autonomously fol
 
 The commonly used methods mentioned above often require repeated image collection, threshold adjustment, and testing to achieve good recognition results when there are changes in lighting conditions or the environment. Is it possible to make the robot adapt to changes in the environment without the need for manual threshold adjustment? Convolutional Neural Network (CNN) is one of the most successful applications of deep learning algorithms, with good adaptability and robustness. With the rapid development of processors in recent years, CNN inference can already be performed on embedded devices. Here, CNN is used to perceive the position of the guide line in the line following task.
 
-Code repository:  `https://github.com/HorizonRDK/line_follower)
+Code repository:  (https://github.com/HorizonRDK/line_follower)
 
 ## Supported Platforms
 

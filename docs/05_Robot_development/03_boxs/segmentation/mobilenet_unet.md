@@ -12,7 +12,8 @@ import TabItem from '@theme/TabItem';
 
 mobilenet_unet分割算法示例使用图片作为输入，利用BPU进行算法推理，发布包含分割结果msg。
 
-mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据集训练出来的Onnx模型，模型来源： (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/MobilenetUnet)。支持对人、车辆、路面、路标等类别进行分割。
+mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据集训练出来的Onnx模型，模型来源： (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/MobilenetUnet)。
+支持对人、车辆、路面、路标等类别进行分割。
 
 代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
@@ -199,10 +200,10 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 输出log显示，发布算法推理结果的topic为`hobot_dnn_detection`，订阅图片的topic为`/hbmem_img`，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，地平线RDK上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
 
 原始图片：
-![raw](./image/mobilenet_unet/mobilenet_unet_raw.jpeg)
+![raw](/../static/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg)
 
 渲染后的图片：
-![render_web](./image/mobilenet_unet/mobilenet_unet_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_web.jpeg)
 
 ### 使用本地图片回灌
 
@@ -224,4 +225,4 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 输出log显示，算法使用输入的图片config/raw_unet.jpeg推理，存储的渲染图片文件名为render_unet_feedback_0_0.jpeg，渲染图片效果：
 
-![render_feedback](./image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg)

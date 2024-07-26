@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 The Car Parking Space Search control app guides the robot to move to a parking space using parking detection algorithms, including left and right rotation and forward and backward translation. The app consists of MIPI image acquisition, parking detection algorithm, parking search control strategy, image encoding and decoding, and web display end. The process is shown in the following image:
 
-![](./image/parking_search/msg_workflow.png)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png)
 
 The app directly controls the physical car through control commands published by the parking search control strategy, and can also use the virtual car in the PC side Gazebo simulation environment for testing.
 
@@ -31,7 +31,7 @@ Code repository:  (https://github.com/D-Robotics/parking_search.git)
 
 Divide the field of view scene into "left", "middle", and "right" regions. Calculate the IOU (Intersection over Union) of the parking area and the driving area in each region, and determine the corresponding region type based on the threshold, thus completing the decision-making of the car's movement.
 
-![](./image/parking_search/view_area.png)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/view_area.png)
 
 2. Threshold settings:
 
@@ -51,7 +51,7 @@ Note: In actual detection, due to the fact that the detection accuracy of the al
 
 4. Algorithm flow:
 
-![](./image/parking_search/workflow.png)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/workflow.png)
 
 ## Preparation
 
@@ -65,7 +65,7 @@ Note: In actual detection, due to the fact that the detection accuracy of the al
 
 4. The car is used as the control device:
 
-![](./image/parking_search/car.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/car.jpg)
 
 ## Usage
 
@@ -184,7 +184,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1661942399.449585563] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
 ```
 
-![](./image/parking_search/cap1.gif)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
 
 2. When the car finds a parking space and turns, the log information is outputted in the Horizon RDK terminal:
 
@@ -195,7 +195,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1662539779.522690915] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
 [parking_search-4] [WARN] [1662539779.563660873] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
 [parking_perception-3] [WARN] [1662539779.595755290] [parking_perception]: input fps: 29.87, out fps: 29.63
-[parking_search-4] [WARN] [1662539779.604272498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000![](./image/parking_search/cap2.gif)
+[parking_search-4] [WARN] [1662539779.604272498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
 
 3. When the car determines the parking space and moves forward to stop, the Horizon RDK terminal outputs log information:
 
@@ -213,7 +213,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ```
 
-![](./image/parking_search/cap3.gif)
+![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
 
 On the PC terminal, you can use the `ros2 topic list` command to query the topic information of the Horizon RDK:
 

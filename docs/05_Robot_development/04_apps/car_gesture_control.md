@@ -13,16 +13,16 @@ import TabItem from '@theme/TabItem';
 
 小车手势控制App功能为通过手势控制机器人小车运动，包括左右旋转和前后平移运动。App由MIPI图像采集、人体检测和跟踪、人手关键点检测、手势识别、手势控制策略、图像编解码、Web展示端组成，流程如下图：
 
-![](./image/car_gesture_control/gesture_ctrl_workflow.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl_workflow.jpg)
 
 支持的控制手势，对应的手势功能定义和手势动作举例如下：
 
 | 控制手势              | 手势功能 | 手势动作举例                                                           |
 | --------------------- | -------- | ---------------------------------------------------------------------- |
-| 666手势/Awesome       | 前进     | ![image-awesome](./image/car_gesture_control/image-awesome.jpeg)       |
-| yeah/Victory          | 后退     | ![image-victory](./image/car_gesture_control/image-victory.jpeg)       |
-| 大拇指向右/ThumbRight | 右转     | ![image-thumbright](./image/car_gesture_control/image-thumbright.jpeg) |
-| 大拇指向左/ThumbLeft  | 左转     | ![image-thumbleft](./image/car_gesture_control/image-thumbleft.jpeg)   |
+| 666手势/Awesome       | 前进     | ![image-awesome](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-awesome.jpeg)       |
+| yeah/Victory          | 后退     | ![image-victory](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-victory.jpeg)       |
+| 大拇指向右/ThumbRight | 右转     | ![image-thumbright](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbright.jpeg) |
+| 大拇指向左/ThumbLeft  | 左转     | ![image-thumbleft](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbleft.jpeg)   |
 
 App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
@@ -108,7 +108,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 启动成功后，仿真环境中小车效果如下：
 
-![](./image/car_gesture_control/gazebo.jpeg)
+![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gazebo.jpeg)
 
 **使用mipi摄像头发布图片**
 
@@ -259,4 +259,4 @@ angular:
 
 PC端仿真环境中小车按照手势动作运动，仿真小车运动效果如下：
 
-![](./image/car_gesture_control/gesture_ctrl.gif)
+![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl.gif)

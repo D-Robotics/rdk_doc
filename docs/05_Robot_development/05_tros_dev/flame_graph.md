@@ -8,7 +8,7 @@ sidebar_position: 4
 
 火焰图是用图形化的方式来展现perf等工具采集的性能数据，对数据进行统计和分析，方便找出性能热点。
 
-![http-bw](./image/flame_graph/flamegraph.png "flame graph")
+![http-bw](/../static/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png "flame graph")
 
 火焰图中的每一个方框是一个函数，方框的长度，代表了它的执行时间，所以越宽的函数，执行越久。
 
@@ -63,4 +63,4 @@ sidebar_position: 4
 
 经过前一节的使用流程，记录下来地平线RDK的系统内的函数调用如下图所示
 
-![](./image/flame_graph/flame_graph_result.png)
+![](/../static/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png)

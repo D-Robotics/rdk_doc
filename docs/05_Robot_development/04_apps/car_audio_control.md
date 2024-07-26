@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 语音控制小车运动功能通过语音控制机器人向前、向后、向左、向右运动，需要搭配地平线机器人操作系统的智能语音模块一起使用。流程如下图：
 
-![](./image/car_audio_control/audio_control.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/car_audio_control/audio_control.jpg)
 
 APP以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
@@ -115,7 +115,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 启动成功后，仿真环境中小车效果如下：
 
-![](./image/car_audio_tracking/gazebo.jpeg)
+![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/gazebo.jpeg)
 
 地平线RDK平台启动程序：
 
@@ -245,4 +245,4 @@ angular:
 
 PC端仿真环境中小车跟随语音控制命令词的指示进行运动，仿真小车运动效果如下：
 
-![](./image/car_audio_control/move.gif)
+![](/../static/img/05_Robot_development/04_apps/image/car_audio_control/move.gif)

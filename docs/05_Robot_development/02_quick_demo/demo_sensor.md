@@ -129,7 +129,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 5. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为地平线 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面。
 
-![USB 摄像头实时画面](./image/demo_sensor/usb_cam_pic.png)
+![USB 摄像头实时画面](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 
 
@@ -246,7 +246,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
 6. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP为地平线RDK IP地址），点击左上方Web端展示即可查看USB摄像头实时画面
-    ![image-usb-camera](./image/demo_sensor/usb_cam_pic.png)
+    ![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 
 ### 注意事项
@@ -338,7 +338,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 确认摄像头正确接入地平线RDK，例如 F37 摄像头的接入RDK X3方式如下图：
 
-    ![image-X3-PI-Camera](./image/demo_sensor/image-X3-PI-Camera.png)
+    ![image-X3-PI-Camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X3-PI-Camera.png)
 
 2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像
 
@@ -424,7 +424,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
 5. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为地平线RDK IP地址），点击左上方Web端展示即可看到F37输出的实时画面
-    ![web-f37-codec](./image/demo_sensor/web-f37-codec.png "实时图像")
+    ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-f37-codec.png "实时图像")
 
 6. 在PC机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
 
@@ -570,7 +570,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 确认摄像头正确接入地平线RDK，RGBD模组接入RDK X3方式如下图：
 
-    ![hobot_rgbd](./image/demo_sensor/hobot_rgbd.png)
+    ![hobot_rgbd](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
 
     **注意：RGBD模组需要额外转接板才能接到地平线RDK X3上**。
 2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
@@ -754,7 +754,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
     在 rviz2 界面上点击 add 按钮，添加rgbd_sensor 所发布 topic （参见目录3所标示的 rgbd_CP3AM 相关 topic），订阅点云需要把rviz2 配置的Global Options 里面的选项“Fixed Frame”修改为 “depth”，就可以观看实时点云信息。在 point 话题配置中，里面point type 选择points 即可。
 
-    ![hobot_rgbd_sensor](./image/demo_sensor/hobot_rgbd_sensor.png "实时图像")
+    ![hobot_rgbd_sensor](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png "实时图像")
 
 5. 在PC机上查询相机内参
 
@@ -857,7 +857,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 所以，双目相机ROS功能包的一般安装流程是：首先安装相机的SDK库文件，然后安装相机的ROS封装功能包。
 
-![stereo-camera-ros-arch](./image/demo_sensor/stereo-camera-ros-arch.png)
+![stereo-camera-ros-arch](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
 本节介绍RealSense相机在地平线RDK平台上的使用方法。
 
@@ -928,11 +928,11 @@ sudo apt-get install ros-$ROS_DISTRO-realsense2-* -y
 ros2 launch realsense2_camera rs_launch.py
 ```
 
-![realsense-start-up-log](./image/demo_sensor/realsense-start-up-log.png)
+![realsense-start-up-log](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
 
 可以通过`ros2 topic list`查看RealSense发布的话题，默认参数启动RealSense相机只会开启相机的深度数据流和RGB数据流。
 
-![realsense-basic-topic](./image/demo_sensor/realsense-basic-topic.png)
+![realsense-basic-topic](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
 
 
 RealSense ROS wrapper提供了很多可设置参数，例如`enable_infra1:=true`和`pointcloud.enable:=true`会开启相机的左IR数据流和点云数据流。
@@ -941,9 +941,9 @@ RealSense ROS wrapper提供了很多可设置参数，例如`enable_infra1:=true
 ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
 ```
 
-![realsense-ir-pointcloud-topic](./image/demo_sensor/realsense-ir-pointcloud-topic.png)
+![realsense-ir-pointcloud-topic](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
 
-![realsense-image](./image/demo_sensor/realsense-image.png)
+![realsense-image](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
 
 此外RealSense还开启了一些服务，可以通过`ros2 service list`查看，例如可以通过服务查询相机的序列号、固件版本等信息。
 
@@ -962,19 +962,19 @@ ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
 ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true 
 ```
 
-![realsense-d2c-topic](./image/demo_sensor/realsense-d2c-topic.png)
+![realsense-d2c-topic](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
 
-![realsense-image-align](./image/demo_sensor/realsense-image-align.png)
+![realsense-image-align](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
 
 #### 5. 图像和点云的显示
 
 要显示RealSense的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问地平线RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
-![realsense-rviz2](./image/demo_sensor/realsense-rviz2.png)
+![realsense-rviz2](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
 推荐直接在RDK上直接读取数据，确认出流是否正常，可以通过`ros2 topic echo topic_name`打印数据或者编写代码订阅相应话题。
 
-![realsense-topic-echo](./image/demo_sensor/realsense-topic-echo.png)
+![realsense-topic-echo](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
 
 ## Orbbec相机图像采集
 
@@ -986,7 +986,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 所以，双目相机ROS功能包的一般安装流程是：首先安装相机的SDK库文件，然后安装相机的ROS封装功能包。
 
-![stereo-camera-ros-arch](./image/demo_sensor/stereo-camera-ros-arch.png)
+![stereo-camera-ros-arch](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
 本节介绍Orbbec相机在地平线RDK平台上的使用方法。
 
@@ -1075,11 +1075,11 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 ```
 
-![swapfile](./image/demo_sensor/swapfile.png)
+![swapfile](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png)
 
 设置好swap空间后，可以使用`swapon --show`、`free -h`或`htop`命令查看当前的swap使用情况，例如使用`htop`命令查看：
 
-![htop-swap](./image/demo_sensor/htop-swap.png)
+![htop-swap](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png)
 
 这样设置只是临时生效，断电重启后swap空间会失效，如果希望系统重启后仍然使用这个swap文件，可以重新执行一下`sudo swapon /swapfile`，或者将其添加到`/etc/fstab文`件中。
 
@@ -1092,7 +1092,7 @@ sudo vim /etc/fstab
 sync
 ```
 
-![etc-fstab](./image/demo_sensor/etc-fstab.png)
+![etc-fstab](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png)
 
 如果要删除swap空间的话，可以执行如下命令。
 
@@ -1118,7 +1118,7 @@ colcon build
 
 在RDK X3平台的编译结果：
 
-![orbbec-ros-colcon-build](./image/demo_sensor/orbbec-ros-colcon-build.png)
+![orbbec-ros-colcon-build](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png)
 
 #### 3. Orbbec相机启动
 
@@ -1130,11 +1130,11 @@ source ./install/setup.bash
 ros2 launch orbbec_camera gemini2.launch.py
 ```
 
-![orbbec-start-up-log](./image/demo_sensor/orbbec-start-up-log.png)
+![orbbec-start-up-log](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png)
 
 可以通过`ros2 topic list`查看Gemini2发布的话题，默认参数启动Gemini2相机会开启相机的深度数据流、RGB数据流、IR数据流和点云数据流。
 
-![orbbec-topic-echo](./image/demo_sensor/orbbec-topic-list.png)
+![orbbec-topic-echo](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png)
 
 Orbbec ROS2 wrapper提供了很多可设置参数，例如`enable_point_cloud:=false`和`enable_colored_point_cloud:=false`会关闭相机的点云数据流。
 
@@ -1161,15 +1161,15 @@ source ./install/setup.bash
 ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 ```
 
-![orbbec-image-align](./image/demo_sensor/orbbec-image-align.png)
+![orbbec-image-align](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-image-align.png)
 
 #### 5. 图像和点云的显示
 
 要显示Orbbec的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问地平线RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
-![orbbec-rviz2](./image/demo_sensor/orbbec-rviz2.png)
+![orbbec-rviz2](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 
 推荐直接在RDK上直接读取数据，确认出流是否正常，可以通过`ros2 topic echo topic_name`打印数据或者编写代码订阅相应话题。
 
-![orbbec-topic-echo.png](./image/demo_sensor/orbbec-topic-echo.png)
+![orbbec-topic-echo.png](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
 

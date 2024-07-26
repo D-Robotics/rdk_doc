@@ -112,7 +112,7 @@ sudo chmod +x ./Examples/Monocular/mono_euroc
 ```
 
 The program will take some time to load the bag-of-words library. After a while, the program will print the current frame rate.
-![](./image/box_adv/euroc_result.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/euroc_result.png)
 
 ### Use RealSense D435i Camera
 
@@ -177,7 +177,7 @@ ros2 launch realsense2_camera rs_launch.py enable_depth:=false enable_color:=fal
 
 
 After the camera is started, you can observe the following logs from the console:
-![](./image/box_adv/realsense.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/realsense.png)
 
 Next, we start the visual SLAM node:
 
@@ -217,17 +217,17 @@ The visual SLAM node on the X3 starts and receives camera image data, and then s
 
 At the same time, open the Rviz2 visualization software on the PC (in the same network segment as the tros.b), add relevant visualization information, and subscribe to the following topics:
 
-![](./image/box_adv/rviz2_1.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2_1.png)
 
 After subscribing to the topics, you can observe the rendering results of the feature points in the RVIZ2 software, and also observe the generated white map point cloud and green camera trajectory information on the right side of the window as the camera moves.
-![](./image/box_adv/rviz2_2.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2_2.png)
 
 ### Using SuperPoint optimized ORB-SLAM3
 
 As we all know, deep learning methods have shown amazing advantages and potential compared to traditional algorithms, especially in terms of stability, efficiency, and accuracy in detection and classification tasks. In the field of visual SLAM, many works have emerged that use deep learning methods to replace traditional SLAM front-ends and back-ends, and have demonstrated significant advantages.
 
 SuperPoint and SuperGlue are examples of such methods. SuperPoint is a self-supervised deep learning network model that can extract both the position and descriptor of image feature points. TROS.b integrates SuperPoint with ORB-SLAM3, and developers can freely switch between feature point extraction methods in the configuration files located in /opt/tros/share/orb_slam3/Examples/\*/*.yaml. As shown in the figure below, the feature point extraction algorithm used is "SUPERPOINT":
-![](./image/box_adv/superpoint.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/superpoint.png)
 
 The result of using the SuperPoint feature extraction algorithm is shown in the following figure. It can be seen that the feature points are extracted very densely and the contours of objects are detected.
-![](./image/box_adv/superpoint_result.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/superpoint_result.png)

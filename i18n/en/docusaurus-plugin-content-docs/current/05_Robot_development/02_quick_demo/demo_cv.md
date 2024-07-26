@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 Realize the function of Gaussian filtering. The acceleration types are BPU acceleration and NEON acceleration. BPU acceleration currently only supports the int16 format, and NEON acceleration currently only supports the int16 and uint16 formats.
 
-Code repository:  (https://github.com/D-Robotics/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
@@ -192,7 +192,7 @@ The comparison results between hobot_cv Gaussian filtering with NEON acceleratio
 
 Implementation of Mean Filtering using NEON acceleration, currently only supporting int16 and uint16 formats.
 
-Code repository:  (https://github.com/D-Robotics/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
@@ -289,7 +289,7 @@ Mean filtering average error = sum / (width x height) = 8.43744e+06 / (320 x 240
 
 Implement the image cropping function, currently only supports NV12 format.
 
-Code repository:  (https://github.com/D-Robotics/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Platform Support
 
@@ -355,7 +355,7 @@ According to the log, the test program has finished processing the local 1920x10
 
 The original image is 1920x1080, and the top left corner of the image is cropped to a 960x540 region. The resulting image is shown below:
 
-![](./image/demo_cv/ori-crop.png)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
 
 ## Resize
 
@@ -363,7 +363,7 @@ The original image is 1920x1080, and the top left corner of the image is cropped
 
 Implement image scaling function, currently only supports NV12 format.
 
-Code repository:  (https://github.com/D-Robotics/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Platform Support
 
@@ -436,7 +436,7 @@ The first run requires configuration of the hardware, so it takes more time. If 
 
 The original image (1920x1080) and the resized image (960x540) are shown below:
 
-![](./image/demo_cv/ori-resize.png)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
 
 #### Horizon RDK performance comparison
 
@@ -463,7 +463,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 The rotate function implements image rotation, currently only supporting images in NV12 format. The supported rotation angles are 90, 180, and 270.
 
-Code repository:  (https://github.com/D-Robotics/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
@@ -532,9 +532,9 @@ The first run takes longer because the hardware needs to be configured. If there
 
 The original image size is 1920x1080, and the size after rotation is also 1920x1080:
 
-![Original Image](./image/demo_cv/test.jpg)
+![Original Image](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/test.jpg)
 
-![Rotated Image](./image/demo_cv/rotate.jpg)
+![Rotated Image](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
 
 #### Performance comparison of hobot_cv and OpenCV
 
@@ -558,7 +558,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 This function implements image pyramid scaling and currently supports NV12 format.
 
-Code repository:  (https://github.com/D-Robotics/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
@@ -625,7 +625,7 @@ Because the first run requires hardware configuration, it takes more time. If th
 
 The original 1920x1080 image and the pyramid-scaled image are as follows:
 
-![](./image/demo_cv/pym_ds.jpg)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
 
 Outputting six base layers, each layer's size is half of the previous layer's size.
 

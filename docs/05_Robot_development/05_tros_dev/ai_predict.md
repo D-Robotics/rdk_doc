@@ -8,9 +8,9 @@ sidebar_position: 2
 
 ### 功能背景
 
-`hobot_dnn)是TogetheROS.Bot软件栈中的板端算法推理框架，在地平线地平线RDK上利用BPU处理器实现算法推理功能，基于地平线算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
+`hobot_dnn`是TogetheROS.Bot软件栈中的板端算法推理框架，在地平线地平线RDK上利用BPU处理器实现算法推理功能，基于地平线算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
 
-通过阅读本章节，用户可以使用地平线提供的模型，在地平线RDK上基于`hobot_dnn)创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
+通过阅读本章节，用户可以使用地平线提供的模型，在地平线RDK上基于`hobot_dnn`创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
 
 ### 前置条件
 
@@ -30,7 +30,7 @@ sidebar_position: 2
 
 关于`hobot_dnn)的详细使用说明可以参考`hobot_dnn)代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
 
-![](./image/ai_predict/dnnnode_workflow.jpg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg)
 
 在不了解`hobot_dnn)使用流程的情况下，用户也可以按照本章节流程使用`hobot_dnn)开发出模型推理示例。
 
@@ -327,7 +327,7 @@ int main(int argc, char** argv) {
 
 Node的设计和流程逻辑如下图：
 
-![](./image/ai_predict/node_architecture.jpg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/node_architecture.jpg)
 
 
 ##### 2.2 代码说明
@@ -957,7 +957,7 @@ Summary: 0 packages finished [1min 1s]
 
 运行时系统流程图如下：
 
-![](./image/ai_predict/pipeline.jpg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg)
 
 RDK X3上的运行4个node，其中算法推理为本示例。
 
@@ -1194,7 +1194,7 @@ disappeared_targets: []
 
 在PC端的WEB浏览器上输入 `http://IP:8000`（IP为RDK X3的IP地址，如本示例使用的IP地址为10.64.28.88）查看实时的图片和算法推理渲染效果：
 
-![](./image/ai_predict/render.jpg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg)
 
 每个检测框上渲染了检测框类型（如`body`表示是人体检测框）和目标跟踪结果，浏览器左下角的`fps`字段表示实时的算法推理输出帧率。
 
@@ -1454,7 +1454,7 @@ root@ubuntu:~# ros2 topic list
 
 在PC端（**PC需要和地平线RDK处于同一网段**）通过rqt的Node Graph功能可以可视化的展示地平线RDK上运行的Node，Node发布和订阅的topic，以及Node基于这些Topic组成的graph，如下图：
 
-![](./image/ai_predict/rosgraph_handlmk.jpg)
+![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg)
 
 其中椭圆形框内为Node名，矩形框内为Topic名。可以看到，整个graph由3个Node和2个Topic组成。
 

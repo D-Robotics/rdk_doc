@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 图像编解码功能与ROS image_transport package类似，地平线RDK采用硬件单元加速MJPEG/H264/H265与BGR8/RGB8/NV12格式之间转换，可以大幅降低CPU占用的同时提升格式转换效率，X86平台仅支持MJPEG与BGR8/RGB8/NV12格式之间的转换。
 
-代码仓库：(https://github.com/D-Robotics/hobot_codec`
+代码仓库：(https://github.com/D-Robotics/hobot_codec)
 
 ## 支持平台
 
@@ -114,7 +114,7 @@ import TabItem from '@theme/TabItem';
 
 3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为地平线RDK/X86设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面
 
-    ![web-f37-codec](./image/hobot_codec/web-f37-codec.png "实时图像")
+    ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png "实时图像")
 
 ### X86平台
 

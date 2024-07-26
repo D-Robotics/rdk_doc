@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 小车人体跟随App功能为控制机器人跟随人体移动，App由MIPI图像采集、人体检测和跟踪、人体跟随策略、图像编解码、Web展示端组成，流程如下图：
 
-![](./image/car_tracking/body_tracking_workflow.jpg)
+![](/../static/img/05_Robot_development/04_apps/image/car_tracking/body_tracking_workflow.jpg)
 
 App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
@@ -99,7 +99,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 启动成功后，仿真环境中小车效果如下：
 
-![](./image/car_gesture_control/gazebo.jpeg)
+![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gazebo.jpeg)
 
 
 **使用mipi摄像头发布图片**
@@ -249,4 +249,4 @@ angular:
 
 PC端仿真环境中小车跟随人体运动，仿真小车运动效果如下：
 
-![](./image/car_tracking/tracking.gif)
+![](/../static/img/05_Robot_development/04_apps/image/car_tracking/tracking.gif)

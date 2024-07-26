@@ -59,7 +59,7 @@ import TabItem from '@theme/TabItem';
 
 环形麦克风板为一体化设计，实物如下图：
 
-![cir_mic_board](./image/box_adv/cir_mic_board.png)
+![cir_mic_board](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/cir_mic_board.png)
 
 购买链接如下：
 
@@ -69,7 +69,7 @@ import TabItem from '@theme/TabItem';
 
 1. 将麦克风板连接到地平线RDK X3 40PIN GPIO 接口上，连接后实物如下图：
 
-   ![circle_mic_full](./image/box_adv/circle_mic_full.png)
+   ![circle_mic_full](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 
 2. 接上电源，网线等。
 
@@ -79,23 +79,23 @@ import TabItem from '@theme/TabItem';
 
 音频转接板:
 
-![connect_board](./image/box_adv/connect_board.jpg)
+![connect_board](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/connect_board.jpg)
 
 线形麦克风板：
 
-![line_mic](./image/box_adv/line_mic.jpg)
+![line_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg)
 
 1. 首先需要将地平线RDK X3与音频转接板连接，二者引脚与引脚均应对齐，连接实物图如下：
 
-   ![link](./image/box_adv/link.jpg)
+   ![link](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg)
 
 2. 其次，需要将地平线RDK X3与麦克风阵列拾音板连接，转接板 FPC 接口通过15pin 异面FFC线缆接入到麦克风阵列拾音板，线缆金手指应朝下，连接实物图如下：
 
-   ![link_mic](./image/box_adv/link_mic.jpg)
+   ![link_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg)
 
 3. 接上AEC的线。
 
-   ![mic_line](./image/box_adv/mic_line.jpg)
+   ![mic_line](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/mic_line.jpg)
 
 4. 接上电源，网线等。
 
@@ -103,7 +103,7 @@ import TabItem from '@theme/TabItem';
 
 将地平线RDK与麦克风阵列接好之后上电，在串口上使用指令`i2cdetect -r -y 0`可以检查设备的接入情况，若成功接好，默认可以在I2C上读取到三个地址。如下图：
 
-![detect_mic](./image/box_adv/detect_mic.jpg)
+![detect_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg)
 
 若没检测到，请重新检查设备的连接。
 
@@ -117,7 +117,7 @@ import TabItem from '@theme/TabItem';
 
 具体流程如下图：
 
-![hobot_audio](./image/box_adv/hobot_audio.jpg)
+![hobot_audio](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_audio.jpg)
 
 智能语音功能支持对原始音频进行降噪之后进行ASR识别，默认的唤醒词和命令词定义在智能语音功能代码模块根目录下*config/hrsc/cmd_word.json*文件，默认为：
 
@@ -140,11 +140,11 @@ import TabItem from '@theme/TabItem';
 
 角度的相对位置关系与麦克风的安装位置强相关，环形麦克风阵列DOA角度示意图如下：
 
-![doa_circle](./image/box_adv/doa_circle.jpg)
+![doa_circle](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/doa_circle.jpg)
 
 线形麦克风阵列DOA角度示意图如下：
 
-![doa_line](./image/box_adv/doa_line.jpg)
+![doa_line](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/doa_line.jpg)
 
 地平线RDK板端运行hobot_audio package：
 

@@ -87,4 +87,4 @@ The log output shows that the algorithm has inferred 6 targets based on the inpu
 
 The rendered image, render_feedback_0_0.jpeg, is shown below:
 
-![](./image/ai_predict/render1.jpg)
+![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)

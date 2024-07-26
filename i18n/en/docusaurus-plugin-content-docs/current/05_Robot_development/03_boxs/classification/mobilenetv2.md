@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The mobilenetv2 image classification algorithm example uses images as input and utilizes the BPU for inference. It publishes messages containing object categories.
 
-The mobilenetv2 is a caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. The model source can be found at:  (https://github.com/shicai/MobileNet-Caffe>. Supported target types include people, animals, fruits, vehicles, and other 1000 categories. For specific supported categories, please refer to the file /opt/tros/lib/dnn_node_example/config/imagenet.list on the Horizon RDK (TogatherROS.Bot installed).
+The mobilenetv2 is a caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. The model source can be found at:  (https://github.com/shicai/MobileNet-Caffe). Supported target types include people, animals, fruits, vehicles, and other 1000 categories. For specific supported categories, please refer to the file /opt/tros/lib/dnn_node_example/config/imagenet.list on the Horizon RDK (TogatherROS.Bot installed).
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -144,7 +144,7 @@ The log shows that the topic for publishing the algorithm inference results is `
 
 On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the Horizon RDK):
 
-![render_web](./image/mobilenetv2/mobilenetv2_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg)
 
 ### Use Local Images Offline
 
@@ -166,4 +166,4 @@ The following information is outputted in the terminal:
 
 The log shows that the algorithm infers that the image `config/target_class.jpg` is classified as a window-shade with a confidence score of 0.776356 (the algorithm only outputs the highest confidence classification result). The rendered image is stored with the file name `render_feedback_0_0.jpeg`, and the rendered image looks like this:
 
-![render_feedback](./image/mobilenetv2/mobilenetv2_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_feedback.jpeg)

@@ -87,4 +87,4 @@ ros2 launch hobot_bev hobot_bev.launch.py image_pre_path:=hobot_bev_data/data
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
-![](./image/box_adv/render_bev.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev.jpeg)

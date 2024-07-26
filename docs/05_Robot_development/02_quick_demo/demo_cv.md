@@ -369,7 +369,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 本地原图1920x1080、crop左上角960x540区域，效果图片展示如下：
 
-![](./image/demo_cv/ori-crop.png)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
 
 ## resize
 
@@ -457,7 +457,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 本地原图1920x1080、resize后960x540图片如下：
 
-![](./image/demo_cv/ori-resize.png)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
 
 #### 地平线RDK X3平台性能对比
 
@@ -556,9 +556,9 @@ ros2 launch hobot_cv hobot_cv_rotate.launch.py
 
 本地原图1920x1080、rotate后1920x1080图片如下：
 
-![](./image/demo_cv/test.jpg)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/test.jpg)
 
-![](./image/demo_cv/rotate.jpg)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
 
 #### hobot_cv与opencv处理性能对比
 
@@ -654,7 +654,7 @@ ros2 launch hobot_cv hobot_cv_pyramid.launch.py
 
 本地原图1920x1080、pyramid缩放后图片如下：
 
-![](./image/demo_cv/pym_ds.jpg)
+![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
 
 输出基础层六层，每一层size是上一层的1/2
 

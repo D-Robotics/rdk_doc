@@ -90,10 +90,10 @@ webserver has launch
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
-![](./image/box_adv/stereonet_rdk.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rdk.png)
 
 相同场景下ZED的深度估计可视化效果如下：
 
-![](./image/box_adv/stereonet_zed.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed.png)
 
 可以看到对于有光线变化区域，深度学习方法的深度估计准确率更高。

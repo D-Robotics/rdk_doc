@@ -62,7 +62,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 运行效果如下图
 
-![hello world](./image/hello_world/hello_world.png "hello world")
+![hello world](/../static/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png "hello world")
 可以看到左侧终端作为pub，在不断发送“'Hello, world! N”，右侧终端作为sub端不断收到“'Hello, world! N”
 
 OK tros.b目前已成功安装并验证！

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The image codec functionality is similar to the ROS image_transport package. The Horizon RDK utilizes hardware acceleration to convert between the MJPEG/H264/H265 and BGR8/RGB8/NV12 formats, which significantly reduces CPU usage while improving conversion efficiency.
 
-Code repository:  (https://github.com/D-Robotics/hobot_codec>
+Code repository:  (https://github.com/D-Robotics/hobot_codec)
 
 ## Supported Platforms
 
@@ -102,7 +102,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg web
 
 3. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000`. Replace the IP address of the Horizon RDK. Click on the Web at the top left to view the real-time JPEG encoded image.
 
- ![web-f37-codec](./image/hobot_codec/web-f37-codec.png "Real-time image")
+ ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png "Real-time image")
 
 ## Important notes:
 If you encounter an abnormal startup of the Hobot codec node, you can troubleshoot the problem by following these steps:

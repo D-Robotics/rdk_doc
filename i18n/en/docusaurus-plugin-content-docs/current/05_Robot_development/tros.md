@@ -8,7 +8,7 @@ TogetheROS.Bot is a robot operating system launched by Horizon Robotics for robo
 
 Horizon Robotics Developer Kits, referred to as [Horizon RDK](https://developer.horizon.cc/documents_rdk/), are built on Horizon intelligent chips, including **RDK X3 (Sunrise X3)**, **RDK X3 Module (Sunrise X3 Module)**. Currently, TogetheROS.Bot supports running on the Horizon RDK platform. The Horizon RDK platform covers all the functions shown in the diagram below, improving user algorithm development and verification efficiency, and enabling quick migration to the Horizon RDK platform.
 
-![TROS-Diagram](./image/TogetheROS.png)
+![TROS-Diagram](/../static/img/05_Robot_development/image/TogetheROS.png)
 
 The code of TogetheROS.Bot is hosted on GitHub under the D-Robotics organization link: [D-Robotics](https://github.com/D-Robotics).
 

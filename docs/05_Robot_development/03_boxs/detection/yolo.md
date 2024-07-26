@@ -287,7 +287,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为地平线RDK的IP地址）：
 
-![render_web](./image/box_basic/yolov2_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg)
 
 ### 使用本地图片回灌
 
@@ -307,4 +307,4 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 输出log显示，算法使用输入的图片推理出8个目标，并输出了目标检测框坐标（输出的坐标顺序分别是人体框的左上的x和y坐标，和右下的x和y坐标）和类别。存储的渲染图片文件名为render_feedback_0_0.jpeg，渲染图片效果：
 
-![render_feedback](./image/box_basic/yolov2_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg)

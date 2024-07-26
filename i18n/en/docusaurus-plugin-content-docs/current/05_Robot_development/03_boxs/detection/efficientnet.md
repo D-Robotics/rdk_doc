@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 EfficientNet_Det is an detection algorithm that takes images as input and utilizes BPU for algorithm inference. It publishes algorithm messages containing object categories and detection boxes.
 
-EfficientNet_Det is an Onnx model obtained from  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet> and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
+EfficientNet_Det is an Onnx model obtained from  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet) and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -168,7 +168,7 @@ The log output shows that the topic for publishing the inference results of the 
 
 To view the image and the rendering effect of the algorithm, enter http://IP:8000 in the browser on the PC (where IP is the IP address of the Horizon RDK):
 
-![render_web](./image/box_basic/efficient_det_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_web.jpeg)
 
 ### Use local image offline
 
@@ -184,4 +184,4 @@ The terminal output is as follows:
 
 The log shows that the algorithm has inferred 2 targets from the input image, and outputs the coordinates of the detection boxes (the order of the output coordinates is the top-left x and y coordinates, and the bottom-right x and y coordinates) and the categories. The rendered image is saved as render_feedback_0_0.jpeg, and here is the rendering effect:
 
-![render_feedback](./image/box_basic/efficient_det_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_feedback.jpeg)

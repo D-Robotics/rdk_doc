@@ -162,7 +162,7 @@ The log output shows that the topic for publishing the inference results is `hob
 
 To view the image and algorithm rendering effect on the PC browser, enter http://IP:8000 (where IP is the IP address of the Horizon RDK):
 
-![](./image/box_basic/fcos_render_web.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_web.jpeg)
 
 ### Use local data offline
 
@@ -180,4 +180,4 @@ The terminal output shows the following information:
 
 The log output shows that the algorithm infers 6 targets from the input image and outputs the coordinates of the detection boxes (the coordinates are in the order of the top left x and y coordinates of the bounding box, and the bottom right x and y coordinates) and their corresponding classes. The image is named render_feedback_0_0.jpeg, and the sample is as follows:
 
-![](./image/box_basic/fcos_render_feedback.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_feedback.jpeg)

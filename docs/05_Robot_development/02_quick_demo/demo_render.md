@@ -130,7 +130,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像和算法效果，IP为地平线RDK IP地址。
 
-   ![websocket](./image/demo_render/websocket.png "预览图像")
+   ![websocket](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png "预览图像")
 
 #### X86平台
 
@@ -267,7 +267,7 @@ ros2 launch hobot_hdmi hobot_hdmi.launch.py device:=F37
 ```
 
 显示器显示图像如下：
-![hdmi](./image/demo_render/hdmi.png)
+![hdmi](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/hdmi.png)
 
 ## RViz2展示
 
@@ -434,11 +434,11 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
 
    在 RViz2 界面上首先点击 add 按钮，然后按照topic选择发布的图像，在该示例中topic名为/image_raw，然后点击image：
 
-   ![rviz2-config](./image/demo_render/rviz2-config.png)
+   ![rviz2-config](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-config.png)
 
    图像效果图如下：
 
-   ![rviz2-result](./image/demo_render/rviz2-result.png)
+   ![rviz2-result](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png)
 
 ### 注意事项
 
@@ -610,7 +610,7 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
 
    选择话题`/image_raw/compressed`，图像效果图如下：
 
-   ![](./image/demo_render/rqt-result.png)
+   ![](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png)
 
 ### 注意事项
 
@@ -755,32 +755,32 @@ ros2 bag record -a
 
 1）PC浏览器（chrome/firefox/edge）输入 (https://foxglove.dev/studio`，进入foxglove官网
 
-   ![foxglove](./image/demo_render/foxglove_guide_1.png "foxglove使用指导1")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png "foxglove使用指导1")
 
 PS: 首次使用需要注册, 可使用谷歌账号或第三方邮箱进行注册。
 
-   ![foxglove](./image/demo_render/foxglove_guide_11.png "foxglove使用指导11")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_11.png "foxglove使用指导11")
 
 2）进入可视化功能界面
 
-   ![foxglove](./image/demo_render/foxglove_guide_2.png "foxglove使用指导2")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_2.png "foxglove使用指导2")
 
 3）点击选中本地rosbag文件
 
-   ![foxglove](./image/demo_render/foxglove_guide_3.png "foxglove使用指导3")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_3.png "foxglove使用指导3")
 
 4）打开布局界面，在布局界面右上角，点击设置，选中图标，打开播放maker渲染消息功能
 
-   ![foxglove](./image/demo_render/foxglove_guide_4.png "foxglove使用指导4")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_4.png "foxglove使用指导4")
 
 5）点击播放
-   ![foxglove](./image/demo_render/foxglove_guide_5.png "foxglove使用指导5")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_5.png "foxglove使用指导5")
 
 6）观看数据
-   ![foxglove](./image/demo_render/foxglove_guide_6.png "foxglove使用指导6")
+   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_6.png "foxglove使用指导6")
 
 ### 注意事项
 
-1. Foxglove可视化图像数据，需采用ROS2官方的消息格式，使用foxglove支持的图像编码格式，详情请见 (https://foxglove.dev/docs/studio/panels/image`。
+1. Foxglove可视化图像数据，需采用ROS2官方的消息格式，使用foxglove支持的图像编码格式，详情请见 (https://foxglove.dev/docs/studio/panels/image)。
 
 2. rosbag进行消息记录时，可能会录制其他设备的话题信息，因此为了保证rosbag数据的干净，可以通过设置'export ROS_DOMAIN_ID=xxx' ，如'export ROS_DOMAIN_ID=1'的方法。

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 mobilenetv2图片分类算法示例使用图片作为输入，利用BPU进行算法推理，发布包含物体类别的算法msg。
 
-mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出来的caffe模型，模型来源： (https://github.com/shicai/MobileNet-Caffe`。
+mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出来的caffe模型，模型来源： (https://github.com/shicai/MobileNet-Caffe)。
 支持的目标类型包括人、动物、水果、交通工具等共1000种类型。具体支持的类别详见地平线RDK板端文件 /opt/tros/`${TROS_DISTRO}`/lib/dnn_node_example/config/imagenet.list（已安装TogatherROS.Bot）。
 
 代码仓库： (https://github.com/D-Robotics/hobot_dnn)
@@ -183,7 +183,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为地平线RDK的IP地址）：
 
-![render_web](./image/mobilenetv2/mobilenetv2_render_web.jpeg)
+![render_web](/../static/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg)
 
 ### 使用本地图片回灌
 
@@ -205,4 +205,4 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 输出log显示，算法使用输入的图片config/target_class.jpg推理出的图片分类结果是window-shade，置信度为0.776356（算法只输出置信度最高的分类结果）。存储的渲染图片文件名为render_feedback_0_0.jpeg，渲染图片效果：
 
-![render_feedback](./image/mobilenetv2/mobilenetv2_render_feedback.jpeg)
+![render_feedback](/../static/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_feedback.jpeg)
