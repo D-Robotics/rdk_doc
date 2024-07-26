@@ -59,7 +59,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
     </Tabs>
 
     ```bash
-    wget http://sunrise.horizon.cc/tts-model/tts_model.tar.gz
+    wget http://archive.d-robotics.cc/tros/tts-model/tts_model.tar.gz
     sudo tar -xf tts_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_tts/
     ```
 

@@ -31,7 +31,7 @@ All the following operations are performed within the Docker environment on the 
 cd /mnt/data/kairui.wang/test
 mkdir -p cc_ws/tros_ws/src
 ## Obtain the Docker for cross-compilation
-wget http://sunrise.horizon.cc/TogetheROS/cross_compile_docker/pc_tros_v1.0.5.tar.gz
+wget http://archive.d-robotics.cc/tros/cross_compile_docker/pc_tros_v1.0.5.tar.gz
 ## Load the Docker image
 sudo docker load --input pc_tros_v1.0.5.tar.gz
 ## Check the corresponding image ID for pc_tros
@@ -49,7 +49,7 @@ sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/
 cd /mnt/data/kairui.wang/test
 mkdir -p cc_ws/tros_ws/src
 ## Obtain the Docker for cross-compilation
-wget http://sunrise.horizon.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu22.04_v1.0.0.tar.gz
+wget http://archive.d-robotics.cc/tros/cross_compile_docker/pc_tros_ubuntu22.04_v1.0.0.tar.gz
 ## Load the Docker image
 sudo docker load --input pc_tros_ubuntu22.04_v1.0.0.tar.gz 
 ## Check the corresponding image ID for pc_tros
@@ -160,4 +160,4 @@ A1: As shown in the image below, during the vcs import process, a "." indicates 
 
 Q2: Limited conditions prevent code retrieval from GitHub
 
-A2: You can directly download the desired version of the code from the [TogetheROS File Server](http://sunrise.horizon.cc/TogetheROS/source_code/). For example, the `tros_2.0.0_source_code.tar.gz` file corresponds to version 2.0.0 of tros.b.
+A2: You can directly download the desired version of the code from the [TogetheROS File Server](http://archive.d-robotics.cc/tros/source_code/). For example, the `tros_2.0.0_source_code.tar.gz` file corresponds to version 2.0.0 of tros.b.
