@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This section describes how to convert a text into a speech and play it through an audio output interface.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_tts.git`
+Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 
 ## Supported Platforms
 

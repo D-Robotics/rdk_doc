@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 视觉惯性里程计（Visual Inertial Odometry，VIO）是融合相机与惯性测量单元（Inertial Measurement Unit，IMU）数据实现机器人定位的算法。VIO定位算法具有成本低、适用环境广等优点，在室外环境下能够有效弥补卫星定位中遮挡、多路径干扰等失效场景。优秀、鲁棒的VIO算法是实现室外高精度导航定位的关键。
 ![](./image/box_adv/hobot_vio_rviz.jpeg)
-代码仓库： `https://github.com/HorizonRDK/hobot_vio.git`
+代码仓库： (https://github.com/D-Robotics/hobot_vio.git)
 
 ## 支持平台
 

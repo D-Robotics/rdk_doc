@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This section introduces the usage of the model inference function. You can input a local image for inference, and get the rendered image saved locally.
 
-Code repository: [https://github.com/HorizonRDK/hobot_dnn](https://github.com/HorizonRDK/hobot_dnn)
+Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-Robotics/hobot_dnn)
 
 ## Supported Platforms
 

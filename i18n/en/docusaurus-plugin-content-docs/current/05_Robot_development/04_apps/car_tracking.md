@@ -17,7 +17,7 @@ The app is used to control the robot to follow the movement of the human body. T
 
 The app is demonstrated using a virtual car in the PC-side Gazebo simulation environment, but the control commands can also be directly used to control a physical robot.
 
-Code Repository:  `https://github.com/HorizonRDK/body_tracking>
+Code Repository:  (https://github.com/D-Robotics/body_tracking>
 
 ## Supported Platforms
 

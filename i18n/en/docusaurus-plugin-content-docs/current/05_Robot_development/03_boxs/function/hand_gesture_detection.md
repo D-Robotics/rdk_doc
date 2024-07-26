@@ -24,11 +24,11 @@ The supported gesture recognition categories and their corresponding values in t
 
 Code repositories:
 
- `https://github.com/HorizonRDK/hand_lmk_detection>
+ (https://github.com/D-Robotics/hand_lmk_detection>
 
- `https://github.com/HorizonRDK/hand_gesture_detection>
+ (https://github.com/D-Robotics/hand_gesture_detection>
 
- `https://github.com/HorizonRDK/mono2d_body_detection>
+ (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application scenarios: Gesture recognition algorithms integrate hand keypoint detection, gesture analysis, and other technologies, enabling computers to interpret human gestures as corresponding commands. It can be used for gesture control, sign language translation, and other functions, primarily in the fields of smart homes, smart cabins, smart wearables, etc.
 

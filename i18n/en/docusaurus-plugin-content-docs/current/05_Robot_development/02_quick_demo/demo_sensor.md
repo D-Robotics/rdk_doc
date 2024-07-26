@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 In order to achieve environmental perception capability, robot products usually carry cameras to obtain image information. USB cameras are easy to obtain, easy to use, and have good versatility. TogetheROS.Bot supports USB cameras and supports ROS2 standard image messages.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_usb_cam.git`
+Code repository:  (https://github.com/D-Robotics/hobot_usb_cam.git)
 
 ### Supported Platforms
 
@@ -310,7 +310,7 @@ To achieve environmental perception capabilities, robots often carry cameras, To
 | Camera | IMX477 | 200W | RDK X3, RDK X3 Module |
 | Camera | OV5647 | 200W | RDK X3, RDK X3 Module |
 
-Code repository:  `https://github.com/HorizonRDK/hobot_mipi_cam.git`
+Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 ### Supported Platforms
 
@@ -538,7 +538,7 @@ In order to achieve environmental perception capability, robot products usually 
 | ------ | ------ | ------ | ---- |
 | Camera | CP3AM | 200W | RDK X3 |
 
-Code Repository:  `https://github.com/HorizonRDK/hobot_rgbd_cam.git`
+Code Repository:  (https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 ### Supported Platforms
 

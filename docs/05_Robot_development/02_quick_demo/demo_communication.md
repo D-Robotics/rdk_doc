@@ -21,9 +21,9 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 - 样本统计（sample statistics）：包括每次实验发送、接收以及丢失的消息数量
 
 代码仓库：
-  - [https://github.com/HorizonRDK/rclcpp](https://github.com/HorizonRDK/rclcpp)
-  - [https://github.com/HorizonRDK/rcl_interfaces](https://github.com/HorizonRDK/rcl_interfaces)
-  - [https://github.com/HorizonRDK/benchmark](https://github.com/HorizonRDK/benchmark)
+  - [https://github.com/D-Robotics/rclcpp](https://github.com/D-Robotics/rclcpp)
+  - [https://github.com/D-Robotics/rcl_interfaces](https://github.com/D-Robotics/rcl_interfaces)
+  - [https://github.com/D-Robotics/benchmark](https://github.com/D-Robotics/benchmark)
 
 :::info
 - tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。

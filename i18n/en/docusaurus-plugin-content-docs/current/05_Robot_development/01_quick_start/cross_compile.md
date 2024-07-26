@@ -14,7 +14,7 @@ This section explains how to install TogetheROS.Bot on the Horizon RDK using sou
 
 Prerequisites:
 
-- The development machine can access the Horizon Robotics organization on [GitHub](https://github.com/HorizonRDK).
+- The development machine can access the Horizon Robotics organization on [GitHub](https://github.com/D-Robotics).
 - Docker is installed on the development machine.
 
 ### Compile
@@ -74,7 +74,7 @@ Here, we take the /mnt/test directory in Docker as an example.
 ```shell
 cd /mnt/test/cc_ws/tros_ws
 ## Obtain the configuration file
-git clone https://github.com/HorizonRDK/robot_dev_config.git -b foxy
+git clone https://github.com/D-Robotics/robot_dev_config.git -b foxy
 ## Execute cd robot_dev_config and use the "git tag --list" command to view the available release versions
 ## Use the "git reset --hard [tag number]" command to specify the release version. For detailed instructions, refer to the "Compile Specific Version tros.b" section on this page
 ## Pull the source code
@@ -88,7 +88,7 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 ```shell
 cd /mnt/test/cc_ws/tros_ws
 ## Obtain the configuration file
-git clone https://github.com/HorizonRDK/robot_dev_config.git -b develop 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
 ## Execute cd robot_dev_config and use the "git tag --list" command to view the available release versions
 ## Use the "git reset --hard [tag number]" command to specify the release version. For detailed instructions, refer to the "Compile Specific Version tros.b" section on this page
 ## Pull the source code
@@ -139,7 +139,7 @@ In the section **Compile**, in the step 2 **Obtain the Code**, the default is to
 
 ```bash
 ## Get the configuration file
-git clone https://github.com/HorizonRDK/robot_dev_config.git -b develop 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
 cd robot_dev_config
 ## View available release versions
 git tag --list

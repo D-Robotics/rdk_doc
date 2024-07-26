@@ -22,7 +22,7 @@ SLAM指定位与地图构建（Simultaneous Localization and Mapping，简称SLA
 
 代码仓库：
 
- `https://github.com/HorizonRDK/orb_slam3>
+ (https://github.com/D-Robotics/orb_slam3)
 
 应用场景：视觉SLAM算法能够在计算自身位置和姿态的同时计算出环境的三维结构，可实现即时定位以及构建地图的功能，主要应用于自动驾驶、智能家居、三维重建等领域。
 

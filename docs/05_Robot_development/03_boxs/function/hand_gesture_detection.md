@@ -27,11 +27,11 @@ import TabItem from '@theme/TabItem';
 
 代码仓库：
 
- `https://github.com/HorizonRDK/hand_lmk_detection>
+ (https://github.com/D-Robotics/hand_lmk_detection)
 
- `https://github.com/HorizonRDK/hand_gesture_detection>
+ (https://github.com/D-Robotics/hand_gesture_detection)
 
- `https://github.com/HorizonRDK/mono2d_body_detection>
+ (https://github.com/D-Robotics/mono2d_body_detection)
 
 应用场景：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 

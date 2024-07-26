@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 Realize the function of Gaussian filtering. The acceleration types are BPU acceleration and NEON acceleration. BPU acceleration currently only supports the int16 format, and NEON acceleration currently only supports the int16 and uint16 formats.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv>
 
 ### Supported Platforms
 
@@ -192,7 +192,7 @@ The comparison results between hobot_cv Gaussian filtering with NEON acceleratio
 
 Implementation of Mean Filtering using NEON acceleration, currently only supporting int16 and uint16 formats.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv>
 
 ### Supported Platforms
 
@@ -289,7 +289,7 @@ Mean filtering average error = sum / (width x height) = 8.43744e+06 / (320 x 240
 
 Implement the image cropping function, currently only supports NV12 format.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv>
 
 ### Platform Support
 
@@ -363,7 +363,7 @@ The original image is 1920x1080, and the top left corner of the image is cropped
 
 Implement image scaling function, currently only supports NV12 format.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv>
 
 ### Platform Support
 
@@ -463,7 +463,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 The rotate function implements image rotation, currently only supporting images in NV12 format. The supported rotation angles are 90, 180, and 270.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv>
 
 ### Supported Platforms
 
@@ -558,7 +558,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 This function implements image pyramid scaling and currently supports NV12 format.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_cv>
+Code repository:  (https://github.com/D-Robotics/hobot_cv>
 
 ### Supported Platforms
 

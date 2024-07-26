@@ -16,9 +16,9 @@ The index of hand keypoints is shown in the following figure:
 
 Code repository:
 
- `https://github.com/HorizonRDK/hand_lmk_detection>
+ (https://github.com/D-Robotics/hand_lmk_detection>
 
- `https://github.com/HorizonRDK/mono2d_body_detection>
+ (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application scenarios: The hand keypoint detection algorithm is mainly used to capture keypoints of the hand, enabling functions such as custom gesture recognition. It is mainly applied in areas such as smart homes, virtual reality, and gaming entertainment.
 

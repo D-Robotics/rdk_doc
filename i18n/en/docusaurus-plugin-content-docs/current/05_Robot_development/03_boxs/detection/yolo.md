@@ -14,7 +14,7 @@ YOLO detection algorithm example uses images as input, performs algorithm infere
 
 The model is trained using the [COCO dataset](http://cocodataset.org/), and the supported object detection types include humans, animals, fruits, and vehicles, totaling 80 types.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_dnn>
+Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Use cases: As a representative algorithm in single-stage object detection, the YOLO series has the advantages of fast speed and good generalization, and can be used for garbage recognition, vehicle detection, and other functions, mainly applied in autonomous driving, smart home, and other fields.
 

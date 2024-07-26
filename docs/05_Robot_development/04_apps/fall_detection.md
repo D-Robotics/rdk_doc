@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 目前只支持跌倒检测功能，检测人体是否跌倒。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_falldown_detection>
+代码仓库： (https://github.com/D-Robotics/hobot_falldown_detection)
 
 ## 支持平台
 

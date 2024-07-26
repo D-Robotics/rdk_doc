@@ -11,7 +11,7 @@ sidebar_position: 11
 
 此示例使用ZED 2i双目相机作为图像数据输入源，利用BPU进行算法推理，发布包含双目图像左图和感知结果的话题消息，在PC端浏览器上渲染显示算法结果。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_stereonet.git`
+代码仓库： (https://github.com/D-Robotics/hobot_stereonet.git)
 
 ## 支持平台
 

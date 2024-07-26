@@ -29,7 +29,7 @@ Circular microphone array:
 
 ![](./image/car_audio_tracking/doa_circle.jpg)
 
-Code repository:  `https://github.com/HorizonRDK/audio_tracking.git`
+Code repository:  (https://github.com/D-Robotics/audio_tracking.git)
 
 ## Supported Platforms
 

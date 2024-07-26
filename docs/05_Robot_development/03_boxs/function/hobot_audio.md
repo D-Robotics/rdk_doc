@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 地平线智能语音算法采用本地离线模式，订阅音频数据后送给BPU处理，然后发布**唤醒、命令词识别**、**声源定位DOA角度信息**以及**语音ASR识别结果**等消息。智能语音功能的实现对应于TogetheROS.Bot的**hobot_audio** package，适用于地平线RDK配套的环形和线形四麦阵列。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_audio.git`
+代码仓库： (https://github.com/D-Robotics/hobot_audio.git)
 
 应用场景：智能语音算法能够识别音频中的唤醒词以及自定义的命令词，并将语音内容解读为对应指令或转化为文字，可实现语音控制以及语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
 
 购买链接如下：
 
- `https://www.waveshare.net/shop/Audio-Driver-HAT.htm`
+ (https://www.waveshare.net/shop/Audio-Driver-HAT.htm`
 
 连接步骤：
 

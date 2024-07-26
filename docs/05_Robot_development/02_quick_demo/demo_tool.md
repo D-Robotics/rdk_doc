@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 对于视频发布，支持H264/H265/MP4格式，读取视频文件后提取相关的视频流进行发布。
 
-代码仓库: `https://github.com/HorizonRDK/hobot_image_publisher.git`
+代码仓库: (https://github.com/D-Robotics/hobot_image_publisher.git)
 
 ### 支持平台
 
@@ -203,7 +203,7 @@ trigger_node package 是地平线基于ROS2开发的Trigger基础模块，用于
 
 本章节展示的示例，是地平线在自定义trigger基础模块基础上，开发的Trigger模块使用示例。本示例展示的功能，是订阅垃圾检测框信息，根据垃圾检测框的数量是否大于等于3，判断是否触发Trigger事件。若检测框数量大于等于3，则触发Trigger事件。
 
-代码仓库：`https://github.com/HorizonRDK/hobot_trigger.git`
+代码仓库：(https://github.com/D-Robotics/hobot_trigger.git)
 
 应用场景：机器人数据闭环链路，机器人Trigger事件上报场景，可配合感知、规控等任务，记录Trigger事件发生时的rosbag数据。
 
@@ -259,7 +259,7 @@ config_file配置文件格式为json格式，具体配置如下：
 
 在此基础上，用户就可以开发自定义的Trigger模块，更多信息请在代码仓库中参考 trigger_node_example 的实现方式。
 
-代码仓库：`https://github.com/HorizonRDK/hobot_trigger.git`
+代码仓库：(https://github.com/D-Robotics/hobot_trigger.git)
 
 结构体信息如下：
 

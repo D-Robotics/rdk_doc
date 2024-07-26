@@ -18,7 +18,7 @@ For image publishing, it supports reading JPEG/JPG/PNG/NV12 format images and pu
 
 For video publishing, it supports H264/H265/MP4 formats. After reading the video file, it extracts the relevant video stream for publishing.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_image_publisher.git`
+Code repository:  (https://github.com/D-Robotics/hobot_image_publisher.git)
 
 ### Supported Platforms
 
@@ -156,7 +156,7 @@ The trigger_node package is a Trigger module developed by Horizon based on ROS2,
 
 This chapter provides an example of using the Trigger module. The example demonstrates the functionality of subscribing to garbage detection box information and triggering a Trigger event based on whether the number of garbage detection boxes is greater than or equal to 3.
 
-Code Repository:  `https://github.com/HorizonRDK/hobot_trigger.git`
+Code Repository:  (https://github.com/D-Robotics/hobot_trigger.git)
 
 Application Scenarios: data closed-loop link, robot Trigger event reporting scenario, can be combined with perception, control, and other tasks to record rosbag data when Trigger events occur.
 
@@ -212,7 +212,7 @@ When users develop based on `Trigger_node`, they only need to instantiate a stru
 
 Based on this, users can develop custom Trigger modules. For more information, please refer to the implementation method of `trigger_node_example` in the code repository.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_trigger.git`
+Code repository:  (https://github.com/D-Robotics/hobot_trigger.git)
 
 The structure information is as follows:
 

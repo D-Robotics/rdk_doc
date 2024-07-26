@@ -13,9 +13,9 @@ import TabItem from '@theme/TabItem';
 
 The mobilenet_unet segmentation algorithm example uses images as input and performs algorithm inference using BPU. It publishes segmentation result messages.
 
-The mobilenet_unet model is trained on the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and the Onnx model is sourced from  `https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/MobilenetUnet>. It supports segmentation of categories such as humans, vehicles, road surfaces, and road signs.
+The mobilenet_unet model is trained on the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and the Onnx model is sourced from  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/MobilenetUnet). It supports segmentation of categories such as humans, vehicles, road surfaces, and road signs.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_dnn>
+Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Applications: mobilenet_unet, composed of MobileNet and UNet, can segment images at the pixel level. It can be used for road recognition, remote sensing map analysis, medical image diagnosis, and other functions. It is mainly applied in the fields of autonomous driving, geological detection, and medical image analysis.
 

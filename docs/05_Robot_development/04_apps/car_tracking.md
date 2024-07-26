@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
-代码仓库： `https://github.com/HorizonRDK/body_tracking`
+代码仓库： (https://github.com/D-Robotics/body_tracking)
 
 ## 支持平台
 

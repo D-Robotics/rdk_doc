@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 上述常用方法当光照环境、场地发生变化，一般需要反复通过采集图像调整阈值以及进行测试来实现比较好的识别结果。那有没有可能让机器人能够自行适应环境的变化，不再需要人为的调整阈值呢？卷积神经网络（CNN），是深度学习算法应用最成功的领域之一，具有不错的适应性和鲁棒性，近年来随着处理器的快速发展，已经可以在嵌入式端进行CNN推理，这里使用CNN的方式实现巡线任务中引导线的位置感知。
 
-代码仓库： `https://github.com/HorizonRDK/line_follower>
+代码仓库： `https://github.com/HorizonRDK/line_follower)
 
 ## 支持平台
 

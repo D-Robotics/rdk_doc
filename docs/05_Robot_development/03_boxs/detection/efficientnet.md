@@ -12,13 +12,13 @@ import TabItem from '@theme/TabItem';
 
 EfficientNet_Det目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。
 
-EfficientNet_Det是从  `https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet> 获得的 Onnx 模型，使用[COCO数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型。
+EfficientNet_Det是从  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet) 获得的 Onnx 模型，使用[COCO数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_dnn>
+代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
 应用场景：EfficientNet_Det可实现车辆检测等功能，主要应用于自动驾驶、智能家居等领域。
 
-烟雾检测案例： `https://github.com/abg3/Smoke-Detection-using-Tensorflow-2.2>
+烟雾检测案例： (https://github.com/abg3/Smoke-Detection-using-Tensorflow-2.2)
 
 ## 支持平台
 

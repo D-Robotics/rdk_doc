@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This section introduces how to experience Large Language Model (LLM) on Horizon RDK.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_llm.git`
+Code repository:  (https://github.com/D-Robotics/hobot_llm.git)
 
 ## Supported Platforms
 

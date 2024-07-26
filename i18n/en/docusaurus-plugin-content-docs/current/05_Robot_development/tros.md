@@ -10,7 +10,7 @@ Horizon Robotics Developer Kits, referred to as [Horizon RDK](https://developer.
 
 ![TROS-Diagram](./image/TogetheROS.png)
 
-The code of TogetheROS.Bot is hosted on GitHub under the HorizonRDK organization link: [HorizonRDK](https://github.com/HorizonRDK).
+The code of TogetheROS.Bot is hosted on GitHub under the D-Robotics organization link: [D-Robotics](https://github.com/D-Robotics).
 
 ## Communication
 Communication is Horizon's optimized and extended communication component on ROS2 Foxy/Humble version.

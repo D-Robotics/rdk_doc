@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 图像编解码功能与ROS image_transport package类似，地平线RDK采用硬件单元加速MJPEG/H264/H265与BGR8/RGB8/NV12格式之间转换，可以大幅降低CPU占用的同时提升格式转换效率，X86平台仅支持MJPEG与BGR8/RGB8/NV12格式之间的转换。
 
-代码仓库：`https://github.com/HorizonRDK/hobot_codec`
+代码仓库：(https://github.com/D-Robotics/hobot_codec`
 
 ## 支持平台
 

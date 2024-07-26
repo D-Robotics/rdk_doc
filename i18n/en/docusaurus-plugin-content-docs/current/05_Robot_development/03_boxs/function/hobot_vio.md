@@ -15,7 +15,7 @@ Visual Inertial Odometry (VIO) is an algorithm that combines camera and Inertial
 
 ![](./image/box_adv/hobot_vio_rviz.jpeg)
 
-Code Repository:  `https://github.com/HorizonRDK/hobot_vio.git`
+Code Repository:  (https://github.com/D-Robotics/hobot_vio.git)
 
 ## Supported Platforms
 

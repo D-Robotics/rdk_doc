@@ -11,7 +11,7 @@ sidebar_position: 9
 
 此示例使用本地激光雷达点云文件作为输入，利用BPU进行算法推理，发布包含点云数据、目标检测框和朝向的渲染图片消息，在PC端浏览器上渲染显示算法结果。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_centerpoint>
+代码仓库： (https://github.com/D-Robotics/hobot_centerpoint)
 
 ## 支持平台
 

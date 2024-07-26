@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 ![](./image/box_adv/kps_index.jpeg)
 
 
-代码仓库： `https://github.com/HorizonRDK/mono2d_body_detection>
+代码仓库： (https://github.com/D-Robotics/mono2d_body_detection)
 
 应用场景：人体检测和跟踪算法是人体运动视觉分析的重要组成部分，可实现人体姿态分析以及人流量统计等功能，主要应用于人机交互、游戏娱乐等领域。
 

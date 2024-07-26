@@ -15,7 +15,7 @@ sidebar_position: 6
 - 不再提供`tros-ros-base`安装包（包含rclcpp、rclpy、ros2cli等ROS2基础功能包），使用标准的ROS2发行包，安装TROS Humble时自动安装依赖的ROS2 Humble。
 - 使用ROS2 fastdds的零拷贝通信功能，涉及到数据采集、图像编解码、算法示例等使用到图像数据的模块。
 - 零拷贝通信使用的QoS的Reliability由`RMW_QOS_POLICY_RELIABILITY_RELIABLE`（rclcpp::QoS()）变更为`RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT`（rclcpp::SensorDataQoS()），避免使用零拷贝时潜在的稳定性风险。
-- 重构`hobot_dnn`，使用更底层的板端推理框架`libdnn`，不再使用`easydnn`。
+- 重构`hobot_dnn)，使用更底层的板端推理框架`libdnn`，不再使用`easydnn`。
 - `hobot_audio`升级语音算法SDK，使用更底层的板端推理框架`libdnn`，不再使用`easydnn`。
 - `hobot_trigger`适配ROS2 Humble版本rosbag2。
 

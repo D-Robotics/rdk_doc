@@ -37,7 +37,7 @@ The supported semantic segmentation categories are as follows:
 | parking_rod      | Parking rod |
 | parking_lock     | Parking lock|
 
-Code repository:  `https://github.com/HorizonRDK/parking_perception.git`
+Code repository:  (https://github.com/D-Robotics/parking_perception.git)
 
 Application scenario: The outdoor parking area detection algorithm is based on semantic segmentation, which identifies parking areas in the images and can achieve automatic parking. It is mainly used in the field of autonomous driving.
 

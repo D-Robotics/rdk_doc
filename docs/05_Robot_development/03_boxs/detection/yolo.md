@@ -14,12 +14,12 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 
 模型使用[COCO数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_dnn>
+代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
 应用场景：YOLO系列作为单阶段目标检测中的代表算法，具有速度快，泛化性好的优点，可实现垃圾识别、车辆检测等功能，主要应用于自动驾驶、智能家居等领域。
 
-车辆检测案例： `https://github.com/JunshengFu/vehicle-detection>   
-摔倒检测案例： `https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-and-LiteFlowNet>
+车辆检测案例： (https://github.com/JunshengFu/vehicle-detection)  
+摔倒检测案例： (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-and-LiteFlowNet)
 
 ## 支持平台
 

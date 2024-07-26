@@ -14,7 +14,7 @@ The FCOS detection algorithm example uses images as input and utilizes BPU for i
 
 FCOS is an open-source Onnx model developed by Horizon, trained using the [COCO dataset](http://cocodataset.org/). It supports various types of object detection, including humans, animals, fruits, and vehicles, totaling 80 types.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_dnn>
+Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Application scenarios: FCOS is a one-stage object detection algorithm capable of pedestrian and vehicle detection. It is mainly used in autonomous driving and smart home fields.
 

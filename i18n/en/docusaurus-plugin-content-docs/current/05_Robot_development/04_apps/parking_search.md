@@ -17,7 +17,7 @@ The Car Parking Space Search control app guides the robot to move to a parking s
 
 The app directly controls the physical car through control commands published by the parking search control strategy, and can also use the virtual car in the PC side Gazebo simulation environment for testing.
 
-Code repository:  `https://github.com/HorizonRDK/parking_search.git`
+Code repository:  (https://github.com/D-Robotics/parking_search.git)
 
 ## Supported Platforms
 

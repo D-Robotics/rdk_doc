@@ -9,7 +9,7 @@ Horizon Robotics Developer Kits，简称[地平线RDK套件](https://developer.h
 
 ![TROS-Diagram](./image/TogetheROS.png)
 
-TogetheROS.Bot源码托管在GitHub地平线[HorizonRDK组织](https://github.com/HorizonRDK)。
+TogetheROS.Bot源码托管在GitHub地平线[D-Robotics组织](https://github.com/D-Robotics)。
 
 ## Communication通信组件
 

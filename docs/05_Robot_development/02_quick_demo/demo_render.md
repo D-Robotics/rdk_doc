@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网络将图像和算法结果传输到PC浏览器，然后进行渲染显示。该展示端还支持仅显示视频，而不渲染智能结果。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_websocket](https://github.com/HorizonRDK/hobot_websocket)
+代码仓库：[https://github.com/D-Robotics/hobot_websocket](https://github.com/D-Robotics/hobot_websocket)
 
 ### 支持平台
 
@@ -205,7 +205,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 本章节介绍通过HDMI展示camera nv12图像的使用，地平线RDK通过HDMI接显示器即可显示实时图像效果，对应于hobot_hdmi package。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_hdmi](https://github.com/HorizonRDK/hobot_hdmi)
+代码仓库：[https://github.com/D-Robotics/hobot_hdmi](https://github.com/D-Robotics/hobot_hdmi)
 
 ### 支持平台
 
@@ -667,7 +667,7 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 
 演示中，我们会利用TogetheROS开发的hobot_visualization功能包，将智能推理结果转换为ROS2渲染的话题信息。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_visualization](https://github.com/HorizonRDK/hobot_visualization)
+代码仓库：[https://github.com/D-Robotics/hobot_visualization](https://github.com/D-Robotics/hobot_visualization)
 
 ### 支持平台
 
@@ -753,7 +753,7 @@ ros2 bag record -a
 
 2. Foxglove在线页面播放rosbag数据
 
-1）PC浏览器（chrome/firefox/edge）输入 `https://foxglove.dev/studio`，进入foxglove官网
+1）PC浏览器（chrome/firefox/edge）输入 (https://foxglove.dev/studio`，进入foxglove官网
 
    ![foxglove](./image/demo_render/foxglove_guide_1.png "foxglove使用指导1")
 
@@ -781,6 +781,6 @@ PS: 首次使用需要注册, 可使用谷歌账号或第三方邮箱进行注�
 
 ### 注意事项
 
-1. Foxglove可视化图像数据，需采用ROS2官方的消息格式，使用foxglove支持的图像编码格式，详情请见 `https://foxglove.dev/docs/studio/panels/image`。
+1. Foxglove可视化图像数据，需采用ROS2官方的消息格式，使用foxglove支持的图像编码格式，详情请见 (https://foxglove.dev/docs/studio/panels/image`。
 
 2. rosbag进行消息记录时，可能会录制其他设备的话题信息，因此为了保证rosbag数据的干净，可以通过设置'export ROS_DOMAIN_ID=xxx' ，如'export ROS_DOMAIN_ID=1'的方法。

@@ -24,11 +24,11 @@ mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D
 
 - 深度信息：相机到物体的距离，单位为米。
 
-代码仓库： `https://github.com/HorizonRDK/mono3d_indoor_detection>
+代码仓库： (https://github.com/D-Robotics/mono3d_indoor_detection)
 
 应用场景：单目3D室内检测算法能够直接识别出图片中物体的确切位置和朝向，可实现物体姿态的识别，主要应用于自动驾驶、智能家居等领域。
 
-单目3D车辆检测案例： `https://github.com/RayXie29/Kaggle-Peking-University-Baidu-Autonomous-Driving-32-place-solution>
+单目3D车辆检测案例： (https://github.com/RayXie29/Kaggle-Peking-University-Baidu-Autonomous-Driving-32-place-solution)
 
 ## 支持平台
 

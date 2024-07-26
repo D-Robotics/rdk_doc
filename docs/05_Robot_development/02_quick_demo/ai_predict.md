@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 本章节介绍模型推理功能的使用，输入一张本地图片进行推理，得到渲染后的图片并保存在本地。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_dnn](https://github.com/HorizonRDK/hobot_dnn)
+代码仓库：[https://github.com/D-Robotics/hobot_dnn](https://github.com/D-Robotics/hobot_dnn)
 
 ## 支持平台
 

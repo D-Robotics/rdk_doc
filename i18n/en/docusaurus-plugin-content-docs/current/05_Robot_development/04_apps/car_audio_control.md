@@ -17,7 +17,7 @@ The function of voice-controlled car movement allows users to control the robot'
 
 The app uses a virtual car in the PC Gazebo simulation environment as an example, but the control commands can also be directly used to control a physical robot.
 
-Code repository:  `https://github.com/HorizonRDK/audio_control.git`
+Code repository:  (https://github.com/D-Robotics/audio_control.git)
 
 ## Supported Platforms
 

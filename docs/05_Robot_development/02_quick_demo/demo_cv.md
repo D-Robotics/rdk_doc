@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 实现高斯滤波功能，加速类型分为BPU加速和NEON加速，BPU加速暂时只支持int16格式，NEON加速暂时只支持int16和uint16格式。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_cv](https://github.com/HorizonRDK/hobot_cv)
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### 支持平台
 
@@ -200,7 +200,7 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 实现均值滤波功能，加速方式为NEON加速，暂时只支持int16，uint16格式。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_cv](https://github.com/HorizonRDK/hobot_cv)
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### 支持平台
 
@@ -301,7 +301,7 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 实现图像裁剪功能，暂时只支持NV12格式。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_cv](https://github.com/HorizonRDK/hobot_cv)
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### 支持平台
 
@@ -377,7 +377,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 实现图像缩放功能，暂时只支持NV12格式。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_cv](https://github.com/HorizonRDK/hobot_cv)
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 
 ### 支持平台
@@ -484,7 +484,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 rotate实现图像旋转功能，暂时只支持NV12格式的图片，支持的旋转角度为90、180、270。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_cv](https://github.com/HorizonRDK/hobot_cv)
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### 支持平台
 
@@ -582,7 +582,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 实现图像金字塔缩放功能，暂时只支持NV12格式。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_cv](https://github.com/HorizonRDK/hobot_cv)
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### 支持平台
 

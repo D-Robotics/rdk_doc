@@ -12,14 +12,14 @@ import TabItem from '@theme/TabItem';
 
 mobilenetv2图片分类算法示例使用图片作为输入，利用BPU进行算法推理，发布包含物体类别的算法msg。
 
-mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出来的caffe模型，模型来源： `https://github.com/shicai/MobileNet-Caffe`。
+mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出来的caffe模型，模型来源： (https://github.com/shicai/MobileNet-Caffe`。
 支持的目标类型包括人、动物、水果、交通工具等共1000种类型。具体支持的类别详见地平线RDK板端文件 /opt/tros/`${TROS_DISTRO}`/lib/dnn_node_example/config/imagenet.list（已安装TogatherROS.Bot）。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_dnn`
+代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
 应用场景：mobilenetv2能够预测给定图片的类别，可实现数字识别、物体识别等功能，主要应用于文字识别、图像检索等领域。
 
-食品类型识别案例： `https://github.com/frotms/Chinese-and-Western-Food-Classification`
+食品类型识别案例： (https://github.com/frotms/Chinese-and-Western-Food-Classification`
 
 ## 支持平台
 

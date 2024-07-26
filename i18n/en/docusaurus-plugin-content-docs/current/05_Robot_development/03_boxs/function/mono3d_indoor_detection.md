@@ -22,7 +22,7 @@ The detection results for each category include:
 
 - Depth information: The distance from the camera to the object, measured in meters.
 
-Code repository:  `https://github.com/HorizonRDK/mono3d_indoor_detection>
+Code repository:  (https://github.com/D-Robotics/mono3d_indoor_detection)
 
 Applications: The monocular 3D indoor detection algorithm can directly identify the exact position and orientation of objects in images, enabling object posture recognition. It is mainly used in autonomous driving, smart home, and other fields.
 

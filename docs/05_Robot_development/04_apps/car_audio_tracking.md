@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
-智能语音功能输出的声源定位DOA角度信息，单位为角度，支持线形和环形两种类型麦克风阵列，其中线形麦克风阵列角度范围为0度~180度，环形麦克风阵列角度范围为0度~360度。麦克风角度的相对位置关系与麦克风的安装位置强相关，实际角度示意图如下：
+智能语音功能输出的声源定位DOA角度信息，单位为角度，支持线形和环形两种类型麦克风阵列，其中线形麦克风阵列角度范围为0度到180度，环形麦克风阵列角度范围为0度到360度。麦克风角度的相对位置关系与麦克风的安装位置强相关，实际角度示意图如下：
 
 线形麦克风：
 
@@ -29,7 +29,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ![](./image/car_audio_tracking/doa_circle.jpg)
 
-代码仓库： `https://github.com/HorizonRDK/audio_tracking.git`
+代码仓库： (https://github.com/D-Robotics/audio_tracking.git)
 
 ## 支持平台
 

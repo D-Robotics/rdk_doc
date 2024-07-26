@@ -26,7 +26,7 @@ The supported control gestures, their corresponding functionalities, and example
 
 The app is demonstrated using a virtual car in the PC Gazebo simulation environment, but the control commands can also be directly used to control a physical robot.
 
-Code repository:  `https://github.com/HorizonRDK/gesture_control>
+Code repository:  (https://github.com/D-Robotics/gesture_control)
 
 ## Supported Platforms
 

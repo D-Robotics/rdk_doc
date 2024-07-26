@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 为实现环境感知能力，机器人产品中通常会搭载摄像头以获取图像信息。USB摄像头易于获取，使用方便，通用性好，TogetheROS.Bot添加了对USB摄像头的支持，支持ROS2标准图像消息。
 
-代码仓库：[https://github.com/HorizonRDK/hobot_usb_cam.git](https://github.com/HorizonRDK/hobot_usb_cam.git)
+代码仓库：[https://github.com/D-Robotics/hobot_usb_cam.git](https://github.com/D-Robotics/hobot_usb_cam.git)
 
 ### 支持平台
 
@@ -323,7 +323,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 | 摄像头| IMX477 | 200W | RDK X3, RDK X3 Module |
 | 摄像头| OV5647 | 200W | RDK X3, RDK X3 Module |
 
-代码仓库：[https://github.com/HorizonRDK/hobot_mipi_cam.git](https://github.com/HorizonRDK/hobot_mipi_cam.git)
+代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 ### 支持平台
 
@@ -542,7 +542,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 3. 如遇到hobot_sensor节点启动异常，可通过下述步骤进行问题排查：
     - 检查硬件连接
     - 是否设置 tros.b 环境
-    - 参数是否正确，具体参考[README.md](https://github.com/HorizonRDK/hobot_mipi_cam/blob/develop/README.md)
+    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
 
 ## RGBD图像采集
 
@@ -554,7 +554,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 | ------ | ------ | ------ | ---- |
 | 摄像头| CP3AM | 200W | RDK X3 |
 
-代码仓库：[https://github.com/HorizonRDK/hobot_rgbd_cam.git](https://github.com/HorizonRDK/hobot_rgbd_cam.git)
+代码仓库：[https://github.com/D-Robotics/hobot_rgbd_cam.git](https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 ### 支持平台
 

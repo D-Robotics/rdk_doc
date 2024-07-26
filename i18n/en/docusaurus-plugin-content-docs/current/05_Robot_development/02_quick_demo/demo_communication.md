@@ -19,7 +19,7 @@ TogetheROS.Bot provides a flexible and efficient zero-copy function that can sig
 - Resident memory: Includes heap allocated memory, shared memory, and stack memory used for system internals.
 - Sample statistics: Includes the number of messages sent, received, and lost.
 
-Code repositories: [https://github.com/HorizonRDK/rclcpp](https://github.com/HorizonRDK/rclcpp), [https://github.com/HorizonRDK/rcl_interfaces](https://github.com/HorizonRDK/rcl_interfaces)
+Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-Robotics/rclcpp), [https://github.com/D-Robotics/rcl_interfaces](https://github.com/D-Robotics/rcl_interfaces)
 
 ### Supported Platforms
 

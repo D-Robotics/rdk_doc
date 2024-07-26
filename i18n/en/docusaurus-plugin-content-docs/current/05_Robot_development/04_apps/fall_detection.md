@@ -17,7 +17,7 @@ Pose events are published using a custom algorithm message. Users can subscribe 
 
 Currently, only fall detection function is supported, which detects whether a person falls.
 
-Code Repository:  `https://github.com/HorizonRDK/hobot_falldown_detection>
+Code Repository:  (https://github.com/D-Robotics/hobot_falldown_detection)
 
 ## Supported Platforms
 

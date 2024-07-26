@@ -10,7 +10,7 @@ Breakpad是一个比Linux core机制更强大的、用于记录程序崩溃时�
 
 ## 前置条件
 
-Breakpad位于代码仓库 `https://github.com/HorizonRDK/breakpad.git`，分支为develop，目录内包含了经过交叉编译，可在地平线RDK上运行的bin，lib，includes等文件夹，分别包含了breakpad工具，静态链接库，头文件等内容。
+Breakpad位于[代码仓库](https://github.com/D-Robotics/breakpad.git)，分支为develop，目录内包含了经过交叉编译，可在地平线RDK上运行的bin，lib，includes等文件夹，分别包含了breakpad工具，静态链接库，头文件等内容。
 
 ## 任务内容
 ### 1. 创建、编译并运行test程序

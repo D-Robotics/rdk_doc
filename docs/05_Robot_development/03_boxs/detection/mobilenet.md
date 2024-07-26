@@ -12,14 +12,14 @@ import TabItem from '@theme/TabItem';
 
 MobileNet_SSD目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。
 
-Mobilenet_SSD是从  `https://github.com/chuanqi305/MobileNet-SSD> 获得的 caffe 模型，使用[VOC数据集](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共20种类型。
+Mobilenet_SSD是从  (https://github.com/chuanqi305/MobileNet-SSD) 获得的 caffe 模型，使用[VOC数据集](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共20种类型。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_dnn>
+代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
 应用场景：MobileNet_SSD是以MobileNet为基础的目标检测算法，具有速度快，易于部署的优点，可实现物体检测、垃圾识别等功能，主要应用于自动驾驶、智能家居等领域。
 
-人脸检测案例： `https://github.com/bruceyang2012/Face-detection-with-mobilenet-ssd>    
-车牌检测案例： `https://github.com/soonhahwang/Mobilenet-SSD-to-detect-Licence-Plate>
+人脸检测案例： (https://github.com/bruceyang2012/Face-detection-with-mobilenet-ssd)    
+车牌检测案例： (https://github.com/soonhahwang/Mobilenet-SSD-to-detect-Licence-Plate)
 
 ## 支持平台
 

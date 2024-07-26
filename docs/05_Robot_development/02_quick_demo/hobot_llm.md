@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 本章节介如何在地平线RDK平台体验端侧Large Language Model (LLM)。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_llm.git`
+代码仓库： (https://github.com/D-Robotics/hobot_llm.git)
 
 ## 支持平台
 

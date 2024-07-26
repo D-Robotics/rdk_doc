@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The Horizon intelligent voice algorithm adopts a local offline mode, subscribes to audio data and sends it to BPU for processing, and then publishes messages such as **wake-up, command word recognition**, **DOA（Direction of Arrival）**, and **ASR（Automatic Speech Recognition）**. The implementation of intelligent voice function corresponds to the **hobot_audio** package of TogetheROS.Bot, which is suitable for the circular and linear four-microphone arrays supported by Horizon RDK.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_audio.git`
+Code repository:  (https://github.com/D-Robotics/hobot_audio.git)
 
 Application scenarios: The intelligent voice algorithm can recognize wake-up words and custom command words in audio, interpret speech content as corresponding instructions or convert it into text, and can achieve functions such as voice control and speech translation. It is mainly used in areas such as smart home, intelligent cockpit, and smart wearables.
 
@@ -63,7 +63,7 @@ The circular microphone board is an integrated design, as shown in the following
 
 Purchase link:
 
- `https://www.waveshare.net/shop/Audio-Driver-HAT.htm`
+ (https://www.waveshare.net/shop/Audio-Driver-HAT.htm`
 
 Connection steps:
 

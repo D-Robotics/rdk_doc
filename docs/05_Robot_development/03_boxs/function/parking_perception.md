@@ -36,7 +36,7 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 | parking_rod   | 停车杆   |
 | parking_lock  | 地锁     |
 
-代码仓库： `https://github.com/HorizonRDK/parking_perception.git`
+代码仓库： (https://github.com/D-Robotics/parking_perception.git)
 
 应用场景：室外停车区检测算法基于语义分割，识别出图片中的停车区域，可实现自动泊车的功能，主要应用于自动驾驶领域。
 

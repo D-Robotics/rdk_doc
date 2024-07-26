@@ -18,9 +18,9 @@ import TabItem from '@theme/TabItem';
 
 代码仓库：
 
- `https://github.com/HorizonRDK/hand_lmk_detection>
+ (https://github.com/D-Robotics/hand_lmk_detection)
 
- `https://github.com/HorizonRDK/mono2d_body_detection>
+ (https://github.com/D-Robotics/mono2d_body_detection)
 
 应用场景：人手关键点检测算法主要用于捕捉人手部的骨骼关键点，可实现自定义手势识别等功能，主要应用于智能家居、虚拟现实、游戏娱乐等领域。
 

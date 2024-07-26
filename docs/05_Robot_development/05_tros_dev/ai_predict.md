@@ -8,9 +8,9 @@ sidebar_position: 2
 
 ### 功能背景
 
-`hobot_dnn`是TogetheROS.Bot软件栈中的板端算法推理框架，在地平线地平线RDK上利用BPU处理器实现算法推理功能，基于地平线算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
+`hobot_dnn)是TogetheROS.Bot软件栈中的板端算法推理框架，在地平线地平线RDK上利用BPU处理器实现算法推理功能，基于地平线算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
 
-通过阅读本章节，用户可以使用地平线提供的模型，在地平线RDK上基于`hobot_dnn`创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
+通过阅读本章节，用户可以使用地平线提供的模型，在地平线RDK上基于`hobot_dnn)创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
 
 ### 前置条件
 
@@ -28,11 +28,11 @@ sidebar_position: 2
 
 3 可以通过网络访问地平线RDK的PC。
 
-关于`hobot_dnn`的详细使用说明可以参考`hobot_dnn`代码中的[README.md](https://github.com/HorizonRDK/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/HorizonRDK/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
+关于`hobot_dnn)的详细使用说明可以参考`hobot_dnn)代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
 
 ![](./image/ai_predict/dnnnode_workflow.jpg)
 
-在不了解`hobot_dnn`使用流程的情况下，用户也可以按照本章节流程使用`hobot_dnn`开发出模型推理示例。
+在不了解`hobot_dnn)使用流程的情况下，用户也可以按照本章节流程使用`hobot_dnn)开发出模型推理示例。
 
 :::info
 本章节以下内容使用tros.b Foxy版本举例说明，如果您使用的是tros.b Humble版本，只需将`source /opt/tros/setup.bash`命令替换为`source /opt/tros/humble/setup.bash`。
@@ -356,7 +356,7 @@ MOT算法引擎头文件，用于对检测出的人体框进行目标跟踪。
 
 **创建算法推理输出数据结构**
 
-继承`hobot_dnn`中的`DnnNodeOutput`基类，添加消息头信息成员，用于表示推理输出对应的图片信息。
+继承`hobot_dnn)中的`DnnNodeOutput`基类，添加消息头信息成员，用于表示推理输出对应的图片信息。
 
 ```C++
 struct FasterRcnnOutput : public hobot::dnn_node::DnnNodeOutput {
@@ -366,7 +366,7 @@ struct FasterRcnnOutput : public hobot::dnn_node::DnnNodeOutput {
 
 **创建算法推理Node**
 
-继承`hobot_dnn`中的`DnnNode`虚基类，定义算法推理节点`BodyDetNode`，实现`DnnNode`中定义的虚接口。
+继承`hobot_dnn)中的`DnnNode`虚基类，定义算法推理节点`BodyDetNode`，实现`DnnNode`中定义的虚接口。
 
   `int SetNodePara()`：配置模型参数。
 
@@ -478,7 +478,7 @@ int BodyDetNode::SetNodePara() {
 
 **实现图片订阅结果回调**
 
-创建`DNNInput`类型的模型输入数据。订阅到的消息中包含图片信息（图片的编码方式、内容数据和分辨率等信息），使用`hobot_dnn`中的算法模型输入图片处理接口`hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img`，将订阅到的`nv12`格式的图片按照模型输入分辨率（`model_input_width_`和`model_input_height_`，在`BodyDetNode`的构造函数中通过`GetModelInputSize`接口从加载的模型中查询得到）转成模型输入的数据类型。接口定义如下：
+创建`DNNInput`类型的模型输入数据。订阅到的消息中包含图片信息（图片的编码方式、内容数据和分辨率等信息），使用`hobot_dnn)中的算法模型输入图片处理接口`hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img`，将订阅到的`nv12`格式的图片按照模型输入分辨率（`model_input_width_`和`model_input_height_`，在`BodyDetNode`的构造函数中通过`GetModelInputSize`接口从加载的模型中查询得到）转成模型输入的数据类型。接口定义如下：
 
 ```c++
 //   - [in] in_img_data 图片数据
@@ -1202,9 +1202,9 @@ disappeared_targets: []
 
 ### 本节总结
 
-本章节介绍了如何使用地平线提供的模型，基于`hobot_dnn`创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在PC端浏览器上实时渲染展示图片和算法推理结果。
+本章节介绍了如何使用地平线提供的模型，基于`hobot_dnn)创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在PC端浏览器上实时渲染展示图片和算法推理结果。
 
-用户可以参考`hobot_dnn`中的[README.md](https://github.com/HorizonRDK/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/HorizonRDK/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
+用户可以参考`hobot_dnn)中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
 
 ## 算法wokflow构建
 

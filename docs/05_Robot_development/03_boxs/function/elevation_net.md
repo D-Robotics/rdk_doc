@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 elevation_net是基于hobot_dnn package开发的高程网络检测算法示例，在地平线的地平线RDK上使用高程网络模型和室内数据利用BPU进行模型推理，从而得到算法推理结果。
 
-代码仓库： `https://github.com/HorizonRDK/elevation_net>
+代码仓库： (https://github.com/D-Robotics/elevation_net)
 
 应用场景：单目高程网络检测算法通过解析图片得到像素点的深度和高度信息，主要应用于自动驾驶、智能家居、智能交通等领域。
 

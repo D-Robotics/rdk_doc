@@ -24,7 +24,7 @@ By reading this chapter, users can use the models provided by Horizon to create 
 
 3. PC that can access Horizon RDK through the network.
 
-For detailed instructions on how to use `hobot_dnn`, please refer to the [README.md](https://github.com/HorizonRDK/hobot_dnn/blob/develop/README.md) and [API documentation](https://github.com/HorizonRDK/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in the `hobot_dnn` code. The workflow of using `hobot_dnn` is as follows:
+For detailed instructions on how to use `hobot_dnn`, please refer to the [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and [API documentation](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in the `hobot_dnn` code. The workflow of using `hobot_dnn` is as follows:
 
 ![](./image/ai_predict/dnnnode_workflow.jpg)
 
@@ -1160,7 +1160,7 @@ Enter the `Ctrl+C` command to exit the program.
 
 Summary of this sectionThis chapter introduces how to use the models provided by Horizon to create and run an algorithm inference example for human detection based on `hobot_dnn`. It uses images published from the camera, obtains the algorithm output, and renders and displays the image and algorithm inference results in real-time on the PC browser.
 
-Users can refer to the [README.md](https://github.com/HorizonRDK/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/HorizonRDK/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about the richer algorithm inference capabilities.
+Users can refer to the [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about the richer algorithm inference capabilities.
 
 ## Algorithm Workflow Construction
 

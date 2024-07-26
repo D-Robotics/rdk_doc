@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 本章节介绍如何将一段文本转化为语音信号，并通过音频输出接口播放。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_tts.git`
+代码仓库： (https://github.com/D-Robotics/hobot_tts.git)
 
 ## 支持平台
 

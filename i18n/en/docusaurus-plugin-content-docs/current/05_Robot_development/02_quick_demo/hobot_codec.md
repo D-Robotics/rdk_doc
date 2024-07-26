@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The image codec functionality is similar to the ROS image_transport package. The Horizon RDK utilizes hardware acceleration to convert between the MJPEG/H264/H265 and BGR8/RGB8/NV12 formats, which significantly reduces CPU usage while improving conversion efficiency.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_codec>
+Code repository:  (https://github.com/D-Robotics/hobot_codec>
 
 ## Supported Platforms
 

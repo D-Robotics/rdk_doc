@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 Web is used to preview camera images (JPEG format) and algorithm results. The images and algorithm results are transmitted to the PC browser through the network and rendered for display. The display interface also supports displaying only the video without rendering the intelligent results.
 
-Code Repository:  `https://github.com/HorizonRDK/hobot_websocket>
+Code Repository:  (https://github.com/D-Robotics/hobot_websocket>
 
 ### Supported Platforms
 
@@ -138,7 +138,7 @@ Code Repository:  `https://github.com/HorizonRDK/hobot_websocket>
 
 This chapter introduces the use of displaying camera nv12 images through HDMI. Horizon RDK can display real-time image effects by connecting to a monitor via HDMI, corresponding to the hobot_hdmi package.
 
-Code Repository:  `https://github.com/HorizonRDK/hobot_hdmi>
+Code Repository:  (https://github.com/D-Robotics/hobot_hdmi>
 
 ### Supported Platforms
 
@@ -223,7 +223,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 3. The PC has installed Ubuntu 20.04, ROS2 Foxy Desktop version, and the data visualization tool RViz2. The PC and Horizon RDK are on the same network segment (the first three segments of the IP address are the same).
 
-   Reference for ROS2 Foxy installation:  `https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html`
+   Reference for ROS2 Foxy installation:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html`
 
    On the PC, install RViz2 with the command: `sudo apt install ros-foxy-rviz-common ros-foxy-rviz-default-plugins ros-foxy-rviz2`
 
@@ -432,7 +432,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
 3. PC has been installed with Ubuntu 20.04 system, ROS2 Foxy desktop version, and the visualization tool RQt. Both PC and Horizon RDK are on the same network segment (with the same first three digits of the IP addresses).
 
-   ROS2 Foxy installation reference:  `https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html`
+   ROS2 Foxy installation reference:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html`
 
    Installation method for `rqt-image-view` on PC terminal: `sudo apt install ros-foxy-rqt-image-view ros-foxy-rqt`
    
@@ -593,7 +593,7 @@ In this section, we will primarily use the data recording and playback feature o
 
 In the demonstration, we will use the hobot_visualization package developed by TogetheROS.Bot to convert intelligent inference results into ROS2 rendered topic information.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_visualization>
+Code repository:  (https://github.com/D-Robotics/hobot_visualization>
 
 ### Supported Platforms
 
@@ -672,7 +672,7 @@ ros2 bag record -a
 
 2. Play rosbag data on the Foxglove online page
 
-1) In a PC browser (chrome/firefox/edge), enter  `https://foxglove.dev/studio> to access the Foxglove website.
+1) In a PC browser (chrome/firefox/edge), enter  (https://foxglove.dev/studio> to access the Foxglove website.
 
    ![foxglove](./image/demo_render/foxglove_guide_1.png "Foxglove guide 1")
 
@@ -699,6 +699,6 @@ ros2 bag record -a
 
 ### Note
 
-1. Foxglove visualizes image data using the official ROS2 message format and supports image encoding formats. For more details, please refer to  `https://foxglove.dev/docs/studio/panels/image>.
+1. Foxglove visualizes image data using the official ROS2 message format and supports image encoding formats. For more details, please refer to  (https://foxglove.dev/docs/studio/panels/image>.
 
 2. When recording messages with `rosbag`, it may record topic information from other devices. To ensure clean `rosbag` data, you can set `export ROS_DOMAIN_ID=xxx`, such as `export ROS_DOMAIN_ID=1`.

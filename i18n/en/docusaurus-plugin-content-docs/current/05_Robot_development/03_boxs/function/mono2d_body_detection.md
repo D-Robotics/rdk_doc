@@ -28,7 +28,7 @@ The index of the body keypoints algorithm result is shown in the following figur
 ![](./image/box_adv/kps_index.jpeg)
 
 
-Code Repository:  `https://github.com/HorizonRDK/mono2d_body_detection>
+Code Repository:  (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application Scenarios: Human detection and tracking algorithms are an important component of human motion visual analysis, which can achieve functions such as human pose analysis and people counting. They are mainly applied in fields like human-computer interaction and gaming entertainment.
 

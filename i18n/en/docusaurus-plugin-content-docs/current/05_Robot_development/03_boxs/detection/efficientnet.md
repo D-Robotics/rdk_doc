@@ -12,9 +12,9 @@ import TabItem from '@theme/TabItem';
 
 EfficientNet_Det is an detection algorithm that takes images as input and utilizes BPU for algorithm inference. It publishes algorithm messages containing object categories and detection boxes.
 
-EfficientNet_Det is an Onnx model obtained from  `https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet> and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
+EfficientNet_Det is an Onnx model obtained from  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet> and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_dnn>
+Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Applications: EfficientNet_Det can be used for tasks such as vehicle detection and is mainly applied in the fields of autonomous driving and smart home.
 

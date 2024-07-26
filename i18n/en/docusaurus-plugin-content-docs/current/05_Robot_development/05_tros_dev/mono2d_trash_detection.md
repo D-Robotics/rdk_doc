@@ -15,7 +15,7 @@ The mono2d_trash_detection package is an example of 2D garbage object detection 
 
 This package supports subscribing to topics of type sensors/msg/Image directly and supports inferring using local images. The algorithm information is published through topics and the results are rendered and visualized on a web page. When inferring with local images, the rendered images are saved in the current directory.
 
-Code repository:  `https://github.com/HorizonRDK/mono2d_trash_detection.git`
+Code repository:  (https://github.com/D-Robotics/mono2d_trash_detection.git)
 
 Application scenarios: Indoor and outdoor garbage detection, identifying garbage in scenes, can be used with robots for garbage finding and picking (in combination with robotic arms) in APP design.
 
@@ -37,11 +37,11 @@ The supported object detection categories for the algorithm are as follows:
 
 Since we do not consider the internal structure information of the algorithm model during deployment, we only focus on the pre-processing and post-processing steps of the algorithm. The pre-processing steps include image reading and image resizing, while the post-processing steps include detection header decoders and non-maximum suppression (NMS). These pre-processing and post-processing methods are consistent across most similar models and have strong universality. Therefore, the basic deployment package can be used for quick deployment.
 
-The Horizon Robot Operating System provides the [dnn_node_example](https://github.com/HorizonRDK/hobot_dnn/tree/develop/dnn_node_example) deployment package for rapid deployment of basic algorithms. The currently supported common algorithms include image classification, 2D object detection, and semantic segmentation. Among them, 2D object detection integrates Fasterrcnn, Fcos, yolov2, yolov3, yolov5, SSD, and efficientnet for user selection.
+The Horizon Robot Operating System provides the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) deployment package for rapid deployment of basic algorithms. The currently supported common algorithms include image classification, 2D object detection, and semantic segmentation. Among them, 2D object detection integrates Fasterrcnn, Fcos, yolov2, yolov3, yolov5, SSD, and efficientnet for user selection.
 
-In this example, the [dnn_node_example](https://github.com/HorizonRDK/hobot_dnn/tree/develop/dnn_node_example) is used to adapt custom detection models by replacing the Horizon cross-compiled model, post-processing configuration files, and detection category configuration files.
+In this example, the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) is used to adapt custom detection models by replacing the Horizon cross-compiled model, post-processing configuration files, and detection category configuration files.
 
-If the pre-processing and post-processing steps are different from the above models and cannot be adapted quickly, the custom deployment method can refer to the [dnn_node_sample](https://github.com/HorizonRDK/hobot_dnn/tree/develop/dnn_node_example) example.
+If the pre-processing and post-processing steps are different from the above models and cannot be adapted quickly, the custom deployment method can refer to the [dnn_node_sample](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) example.
 
 ### Horizon RDK
 
@@ -49,9 +49,9 @@ If the pre-processing and post-processing steps are different from the above mod
 
 2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
 
-3. Obtain the Horizon cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
+3. Obtain the Horizon cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
 
-5. Detection category configuration file (such as [trash_coco.list](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
+5. Detection category configuration file (such as [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
 
 ### X86
 
@@ -59,15 +59,15 @@ If the pre-processing and post-processing steps are different from the above mod
 
 2. Tros.b has been successfully installed on the X86 environment.
 
-3. Obtain the Horizon cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin) in this example).
+3. Obtain the Horizon cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin) in this example).
 
-4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
+4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
 
-5. Detection category configuration file (such as [trash_coco.list](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example).
+5. Detection category configuration file (such as [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example).
 
 ## Post-processing Configuration
 
-The config_file configuration file is in JSON format. In this example, the file is [ppyoloworkconfig.json](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json). The specific configuration is as follows:
+The config_file configuration file is in JSON format. In this example, the file is [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json). The specific configuration is as follows:
 
 ```bash
   {

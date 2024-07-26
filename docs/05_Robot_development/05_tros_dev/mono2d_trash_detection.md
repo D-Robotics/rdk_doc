@@ -15,7 +15,7 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 本package支持直接订阅sensors/msg/Image类型的话题，并且支持读取本地图片的形式进行推理，将算法信息通过话题发布的同时会将结果在Web页面渲染可视化，本地图片回灌时将渲染图片保存在当前目录。
 
-代码仓库： `https://github.com/HorizonRDK/mono2d_trash_detection.git`
+代码仓库： (https://github.com/D-Robotics/mono2d_trash_detection.git)
 
 应用场景：室内外垃圾检测，识别出场景中的垃圾，可配合机器人用于垃圾寻找、垃圾捡取（配合机械臂）的APP设计。
 
@@ -40,11 +40,11 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 由于部署阶段我们不考虑算法模型内部的结构信息，只关注算法前后处理环节，前处理部分如图像读取、图像Resize等，后处理部分如检测头解码器、非极大值抑制（NMS）等。这些前后处理的方法在多数同类模型中是一致的，通用性较强，因此可以利用基础部署包进行快速部署。
 
-地平线机器人操作系统提供了[dnn_node_example](https://github.com/HorizonRDK/hobot_dnn/tree/develop/dnn_node_example)部署包用于快速部署基础算法。目前支持的常见算法有图像分类、2D目标检测、语义分割。其中2D目标检测集成了Fasterrcnn、Fcos、yolov2、yolov3、yolov5、SSD、efficientnet供用户选择。
+地平线机器人操作系统提供了[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)部署包用于快速部署基础算法。目前支持的常见算法有图像分类、2D目标检测、语义分割。其中2D目标检测集成了Fasterrcnn、Fcos、yolov2、yolov3、yolov5、SSD、efficientnet供用户选择。
 
-本示例利用[dnn_node_example](https://github.com/HorizonRDK/hobot_dnn/tree/develop/dnn_node_example)，通过替换地平线交叉编译模型、后处理配置文件、检测类别配置文件用以适配自定义检测模型。
+本示例利用[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)，通过替换地平线交叉编译模型、后处理配置文件、检测类别配置文件用以适配自定义检测模型。
 
-如果前后处理环节与上述模型不同无法快速适配，自定义部署方法可参考[dnn_node_sample](https://github.com/HorizonRDK/hobot_dnn/tree/develop/dnn_node_example)示例。
+如果前后处理环节与上述模型不同无法快速适配，自定义部署方法可参考[dnn_node_sample](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)示例。
 
 ### 地平线RDK平台
 
@@ -52,11 +52,11 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 2. 地平线RDK已成功安装TogetheROS.Bot。
 
-3. 获得地平线交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
+3. 获得地平线交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
 
-4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
+4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
-5. 检测类别配置文件 (如本例中[trash_coco.list](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/trash_coco.list))
+5. 检测类别配置文件 (如本例中[trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list))
 
 ### X86平台
 
@@ -64,16 +64,16 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 2. X86环境已成功安装tros.b。
 
-3. 获得地平线交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
+3. 获得地平线交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
 
-4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
+4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
-5. 检测类别配置文件 (如本例中[trash_coco.list](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/trash_coco.list))
+5. 检测类别配置文件 (如本例中[trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list))
 
 
 ## 后处理配置文件说明
 
-config_file配置文件格式为json格式，本示例[ppyoloworkconfig.json](https://github.com/HorizonRDK/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json)，具体配置如下：
+config_file配置文件格式为json格式，本示例[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json)，具体配置如下：
 
 ```bash
   {

@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 App通过车位寻找控制策略发布的控制指令直接控制实物小车，也可以利用PC端Gazebo仿真环境下的虚拟小车进行测试。
 
-代码仓库： `https://github.com/HorizonRDK/parking_search.git`
+代码仓库： (https://github.com/D-Robotics/parking_search.git)
 
 ## 支持平台
 

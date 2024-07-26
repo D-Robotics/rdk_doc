@@ -12,9 +12,9 @@ import TabItem from '@theme/TabItem';
 
 The MobileNet_SSD detection algorithm uses images as input, performs inference using BPU, and publishes messages that include target categories and detection boxes.
 
-MobileNet_SSD is a caffe model obtained from  `https://github.com/chuanqi305/MobileNet-SSD>, trained using the VOC dataset (http://host.robots.ox.ac.uk/pascal/VOC/voc2012/). It supports 20 types of target detection, including humans, animals, fruits, and vehicles.
+MobileNet_SSD is a caffe model obtained from  (https://github.com/chuanqi305/MobileNet-SSD>, trained using the VOC dataset (http://host.robots.ox.ac.uk/pascal/VOC/voc2012/). It supports 20 types of target detection, including humans, animals, fruits, and vehicles.
 
-Code repository:  `https://github.com/HorizonRDK/hobot_dnn>
+Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Application scenarios: MobileNet_SSD is an object detection algorithm based on MobileNet, which has the advantages of fast speed and easy deployment. It can achieve functions such as object detection and garbage recognition, and is mainly used in the fields of autonomous driving and smart home.
 

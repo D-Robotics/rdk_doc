@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 前提：
 
-- 开发机能够正常访问地平线[Horizon Robotics](https://github.com/HorizonRDK)组织
+- 开发机能够正常访问地平线[Horizon Robotics](https://github.com/D-Robotics)组织
 - 开发机已安装docker
 
 ### 编译tros.b
@@ -75,7 +75,7 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imag
 ```shell
 cd /mnt/test/cc_ws/tros_ws
 ## 获取配置文件
-git clone https://github.com/HorizonRDK/robot_dev_config.git -b foxy 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b foxy 
 ## 执行cd robot_dev_config，使用 git tag --list 命令查看可用的发布版本
 ## 使用 git reset --hard [tag号] 命令指定发布版本。详细说明参考本页面 编译指定版本tros.b 内容
 ## 拉取代码
@@ -89,7 +89,7 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 ```shell
 cd /mnt/test/cc_ws/tros_ws
 ## 获取配置文件
-git clone https://github.com/HorizonRDK/robot_dev_config.git -b develop 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
 ## 执行cd robot_dev_config，使用 git tag --list 命令查看可用的发布版本
 ## 使用 git reset --hard [tag号] 命令指定发布版本。详细说明参考本页面 编译指定版本tros.b 内容
 ## 拉取代码
@@ -143,7 +143,7 @@ bash ./robot_dev_config/build.sh -p Rdkultra
 
 ```bash
 ## 获取配置文件
-git clone https://github.com/HorizonRDK/robot_dev_config.git
+git clone https://github.com/D-Robotics/robot_dev_config.git
 cd robot_dev_config
 ## 查看可用的发布版本
 git tag --list
@@ -213,7 +213,7 @@ git config --global credential.helper store
 mkdir -p ~/cc_ws/tros_ws/src
 cd ~/cc_ws/tros_ws/
 
-git clone https://github.com/HorizonRDK/robot_dev_config.git -b develop 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
 vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 

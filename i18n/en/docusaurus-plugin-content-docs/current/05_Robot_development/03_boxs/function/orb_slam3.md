@@ -18,7 +18,7 @@ SLAM stands for Simultaneous Localization and Mapping. ORB-SLAM3 is one of the m
 
 In this chapter, ORB-SLAM3 is used as the mapping algorithm, and the EuRoC open dataset and RealSense D435i camera are used as the data sources for testing.
 
-Code repository: ` https://github.com/HorizonRDK/orb_slam3 `
+Code repository: ` https://github.com/D-Robotics/orb_slam3 `
 
 Application scenarios: Visual SLAM algorithm can calculate the three-dimensional structure of the environment while computing its own position and orientation, enabling real-time localization and map construction. It is mainly used in fields such as autonomous driving, smart homes, and 3D reconstruction.
 

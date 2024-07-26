@@ -11,7 +11,7 @@ BEV感知算法是使用地平线[OpenExplorer](https://developer.horizon.cc/api
 
 此示例使用本地图像数据作为输入，利用BPU进行算法推理，发布算法感知结果渲染的图片消息，在PC端浏览器上渲染显示算法结果。
 
-代码仓库： `https://github.com/HorizonRDK/hobot_bev.git`
+代码仓库： (https://github.com/D-Robotics/hobot_bev.git)
 
 ## 支持平台
 
