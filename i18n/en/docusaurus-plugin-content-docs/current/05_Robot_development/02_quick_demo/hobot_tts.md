@@ -30,10 +30,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 1. RDK has been flashed with  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 2. TogetheROS.Bot has been successfully installed on RDK.
 3. An audio driver board compatible with D-Robotics has been obtained, and the environment has been set up according to [Smart Voice section](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/function/hobot_audio.md)
-
-(../boxs/function#Intelligent Voice).
-
-1. Connect the audio board's headphone interface with headphones or speakers.
+4. Connect the audio board's headphone interface with headphones or speakers.
 
 ## Usage
 
@@ -77,7 +74,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
     :::caution
     When using the audio board for the first time, you need to use `srpi-config` for configuration, otherwise the audio device will not be recognized.
    
-    For the configuration method, refer to the RDK User Manual [Audio Adapter Board] (/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md)
+    For the configuration method, refer to the RDK User Manual [Audio Adapter Board](/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md)
     :::
 
 3. Start the hobot_tts program.
