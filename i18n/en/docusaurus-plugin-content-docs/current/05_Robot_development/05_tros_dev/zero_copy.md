@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Background
 
-Communication is a fundamental function of the robot development engine. When using native ROS for large-scale data communication, there may be issues such as high latency and system load. TogetheROS.Bot implements the "zero-copy" feature based on the Horizon Systems software library hbmem, which enables zero-copy transmission of data across processes, greatly reducing transmission latency and system resource usage for large data blocks. This section explains how to use the tros.b hbmem interface to create a publisher and subscriber node for large-scale data transmission, and calculate transmission latency.
+Communication is a fundamental function of the robot development engine. When using native ROS for large-scale data communication, there may be issues such as high latency and system load. TogetheROS.Bot implements the "zero-copy" feature based on the D-Robotics Systems software library hbmem, which enables zero-copy transmission of data across processes, greatly reducing transmission latency and system resource usage for large data blocks. This section explains how to use the tros.b hbmem interface to create a publisher and subscriber node for large-scale data transmission, and calculate transmission latency.
 
 :::info
 - The tros.b Foxy version adds a "zero-copy" function based on ROS2 Foxy.
@@ -19,7 +19,7 @@ Communication is a fundamental function of the robot development engine. When us
 
 ## Prerequisites
 
-1. tros.b has been successfully installed following the guide [Installation](../quick_start/install_tros.md).
+1. tros.b has been successfully installed following the guide [Installation](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/01_quick_start/install_tros.md).
 2. Familiarity with ROS2 nodes, topics, QoS, as well as creating packages and using custom messages. For detailed tutorials, please refer to the [official ROS2 documentation](https://docs.ros.org/en/foxy/Tutorials.html).
 3. The ROS2 package build system ament_cmake has been installed. Installation command: `apt update; apt-get install python3-catkin-pkg; pip3 install empy`.
 4. The ROS2 build tool colcon has been installed. Installation command: `pip3 install -U colcon-common-extensions`.

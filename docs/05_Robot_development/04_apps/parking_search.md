@@ -55,13 +55,13 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. RDK已安装MIPI或者USB摄像头。
 
 4. 一台古月居小车作为控制下位机。
 
@@ -69,15 +69,15 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
 将小车置于水平地面，调整相机角度为水平，运行车位寻找App后，小车根据停车区域检测算法的结果，自动进行决策并控制小车运动，直到找到车位并进入车位停止。
 
-APP启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为地平线RDK的IP地址）。
+APP启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为RDK的IP地址）。
 
 打开Web端，需打开界面右上角设置，选中”全图分割“选项，可显示渲染效果。（参考4.2 Boxs应用算法——室外停车区域检测）
 
-启动古月居小车，在地平线RDK上运行控制下位机节点：
+启动古月居小车，在RDK上运行控制下位机节点：
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -102,7 +102,7 @@ ros2 run originbot_base originbot_base
 
 </Tabs>
 
-启动成功后，地平线RDK输出log信息：
+启动成功后，RDK输出log信息：
 
 ```shell
 Loading parameters:
@@ -198,7 +198,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ## 结果分析
 
-1.小车在行车区域搜寻前进时地平线RDK运行终端输出log信息，其中控制小车以0.1m/s的速度前进运动（do move, direction: 0, step: 0.100000）。
+1.小车在行车区域搜寻前进时RDK运行终端输出log信息，其中控制小车以0.1m/s的速度前进运动（do move, direction: 0, step: 0.100000）。
 
 ```shell
 [parking_search-4] [WARN] [1661942399.306904646] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -210,7 +210,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
 
-2.小车发现车位后转向时在地平线RDK运行终端输出log信息:
+2.小车发现车位后转向时在RDK运行终端输出log信息:
 
 ```shell
 [parking_search-4] [WARN] [1662539779.408424498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
@@ -224,7 +224,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
 
-3.小车确定车位后前进并最终停止时在地平线RDK运行终端输出log信息:
+3.小车确定车位后前进并最终停止时在RDK运行终端输出log信息:
 
 ```shell
 [parking_search-4] [WARN] [1662539796.196264298] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -242,7 +242,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
 
-PC端在终端使用`ros2 topic list`命令可以查询到地平线RDK的topic信息：
+PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 
 ```shell
 $ ros2 topic list
@@ -258,4 +258,4 @@ $ ros2 topic list
 /tf
 ```
 
-其中`/image_jpeg`是地平线RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/ai_msg_parking_perception`是地平线RDK发布的包含车位检测信息的算法msg，`/cmd_vel`是地平线RDK发布的运动控制指令。
+其中`/image_jpeg`是RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/ai_msg_parking_perception`是RDK发布的包含车位检测信息的算法msg，`/cmd_vel`是RDK发布的运动控制指令。

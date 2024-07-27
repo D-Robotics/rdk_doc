@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-图像编解码功能与ROS image_transport package类似，地平线RDK采用硬件单元加速MJPEG/H264/H265与BGR8/RGB8/NV12格式之间转换，可以大幅降低CPU占用的同时提升格式转换效率，X86平台仅支持MJPEG与BGR8/RGB8/NV12格式之间的转换。
+图像编解码功能与ROS image_transport package类似，RDK采用硬件单元加速MJPEG/H264/H265与BGR8/RGB8/NV12格式之间转换，可以大幅降低CPU占用的同时提升格式转换效率，X86平台仅支持MJPEG与BGR8/RGB8/NV12格式之间的转换。
 
 代码仓库：(https://github.com/D-Robotics/hobot_codec)
 
@@ -27,13 +27,13 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已连接摄像头F37或其他MIPI摄像头。
+3. RDK已连接摄像头F37或其他MIPI摄像头。
 
 ### X86平台
 
@@ -45,11 +45,11 @@ import TabItem from '@theme/TabItem';
 
 下面以 JPEG 编码为例，介绍从摄像头或图像发布工具获取NV12格式图片数据，经过JPEG压缩编码后，实现在PC的Web端预览图片。
 
-### 地平线RDK平台
+### RDK平台
 
 1. 获取YUV数据，并启动JPGE编码：
 
-    通过SSH登录地平线RDK，使用mipi_cam作为数据来源，配置hobot_codec输入为NV12格式，输出为JPEG格式，可修改mipi_cam为实际使用的sensor型号。
+    通过SSH登录RDK，使用mipi_cam作为数据来源，配置hobot_codec输入为NV12格式，输出为JPEG格式，可修改mipi_cam为实际使用的sensor型号。
 
     a. 启动mipi_cam
 
@@ -112,7 +112,7 @@ import TabItem from '@theme/TabItem';
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为地平线RDK/X86设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面
+3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为RDK/X86设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面
 
     ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png "实时图像")
 
@@ -206,7 +206,7 @@ import TabItem from '@theme/TabItem';
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为地平线RDK/X86设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面。
+3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为RDK/X86设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面。
 
 ## 注意事项
 

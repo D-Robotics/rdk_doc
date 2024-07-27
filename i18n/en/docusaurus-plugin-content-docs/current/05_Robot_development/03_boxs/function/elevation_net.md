@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-elevation_net is a monocular elevation network detection algorithm example developed based on the hobot_dnn package. It uses an elevation network model and indoor data with BPU for model inference on the horizon RDK to obtain algorithm inference results.
+elevation_net is a monocular elevation network detection algorithm example developed based on the hobot_dnn package. It uses an elevation network model and indoor data with BPU for model inference on the RDK to obtain algorithm inference results.
 
 Code Repository:  (https://github.com/D-Robotics/elevation_net)
 
@@ -21,17 +21,17 @@ Application Scenarios: The monocular elevation network detection algorithm parse
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has burned the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on RDK.
 
 ## Usage
 
 The monocular elevation network detection algorithm example package uses the form of reading local images. After algorithm inference, it detects depth and height information based on pixels of the Image. At the same time, the package processes the depth and height information and publishes PointCloud2 topic data. Users can subscribe to PointCloud2 data for application development.
 
-### Horizon RDK
+### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

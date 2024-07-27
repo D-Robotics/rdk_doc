@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能背景
 
-通信是机器人开发引擎的基础功能，原生ROS2 Foxy进行大数据量通信时存在时延较大、系统负载较高等问题。TogetheROS.Bot Foxy基于地平线系统软件库hbmem实现了“zero-copy”功能，数据跨进程传输零拷贝，可大大减少大块数据传输延时和系统资源占用。本节介绍如何使用tros.b Foxy和Humble创建publisher和subscriber node进行大块数据传输，并计算传输延时。
+通信是机器人开发引擎的基础功能，原生ROS2 Foxy进行大数据量通信时存在时延较大、系统负载较高等问题。TogetheROS.Bot Foxy基于RDK系统软件库hbmem实现了“zero-copy”功能，数据跨进程传输零拷贝，可大大减少大块数据传输延时和系统资源占用。本节介绍如何使用tros.b Foxy和Humble创建publisher和subscriber node进行大块数据传输，并计算传输延时。
 
 :::info
 - tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 ## 前置条件
 
-已按照[安装](../quick_start/install_tros.md)成功安装tros.b，并已掌握ROS2 node，topic，qos等基础知识，以及如何创建package和使用自定义消息，具体教程可见[ROS2官方文档](https://docs.ros.org/en/foxy/Tutorials.html)。
+已按照[安装](/docs/05_Robot_development/01_quick_start/install_tros.md)成功安装tros.b，并已掌握ROS2 node，topic，qos等基础知识，以及如何创建package和使用自定义消息，具体教程可见[ROS2官方文档](https://docs.ros.org/en/foxy/Tutorials.html)。
 
 已安装ROS2软件包构建系统ament_cmake。安装命令：`apt update; apt-get install python3-catkin-pkg; pip3 install empy`
 

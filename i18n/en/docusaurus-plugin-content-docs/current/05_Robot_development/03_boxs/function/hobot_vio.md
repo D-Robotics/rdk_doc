@@ -25,7 +25,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_vio.git)
 
 ## Prerequisites
 
-1. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
 2. TogetheROS.Bot and Realsense ROS2 Package have been successfully installed on RDK.
 

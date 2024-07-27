@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The voice tracking control car movement function controls the robot to rotate towards the direction of the sound source based on the DOA angle information of the sound source localization, and controls the robot to move forward. This function needs to be used together with the intelligent voice module of the Horizon Robot Operating System. When the user speaks the wake-up word configured by the intelligent voice recognition module to wake up the device, the voice tracking control car function will be activated. After that, when the user speaks the wake-up word or the configured command word, the intelligent voice recognition module will output the DOA angle information of the sound source. After receiving the DOA angle information, this module will control the robot to turn towards the direction of the sound source and move forward a certain distance.
+The voice tracking control car movement function controls the robot to rotate towards the direction of the sound source based on the DOA angle information of the sound source localization, and controls the robot to move forward. This function needs to be used together with the intelligent voice module of the D-Robotics Robot Operating System. When the user speaks the wake-up word configured by the intelligent voice recognition module to wake up the device, the voice tracking control car function will be activated. After that, when the user speaks the wake-up word or the configured command word, the intelligent voice recognition module will output the DOA angle information of the sound source. After receiving the DOA angle information, this module will control the robot to turn towards the direction of the sound source and move forward a certain distance.
 
 The process is as follows:
 
@@ -41,13 +41,13 @@ Code repository:  (https://github.com/D-Robotics/audio_tracking.git)
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. The intelligent voice algorithm package has been successfully installed on the Horizon RDK. Install command:
+3. The intelligent voice algorithm package has been successfully installed on the RDK. Install command:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -68,9 +68,9 @@ Code repository:  (https://github.com/D-Robotics/audio_tracking.git)
    </TabItem>
    </Tabs>
 
-4. The compatible audio board has been successfully connected to the Horizon RDK (refer to the [Intelligent Voice section](../boxs/function/hobot_audio.md) for details).
+4. The compatible audio board has been successfully connected to the RDK (refer to the [Intelligent Voice section](../boxs/function/hobot_audio.md) for details).
 
-5. The PC that is in the same network segment as the Horizon RDK (either wired or connected to the same wireless network) needs to have the following environment packages installed:
+5. The PC that is in the same network segment as the RDK (either wired or connected to the same wireless network) needs to have the following environment packages installed:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -102,7 +102,7 @@ Code repository:  (https://github.com/D-Robotics/audio_tracking.git)
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 After running the voice tracking function, the voice tracking control module will receive the voice message results published by the intelligent voice function module, and parse the message. Based on the wake-up event and DOA angle information in the message, the control module will publish commands to the car to turn to a specific angle. After the car turns to the specific angle, the control module will continue to control the car to move forward a certain distance (by default, the module controls the car to move forward by 0.2 meters).
 
@@ -134,7 +134,7 @@ After successful startup, the car in the simulation environment will appear as f
 
 ![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/gazebo.jpeg)
 
-Startup program for the Horizon RDK:
+Startup program for the RDK:
 
 1. Copy the audio configuration file and load the audio driver
 
@@ -191,7 +191,7 @@ Startup program for the Horizon RDK:
     
 ## Result Analysis
 
-The following information is the output of the Horizon RDK running on the terminal:
+The following information is the output of the RDK running on the terminal:
 
 ```text
 
@@ -200,7 +200,7 @@ The following information is the output of the Horizon RDK running on the termin
 ============================================
         audio tracking usage
 
-Wake up device is "Horizon Hello".
+Wake up device is "D-Robotics Hello".
 Audio control command word definitions are:
         "Go forward"
         "Go backward"
@@ -235,9 +235,9 @@ rotate_step: 0.348
 [WARN] [1663149823.377099758] [audio_tracking]: cancel move
 ```
 
-The above logs capture a segment of the output after the audio control package is launched. The log shows that the wake-up word configured for the intelligent voice recognition module is "Horizon Hello". After receiving the wake-up event, the audio tracking control module receives DOA angle information. As shown in the log above, the DOA is 80 degrees. At this time, the audio tracking control module publishes a command to make the car turn left by 20 degrees. After the rotation, the car moves forward, and later the car stops moving.
+The above logs capture a segment of the output after the audio control package is launched. The log shows that the wake-up word configured for the intelligent voice recognition module is "D-Robotics Hello". After receiving the wake-up event, the audio tracking control module receives DOA angle information. As shown in the log above, the DOA is 80 degrees. At this time, the audio tracking control module publishes a command to make the car turn left by 20 degrees. After the rotation, the car moves forward, and later the car stops moving.
 
-On the PC, you can use the `ros2 topic list` command in the terminal to query the topic information of the Horizon RDK.
+On the PC, you can use the `ros2 topic list` command in the terminal to query the topic information of the RDK.
 
 ```shell
 ros2 topic list
@@ -245,9 +245,9 @@ ros2 topic list
 /cmd_vel
 ```
 
-The topic "/audio_smart" is the algorithm perception message published, which contains intelligent voice results. The topic "/cmd_vel" is the motion control command published by Horizon RDK.
+The topic "/audio_smart" is the algorithm perception message published, which contains intelligent voice results. The topic "/cmd_vel" is the motion control command published by RDK.
 
-On the PC, the command "ros2 topic echo /cmd_vel" can be used in the terminal to view the motion control command published by Horizon RDK:
+On the PC, the command "ros2 topic echo /cmd_vel" can be used in the terminal to view the motion control command published by RDK:
 
 ```text
 linear:

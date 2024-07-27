@@ -28,15 +28,15 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. RDK已安装MIPI或者USB摄像头。
 
-4. 和地平线RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+4. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -67,11 +67,11 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
 运行小车人体跟随App后，小车运动控制package选择距离小车前方最近的人体（人体检测框宽度最大）作为跟随对象。当人体距离小车较远时，小车开始前进运动靠近人体，并保持人体在小车正前方。
 
-APP启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为地平线RDK的IP地址）。
+APP启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为RDK的IP地址）。
 
 PC端启动仿真环境：
 
@@ -186,7 +186,7 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 
 ## 结果分析
 
-在地平线RDK板端运行终端输出如下信息：
+在RDK板端运行终端输出如下信息：
 
 ```shell
 [body_tracking-7] [WARN] [1653430533.523069034] [ParametersClass]: TrackCfg param are
@@ -209,7 +209,7 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 
 以上log截取了一段App启动后的输出。启动后先打印相关配置（TrackCfg param）。检测到人体后小车就开始进入跟随状态（tracking_sta值为1），并以0.3m/s的速度前进运动（RobotCtl, angular: 0 0 0, linear: 0.3 0 0）靠近人体。
 
-PC端在终端使用`ros2 topic list`命令可以查询到地平线RDK的topic信息：
+PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 
 ```shell
 $ ros2 topic list
@@ -222,9 +222,9 @@ $ ros2 topic list
 /rosout
 ```
 
-其中`/image`是地平线RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/hobot_mono2d_body_detection`是地平线RDK发布的包含人体检测结果的算法msg，`/cmd_vel`是地平线RDK发布的运动控制指令。
+其中`/image`是RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/hobot_mono2d_body_detection`是RDK发布的包含人体检测结果的算法msg，`/cmd_vel`是RDK发布的运动控制指令。
 
-PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到地平线RDK发布的运动控制指令：
+PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到RDK发布的运动控制指令：
 
 ```shell
 linear:

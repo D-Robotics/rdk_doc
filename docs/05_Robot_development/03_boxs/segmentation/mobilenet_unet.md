@@ -30,13 +30,13 @@ mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头，无摄像头的情况下通过回灌本地JPEG/PNG格式图片的方式体验算法效果。
+3. RDK已安装MIPI或者USB摄像头，无摄像头的情况下通过回灌本地JPEG/PNG格式图片的方式体验算法效果。
 
 ### X86平台
 
@@ -46,7 +46,7 @@ mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
 #### 使用摄像头发布图片
 
@@ -197,7 +197,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91
 ```
 
-输出log显示，发布算法推理结果的topic为`hobot_dnn_detection`，订阅图片的topic为`/hbmem_img`，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，地平线RDK上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
+输出log显示，发布算法推理结果的topic为`hobot_dnn_detection`，订阅图片的topic为`/hbmem_img`，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，RDK上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
 
 原始图片：
 ![raw](/../static/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg)

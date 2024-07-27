@@ -37,15 +37,15 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. RDK已安装MIPI或者USB摄像头。
 
-4. 和地平线RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+4. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -76,11 +76,11 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
 运行小车手势控制App后，通过“666手势/Awesome”手势控制小车前进，“yeah/Victory”手势控制小车后退，“大拇指向右/ThumbRight”手势控制小车右转，“大拇指向左/ThumbLeft”手势控制小车左转。其中左转/右转分别是向人的左/右方向（大拇指的指向）转动。
 
-App启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为地平线RDK的IP地址）。
+App启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为RDK的IP地址）。
 
 PC端启动仿真环境：
 
@@ -202,7 +202,7 @@ ros2 launch gesture_control gesture_control.launch.py
 
 ## 结果分析
 
-在地平线RDK运行终端输出如下信息：
+在RDK运行终端输出如下信息：
 
 ```shell
 [gesture_control-7] [WARN] [1652965757.159500951] [GestureControlEngine]: frame_ts_ms: 3698315358, track_id: 2, tracking_sta: 1, gesture: 14
@@ -217,7 +217,7 @@ ros2 launch gesture_control gesture_control.launch.py
 
 从时间戳frame_ts_ms: 3698315358开始通过666手势（gesture: 14）控制小车以0.5m/s的速度前进运动（do move, direction: 0, step: 0.500000）。
 
-PC端在终端使用`ros2 topic list`命令可以查询到地平线RDK的topic信息：
+PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 
 ```shell
 $ ros2 topic list
@@ -232,9 +232,9 @@ $ ros2 topic list
 /rosout
 ```
 
-其中`/image`是地平线RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/hobot_hand_gesture_detection`是地平线RDK发布的包含手势识别信息的算法msg，`/cmd_vel`是地平线RDK发布的运动控制指令。
+其中`/image`是RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/hobot_hand_gesture_detection`是RDK发布的包含手势识别信息的算法msg，`/cmd_vel`是RDK发布的运动控制指令。
 
-PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到地平线RDK发布的运动控制指令：
+PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到RDK发布的运动控制指令：
 
 ```shell
 linear:

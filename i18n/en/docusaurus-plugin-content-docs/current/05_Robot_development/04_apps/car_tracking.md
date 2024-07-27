@@ -27,15 +27,15 @@ Code Repository:  (https://github.com/D-Robotics/body_tracking)
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on RDK.
 
-3. MIPI or USB camera has been installed on Horizon RDK.
+3. MIPI or USB camera has been installed on RDK.
 
-4. The PC used for Horizon RDK should be in the same network segment (either wired or connected to the same wireless network, with the first three parts of the IP address being consistent). The PC should have the following environment installed:
+4. The PC used for RDK should be in the same network segment (either wired or connected to the same wireless network, with the first three parts of the IP address being consistent). The PC should have the following environment installed:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -66,9 +66,9 @@ Code Repository:  (https://github.com/D-Robotics/body_tracking)
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
-After running the app, the car motion control package will select the human body closest to the front of the car (with the largest width of the body detection box) as the tracking target. When the human body is far from the car, the car starts to move forward to approach the body and keeps it in front of the car.After the app is launched, the sensor will publish images and corresponding algorithm results, which can be rendered and displayed on the PC browser. (Enter http://IP:8000 in the browser, where IP is the IP address of the Horizon RDK).
+After running the app, the car motion control package will select the human body closest to the front of the car (with the largest width of the body detection box) as the tracking target. When the human body is far from the car, the car starts to move forward to approach the body and keeps it in front of the car.After the app is launched, the sensor will publish images and corresponding algorithm results, which can be rendered and displayed on the PC browser. (Enter http://IP:8000 in the browser, where IP is the IP address of the RDK).
 
 Launch the simulation environment on the PC side:
 
@@ -168,7 +168,7 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 ## Result Analysis
 
 
-The following information is outputted in the terminal when running on the Horizon RDK.
+The following information is outputted in the terminal when running on the RDK.
 
 ```text
 [body_tracking-7] [WARN] [1653430533.523069034] [ParametersClass]: TrackCfg param are
@@ -202,9 +202,9 @@ $ ros2 topic list
 /parameter_events
 /rosout
 ```
-Among them, `/image` is the image captured by the Horizon RDK from the MIPI sensor and encoded in JPEG format, `/hobot_mono2d_body_detection` is the algorithm message published by the Horizon RDK which contains the human body detection results, and `/cmd_vel` is the motion control command published by the Horizon RDK.
+Among them, `/image` is the image captured by the RDK from the MIPI sensor and encoded in JPEG format, `/hobot_mono2d_body_detection` is the algorithm message published by the RDK which contains the human body detection results, and `/cmd_vel` is the motion control command published by the RDK.
 
-On the PC, using the `ros2 topic echo /cmd_vel` command on the terminal can view the motion control commands issued by Horizon RDK:
+On the PC, using the `ros2 topic echo /cmd_vel` command on the terminal can view the motion control commands issued by RDK:
 
 ```shell
 linear:

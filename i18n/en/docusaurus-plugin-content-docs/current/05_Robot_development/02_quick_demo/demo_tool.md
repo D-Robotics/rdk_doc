@@ -28,19 +28,19 @@ Code repository:  (https://github.com/D-Robotics/hobot_image_publisher.git)
 
 ### Preparations
 
-#### Horizon RDK
+#### RDK
 
-1. The Horizon RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. The Horizon RDK has successfully installed tros.b.
+2. The RDK has successfully installed tros.b.
 
-3. The Horizon RDK can be accessed via network from a PC.
+3. The RDK can be accessed via network from a PC.
 
 ### Usage of a image
 
 Read a local NV12 image in a loop and publish it. Use the image codec module to compress the image and encode it into JPEG format, and display the image on the PC's web interface.
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -86,7 +86,7 @@ webserver has launch
 
 The log output shows that the webserver has been started, and hobot_image_pub, hobot_codec_republish, and websocket are all running properly.
 
-To view the image display effect, open a web browser on the PC and enter  `http://IP:8000` (where IP is the IP address of the Horizon RDK):
+To view the image display effect, open a web browser on the PC and enter  `http://IP:8000` (where IP is the IP address of the RDK):
 
 ![hobot_img_pub](/../static/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png )
 
@@ -94,7 +94,7 @@ To view the image display effect, open a web browser on the PC and enter  `http:
 
 Read the video.list file locally, obtain the paths of the video files in the list file, and publish them in a loop. First, use the image codec module to decode the video stream into NV12 format images, and then use the image codec module to compress and encode the images into JPEG format for display on the web of the PC.
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -141,7 +141,7 @@ webserver has launched
 
 The output log shows that the webserver has started and hobot_image_pub, hobot_codec_republish, and websocket are all running normally.
 
-To view the image display effect, enter `http://IP:8000` in the browser on the PC (where IP is the IP address of the Horizon RDK):
+To view the image display effect, enter `http://IP:8000` in the browser on the PC (where IP is the IP address of the RDK):
 
 ![hobot_img_pub](/../static/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg )
 
@@ -152,7 +152,7 @@ To view the image display effect, enter `http://IP:8000` in the browser on the P
 
 Trigger is a mechanism that detects changes in the subscribed messages of the Trigger module, such as changes in the number of detection boxes or changes in car control information. It triggers corresponding events to record the specified time interval of ROS2 messages, helping developers locate and reproduce perception, control, and other issues in robot scenes.
 
-The trigger_node package is a Trigger module developed by Horizon based on ROS2, which is used to obtain specified rosbag data after triggering events. The package supports direct subscription to ai_msg/msg/PerceptionTargets topics. In the topic callback function, Trigger events are triggered and rosbag packages related to the Trigger events are recorded. Finally, the Trigger event information is saved and published in std_msg/msg/String type Trigger event topics.
+The trigger_node package is a Trigger module developed by D-Robotics based on ROS2, which is used to obtain specified rosbag data after triggering events. The package supports direct subscription to ai_msg/msg/PerceptionTargets topics. In the topic callback function, Trigger events are triggered and rosbag packages related to the Trigger events are recorded. Finally, the Trigger event information is saved and published in std_msg/msg/String type Trigger event topics.
 
 This chapter provides an example of using the Trigger module. The example demonstrates the functionality of subscribing to garbage detection box information and triggering a Trigger event based on whether the number of garbage detection boxes is greater than or equal to 3.
 
@@ -239,15 +239,15 @@ struct Config {
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Horizon RDK has burned the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
 **Publish Images with MIPI Camera**
 

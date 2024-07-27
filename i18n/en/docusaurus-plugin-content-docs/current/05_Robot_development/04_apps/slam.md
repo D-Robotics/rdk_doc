@@ -11,21 +11,21 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-SLAM (Simultaneous Localization and Mapping) is a technique used to simultaneously estimate the location of a robot and create a map of its environment. In this chapter, we will use ROS2 SLAM-Toolbox to perform mapping on a simulated car in Gazebo, and observe the mapping results through Rviz2. The SLAM-Toolbox runs on the Horizon RDK, while Gazebo and Rviz2 run on a PC in the same network as the Horizon RDK.
+SLAM (Simultaneous Localization and Mapping) is a technique used to simultaneously estimate the location of a robot and create a map of its environment. In this chapter, we will use ROS2 SLAM-Toolbox to perform mapping on a simulated car in Gazebo, and observe the mapping results through Rviz2. The SLAM-Toolbox runs on the RDK, while Gazebo and Rviz2 run on a PC in the same network as the RDK.
 
 ## Supported Platforms
 
 | Platform | System | Function |
 | -------- | ---------------- | -------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the simulation environment on the PC and perform SLAM mapping on the Horizon RDK, finally display the mapping results using Rviz2. |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the simulation environment on the PC and perform SLAM mapping on the RDK, finally display the mapping results using Rviz2. |
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 image provided by Horizon.
+1. The RDK has been flashed with the  Ubuntu 20.04/22.04 image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
 3. After the successful installation of tros.b, install the SLAM-Toolbox:
 
@@ -62,7 +62,7 @@ Please execute the following command before installing:
    sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
 :::
 
-4. The PC, which is in the same network as the Horizon RDK, has been installed with Ubuntu 20.04, ROS2 Foxy Desktop version, Gazebo simulation environment, and the data visualization tool Rviz2.
+4. The PC, which is in the same network as the RDK, has been installed with Ubuntu 20.04, ROS2 Foxy Desktop version, Gazebo simulation environment, and the data visualization tool Rviz2.
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -97,9 +97,9 @@ Please execute the following command before installing:
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
-This section introduces how to use Horizon RDK to run SLAM and observe mapping effect using PC.
+This section introduces how to use RDK to run SLAM and observe mapping effect using PC.
 
 Start the simulation environment on the PC:
 
@@ -154,7 +154,7 @@ ros2 launch turtlebot3_bringup rviz2.launch.py
 After opening Rviz2, the "map" visualization option needs to be added to display the built map. The steps are as follows:
 ![](/../static/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg)
 
-Run SLAM-Toolbox on the Horizon RDK:
+Run SLAM-Toolbox on the RDK:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -207,7 +207,7 @@ Control the robot car to move. As the robot car detects more environmental infor
 
 ## Result Analysis
 
-The terminal output of running on the Horizon RDK board is as follows:
+The terminal output of running on the RDK board is as follows:
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-10-06-40-34-204213-ubuntu-5390

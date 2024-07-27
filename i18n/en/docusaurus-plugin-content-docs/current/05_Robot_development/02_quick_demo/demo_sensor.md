@@ -24,21 +24,21 @@ Code repository:  (https://github.com/D-Robotics/hobot_usb_cam.git)
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Confirm that the USB camera is working properly and connect it to the USB slot of the Horizon RDK.
+1. Confirm that the USB camera is working properly and connect it to the USB slot of the RDK.
 
-2. Horizon RDK has burned the  Ubuntu 20.04/22.04 system image provided by Horizon.
+2. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-3. Horizon RDK has successfully installed tros.b.
+3. RDK has successfully installed tros.b.
 
-4. Confirm that the PC can access the Horizon RDK via the network.
+4. Confirm that the PC can access the RDK via the network.
 
 ### How to Use (default usb_pixel_format is mjpeg)
 
-Taking Horizon RDK as an example:
+Taking RDK as an example:
 
-1. Log in to the Horizon RDK via SSH and confirm the device name of the USB camera. Here, let's take `/dev/video8` as an example.
+1. Log in to the RDK via SSH and confirm the device name of the USB camera. Here, let's take `/dev/video8` as an example.
 
 2. Start the USB camera using the following command:
 
@@ -120,14 +120,14 @@ Taking Horizon RDK as an example:
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
     ```
 
-5. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000` (where IP is the Horizon RDK IP address). Click on the upper left corner to view the real-time image from the USB camera.
+5. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000` (where IP is the RDK IP address). Click on the upper left corner to view the real-time image from the USB camera.
 ![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 ### Usage Method 2 (usb_pixel_format is yuyv2rgb)
 
-Here is an example using the Horizon RDK platform:
+Here is an example using the RDK platform:
 
-1. SSH into the Horizon RDK and confirm the USB camera device name, for example `/dev/video8`.
+1. SSH into the RDK and confirm the USB camera device name, for example `/dev/video8`.
 
 2. Start the USB camera using the following command:
 
@@ -236,7 +236,7 @@ Here is an example using the Horizon RDK platform:
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_mjpeg websocket_only_show_image:=true
     ```
 
-6. Open a browser on your PC (chrome/firefox/edge) and enter  `http://IP:8000` (IP is the Horizon RDK IP address), click on the top left to display the web side to view the real-time image from the USB camera
+6. Open a browser on your PC (chrome/firefox/edge) and enter  `http://IP:8000` (IP is the RDK IP address), click on the top left to display the web side to view the real-time image from the USB camera
     ![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
     
 ### Notes
@@ -320,25 +320,25 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Confirm that the camera is correctly connected to Horizon RDK. For example, the connection between the F37 camera and RDK X3 is shown in the following figure:
+1. Confirm that the camera is correctly connected to RDK. For example, the connection between the F37 camera and RDK X3 is shown in the following figure:
 
     ![image-X3-PI-Camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X3-PI-Camera.png)
 
-2. Horizon RDK is flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon
+2. RDK is flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics
 
-3. Horizon RDK has successfully installed tros.b
+3. RDK has successfully installed tros.b
 
-4. Confirm that the PC can access Horizon RDK through the network
+4. Confirm that the PC can access RDK through the network
 
 ### Usage
 
-#### Horizon RDK Platform
+#### RDK Platform
 
 Take the F37 as an example to introduce the method of acquiring and previewing images:
 
-1. SSH into Horizon RDK and determine the camera model, take `F37` as an example, and determine the path to read the camera calibration file, take `/opt/tros/lib/mipi_cam/config/F37_calibration.yaml` as an example.
+1. SSH into RDK and determine the camera model, take `F37` as an example, and determine the path to read the camera calibration file, take `/opt/tros/lib/mipi_cam/config/F37_calibration.yaml` as an example.
 
 2. Start the `hobot_sensor` node with the following command:
 
@@ -408,7 +408,7 @@ Take the F37 as an example to introduce the method of acquiring and previewing i
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the Horizon RDK) to see the real-time display of the F37 camera's output.
+5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the F37 camera's output.
     ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-f37-codec.png "Real-time image")
 
 6. To query the camera's intrinsic parameters on the PC (the specific data may vary depending on the calibrated camera file), use the following command and view the results:
@@ -550,18 +550,18 @@ Code Repository:  (https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 ### Preparations
 
-#### Horizon RDK Platform
+#### RDK Platform
 
-1. Make sure the camera is correctly connected to the Horizon RDK. The connection for RGBD module to RDK X3 is shown as below:
+1. Make sure the camera is correctly connected to the RDK. The connection for RGBD module to RDK X3 is shown as below:
 
     ![hobot_rgbd](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
 
-    **Note: The RGBD module needs an additional adapter board to connect to Horizon RDK X3**.
-2. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+    **Note: The RGBD module needs an additional adapter board to connect to RDK X3**.
+2. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-3. Horizon RDK has successfully installed tros.b.
+3. RDK has successfully installed tros.b.
 
-4. Make sure the PC can access the Horizon RDK through the network.
+4. Make sure the PC can access the RDK through the network.
 
 5. Install ros2 foxy version and rviz2 on the PC, using the following command:
 
@@ -571,11 +571,11 @@ Code Repository:  (https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
 Taking CP3AM as an example, the method of acquiring and previewing camera data is introduced below:
 
-1. SSH into the Horizon RDK and start the hobot_sensor node with the following command:
+1. SSH into the RDK and start the hobot_sensor node with the following command:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">

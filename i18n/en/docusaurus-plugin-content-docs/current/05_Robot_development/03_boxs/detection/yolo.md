@@ -26,19 +26,19 @@ Use cases: As a representative algorithm in single-stage object detection, the Y
 
 ## Preparations
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
-3. Horizon RDK has installed MIPI or USB cameras. If there is no camera available, the algorithm can be experienced offline by local JPEG/PNG images or MP4, H.264, and H.265 videos.
+3. RDK has installed MIPI or USB cameras. If there is no camera available, the algorithm can be experienced offline by local JPEG/PNG images or MP4, H.264, and H.265 videos.
 
-4. Confirm that the PC can access the Horizon RDK through the network.
+4. Confirm that the PC can access the RDK through the network.
 
 ## Usage
 
-### Horizon RDK X3 and RDK X3 Module
+### RDK X3 and RDK X3 Module
 
 #### Use MIPI Cameras to Publish Images 
 
@@ -157,7 +157,7 @@ The terminal output during execution shows the following information:
 
 The log shows that the topic for publishing the inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`.
 
-You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the Horizon RDK):
+You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
 
 ![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg)
 

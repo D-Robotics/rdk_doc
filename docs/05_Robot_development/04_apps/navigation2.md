@@ -13,22 +13,22 @@ import TabItem from '@theme/TabItem';
 
 Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全的方式让移动机器人从A点移动到B点。Nav2也可以应用于其他机器人导航应用，例如动态点跟踪，在这个过程中需要完成动态路径规划、计算电机速度、避免障碍等。
 
-[SLAM建图](./slam)介绍了如何运行SLAM算法进行建图，本章节介绍如何基于建立的地图使用Nav2进行导航。同样使用Gazebo在PC端创建虚拟环境和小车，使用Rviz2设置导航目的地，地平线RDK运行Nav2程序导航。
+[SLAM建图](./slam)介绍了如何运行SLAM算法进行建图，本章节介绍如何基于建立的地图使用Nav2进行导航。同样使用Gazebo在PC端创建虚拟环境和小车，使用Rviz2设置导航目的地，RDK运行Nav2程序导航。
 
 
 ## 支持平台
 
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在地平线RDK启动导航功能，最后通过Rviz2展示导航效果 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装tros.b。
+2. RDK已成功安装tros.b。
 
 3. tros.b成功安装后，安装Nav2。
 
@@ -53,7 +53,7 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
  </TabItem>
  </Tabs>
 
-4. 和地平线RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
+4. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -86,9 +86,9 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
-本章节介绍如何在PC端搭建仿真环境，以及进行导航目的地设置，地平线RDK运行导航功能，并查看导航效果。
+本章节介绍如何在PC端搭建仿真环境，以及进行导航目的地设置，RDK运行导航功能，并查看导航效果。
 
 1. **PC端**启动gazebo仿真环境
 
@@ -118,7 +118,7 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
    ![](/../static/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
 
-1. **地平线RDK**启动导航功能
+1. **RDK**启动导航功能
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">

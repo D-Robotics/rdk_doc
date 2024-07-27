@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 SLAM指定位与地图构建（Simultaneous Localization and Mapping，简称SLAM）,ORB-SLAM3是其中研究较多的算法之一。TogetheROS.Bot为了方便开发者开发基于视觉SLAM的应用，集成、改进和优化了ORB-SLAM3。
 
 1. 集成和适配SuperPoint特征提取模型以优化视觉SLAM前端图像特征提取的鲁棒性，并降低CPU的运行负载。
-   并经过地平线浮点模型转换工具转换成地平线RDK可运行的定点模型，以降低RDK X3的CPU运行负载。
+   并经过D-Robotics浮点模型转换工具转换成RDK可运行的定点模型，以降低RDK X3的CPU运行负载。
 2. 使用ROS2封装了ORB-SLAM3的点云和位姿信息发布以及图像和IMU的订阅。
 3. 增加了Track异步接口，分离特征提取和特征点跟踪为不同的线程，提高了处理帧率，有利于实际的工程应用。
 4. 新增词袋库创建程序，帮助开发者构建自己的词袋库。
@@ -39,11 +39,11 @@ SLAM建图案例：[4.1 SLAM建图](../../apps/slam)
 
 ## 准备工作
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装tros.bot。
+2. RDK已成功安装tros.bot。
 
-3. 地平线RDK已成功安装ORB-SLAM3算法包，安装命令：
+3. RDK已成功安装ORB-SLAM3算法包，安装命令：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -64,11 +64,11 @@ SLAM建图案例：[4.1 SLAM建图](../../apps/slam)
    </TabItem>
    </Tabs>
 
-5. 地平线RDK已安装RealSense D435i相机。
+5. RDK已安装RealSense D435i相机。
 
 6. 开源数据集EuRoC。
 
-7. 和地平线RDK在同一网段的PC，PC已安装Ubuntu 20.04 & ROS2 Foxy桌面版/Ubuntu 22.04 & ROS2 Humble桌面版，数据可视化工具Rviz2。
+7. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04 & ROS2 Foxy桌面版/Ubuntu 22.04 & ROS2 Humble桌面版，数据可视化工具Rviz2。
 
 ## 使用介绍
 
@@ -230,7 +230,7 @@ ros2 run orb_slam3_example_ros2 mono ./ORBvoc.txt ./Examples/Monocular/RealSense
 
 X3端的视觉SLAM节点启动并接收到相机图像数据后开始打印当前处理帧率“fps”。
 
-同时在PC端（和地平线RDK在同一网段）打开Rviz2可视化软件，添加相关可视化信息，并订阅以下话题：
+同时在PC端（和RDK在同一网段）打开Rviz2可视化软件，添加相关可视化信息，并订阅以下话题：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2_1.png)
 

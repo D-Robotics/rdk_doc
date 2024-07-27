@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简称SLAM）。
 本章节使用ROS2的SLAM-Toolbox作为建图算法，在Gazebo中控制小车行驶建立地图，并通过Rviz2观察建图效果。
-其中SLAM-Toolbox运行在地平线RDK上，Gazebo和Rviz2运行在与地平线RDK同一网段的PC上。
+其中SLAM-Toolbox运行在RDK上，Gazebo和Rviz2运行在与RDK同一网段的PC上。
 
 ## 支持平台
 
@@ -24,11 +24,11 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 3. tros.b成功安装后，安装SLAM-Toolbox
 
@@ -65,7 +65,7 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
    sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
 :::
 
-4. 和地平线RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
+4. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -100,9 +100,9 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
-本小节介绍如何使用地平线RDK运行SLAM算法，并使用PC观察建图效果。
+本小节介绍如何使用RDK运行SLAM算法，并使用PC观察建图效果。
 
 PC端启动仿真环境：
 
@@ -157,7 +157,7 @@ ros2 launch turtlebot3_bringup rviz2.launch.py
 打开Rviz2后，需要添加“map”可视化选项，用于展示建立的地图，步骤如下所示：
 ![](/../static/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg)
 
-地平线RDK板端运行SLAM-Toolbox：
+RDK板端运行SLAM-Toolbox：
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -213,7 +213,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ## 结果分析
 
-在地平线RDK板端运行终端输出如下信息：
+在RDK板端运行终端输出如下信息：
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-10-06-40-34-204213-ubuntu-5390

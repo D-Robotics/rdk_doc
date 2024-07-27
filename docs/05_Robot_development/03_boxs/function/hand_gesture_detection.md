@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
 应用场景：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 
-小车手势控制案例：[4.5. 小车手势控制 — 地平线机器人平台用户手册](../../apps/car_gesture_control)
+小车手势控制案例：[小车手势控制](/docs/05_Robot_development/04_apps/car_gesture_control.md)
 
 基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.horizon.cc/forumDetail/112555512834430487)
 
@@ -48,15 +48,15 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. RDK已安装MIPI或者USB摄像头。
 
-4. 确认PC机能够通过网络访问地平线RDK。
+4. 确认PC机能够通过网络访问RDK。
 
 ## 使用介绍
 
@@ -175,6 +175,6 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 
 输出log显示，订阅到的算法msg中有一个hand（包含人手框和人手关键点检测结果），手势识别算法输出的手势分类结果是“Palm”手势（分类结果为5）。
 
-在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为地平线RDK的IP地址）：
+在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)

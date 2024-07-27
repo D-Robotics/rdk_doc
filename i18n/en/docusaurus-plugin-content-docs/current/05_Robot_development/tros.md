@@ -4,20 +4,20 @@ sidebar_position: 0
 ---
 
 # TogetheROS.Bot
-TogetheROS.Bot is a robot operating system launched by Horizon Robotics for robot manufacturers and developers. It aims to unleash the intelligent potential of robot scenarios, enabling developers and commercial customers to develop robots efficiently and conveniently, and create competitive intelligent robot products.
+TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and developers. It aims to unleash the intelligent potential of robot scenarios, enabling developers and commercial customers to develop robots efficiently and conveniently, and create competitive intelligent robot products.
 
-Horizon Robotics Developer Kits, referred to as [Horizon RDK](https://developer.horizon.cc/documents_rdk/), are built on Horizon intelligent chips, including **RDK X3 (Sunrise X3)**, **RDK X3 Module (Sunrise X3 Module)**. Currently, TogetheROS.Bot supports running on the Horizon RDK platform. The Horizon RDK platform covers all the functions shown in the diagram below, improving user algorithm development and verification efficiency, and enabling quick migration to the Horizon RDK platform.
+TogetheROS.Bot supports running on the RDK platform. The RDK platform covers all the functions shown in the diagram below, improving user algorithm development and verification efficiency, and enabling quick migration to the RDK platform.
 
 ![TROS-Diagram](/../static/img/05_Robot_development/image/TogetheROS.png)
 
 The code of TogetheROS.Bot is hosted on GitHub under the D-Robotics organization link: [D-Robotics](https://github.com/D-Robotics).
 
 ## Communication
-Communication is Horizon's optimized and extended communication component on ROS2 Foxy/Humble version.
+Communication is D-Robotics's optimized and extended communication component on ROS2 Foxy/Humble version.
 
 Main Features include:
 
-The blue sections indicate the modules optimized and added by Horizon, and the main features of TogetheROS.Bot are as follows:
+The blue sections indicate the modules optimized and added by D-Robotics, and the main features of TogetheROS.Bot are as follows:
 
 - Provide "hobot_sensor" to adapt to commonly used robot sensors, saving development time and focusing on core competitiveness.
 - Provide "hobot_dnn" to simplify on-board algorithm model inference and deployment, unlocking BPU computing power and lowering the threshold for intelligent algorithm usage.
@@ -30,7 +30,7 @@ The blue sections indicate the modules optimized and added by Horizon, and the m
 - Support minimal and modular pruning, facilitating deployment in resource-constrained embedded products as needed.
 
 ## Boxs
-Boxs is an intelligent algorithm package launched by Horizon Robotics for robot manufacturers and developers based on TogetheROS.Bot. It aims to improve the efficiency of integrating and implementing robot intelligent algorithms based on the Horizon robot operating system.
+Boxs is an intelligent algorithm package launched by D-Robotics for robot manufacturers and developers based on TogetheROS.Bot. It aims to improve the efficiency of integrating and implementing robot intelligent algorithms based on the D-Robotics robot operating system.
 
 - Image detection algorithms such as FCOS, YOLO, FasterRCNN, Efficientdet, Mobilenet_ssd;
 - Image classification models such as Mobilenet
@@ -38,7 +38,7 @@ Boxs is an intelligent algorithm package launched by Horizon Robotics for robot 
 - Application algorithm models such as human detection and tracking, gesture recognition, human hand keypoint detection, monocular height network, monocular 3D detection, speech processing,VIO,etc.
 
 ## Apps
-Apps are algorithm application examples developed based on the Horizon robot operating system's Communication and Boxs. They aim to establish a complete chain of image input, perception, strategy, etc., demonstrate application effects, and accelerate the development efficiency of customer demos.
+Apps are algorithm application examples developed based on the D-Robotics robot operating system's Communication and Boxs. They aim to establish a complete chain of image input, perception, strategy, etc., demonstrate application effects, and accelerate the development efficiency of customer demos.
 
 ## Common Term Definitions
 

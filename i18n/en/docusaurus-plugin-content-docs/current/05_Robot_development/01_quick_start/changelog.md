@@ -143,4 +143,3 @@ Bug Fixes:
 Other Updates:
 
 - Updated the launch script for examples to reference dependency modules' launch scripts and configure parameters.
-- Updated the horizon logo on the display end of the websocket.

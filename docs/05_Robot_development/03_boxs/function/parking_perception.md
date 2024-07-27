@@ -51,11 +51,11 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### X86平台
 
@@ -67,7 +67,7 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 
 package对外发布包含语义分割和目标检测信息的算法msg，用户可以订阅发布msg用于应用开发。
 
-### 地平线RDK平台
+### RDK平台
 
 **mipi摄像头发布图片**
 
@@ -250,7 +250,7 @@ package初始化后，在运行终端输出如下信息：
 
 **使用单张回灌图片**
 
-示例中读取本地图片推理的结果会渲染到图片上，在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为地平线RDK的IP地址），打开界面右上角设置。
+示例中读取本地图片推理的结果会渲染到图片上，在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址），打开界面右上角设置。
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png)
 

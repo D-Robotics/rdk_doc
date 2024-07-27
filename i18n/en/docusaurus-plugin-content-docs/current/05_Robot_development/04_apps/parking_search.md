@@ -55,13 +55,13 @@ Note: In actual detection, due to the fact that the detection accuracy of the al
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. The Horizon RDK has successfully installed TogetheROS.Bot.
+2. The RDK has successfully installed TogetheROS.Bot.
 
-3. The Horizon RDK has installed a MIPI or USB camera.
+3. The RDK has installed a MIPI or USB camera.
 
 4. The car is used as the control device:
 
@@ -69,15 +69,15 @@ Note: In actual detection, due to the fact that the detection accuracy of the al
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 Place the car on a level surface, adjust the camera angle to be horizontal, and run the Parking Search App. The car will automatically make decisions and control its movement based on the results of the parking area detection algorithm until it finds a parking space and stops.
 
-After the app is launched, you can view the images published by the sensors and the corresponding algorithm results on the PC browser (enter http://IP:8000 in the browser, where IP is the IP address of the Horizon RDK).
+After the app is launched, you can view the images published by the sensors and the corresponding algorithm results on the PC browser (enter http://IP:8000 in the browser, where IP is the IP address of the RDK).
 
 Open the Web interface and click on the settings in the upper right corner of the page. Select the "Full Image Segmentation" option to display the rendered effect.
 
-Start the car and run the control node on the Horizon RDK:
+Start the car and run the control node on the RDK:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -102,7 +102,7 @@ ros2 run originbot_base originbot_base
 
 </Tabs>
 
-After the startup is successful, the Horizon RDK will output log information:
+After the startup is successful, the RDK will output log information:
 
 ```shell
 Loading parameters:
@@ -174,7 +174,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ## Result Analysis
 
-1. When the car searches and moves forward in the driving area, the log information is outputted in the Horizon RDK terminal. The car is controlled to move forward at a speed of 0.1m/s (do move, direction: 0, step: 0.100000).
+1. When the car searches and moves forward in the driving area, the log information is outputted in the RDK terminal. The car is controlled to move forward at a speed of 0.1m/s (do move, direction: 0, step: 0.100000).
 
 ```shell
 [parking_search-4] [WARN] [1661942399.306904646] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -186,7 +186,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
 
-2. When the car finds a parking space and turns, the log information is outputted in the Horizon RDK terminal:
+2. When the car finds a parking space and turns, the log information is outputted in the RDK terminal:
 
 ```shell
 [parking_search-4] [WARN] [1662539779.408424498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
@@ -197,7 +197,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_perception-3] [WARN] [1662539779.595755290] [parking_perception]: input fps: 29.87, out fps: 29.63
 [parking_search-4] [WARN] [1662539779.604272498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
 
-3. When the car determines the parking space and moves forward to stop, the Horizon RDK terminal outputs log information:
+3. When the car determines the parking space and moves forward to stop, the RDK terminal outputs log information:
 
 ```shell
 [parking_search-4] [WARN] [1662539796.196264298] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -215,7 +215,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](/../static/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
 
-On the PC terminal, you can use the `ros2 topic list` command to query the topic information of the Horizon RDK:
+On the PC terminal, you can use the `ros2 topic list` command to query the topic information of the RDK:
 
 ```shell
 $ ros2 topic list
@@ -231,4 +231,4 @@ $ ros2 topic list
 /tf
 ```
 
-Among them, `/image_jpeg` is the JPEG-encoded image published by the Horizon RDK after capturing images from the MIPI sensor, `/ai_msg_parking_perception` is the algorithm message published by the Horizon RDK containing parking detection information, and `/cmd_vel` is the motion control command published by the Horizon RDK.
+Among them, `/image_jpeg` is the JPEG-encoded image published by the RDK after capturing images from the MIPI sensor, `/ai_msg_parking_perception` is the algorithm message published by the RDK containing parking detection information, and `/cmd_vel` is the motion control command published by the RDK.

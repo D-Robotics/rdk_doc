@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The mono2d_trash_detection package is an example of 2D garbage object detection algorithm developed based on the hobot_dnn package. Unlike previous functionality demonstrations, this example will demonstrate how to train models based on open-source frameworks, convert models using the Horizon toolchain, and deploy the algorithm in the Horizon Robot Operating System.
+The mono2d_trash_detection package is an example of 2D garbage object detection algorithm developed based on the hobot_dnn package. Unlike previous functionality demonstrations, this example will demonstrate how to train models based on open-source frameworks, convert models using the D-Robotics toolchain, and deploy the algorithm in the D-Robotics Robot Operating System.
 
 This package supports subscribing to topics of type sensors/msg/Image directly and supports inferring using local images. The algorithm information is published through topics and the results are rendered and visualized on a web page. When inferring with local images, the rendered images are saved in the current directory.
 
@@ -37,19 +37,19 @@ The supported object detection categories for the algorithm are as follows:
 
 Since we do not consider the internal structure information of the algorithm model during deployment, we only focus on the pre-processing and post-processing steps of the algorithm. The pre-processing steps include image reading and image resizing, while the post-processing steps include detection header decoders and non-maximum suppression (NMS). These pre-processing and post-processing methods are consistent across most similar models and have strong universality. Therefore, the basic deployment package can be used for quick deployment.
 
-The Horizon Robot Operating System provides the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) deployment package for rapid deployment of basic algorithms. The currently supported common algorithms include image classification, 2D object detection, and semantic segmentation. Among them, 2D object detection integrates Fasterrcnn, Fcos, yolov2, yolov3, yolov5, SSD, and efficientnet for user selection.
+The D-Robotics Robot Operating System provides the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) deployment package for rapid deployment of basic algorithms. The currently supported common algorithms include image classification, 2D object detection, and semantic segmentation. Among them, 2D object detection integrates Fasterrcnn, Fcos, yolov2, yolov3, yolov5, SSD, and efficientnet for user selection.
 
-In this example, the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) is used to adapt custom detection models by replacing the Horizon cross-compiled model, post-processing configuration files, and detection category configuration files.
+In this example, the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) is used to adapt custom detection models by replacing the D-Robotics cross-compiled model, post-processing configuration files, and detection category configuration files.
 
 If the pre-processing and post-processing steps are different from the above models and cannot be adapted quickly, the custom deployment method can refer to the [dnn_node_sample](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) example.
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. Obtain the Horizon cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
+3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
 
 5. Detection category configuration file (such as [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
 
@@ -59,7 +59,7 @@ If the pre-processing and post-processing steps are different from the above mod
 
 2. Tros.b has been successfully installed on the X86 environment.
 
-3. Obtain the Horizon cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin) in this example).
+3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin) in this example).
 
 4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
 
@@ -105,13 +105,13 @@ Complete algorithm development and deployment workflow diagram:
 
 The first step, Paddle model training, and the second step, toolchain model conversion, will be introduced in the links below. Here, we will mainly introduce the on-board deployment process.
 
-Model training: [PPYOLO Trash Detection + Horizon RDK Deployment (Part 1)](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
+Model training: [PPYOLO Trash Detection + RDK Deployment (Part 1)](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
 
-Model conversion: [PPYOLO Trash Detection + Horizon RDK Deployment (Part 2)](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
+Model conversion: [PPYOLO Trash Detection + RDK Deployment (Part 2)](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
 
 The package publishes algorithm messages that include semantic segmentation and object detection information, which users can subscribe to for application development.
 
-### Horizon RDK
+### RDK
 
 **Publish Images using MIPI camera**
 

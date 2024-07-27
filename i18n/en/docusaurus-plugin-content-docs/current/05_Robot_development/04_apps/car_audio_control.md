@@ -29,13 +29,13 @@ Code repository:  (https://github.com/D-Robotics/audio_control.git)
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK is flashed with the  Ubuntu 20.04/22.04 image provided by Horizon.
+1. The RDK is flashed with the  Ubuntu 20.04/22.04 image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. The smart voice algorithm package has been successfully installed on the Horizon RDK. Installation command: 
+3. The smart voice algorithm package has been successfully installed on the RDK. Installation command: 
    
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -56,9 +56,9 @@ Code repository:  (https://github.com/D-Robotics/audio_control.git)
    </TabItem>
    </Tabs>
 
-4. The compatible audio board has been successfully connected to the Horizon RDK (refer to the [Smart Voice section](../boxs/function/hobot_audio.md) for more details).
+4. The compatible audio board has been successfully connected to the RDK (refer to the [Smart Voice section](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/function/hobot_audio.md) for more details).
 
-5. The PC is on the same network (either wired or connected to the same Wi-Fi network) as the Horizon RDK. The PC-side environment package requirements include:
+5. The PC is on the same network (either wired or connected to the same Wi-Fi network) as the RDK. The PC-side environment package requirements include:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -118,7 +118,7 @@ After successful launch, the simulation environment shows the following effect o
 
 ![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/gazebo.jpeg)
 
-Horizon RDK startup program:
+RDK startup program:
 
 1. Copy the audio configuration file
 
@@ -177,7 +177,7 @@ Horizon RDK startup program:
 
 ## Result Analysis
 
-The following information is output in the Horizon RDK running terminal:
+The following information is output in the RDK running terminal:
 
 ```shell
         This is audio control package.
@@ -185,15 +185,15 @@ The following information is output in the Horizon RDK running terminal:
 ============================================
         audio control usage
 
-Wake up device is "Hello Horizon".
+Wake up device is "Hello D-Robotics".
 Audio control command word definitions are:
         "go forward": move front.
         "go backward": move back.
 ```
 
-The above log snippet captures the output from the audio control package after its launch. The log content indicates that the wake-up word configured for this voice control module is "Hello Horizon", and the chinese command words for controlling the movement of the robot are: “向前走”、“向后退”、“向左转”，“向右转”.
+The above log snippet captures the output from the audio control package after its launch. The log content indicates that the wake-up word configured for this voice control module is "Hello D-Robotics", and the chinese command words for controlling the movement of the robot are: “向前走”、“向后退”、“向左转”，“向右转”.
 
-On the PC, you can use the `ros2 topic list` command in the terminal to query the topic information of the Horizon RDK:
+On the PC, you can use the `ros2 topic list` command in the terminal to query the topic information of the RDK:
 
 ```shell
 $ ros2 topic list
@@ -201,9 +201,9 @@ $ ros2 topic list
 /cmd_vel
 ```
 
-Among them, `/audio_smart` is the topic published by X3 that contains the algorithm message for intelligent voice results, and `/cmd_vel` is the topic published by Horizon RDK for motion control commands.
+Among them, `/audio_smart` is the topic published by X3 that contains the algorithm message for intelligent voice results, and `/cmd_vel` is the topic published by RDK for motion control commands.
 
-On the PC side, you can use the `ros2 topic echo /cmd_vel` command in the terminal to view the motion control commands published by Horizon RDK:
+On the PC side, you can use the `ros2 topic echo /cmd_vel` command in the terminal to view the motion control commands published by RDK:
 
 ```shell
 linear:

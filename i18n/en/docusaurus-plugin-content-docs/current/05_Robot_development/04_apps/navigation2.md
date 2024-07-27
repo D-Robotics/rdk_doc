@@ -13,21 +13,21 @@ import TabItem from '@theme/TabItem';
 
 Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding a safe way for a mobile robot to move from point A to point B. Nav2 can also be applied to other robot navigation applications, such as dynamic point tracking, which requires dynamic path planning, motor speed calculation, and obstacle avoidance.
 
-[SLAM Mapping](./slam) explains how to run SLAM algorithms for mapping. This section introduces how to use Nav2 for navigation based on the created map. Similarly, use Gazebo on the PC to create a virtual environment and a car, use Rviz2 to set the navigation destination, and run the Nav2 program for navigation using the Horizon RDK.
+[SLAM Mapping](./slam) explains how to run SLAM algorithms for mapping. This section introduces how to use Nav2 for navigation based on the created map. Similarly, use Gazebo on the PC to create a virtual environment and a car, use Rviz2 to set the navigation destination, and run the Nav2 program for navigation using the RDK.
 
 ## Supported Platforms
 
 | Platform                | Execution      | Function             |
 | ----------------------- | -------------- | --------------------------------- |
-| RDK X3, RDK X3 Module    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start the simulation environment on the PC and start the navigation function on the Horizon RDK, and finally display the navigation effect through Rviz2 |
+| RDK X3, RDK X3 Module    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start the simulation environment on the PC and start the navigation function on the RDK, and finally display the navigation effect through Rviz2 |
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 image provided by Horizon.
+1. The RDK has been flashed with the  Ubuntu 20.04/22.04 image provided by D-Robotics.
 
-2. The Horizon RDK has successfully installed tros.b.
+2. The RDK has successfully installed tros.b.
 
 3. After tros.b is successfully installed, install Nav2.
 
@@ -52,7 +52,7 @@ Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding 
  </TabItem>
  </Tabs>
 
-4. The PC on the same network segment as the Horizon RDK has installed Ubuntu 20.04/22.04 system, ROS2 desktop version, simulation environment Gazebo, and data visualization tool Rviz2.
+4. The PC on the same network segment as the RDK has installed Ubuntu 20.04/22.04 system, ROS2 desktop version, simulation environment Gazebo, and data visualization tool Rviz2.
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -85,9 +85,9 @@ Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding 
 
 ## User Guide
 
-### Horizon RDK
+### RDK
 
-This section describes how to set up a simulation environment on the PC, how to set the navigation destination, and how to run the navigation function with Horizon RDK and view the navigation result.
+This section describes how to set up a simulation environment on the PC, how to set the navigation destination, and how to run the navigation function with RDK and view the navigation result.
 
 1. Start the gazebo simulation environment on the **PC**.
 
@@ -117,7 +117,7 @@ This section describes how to set up a simulation environment on the PC, how to 
 
    ![](/../static/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
 
-2. Start the navigation function on the **Horizon RDK**.
+2. Start the navigation function on the **RDK**.
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">

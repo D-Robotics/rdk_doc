@@ -33,15 +33,15 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. RDK已安装MIPI或者USB摄像头。
 
-4. 确认PC机能够通过网络访问地平线RDK。
+4. 确认PC机能够通过网络访问RDK。
 
 ## 使用介绍
 
@@ -150,6 +150,6 @@ ros2 launch hand_lmk_detection hand_lmk_detection.launch.py
 
 输出log显示，程序运行成功，推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
 
-在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为地平线RDK的IP地址）：
+在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg)

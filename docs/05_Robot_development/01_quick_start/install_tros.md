@@ -9,33 +9,33 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-本章节介绍地平线RDK和X86平台如何使用apt安装TogetheROS.Bot。
+本章节介绍RDK和X86平台如何使用apt安装TogetheROS.Bot。
 
-## 地平线RDK平台
+## RDK平台
 
 前提
 
 - 已完成1.1章节环境准备工作
-- 地平线RDK已安装2.x版本系统
-- 地平线RDK能够正常访问互联网
-- 地平线RDK能够远程ssh
+- RDK已安装2.x版本系统
+- RDK能够正常访问互联网
+- RDK能够远程ssh
 
-:::caution**注意**
+:::caution 注意
 - **2.x版本tros.b仅支持2.x版本系统镜像，[1.x版本tros.b](https://developer.horizon.cc/api/v1/fileData/TogetherROS/index.html)仅支持1.x版本系统。**
 - **如果您使用的是1.x版本系统镜像，需要将[系统升级](./preparation)到2.x版本。**
-- **系统和tros.b版本号查看方法以及详细说明，请查看[FAQs](../FAQs/hardware_and_system.md)。**
+- **系统和tros.b版本号查看方法以及详细说明，请查看[FAQs](/docs/08_FAQ/03_applications_and_examples.md)。**
+:::
 
 | 依赖关系    | 1.x tros.b  | 2.x tros.b |
 | -----------| ------------| ------------|
 | 1.x系统镜像 |       √     |       x     |
 | 2.x系统镜像 |       x     |       √     |
-:::
 
 ### 安装tros.b
 
-**注意：这里使用的地平线RDK IP为10.64.61.241，安装时需要根据自己的地平线RDK IP进行替换**
+**注意：这里使用的RDK IP为10.64.61.241，安装时需要根据自己的RDK IP进行替换**
 
-登录地平线RDK：
+登录RDK：
 
 ```shell
 ssh root@10.64.61.241
@@ -75,9 +75,9 @@ hobot  tros
 
 ### 升级tros.b
 
-以地平线RDK安装为例，X86 Ubuntu升级方法和地平线RDK一致。
+以RDK安装为例，X86 Ubuntu升级方法和RDK一致。
 
-登录地平线RDK
+登录RDK
 
 ```shell
 ssh root@10.64.61.241
@@ -100,7 +100,7 @@ sudo apt upgrade
 root@ubuntu:~# apt show tros
 Package: tros
 Version: 2.0.0-20230523223852
-Maintainer: kairui.wang <kairui.wang@horizon.ai>
+Maintainer: kairui.wang <kairui.wang@d-robotics.cc>
 Installed-Size: unknown
 Depends: hobot-models-basic, tros-ros-base, tros-ai-msgs, tros-audio-control, tros-audio-msg, tros-audio-tracking, tros-body-tracking, tros-dnn-benchmark-example, tros-dnn-node, tros-dnn-node-example, tros-dnn-node-sample, tros-elevation-net, tros-gesture-control, tros-hand-gesture-detection, tros-hand-lmk-detection, tros-hbm-img-msgs, tros-hobot-app-xrrobot-body-tracking, tros-hobot-app-xrrobot-gesture-control, tros-hobot-codec, tros-hobot-cv, tros-hobot-falldown-detection, tros-hobot-hdmi, tros-hobot-image-publisher, tros-hobot-mot, tros-hobot-usb-cam, tros-image-subscribe-example, tros-img-msgs, tros-imu-sensor, tros-line-follower-model, tros-line-follower-perception, tros-mipi-cam, tros-mono2d-body-detection, tros-mono2d-trash-detection, tros-mono3d-indoor-detection, tros-parking-perception, tros-parking-search, tros-rgbd-sensor, tros-websocket, tros-xrrobot, tros-xrrobot-msgs
 Download-Size: 980 B
@@ -121,7 +121,7 @@ Package: tros-humble
 Version: 2.2.0-jammy.20240410.221258
 Priority: optional
 Section: misc
-Maintainer: zhuo <zhuo.wang@horizon.cc>
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
 Installed-Size: 44.0 kB
 Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tros-humble-audio-msg, tros-humble-   audio-tracking, tros-humble-base, tros-humble-body-tracking, tros-humble-dnn-benchmark-example, tros-humble-dnn-   node, tros-humble-dnn-node-example, tros-humble-dnn-node-sample, tros-humble-elevation-net, tros-humble-gesture-   control, tros-humble-hand-gesture-detection, tros-humble-hand-lmk-detection, tros-humble-hbm-img-msgs, tros-humb   le-hobot-audio, tros-humble-hobot-chatbot, tros-humble-hobot-codec, tros-humble-hobot-cv, tros-humble-hobot-fall   down-detection, tros-humble-hobot-hdmi, tros-humble-hobot-image-publisher, tros-humble-hobot-llm, tros-humble-ho   bot-mot, tros-humble-hobot-shm, tros-humble-hobot-tts, tros-humble-hobot-usb-cam, tros-humble-hobot-vio, tros-hu   mble-hobot-visualization, tros-humble-img-msgs, tros-humble-imu-sensor, tros-humble-line-follower-model, tros-hu   mble-line-follower-perception, tros-humble-mipi-cam, tros-humble-mono2d-body-detection, tros-humble-mono2d-trash   -detection, tros-humble-mono3d-indoor-detection, tros-humble-parking-perception, tros-humble-parking-search, tro   s-humble-rgbd-sensor, tros-humble-websocket, tros-humble-ros-workspace
 Download-Size: 5,546 B
@@ -174,7 +174,7 @@ Description: TogetheROS Bot
    sudo apt install tros
    ```
 
-:::caution**注意**
+:::caution
 - **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](../FAQs/hardware_and_system.md)**。
+- **关于如何查看tros.b版本号，请查看[FAQs](/docs/08_FAQ/03_applications_and_examples.md)**。
 :::

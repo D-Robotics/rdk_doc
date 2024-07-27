@@ -32,9 +32,7 @@ Code repositories:
 
 Application scenarios: Gesture recognition algorithms integrate hand keypoint detection, gesture analysis, and other technologies, enabling computers to interpret human gestures as corresponding commands. It can be used for gesture control, sign language translation, and other functions, primarily in the fields of smart homes, smart cabins, smart wearables, etc.
 
-Example of gesture-controlled car: [4.5. Car Gesture Control — Horizon Robot Platform User Manual](../../apps/car_gesture_control)
-
-Example of game character control based on gesture recognition and human pose analysis: [Fun with X3, Combining Fitness with Games](https://developer.horizon.cc/forumDetail/112555512834430487)
+Example of gesture-controlled car: [Car Gesture Control](../../apps/car_gesture_control)
 
 ## Supported Platforms
 
@@ -44,13 +42,15 @@ Example of game character control based on gesture recognition and human pose an
 
 ## Preparations
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK is flashed with  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK is flashed with  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on Horizon RDK.3. The Horizon RDK is installed with a MIPI or USB camera.
+2. TogetheROS.Bot has been successfully installed on RDK.
 
-4. Confirm that the PC can access the Horizon RDK through the network.
+3. The RDK is installed with a MIPI or USB camera.
+
+4. Confirm that the PC can access the RDK through the network.
 
 ## Usage
 
@@ -167,6 +167,6 @@ The log shows that the program runs successfully, with an input and output frame
 
 The output log shows that the subscribed algorithm message includes hand information (including the bounding box and key points detection results of the hand), and the gesture recognition algorithm outputs a gesture classification result of "Palm" (the classification result is 5).
 
-On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the Horizon RDK).
+On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the RDK).
 
 ![Gesture Rendering](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)

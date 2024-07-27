@@ -25,19 +25,19 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Confirm that the camera F37 is correctly connected to the Horizon RDK.
+1. Confirm that the camera F37 is correctly connected to the RDK.
 
-2. Confirm that the PC can access the Horizon RDK through the network.
+2. Confirm that the PC can access the RDK through the network.
 
 3. Confirm that TogetheROS.Bot has been successfully installed.
 
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
-1. Log in to the Horizon RDK through SSH and start the programs on the board.
+1. Log in to the RDK through SSH and start the programs on the board.
 
     a. Launch mipi_cam
 
@@ -120,7 +120,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-2. Open a PC browser (Chrome/Firefox/Edge) and enter  `http://IP:8000` to view the image and algorithm effects. IP refers to the Horizon RDK IP address.
+2. Open a PC browser (Chrome/Firefox/Edge) and enter  `http://IP:8000` to view the image and algorithm effects. IP refers to the RDK IP address.
 
    ![websocket](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png "Preview Image")
 
@@ -130,15 +130,15 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 
    - Use the command `lsof -i:8000` to check the processes that are occupying port 8000, and use `kill <PID>` to close the process, and then relaunch WebSocket.
 
-   - If the user does not want to stop the service that is currently using port 8000, you can modify the `listen` port number in the configuration file */opt/tros/lib/websocket/webservice/conf/nginx.conf* to a port number that is greater than 1024 and not being used. After modifying the port number, the URL used in the browser also needs to be modified accordingly.
+   - If the user does not want to stop the service that is currently using port 8000, you can modify the `listen` port number in the configuration file `/opt/tros/lib/websocket/webservice/conf/nginx.conf` to a port number that is greater than 1024 and not being used. After modifying the port number, the URL used in the browser also needs to be modified accordingly.
    
 ## HDMI
 
 ### Introduction
 
-This chapter introduces the use of displaying camera nv12 images through HDMI. Horizon RDK can display real-time image effects by connecting to a monitor via HDMI, corresponding to the hobot_hdmi package.
+This chapter introduces the use of displaying camera nv12 images through HDMI. RDK can display real-time image effects by connecting to a monitor via HDMI, corresponding to the hobot_hdmi package.
 
-Code Repository:  (https://github.com/D-Robotics/hobot_hdmi>
+Code Repository:  (https://github.com/D-Robotics/hobot_hdmi)
 
 ### Supported Platforms
 
@@ -148,17 +148,17 @@ Code Repository:  (https://github.com/D-Robotics/hobot_hdmi>
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. Horizon RDK is connected to a monitor via HDMI.
+3. RDK is connected to a monitor via HDMI.
 
 ### Instructions
 
-#### Horizon RDK
+#### RDK
 
 Log in to the development board via SSH and start the relevant programs on the board:
 
@@ -215,21 +215,21 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Horizon RDK has flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. Horizon RDK has successfully installed tros.b.
+2. RDK has successfully installed tros.b.
 
-3. The PC has installed Ubuntu 20.04, ROS2 Foxy Desktop version, and the data visualization tool RViz2. The PC and Horizon RDK are on the same network segment (the first three segments of the IP address are the same).
+3. The PC has installed Ubuntu 20.04, ROS2 Foxy Desktop version, and the data visualization tool RViz2. The PC and RDK are on the same network segment (the first three segments of the IP address are the same).
 
-   Reference for ROS2 Foxy installation:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html`
+   Reference for ROS2 Foxy installation:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
    On the PC, install RViz2 with the command: `sudo apt install ros-foxy-rviz-common ros-foxy-rviz-default-plugins ros-foxy-rviz2`
 
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
 1. SSH into the development board and start the corresponding program on the board
 
@@ -268,7 +268,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
    [INFO] [launch]: Default logging verbosity is set to INFO
    [INFO] [mipi_cam-1]: process started with pid [2881781]
    ```
-3. A new window is created in the Horizon RDK to execute the topic query command and the results are as follows:
+3. A new window is created in the RDK to execute the topic query command and the results are as follows:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -407,8 +407,8 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
       /rosout
       ```
 
-   - Check if the PC and Horizon RDK networks can ping each other;
-   - Check if the IP addresses of the PC and Horizon RDK have the same first three digits;
+   - Check if the PC and RDK networks can ping each other;
+   - Check if the IP addresses of the PC and RDK have the same first three digits;
 
 ## RQt
 
@@ -424,21 +424,21 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Horizon RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
+1. RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
 
-2. Horizon RDK has successfully installed tros.b.
+2. RDK has successfully installed tros.b.
 
-3. PC has been installed with Ubuntu 20.04 system, ROS2 Foxy desktop version, and the visualization tool RQt. Both PC and Horizon RDK are on the same network segment (with the same first three digits of the IP addresses).
+3. PC has been installed with Ubuntu 20.04 system, ROS2 Foxy desktop version, and the visualization tool RQt. Both PC and RDK are on the same network segment (with the same first three digits of the IP addresses).
 
-   ROS2 Foxy installation reference:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html`
+   ROS2 Foxy installation reference:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
    Installation method for `rqt-image-view` on PC terminal: `sudo apt install ros-foxy-rqt-image-view ros-foxy-rqt`
    
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
 1. SSH into the development board and start relevant programs on the board:
 
@@ -542,7 +542,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
 1. If ros2 topic list does not recognize the camera topic on the PC, perform the following troubleshooting steps:
 
-   - Check if the horizon RDK is publishing images correctly
+   - Check if the RDK is publishing images correctly
 
       <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
@@ -580,8 +580,8 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
       /rosout
       ```
 
-   - Check if the PC and horizon RDK can ping each other;
-   - Check if the PC and horizon RDK have the same first three segments of IP address;
+   - Check if the PC and RDK can ping each other;
+   - Check if the PC and RDK have the same first three segments of IP address;
 
 ## Foxglove
 
@@ -593,7 +593,7 @@ In this section, we will primarily use the data recording and playback feature o
 
 In the demonstration, we will use the hobot_visualization package developed by TogetheROS.Bot to convert intelligent inference results into ROS2 rendered topic information.
 
-Code repository:  (https://github.com/D-Robotics/hobot_visualization>
+Code repository:  (https://github.com/D-Robotics/hobot_visualization)
 
 ### Supported Platforms
 
@@ -603,7 +603,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization>
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
 1. Confirm that TogetheROS.Bot has been successfully installed.
 
@@ -611,9 +611,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization>
 
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
-1. Log in to the Horizon RDK via SSH and start the relevant programs on the board side:
+1. Log in to the RDK via SSH and start the relevant programs on the board side:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -672,7 +672,7 @@ ros2 bag record -a
 
 2. Play rosbag data on the Foxglove online page
 
-1) In a PC browser (chrome/firefox/edge), enter  (https://foxglove.dev/studio> to access the Foxglove website.
+3) In a PC browser (chrome/firefox/edge), enter  (https://foxglove.dev/studio) to access the Foxglove website.
 
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png "Foxglove guide 1")
 
@@ -680,25 +680,25 @@ ros2 bag record -a
 
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_11.png "Foxglove guide 11")
 
-2) Enter the visualization function interface.
+4) Enter the visualization function interface.
 
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_2.png "Foxglove guide 2")
 
-3) Click to select the local rosbag file.
+5) Click to select the local rosbag file.
 
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_3.png "Foxglove guide 3")
 
-4) Open the layout interface. In the top right corner of the layout interface, click on the settings, select the icon, and open the play marker rendering message function.
+6) Open the layout interface. In the top right corner of the layout interface, click on the settings, select the icon, and open the play marker rendering message function.
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_4.png "Foxglove User Guide 4")
    
-5) Click Play
+7) Click Play
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_5.png "Foxglove User Guide 5")
 
-6) View Data
+8) View Data
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_6.png "Foxglove User Guide 6")
 
 ### Note
 
-1. Foxglove visualizes image data using the official ROS2 message format and supports image encoding formats. For more details, please refer to  (https://foxglove.dev/docs/studio/panels/image>.
+1. Foxglove visualizes image data using the official ROS2 message format and supports image encoding formats. For more details, please refer to  (https://foxglove.dev/docs/studio/panels/image).
 
 2. When recording messages with `rosbag`, it may record topic information from other devices. To ensure clean `rosbag` data, you can set `export ROS_DOMAIN_ID=xxx`, such as `export ROS_DOMAIN_ID=1`.

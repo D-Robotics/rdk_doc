@@ -8,15 +8,15 @@ sidebar_position: 2
 
 ### 功能背景
 
-`hobot_dnn`是TogetheROS.Bot软件栈中的板端算法推理框架，在地平线地平线RDK上利用BPU处理器实现算法推理功能，基于地平线算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
+`hobot_dnn`是TogetheROS.Bot软件栈中的板端算法推理框架，在RDK上利用BPU处理器实现算法推理功能，基于D-Robotics算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
 
-通过阅读本章节，用户可以使用地平线提供的模型，在地平线RDK上基于`hobot_dnn`创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
+通过阅读本章节，用户可以使用D-Robotics提供的模型，在RDK上基于`hobot_dnn`创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
 
 ### 前置条件
 
-1 地平线RDK开发板，并且已安装好相关软件，包括：
+1 RDK开发板，并且已安装好相关软件，包括：
 
-- 地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+- Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
 - tros.b软件包。
 
@@ -24,9 +24,9 @@ sidebar_position: 2
 
 - ROS2编译工具colcon。安装命令：`pip3 install -U colcon-common-extensions`
 
-2 地平线RDK已安装F37或者GC4663摄像头。
+2 RDK已安装F37或者GC4663摄像头。
 
-3 可以通过网络访问地平线RDK的PC。
+3 可以通过网络访问RDK的PC。
 
 关于`hobot_dnn)的详细使用说明可以参考`hobot_dnn)代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
 
@@ -71,7 +71,7 @@ dev_ws/
 5 directories, 3 files
 ```
 
-在地平线RDK上使用vi/vim等工具打开创建的代码源文件`body_det_demo.cpp`：`vi ~/dev_ws/src/cpp_dnn_demo/src/body_det_demo.cpp`
+在RDK上使用vi/vim等工具打开创建的代码源文件`body_det_demo.cpp`：`vi ~/dev_ws/src/cpp_dnn_demo/src/body_det_demo.cpp`
 
 拷贝如下代码到文件中：
 
@@ -712,15 +712,15 @@ root@ubuntu:~# tree /opt/tros/include/dnn_node/util/output_parser
 
 | 算法类别       | 算法                 | 算法输出解析方法 |
 | ---------------------- | ---------------------- | ----------- |
-| 目标检测       | [FCOS](../boxs/box_basic#fcos)           | fcos_output_parser.h         |
-| 目标检测       | [EfficientNet_Det](../boxs/box_basic#efficientnet_det)           | ptq_efficientdet_output_parser.h         |
-| 目标检测       | [MobileNet_SSD](../boxs/box_basic#mobilenet_ssd)        |   ptq_ssd_output_parser.h       |
-| 目标检测       | [YoloV2](../boxs/box_basic#yolo)       |   ptq_yolo2_output_parser.h       |
-| 目标检测       | [YoloV3](../boxs/box_basic#yolo)       |    ptq_yolo3_darknet_output_parser.h       |
-| 目标检测       | [YoloV5](../boxs/box_basic#yolo)       |  ptq_yolo5_output_parser.h        |
-| 人体检测       | [FasterRcnn](../boxs/box_adv#detection_and_track)             |  fasterrcnn_output_parser.h       |
-| 图片分类       | [mobilenetv2](../boxs/box_basic#mobilenetv2)  |  ptq_classification_output_parser.h        |
-| 语义分割       | [mobilenet_unet](../boxs/box_basic#mobilenet_unet)      |  ptq_unet_output_parser.h        |
+| 目标检测       | [FCOS](../03_boxs/detection/fcos.md)           | fcos_output_parser.h         |
+| 目标检测       | [EfficientNet_Det](../03_boxs/detection/efficientnet.md)           | ptq_efficientdet_output_parser.h         |
+| 目标检测       | [MobileNet_SSD](../03_boxs/detection/mobilenet.md)        |   ptq_ssd_output_parser.h       |
+| 目标检测       | [YoloV2](../03_boxs/detection/yolo.md)       |   ptq_yolo2_output_parser.h       |
+| 目标检测       | [YoloV3](../03_boxs/detection/yolo.md)       |    ptq_yolo3_darknet_output_parser.h       |
+| 目标检测       | [YoloV5](../03_boxs/detection/yolo.md)       |  ptq_yolo5_output_parser.h        |
+| 人体检测       | [FasterRcnn](../03_boxs/function/mono2d_body_detection.md)             |  fasterrcnn_output_parser.h       |
+| 图片分类       | [mobilenetv2](../03_boxs/classification/mobilenetv2.md)  |  ptq_classification_output_parser.h        |
+| 语义分割       | [mobilenet_unet](../03_boxs/segmentation/mobilenet_unet.md)      |  ptq_unet_output_parser.h        |
 
 
 **入口函数**
@@ -844,7 +844,7 @@ ament_package()
 
 ##### 3.1 编译
 
-在安装了tros.b的地平线RDK上，执行以下命令编译pkg：
+在安装了tros.b的RDK上，执行以下命令编译pkg：
 
 ```shell
 cd ~/dev_ws
@@ -1202,7 +1202,7 @@ disappeared_targets: []
 
 ### 本节总结
 
-本章节介绍了如何使用地平线提供的模型，基于`hobot_dnn)创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在PC端浏览器上实时渲染展示图片和算法推理结果。
+本章节介绍了如何使用D-Robotics提供的模型，基于`hobot_dnn`创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在PC端浏览器上实时渲染展示图片和算法推理结果。
 
 用户可以参考`hobot_dnn)中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
 
@@ -1212,22 +1212,22 @@ disappeared_targets: []
 
 ROS2的节点（[Node](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)）将复杂的机器人软件系统拆解成多个功能和逻辑独立的模块，例如一个机器人应用可能包含多个传感和算法感知功能的Node。Node之间通过“话题”（[Topic](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)）进行数据交换，机器人软件系统中不同功能的ROS2 Node通过Topic连接起来形成一个有向无环图（DAG）。
 
-地平线TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，其中传感Node支持从摄像头采集图像数据并发布，用于感知算法推理使用。感知算法库中的人手框检测算法Node使用图像数据进行推理，输出人手框检测结果；人手关键点检测算法Node使用图像数据和人手框检测结果推理输出人手关键点检测结果。因此人手关键点检测算法Node需要基于Topic通信，订阅人手框检测算法Node发布的人手框消息。
+TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，其中传感Node支持从摄像头采集图像数据并发布，用于感知算法推理使用。感知算法库中的人手框检测算法Node使用图像数据进行推理，输出人手框检测结果；人手关键点检测算法Node使用图像数据和人手框检测结果推理输出人手关键点检测结果。因此人手关键点检测算法Node需要基于Topic通信，订阅人手框检测算法Node发布的人手框消息。
 
-通过阅读本章节，用户可以在地平线RDK上使用tros.b中的传感Node、人手框检测和人手关键点检测算法Node，基于ROS2 Topic通信，串联起传感和感知Node，实现开发复杂机器人算法应用的目标。
+通过阅读本章节，用户可以在RDK上使用tros.b中的传感Node、人手框检测和人手关键点检测算法Node，基于ROS2 Topic通信，串联起传感和感知Node，实现开发复杂机器人算法应用的目标。
 
 
 ### 前置条件
 
-1 地平线RDK开发板，并且已安装好相关软件，包括：
+1 RDK开发板，并且已安装好相关软件，包括：
 
-- 地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+- Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
 - tros.b软件包。
 
-2 地平线RDK已安装F37或者GC4663摄像头。
+2 RDK已安装F37或者GC4663摄像头。
 
-3 和地平线RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+3 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
   - Ubuntu 20.04/Ubuntu 22.04系统
 
@@ -1240,7 +1240,7 @@ ROS2的节点（[Node](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/
 
 #### 1 启动数据采集Node
 
-地平线RDK上打开一个终端启动图像发布Node，从F37摄像头采集图像数据并发布，用于算法推理使用：
+RDK上打开一个终端启动图像发布Node，从F37摄像头采集图像数据并发布，用于算法推理使用：
 
 ```shell
 # 配置tros.b环境
@@ -1251,7 +1251,7 @@ ros2 run mipi_cam mipi_cam --ros-args -p out_format:=nv12 -p image_width:=960 -p
 
 #### 2 启动人手框检测算法Node
 
-地平线RDK上打开一个终端启动人手框检测算法Node，订阅数据采集Node发布的图像消息，检测并发布人手检测框消息。
+RDK上打开一个终端启动人手框检测算法Node，订阅数据采集Node发布的图像消息，检测并发布人手检测框消息。
 
 启动命令中指定了发布的Topic为`hobot_hand_detection`。
 
@@ -1266,7 +1266,7 @@ ros2 run mono2d_body_detection mono2d_body_detection --ros-args --log-level warn
 
 #### 3 启动人手关键点检测算法Node
 
-地平线RDK上打开一个终端启动人手关键点检测算法Node，订阅数据采集Node发布的图像消息以及人手框检测算法Node发布的人手框消息。
+RDK上打开一个终端启动人手关键点检测算法Node，订阅数据采集Node发布的图像消息以及人手框检测算法Node发布的人手框消息。
 
 启动命令中指定了发布消息的Topic为`hobot_hand_lmk_detection`，订阅消息的Topic为`hobot_hand_detection`。
 
@@ -1281,7 +1281,7 @@ ros2 run hand_lmk_detection hand_lmk_detection --ros-args --log-level warn --ros
 
 #### 4 查看算法推理结果输出
 
-地平线RDK上打开一个终端使用ROS2命令查看算法推理Node发布的Topic消息。
+RDK上打开一个终端使用ROS2命令查看算法推理Node发布的Topic消息。
 
 **查看人手框检测算法Node发布出来的人手框检测消息**
 
@@ -1430,7 +1430,7 @@ disappeared_targets: []
 
 #### 5 Node串联出来的Graph
 
-地平线RDK上打开一个终端使用ROS2命令查看运行时设备的Node和Topic信息：
+RDK上打开一个终端使用ROS2命令查看运行时设备的Node和Topic信息：
 
 ```shell
 # 配置tros.b环境
@@ -1450,9 +1450,9 @@ root@ubuntu:~# ros2 topic list
 /rosout
 ```
 
-查询到地平线RDK上运行着3个Node。
+查询到RDK上运行着3个Node。
 
-在PC端（**PC需要和地平线RDK处于同一网段**）通过rqt的Node Graph功能可以可视化的展示地平线RDK上运行的Node，Node发布和订阅的topic，以及Node基于这些Topic组成的graph，如下图：
+在PC端（**PC需要和RDK处于同一网段**）通过rqt的Node Graph功能可以可视化的展示RDK上运行的Node，Node发布和订阅的topic，以及Node基于这些Topic组成的graph，如下图：
 
 ![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg)
 
@@ -1466,6 +1466,6 @@ hand_lmk_det（算法感知Node）为终点，订阅mipi_cam Node发布的图像
 
 ### 本节总结
 
-本章节介绍了在地平线RDK上使用地平线tros.b中的传感Node、人手框检测和人手关键点检测算法Node，基于ROS2 Topic通信，串联起两个感知算法Node，实现从摄像头采集图像后用于算法推理并发布检测出的人手关键点消息的功能。
+本章节介绍了在RDK上使用tros.b中的传感Node、人手框检测和人手关键点检测算法Node，基于ROS2 Topic通信，串联起两个感知算法Node，实现从摄像头采集图像后用于算法推理并发布检测出的人手关键点消息的功能。
 
-基于本章节介绍的算法串联原理，用户可以在地平线RDK上串联更多算法Node，开发出功能丰富的机器人算法应用。
+基于本章节介绍的算法串联原理，用户可以在RDK上串联更多算法Node，开发出功能丰富的机器人算法应用。

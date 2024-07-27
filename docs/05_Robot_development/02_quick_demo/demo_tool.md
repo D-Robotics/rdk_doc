@@ -36,13 +36,13 @@ RDK Ultra不支持将H.264视频解码为NV12格式，因此H.264视频发布功
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
 
-2. 地平线RDK已成功安装tros.b
+2. RDK已成功安装tros.b
 
-3. 可以通过网络访问地平线RDK的PC
+3. 可以通过网络访问RDK的PC
 
 #### X86平台
 
@@ -54,7 +54,7 @@ RDK Ultra不支持将H.264视频解码为NV12格式，因此H.264视频发布功
 
 循环读取本地的一张NV12格式图片并发布，使用图像编解码模块将图片压缩编码成JPEG格式，在PC的Web端展示图片。
 
-#### 地平线RDK/X86平台
+#### RDK/X86平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -100,7 +100,7 @@ webserver has launch
 
 输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为地平线RDK/X86设备的IP地址）：
+在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
 
 ![hobot_img_pub](/../static/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png )
 
@@ -108,7 +108,7 @@ webserver has launch
 
 读取本地video.list文件，获取list文件中的视频文件路径，循环读取视频文件并发布，先使用图像编解码模块将视频流解码成NV12格式图片，再使用图像编解码模块将图片压缩编码成JPEG格式，在PC的Web端展示图片。
 
-#### 地平线RDK平台
+#### RDK平台
 
 
 <Tabs groupId="tros-distro">
@@ -188,7 +188,7 @@ webserver has launch
 
 输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为地平线RDK/X86设备的IP地址）：
+在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
 
 ![hobot_img_pub](/../static/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg )
 
@@ -199,9 +199,9 @@ webserver has launch
 
 所谓Trigger，是在设定好已有Trigger机制基础上，监测Trigger模块订阅的消息变化，例如检测框结果数量变化，小车控制信息变化等，触发对应Trigger事件，记录指定时间区间内的ROS2消息，从而帮助开发人员定位和复现机器人场景中的感知、规控等问题。
 
-trigger_node package 是地平线基于ROS2开发的Trigger基础模块，用于在触发Trigger事件后，获取指定rosbag数据的功能包。package支持直接订阅ai_msg/msg/PerceptionTargets类型的话题，在话题回调函数中，判断是否触发Trigger事件，并记录Trigger事件相关的rosbag包，最后将Trigger事件信息保存，并发布std_msg/msg/String类型的Trigger事件话题。
+trigger_node package 是D-Robotics基于ROS2开发的Trigger基础模块，用于在触发Trigger事件后，获取指定rosbag数据的功能包。package支持直接订阅ai_msg/msg/PerceptionTargets类型的话题，在话题回调函数中，判断是否触发Trigger事件，并记录Trigger事件相关的rosbag包，最后将Trigger事件信息保存，并发布std_msg/msg/String类型的Trigger事件话题。
 
-本章节展示的示例，是地平线在自定义trigger基础模块基础上，开发的Trigger模块使用示例。本示例展示的功能，是订阅垃圾检测框信息，根据垃圾检测框的数量是否大于等于3，判断是否触发Trigger事件。若检测框数量大于等于3，则触发Trigger事件。
+本章节展示的示例，是D-Robotics在自定义trigger基础模块基础上，开发的Trigger模块使用示例。本示例展示的功能，是订阅垃圾检测框信息，根据垃圾检测框的数量是否大于等于3，判断是否触发Trigger事件。若检测框数量大于等于3，则触发Trigger事件。
 
 代码仓库：(https://github.com/D-Robotics/hobot_trigger.git)
 
@@ -286,15 +286,15 @@ struct Config {
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### 使用介绍
 
-#### 地平线RDK平台
+#### RDK平台
 
 **使用MIPI摄像头发布图片**
 

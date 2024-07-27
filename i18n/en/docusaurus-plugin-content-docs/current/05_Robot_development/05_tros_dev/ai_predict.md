@@ -8,21 +8,21 @@ sidebar_position: 2
 
 ### Background
 
-`hobot_dnn` is the edge algorithm inference framework in TogetheROS.Bot software stack. It utilizes the BPU processor on Horizon RDK to achieve algorithm inference. Based on the Horizon algorithm inference framework and ROS2 Node, it provides a simpler and easier-to-use model integration development interface for robot application development. This includes model management, model description-based input processing and result parsing, and model output memory allocation management.
+`hobot_dnn` is the edge algorithm inference framework in TogetheROS.Bot software stack. It utilizes the BPU processor on RDK to achieve algorithm inference. Based on the D-Robotics algorithm inference framework and ROS2 Node, it provides a simpler and easier-to-use model integration development interface for robot application development. This includes model management, model description-based input processing and result parsing, and model output memory allocation management.
 
-By reading this chapter, users can use the models provided by Horizon to create and run a human detection algorithm Node based on `hobot_dnn` on Horizon RDK. With the help of the components provided by tros.b, it subscribes to the images captured and published by the camera, performs algorithm inference to detect human bounding boxes, and uses the Multi-Object Tracking (MOT) algorithm to track and assign target numbers to the detection boxes. Finally, it achieves real-time rendering and display of images, human bounding box detection, and target tracking results in a web browser on a PC.
+By reading this chapter, users can use the models provided by D-Robotics to create and run a human detection algorithm Node based on `hobot_dnn` on RDK. With the help of the components provided by tros.b, it subscribes to the images captured and published by the camera, performs algorithm inference to detect human bounding boxes, and uses the Multi-Object Tracking (MOT) algorithm to track and assign target numbers to the detection boxes. Finally, it achieves real-time rendering and display of images, human bounding box detection, and target tracking results in a web browser on a PC.
 
 ### Preparation
 
-1. Horizon RDK development board with relevant software installed, including:
-   -  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK development board with relevant software installed, including:
+   -  Ubuntu 20.04/22.04 system image provided by D-Robotics.
    - tros.b software package.
    - ROS2 software package build system ament_cmake. Installation command: `apt update; apt-get install python3-catkin-pkg; pip3 install empy`
    - ROS2 build tools colcon. Installation command: `pip3 install -U colcon-common-extensions`
 
-2. Horizon RDK with F37 or GC4663 camera installed.
+2. RDK with F37 or GC4663 camera installed.
 
-3. PC that can access Horizon RDK through the network.
+3. PC that can access RDK through the network.
 
 For detailed instructions on how to use `hobot_dnn`, please refer to the [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and [API documentation](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in the `hobot_dnn` code. The workflow of using `hobot_dnn` is as follows:
 
@@ -65,7 +65,7 @@ dev_ws/
 5 directories, 3 files
 ```
 
-Open the created source code file `body_det_demo.cpp` using tools like vi/vim on the Horizon RDK: `vi ~/dev_ws/src/cpp_dnn_demo/src/body_det_demo.cpp`
+Open the created source code file `body_det_demo.cpp` using tools like vi/vim on the RDK: `vi ~/dev_ws/src/cpp_dnn_demo/src/body_det_demo.cpp`
 
 Copy the following code into the file:
 
@@ -688,15 +688,15 @@ The algorithm models and their corresponding output parsing methods are as follo
 
 | Algorithm Category | Algorithm                | Output Parsing Method       |
 | ------------------ | ------------------------ | --------------------------- |
-| Object Detection   | [FCOS](../boxs/box_basic#fcos) | fcos_output_parser.h        |
-| Object Detection   | [EfficientNet_Det](../boxs/box_basic#efficientnet_det) | ptq_efficientdet_output_parser.h |
-| Object Detection   | [MobileNet_SSD](../boxs/box_basic#mobilenet_ssd) | ptq_ssd_output_parser.h     |
-| Object Detection   | [YoloV2](../boxs/box_basic#yolo) | ptq_yolo2_output_parser.h   |
-| Object Detection   | [YoloV3](../boxs/box_basic#yolo) | ptq_yolo3_darknet_output_parser.h |
-| Object Detection   | [YoloV5](../boxs/box_basic#yolo) | ptq_yolo5_output_parser.h   |
-| Human Detection    | [FasterRcnn](../boxs/box_adv#detection_and_track) | fasterrcnn_output_parser.h |
-| Image Classification | [mobilenetv2](../boxs/box_basic#mobilenetv2) | ptq_classification_output_parser.h |
-| Semantic Segmentation | [mobilenet_unet](../boxs/box_basic#mobilenet_unet) | ptq_unet_output_parser.h |
+| Object Detection   | [FCOS](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/detection/fcos.md) | fcos_output_parser.h        |
+| Object Detection   | [EfficientNet_Det](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/detection/efficientnet.md) | ptq_efficientdet_output_parser.h |
+| Object Detection   | [MobileNet_SSD](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/detection/mobilenet.md) | ptq_ssd_output_parser.h     |
+| Object Detection   | [YoloV2](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/detection/yolo.md) | ptq_yolo2_output_parser.h   |
+| Object Detection   | [YoloV3](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/detection/yolo.md) | ptq_yolo3_darknet_output_parser.h |
+| Object Detection   | [YoloV5](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/detection/yolo.md) | ptq_yolo5_output_parser.h   |
+| Human Detection    | [FasterRcnn](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/function/mono2d_body_detection.md) | fasterrcnn_output_parser.h |
+| Image Classification | [mobilenetv2](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/classification/mobilenetv2.md) | ptq_classification_output_parser.h |
+| Semantic Segmentation | [mobilenet_unet](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/segmentation/mobilenet_unet.md) | ptq_unet_output_parser.h |
 
 **Entrance Function**
 
@@ -809,7 +809,7 @@ ament_package()
 
 ##### 3.1 Build
 
-In the Horizon RDK with tros.b installed, execute the following command to build the package:
+In the RDK with tros.b installed, execute the following command to build the package:
 
 ```shell
 cd ~/dev_ws
@@ -1158,7 +1158,7 @@ Each detection box is rendered with the detection box type (such as `body` indic
 
 Enter the `Ctrl+C` command to exit the program.
 
-Summary of this sectionThis chapter introduces how to use the models provided by Horizon to create and run an algorithm inference example for human detection based on `hobot_dnn`. It uses images published from the camera, obtains the algorithm output, and renders and displays the image and algorithm inference results in real-time on the PC browser.
+Summary of this sectionThis chapter introduces how to use the models provided by D-Robotics to create and run an algorithm inference example for human detection based on `hobot_dnn`. It uses images published from the camera, obtains the algorithm output, and renders and displays the image and algorithm inference results in real-time on the PC browser.
 
 Users can refer to the [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about the richer algorithm inference capabilities.
 
@@ -1168,21 +1168,21 @@ Users can refer to the [README.md](https://github.com/D-Robotics/hobot_dnn/blob/
 
 ROS2 nodes decompose complex robot software systems into multiple functional and logically independent modules. For example, a robot application may include multiple nodes for sensing and algorithm perception functions. Nodes exchange data through "topics". Nodes with different functions in the robot software system are connected through topics to form a directed acyclic graph (DAG).
 
-The Horizon TogetheROS.Bot software stack includes rich robot development components and algorithm nodes. The sensing nodes support capturing image data from the camera and publishing it for use in perception algorithm inference. The human bounding box detection algorithm node in the perception algorithm library performs inference on image data and outputs human bounding box detection results. The human keypoint detection algorithm node performs inference on image data and the human bounding box detection results to output human keypoint detection results. Therefore, the human keypoint detection algorithm node needs to communicate with the human bounding box detection algorithm node by subscribing to the human bounding box messages published by that node.
+The D-Robotics TogetheROS.Bot software stack includes rich robot development components and algorithm nodes. The sensing nodes support capturing image data from the camera and publishing it for use in perception algorithm inference. The human bounding box detection algorithm node in the perception algorithm library performs inference on image data and outputs human bounding box detection results. The human keypoint detection algorithm node performs inference on image data and the human bounding box detection results to output human keypoint detection results. Therefore, the human keypoint detection algorithm node needs to communicate with the human bounding box detection algorithm node by subscribing to the human bounding box messages published by that node.
 
-By reading this chapter, users can use the sensing nodes, human bounding box detection algorithm nodes, and human keypoint detection algorithm nodes in Horizon RDK, connect the sensing nodes and perception nodes through ROS2 topics, and achieve the goal of developing complex robot algorithm applications.
+By reading this chapter, users can use the sensing nodes, human bounding box detection algorithm nodes, and human keypoint detection algorithm nodes in RDK, connect the sensing nodes and perception nodes through ROS2 topics, and achieve the goal of developing complex robot algorithm applications.
 
 ### Preparation
 
-1. Horizon RDK development board with the following software installed:
+1. RDK development board with the following software installed:
 
-- Horizon-provided  Ubuntu 20.04/22.04 system image
+- D-Robotics-provided  Ubuntu 20.04/22.04 system image
 
 - `tros.b` software package
 
-2. Horizon RDK with F37 or GC4663 camera installed
+2. RDK with F37 or GC4663 camera installed
 
-3. A PC in the same network segment (wired or connected to the same wireless network, with the first three segments of the IP address consistent with Horizon RDK). The PC needs to have the following environment installed:
+3. A PC in the same network segment (wired or connected to the same wireless network, with the first three segments of the IP address consistent with RDK). The PC needs to have the following environment installed:
 
   - Ubuntu 20.04/22.04 system
 
@@ -1194,7 +1194,7 @@ By reading this chapter, users can use the sensing nodes, human bounding box det
 
 #### 1. Start Data Collection Node
 
-On the Horizon RDK, open a terminal and start the image publishing node, which captures image data from the F37 camera and publishes it for algorithm inference:
+On the RDK, open a terminal and start the image publishing node, which captures image data from the F37 camera and publishes it for algorithm inference:
 
 ```shell
 # Configure the tros.b environment
@@ -1205,7 +1205,7 @@ ros2 run mipi_cam mipi_cam --ros-args -p out_format:=nv12 -p image_width:=960 -p
 
 #### 2. Start Human Bounding Box Detection Algorithm Node
 
-On the Horizon RDK, open a terminal and start the human bounding box detection algorithm node, which subscribes to the image messages published by the data collection node, detects and publishes human bounding box messages.The publishing topic specified in the launch command is `hobot_hand_detection`.
+On the RDK, open a terminal and start the human bounding box detection algorithm node, which subscribes to the image messages published by the data collection node, detects and publishes human bounding box messages.The publishing topic specified in the launch command is `hobot_hand_detection`.
 
 ```shell
 # Set up tros.b environment
@@ -1218,7 +1218,7 @@ ros2 run mono2d_body_detection mono2d_body_detection --ros-args --log-level warn
 
 #### 3 Start the Node for Hand Keypoint Detection Algorithm
 
-Open a terminal on the Horizon RDK and start the Node for hand keypoint detection algorithm. It subscribes to image messages published by the data collection Node and hand bounding box messages published by the hand bounding box detection algorithm Node.
+Open a terminal on the RDK and start the Node for hand keypoint detection algorithm. It subscribes to image messages published by the data collection Node and hand bounding box messages published by the hand bounding box detection algorithm Node.
 
 The publishing topic is specified as `hobot_hand_lmk_detection`, and the subscribing topic is specified as `hobot_hand_detection` in the launch command.
 
@@ -1233,7 +1233,7 @@ ros2 run hand_lmk_detection hand_lmk_detection --ros-args --log-level warn --ros
 
 #### 4 View the Output of the Algorithm Inference
 
-Open a terminal on the Horizon RDK and use the ROS2 command to view the Topic messages published by the algorithm inference Node.
+Open a terminal on the RDK and use the ROS2 command to view the Topic messages published by the algorithm inference Node.
 
 **View the hand bounding box detection messages published by the hand bounding box detection algorithm Node**
 
@@ -1375,7 +1375,7 @@ captures: []
 disappeared_targets: []
 ```
 
-We can see that the published message contains the bounding box and keypoint detection results of the hand. The bounding box information is consistent with the subscribed message.The Rqt's Node Graph function on the PC side (**the PC needs to be in the same network segment as the Horizon RDK**) can visualize the Nodes running on the Horizon RDK, the topics published and subscribed by the Nodes, and the graph composed of these topics, as shown in the figure below:
+We can see that the published message contains the bounding box and keypoint detection results of the hand. The bounding box information is consistent with the subscribed message.The Rqt's Node Graph function on the PC side (**the PC needs to be in the same network segment as the RDK**) can visualize the Nodes running on the RDK, the topics published and subscribed by the Nodes, and the graph composed of these topics, as shown in the figure below:
 
 ![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg)
 
@@ -1389,6 +1389,6 @@ The "hand_lmk_det" (algorithm perception Node) is the end node, subscribing to t
 
 ### Summary
 
-This chapter introduces the use of sensing Nodes, human body box detection Nodes, and hand keypoint detection algorithm Nodes in the Horizon RDK, based on ROS2 topic communication. By connecting two perception algorithm Nodes, images captured from the camera are used for algorithm inference and the detected hand keypoints are published as messages.
+This chapter introduces the use of sensing Nodes, human body box detection Nodes, and hand keypoint detection algorithm Nodes in the RDK, based on ROS2 topic communication. By connecting two perception algorithm Nodes, images captured from the camera are used for algorithm inference and the detected hand keypoints are published as messages.
 
-Based on the algorithm chaining principle introduced in this chapter, users can connect more algorithm Nodes on the Horizon RDK and develop feature-rich robot algorithm applications.
+Based on the algorithm chaining principle introduced in this chapter, users can connect more algorithm Nodes on the RDK and develop feature-rich robot algorithm applications.

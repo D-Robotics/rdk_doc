@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 EfficientNet_Det is an detection algorithm that takes images as input and utilizes BPU for algorithm inference. It publishes algorithm messages containing object categories and detection boxes.
 
-EfficientNet_Det is an Onnx model obtained from  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet) and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
+EfficientNet_Det is an Onnx model and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -26,19 +26,19 @@ Applications: EfficientNet_Det can be used for tasks such as vehicle detection a
 
 ## Preparations
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been pre-installed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been pre-installed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. A MIPI or USB camera has been installed on the Horizon RDK. If there is no camera available, you can experience the algorithm using locally JPEG/PNG images or MP4, H.264, and H.265 videos offline.
+3. A MIPI or USB camera has been installed on the RDK. If there is no camera available, you can experience the algorithm using locally JPEG/PNG images or MP4, H.264, and H.265 videos offline.
 
-4. Make sure the PC can access the Horizon RDK through the network.
+4. Make sure the PC can access the RDK through the network.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 #### Use MIPI Camera to Publish Images
 
@@ -166,7 +166,7 @@ The terminal output during the execution is as follows:
 
 The log output shows that the topic for publishing the inference results of the algorithm is `hobot_dnn_detection`, and the topic for subscribing to the image is `/hbmem_img`.
 
-To view the image and the rendering effect of the algorithm, enter http://IP:8000 in the browser on the PC (where IP is the IP address of the Horizon RDK):
+To view the image and the rendering effect of the algorithm, enter http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
 
 ![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_web.jpeg)
 

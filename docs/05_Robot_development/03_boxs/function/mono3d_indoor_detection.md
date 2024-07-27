@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D检测算法示例，在地平线的地平线RDK上使用3D检测模型和室内数据利用BPU进行模型推理，从而得到推理结果。
+mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D检测算法示例，在RDK上使用3D检测模型和室内数据利用BPU进行模型推理，从而得到推理结果。
 
 相比于2D目标检测只能够识别出物体的类别和检测框，3D目标检测能够识别出物体的精确位置和朝向。例如在导航避障应用场景下，3D目标检测算法提供的丰富信息可以帮助规划控制模块实现更好的避障效果。
 
@@ -39,11 +39,11 @@ mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### X86平台
 
@@ -57,7 +57,7 @@ mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D
 
 单目3D室内检测算法示例package采取读取本地图片的形式进行检测推理，经过算法推理后检测出物体类别和3D定位信息，并且对外发布3D检测信息的算法msg。用户可以订阅3D检测结果msg用于应用开发。
 
-### 地平线RDK平台
+### RDK平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

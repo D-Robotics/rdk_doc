@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The FCOS detection algorithm example uses images as input and utilizes BPU for inference.The result in the messages contain target categories and detection boxes.
 
-FCOS is an open-source Onnx model developed by Horizon, trained using the [COCO dataset](http://cocodataset.org/). It supports various types of object detection, including humans, animals, fruits, and vehicles, totaling 80 types.
+FCOS is an open-source Onnx model developed by D-Robotics, trained using the [COCO dataset](http://cocodataset.org/). It supports various types of object detection, including humans, animals, fruits, and vehicles, totaling 80 types.
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -26,19 +26,19 @@ Application scenarios: FCOS is a one-stage object detection algorithm capable of
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK platform is flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK platform is flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK platform.
+2. TogetheROS.Bot has been successfully installed on the RDK platform.
 
-3. A MIPI or USB camera has been installed on the Horizon RDK platform. If no camera is available, the algorithm effects can be experienced through local data using JPEG/PNG format or MP4, H.264, and H.265 video.
+3. A MIPI or USB camera has been installed on the RDK platform. If no camera is available, the algorithm effects can be experienced through local data using JPEG/PNG format or MP4, H.264, and H.265 video.
 
-4. Ensure that the PC can access the Horizon RDK platform via the network.
+4. Ensure that the PC can access the RDK platform via the network.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 #### Use a MIPI camera to publish images
 
@@ -160,7 +160,7 @@ The terminal output shows the following information:
 
 The log output shows that the topic for publishing the inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The frame rate of the subscribed images and algorithm inference output is approximately 30fps.
 
-To view the image and algorithm rendering effect on the PC browser, enter http://IP:8000 (where IP is the IP address of the Horizon RDK):
+To view the image and algorithm rendering effect on the PC browser, enter http://IP:8000 (where IP is the IP address of the RDK):
 
 ![](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_web.jpeg)
 

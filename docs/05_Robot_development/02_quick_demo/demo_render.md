@@ -27,11 +27,11 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 确认摄像头F37正确接到地平线RDK上
+1. 确认摄像头F37正确接到RDK上
 
-2. 确认PC可以通过网络访问地平线RDK
+2. 确认PC可以通过网络访问RDK
 
 3. 确认已成功安装TogetheROS.Bot
 
@@ -43,9 +43,9 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 ### 使用方式
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 通过SSH登录地平线RDK，启动板端相关程序
+1. 通过SSH登录RDK，启动板端相关程序
 
     a. 启动mipi_cam
 
@@ -128,7 +128,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像和算法效果，IP为地平线RDK IP地址。
+2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像和算法效果，IP为RDK IP地址。
 
    ![websocket](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png "预览图像")
 
@@ -203,7 +203,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 ### 功能介绍
 
-本章节介绍通过HDMI展示camera nv12图像的使用，地平线RDK通过HDMI接显示器即可显示实时图像效果，对应于hobot_hdmi package。
+本章节介绍通过HDMI展示camera nv12图像的使用，RDK通过HDMI接显示器即可显示实时图像效果，对应于hobot_hdmi package。
 
 代码仓库：[https://github.com/D-Robotics/hobot_hdmi](https://github.com/D-Robotics/hobot_hdmi)
 
@@ -215,17 +215,17 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已HDMI连接显示器。
+3. RDK已HDMI连接显示器。
 
 ### 使用介绍
 
-#### 地平线RDK平台
+#### RDK平台
 
 通过SSH登录开发板，启动板端相关程序：
 
@@ -284,13 +284,13 @@ TogetheROS.Bot兼容ROS2 foxy/humble版本，为了方便预览图像效果，�
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装tros.b。
+2. RDK已成功安装tros.b。
 
-3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和数据可视化工具RViz2，并且和地平线RDK在同一网段（IP地址前三位相同）。
+3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
 
 ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
@@ -298,7 +298,7 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
 
 ### 使用方式
 
-#### 地平线RDK平台
+#### RDK平台
 
 1. 通过SSH登录开发板，启动板端相关程序
 
@@ -338,7 +338,7 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    [INFO] [mipi_cam-1]: process started with pid [2881781]
    ```
 
-3. 地平线RDK新建一个窗口，查询话题命令及返回结果如下：
+3. RDK新建一个窗口，查询话题命令及返回结果如下：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -480,8 +480,8 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
       /rosout
       ```
 
-   - 检查PC和地平线RDK网络能否ping通；
-   - PC和地平线RDK IP地址是否前三位相同；
+   - 检查PC和RDK网络能否ping通；
+   - PC和RDK IP地址是否前三位相同；
 
 ## RQt展示
 
@@ -497,13 +497,13 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装tros.b。
+2. RDK已成功安装tros.b。
 
-3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和可视化工具RQt，并且和地平线RDK在同一网段（IP地址前三位相同）。
+3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
 
 [ROS2 Foxy安装参考](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
@@ -511,7 +511,7 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
 
 ### 使用方式
 
-#### 地平线RDK平台
+#### RDK平台
 
 1. 通过SSH登录开发板，启动板端相关程序
    
@@ -616,7 +616,7 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
 
 1. 如遇到PC端ros2 topic list未识别到摄像头topic，做如下排查：
 
-   - 检查地平线RDK是否正常pub图像
+   - 检查RDK是否正常pub图像
 
       <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
@@ -654,8 +654,8 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
       /rosout
       ```
 
-   - 检查PC和地平线RDK网络能否ping通；
-   - PC和地平线RDK IP地址是否前三位相同；
+   - 检查PC和RDK网络能否ping通；
+   - PC和RDK IP地址是否前三位相同；
 
 ## Foxglove展示
 
@@ -678,7 +678,7 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
 1. 确认摄像头F37正确接到旭日X3派上
 
@@ -692,9 +692,9 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 
 ### 使用方式
 
-#### 地平线RDK平台 / X86平台
+#### RDK平台 / X86平台
 
-1. 通过SSH登录地平线RDK平台，启动板端相关程序：
+1. 通过SSH登录RDK平台，启动板端相关程序：
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

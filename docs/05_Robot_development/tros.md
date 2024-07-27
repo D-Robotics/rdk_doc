@@ -3,21 +3,21 @@ sidebar_position: 0
 ---
 
 # TogetheROS.Bot 简介
-TogetheROS.Bot是地平线面向机器人厂商和生态开发者推出的机器人操作系统，旨在释放机器人场景的智能潜能，助力生态开发者和商业客户能够高效、便捷的进行机器人开发，打造具有竞争力的智能机器人产品。
+TogetheROS.Bot是地瓜面（D-Robotics）向机器人厂商和生态开发者推出的机器人操作系统，旨在释放机器人场景的智能潜能，助力生态开发者和商业客户能够高效、便捷的进行机器人开发，打造具有竞争力的智能机器人产品。
 
-Horizon Robotics Developer Kits，简称[地平线RDK套件](https://developer.horizon.cc/documents_rdk/)，是基于地平线智能芯片打造的机器人开发者套件，包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK Ultra**。目前TogetheROS.Bot支持在地平线RDK平台上运行，同时提供模拟器版本在X86平台上运行。地平线RDK平台涵盖下图所示的全部功能，X86平台支持以图片回灌方式体验部分功能，提高用户算法开发和验证效率，并能够快速迁移到地平线RDK平台。
+TogetheROS.Bot支持在RDK平台上运行，同时提供模拟器版本在X86平台上运行。RDK平台涵盖下图所示的全部功能，X86平台支持以图片回灌方式体验部分功能，提高用户算法开发和验证效率，并能够快速迁移到RDK平台。
 
 ![TROS-Diagram](/../static/img/05_Robot_development/image/TogetheROS.png)
 
-TogetheROS.Bot源码托管在GitHub地平线[D-Robotics组织](https://github.com/D-Robotics)。
+TogetheROS.Bot源码托管在GitHub [D-Robotics组织](https://github.com/D-Robotics)。
 
 ## Communication通信组件
 
-Communication是地平线在ROS2 Foxy和Humble版本通信核心组件基础上进行的功能优化和扩展。
+Communication是在ROS2 Foxy和Humble版本通信核心组件基础上进行的功能优化和扩展。
 
 主要特性如下：
 
-其中蓝色部分为地平线优化、新增模块，TogetheROS.Bot主要特性如下：
+其中蓝色部分为优化、新增模块，TogetheROS.Bot主要特性如下：
 
 - 提供“hobot_sensor”适配机器人常用传感器，节省开发时间，聚焦核心竞争力
 - 提供“hobot_dnn”简化板端算法模型推理与部署，释放BPU算力，降低智能算法使用门槛
@@ -31,7 +31,7 @@ Communication是地平线在ROS2 Foxy和Humble版本通信核心组件基础上�
 
 ## Boxs算法仓库
 
-Boxs是地平线面向机器人厂商和生态开发者推出的基于TogetheROS.Bot的智能算法包，旨在提升基于地平线机器人操作系统进行机器人智能算法集成和落地的效率。
+Boxs是地瓜面向机器人厂商和生态开发者推出的基于TogetheROS.Bot的智能算法包，旨在提升基于地瓜RDK机器人操作系统进行机器人智能算法集成和落地的效率。
 
 - 图像检测算法如FCOS、YOLO、FasterRCNN、Efficientdet、Mobilenet_ssd;
 - 图像分类模型如Mobilenet
@@ -40,7 +40,7 @@ Boxs是地平线面向机器人厂商和生态开发者推出的基于TogetheROS
 
 ## Apps应用示例
 
-Apps是基于地平线机器人操作系统Communication和Boxs开发的算法应用示例，旨在打通图像输入、感知、策略等完整链路，展示应用效果，加速客户demo开发效率。
+Apps是基于地瓜RDK机器人操作系统Communication和Boxs开发的算法应用示例，旨在打通图像输入、感知、策略等完整链路，展示应用效果，加速客户demo开发效率。
 
 ## 常见名词解释
 
@@ -53,4 +53,3 @@ Apps是基于地平线机器人操作系统Communication和Boxs开发的算法�
 | ASR                               | 自动语音识别                                            |
 | TogetheROS.Bot                    | TogetheROS.Bot机器人操作系统                            |
 | tros.b                            | TogetheROS.Bot缩写                                      |
-| RDK                               | Robotics Developer Kits缩写，地平线机器人开发者套件       |

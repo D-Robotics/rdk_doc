@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-本章节介如何在地平线RDK平台体验端侧Large Language Model (LLM)。
+本章节介如何在RDK平台体验端侧Large Language Model (LLM)。
 
 代码仓库： (https://github.com/D-Robotics/hobot_llm.git)
 
@@ -25,17 +25,17 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK为4GB内存版本
-2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
-3. 地平线RDK已成功安装TogetheROS.Bot。
+1. RDK为4GB内存版本
+2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+3. RDK已成功安装TogetheROS.Bot。
 4. 安装transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`。
 5. 更新hobot-dnn，命令为 `sudo apt update; sudo apt install hobot-dnn`。
 
 ## 使用方式
 
-### 地平线RDK平台
+### RDK平台
 
 运行程序前，需要下载模型文件并解压，命令如下：
 

@@ -26,19 +26,19 @@ Application scenarios: MobileNet_SSD is an object detection algorithm based on M
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has burned the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
-3. Horizon RDK has installed a MIPI or USB camera. If there is no camera available, the algorithm can be experienced by local JPEG/PNG images or MP4, H.264, and H.265 videos offline.
+3. RDK has installed a MIPI or USB camera. If there is no camera available, the algorithm can be experienced by local JPEG/PNG images or MP4, H.264, and H.265 videos offline.
 
-4. Confirm that the PC can access the Horizon RDK through the network.
+4. Confirm that the PC can access the RDK through the network.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 #### Use MIPI Camera to Publish Images
 
@@ -153,7 +153,7 @@ The following information is displayed in the terminal output:
 
 The log shows that the topic for publishing inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The frame rate of the subscribed images and the algorithm inference output is approximately 30fps.
 
-To view the image and algorithm, input http://IP:8000 in the browser on the PC (where IP is the IP address of the Horizon RDK):
+To view the image and algorithm, input http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
 
 ![render_web](/../static/img/05_Robot_development/03_boxs/detection/image/box_basic/mobilenet_ssd_render_web.jpeg)
 

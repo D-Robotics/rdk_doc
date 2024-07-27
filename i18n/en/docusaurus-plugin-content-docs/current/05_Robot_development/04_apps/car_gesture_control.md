@@ -36,15 +36,15 @@ Code repository:  (https://github.com/D-Robotics/gesture_control)
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK is flashed the  Ubuntu 20.04/22.04 system image.
+1. RDK is flashed the  Ubuntu 20.04/22.04 system image.
 
-2. TogetheROS.Bot successfully installed on Horizon RDK.
+2. TogetheROS.Bot successfully installed on RDK.
 
-3. MIPI or USB camera installed on Horizon RDK.
+3. MIPI or USB camera installed on RDK.
 
-4. PC on the same network segment as Horizon RDK (wired or connected to the same wireless network with the first three segments of the IP address matching). The PC needs to have the following software installed:
+4. PC on the same network segment as RDK (wired or connected to the same wireless network with the first three segments of the IP address matching). The PC needs to have the following software installed:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -75,11 +75,11 @@ Code repository:  (https://github.com/D-Robotics/gesture_control)
 
 ## Instructions
 
-### Horizon RDK
+### RDK
 
 After running the car gesture control app, use the "666/Awesome" gesture to make the car move forward, use the "yeah/Victory" gesture to make the car move backward, use the "ThumbRight" gesture to make the car turn right, and use the "ThumbLeft" gesture to make the car turn left. The directions for turning left and right are based on the direction of the person's left and right (the direction of the thumb).
 
-Once the app is launched, you can view the images published by the sensor and the corresponding algorithm results on the PC browser (enter  `http://IP:8000` in the browser, where IP is the IP address of the Horizon RDK).
+Once the app is launched, you can view the images published by the sensor and the corresponding algorithm results on the PC browser (enter  `http://IP:8000` in the browser, where IP is the IP address of the RDK).
 
 Launch the simulation environment on the PC:
 
@@ -131,7 +131,7 @@ ros2 launch gesture_control gesture_control.launch.py
 
 ## Result Analysis
 
-The terminal output on the Horizon RDK shows the following information:
+The terminal output on the RDK shows the following information:
 
 ```shell
 [gesture_control-7] [WARN] [1652965757.159500951] [GestureControlEngine]: frame_ts_ms: 3698315358, track_id: 2, tracking_sta: 1, gesture: 14
@@ -146,7 +146,7 @@ The above log snippet shows the processing results of controlling the movement o
 
 Starting from the timestamp frame_ts_ms: 3698315358, the car is controlled to move forward at a speed of 0.5m/s using the 666 gesture (gesture: 14) (do move, direction: 0, step: 0.500000).
 
-On the PC, the command `ros2 topic list` can be used in the terminal to query the topic information of the Horizon RDK:
+On the PC, the command `ros2 topic list` can be used in the terminal to query the topic information of the RDK:
 
 ```shell
 $ ros2 topic list
@@ -161,9 +161,9 @@ $ ros2 topic list
 /rosout
 ```
 
-Among them, `/image` is the image captured by the MIPI sensor and encoded in JPEG format, `/hobot_hand_gesture_detection` is the algorithm message published by the Horizon RDK containing gesture recognition information, and `/cmd_vel` is the motion control command published by the Horizon RDK.
+Among them, `/image` is the image captured by the MIPI sensor and encoded in JPEG format, `/hobot_hand_gesture_detection` is the algorithm message published by the RDK containing gesture recognition information, and `/cmd_vel` is the motion control command published by the RDK.
 
-On the PC, the command `ros2 topic echo /cmd_vel` can be used in the terminal to view the motion control command published by the Horizon RDK:
+On the PC, the command `ros2 topic echo /cmd_vel` can be used in the terminal to view the motion control command published by the RDK:
 
 ```shell
 linear:

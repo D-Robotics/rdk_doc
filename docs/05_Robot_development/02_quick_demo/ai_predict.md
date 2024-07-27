@@ -22,15 +22,18 @@ import TabItem from '@theme/TabItem';
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
-***RDK Ultra模型推理功能体验参考[3. Boxs算法仓库](../category/boxs/)。***
+:::caution
+RDK Ultra模型推理功能体验参考[Boxs算法仓库](/docs/05_Robot_development/03_boxs/detection/yolo.md)。
+:::
+
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### X86平台
 

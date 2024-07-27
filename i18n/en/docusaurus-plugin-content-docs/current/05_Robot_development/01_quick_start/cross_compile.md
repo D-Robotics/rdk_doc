@@ -8,13 +8,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-This section explains how to install TogetheROS.Bot on the Horizon RDK using source code.
+This section explains how to install TogetheROS.Bot on the RDK using source code.
 
-## Horizon RDK Platform
+## RDK Platform
 
 Prerequisites:
 
-- The development machine can access the Horizon Robotics organization on [GitHub](https://github.com/D-Robotics).
+- The development machine can access the D-Robotics organization on [GitHub](https://github.com/D-Robotics).
 - Docker is installed on the development machine.
 
 ### Compile
@@ -112,7 +112,7 @@ The directory structure of the entire project is as follows:
 │       └── src
 ```
 
-The `tros_ws/robot_dev_config` path contains the configuration and script files needed for code fetching, compilation, and packaging. The `tros_ws/src` path stores the fetched code. The `sysroot_docker` path contains the header files and libraries required for cross-compilation, corresponding to the `/` directory of the Horizon RDK. For example, the path for the media library in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/`, while the path in the Horizon RDK is `/usr/lib/hbmedia/`.
+The `tros_ws/robot_dev_config` path contains the configuration and script files needed for code fetching, compilation, and packaging. The `tros_ws/src` path stores the fetched code. The `sysroot_docker` path contains the header files and libraries required for cross-compilation, corresponding to the `/` directory of the RDK. For example, the path for the media library in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/`, while the path in the RDK is `/usr/lib/hbmedia/`.
 
 During compilation, the installation path of `sysroot_docker` is specified through the `CMAKE_SYSROOT` macro in the `robot_dev_config/aarch64_toolchainfile.cmake` compilation script.
 
@@ -131,7 +131,7 @@ If using minimal_build.sh for minimal compilation, you can further compress the 
 
 ### Install
 
-Copy the compiled directory to the Horizon RDK and rename it as tros. Here, we place the deployment package in the /opt/tros directory to be consistent with the deb installation directory.
+Copy the compiled directory to the RDK and rename it as tros. Here, we place the deployment package in the /opt/tros directory to be consistent with the deb installation directory.
 
 ### Compile a specific version
 

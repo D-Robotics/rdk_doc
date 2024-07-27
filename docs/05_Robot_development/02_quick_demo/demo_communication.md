@@ -42,16 +42,16 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 ### 准备工作
 
-#### 地平线RDK
+#### RDK
 
-1. 开始测试前，需要将地平线RDK调整为性能模型，以保证测试结果准确性，命令如下：
+1. 开始测试前，需要将RDK调整为性能模型，以保证测试结果准确性，命令如下：
 
    ```bash
    echo performance > /sys/class/devfreq/devfreq0/governor
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
 
-2. 地平线RDK已成功安装performance_test工具包，安装命令：
+2. RDK已成功安装performance_test工具包，安装命令：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -74,7 +74,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 ### 使用介绍
 
-#### 地平线RDK平台
+#### RDK平台
 
 1. 不开启零拷贝功能的4M数据传输测试，命令如下：
 

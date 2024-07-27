@@ -27,19 +27,19 @@ Code Repository:  (https://github.com/D-Robotics/hobot_falldown_detection)
 
 ## Preparation
 
-### Horizon RDK Platform
+### RDK Platform
 
-1. Horizon RDK has flashed the  Ubuntu 20.04/22.04 image provided by Horizon.
+1. RDK has flashed the  Ubuntu 20.04/22.04 image provided by D-Robotics.
 
-2. The TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. The TogetheROS.Bot has been successfully installed on the RDK.
 
-3. Make sure the PC is in the same network segment as the Horizon RDK, and the IP address of the first three segments should be consistent.
+3. Make sure the PC is in the same network segment as the RDK, and the IP address of the first three segments should be consistent.
 
-4. The Horizon RDK has installed MIPI or USB cameras.
+4. The RDK has installed MIPI or USB cameras.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 The pose detection package subscribes to the data published by the human body key point detection package, publishes algorithm messages after algorithm inference, and uses the websocket package to render and display the published images and corresponding algorithm results on the PC browser.
 
@@ -116,6 +116,6 @@ After starting the pose detection package, the following information will be dis
 
 The output log shows that the body_kps data is subscribed and the pose event is published.
 
-In the PC's browser, enter `http://IP:8000`, and the body detection frame, keypoints, and pose detection results will be displayed in the web interface (IP refers to the IP address of the Horizon RDK):
+In the PC's browser, enter `http://IP:8000`, and the body detection frame, keypoints, and pose detection results will be displayed in the web interface (IP refers to the IP address of the RDK):
 
 ![](/../static/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg)

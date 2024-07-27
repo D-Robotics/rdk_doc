@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-This section introduces how to experience Large Language Model (LLM) on Horizon RDK.
+This section introduces how to experience Large Language Model (LLM) on RDK.
 
 Code repository:  (https://github.com/D-Robotics/hobot_llm.git)
 
@@ -25,17 +25,17 @@ Code repository:  (https://github.com/D-Robotics/hobot_llm.git)
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK with 4GB RAM version.
-2. Horizon RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
-3. Horizon RDK has successfully installed TogetheROS.Bot.
+1. RDK with 4GB RAM version.
+2. RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
+3. RDK has successfully installed TogetheROS.Bot.
 4. Install transformers, the command is `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`.
 5. Update hobot-dnn, the command is `sudo apt update; sudo apt install hobot-dnn`.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 Before running the program, you need to download the model file and extract it, the commands are as follows:
 
@@ -66,7 +66,7 @@ wget http://archive.d-robotics.cc/tros/llm-model/llm_model.tar.gz
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
 ```
 
-Use the command `srpi-config` to modify the ION memory size to 1.7GB. The configuration method can be referred to the "Performance Options" section of the RDK User Manual Configuration Tool `srpi-config` Guide [Performance Options](https://developer.horizon.cc/documents_rdk/configuration/srpi-config#performance-options).
+Use the command `srpi-config` to modify the ION memory size to 1.7GB. The configuration method can be referred to the "Performance Options" section of the RDK User Manual Configuration Tool `srpi-config` Guide [Performance Options](/i18n/en/docusaurus-plugin-content-docs/current/02_System_configuration/02_srpi-config.md)
 
 After restarting, set the CPU maximum frequency to 1.5GHz and the scheduling mode to `performance`, the commands are as follows:
 

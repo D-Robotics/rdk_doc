@@ -28,19 +28,19 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 确认PC机跟地平线RDK处于同一网段，IP地址前三段需保持一致
+3. 确认PC机跟RDK处于同一网段，IP地址前三段需保持一致
 
-4. 地平线RDK已安装MIPI或者USB摄像头。
+4. RDK已安装MIPI或者USB摄像头。
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
 姿态检测pkg订阅人体关键点检测pkg发布的数据，经过算法推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
 
@@ -141,6 +141,6 @@ ros2 launch hobot_falldown_detection hobot_falldown_detection.launch.py
 
 输出log显示，订阅到了body_kps数据，并发布了姿态事件。
 
-在PC端的浏览器输入 `http://IP:8000`，人体检测框，关键点和姿态检测结果在web端展示渲染效果（IP为地平线RDK的IP地址）：
+在PC端的浏览器输入 `http://IP:8000`，人体检测框，关键点和姿态检测结果在web端展示渲染效果（IP为RDK的IP地址）：
 
 ![](/../static/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg)

@@ -29,16 +29,16 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Before starting the test, adjust the Horizon RDK to performance mode to ensure the accuracy of the test results. Use the following commands:
+1. Before starting the test, adjust the RDK to performance mode to ensure the accuracy of the test results. Use the following commands:
 
    ```bash
    echo performance > /sys/class/devfreq/devfreq0/governor
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
 
-2. The performance_test package is already installed in Horizon RDK. Install it using the command:
+2. The performance_test package is already installed in RDK. Install it using the command:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -61,7 +61,7 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
 
 ### Usage Guide
 
-#### Horizon RDK Platform
+#### RDK Platform
 
 1. Test the transmission of 4M data without enabling zero-copy. Use the following command:
 

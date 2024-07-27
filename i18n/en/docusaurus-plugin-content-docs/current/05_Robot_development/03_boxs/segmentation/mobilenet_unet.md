@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 The mobilenet_unet segmentation algorithm example uses images as input and performs algorithm inference using BPU. It publishes segmentation result messages.
 
-The mobilenet_unet model is trained on the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and the Onnx model is sourced from  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/MobilenetUnet). It supports segmentation of categories such as humans, vehicles, road surfaces, and road signs.
+The mobilenet_unet model is trained on the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and the Onnx model. It supports segmentation of categories such as humans, vehicles, road surfaces, and road signs.
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -27,17 +27,17 @@ Applications: mobilenet_unet, composed of MobileNet and UNet, can segment images
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK platform has been flashed with the provided  Ubuntu 20.04/22.04 system image.
+1. The RDK platform has been flashed with the provided  Ubuntu 20.04/22.04 system image.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK platform.
+2. TogetheROS.Bot has been successfully installed on the RDK platform.
 
-3. A MIPI or USB camera has been installed on the Horizon RDK platform. If there is no camera available, the algorithm's effects can be experienced by using local JPEG/PNG images offline.
+3. A MIPI or USB camera has been installed on the RDK platform. If there is no camera available, the algorithm's effects can be experienced by using local JPEG/PNG images offline.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 #### Use the Camera to Publish Images 
 
@@ -156,7 +156,7 @@ The output shows the following information:
 [example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91
 ```
 
-The log output shows that the topic used for publishing the algorithm inference results is `hobot_dnn_detection`, and the topic used for subscribing to the images is `/hbmem_img`. The frame rate at which the images are published will adapt according to the algorithm inference output frame rate. Additionally, rendering the semantic segmentation results on the Horizon RDK and saving the images in the running path will cause a decrease in frame rate.
+The log output shows that the topic used for publishing the algorithm inference results is `hobot_dnn_detection`, and the topic used for subscribing to the images is `/hbmem_img`. The frame rate at which the images are published will adapt according to the algorithm inference output frame rate. Additionally, rendering the semantic segmentation results on the RDK and saving the images in the running path will cause a decrease in frame rate.
 
 Original image:
 ![raw](/../static/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg)

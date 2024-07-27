@@ -45,15 +45,15 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. RDK已安装MIPI或者USB摄像头。
 
-4. 确认PC机能够通过网络访问地平线RDK。
+4. 确认PC机能够通过网络访问RDK。
 
 ### X86平台
 
@@ -65,7 +65,7 @@ import TabItem from '@theme/TabItem';
 
 人体检测和跟踪(mono2d_body_detection)package订阅sensor package发布的图片，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果。
 
-### 地平线RDK平台
+### RDK平台
 
 **使用MIPI摄像头发布图片**
 
@@ -234,6 +234,6 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 
 输出log显示，程序运行成功，推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
 
-在PC端的浏览器输入http://IP:8000 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪ID，人体关键点）渲染效果（IP为地平线RDK/X86设备的IP地址）：
+在PC端的浏览器输入http://IP:8000 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪ID，人体关键点）渲染效果（IP为RDK/X86设备的IP地址）：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)

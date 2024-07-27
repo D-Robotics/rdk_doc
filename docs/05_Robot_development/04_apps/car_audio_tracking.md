@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-语音追踪控制小车运动功能根据声源定位的DOA角度信息控制机器人转向声源方向，并且控制机器人向前移动。此功能需要搭配地平线机器人操作系统的智能语音模块一起使用。当用户说出智能语音识别模块配置的唤醒词唤醒设备之后，语音追踪控制小车功能会激活，后续用户说出唤醒词或者配置的命令词，智能语音识别模块会输出声源的DOA角度信息，此模块收到DOA角度信息之后会控制消息转向声源方向，并且前进一定距离。
+语音追踪控制小车运动功能根据声源定位的DOA角度信息控制机器人转向声源方向，并且控制机器人向前移动。此功能需要搭配地瓜RDK机器人操作系统的智能语音模块一起使用。当用户说出智能语音识别模块配置的唤醒词唤醒设备之后，语音追踪控制小车功能会激活，后续用户说出唤醒词或者配置的命令词，智能语音识别模块会输出声源的DOA角度信息，此模块收到DOA角度信息之后会控制消息转向声源方向，并且前进一定距离。
 
 流程如下图：
 
@@ -41,13 +41,13 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已成功安装智能语音算法包，安装命令：
+3. RDK已成功安装智能语音算法包，安装命令：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -68,9 +68,9 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
    </TabItem>
    </Tabs>
 
-5. 地平线RDK已成功接好适配的音频板（可参考[智能语音章节](../boxs/function/hobot_audio.md)）。
+5. RDK已成功接好适配的音频板（可参考[智能语音章节](../boxs/function/hobot_audio.md)）。
 
-6. 和地平线RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+6. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -101,7 +101,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 使用介绍
 
-### 地平线RDK平台
+### RDK平台
 
 运行语音追踪功能后，语音追踪控制模块会接收从智能语音功能模块发布的智能语音消息结果，并且解析消息，根据消息中的唤醒事件以及DOA角度信息发布控制小车转向某个方向特定角度的指令，当小车转向特定角度之后，继续控制小车前进一定距离（此模块默认控制小车前进0.2米的距离）。
 
@@ -133,7 +133,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 ![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/gazebo.jpeg)
 
-地平线RDK平台启动程序：
+RDK平台启动程序：
 
 1. 拷贝音频配置文件和加载音频驱动
 
@@ -195,7 +195,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 ## 结果分析
 
-在地平线RDK运行终端输出如下信息：
+在RDK运行终端输出如下信息：
 
 ```text
 
@@ -241,7 +241,7 @@ rotate_step: 0.348
 
 以上log截取了一段音频控制pkg启动后的输出。log内容显示，智能语音识别模块配置的设备唤醒词是“地平线你好”，语音追踪控制模块接收到唤醒事件之后接收到DOA角度信息，如log上面显示DOA是80度，此时语音追踪控制模块发布控制小车左转20度，转动之后控制小车前进，后面控制小车停止运动。
 
-PC端在终端使用`ros2 topic list`命令可以查询到地平线RDK的topic信息：
+PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 
 ```shell
 $ ros2 topic list
@@ -249,9 +249,9 @@ $ ros2 topic list
 /cmd_vel
 ```
 
-其中`/audio_smart`是X3发布的包含智能语音结果的算法感知msg，`/cmd_vel`是地平线RDK发布的运动控制指令。
+其中`/audio_smart`是X3发布的包含智能语音结果的算法感知msg，`/cmd_vel`是RDK发布的运动控制指令。
 
-PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到是地平线RDK发布的运动控制指令：
+PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到是RDK发布的运动控制指令：
 
 ```text
 linear:

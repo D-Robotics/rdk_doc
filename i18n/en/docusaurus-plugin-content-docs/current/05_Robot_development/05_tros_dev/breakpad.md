@@ -9,7 +9,7 @@ Breakpad is a tool suite for recording crash information in applications, which 
 
 ## Preparation
 
-Breakpad is located in the code repository  (https://github.com/D-Robotics/breakpad.git), with the develop branch. The directory contains the bin, lib, includes, and other folders that have been cross-compiled and can run on the Horizon RDK, which include the breakpad tools, static libraries, header files, and other contents.
+Breakpad is located in the code repository  (https://github.com/D-Robotics/breakpad.git), with the develop branch. The directory contains the bin, lib, includes, and other folders that have been cross-compiled and can run on the RDK, which include the breakpad tools, static libraries, header files, and other contents.
 
 ## Usage
 ### 1. Creating, compiling, and running the test program

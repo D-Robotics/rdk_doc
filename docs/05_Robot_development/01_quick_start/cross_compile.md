@@ -9,13 +9,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-本章节介绍地平线RDK和X86平台如何通过源码安装TogetheROS.Bot。
+本章节介绍RDK和X86平台如何通过源码安装TogetheROS.Bot。
 
-## 地平线RDK平台
+## RDK平台
 
 前提：
 
-- 开发机能够正常访问地平线[Horizon Robotics](https://github.com/D-Robotics)组织
+- 开发机能够正常访问[D-Robotics](https://github.com/D-Robotics)组织
 - 开发机已安装docker
 
 ### 编译tros.b
@@ -113,7 +113,7 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 │       └── src
 ```
 
-其中`tros_ws/robot_dev_config`路径包含代码拉取、编译、打包等功能所需要的配置、脚本文件；`tros_ws/src`路径存放拉取的代码；`sysroot_docker`路径包含交叉编译依赖的头文件和库，和地平线RDK的`/`目录对应。例如媒体库在`sysroot_docker`中的路径为`sysroot_docker/usr/lib/hbmedia/`，在地平线RDK中的路径为`/usr/lib/hbmedia/`。
+其中`tros_ws/robot_dev_config`路径包含代码拉取、编译、打包等功能所需要的配置、脚本文件；`tros_ws/src`路径存放拉取的代码；`sysroot_docker`路径包含交叉编译依赖的头文件和库，和RDK的`/`目录对应。例如媒体库在`sysroot_docker`中的路径为`sysroot_docker/usr/lib/hbmedia/`，在RDK中的路径为`/usr/lib/hbmedia/`。
 
 编译时，在`robot_dev_config/aarch64_toolchainfile.cmake`编译脚本中通过`CMAKE_SYSROOT`宏指定`sysroot_docker`的安装路径。
 
@@ -135,7 +135,7 @@ bash ./robot_dev_config/build.sh -p Rdkultra
 
 ### 安装tros.b
 
-将编译生成的install目录拷贝至地平线RDK中并重命名为tros，这里我们将部署包放在/opt/tros目录下与deb安装目录保持一致
+将编译生成的install目录拷贝至RDK中并重命名为tros，这里我们将部署包放在/opt/tros目录下与deb安装目录保持一致
 
 ### 编译指定版本tros.b
 

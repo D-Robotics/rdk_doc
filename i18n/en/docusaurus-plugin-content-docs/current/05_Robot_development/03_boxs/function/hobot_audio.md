@@ -8,13 +8,13 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The Horizon intelligent voice algorithm adopts a local offline mode, subscribes to audio data and sends it to BPU for processing, and then publishes messages such as **wake-up, command word recognition**, **DOA（Direction of Arrival）**, and **ASR（Automatic Speech Recognition）**. The implementation of intelligent voice function corresponds to the **hobot_audio** package of TogetheROS.Bot, which is suitable for the circular and linear four-microphone arrays supported by Horizon RDK.
+The D-Robotics intelligent voice algorithm adopts a local offline mode, subscribes to audio data and sends it to BPU for processing, and then publishes messages such as **wake-up, command word recognition**, **DOA（Direction of Arrival）**, and **ASR（Automatic Speech Recognition）**. The implementation of intelligent voice function corresponds to the **hobot_audio** package of TogetheROS.Bot, which is suitable for the circular and linear four-microphone arrays supported by RDK.
 
 Code repository:  (https://github.com/D-Robotics/hobot_audio.git)
 
 Application scenarios: The intelligent voice algorithm can recognize wake-up words and custom command words in audio, interpret speech content as corresponding instructions or convert it into text, and can achieve functions such as voice control and speech translation. It is mainly used in areas such as smart home, intelligent cockpit, and smart wearables.
 
-Example of voice-controlled car movement: [4.6 Voice-controlled car movement](../../apps/car_audio_control)
+Example of voice-controlled car movement: [Voice-controlled car movement](../../apps/car_audio_control)
 
 ## Supported Platforms
 
@@ -26,9 +26,9 @@ Example of voice-controlled car movement: [4.6 Voice-controlled car movement](..
 
 ## Preparation
 
-1. The Horizon RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by Horizon.
-2. The TogetheROS.Bot has been successfully installed on the Horizon RDK.
-3. The intelligent voice algorithm package has been successfully installed on the Horizon RDK, installation command:
+1. The RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+2. The TogetheROS.Bot has been successfully installed on the RDK.
+3. The intelligent voice algorithm package has been successfully installed on the RDK, installation command:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -49,7 +49,7 @@ Example of voice-controlled car movement: [4.6 Voice-controlled car movement](..
    </TabItem>
    </Tabs>
 
-4. Connect the circular or linear four-microphone audio board to the Horizon RDK according to the following method.
+4. Connect the circular or linear four-microphone audio board to the RDK according to the following method.
 
 ### Connect the audio board
 
@@ -63,11 +63,11 @@ The circular microphone board is an integrated design, as shown in the following
 
 Purchase link:
 
- (https://www.waveshare.net/shop/Audio-Driver-HAT.htm`
+ (https://www.waveshare.net/shop/Audio-Driver-HAT.htm)
 
 Connection steps:
 
-1. Connect the microphone board to the Horizon RDK X3 40PIN GPIO interface. After the connection, it looks like the following image:
+1. Connect the microphone board to the RDK X3 40PIN GPIO interface. After the connection, it looks like the following image:
 
    ![circle_mic_full](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 
@@ -85,11 +85,11 @@ Linear microphone board:
 
 ![line_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg)
 
-1. First, connect the Horizon RDK X3 to the audio adapter board, aligning the pins of both devices. The connection is shown in the following figure:
+1. First, connect the RDK X3 to the audio adapter board, aligning the pins of both devices. The connection is shown in the following figure:
 
    ![link](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg)
 
-2. Next, connect the Horizon RDK X3 to the microphone array board. The adapter board FPC interface is connected to the microphone array board with a 15-pin FFC cable.The connection is shown in the following figure:
+2. Next, connect the RDK X3 to the microphone array board. The adapter board FPC interface is connected to the microphone array board with a 15-pin FFC cable.The connection is shown in the following figure:
 
    ![link_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg)
 
@@ -101,7 +101,7 @@ Linear microphone board:
 
 #### Power Check
 
-After connecting the Horizon RDK to the microphone array, power it on. Use the command `i2cdetect -r -y 0` to check the device connection. If the connection is successful, three addresses should be read on the I2C bus. See the following figure:
+After connecting the RDK to the microphone array, power it on. Use the command `i2cdetect -r -y 0` to check the device connection. If the connection is successful, three addresses should be read on the I2C bus. See the following figure:
 
 ![detect_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg)
 
@@ -109,7 +109,7 @@ If no devices are detected, please check the device connection again.
 
 #### Configure the Audio Board
 
-For the first-time use of the audio board, use `srpi-config` to configure it. Refer to the RDK user manual's [Audio Adapter Board](https://developer.horizon.cc/documents_rdk/hardware_development/rdk_x3/audio_board) section for configuration instructions.
+For the first-time use of the audio board, use `srpi-config` to configure it. Refer to the RDK user manual's [Audio Adapter Board](/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md) section for configuration instructions.
 
 ## Usage
 
@@ -145,7 +145,7 @@ DOA angle diagram for circular microphone array:
 DOA angle diagram for linear microphone array:
 ![doa_line](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/doa_line.jpg)
 
-To run the hobot_audio package on the Horizon RDK:
+To run the hobot_audio package on the RDK:
 
 1. Copy the configuration file
 

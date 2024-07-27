@@ -8,22 +8,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-This section introduces how to use apt to install TogetheROS.Bot on Horizon RDK.
+This section introduces how to use apt to install TogetheROS.Bot on RDK.
 
-## Horizon RDK
+## RDK
 
 Prerequisites
 
 - The environment preparation in section 1.1 has been completed.
-- The Horizon RDK system has been installed.
-- The Horizon RDK can access the internet normally.
-- The Horizon RDK can be accessed remotely via SSH.
+- The RDK system has been installed.
+- The RDK can access the internet normally.
+- The RDK can be accessed remotely via SSH.
 
 ### Installation
 
-**Note: The IP address of the Horizon RDK used here is 10.64.61.241. Replace it with your IP address during installation.**
+**Note: The IP address of the RDK used here is 10.64.61.241. Replace it with your IP address during installation.**
 
-Login to the Horizon RDK
+Login to the RDK
 
 ```shell
 ssh root@10.64.61.241
@@ -62,7 +62,7 @@ The tros.b is installed in the /opt directory.
 
 ### Upgrade tros.b
 
-Login to Horizon RDK:
+Login to RDK:
 
 ```shell
 ssh root@10.64.61.241
@@ -84,7 +84,7 @@ Check the current version of tros.b:
 root@ubuntu:~# apt show tros
 Package: tros
 Version: 2.0.0-20230523223852
-Maintainer: kairui.wang <kairui.wang@horizon.ai>
+Maintainer: kairui.wang <kairui.wang@d-robotics.cc>
 Installed-Size: unknown
 Depends: hobot-models-basic, tros-ros-base, tros-ai-msgs, tros-audio-control, tros-audio-msg, tros-audio-tracking, tros-body-tracking, tros-dnn-benchmark-example, tros-dnn-node, tros-dnn-node-example, tros-dnn-node-sample, tros-elevation-net, tros-gesture-control, tros-hand-gesture-detection, tros-hand-lmk-detection, tros-hbm-img-msgs, tros-hobot-app-xrrobot-body-tracking, tros-hobot-app-xrrobot-gesture-control, tros-hobot-codec, tros-hobot-cv, tros-hobot-falldown-detection, tros-hobot-hdmi, tros-hobot-image-publisher, tros-hobot-mot, tros-hobot-usb-cam, tros-image-subscribe-example, tros-img-msgs, tros-imu-sensor, tros-line-follower-model, tros-line-follower-perception, tros-mipi-cam, tros-mono2d-body-detection, tros-mono2d-trash-detection, tros-mono3d-indoor-detection, tros-parking-perception, tros-parking-search, tros-rgbd-sensor, tros-websocket, tros-xrrobot, tros-xrrobot-msgs
 Download-Size: 980 B
@@ -105,7 +105,7 @@ Package: tros-humble
 Version: 2.2.0-jammy.20240410.221258
 Priority: optional
 Section: misc
-Maintainer: zhuo <zhuo.wang@horizon.cc>
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
 Installed-Size: 44.0 kB
 Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tros-humble-audio-msg, tros-humble-   audio-tracking, tros-humble-base, tros-humble-body-tracking, tros-humble-dnn-benchmark-example, tros-humble-dnn-   node, tros-humble-dnn-node-example, tros-humble-dnn-node-sample, tros-humble-elevation-net, tros-humble-gesture-   control, tros-humble-hand-gesture-detection, tros-humble-hand-lmk-detection, tros-humble-hbm-img-msgs, tros-humb   le-hobot-audio, tros-humble-hobot-chatbot, tros-humble-hobot-codec, tros-humble-hobot-cv, tros-humble-hobot-fall   down-detection, tros-humble-hobot-hdmi, tros-humble-hobot-image-publisher, tros-humble-hobot-llm, tros-humble-ho   bot-mot, tros-humble-hobot-shm, tros-humble-hobot-tts, tros-humble-hobot-usb-cam, tros-humble-hobot-vio, tros-hu   mble-hobot-visualization, tros-humble-img-msgs, tros-humble-imu-sensor, tros-humble-line-follower-model, tros-hu   mble-line-follower-perception, tros-humble-mipi-cam, tros-humble-mono2d-body-detection, tros-humble-mono2d-trash   -detection, tros-humble-mono3d-indoor-detection, tros-humble-parking-perception, tros-humble-parking-search, tro   s-humble-rgbd-sensor, tros-humble-websocket, tros-humble-ros-workspace
 Download-Size: 5,546 B

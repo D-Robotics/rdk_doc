@@ -24,11 +24,11 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Horizon RDK has burned Horizon's provided  Ubuntu 20.04/22.04 system image.
+1. RDK has burned D-Robotics's provided  Ubuntu 20.04/22.04 system image.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
 ### Usage
 
@@ -62,7 +62,7 @@ The current version supports the following parameter ranges:
 
 The package provides a simple test program that takes a local ToF image and uses the interface in hobot_cv to implement Gaussian filtering. For more detailed interface information, please refer to the README.md file in the hobot_cv package.
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -202,11 +202,11 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. Horizon RDK has flashed the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has flashed the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
 ### Usage Guide
 
@@ -218,7 +218,7 @@ The mean filtering supports the following parameter range:
 
 The package provides a simple test program. The input is a offline ToF image, and the hobot_cv interface is called to perform mean filtering. For detailed interface information, please refer to README.md in the hobot_cv package for further understanding.
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -299,15 +299,15 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Preparation
 
-#### Horizon RDK Platform
+#### RDK Platform
 
-1. Horizon RDK has already burned Horizon's provided  Ubuntu 20.04/22.04 system image.
+1. RDK has already burned D-Robotics's provided  Ubuntu 20.04/22.04 system image.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
 ### Instruction
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -373,15 +373,15 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Preparation
 
-#### Horizon RDK
+#### RDK
 
-1. The Horizon RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
 ### Usage
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -414,7 +414,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 ### Result Analysis
 
-#### Horizon RDK
+#### RDK
 
 ```shell
 [INFO] [launch]: Default logging verbosity is set to INFO
@@ -438,7 +438,7 @@ The original image (1920x1080) and the resized image (960x540) are shown below:
 
 ![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
 
-#### Horizon RDK performance comparison
+#### RDK performance comparison
 
 Use the `top` command to check CPU usage, which represents the CPU percentage used by the test process.
 The time cost is in milliseconds, and the average value is taken after looping 1000 times.
@@ -473,15 +473,15 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Preparation
 
-#### Horizon RDK Platform
+#### RDK Platform
 
-1. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by the Horizon team.
+1. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by the D-Robotics team.
 
-2. The TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. The TogetheROS.Bot has been successfully installed on the RDK.
 
 ### User Guide
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -568,13 +568,13 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 ### Preparation
 
-#### Horizon RDK Platform
+#### RDK Platform
 
-1. The Horizon RDK is pre-loaded with  Ubuntu 20.04/22.04 system image.
+1. The RDK is pre-loaded with  Ubuntu 20.04/22.04 system image.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-#### Horizon RDK
+#### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

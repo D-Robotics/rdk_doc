@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The image codec functionality is similar to the ROS image_transport package. The Horizon RDK utilizes hardware acceleration to convert between the MJPEG/H264/H265 and BGR8/RGB8/NV12 formats, which significantly reduces CPU usage while improving conversion efficiency.
+The image codec functionality is similar to the ROS image_transport package. The RDK utilizes hardware acceleration to convert between the MJPEG/H264/H265 and BGR8/RGB8/NV12 formats, which significantly reduces CPU usage while improving conversion efficiency.
 
 Code repository:  (https://github.com/D-Robotics/hobot_codec)
 
@@ -22,13 +22,13 @@ Code repository:  (https://github.com/D-Robotics/hobot_codec)
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. The Horizon RDK has been connected to a camera, such as the F37 or other MIPI cameras.
+3. The RDK has been connected to a camera, such as the F37 or other MIPI cameras.
 
 ## Usage
 
@@ -36,9 +36,9 @@ Taking JPEG encoding as an example, this section explains how to obtain NV12 for
 
 1. Obtain YUV data and start JPEG encoding:
 
-    **Horizon RDK**
+    **RDK**
 
-    Log in to the Horizon RDK via SSH and use `mipi_cam` as the data source. Configure `hobot_codec` to input NV12 format and output JPEG format. Modify `mipi_cam` to the actual sensor model being used.
+    Log in to the RDK via SSH and use `mipi_cam` as the data source. Configure `hobot_codec` to input NV12 format and output JPEG format. Modify `mipi_cam` to the actual sensor model being used.
 
     a. Start `mipi_cam`
 
@@ -100,7 +100,7 @@ Taking JPEG encoding as an example, this section explains how to obtain NV12 for
 ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
 ```
 
-3. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000`. Replace the IP address of the Horizon RDK. Click on the Web at the top left to view the real-time JPEG encoded image.
+3. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000`. Replace the IP address of the RDK. Click on the Web at the top left to view the real-time JPEG encoded image.
 
  ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png "Real-time image")
 

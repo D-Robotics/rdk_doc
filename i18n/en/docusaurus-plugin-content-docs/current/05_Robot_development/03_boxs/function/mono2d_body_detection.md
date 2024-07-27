@@ -32,9 +32,8 @@ Code Repository:  (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application Scenarios: Human detection and tracking algorithms are an important component of human motion visual analysis, which can achieve functions such as human pose analysis and people counting. They are mainly applied in fields like human-computer interaction and gaming entertainment.
 
-Pose Detection Example: [4.3 Pose Detection](../../apps/fall_detection)    
-Human Tracking for Car Example: [4.4 Car Tracking](../../apps/car_tracking)  
-Game Character Control Example based on Human Pose Analysis and Gesture Recognition: [Playing with X3, Combines Fitness and Gaming](https://developer.horizon.cc/forumDetail/112555512834430487)
+Pose Detection Example: [Pose Detection](../../apps/fall_detection)    
+Human Tracking for Car Example: [Car Tracking](../../apps/car_tracking)  
 
 ## Supported Platforms
 
@@ -44,21 +43,21 @@ Game Character Control Example based on Human Pose Analysis and Gesture Recognit
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has flashed the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. RDK has flashed the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. Horizon RDK has successfully installed TogetheROS.Bot.
+2. RDK has successfully installed TogetheROS.Bot.
 
-3. Horizon RDK has installed the MIPI or USB camera.
+3. RDK has installed the MIPI or USB camera.
 
-4. Confirm that the PC is able to access the Horizon RDK via the network.
+4. Confirm that the PC is able to access the RDK via the network.
 
 ## Usage
 
 The mono2d_body_detection package for human detection and tracking subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. The websocket package is used to render and display the images and corresponding algorithm results on a PC browser.
 
-### Horizon RDK Platform
+### RDK Platform
 
 **Use MIPI Camera to Publish Images**
 
@@ -205,6 +204,6 @@ The following information is outputted in the terminal:
 
 The log shows that frame rates of the algorithm during inference are 30fps, and the statistics are refreshed every second.
 
-On the PC browser, enter http://IP:8000 to view the rendering effect of the image and the algorithm (body, head, face, and hand detection boxes, detection box type and target tracking ID, and human body keypoints) (IP is the IP address of the Horizon RDK):
+On the PC browser, enter http://IP:8000 to view the rendering effect of the image and the algorithm (body, head, face, and hand detection boxes, detection box type and target tracking ID, and human body keypoints) (IP is the IP address of the RDK):
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)

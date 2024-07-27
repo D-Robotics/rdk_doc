@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 前提：已通过deb包或者源码安装的方式成功安装TogetheROS.Bot
 
-启动两个终端，均ssh登陆至地平线RDK或X86平台设备
+启动两个终端，均ssh登陆至RDK或X86平台设备
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

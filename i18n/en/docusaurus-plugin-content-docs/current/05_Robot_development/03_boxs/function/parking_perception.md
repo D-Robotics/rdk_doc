@@ -41,7 +41,7 @@ Code repository:  (https://github.com/D-Robotics/parking_perception.git)
 
 Application scenario: The outdoor parking area detection algorithm is based on semantic segmentation, which identifies parking areas in the images and can achieve automatic parking. It is mainly used in the field of autonomous driving.
 
-Car parking space search case: [4.8. Car Parking Space Search](../../apps/parking_search)
+Car parking space search case: [Car Parking Space Search](../../apps/parking_search)
 
 ## Supported Platforms
 
@@ -51,17 +51,17 @@ Car parking space search case: [4.8. Car Parking Space Search](../../apps/parkin
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has burned the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. The Horizon RDK has successfully installed TogetheROS.Bot.
+2. The RDK has successfully installed TogetheROS.Bot.
 
 ## Usage
 
 The package publishes algorithm messages that include semantic segmentation and object detection information, and users can subscribe to these messages for application development.
 
-### Horizon RDK
+### RDK
 
 **Publishing images from MIPI camera**
 
@@ -226,7 +226,7 @@ After the package is initialized, the following information will be displayed in
 
 **Using single image offline**
 
-The result of inference reading a local image offline in the example will be rendered on the image. On the PC-side browser, you can view the image and algorithm rendering effect by entering http://IP:8000 (IP is the IP address of the Horizon RDK), and open the settings in the upper right corner of the interface.
+The result of inference reading a local image offline in the example will be rendered on the image. On the PC-side browser, you can view the image and algorithm rendering effect by entering http://IP:8000 (IP is the IP address of the RDK), and open the settings in the upper right corner of the interface.
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png)
 

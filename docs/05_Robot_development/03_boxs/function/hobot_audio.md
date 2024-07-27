@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-地平线智能语音算法采用本地离线模式，订阅音频数据后送给BPU处理，然后发布**唤醒、命令词识别**、**声源定位DOA角度信息**以及**语音ASR识别结果**等消息。智能语音功能的实现对应于TogetheROS.Bot的**hobot_audio** package，适用于地平线RDK配套的环形和线形四麦阵列。
+智能语音算法采用本地离线模式，订阅音频数据后送给BPU处理，然后发布**唤醒、命令词识别**、**声源定位DOA角度信息**以及**语音ASR识别结果**等消息。智能语音功能的实现对应于TogetheROS.Bot的**hobot_audio** package，适用于RDK配套的环形和线形四麦阵列。
 
 代码仓库： (https://github.com/D-Robotics/hobot_audio.git)
 
@@ -26,9 +26,9 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
-2. 地平线RDK已成功安装TogetheROS.Bot。
-3. 地平线RDK已成功安装智能语音算法包，安装命令：
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+2. RDK已成功安装TogetheROS.Bot。
+3. RDK已成功安装智能语音算法包，安装命令：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
    </TabItem>
    </Tabs>
    
-4. 按照以下方法在地平线RDK上接好环形或线形四麦音频板。
+4. 按照以下方法在RDK上接好环形或线形四麦音频板。
 
 ### 连接音频板
 
@@ -63,11 +63,11 @@ import TabItem from '@theme/TabItem';
 
 购买链接如下：
 
- (https://www.waveshare.net/shop/Audio-Driver-HAT.htm`
+ (https://www.waveshare.net/shop/Audio-Driver-HAT.htm)
 
 连接步骤：
 
-1. 将麦克风板连接到地平线RDK X3 40PIN GPIO 接口上，连接后实物如下图：
+1. 将麦克风板连接到RDK X3 40PIN GPIO 接口上，连接后实物如下图：
 
    ![circle_mic_full](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 
@@ -85,11 +85,11 @@ import TabItem from '@theme/TabItem';
 
 ![line_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg)
 
-1. 首先需要将地平线RDK X3与音频转接板连接，二者引脚与引脚均应对齐，连接实物图如下：
+1. 首先需要将RDK X3与音频转接板连接，二者引脚与引脚均应对齐，连接实物图如下：
 
    ![link](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg)
 
-2. 其次，需要将地平线RDK X3与麦克风阵列拾音板连接，转接板 FPC 接口通过15pin 异面FFC线缆接入到麦克风阵列拾音板，线缆金手指应朝下，连接实物图如下：
+2. 其次，需要将RDK X3与麦克风阵列拾音板连接，转接板 FPC 接口通过15pin 异面FFC线缆接入到麦克风阵列拾音板，线缆金手指应朝下，连接实物图如下：
 
    ![link_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg)
 
@@ -101,7 +101,7 @@ import TabItem from '@theme/TabItem';
 
 #### 上电检查
 
-将地平线RDK与麦克风阵列接好之后上电，在串口上使用指令`i2cdetect -r -y 0`可以检查设备的接入情况，若成功接好，默认可以在I2C上读取到三个地址。如下图：
+将RDK与麦克风阵列接好之后上电，在串口上使用指令`i2cdetect -r -y 0`可以检查设备的接入情况，若成功接好，默认可以在I2C上读取到三个地址。如下图：
 
 ![detect_mic](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg)
 
@@ -146,7 +146,7 @@ import TabItem from '@theme/TabItem';
 
 ![doa_line](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/doa_line.jpg)
 
-地平线RDK板端运行hobot_audio package：
+RDK板端运行hobot_audio package：
 
 1. 拷贝配置文件
 

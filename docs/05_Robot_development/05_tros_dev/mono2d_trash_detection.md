@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目标检测算法示例。与以往功能展示不同，本示例将以2D垃圾检测任务为例，展示如何基于开源框架训练模型、地平线工具链转换模型、地平线机器人操作系统完成算法全流程部署工作。
+mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目标检测算法示例。与以往功能展示不同，本示例将以2D垃圾检测任务为例，展示如何基于开源框架训练模型、D-Robotics工具链转换模型、地瓜RDK机器人操作系统完成算法全流程部署工作。
 
 本package支持直接订阅sensors/msg/Image类型的话题，并且支持读取本地图片的形式进行推理，将算法信息通过话题发布的同时会将结果在Web页面渲染可视化，本地图片回灌时将渲染图片保存在当前目录。
 
@@ -40,19 +40,19 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 由于部署阶段我们不考虑算法模型内部的结构信息，只关注算法前后处理环节，前处理部分如图像读取、图像Resize等，后处理部分如检测头解码器、非极大值抑制（NMS）等。这些前后处理的方法在多数同类模型中是一致的，通用性较强，因此可以利用基础部署包进行快速部署。
 
-地平线机器人操作系统提供了[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)部署包用于快速部署基础算法。目前支持的常见算法有图像分类、2D目标检测、语义分割。其中2D目标检测集成了Fasterrcnn、Fcos、yolov2、yolov3、yolov5、SSD、efficientnet供用户选择。
+地瓜RDK机器人操作系统提供了[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)部署包用于快速部署基础算法。目前支持的常见算法有图像分类、2D目标检测、语义分割。其中2D目标检测集成了Fasterrcnn、Fcos、yolov2、yolov3、yolov5、SSD、efficientnet供用户选择。
 
-本示例利用[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)，通过替换地平线交叉编译模型、后处理配置文件、检测类别配置文件用以适配自定义检测模型。
+本示例利用[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)，通过替换D-Robotics交叉编译模型、后处理配置文件、检测类别配置文件用以适配自定义检测模型。
 
 如果前后处理环节与上述模型不同无法快速适配，自定义部署方法可参考[dnn_node_sample](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)示例。
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
-3. 获得地平线交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
+3. 获得D-Robotics交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
 
 4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
@@ -64,7 +64,7 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 2. X86环境已成功安装tros.b。
 
-3. 获得地平线交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
+3. 获得交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
 
 4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
@@ -111,13 +111,13 @@ config_file配置文件格式为json格式，本示例[ppyoloworkconfig.json](ht
 
 其中第一步Paddle模型训练、第二部工具链模型转换，将在下方链接中介绍，这里将主要介绍上板部署相关流程。
 
-模型训练：[PPYOLO垃圾检测+地平线地平线RDK部署（上）](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
+模型训练：[PPYOLO垃圾检测+RDK部署（上）](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
 
-模型转换：[PPYOLO垃圾检测+地平线地平线RDK部署（下）](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
+模型转换：[PPYOLO垃圾检测+RDK部署（下）](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
 
 package对外发布包含语义分割和目标检测信息的算法msg，用户可以订阅发布的msg用于应用开发。
 
-### 地平线RDK平台
+### RDK平台
 
 **使用MIPI摄像头发布图片**
 

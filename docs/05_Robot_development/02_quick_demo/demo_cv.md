@@ -24,11 +24,11 @@ import TabItem from '@theme/TabItem';
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### 使用介绍
 
@@ -64,7 +64,7 @@ import TabItem from '@theme/TabItem';
 
 package中提供了简单测试程序，输入为本地的ToF图片，调用hobot_cv中接口实现高斯滤波功能。具体接口说明可参考hobot_cv pakcage中的README.md进一步了解。
 
-#### 地平线RDK平台
+#### RDK平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -210,11 +210,11 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### 使用介绍
 
@@ -228,7 +228,7 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 package中提供了简单测试程序，输入为本地的ToF图片，调用hobot_cv中接口实现均值滤波功能。具体接口说明可参考hobot_cv pakcage中的README.md进一步了解。
 
-#### 地平线RDK平台
+#### RDK平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -311,15 +311,15 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### 使用介绍
 
-#### 地平线RDK平台
+#### RDK平台
 
 
 <Tabs groupId="tros-distro">
@@ -390,11 +390,11 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 #### X86平台
 
@@ -402,7 +402,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 ### 使用介绍
 
-#### 地平线RDK/X86
+#### RDK/X86
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -435,7 +435,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 ### 结果分析
 
-#### 地平线RDK X3平台resize
+#### RDK X3平台resize
 
 ```shell
 [INFO] [launch]: Default logging verbosity is set to INFO
@@ -459,7 +459,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 ![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
 
-#### 地平线RDK X3平台性能对比
+#### RDK X3平台性能对比
 
 使用top命令查看cpu占用，cpu占用为测试进程cpu占比。
 耗时统计单位为ms，循环处理1000次取平均值。
@@ -494,15 +494,15 @@ rotate实现图像旋转功能，暂时只支持NV12格式的图片，支持的�
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### 使用介绍
 
-#### 地平线RDK平台
+#### RDK平台
 
 
 <Tabs groupId="tros-distro">
@@ -592,15 +592,15 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### 使用介绍
 
-#### 地平线RDK平台
+#### RDK平台
 
 
 <Tabs groupId="tros-distro">

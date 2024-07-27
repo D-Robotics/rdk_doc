@@ -30,15 +30,15 @@ Application scenarios: The hand keypoint detection algorithm is mainly used to c
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. The RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. MIPI or USB cameras have been installed on the Horizon RDK.
+3. MIPI or USB cameras have been installed on the RDK.
 
-4. Confirm that the PC can access the Horizon RDK through the network.
+4. Confirm that the PC can access the RDK through the network.
 
 ## Usage
 
@@ -144,6 +144,6 @@ The log during execution is as follows:
 
 The log shows that the program runs successfully and the input and output frame rates of the algorithm are 30fps, refreshing the statistical frame rate once per second.
 
-On the PC browser, enter http://IP:8000 to view the image and algorithm rendering effect (where IP is the IP address of the Horizon RDK):
+On the PC browser, enter http://IP:8000 to view the image and algorithm rendering effect (where IP is the IP address of the RDK):
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg)

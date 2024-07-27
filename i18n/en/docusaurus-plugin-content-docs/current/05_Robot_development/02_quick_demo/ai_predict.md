@@ -23,11 +23,11 @@ Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-
 
 ## Prerequisites
 
-### Horizon RDK
+### RDK
 
-1. The Horizon RDK is already burned with the provided  Ubuntu 20.04/22.04 system image.
+1. The RDK is already burned with the provided  Ubuntu 20.04/22.04 system image.
 
-2. The TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. The TogetheROS.Bot has been successfully installed on the RDK.
 
 ## Usage
 

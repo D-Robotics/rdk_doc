@@ -25,16 +25,16 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
-2. 地平线RDK已成功安装TogetheROS.Bot。
-3. 已有地平线适配的音频驱动板，并参考[智能语音章节](../boxs/function/hobot_audio.md)搭建好环境。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+2. RDK已成功安装TogetheROS.Bot。
+3. 已有RDK适配的音频驱动板，并参考[智能语音章节](../boxs/function/hobot_audio.md)搭建好环境。
 4. 音频板耳机接口连接耳机或音响。
 
 ## 使用方式
 
-### 地平线RDK平台
+### RDK平台
 
 1. 首次运行需要下载模型文件并解压，详细命令如下：
 

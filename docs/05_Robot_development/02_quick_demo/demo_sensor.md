@@ -26,15 +26,15 @@ import TabItem from '@theme/TabItem';
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 确认手中USB摄像头工作正常，将USB摄像头接入地平线RDK的USB插槽
+1. 确认手中USB摄像头工作正常，将USB摄像头接入RDK的USB插槽
 
-2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像
+2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
 
-3. 地平线RDK已成功安装tros.b
+3. RDK已成功安装tros.b
 
-4. 确认PC机能够通过网络访问地平线RDK
+4. 确认PC机能够通过网络访问RDK
 
 #### X86平台
 
@@ -44,9 +44,9 @@ import TabItem from '@theme/TabItem';
 
 ### 使用方式（默认usb_pixel_format为mjpeg）
 
-地平线RDK和X86平台使用方式相同，其中以地平线RDK平台为例：
+RDK和X86平台使用方式相同，其中以RDK平台为例：
 
-1. 通过SSH登录地平线RDK，确认USB摄像头设备名称，这里以`/dev/video8`为例
+1. 通过SSH登录RDK，确认USB摄像头设备名称，这里以`/dev/video8`为例
 
 2. 并通过下述命令启动USB摄像头
 
@@ -127,16 +127,16 @@ source /opt/tros/humble/setup.bash
 ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
 ```
 
-5. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为地平线 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面。
+5. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面。
 
 ![USB 摄像头实时画面](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 
 
 ### 使用方式2（usb_pixel_format为yuyv2rgb）
-地平线RDK和X86平台使用方式相同，其中以地平线RDK平台为例：
+RDK和X86平台使用方式相同，其中以RDK平台为例：
 
-1. 通过SSH登录地平线RDK，确认USB摄像头设备名称，这里以`/dev/video8`为例
+1. 通过SSH登录RDK，确认USB摄像头设备名称，这里以`/dev/video8`为例
 
 2. 并通过下述命令启动USB摄像头
 
@@ -245,7 +245,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_mjpeg websocket_only_show_image:=true
     ```
 
-6. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP为地平线RDK IP地址），点击左上方Web端展示即可查看USB摄像头实时画面
+6. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP为RDK IP地址），点击左上方Web端展示即可查看USB摄像头实时画面
     ![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 
@@ -334,25 +334,25 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 确认摄像头正确接入地平线RDK，例如 F37 摄像头的接入RDK X3方式如下图：
+1. 确认摄像头正确接入RDK，例如 F37 摄像头的接入RDK X3方式如下图：
 
     ![image-X3-PI-Camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X3-PI-Camera.png)
 
-2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像
+2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
 
-3. 地平线RDK已成功安装tros.b
+3. RDK已成功安装tros.b
 
-4. 确认PC机能够通过网络访问地平线RDK
+4. 确认PC机能够通过网络访问RDK
 
 ### 使用方式
 
-#### 地平线RDK平台
+#### RDK平台
 
 下面以 F37 为例，介绍摄像头数据获取和预览的方法：
 
-1. 通过 SSH 登录地平线RDK，确定摄像头型号，这里以`F37`为例，确定相机标定文件的读取路径，这里以`/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml`为例
+1. 通过 SSH 登录RDK，确定摄像头型号，这里以`F37`为例，确定相机标定文件的读取路径，这里以`/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml`为例
 
 2. 并通过下述命令启动 hobot_sensor 节点  
 
@@ -423,7 +423,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-5. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为地平线RDK IP地址），点击左上方Web端展示即可看到F37输出的实时画面
+5. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为RDK IP地址），点击左上方Web端展示即可看到F37输出的实时画面
     ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-f37-codec.png "实时图像")
 
 6. 在PC机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
@@ -566,18 +566,18 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 确认摄像头正确接入地平线RDK，RGBD模组接入RDK X3方式如下图：
+1. 确认摄像头正确接入RDK，RGBD模组接入RDK X3方式如下图：
 
     ![hobot_rgbd](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
 
-    **注意：RGBD模组需要额外转接板才能接到地平线RDK X3上**。
-2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+    **注意：RGBD模组需要额外转接板才能接到RDK X3上**。
+2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-3. 地平线RDK已成功安装tros.b
+3. RDK已成功安装tros.b
 
-4. 确认PC机能够通过网络访问地平线RDK
+4. 确认PC机能够通过网络访问RDK
 
 5. PC端需安装 ros2 foxy 版本和 rviz2，安装命令如下：
 
@@ -587,11 +587,11 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 使用方式
 
-#### 地平线RDK平台
+#### RDK平台
 
 下面以 CP3AM 为例，介绍摄像头数据获取和预览的方法：
 
-1. 通过SSH登录地平线RDK，并通过下述命令启动hobot_sensor节点
+1. 通过SSH登录RDK，并通过下述命令启动hobot_sensor节点
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
@@ -851,7 +851,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 功能介绍
 
-双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。地平线RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec等系列相机。
+双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec等系列相机。
 
 目前RealSense和Orbbec的双目相机在ROS上的使用是按照如下架构实现的，首先需要不同硬件平台上编译的SDK库文件，相机的SDK提供了相机启动、相机设置等API接口，在此基础上，再进行ROS封装，即可实现ROS调用相机。
 
@@ -859,7 +859,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ![stereo-camera-ros-arch](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
-本节介绍RealSense相机在地平线RDK平台上的使用方法。
+本节介绍RealSense相机在RDK平台上的使用方法。
 
 ### 支持平台
 
@@ -870,23 +870,23 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 确认手中RealSense相机工作正常，将提供USB数据线接入地平线RDK的USB插槽
-2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像
-3. 地平线RDK已成功安装tros.b
-4. 确认PC机能够通过网络访问地平线RDK
+1. 确认手中RealSense相机工作正常，将提供USB数据线接入RDK的USB插槽
+2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
+3. RDK已成功安装tros.b
+4. 确认PC机能够通过网络访问RDK
 
 ### 使用方式
 
-直接使用apt命令安装RealSense SDK2.0以及RealSense ROS wrapper后，即可在地平线RDK平台使用Realsense系列相机。
+直接使用apt命令安装RealSense SDK2.0以及RealSense ROS wrapper后，即可在RDK平台使用Realsense系列相机。
 
 此处列出RealSense SDK2.0和RealSense ROS wrapper的GitHub仓库，本教程也是参考这两个仓库编写，用户可以查看仓库中更为详细的教程。
 
 - RealSense SDK2.0：https://github.com/IntelRealSense/librealsense
 - RealSense ROS wrapper：https://github.com/IntelRealSense/realsense-ros/tree/ros2-development
 
-#### 1. 通过串口或者SSH登录地平线RDK，确认ROS的版本
+#### 1. 通过串口或者SSH登录RDK，确认ROS的版本
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -968,7 +968,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 5. 图像和点云的显示
 
-要显示RealSense的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问地平线RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示RealSense的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 ![realsense-rviz2](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
@@ -980,7 +980,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 ### 功能介绍
 
-双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。地平线RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec等系列相机。
+双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec等系列相机。
 
 目前RealSense和Orbbec的双目相机在ROS上的使用是按照如下架构实现的，首先需要不同硬件平台上编译的SDK库文件，相机的SDK提供了相机启动、相机设置等API接口，在此基础上，再进行ROS封装，即可实现ROS调用相机。
 
@@ -988,7 +988,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 ![stereo-camera-ros-arch](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
-本节介绍Orbbec相机在地平线RDK平台上的使用方法。
+本节介绍Orbbec相机在RDK平台上的使用方法。
 
 ### 支持平台
 
@@ -999,23 +999,23 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 ### 准备工作
 
-#### 地平线RDK平台
+#### RDK平台
 
-1. 确认手中Orbbec相机工作正常，将提供USB数据线接入地平线RDK的<font color="red"><b>USB3.0</b></font>插槽（目前发现USB2.0可能存在无法启动的问题）
-2. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像
-3. 地平线RDK已成功安装tros.b
-4. 确认PC机能够通过网络访问地平线RDK
+1. 确认手中Orbbec相机工作正常，将提供USB数据线接入RDK的<font color="red"><b>USB3.0</b></font>插槽（目前发现USB2.0可能存在无法启动的问题）
+2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
+3. RDK已成功安装tros.b
+4. 确认PC机能够通过网络访问RDK
 
 ### 使用方式
 
-目前Orbbec相机不支持直接使用apt命令安装SDK库文件以及ROS wrapper功能包，需要下载源码编译后才能在地平线RDK平台运行。
+目前Orbbec相机不支持直接使用apt命令安装SDK库文件以及ROS wrapper功能包，需要下载源码编译后才能在RDK平台运行。
 
 此处列出Orbbec SDK和Orbbec ROS2 wrapper的GitHub仓库，本教程也是参考这两个仓库编写，用户可以查看仓库中更为详细的教程。
 
 - Orbbec SDK：https://github.com/orbbec/OrbbecSDK
 - Orbbec ROS2 wrapper：https://github.com/orbbec/OrbbecSDK_ROS2
 
-#### 1. 通过串口或者SSH登录地平线RDK，确认ROS的版本
+#### 1. 通过串口或者SSH登录RDK，确认ROS的版本
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -1051,16 +1051,16 @@ cd tros_ws/src
 git clone https://github.com/orbbec/OrbbecSDK_ROS2.git
 ```
 
-注意，OrbbecSDK_ROS2这个仓库已经包含了Orbbec相机的SDK库文件，在`OrbbecSDK_ROS2/orbbec_camera/SDK`目录下，在地平线RDK平台编译的过程中会依赖`arm64`的版本。
+注意，OrbbecSDK_ROS2这个仓库已经包含了Orbbec相机的SDK库文件，在`OrbbecSDK_ROS2/orbbec_camera/SDK`目录下，在RDK平台编译的过程中会依赖`arm64`的版本。
 
-下载好源码，接下来就要进行编译，但编译该程序至少需要4GB以上的内存，在地平线RDK平台可能会出现内存不足的情况，导致编译失败。
+下载好源码，接下来就要进行编译，但编译该程序至少需要4GB以上的内存，在RDK平台可能会出现内存不足的情况，导致编译失败。
 
 解决的方案有两个:
 
 1. 设置swap空间，充当临时内存
-2. 使用交叉编译，在PC上编译，然后在地平线RDK上运行
+2. 使用交叉编译，在PC上编译，然后在RDK上运行
 
-方案1的优点是操作简单，并且可以在地平线RDK平台上直接编译，但缺点是由于地平线RDK平台性能有限，编译速度较慢，例如在RDK X3平台上编译耗时需要30分钟。方案2的优点是编译速度快，但缺点是搭建交叉编译环境较为复杂。本教程介绍方案1的实现，方案2可参考教程：[交叉编译环境部署](https://developer.horizon.cc/forumDetail/112555549341653662)。
+方案1的优点是操作简单，并且可以在RDK平台上直接编译，但缺点是由于RDK平台性能有限，编译速度较慢，例如在RDK X3平台上编译耗时需要30分钟。方案2的优点是编译速度快，但缺点是搭建交叉编译环境较为复杂。本教程介绍方案1的实现，方案2可参考教程：[交叉编译环境部署](https://developer.horizon.cc/forumDetail/112555549341653662)。
 
 下面介绍swap空间的使用方式：
 
@@ -1165,7 +1165,7 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 #### 5. 图像和点云的显示
 
-要显示Orbbec的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问地平线RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示Orbbec的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 ![orbbec-rviz2](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 

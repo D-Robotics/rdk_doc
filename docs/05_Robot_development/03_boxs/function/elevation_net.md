@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-elevation_net是基于hobot_dnn package开发的高程网络检测算法示例，在地平线的地平线RDK上使用高程网络模型和室内数据利用BPU进行模型推理，从而得到算法推理结果。
+elevation_net是基于hobot_dnn package开发的高程网络检测算法示例，在RDK上使用高程网络模型和室内数据利用BPU进行模型推理，从而得到算法推理结果。
 
 代码仓库： (https://github.com/D-Robotics/elevation_net)
 
@@ -25,11 +25,11 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 
 ## 准备工作
 
-### 地平线RDK平台
+### RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. RDK已成功安装TogetheROS.Bot。
 
 ### X86平台
 
@@ -41,7 +41,7 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 
 单目高程网络检测算法示例package采用读取本地图片的形式，经过算法推理后检测出Image基于像素的深度和高度信息，同时package将深度和高度信息进行处理，发布PointCloud2话题数据，用户可以订阅PointCloud2数据用于应用开发。
 
-### 地平线RDK平台
+### RDK平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

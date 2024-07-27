@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Prerequisite: TogetheROS.Bot has been successfully installed via deb package or source code.
 
-Open two terminals and ssh login to the horizon RDK device.
+Open two terminals and ssh login to the RDK device.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

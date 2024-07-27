@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The mono3d_indoor_detection package is an example of indoor object 3D detection algorithm based on the hobot_dnn package. It uses the 3D detection model and indoor data on the Horizon's Horizon RDK to perform model inference using BPU and obtain the inference results.
+The mono3d_indoor_detection package is an example of indoor object 3D detection algorithm based on the hobot_dnn package. It uses the 3D detection model and indoor data on the D-Robotics's RDK to perform model inference using BPU and obtain the inference results.
 
 Compared to 2D object detection, which can only recognize the object category and bounding box, 3D object detection can identify the precise position and orientation of the object. For example, in navigation the rich information provided by 3D object detection algorithms can help the planning and control robot achieve better effects.
 
@@ -34,11 +34,11 @@ Applications: The monocular 3D indoor detection algorithm can directly identify 
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system system image provided by Horizon.
+1. RDK has been flashed with the  Ubuntu 20.04/22.04 system system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
 ## Usage
 
@@ -46,7 +46,7 @@ Because the 3D detection model is related to camera parameters, different camera
 
 The mono3d_indoor_detection algorithm package uses local image input for inference. After the inference, it can detect object categories and 3D positioning information, and publish the algorithm message for 3D information. Users can subscribe to the 3D detection result message for application development.
 
-### Horizon RDK
+### RDK
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

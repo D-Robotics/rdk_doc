@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The mobilenetv2 image classification algorithm example uses images as input and utilizes the BPU for inference. It publishes messages containing object categories.
 
-The mobilenetv2 is a caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. The model source can be found at:  (https://github.com/shicai/MobileNet-Caffe). Supported target types include people, animals, fruits, vehicles, and other 1000 categories. For specific supported categories, please refer to the file /opt/tros/lib/dnn_node_example/config/imagenet.list on the Horizon RDK (TogatherROS.Bot installed).
+The mobilenetv2 is a caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. The model source can be found at:  (https://github.com/shicai/MobileNet-Caffe). Supported target types include people, animals, fruits, vehicles, and other 1000 categories. For specific supported categories, please refer to the file /opt/tros/lib/dnn_node_example/config/imagenet.list on the RDK (TogatherROS.Bot installed).
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
@@ -26,19 +26,19 @@ Applications: mobilenetv2 is capable of predicting the category of a given image
 
 ## Preparation
 
-### Horizon RDK
+### RDK
 
-1. Horizon RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
+1. RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
 
-2. The tros.b has been successfully installed on Horizon RDK.
+2. The tros.b has been successfully installed on RDK.
 
-3. MIPI or USB camera has been installed on Horizon RDK. If there is no camera available, algorithm effects can be experienced by local JPEG/PNG images or MP4, H.264, and H.265 videos offline.
+3. MIPI or USB camera has been installed on RDK. If there is no camera available, algorithm effects can be experienced by local JPEG/PNG images or MP4, H.264, and H.265 videos offline.
 
-4. Ensure the PC can access Horizon RDK through the network.
+4. Ensure the PC can access RDK through the network.
 
 ## Usage
 
-### Horizon RDK
+### RDK
 
 Subscribe to the images published by the sensor package for mobilenetv2 image classification. After inference, the algorithm message will be published, and the image with corresponding algorithm result will be displayed on the PC browser through the websocket package.
 
@@ -142,7 +142,7 @@ The following information is outputted in the terminal:
 
 The log shows that the topic for publishing the algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The frame rate for the subscribed images and algorithm inference outputs is approximately 30fps.
 
-On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the Horizon RDK):
+On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the RDK):
 
 ![render_web](/../static/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg)
 
