@@ -30,6 +30,11 @@ const config = {
   onBrokenLinks: 'warn', // 或 'ignore'
   onBrokenMarkdownLinks: 'warn',
 
+  //add vy xgs for analysis
+  scripts: [
+    {src: 'https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e',  async: true}
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -140,32 +145,33 @@ const config = {
           //   ],
           // },
           {
-            title: 'Community',
+            title: '友情链接',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: '古月居',
+                href: 'https://www.guyuehome.com/',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: '智能驾驶社区',
+                href: 'https://auto-developer.horizon.cc/developerForum/',
               },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+
             ],
           },
           {
-            title: 'More',
+            title: '联系我们',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: '邮箱：developer@d-robotics.cc',
+                to: 'developer@d-robotics.cc',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/D-Robotics',
+              },
+              {
+                label: 'BiLiBiLi',
+                href: 'https://github.com/D-Robotics',
               },
             ],
           },

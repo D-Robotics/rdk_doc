@@ -3,32 +3,38 @@
     "message": "Community",
     "description": "The title of the footer links column with title=Community in the footer"
   },
-  "link.title.More": {
-    "message": "More",
-    "description": "The title of the footer links column with title=More in the footer"
-  },
-  "link.item.label.Stack Overflow": {
-    "message": "Stack Overflow",
-    "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/docusaurus"
-  },
-  "link.item.label.Discord": {
-    "message": "Discord",
-    "description": "The label of footer link with label=Discord linking to https://discordapp.com/invite/docusaurus"
-  },
-  "link.item.label.Twitter": {
-    "message": "Twitter",
-    "description": "The label of footer link with label=Twitter linking to https://twitter.com/docusaurus"
-  },
-  "link.item.label.Blog": {
-    "message": "Blog",
-    "description": "The label of footer link with label=Blog linking to /blog"
-  },
+
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/facebook/docusaurus"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/D-Robotics"
   },
   "copyright": {
     "message": "Copyright © 2024 D-Robotics.",
     "description": "The footer copyright"
+  },
+  "link.title.友情链接": {
+    "message": "Links",
+    "description": "The title of the footer links column with title=友情链接 in the footer"
+  },
+  "link.title.联系我们": {
+    "message": "Contact US",
+    "description": "The title of the footer links column with title=联系我们 in the footer"
+  },
+  "link.item.label.古月居": {
+    "message": "guyuehome",
+    "description": "The label of footer link with label=古月居 linking to https://www.guyuehome.com/"
+  },
+  "link.item.label.邮箱：developer@d-robotics.cc": {
+    "message": "developer@d-robotics.cc",
+    "description": "The label of footer link with label=邮箱：developer@d-robotics.cc linking to developer@d-robotics.cc"
+  },
+  "link.item.label.BiLiBiLi": {
+    "message": "youtube",
+    "description": "The label of footer link with label=Stack Overflow linking to https://www.youtube.com/@D-Robotics"
+  },
+  "link.item.label.智能驾驶社区": {
+    "message": "",
+    "description": "The label of footer link with label=Stack Overflow linking to https://www.youtube.com/@D-Robotics"
   }
 }
+
