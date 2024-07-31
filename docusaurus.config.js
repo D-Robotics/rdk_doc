@@ -183,6 +183,26 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+    themes: [
+      // add by xgs for search.
+      [
+        require.resolve("@easyops-cn/docusaurus-search-local"),
+        {
+          // ... Your options.
+          // `hashed` is recommended as long-term-cache of index file is possible.
+          hashed: true,
+          language: ["en", "zh"],
+          highlightSearchTermsOnTargetPage: true,
+          explicitSearchResultPath: true,
+          docsRouteBasePath: '/'
+          // For Docs using Chinese, The `language` is recommended to set to:
+          // ```
+          // language: ["en", "zh"],
+          // ```
+        },
+      ],
+    ],
+
 };
 
 export default config;
