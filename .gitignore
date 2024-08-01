@@ -6,7 +6,7 @@
 
 /en_docs
 
-src/theme/
+# src/theme/
 
 # Generated files
 .docusaurus
