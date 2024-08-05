@@ -7,7 +7,7 @@ function HomeRedirect() {
 
   useEffect(() => {
     // 重定向到外部 URL
-    window.location.href = 'https://developer.d-robotics.cc/';
+    window.location.href = 'https://d-robotics.cc/';
   }, []);
 
   return null; // 不渲染任何内容
