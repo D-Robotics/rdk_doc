@@ -1,43 +1,51 @@
+English| [简体中文](./README_CN.md)
 
-### Installation
+Welcome to this project! This document will help you quickly get started with the installation, development, building, and deployment of RDK_DOC.
 
-```
+### I. Environment Installation
+
+To install the dependencies for this project, execute the following command:
+
+```shell
 $ npm install
-
 ```
 
-### Local Development
+### II. Online Operation
 
-默认构建中文手册：
-```
+
+To build only the Chinese manual:
+
+```shell
 $ npm run start
 ```
 
-仅构建英文手册：
+To build only the English manual:
 
+```shell
+$ npm run start  -- --locale en
 ```
-$ npm run build  -- --locale en
-```
+
+This method does not support switching between Chinese and English documents. It can only build a single language document. If you need to display Chinese and English simultaneously, please refer to the method in Step III.
+
+Alternatively, open two windows and run `npm run start` and `npm run start -- --locale en`
+
+### III. Offline Deployment
 
 
-### Build
+For compiling and deploying the documents, use the following command:
 
-默认构建
-
-```
+```shell
 $ npm run build
 ```
 
+To deploy the documents, use the following command:
 
-### Deployment
-
-
-```
+```shell
 $ npm run serve
 ```
 
-默认`IP`打开网址：
-中文手册：http://localhost:3000/docs/
-英文手册：http://localhost:3000/en/docs/
+This will start a static file server and provide the following links for access in the browser，The port number should be based on the actual port number:
 
+***English manual link***: http://localhost:3000/en/docs/
 
+***Chinese manual link***: http://localhost:3000/docs/

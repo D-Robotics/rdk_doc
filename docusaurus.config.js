@@ -151,20 +151,12 @@ const config = {
                 label: '古月居',
                 href: 'https://www.guyuehome.com/',
               },
-              {
-                label: '智能驾驶社区',
-                href: 'https://auto-developer.horizon.cc/developerForum/',
-              },
 
             ],
           },
           {
             title: '联系我们',
             items: [
-              {
-                label: '邮箱：developer@d-robotics.cc',
-                to: 'developer@d-robotics.cc',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/D-Robotics',
