@@ -127,6 +127,9 @@ bash ./robot_dev_config/build.sh -p X3
 
 ## 使用build.sh编译RDK Ultra版本tros.b
 bash ./robot_dev_config/build.sh -p Rdkultra
+
+## 使用build.sh编译X5版本tros.b
+bash ./robot_dev_config/build.sh -p X5
 ```
 
 编译成功后会提示总计N packages编译通过。
@@ -158,7 +161,7 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 
 ### 系统要求
 
-必须为Ubuntu 20.04 64位系统，也可使用X3平台交叉编译docker镜像，但编译和运行必须都在docker中进行
+必须为Ubuntu 20.04 64位系统，也可使用RDK平台交叉编译docker镜像，但编译和运行必须都在docker中进行
 
 ### 系统设置
 

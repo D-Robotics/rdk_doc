@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # 8.3 Applications and Examples
 
-## Installation/Cross-compilation and Usage of Third-party Libraries on RDK X3
+## Installation/Cross-compilation and Usage of Third-party Libraries on RDK
 
 For cross-compilation and deployment, please refer to [Cross-Compilation Environment Setup](https://developer.horizon.cc/forumDetail/112555549341653662)
 
@@ -33,7 +33,7 @@ sudo python3 mipi_camera.py
 
 Then, connect an HDMI monitor to render the images and display the algorithm results.
 
-## Unable to View RGB888 RAW Images Published by RDK X3 Using rqt_image_view?
+## Unable to View RGB888 RAW Images Published by RDK Using rqt_image_view?
 
 FastDDS does not implement MTU fragmentation at the UDP protocol layer, resulting in IP layer fragmentation. When UDP data is too large, routers and NICs cannot buffer a large number of fragments, and the loss of a single fragment will cause all fragments to be retransmitted, resulting in IP fragmentation attack. This leads to network congestion in the same subnet. To solve this, you can switch to cycloneDDS (command: export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp), or send images with lower resolution in JPEG format to reduce the amount of data transmitted.
 
@@ -43,7 +43,7 @@ The Linux image rootfs has been minimized and does not support board-side compil
 
 ## How to Run Examples on the Linux Image?
 
-The examples in the manual are introduced using the Ubuntu system as an example. The examples rely on Python for execution, and these examples can also be run on the RDK X3 with the Linux image (without Python).
+The examples in the manual are introduced using the Ubuntu system as an example. The examples rely on Python for execution, and these examples can also be run on the RDK with the Linux image (without Python).
 
 - Instructions for Booting Ubuntu System and Linux Image Examples.Launching an example on Ubuntu system requires three steps:
 
@@ -80,7 +80,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py
 
 - Launch script path:
 
-This example uses `ros2 launch` to launch the `dnn_node_example package`. The launch script `dnn_node_example_feedback.launch.py` can be found in the installation path of `tros.b` on RDK X3: 
+This example uses `ros2 launch` to launch the `dnn_node_example package`. The launch script `dnn_node_example_feedback.launch.py` can be found in the installation path of `tros.b` on RDK: 
 
 ```shell
 # find /opt/tros/ -name dnn_node_example_feedback.launch.py
@@ -137,7 +137,7 @@ The package parameter in the launch script specifies that the package to be laun
 
 - Package and executable program path
 
-Find in the tros. b in path /opt/tros/of RDK X3:
+Find in the tros. b in path /opt/tros/of RDK:
 
 ```shell
 # find /opt/tros/ -name dnn_node_example -type d
@@ -220,7 +220,7 @@ The code of the `google_benchmark_vendor` was downloaded in the path of `src/ame
 
 ## Do you support installing and using other versions of ROS?
 
-Yes, after installing tros.b on RDK X3, other versions of ROS, including ROS1, can also be installed and used.
+Yes, after installing tros.b on RDK, other versions of ROS, including ROS1, can also be installed and used.
 
 :::caution **caution**
 A terminal can only source one version of ROS. For example, after sourcing tros.b, you cannot source ROS2 Foxy or ROS1, or after sourcing ROS2 Foxy or ROS1, you cannot source tros.b again.

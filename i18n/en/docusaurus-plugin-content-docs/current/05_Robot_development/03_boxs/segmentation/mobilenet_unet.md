@@ -23,7 +23,7 @@ Applications: mobilenet_unet, composed of MobileNet and UNet, can segment images
 
 | Platform | System | Function                     |
 | -------- | ------------ | ---------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
 
 ## Preparation
 

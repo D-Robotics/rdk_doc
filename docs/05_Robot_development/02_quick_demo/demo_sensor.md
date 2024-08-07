@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 | 平台    | 运行方式     |
 | ------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -71,10 +71,10 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     </Tabs>
 
-```bash
-    # launch方式启动：
-    ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_video_device:=/dev/video8
-```
+   ```bash
+   # launch方式启动：
+   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_video_device:=/dev/video8
+   ```
 
 3. 如程序输出如下信息，说明节点已成功启动
 
@@ -319,9 +319,9 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 | ------ | ------ | ------ | ------ |
 | 摄像头| F37 | 200W | RDK X3, RDK X3 Module |
 | 摄像头| GC4663 | 400W | RDK X3, RDK X3 Module |
-| 摄像头| IMX219 | 200W | RDK X3, RDK X3 Module, RDK Ultra |
+| 摄像头| IMX219 | 200W | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 |
 | 摄像头| IMX477 | 200W | RDK X3, RDK X3 Module |
-| 摄像头| OV5647 | 200W | RDK X3, RDK X3 Module |
+| 摄像头| OV5647 | 200W | RDK X3, RDK X3 Module, RDK X5 |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -329,7 +329,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 平台   | 运行方式      |
 | ------ | ------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
@@ -865,7 +865,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 平台    | 运行方式     |
 | ------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
@@ -994,7 +994,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 | 平台    | 运行方式     |
 | ------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作

@@ -22,7 +22,7 @@ Applications: mobilenetv2 is capable of predicting the category of a given image
 
 | Platform   | System | Function                   |
 | ---------- | ---------------- | --------------------------------------- |
-| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference results on the web<br/>· Use local data to save rendering results offline |
+| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference results on the web<br/>· Use local data to save rendering results offline |
 
 ## Preparation
 

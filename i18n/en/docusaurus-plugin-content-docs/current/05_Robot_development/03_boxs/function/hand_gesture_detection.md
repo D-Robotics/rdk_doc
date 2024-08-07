@@ -38,7 +38,7 @@ Example of gesture-controlled car: [Car Gesture Control](../../apps/car_gesture_
 
 | Platform                             | System | Function                                 |
 | ------------------------------------ | ---------------- | ------------------------------------------------ |
-| RDK X3, RDK X3 Module      | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | Start MIPI/USB camera and display inference results via web |
+| RDK X3, RDK X3 Module, RDK X5      | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | Start MIPI/USB camera and display inference results via web |
 
 ## Preparations
 

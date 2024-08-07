@@ -25,7 +25,7 @@ Code repository: [https://github.com/brendangregg/FlameGraph.git](https://github
 
 | Platform       | System     | Function |
 | -------------- | ----------- | --------------------- |
-| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Demonstrating how to generate a flame graph |
+| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Demonstrating how to generate a flame graph |
 
 ## Preparation
 

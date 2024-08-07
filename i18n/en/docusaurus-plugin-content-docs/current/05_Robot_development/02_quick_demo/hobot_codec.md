@@ -18,7 +18,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_codec)
 
 | Platform                       | System | Function                                |
 | ------------------------------ | ---------------- | --------------------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | Start MIPI camera to capture images, encode them, and display them via Web |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | Start MIPI camera to capture images, encode them, and display them via Web |
 
 ## Preparation
 

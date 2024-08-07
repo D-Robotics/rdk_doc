@@ -34,7 +34,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 | 平台    | 运行方式      |
 | ------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
 :::caution
 ***RDK Ultra平台支持零拷贝数据通信，暂未提供零拷贝性能指标测试安装包。***

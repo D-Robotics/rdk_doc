@@ -31,7 +31,6 @@ import TabItem from '@theme/TabItem';
 2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
 3. RDK已成功安装TogetheROS.Bot。
 4. 安装transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`。
-5. 更新hobot-dnn，命令为 `sudo apt update; sudo apt install hobot-dnn`。
 
 ## 使用方式
 
