@@ -20,7 +20,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_usb_cam.git)
 
 | Platform    | Operating Mode     |
 | ------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
 ### Preparation
 
@@ -306,9 +306,9 @@ To achieve environmental perception capabilities, robots often carry cameras, To
 | ------ | ------ | ------ | ------ |
 | Camera | F37 | 200W | RDK X3, RDK X3 Module |
 | Camera | GC4663 | 400W | RDK X3, RDK X3 Module |
-| Camera | IMX219 | 200W | RDK X3, RDK X3 Module  |
+| Camera | IMX219 | 200W | RDK X3, RDK X3 Module, RDK X5  |
 | Camera | IMX477 | 200W | RDK X3, RDK X3 Module |
-| Camera | OV5647 | 200W | RDK X3, RDK X3 Module |
+| Camera | OV5647 | 200W | RDK X3, RDK X3 Module, RDK X5 |
 
 Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -316,7 +316,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 | Platform   | System      | Function                          |
 | ------ | ------------- | --------------------------------- |
-|RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
 
 ### Preparation
 

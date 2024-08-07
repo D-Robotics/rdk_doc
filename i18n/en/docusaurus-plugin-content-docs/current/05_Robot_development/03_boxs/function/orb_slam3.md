@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 SLAM stands for Simultaneous Localization and Mapping. ORB-SLAM3 is one of the most researched algorithms in this field. TogetheROS.Bot integrates, improves, and optimizes ORB-SLAM3 to facilitate the development of visual SLAM-based applications.
 
 1. Integrated and adapted the SuperPoint feature extraction model to optimize the robustness of image feature extraction in visual SLAM's frontend, and reduce CPU workload.
-   The model is converted to a fixed-point model runnable on the RDK X3 using the D-Robotics floating-point model conversion tool, thus reducing the CPU workload of RDK X3.
+   The model is converted to a fixed-point model runnable on the RDK using the D-Robotics floating-point model conversion tool, thus reducing the CPU workload of RDK.
 2. Wrapped the point cloud and pose information publishing, as well as image and IMU subscribing of ORB-SLAM3 with ROS2.
 3. Added Track asynchronous interface to separate feature extraction and feature point tracking into different threads, improving processing frame rate and facilitating practical engineering applications.
 4. Added bag-of-words library creation program to help developers build their own bag-of-words libraries.
@@ -28,9 +28,9 @@ SLAM Mapping Example: [SLAM Mapping](../../apps/slam)
 
 | Platform                      | System |
 | ----------------------------- | -------------- |
-| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  |
+| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  |
 
-**Note**: SuperPoint optimization only supports RDK X3 and RDK X3 Module platforms.
+**Note**: SuperPoint optimization only supports RDK X3, RDK X3 Module, RDK X5 platforms.
 
 ## Preparation
 
@@ -71,7 +71,7 @@ ORB-SLAM3 project itself integrates various types of test programs, such as mono
 
 ### Use EuRoC Dataset
 
-Dataset URL: (http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/vicon_room2/V2_01_easy/V2_01_easy.zip). After downloading the dataset, go to the ORB-SLAM3 project directory. Extract the dataset and the bag-of-words library to your local machine, and run the test program. If you want to achieve a higher frame rate, you can overclock the X3 CPU, but this will also increase power consumption.
+Dataset URL: (http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/vicon_room2/V2_01_easy/V2_01_easy.zip). After downloading the dataset, go to the ORB-SLAM3 project directory. Extract the dataset and the bag-of-words library to your local machine, and run the test program. If you want to achieve a higher frame rate, you can overclock the RDK CPU, but this will also increase power consumption.
 
 Command to run:
 
@@ -213,7 +213,7 @@ tar -xvf ./Vocabulary/ORBvoc.txt.tar.gz
 ros2 run orb_slam3_example_ros2 mono ./ORBvoc.txt ./Examples/Monocular/RealSense_D435i.yaml 
 ```
 
-The visual SLAM node on the X3 starts and receives camera image data, and then starts printing the current frame rate "fps".
+The visual SLAM node on the RDK starts and receives camera image data, and then starts printing the current frame rate "fps".
 
 At the same time, open the Rviz2 visualization software on the PC (in the same network segment as the tros.b), add relevant visualization information, and subscribe to the following topics:
 

@@ -680,7 +680,7 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
 }
 ```
 
-dnn node中内置了多种检测、分类和分割算法的模型输出解析方法，RDK X3上安装tros.b后查询支持的解析方法如下：
+dnn node中内置了多种检测、分类和分割算法的模型输出解析方法，RDK上安装tros.b后查询支持的解析方法如下：
 
 ```shell
 root@ubuntu:~# tree /opt/tros/include/dnn_node/util/output_parser
@@ -953,17 +953,17 @@ Summary: 0 packages finished [1min 1s]
 
 ##### 3.3 运行
 
-为了更好的展示算法推理效果，体验感知能力，使用tros.b中的MIPI摄像头图像采集、图像编码和WEB数据展示Node，提供数据传感和展示的能力，实现在RDK X3上发布摄像头采集到的图像，对图像进行算法推理检测出人体框后，在PC端的WEB浏览器上实时渲染展示图像和人体框检测结果。
+为了更好的展示算法推理效果，体验感知能力，使用tros.b中的MIPI摄像头图像采集、图像编码和WEB数据展示Node，提供数据传感和展示的能力，实现在RDK上发布摄像头采集到的图像，对图像进行算法推理检测出人体框后，在PC端的WEB浏览器上实时渲染展示图像和人体框检测结果。
 
 运行时系统流程图如下：
 
 ![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg)
 
-RDK X3上的运行4个node，其中算法推理为本示例。
+RDK上的运行4个node，其中算法推理为本示例。
 
 系统启动流程如下：
 
-（1）RDK X3上打开终端1，启动算法推理node
+（1）RDK上打开终端1，启动算法推理node
 ```shell
 cd ~/dev_ws
 
@@ -984,9 +984,9 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_mot/config/iou2_method_param.json confi
 ros2 run cpp_dnn_demo cpp_dnn_demo --ros-args --log-level warn
 ```
 
-（2）RDK X3上打开终端2，启动tros.b中的图像发布、编码和展示Node
+（2）RDK上打开终端2，启动tros.b中的图像发布、编码和展示Node
 
-由于启动的Node比较多，使用启动脚本通过launch批量启动Node。在RDK X3的任意路径下创建启动脚本`cpp_dnn_demo.launch.py`，内容如下：
+由于启动的Node比较多，使用启动脚本通过launch批量启动Node。在RDK的任意路径下创建启动脚本`cpp_dnn_demo.launch.py`，内容如下：
 
 ```python
 import os
@@ -1101,7 +1101,7 @@ root@ubuntu:~/dev_ws# ros2 run cpp_dnn_demo cpp_dnn_demo
 
 输出log显示，初始化时算法推理使用的模型输入图片分辨率为960x544，使用一个推理任务，`MOT`算法引擎使用的配置文件为`config/iou2_method_param.json`。推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
 
-在RDK X3上使用ros2命令查询并输出推理Node发布的`/cpp_dnn_demo`话题消息内容：
+在RDK上使用ros2命令查询并输出推理Node发布的`/cpp_dnn_demo`话题消息内容：
 
 ```shell
 root@ubuntu:~# source /opt/tros/setup.bash
@@ -1192,7 +1192,7 @@ disappeared_targets: []
 
 输出的`/cpp_dnn_demo`话题消息表明算法检测出5个人体框（rois type为body），并输出了每个检测框的坐标（rect）和对应的目标跟踪结果(track_id)。
 
-在PC端的WEB浏览器上输入 `http://IP:8000`（IP为RDK X3的IP地址，如本示例使用的IP地址为10.64.28.88）查看实时的图片和算法推理渲染效果：
+在PC端的WEB浏览器上输入 `http://IP:8000`（IP为RDK的IP地址，如本示例使用的IP地址为10.64.28.88）查看实时的图片和算法推理渲染效果：
 
 ![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg)
 

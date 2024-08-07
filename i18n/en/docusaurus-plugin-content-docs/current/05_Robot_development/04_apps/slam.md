@@ -17,7 +17,7 @@ SLAM (Simultaneous Localization and Mapping) is a technique used to simultaneous
 
 | Platform | System | Function |
 | -------- | ---------------- | -------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the simulation environment on the PC and perform SLAM mapping on the RDK, finally display the mapping results using Rviz2. |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the simulation environment on the PC and perform SLAM mapping on the RDK, finally display the mapping results using Rviz2. |
 
 ## Preparation
 

@@ -19,7 +19,7 @@ Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding 
 
 | Platform                | Execution      | Function             |
 | ----------------------- | -------------- | --------------------------------- |
-| RDK X3, RDK X3 Module    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start the simulation environment on the PC and start the navigation function on the RDK, and finally display the navigation effect through Rviz2 |
+| RDK X3, RDK X3 Module, RDK X5    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start the simulation environment on the PC and start the navigation function on the RDK, and finally display the navigation effect through Rviz2 |
 
 ## Preparation
 

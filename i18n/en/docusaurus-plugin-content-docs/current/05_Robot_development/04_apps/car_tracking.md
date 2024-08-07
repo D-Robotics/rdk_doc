@@ -23,7 +23,7 @@ Code Repository:  (https://github.com/D-Robotics/body_tracking)
 
 | Platform | System | Function                  |
 | ---------| ---------------- | ------------------------------------- |
-| RDK X3, RDK X3 Module  | Ubuntu 20.04  | Start MIPI/USB camera to capture images, perform body keypoints detection and body tracking, and display the tracking effect in Gazebo |
+| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04  | Start MIPI/USB camera to capture images, perform body keypoints detection and body tracking, and display the tracking effect in Gazebo |
 
 ## Preparation
 

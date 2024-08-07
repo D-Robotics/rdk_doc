@@ -656,7 +656,7 @@ for (auto& rect : out_box_list) {
 }
 ```
 
-The dnn node contains built-in methods for parsing the output of various detection, classification, and segmentation algorithms. After installing tros.b on the RDK X3, the supported parsing methods can be queried as follows:
+The dnn node contains built-in methods for parsing the output of various detection, classification, and segmentation algorithms. After installing tros.b on the RDK, the supported parsing methods can be queried as follows:
 
 ```shell
 root@ubuntu:~# tree /opt/tros/include/dnn_node/util/output_parser
@@ -914,17 +914,17 @@ This indicates that the hobot_dnn environment has not been configured successful
 
 ##### 3.3 Running
 
-In order to better display the effect of algorithm reasoning and experience perception ability, the MIPI camera image capture, image encoding, and WEB data display Node in tros.b are used to provide the ability of data sensing and display. The system can publish the captured images from the camera on RDK X3, perform algorithm reasoning to detect human body frames, and render and display the images and human body frame detection results in real time on the WEB browser on the PC side.
+In order to better display the effect of algorithm reasoning and experience perception ability, the MIPI camera image capture, image encoding, and WEB data display Node in tros.b are used to provide the ability of data sensing and display. The system can publish the captured images from the camera on RDK, perform algorithm reasoning to detect human body frames, and render and display the images and human body frame detection results in real time on the WEB browser on the PC side.
 
 The runtime system process diagram is as follows:
 
 ![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg)
 
-There are 4 nodes running on RDK X3, and algorithm reasoning is one of them in this example.
+There are 4 nodes running on RDK, and algorithm reasoning is one of them in this example.
 
 The system startup process is as follows:
 
-(1) Open terminal one on RDK X3 and start the algorithm reasoning node:
+(1) Open terminal one on RDK and start the algorithm reasoning node:
 ```shell
 cd ~/dev_ws
 
@@ -945,9 +945,9 @@ cp -r /opt/tros/lib/hobot_mot/config/iou2_method_param.json config/
 ros2 run cpp_dnn_demo cpp_dnn_demo --ros-args --log-level warn
 ```
 
-(2) Open terminal 2 on RDK X3 and start the image publishing, encoding, and display Node in tros.b:
+(2) Open terminal 2 on RDK and start the image publishing, encoding, and display Node in tros.b:
 
-Since multiple Nodes need to be started, a launch script is used to start the Nodes in batches. Create a launch script `cpp_dnn_demo.launch.py` in any path on RDK X3, with the following content:
+Since multiple Nodes need to be started, a launch script is used to start the Nodes in batches. Create a launch script `cpp_dnn_demo.launch.py` in any path on RDK, with the following content:
 
 ```python
 import os
@@ -1061,7 +1061,7 @@ root@ubuntu:~/dev_ws# ros2 run cpp_dnn_demo cpp_dnn_demo
 
 The log output shows that the model used for algorithm inference during initialization has an input image resolution of 960x544. The `MOT` algorithm engine is using the configuration file `config/iou2_method_param.json`. During inference, the input and output frame rate of the algorithm is 30fps, and the statistics are refreshed once per second.
 
-Use the `ros2` command on RDK X3 to query and output the contents of the `/cpp_dnn_demo` topic messages published by the inference node.
+Use the `ros2` command on RDK to query and output the contents of the `/cpp_dnn_demo` topic messages published by the inference node.
 ```
 root@ubuntu:~# source /opt/tros/setup.bash
 root@ubuntu:~# ros2 topic list
@@ -1150,7 +1150,7 @@ disappeared_targets: []
 
 The output `/cpp_dnn_demo` topic message indicates that the algorithm detected 5 human body boxes , and output the coordinates and corresponding target tracking results (track_id) for each detection box.
 
-Enter http://IP:8000 (IP is the IP address of RDK X3, for example, the IP address used in this example is 10.64.28.88) on the PC's web browser to view real-time images and algorithm inference rendering effects:
+Enter http://IP:8000 (IP is the IP address of RDK, for example, the IP address used in this example is 10.64.28.88) on the PC's web browser to view real-time images and algorithm inference rendering effects:
 
 ![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg)
 

@@ -25,7 +25,7 @@ mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK Ultra| Ubuntu 20.04 (Foxy) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
 

@@ -31,7 +31,6 @@ Code repository:  (https://github.com/D-Robotics/hobot_llm.git)
 2. RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
 3. RDK has successfully installed TogetheROS.Bot.
 4. Install transformers, the command is `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`.
-5. Update hobot-dnn, the command is `sudo apt update; sudo apt install hobot-dnn`.
 
 ## Usage
 

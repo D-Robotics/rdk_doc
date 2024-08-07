@@ -19,7 +19,7 @@ Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-
 
 | Platform    | System     |
 | ------------ | ---------------- |
-| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
 ## Prerequisites
 

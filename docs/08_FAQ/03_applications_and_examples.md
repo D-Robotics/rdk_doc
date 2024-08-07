@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 8.3 应用和示例
 
-## 第三方库在RDK X3上的安装/交叉编译和使用
+## 第三方库在RDK上的安装/交叉编译和使用
 
 如需交叉编译部署，请参考[交叉编译环境部署](https://developer.horizon.cc/forumDetail/112555549341653662)
 
@@ -33,7 +33,7 @@ sudo python3 mipi_camera.py
 
 然后HDMI接屏幕可以渲染图像和算法展示结果。
 
-## 使用rqt_image_view查看RDK X3发布的RGB888 RAW图卡顿，甚至无法接收?
+## 使用rqt_image_view查看RDK发布的RGB888 RAW图卡顿，甚至无法接收?
 
 FastDDS在UDP协议层没有实现MTU分片，导致IP层进行分片，当UDP数据过大时由于常见路由器、网卡均无法缓冲大量分片，且某一分片丢失会导致重传所有分片，进而形成IP fragmentation attack，表现为同一网段机器通信卡顿。更换cycloneDDS（命令：export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp），或者发送小分辨率jpeg格式图片降低传输数据量。
 
@@ -43,7 +43,7 @@ Linux镜像rootfs经过最小剪裁，无法支持板端编译。
 
 ## Linux镜像上如何运行示例
 
-手册中的示例是以Ubuntu系统举例介绍，示例的运行依赖python，这些示例同样可以运行在烧录Linux镜像（无python）的RDK X3上。
+手册中的示例是以Ubuntu系统举例介绍，示例的运行依赖python，这些示例同样可以运行在烧录Linux镜像（无python）的RDK上。
 
 - Ubuntu系统和Linux镜像启动示例说明
 
@@ -82,7 +82,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py
 
 - launch脚本路径
 
-此示例使用`ros2 launch`启动了`dnn_node_example package`，在RDK X3的`tros.b`安装路径`/opt/tros/`中查找launch脚本`dnn_node_example_feedback.launch.py`所在路径：
+此示例使用`ros2 launch`启动了`dnn_node_example package`，在RDK的`tros.b`安装路径`/opt/tros/`中查找launch脚本`dnn_node_example_feedback.launch.py`所在路径：
 
 ```shell
 # find /opt/tros/ -name dnn_node_example_feedback.launch.py
@@ -141,7 +141,7 @@ launch脚本中`package`参数指定了启动的package名为`dnn_node_example`�
 
 - package和可执行程序路径
 
-在RDK X3的`tros.b`安装路径`/opt/tros/`中查找：
+在RDK的`tros.b`安装路径`/opt/tros/`中查找：
 
 ```shell
 # find /opt/tros/ -name dnn_node_example -type d
@@ -231,7 +231,7 @@ tros.b的package较多，源码编译需要一些时间（8核CPU & 32G内存配
 
 支持。
 
-RDK X3上安装了tros.b之后，还可以安装使用其他版本的ROS，包括ROS1。
+RDK上安装了tros.b之后，还可以安装使用其他版本的ROS，包括ROS1。
 
 :::caution **注意**
 一个终端下只能source一个版本的ROS。例如source了tros之后不能再source ROS2 Foxy或者ROS1，或者source了ROS2 Foxy或者ROS1之后不能再source tros。
@@ -321,9 +321,9 @@ root@ubuntu:~#
 
 **和系统版本、RDK平台硬件对应关系**
 
-- 2.x版本tros.b：仅支持2.x版本系统；支持RDK X3、RDK X3 Module等全系列硬件；未来tros.b的新增功能将会发布在2.x版本tros.b；代码托管在github。
+- 2.x版本tros.b：仅支持2.x版本系统；支持RDK、RDK Module等全系列硬件；未来tros.b的新增功能将会发布在2.x版本tros.b；代码托管在github。
 
-- [1.x版本tros.b](https://developer.horizon.cc/api/v1/fileData/TogetherROS/index.html)：历史版本；仅支持1.x版本系统和RDK X3；未来1.x版本tros.b仅发布问题修复版本；代码托管在gitlab。
+- [1.x版本tros.b](https://developer.horizon.cc/api/v1/fileData/TogetherROS/index.html)：历史版本；仅支持1.x版本系统和RDK；未来1.x版本tros.b仅发布问题修复版本；代码托管在gitlab。
 
 :::caution **注意**
 1.x版本tros.b无法通过apt命令直接升级到2.x版本tros.b，需要以烧录镜像的方式重新[安装系统](https://developer.horizon.cc/documents_rdk/installation/install_os)后再安装2.x版本tros.b。

@@ -20,7 +20,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 | Platform               | System | Function                |
 | ---------------------- | -------------- | ------------------------------- |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Read ToF images and perform Gaussian filtering |
+| RDK X3, RDK X3 Module, RDK X5   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Read ToF images and perform Gaussian filtering |
 
 ### Preparation
 
@@ -198,7 +198,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 | Platform            | System | Function          |
 | ------------------- | -------------- | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Read ToF images, perform Mean Filtering |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Read ToF images, perform Mean Filtering |
 
 ### Preparation
 
@@ -369,7 +369,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 | Platform  | System | Function              |
 | --------- | -------------- | ----------------------------- |
-| RDK X3, RDK X3 Module |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Read image and resize |
+| RDK X3, RDK X3 Module, RDK X5 |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Read image and resize |
 
 ### Preparation
 

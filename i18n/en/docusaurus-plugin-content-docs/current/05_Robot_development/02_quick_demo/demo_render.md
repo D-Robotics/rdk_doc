@@ -21,7 +21,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 
 | Platform    | System      | Function                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera human detection and display images and algorithm results through web|
+| RDK X3, RDK X3 Module, RDK X5 |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera human detection and display images and algorithm results through web|
 
 ### Preparation
 
@@ -144,7 +144,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_hdmi)
 
 | Platform | System | Function                    |
 | -------- | ------------ | ----------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera and display image through HDMI |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera and display image through HDMI |
 
 ### Preparation
 
@@ -211,7 +211,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 | Platform | System | Sample Function                                        |
 | -------- | -------------- | ------------------------------------------------------ |
-| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
+| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
 
 ### Preparation
 
@@ -371,7 +371,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 1. If the PC terminal's `ros2 topic list` does not recognize the camera topic, please check the following:
 
-   - Check if RDK X3 is publishing images properly:
+   - Check if RDK is publishing images properly:
 
       <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
@@ -420,7 +420,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
 | Platform       | System | Function           |
 | -------------- | ------------ | ------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera to capture images and use RQt to preview on PC |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera to capture images and use RQt to preview on PC |
 
 ### Preparation
 
@@ -599,7 +599,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization)
 
 | Platform | System | Function                                     |
 | -------- | -------------- | -------------------------------------------------------- |
-| RDK X3, RDK X3 Module      |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK X3, RDK X3 Module, RDK X5      |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
 
 ### Preparation
 
@@ -607,7 +607,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization)
 
 1. Confirm that TogetheROS.Bot has been successfully installed.
 
-2. Confirm that the PC can access the X3 board via the network3. 
+2. Confirm that the PC can access the RDK via the network. 
 
 ### Usage
 

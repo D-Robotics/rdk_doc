@@ -21,7 +21,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_vio.git)
 
 | Platform                       | System | Function                                            |
 | ------------------------------ | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Use realsense camera images and IMU data as algorithm inputs; Algorithm outputs robot motion trajectory that can be visualized in rviz2 on PC. |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Use realsense camera images and IMU data as algorithm inputs; Algorithm outputs robot motion trajectory that can be visualized in rviz2 on PC. |
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ ros2 launch hobot_vio hobot_vio.launch.py
 
 ## Result Analysis
 
-After starting the algorithm example on X3, output the following information on the terminal. First, start the realsense node to publish images and IMU data. Then, the algorithm enters the initialization process, waiting for the user to move the camera to complete initialization. After initialization is completed, the algorithm starts outputting positioning coordinates:
+After starting the algorithm example on RDK, output the following information on the terminal. First, start the realsense node to publish images and IMU data. Then, the algorithm enters the initialization process, waiting for the user to move the camera to complete initialization. After initialization is completed, the algorithm starts outputting positioning coordinates:
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2023-07-07-19-48-31-464088-ubuntu-562910

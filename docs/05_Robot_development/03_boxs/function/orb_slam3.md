@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 SLAM指定位与地图构建（Simultaneous Localization and Mapping，简称SLAM）,ORB-SLAM3是其中研究较多的算法之一。TogetheROS.Bot为了方便开发者开发基于视觉SLAM的应用，集成、改进和优化了ORB-SLAM3。
 
 1. 集成和适配SuperPoint特征提取模型以优化视觉SLAM前端图像特征提取的鲁棒性，并降低CPU的运行负载。
-   并经过D-Robotics浮点模型转换工具转换成RDK可运行的定点模型，以降低RDK X3的CPU运行负载。
+   并经过D-Robotics浮点模型转换工具转换成RDK可运行的定点模型，以降低RDK的CPU运行负载。
 2. 使用ROS2封装了ORB-SLAM3的点云和位姿信息发布以及图像和IMU的订阅。
 3. 增加了Track异步接口，分离特征提取和特征点跟踪为不同的线程，提高了处理帧率，有利于实际的工程应用。
 4. 新增词袋库创建程序，帮助开发者构建自己的词袋库。
@@ -32,10 +32,10 @@ SLAM建图案例：[4.1 SLAM建图](../../apps/slam)
 
 | 平台                  | 运行方式     |
 | --------------------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
-**注意**：SuperPoint优化只支持RDK X3和RDK X3 Module平台。
+**注意**：SuperPoint优化只支持RDK X3, RDK X3 Module, RDK X5平台。
 
 ## 准备工作
 
@@ -78,7 +78,7 @@ ORB-SLAM3项目本身集成了多种类型的测试程序，比如单/双目以�
 ### 使用EuRoC数据集
 
 数据集地址： `http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/vicon_room2/V2_01_easy/V2_01_easy.zip`，数据集下载好后，
-进入ORB-SLAM3项目目录。解压数据集和词袋库到本地，并运行测试程序，如果想要的到更高的处理帧率，可以超频X3的CPU，但同时会带来功耗的提升。
+进入ORB-SLAM3项目目录。解压数据集和词袋库到本地，并运行测试程序，如果想要的到更高的处理帧率，可以超频RDK的CPU，但同时会带来功耗的提升。
 
 运行命令：
 
@@ -228,7 +228,7 @@ tar -xvf ./Vocabulary/ORBvoc.txt.tar.gz
 ros2 run orb_slam3_example_ros2 mono ./ORBvoc.txt ./Examples/Monocular/RealSense_D435i.yaml 
 ```
 
-X3端的视觉SLAM节点启动并接收到相机图像数据后开始打印当前处理帧率“fps”。
+RDK端的视觉SLAM节点启动并接收到相机图像数据后开始打印当前处理帧率“fps”。
 
 同时在PC端（和RDK在同一网段）打开Rviz2可视化软件，添加相关可视化信息，并订阅以下话题：
 
