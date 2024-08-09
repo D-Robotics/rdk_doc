@@ -17,7 +17,7 @@ sudo reboot
 
 These commands will install kernel headers, kernel files, drivers, and BPU drivers that are compatible with real-time kernel. After completion, restart the system to make the changes effective. You can use the `uname -a` command to see the kernel version information with `PREEMPT RT` indication.
 
-![image-20230914142401210](image/realtime_kernel/image-20230914142401210.png)
+![image-20230914142401210](../../../../../../static/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914142401210.png)
 
 ## Command to Restore to Standard Kernel
 
@@ -65,9 +65,9 @@ The test results will display the minimum, maximum, and average latency of the s
 
 Analyze the `cyclictest` test results to assess the performance of the real-time kernel. Pay attention to the minimum and maximum latencies to ensure they are within an acceptable range. Smaller maximum latency and more consistent latency indicate better performance of the real-time kernel. The following graphs show the results of the test when using a real-time kernel and running the `/app/pydev_demo/03_mipi_camera_sample` example.
 
-![image-20230914145619064](image/realtime_kernel/image-20230914145619064.png)
+![image-20230914145619064](../../../../../../static/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914145619064.png)
 
-![image-20230914145234528](image/realtime_kernel/image-20230914145234528.png)
+![image-20230914145234528](../../../../../../static/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914145234528.png)
 
 The meaning of each field in the `cyclictest` output is as follows:
 

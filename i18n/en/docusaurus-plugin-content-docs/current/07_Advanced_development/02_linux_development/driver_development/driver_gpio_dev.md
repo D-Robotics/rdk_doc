@@ -23,7 +23,7 @@ Taking the query of pin `gpio120` as an example, we will explain the multiplexin
 - The first row will indicate the base address for functional multiplexing as `0xA6004000`.
 - Find `GPIO[120]` in the `GPIO` column, and the corresponding information for this item is the default power-on state, multiplexing, drive capability, pull-up/down, and Schmitt trigger configuration of pin `120`. The image below shows the details.
 
-![image-20220529112804426](./image/driver_develop_guide/image-20220529112804426.png)
+![image-20220529112804426](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/function_register_en.png)
 
 - After finding the above configuration items, adding the offset value to the base address will give the multiplexing control register of that pin. For example, the multiplexing register of `GPIO120` is `0xA6004000 + 0x1E0 = 0xA600410E0`.
 - When configuring the multiplexing register, it is recommended to first read out the value, then set the corresponding bit you want to modify, and write it back. For example, to configure `GPIO120` as a `GPIO` mode, only set the lower two bits of register `0xA600410E0` to `0x3`, while keeping other startup strength, pull-up/down, and Schmitt trigger configurations unchanged unless you explicitly know that you need to modify them as well.
@@ -34,7 +34,7 @@ Taking the query of pin `gpio120` as an example, we will explain the multiplexin
 - The base address of the control and data registers is shown in the first row of each page table as `BASE_ADDR:0xA600_3000`. Adding the queried offset address to this base address will give the corresponding complete register address.
 - The X3M chip has a total of 120 available pins, divided into 7 banks with a maximum of 16 pins per bank. The control and data registers are organized into one control unit per bank. For example, the bank of `GPIO120` is `7` (obtained by dividing 120 by 16 and taking the integer part), and the pin number in the bank is `8` (obtained by taking the remainder of 120 divided by 16). With this information, we can find the corresponding register address as shown in the image below. The register of `GPIO120` is the `bit8` in the registers `GPIO7_xxx` (counting from bit0).
 
-![image-20220529115057783](./image/driver_develop_guide/image-20220529115057783.png)
+![image-20220529115057783](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/gpio_control_and_data_register_en.png)
 
 ### GPIO Helper Tool
 
@@ -54,7 +54,7 @@ drivers/gpio/gpio-hobot-x3.c # gpio driver source file
 
 CONFIG_GPIO_HOBOT_X3
 
-![image-20220321232551078](./image/driver_develop_guide/image-20220321232551078.png)
+![image-20220321232551078](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220321232551078.png)
 
 ### Kernel DTS Configuration
 

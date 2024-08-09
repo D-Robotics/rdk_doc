@@ -273,7 +273,7 @@ def centered_yuv2rgb(
 
 插入该算子后的部署模型如下图所示：
 
-![yuv1](./image/expert/yuv1.svg)
+![yuv1](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/yuv1.svg)
 
 :::caution 注意
 
@@ -380,11 +380,11 @@ output         output            output                                         
 
 在一些场景下，用户可能存在将作为一个整体训练的模型拆分成多段进行上板部署的需求。例如对于下图的两阶段检测模型，若 DPP 需要在 CPU 上执行，DPP 的输出（roi）作为 RoiAlign 的输入，则用户需要按虚线框的标注将模型拆分为 Stage1 和 Stage2，分开编译上板。上板运行时，backbone 输出的定点数据直接作为 RoiAlign 的输入。
 
-![segmented_deploy](./image/expert/segmented_deploy.svg)
+![segmented_deploy](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/segmented_deploy.svg)
 
 ### 方法
 
-![segmented_deploy_method](./image/expert/segmented_deploy_method.svg)
+![segmented_deploy_method](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/segmented_deploy_method.svg)
 
 1. 模型修改：如上图所示，在正常可以进行量化训练的模型基础上，用户需要在 prepare_qat 前在模型分段的分界点后插入 QuantStub，注意若使用了 horizon_plugin_pytorch.quantization.QuantStub，必须设置 scale = None。
 
@@ -405,11 +405,11 @@ output         output            output                                         
 
 吸收的计算过程如下：
 
-![fuse_bn](./image/expert/fuse_bn.jpg)
+![fuse_bn](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/fuse_bn.jpg)
 
 通过吸收 `BN` ，可以把 `Conv2d + BN2d` 简化为 `Conv2d`
 
-![absorb_bn](./image/expert/absorb_bn.svg)
+![absorb_bn](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/absorb_bn.svg)
 
 ### 融合 Add、ReLU(6)
 

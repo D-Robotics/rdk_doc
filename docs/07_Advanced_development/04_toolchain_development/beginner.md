@@ -244,7 +244,7 @@ sidebar_position: 2
     ......
 ```
 
-![yolov5s-result](./image/beginner/yolov5s-result.png)
+![yolov5s-result](../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/yolov5s-result.png)
 
 常用API示例，请参考 [**yolov5目标检测算法**](/python_development/pydev_dnn_demo/static_image#detection_yolov5) 章节内容。
 
@@ -255,7 +255,7 @@ sidebar_position: 2
 
 下表提供了典型深度神经网络模型在地平线 ``RDK X3`` 开发板上的性能、精度指标。
 
-![model_accuracy](./image/beginner/model_accuracy.png)
+![model_accuracy](../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/model_accuracy.png)
 
 **注意**：
 

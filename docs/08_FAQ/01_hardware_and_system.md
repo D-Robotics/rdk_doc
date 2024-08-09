@@ -99,7 +99,7 @@ root@ubuntu:~#
 
 串口线一端（白色）接到RDK X3，由于接口有凹槽正反面通常不会接反，另外一端接到串口转接板，此处需要重点关注，连接图如下：
 
-![](./image/hardware_and_system/connect.png)
+![](../../static/img/08_FAQ/image/hardware_and_system/connect.png)
 
 ## RDK X3供电有什么要求？
 
@@ -119,7 +119,7 @@ RDK X3通过USB Type C接口供电，并兼容QC、PD快充协议。推荐使用
 
 F37和GC4663摄像头模组通过24pin异面FPC排线跟开发板连接，**注意排线两端蓝面向上插入连接器**。F37摄像头连接示意图如下：
 
-![](./image/hardware_and_system/image-X3-PI-Camera.png)
+![](../../static/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
 正常连接后接通电源，执行命令：
 
@@ -130,7 +130,7 @@ sudo python3 mipi_camera.py
 
 算法渲染结果的HDMI输出如下图，示例图像中检测到了`teddy bear`、`cup`和`vase`。
 
-![](./image/hardware_and_system/image-20220511181747071.png)
+![](../../static/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
 
 ```text
 输入命令：i2cdetect -y -r 1   
@@ -207,12 +207,12 @@ fi
 - 串口误触导致阻塞在uboot，重新给设备上电恢复
 - Micro SD卡镜像格式错误，当串口提示如下log时，需要重新制作镜像 
 
-![image-20221124194527634](./image/system/image-20221124194527634.png)
+![image-20221124194527634](../../static/img/08_FAQ/image/system/image-20221124194527634.png)
 - Micro SD卡质量问题，当串口提示如下log，说明Micro SD卡损坏，需要更换新卡  
 
-![image-20221124194636213](./image/system/image-20221124194636213.png)  
+![image-20221124194636213](../../static/img/08_FAQ/image/system/image-20221124194636213.png)  
 
-![image-20221124194721750](./image/system/image-20221124194721750.png)
+![image-20221124194721750](../../static/img/08_FAQ/image/system/image-20221124194721750.png)
 
 ## 开发板供电异常的常见现象
 
@@ -228,15 +228,15 @@ fi
 
 此时处在uboot阶段，uboot的大部分任务已经完成，在把内核、设备树等从SD卡上加载到内存中时，或在跳转进内核执行时，开发板异常重启了。
 
-![image-20230914173433676](image/system/image-20230914173433676.png)
+![image-20230914173433676](../../static/img/08_FAQ/image/system/image-20230914173433676.png)
 
-![image-20230914173911690](image/system/image-20230914173911690.png)
+![image-20230914173911690](../../static/img/08_FAQ/image/system/image-20230914173911690.png)
 
 ### 现象2：已运行至内核，数秒后重启
 
 此时内核加载并已经运行，正在进行内核、驱动的加载和初始化，开发板异常重启。
 
-![image-20230914174123619](image/system/image-20230914174123619.png)
+![image-20230914174123619](../../static/img/08_FAQ/image/system/image-20230914174123619.png)
 
 ### 其他现象：
 

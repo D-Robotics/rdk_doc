@@ -6,7 +6,7 @@ sidebar_position: 8
 ## Overview
 The Video Output (VOT) module actively reads image and graphics data from memory and outputs the image through the corresponding display output device. The supported display/write-back devices, video layers, and graphics layers of the chip are shown in the following table.
 
-![image-20220329222211836](./image/video_output/image-20220329222211836.png)
+![image-20220329222211836](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_output/image-20220329222211836.png)
 
 ## Functional Description
 

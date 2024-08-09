@@ -68,7 +68,7 @@ cls id: 340 Confidence: 0.991851
     resized_data = cv2.resize(img_file, des_dim, interpolation=cv2.INTER_AREA)
     ```
 
-    ![zebra_cls](./image/pydev_dnn_demo/zebra_cls.jpg)
+    ![zebra_cls](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/zebra_cls.jpg)
 
     然后通过`bgr2nv12_opencv`函数把bgr格式的图像转换成符合模型输入的`NV12`格式：
 
@@ -122,7 +122,7 @@ sudo python3 ./test_yolov3.py
 ```
 
 运行成功后，会输出目标检测结果，并且输出渲染结果到`result.jpg`文件中，如下图：
-![image-20220624105321684](./image/pydev_dnn_demo/image-20220624105321684.png)
+![image-20220624105321684](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105321684.png)
 
 
 
@@ -144,7 +144,7 @@ sudo python3 ./test_yolov5.py
 ```
 
 运行成功后，会输出目标检测结果，并且输出渲染结果到`result.jpg`文件中，如下图：
-![image-20220624105432872](./image/pydev_dnn_demo/image-20220624105432872.png)
+![image-20220624105432872](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105432872.png)
 
 
 
@@ -167,4 +167,4 @@ sudo python3 ./test_mobilenet_unet.py
 ```
 
 运行成功后，会输出图像的分割结果，并且输出分割效果图到``segment_result.png``文件中，如下图：
-![image-20220624105144784](./image/pydev_dnn_demo/image-20220624105144784.png)
+![image-20220624105144784](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105144784.png)

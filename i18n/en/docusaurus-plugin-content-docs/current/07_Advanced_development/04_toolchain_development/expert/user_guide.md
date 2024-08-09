@@ -23,7 +23,7 @@ In quantization, an important step is to determine the quantization parameters. 
 
 The overall process of Calibration and QAT is shown in the following figure:
 
-![quick_start](./image/expert/calibration_v2_workflow.svg)
+![quick_start](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_v2_workflow.svg)
 
 The steps are described as follows:
 
@@ -113,15 +113,15 @@ For the same model, different methods and parameters may have significant differ
 In this example, it can be seen that after careful adjustment, the accuracy has improved by about 10%.
 There are significant differences between the inputs and outputs of different ops in the model. A set of global percentile parameters may be difficult to meet the requirements of all ops. When high accuracy is required, you can first find better global parameters using the method above, and then use debug tools to find the ops with large errors and individually set percentile parameters for these ops, following the setting method of qconfig. Here are several common data distributions that can cause significant errors:
 
-![calibration_percentile_longtail](./image/expert/calibration_percentile_longtail.png)
+![calibration_percentile_longtail](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_percentile_longtail.png)
 
 Long-tailed distribution, the value of percentile should be smaller. In the figure, 99.9 is a better value to choose.
 
-![calibration_percentile_bimodal](./image/expert/calibration_percentile_bimodal.png)
+![calibration_percentile_bimodal](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_percentile_bimodal.png)
 
 The value range is too large, and the distribution is not centralized. Whether to retain or ignore the tail will result in significant loss of accuracy. This situation should be avoided during training of floating-point models by adjusting parameters such as weight decay.
 
-![calibration_percentile_ln](./image/expert/calibration_percentile_ln.png)
+![calibration_percentile_ln](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_percentile_ln.png)
 
 The output distribution of layernorm will show several highly concentrated areas. In this case, adjusting percentile according to the normal method will not have any impact on the quantization result. The adjustment range of percentile needs to be increased.
 
@@ -598,7 +598,7 @@ A heterogeneous model is a model where part of it runs on the BPU and the other 
 
 ### Workflow
 
-![hybrid_qat_workflow](./image/expert/hybrid_qat_workflow.svg)
+![hybrid_qat_workflow](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/hybrid_qat_workflow.svg)
 
 By using 'prepare', the floating-point model is converted into a QAT model, which is then trained and exported as an ONNX format model, and finally converted into a binary model using the hb_mapper tool.
 
@@ -771,7 +771,7 @@ Currently, only the **RDK Ultra** with the BPU architecture set to `BAYES` suppo
 
 9. Use `hb_mapper` to transform the onnx model. After transformation, check whether the operators are running on the expected device. In some cases, `hb_mapper` still needs to set the `run_on_cpu` parameter. For example: although `conv` is not quantized in the QAT stage, `hb_mapper` will still default to quantizing it because its input (output of the previous operator) goes through pseudo quantization.
 
-![hybrid_qat_run_on_cpu](./image/expert/hybrid_qat_run_on_cpu.jpg)
+![hybrid_qat_run_on_cpu](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/hybrid_qat_run_on_cpu.jpg)
 
 
 ```python
@@ -1005,14 +1005,14 @@ def forward(self, input):
 
 The exported ONNX model shown in the image contains CPU operators highlighted in red circles.
 
-![hybrid_qat_onnx](./image/expert/hybrid_qat_onnx.jpg)
+![hybrid_qat_onnx](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/hybrid_qat_onnx.jpg)
 
 
 ## Guide to Analysis Tools
 
 When encountering precision issues with QAT or quantized models, you can use various tools provided to analyze the models and identify precision drop points.
 
-![debug_tools](./image/expert/debug_tools.png)
+![debug_tools](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/debug_tools.png)
 
 ### Overview
 
@@ -2137,7 +2137,7 @@ After running, the following files will be generated in the current directory or
 
 - similarity.html: An interactive image displaying the similarity curve of each layer as the model forwards. It allows zooming in and out, and hovering over specific points reveals the exact similarity values. (This is a screenshot of an HTML webpage without interactive functionality).
 
-    ![](./image/expert/similarity.svg)
+    ![](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/similarity.svg)
 
 ### Statistical Metrics {#a-name-statistic-a}
 
@@ -2446,7 +2446,7 @@ Under normal circumstances, the statistic.txt file will contain two tables in th
 
 - statistic.html
 
-    ![](./image/expert/statistic.svg)
+    ![](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/statistic.svg)
 
 If `with_tensorboard=True` is set, a TensorBoard log file will be generated in the specified directory, which can be opened and viewed using TensorBoard to see the distribution histograms of each group of data.
 
@@ -3328,7 +3328,7 @@ The following results will be generated in the directory specified by the curren
 
 - mem_info.html
 
-![mobilenetv1_mem_info](./image/expert/mobilenetv1_mem_info.svg)
+![mobilenetv1_mem_info](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/mobilenetv1_mem_info.svg)
 
 
 
@@ -3336,7 +3336,7 @@ The following results will be generated in the directory specified by the curren
 
 ### Reference Process
 
-![debug_precision_flow](./image/expert/debug_precision_flow.png)
+![debug_precision_flow](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/debug_precision_flow.png)
 
 ### Introduction
 

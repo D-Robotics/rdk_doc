@@ -8,7 +8,7 @@ This chapter introduces various functional examples for multimedia library devel
 ## Camera Image Capture and Display
 
 The `vio2display` example implements the functionality of capturing images from a `MIPI` camera and outputting them via the `HDMI` interface for preview on a display. The flowchart of the example is shown below:
-![image-vio_to_display](./image/cdev_demo/image-vio_to_display.jpg)
+![image-vio_to_display](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg)
 
 - **Environment Setup:**
    - With the development board powered off, connect the `MIPI` camera to the development board. Refer to the [MIPI camera connection tutorial](../installation/hardware_interface#mipi_port) for the connection method.
@@ -63,7 +63,7 @@ The `vio2display` example implements the functionality of capturing images from 
 ## Camera Image Local Save (RDK X3)
 
 The `vio_capture` example in this document realizes the function of capturing images from a `MIPI` camera and saving the images locally in both `RAW` and `YUV` formats. The flowchart of the example is as follows:
-![image-capture](./image/cdev_demo/image-capture.jpg)
+![image-capture](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
  - **Preparation:**
    - Connect the `MIPI` camera to the development board while the development board is powered off. For the connection method, see [MIPI Camera Connection Guide](../installation/hardware_interface#mipi_port).
@@ -108,7 +108,7 @@ The `vio_capture` example in this document realizes the function of capturing im
 
 This `vio_capture` example demonstrates the image capture of a `MIPI` camera and provides the functionality to save the captured images locally in both `RAW` and `YUV` formats (mutually exclusive). The flowchart of the example is shown below:
 
-![image-capture](./image/cdev_demo/image-capture.jpg)
+![image-capture](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
 - **Preparation:**
   - With the development board powered off, connect the `MIPI` camera to the board. Refer to the [MIPI Camera Connection Tutorial](../installation/hardware_interface#mipi_port) for the connection method.
@@ -159,7 +159,7 @@ sensor_name imx219, setting_size = 1
 ## Camera Image Capture and Encoding
 
 This example `vio2encoder` implements the MIPI camera image capture function and saves the encoded image locally for previewing on a monitor. The flowchart of the example is as follows:
-![image-vio_to_encoder](./image/cdev_demo/image-vio_to_encoder.jpg)
+![image-vio_to_encoder](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.jpg)
 
 - **Preparation:**
   - With the development board powered off, connect the MIPI camera to the development board. Refer to the [MIPI camera connection tutorial](../installation/hardware_interface#mipi_port) for the connection method.
@@ -213,7 +213,7 @@ This example `vio2encoder` implements the MIPI camera image capture function and
 ## Video file decoding and displaying
 
 This example `decoder2display` implements video file decoding and outputs it through the `HDMI` interface for previewing on a monitor. The flowchart of the example is as follows:  
-![image-decoder_to_display](./image/cdev_demo/image-decoder_to_display.jpg)
+![image-decoder_to_display](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.jpg)
 
 - **Preparation：** 
   - Connect the development board to the monitor using an HDMI cable.
@@ -248,7 +248,7 @@ This example `decoder2display` implements video file decoding and outputs it thr
 ## RTSP Streaming Decode
 
 This example `rtsp2display` implements the function of pulling `rtsp` stream, decoding it, and outputting the video image through HDMI, allowing users to preview the image on a monitor. The flowchart of the example is as follows:
-![rtsp2display](./image/cdev_demo/image-rtsp_to_display.jpg)
+![rtsp2display](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
 
 - **Environment Preparation:**
   - Connect the development board to the monitor using an HDMI cable.

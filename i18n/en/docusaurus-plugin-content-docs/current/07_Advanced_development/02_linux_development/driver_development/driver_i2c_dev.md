@@ -24,7 +24,7 @@ include/linux/i2c-hobot.h # I2C driver code header file
 
 CONFIG_I2C_HOBOT
 
-![image-20220321230754098](./image/driver_develop_guide/image-20220321230754098.png)
+![image-20220321230754098](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220321230754098.png)
 
 ### Kernel DTS Node Configuration
 

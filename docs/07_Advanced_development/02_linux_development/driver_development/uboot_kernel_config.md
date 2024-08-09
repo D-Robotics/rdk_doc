@@ -47,11 +47,11 @@ make ARCH=arm64 xj3_ubuntu_nand_defconfig
 
 然后就可以执行`make ARCH=arm64 menuconfig`打开图形化的配置界面进行uboot的选项参数配置。
 
-![image-20220518111319607](./image/driver_develop_guide/image-20220518111319607.png)
+![image-20220518111319607](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111319607.png)
 
 在menuconfig的配置界面上完成配置后，选择 `Exit`退出，根据提示选择 `Yes` 或者`No`保存修改到`.config`文件中。
 
-![image-20220518111506018](./image/driver_develop_guide/image-20220518111506018.png)
+![image-20220518111506018](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
 
 保存配置后，可以执行命令 `diff .config configs/xj3_ubuntu_nand_defconfig` 对比一下差异，再次确认一下修改是否符合预期。
 

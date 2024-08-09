@@ -73,7 +73,7 @@ sh ./scripts/xj3-stress.sh
 
 8、top检查运行状态
 
-![image-20220324192755274](./image/driver_develop_guide/image-20220324192755274.png)
+![image-20220324192755274](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/command-top.png)
 
 9、cpu test log存放目录在 /userdata/cpu-stress.log， 查看当前运行状态
 
@@ -82,7 +82,7 @@ sh ./scripts/xj3-stress.sh
 tail /userdata/cpu-stress.log
 ```
 
-![image-20220324192849234](./image/driver_develop_guide/image-20220324192849234.png)
+![image-20220324192849234](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324192849234.png)
 
 注：程序默认连续运行48h（如下图-s参数后面的172800，单位：s） 
 
@@ -95,10 +95,10 @@ tail /userdata/bpu-stress.log
 
 11、检查cpu test result, 如果/userdata/cpu-stress.log最后Status显示PASS，且日志中未出现"error" 或者 "miscompare" 关键字，表示测试PASS; 
 
-![image-20220324193228651](./image/driver_develop_guide/image-20220324193228651.png)
+![image-20220324193228651](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324193228651.png)
 
 12、如果/userdata/cpu-stress.log最后Status显示FAIL，或者日志中出现了"error" 或者 "miscompare" 关键字，表示测试FAIL;  
 
-![image-20220324193250187](./image/driver_develop_guide/image-20220324193250187.png)
+![image-20220324193250187](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324193250187.png)
 
 13、检查bpu test result, 如果bpu_stress.log 中出现 error 或者 system hung 等关键字，表示测试FAIL。 

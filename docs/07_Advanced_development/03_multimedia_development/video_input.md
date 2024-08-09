@@ -34,7 +34,7 @@ sidebar_position: 4
 
 VIN在软件上划分4个部分，如下图所示。
 
-![image-20220329195124946](./image/video_input/image-20220329195124946.png)
+![image-20220329195124946](../../../static/img/07_Advanced_development/03_multimedia_development/video_input/image-20220329195124946.png)
 
 ### 视频输入设备
 

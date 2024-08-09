@@ -54,23 +54,23 @@ RDK X3模组烧录eMMC系统镜像时，需要使用地平线`hbupdate`烧录工
 对于使用Windows系统的PC，在使用刷机工具前，需要确认是否安装过fastboot驱动程序，请按照如下步骤进行确认：
 
 1. 使用跳线帽将RDK X3载板的`Boot`管脚接地，管脚位置参考下图。    
-   ![image-carrier-board-bootstrap](./image/rdk_x3_module/image-carrier-board-bootstrap.png)  
+   ![image-carrier-board-bootstrap](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png)  
 2. 将载板的Micro USB接口与电脑通过USB线连接，接口位置参考下图。  
-   ![image-carrier-board-microusb](./image/rdk_x3_module/image-carrier-board-microusb.png)  
+   ![image-carrier-board-microusb](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)  
 3. 给设备上电，然后观察电脑设备管理器端口状态，如出现`USB download gadget`未知设备时，需要更新设备驱动，否则可跳过下述步骤。  
-   ![image-usb-driver1](./image/rdk_x3_module/image-usb-driver1.png)  
+   ![image-usb-driver1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png)  
 4. 下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://sunrise.horizon.cc/downloads/hbupdate/android_hobot.zip) 。
 5. 进入解压后的目录，以管理员身份运行 `5-runasadmin_register-CA-cer.cmd`，完成驱动程序的注册。
 6. 双击`USB download gadget`未知设备，选择驱动包解压目录，然后点击下一步。   
-   ![image-usb-driver2](./image/rdk_x3_module/image-usb-driver2.png)
+   ![image-usb-driver2](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png)
 7. 驱动安装完成后，设备管理器会显示fastboot设备`Android Device`。   
-   ![image-usb-driver3](./image/rdk_x3_module/image-usb-driver3.png)
+   ![image-usb-driver3](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
 
 ## 烧录系统{#flash_system}
 
 确认PC设备管理器显示fastboot设备`Android Device`后，运行`hbupdate.exe`打开烧录工具，并按照以下步骤进行烧录：
 
-![image-flash-system1](./image/rdk_x3_module/image-flash-system1.png)
+![image-flash-system1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system1.png)
 
 1）选择开发板型号，必选项。
 
@@ -82,15 +82,15 @@ RDK X3模组烧录eMMC系统镜像时，需要使用地平线`hbupdate`烧录工
 
 - RDK_X3_MD_4GB： RDK X3 Module，4GB内存版本
 
-![image-flash-system2](./image/rdk_x3_module/image-flash-system2.png)
+![image-flash-system2](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system2.png)
 
 2）点击`Browse`按钮选择将要烧录的镜像文件，必选项。
 
-![image-flash-system3](./image/rdk_x3_module/image-flash-system3.png)
+![image-flash-system3](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system3.png)
 
 3）点击`Start`按钮开始刷机，根据弹窗提示开始烧录：
 
-![image-flash-system4](./image/rdk_x3_module/image-flash-system4.png)
+![image-flash-system4](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system4.png)
 
 - 烧录镜像时，需要通过跳线帽将`BOOT`管脚接地，管脚位置参考[功能控制接口](../rdk_x3_module/interface#功能控制接口)
 
@@ -104,8 +104,8 @@ RDK X3模组烧录eMMC系统镜像时，需要使用地平线`hbupdate`烧录工
 
 - 镜像烧录成功时，工具提示如下：
 
-![image-flash-system6](./image/rdk_x3_module/image-flash-system6.png)
+![image-flash-system6](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system6.png)
 
 - 镜像烧录失败时，工具提示如下，此时需要确认PC设备管理器是否存在`Android Device`设备
 
-![image-flash-system7](./image/rdk_x3_module/image-flash-system7.png)
+![image-flash-system7](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)

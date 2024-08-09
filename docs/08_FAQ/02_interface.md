@@ -33,7 +33,7 @@ sidebar_position: 2
 - 检查开发板红色电源指示灯是否点亮
 - 检查开发板和串口转接板的连接方式，可参考[调试串口](../installation/hardware_interface#debug_uart)章节
 - 检查终端软件的串口参数配置，正确配置如下所示：  
-![image-20221124200013163](./image/interface/image-20221124200013163.png)
+![image-20221124200013163](../../static/img/08_FAQ/image/interface/image-20221124200013163.png)
 
 ### 网络接口
 
@@ -53,7 +53,7 @@ sidebar_position: 2
 
 - 提示`Connection timed out`，说明网络通讯异常。请参考[SSH登录](../installation/remote_login#ssh)章节确认网络配置
 - 提示 `Authentication failed`，说明登录使用的用户、密码错误，请确认后重试  
-![image-20221124201544978](./image/interface/image-20221124201544978.png)
+![image-20221124201544978](../../static/img/08_FAQ/image/interface/image-20221124201544978.png)
 
 <font color='Blue'>【问题】</font> 
 

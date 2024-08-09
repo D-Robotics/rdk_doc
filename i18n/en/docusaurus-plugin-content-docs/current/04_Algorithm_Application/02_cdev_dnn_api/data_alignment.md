@@ -85,4 +85,4 @@ NV12 image format belongs to YUV color space, specifically YUV420SP format. Four
 
 The arrangement is as follows:
 
-![nv12_layout](./image/cdev_dnn_api/nv12_layout.png)
+![nv12_layout](../../../../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/nv12_layout.png)

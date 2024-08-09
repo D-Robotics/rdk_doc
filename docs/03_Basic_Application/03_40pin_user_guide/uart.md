@@ -17,7 +17,7 @@ RDK Ultra在40PIN上默认使能 UART2，物理管脚号 8 和 10，IO电压 3.3
 
 把TXD和RXD通过跳线帽直接硬件上连接在一起
 
-![image-20220512101820743](./image/40pin_user_guide/image-20220512101820743.png)
+![image-20220512101820743](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220512101820743.png)
 
 ### 测试过程
 

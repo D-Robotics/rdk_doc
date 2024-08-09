@@ -9,13 +9,13 @@ sidebar_position: 9
 /sys/devices/system/bpu
 ```
 
-![image](./image/driver_develop_guide/15b0a3742a6721d475db1a6e21b1809e.png)
+![image](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/15b0a3742a6721d475db1a6e21b1809e.png)
 
 The information of each file node can be obtained using the "cat" command or set using the "echo" command. The specific contents are as follows:
 
 -   bpu\*: directory, bpu0 and bpu1 correspond to the two cores of the bpu respectively, and the nodes in each directory are set as follows:
 
-![image](./image/driver_develop_guide/550eb60c5eb1a66ca126be088c08d9b5.png)
+![image](../../../../../../../static/img/07_Advanced_development/02_linux_development/550eb60c5eb1a66ca126be088c08d9b5.png)
 
 - burst_len: read/write file, burst_len corresponding to the core
 
@@ -63,15 +63,15 @@ The information of each file node can be obtained using the "cat" command or set
 
 - queue: Read-only file used to obtain the number of FunctionCall that the driver can currently set.
 
-![](./image/driver_develop_guide/4edf614de291d4c7005d01be0cc10041.png)
+![](../../../../../../../static/img/07_Advanced_development/02_linux_development/4edf614de291d4c7005d01be0cc10041.png)
 
 - ratio: Read-only file used to obtain utilization information of the Core.
 
-![](./image/driver_develop_guide/2724e46795d0798ea433eb990be22149.png)
+![](../../../../../../../static/img/07_Advanced_development/02_linux_development/2724e46795d0798ea433eb990be22149.png)
 
 - fc_time: Obtain information about fc tasks processed on the Core. Each task has the following sub-items:
 
-![](./image/driver_develop_guide/6cad811f2afb4fa4984ad3c44ae0f5aa.png)
+![](../../../../../../../static/img/07_Advanced_development/02_linux_development/6cad811f2afb4fa4984ad3c44ae0f5aa.png)
 
 - index: The position of the task in the BPU hardware FIFO
 - id: User-defined interrupt id
@@ -84,7 +84,7 @@ The information of each file node can be obtained using the "cat" command or set
 - core_num: Read-only file, the number of cores in the BPU hardware
 - group: Read-only file, information about task groups running on the BPU. Can be obtained by running "cat group":
 
-![](./image/driver_develop_guide/f90196d698265775d78717a9ab9967ce.png)
+![](../../../../../../../static/img/07_Advanced_development/02_linux_development/f90196d698265775d78717a9ab9967ce.png)
 
 - group: User-defined group id and process id;
     - prop: User-defined proportion value
@@ -92,7 +92,7 @@ The information of each file node can be obtained using the "cat" command or set
 - ratio: Read-only file, current utilization of the BPU
 - users: Read-only file, current users of the BPU. Users are classified as those who set tasks through the BPU framework and those who specify tasks for each Core. Can be obtained by running "cat users":
 
-![](./image/driver_develop_guide/b898a1588bd4a94e332a5dbd9bd8f46a.png)
+![](../../../../../../../static/img/07_Advanced_development/02_linux_development/b898a1588bd4a94e332a5dbd9bd8f46a.png)
 -   user: User process ID
 -   ratio: The corresponding occupancy rate of the user on the Core
 

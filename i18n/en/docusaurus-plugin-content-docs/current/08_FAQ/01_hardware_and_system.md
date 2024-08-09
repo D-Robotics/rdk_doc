@@ -56,7 +56,7 @@ root@ubuntu:~#
 
 One end of the serial cable (white) is connected to the RDK X3. Since the interface has a groove, the correct orientation is usually maintained. The other end is connected to the serial port adapter board. Pay close attention to the connection diagram below:
 
-![](./image/hardware_and_system/connect.png)
+![](../../../../../static/img/08_FAQ/image/hardware_and_system/connect.png)
 
 ## What are the power requirements for RDK X3?
 
@@ -76,7 +76,7 @@ SanDisk:  `https://item.jd.com/1875992.html#crumb-wrap>
 
 The F37 and GC4663 camera modules are connected to the development board via a 24-pin FPC cable with opposite side connectors. **Note that the blue side of the cable should be facing up when inserting it into the connector**. The connection diagram for the F37 camera is shown below:
 
-![](./image/hardware_and_system/image-X3-PI-Camera.png)
+![](../../../../../static/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
 After a successful connection, power on the board and execute the following command:
 
@@ -87,7 +87,7 @@ sudo python3 mipi_camera.py
 
 The HDMI output of the algorithm rendering result is shown in the following image, which detects a "teddy bear", a "cup", and a "vase" in the sample image.
 
-![](./image/hardware_and_system/image-20220511181747071.png)
+![](../../../../../static/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
 
 ```text
 Enter the command: i2cdetect -y -r 1   
@@ -169,13 +169,13 @@ fi
 - UART misoperation causing it to be stuck at the uboot, power cycle the device to recover.
 - Micro SD card image format error, when the serial port prompts the following log, it needs to remake the image.
 
-![image-20221124194527634](./image/system/image-20221124194527634.png)
+![image-20221124194527634](../../../../../static/img/08_FAQ/image/system/image-20221124194527634.png)
 
 - Micro SD card quality issue, when the serial port prompts the following log, it means the Micro SD card is damaged and needs to be replaced.
 
-![image-20221124194636213](./image/system/image-20221124194636213.png)
+![image-20221124194636213](../../../../../static/img/08_FAQ/image/system/image-20221124194636213.png)
 
-![image-20221124194721750](./image/system/image-20221124194721750.png)
+![image-20221124194721750](../../../../../static/img/08_FAQ/image/system/image-20221124194721750.png)
 
 ## Common phenomena of abnormal power supply for development board
 

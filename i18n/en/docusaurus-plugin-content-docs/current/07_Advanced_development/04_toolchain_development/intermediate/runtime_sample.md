@@ -492,7 +492,7 @@ For the configuration of model inference DNN API logs, please refer to the "Conf
 
 ### Public model performance accuracy indicatorsThe table below provides performance and accuracy indicators of typical deep neural network models on the X3 processor.
 
-![model_accuracy](./image/intermediate/model_accuracy.png)
+![model_accuracy](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_accuracy.png)
 
 :::caution Note:
 
@@ -1557,7 +1557,7 @@ Currently, the tool provides three types of functions, as shown in the table bel
 Run "hrt_model_exec" , "hrt_model_exec -h" or "hrt_model_exec --help" on the development board to get the tool's usage parameter details.
 As shown in the figure below:
 
-![hrt_model_exec_help](./image/intermediate/hrt_model_exec_help.png)
+![hrt_model_exec_help](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help.png)
 
   | **Number** | **Parameter**                         | **Type** | **Description**                                             |
   |-----------|-------------|------|------------|
@@ -1608,7 +1608,7 @@ If ``model_name`` is not specified, all model information in the model will be o
 ```
   hrt_model_exec model_info --model_file=xxx.bin --model_name=xx
 ```
-![model_info](./image/intermediate/model_info.png)
+![model_info](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_info.png)
 
 
 #### Supplementary Explanation of Input Parameters
@@ -1645,7 +1645,7 @@ The program runs single-threaded to process one frame of data and outputs the ti
 ```
   hrt_model_exec infer --model_file=xxx.bin,xxx.bin --model_name=xx --input_file=xxx.jpg
 ```
-![infer](./image/intermediate/infer.png)
+![infer](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/infer.png)
 
 
 - Optional Parameters
@@ -1684,7 +1684,7 @@ For image type input, the file name extension must be one of the following: `bin
 
 Enable classification post-processing. It is only supported in PTQ classification models. When the sub-command is `infer`, the variable should be set to `true` to print the classification results. Refer to the following figure:
 
-![enable_cls_post_process](./image/intermediate/enable_cls_post_process.png)
+![enable_cls_post_process](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process.png)
 
 - `roi_infer`
 
@@ -1745,7 +1745,7 @@ hrt_model_exec perf --model_file=xxx.bin
 ```
 hrt_model_exec perf --model_file=xxx.bin,xxx.bin --model_name=xx
 ```
-![perf](./image/intermediate/perf.png)
+![perf](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/perf.png)
 
 - Optional parameters
 
@@ -1834,7 +1834,7 @@ The tool provides the function of dumping the output of convolutional layers, an
 Run ``hrt_bin_dump`` directly to get the details of tool usage.
 See the figure below:
 
-![hrt_bin_dump_help](./image/intermediate/hrt_bin_dump_help.png)
+![hrt_bin_dump_help](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help.png)
 
 :::tip Tips
   The tool can also view the version number of the "dnn" prediction library of the tool using the ``-v`` or ``--version`` command.
@@ -1851,8 +1851,8 @@ Taking the debug model of MobileNetV1 as an example, create the "outputs" folder
 ```
 The run log is as follows:
 
-![run_log](./image/intermediate/run_log.png)
+![run_log](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/run_log.png)
 
 The output can be viewed in the "outputs/" folder as shown below:
 
-![output](./image/intermediate/output.png)
+![output](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/output.png)

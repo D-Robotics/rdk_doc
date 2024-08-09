@@ -8,7 +8,7 @@ sidebar_position: 4
 <font color='Blue'>[Question]</font>
 
 - When decoding the rtsp video stream on the development board, the following error occurs:  
-![image-20220728110439753](./image/multimedia/image-20220728110439753.png)
+![image-20220728110439753](../../../../../static/img/08_FAQ/image/multimedia/image-20220728110439753.png)
 
 <font color='Green'>[Answer]</font>
 

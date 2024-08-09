@@ -8,7 +8,7 @@ sidebar_position: 2
 
 RDK X3 Module载板接口布局如下：
 
-![image-carrier-board1](./image/rdk_x3_module/image-carrier-board1.png) 
+![image-carrier-board1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board1.png) 
 
 | 序号 | 接口功能        | 序号 | 接口功能                | 序号 | 接口功能               |
 | ---- | --------------- | ---- | ----------------------- | ---- | ---------------------- |
@@ -24,7 +24,7 @@ RDK X3 Module载板接口布局如下：
 
 RDK X3 Module载板提供一组200pin板板连接器，用于核心模组的安装。安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
 
-![image-x3-md-setup](./image/rdk_x3_module/image-x3-md-setup.png) 
+![image-x3-md-setup](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-setup.png) 
 
 模组安装方法如下：
 
@@ -128,7 +128,7 @@ RDK X3 Module载板提供一组控制IO接口（接口13），用户使用跳线
 
 此外，为方便用户查询，上述管脚定义在载板丝印也有体现。  
 
-![image-carrier-board-control-pin1](./image/rdk_x3_module/image-carrier-board-control-pin1.png)  
+![image-carrier-board-control-pin1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-control-pin1.png)  
 
 ## IO电平切换接口
 
@@ -136,7 +136,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 
 接口信号从上往下分别为3.3V、VREF、1.8V，具体如下图：
 
-![image-x3-md-vref](./image/rdk_x3_module/image-x3-md-vref.png)
+![image-x3-md-vref](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-vref.png)
 
 需要说明的是，**该接口不能悬空，否则核心模组会因供电异常无法开机**。
 
@@ -152,7 +152,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 
 RDK X3 Module载板提供一组40pin header接口（接口9），接口信号电平由IO电平切换header指定（接口14），支持1.8V、3.3V两种模式。管脚定义兼容树莓派等产品，详细管脚定义、复用关系如下：
 
-![image-40pin-header](./image/rdk_x3_module/image-40pin-header.png)
+![image-40pin-header](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-40pin-header.png)
 
 :::caution 注意
 默认情况下，RDK X3 Module核心模组固件、载板电平配置为3.3V，如需要切换IO电平时，请参考[IO电平选择header接口](#io电平切换接口)。

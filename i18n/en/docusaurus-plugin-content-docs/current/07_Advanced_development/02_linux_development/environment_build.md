@@ -9,7 +9,7 @@ This chapter introduces the requirements and setup of the cross-compilation deve
 
 Cross-compilation refers to developing and building software on a host machine, and then deploying the built software to a development board for execution. The host machine generally has higher performance and memory than the development board, which can accelerate code building and install more development tools for convenient development.
 
-![image-20220329140159441](./image/environment_build/image-20220329140159441.png)
+![image-20220329140159441](../../../../../../static/img/07_Advanced_development/02_linux_development/image/environment_build/image-20220329140159441.png)
 
 **Host Compilation Environment Requirements**
 
@@ -230,7 +230,7 @@ The debian package named by help is not supported, please check the input parame
 
 The descriptions and relationships of each Debian package are shown as follows:
 
-![Flowchart](./image/environment_build/image-20221102173111002.jpg)
+![Flowchart](../../../../../../static/img/07_Advanced_development/02_linux_development/image/environment_build/image-20221102173111002.jpg)
 
 | Package Name                       | Content Description or Example                                 |
 | ---------------------------------- | ------------------------------------------------------------ |

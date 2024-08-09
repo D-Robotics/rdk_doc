@@ -23,7 +23,7 @@ sidebar_position: 3
 
 Calibration 与 QAT 的整体流程如下图所示：
 
-![quick_start](./image/expert/calibration_v2_workflow.svg)
+![quick_start](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_v2_workflow.svg)
 
 下面分别介绍各个步骤：
 
@@ -114,15 +114,15 @@ Calibration 与 QAT 的整体流程如下图所示：
     在这个例子中，可以看到仔细调整后，精度提升了大约 10%。
     模型中不同 op 的输入输出之间存在很大差异，一组全局的 percentile 参数可能很难满足所有 op 的需求，对精度要求较高时，可以先通过上面的方法找到较好的全局参数，再通过 debug 工具找到误差较大的几个 op，单独为这几个 op 设置 percentile 参数，设置方式参照 qconfig 设置。下面列举几种常见的容易导致误差较大的数据分布：
 
-    ![calibration_percentile_longtail](./image/expert/calibration_percentile_longtail.png)
+    ![calibration_percentile_longtail](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_percentile_longtail.png)
 
     超长尾分布，percentile 的取值应当小一些，图中 99.9 是较好的取值。
 
-    ![calibration_percentile_bimodal](./image/expert/calibration_percentile_bimodal.png)
+    ![calibration_percentile_bimodal](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_percentile_bimodal.png)
 
     值域过大，且分布并不集中在一处，这种情况无论是保留尾部还是忽略尾部都会带来较大的精度损失，应该在训练浮点模型时通过调整 weight decay 等参数避免这种情况的出现。
 
-    ![calibration_percentile_ln](./image/expert/calibration_percentile_ln.png)
+    ![calibration_percentile_ln](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/calibration_percentile_ln.png)
 
     layernorm 的输出分布会呈现出若干集中度非常高的区域，此时 percentile 按照正常方法调整对于量化结果不会有任何影响，需要将 percentile 调整幅度增加。
 
@@ -615,7 +615,7 @@ def round_ste(x: Tensor):
 
 ### 使用流程
 
-![hybrid_qat_workflow](./image/expert/hybrid_qat_workflow.svg)
+![hybrid_qat_workflow](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/hybrid_qat_workflow.svg)
 
 通过 prepare 将浮点模型转为 QAT 模型，训练之后导出为 onnx 格式模型，由 hb_mapper 工具转为 bin 模型。
 
@@ -786,7 +786,7 @@ def convert_fx(
 
 9. 使用 `hb_mapper` 转换 onnx 模型。转换后需检查算子是否运行在预期的设备上，在部分情况下， `hb_mapper` 仍然需要设置 `run_on_cpu` 参数。比如：虽然 `conv` 在 QAT 阶段没有量化，但由于其输入（上一个算子输出）经过了伪量化， `hb_mapper` 仍然会默认将其量化。
 
-![hybrid_qat_run_on_cpu](./image/expert/hybrid_qat_run_on_cpu.jpg)
+![hybrid_qat_run_on_cpu](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/hybrid_qat_run_on_cpu.jpg)
 
 
 ```python
@@ -1013,14 +1013,14 @@ def forward(self, input):
 
 导出的 onnx 如图所示，红色圈出部分为 CPU 算子。
 
-![hybrid_qat_onnx](./image/expert/hybrid_qat_onnx.jpg)
+![hybrid_qat_onnx](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/hybrid_qat_onnx.jpg)
 
 
 ## 分析工具使用指南
 
 当 QAT 或者定点模型出现精度问题时，您可以使用我们提供的各种工具来分析模型，定位精度掉点问题。
 
-![debug_tools](./image/expert/debug_tools.svg)
+![debug_tools](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/debug_tools.svg)
 
 ### 总览
 
@@ -2148,7 +2148,7 @@ featuremap_similarity(qat_net, bpu_net, (data, data))
 
 - similarity.html：一个可交互的图片，显示随着模型 forward，每一层相似度的变化曲线。可以放大缩小，光标移动到对应的点可以显示具体的相似度数值（这里展示的是 html 网页截图，没有交互功能）。
 
-    ![](./image/expert/similarity.svg)
+    ![](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/similarity.svg)
 
 ### 统计量{#a-name-statistic-a}
 
@@ -2462,7 +2462,7 @@ profile_featuremap(get_raw_features(qat_net, (data, data)), True)
 
 - statistic.html
 
-    ![](./image/expert/statistic.svg)
+    ![](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/statistic.svg)
 
 若设置`with_tensorboard=True`，则会在指定目录下生成 `tensorboard` 的 log 文件，可以使用 `tensorboard` 打开查看每组数据的分布直方图。
 
@@ -3353,7 +3353,7 @@ show_cuda_memory_consumption(float_net, data, torch.device("cuda"))
 
 - mem_info.html
 
-![mobilenetv1_mem_info](./image/expert/mobilenetv1_mem_info.svg)
+![mobilenetv1_mem_info](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/mobilenetv1_mem_info.svg)
 
 
 
@@ -3361,7 +3361,7 @@ show_cuda_memory_consumption(float_net, data, torch.device("cuda"))
 
 ### 参考流程
 
-![debug_precision_flow](./image/expert/debug_precision_flow.png)
+![debug_precision_flow](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/debug_precision_flow.png)
 
 ### 前言
 

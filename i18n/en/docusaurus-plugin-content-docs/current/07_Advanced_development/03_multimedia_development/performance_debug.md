@@ -5,7 +5,7 @@ sidebar_position: 12
 ## Overview
 Camera is the main external source of image data, and the VIO software is a relatively opaque internal software that mainly provides relevant images and information to internal applications. The internal image processing IP information of the XJ3 chip is roughly as follows:
 
-![image-20220329205706352](./image/performance_debug/image-20220329205706352.png)
+![image-20220329205706352](../../../../../../static/img/07_Advanced_development/03_multimedia_development/performance_debug/image-20220329205706352.png)
 
 | Input Method   | IP   | Output Method  |
 |----------------|------|----------------|
@@ -122,7 +122,7 @@ The XJ3 VIO submodule includes SIF_W, ISP0\_M0, ISP0\_M2, GDC0, DIS, SIF_R, IPU0
 
 These submodules can be configured to VIO0 or VIO1 using the AXIBUS register. By default, the XJ3 system configures IAR and SIF_W to VIO1, while the other modules are configured to VIO0. The submodules correspond to bit31\~bit16 of the AXIBUS register as shown in the following figure:
 
-![](./image/performance_debug/3bbeb4873d19bd13fa9428d926853d2c.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/performance_debug/3bbeb4873d19bd13fa9428d926853d2c.png)
 
 The grayed-out modules do not exist, and the corresponding bit is set to 1, indicating that the submodule is configured to VIO1. Otherwise, it is configured to VIO0. The "all" attribute can be used to configure or query all submodules at once, where the modules on VIO1 are returned, and the other modules are on VIO0. It is also possible to configure or query individual submodules using their respective attributes.
 
@@ -289,7 +289,7 @@ Multi-process sharing currently supports a maximum of 8 processes sharing camera
 
 4. Use Notepad++, search for Frmid xxxxx, where xxxxx is the frame number. The processing time of each module can be obtained by subtracting the xxx time before PYM out free from the xxx time before ISP out dq.
 
-![image-20220929113655983](./image/performance_debug/image-20220929113655983.png)
+![image-20220929113655983](../../../../../../static/img/07_Advanced_development/03_multimedia_development/performance_debug/image-20220929113655983.png)
 
 ### Method 2
 

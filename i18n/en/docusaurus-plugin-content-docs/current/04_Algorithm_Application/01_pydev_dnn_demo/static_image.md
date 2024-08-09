@@ -68,7 +68,7 @@ cls id: 340 Confidence: 0.991851
     resized_data = cv2.resize(img_file, des_dim, interpolation=cv2.INTER_AREA)
     ```
 
-    ![zebra_cls](./image/pydev_dnn_demo/zebra_cls.jpg)
+    ![zebra_cls](../../../../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/zebra_cls.jpg)
 
     Then, convert the image from BGR format to NV12 format, which is compatible with the model input, using the `bgr2nv12_opencv` function:
 
@@ -122,7 +122,7 @@ sudo python3 ./test_yolov3.py
 ```
 
 After successful execution, it will output the object detection results and save the rendered results to the file `result.jpg`, as shown in the following figure:
-![image-20220624105321684](./image/pydev_dnn_demo/image-20220624105321684.png)
+![image-20220624105321684](../../../../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105321684.png)
 
 
 
@@ -144,7 +144,7 @@ sudo python3 ./test_yolov5.py
 ```
 
 After successful execution, it will output the object detection results and save the rendered results to the file `result.jpg`, as shown in the following figure:
-![image-20220624105432872](./image/pydev_dnn_demo/image-20220624105432872.png)
+![image-20220624105432872](../../../../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105432872.png)
 
 ## Image Segmentation Algorithm - UNet
 
@@ -164,4 +164,4 @@ sudo python3 ./test_mobilenet_unet.py
 ```
 
 After successful execution, the segmentation results of the image will be output, and the segmentation effect image will be output to the `segment_result.png` file, as shown in the following image:
-![image-20220624105144784](./image/pydev_dnn_demo/image-20220624105144784.png)
+![image-20220624105144784](../../../../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105144784.png)

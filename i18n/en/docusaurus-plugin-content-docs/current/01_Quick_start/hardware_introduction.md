@@ -115,7 +115,7 @@ The development board provides one debug UART (Interface 3) for serial port logi
 - Stop bits: 1
 - Flow Control: None
 
-When connecting the UART, the DuPont wire needs to be connected to Interface 3 of the development board, and the USB serial adapter needs to be connected to the computer. After the connection is completed, it should look like the following figure:![image-20220612121707048](../../../../../static/img/01_Quick_start/image/hardware_interface/image-20220612121707048.jpg)
+When connecting the UART, the DuPont wire needs to be connected to Interface 3 of the development board, and the USB serial adapter needs to be connected to the computer. After the connection is completed, it should look like the following figure:![image-20220612121707048](../../../../../static/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
 
 </TabItem>
@@ -507,7 +507,7 @@ The development board supports both on-board and external antenna configurations
 
 The RDK X3 development board provides a 40-pin header interface with IO signals using a 3.3V logic level design. The pin definitions are compatible with products such as Raspberry Pi. The detailed pin definitions and multiplex relationships are as follows:
 
-![image-20220501181722851](../../../../../static/img/01_Quick_start/image/hardware_interface/image-20220501181722851.png)
+![image-20220501181722851](../../../../../static/img/01_Quick_start/image/hardware_interface/rdkx3_40pin_en.png)
 
 The development board has silk screen marking for the 40-pin interface, making it convenient for users to operate. The positions of PIN1 and PIN40 are as follows:
 

@@ -24,7 +24,7 @@ CONFIG_SERIAL_HOBOT_UART
 
 SERIAL_HOBOT_UART_CONSOLE
 
-![image-20220324112539182](./image/driver_develop_guide/image-20220324112539182.png)
+![image-20220324112539182](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324112539182.png)
 
 ### DTS Device Node Configuration
 
@@ -65,7 +65,7 @@ uart0: serial@0xA5000000 {
 Physically connect the TX and RX pins of uart3 on the hardware.
 
 
-![image-20220324122032808](./image/driver_develop_guide/image-20220324122032808.png)
+![image-20220324122032808](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324122032808.png)
 
 
 Compile the `uart_duplex.c` code as follows, with the full code provided in Appendix A:

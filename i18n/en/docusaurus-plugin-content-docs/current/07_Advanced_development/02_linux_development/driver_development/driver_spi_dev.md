@@ -18,15 +18,15 @@ drivers/spi/spi-hobot.c # SPI driver layer code
 
 CONFIG_SPI_SPIDEV=y # Configuration option for spidev.c
 
-![image-20220322212001661](./image/driver_develop_guide/image-20220322212001661.png)
+![image-20220322212001661](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322212001661.png)
 
 CONFIG_SPI_SLAVE=y # Configuration option that CONFIG_SPI_SPIDEV depends on
 
-![image-20220322212021521](./image/driver_develop_guide/image-20220322212021521.png)
+![image-20220322212021521](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322212021521.png)
 
 CONFIG_SPI_HOBOT=y # Configuration option for spi-hobot.c driver layer
 
-![image-20220322212038265](./image/driver_develop_guide/image-20220322212038265.png)
+![image-20220322212038265](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322212038265.png)
 
 ### DTS Device Node Configuration
 
@@ -302,7 +302,7 @@ You can observe the spidev0.0 device node
 
 Connect the MOSI and MISO pins of the SPI using a connector.
 
-![image-20220322222747547](./image/driver_develop_guide/image-20220322222747547.png)
+![image-20220322222747547](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322222747547.png)
 
 ### Test Code
 
@@ -959,4 +959,4 @@ return ret;
 
 ### SPI Timing
 
-![](./image/driver_develop_guide/a91efe6c59515b2b9d38b106a7e066a5.png)
+![](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/a91efe6c59515b2b9d38b106a7e066a5.png)

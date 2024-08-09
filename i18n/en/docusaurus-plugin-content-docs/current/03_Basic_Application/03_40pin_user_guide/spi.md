@@ -15,7 +15,7 @@ Connect MISO and MOSI pins together on the hardware, then run the spi test progr
 ### Hardware Connection
 Connect MISO and MOSI directly together on the hardware using a jumper cap.
 
-![image-20220512101915524](./image/40pin_user_guide/image-20220512101915524.png)
+![image-20220512101915524](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220512101915524.png)
 
 ### Test Procedure
 

@@ -10,7 +10,7 @@ sidebar_position: 1
 
 交叉编译是指在主机上开发和构建软件，然后把构建的软件部署到开发板上运行。主机一般拥有比开发板更高的性能和内存，可以加速代码的构建，可以安装更多的开发工具，方便开发。
 
-![image-20220329140159441](./image/environment_build/image-20220329140159441.png)
+![image-20220329140159441](../../../static/img/07_Advanced_development/02_linux_development/image/environment_build/image-20220329140159441.png)
 
 **主机编译环境要求**
 
@@ -234,7 +234,8 @@ The debian package named by help is not supported, please check the input parame
 
 各debian包说明和关系如下所示：
 
-![流程图](./image/environment_build/image-20221102173111002.jpg)
+![流程图](../../../static/img/07_Advanced_development/02_linux_development/
+image/environment_build/image-20221102173111002.jpg)
 
 | **包名称**                           | **内容说明或示例**                                           |
 | ------------------------------------ | ------------------------------------------------------------ |
