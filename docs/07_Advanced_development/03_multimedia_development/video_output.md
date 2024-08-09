@@ -7,7 +7,7 @@ sidebar_position: 8
 ## 概述
 VOT（视频输出）模块主动从内存中读取图像和图形数据，并通过相应的显示输出设备输出图像。芯片支持的显示/回写设备、视频层和图形层情况如下表所示。
 
-![image-20220329222211836](./image/video_output/image-20220329222211836.png)
+![image-20220329222211836](../../../static/img/07_Advanced_development/03_multimedia_development/video_output/image-20220329222211836.png)
 
 ## 功能描述
 

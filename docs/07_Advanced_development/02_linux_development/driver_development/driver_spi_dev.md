@@ -18,15 +18,15 @@ drivers/spi/spi-hobot.c # spi驱动层代码
 
 CONFIG_SPI_SPIDEV=y # spidev.c配置选项
 
-![image-20220322212001661](./image/driver_develop_guide/image-20220322212001661.png)
+![image-20220322212001661](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322212001661.png)
 
 CONFIG_SPI_SLAVE=y # CONFIG_SPI_SPIDEV依赖的配置选项
 
-![image-20220322212021521](./image/driver_develop_guide/image-20220322212021521.png)
+![image-20220322212021521](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322212021521.png)
 
 CONFIG_SPI_HOBOT=y # spi-hobot.c驱动层配置选项
 
-![image-20220322212038265](./image/driver_develop_guide/image-20220322212038265.png)
+![image-20220322212038265](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322212038265.png)
 
 ### DTS设备节点配置
 
@@ -305,7 +305,7 @@ root@x3dvbj3-hynix2G-2666:~# cat /sys/module/spi_hobot/parameters/slave_tout
 
 使用连接器把spi的MOSI 和 MISO 两个管脚连接起来
 
-![image-20220322222747547](./image/driver_develop_guide/image-20220322222747547.png)
+![image-20220322222747547](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220322222747547.png)
 
 ### 测试代码
 
@@ -970,5 +970,5 @@ int main(int argc, char *argv[])
 
 ### SPI时序
 
-![](./image/driver_develop_guide/a91efe6c59515b2b9d38b106a7e066a5.png)
+![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/a91efe6c59515b2b9d38b106a7e066a5.png)
 

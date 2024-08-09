@@ -1281,7 +1281,7 @@ YUV_BT601_Video_Range，某些摄像头输入数据都是YUV BT601(Video Range)�
 
     以下左图为修改前的模型某一输出节点的可视化图，右图则为修改后的对应输出节点可视化图。
 
-    ![yolov5](./image/multimedia/yolov5.png)
+    ![yolov5](../../static/img/08_FAQ/image/multimedia/yolov5.png)
 
 - 下载完成后通过脚本 https://github.com/ultralytics/yolov5/blob/v2.0/models/export.py 进行pt文件到ONNX文件的转换。
 
@@ -1298,7 +1298,7 @@ YUV_BT601_Video_Range，某些摄像头输入数据都是YUV BT601(Video Range)�
 
 请严格按照下图中步骤1-5来进行模型精度验证并保留每个步骤的代码和结果：
 
-![model_accuracy_check](./image/multimedia/model_accuracy_check.png)
+![model_accuracy_check](../../static/img/08_FAQ/image/multimedia/model_accuracy_check.png)
 
 **在进行排查前，请确认当前模型转换所用的Docker镜像或转换环境版本，并保留版本信息**
 

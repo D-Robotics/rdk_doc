@@ -10,7 +10,7 @@ Horizon Plugin Pytorch (下称 Plugin ) 参考了 PyTorch 官方的量化接口�
 
 量化训练工具的基本使用流程如下：
 
-![quick_start](./image/expert/quick_start.svg)
+![quick_start](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/quick_start.svg)
 
 下面以 ``torchvision`` 中的 ``MobileNetV2`` 模型为例，介绍流程中每个阶段的具体操作。
 

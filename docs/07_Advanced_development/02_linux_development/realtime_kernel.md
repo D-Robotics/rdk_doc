@@ -18,7 +18,7 @@ sudo reboot
 
 这些命令将安装与实时内核兼容的内核头文件、内核文件、驱动程序和BPU驱动，完成后重新启动系统以使更改生效，使用 `uname -a`命令可以看到 `PREEMPT RT`的内核版本信息说明。
 
-![image-20230914142401210](image/realtime_kernel/image-20230914142401210.png)
+![image-20230914142401210](../../../static/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914142401210.png)
 
 ## 恢复为标准内核命令
 
@@ -66,9 +66,9 @@ sudo cyclictest -l50000000 -m -S -p90 -i200 -h400
 
 分析`cyclictest`测试结果以评估实时内核的性能表现。关注最小延迟和最大延迟，以确保它们在可接受范围内。较小的最大延迟和更加一致的延迟表明实时内核的性能较好。下图是使用实时内核，并且运行了 `/app/pydev_demo/03_mipi_camera_sample` 示例的情况下测试的结果。
 
-![image-20230914145619064](image/realtime_kernel/image-20230914145619064.png)
+![image-20230914145619064](../../../static/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914145619064.png)
 
-![image-20230914145234528](image/realtime_kernel/image-20230914145234528.png)
+![image-20230914145234528](../../../static/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914145234528.png)
 
 `cyclictest` 输出中的每个字段含义如下：
 

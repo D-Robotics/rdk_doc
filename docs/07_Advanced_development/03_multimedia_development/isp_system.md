@@ -44,9 +44,9 @@ Demosaic单元负责从覆盖有颜色过滤器阵列（CFA）的图像传感器
 
 数码相机传感器元件本身只能记录落在它们上面光线的强度，无法区分不同的颜色，因此仅产生灰度图像。要捕获颜色信息，必须在每个像素传感器上放置滤镜，它仅允许特定颜色的光通过。使用的滤镜必须能够重建——每个像素具有红色，绿色和蓝色（RGB）值的全彩色图像。这种彩色滤光片阵列最常见的类型称为“拜耳阵列”，之所以这么称呼，是因为滤镜安排每2x2像素组以RGGB方式排列。
 
-所有像素的一半是绿色（G），四分之一是红色（R）和蓝色（B）。与蓝色同一行中的绿色单元格标记为Gb，与红色同一行中的绿色单元格标记为Gr。模式可以以R，Gr，Gb或B中的任何一个开头。![](./image/isp_system/5bfd1de8f3d9be1c11337c90cfb3ed96.png)
+所有像素的一半是绿色（G），四分之一是红色（R）和蓝色（B）。与蓝色同一行中的绿色单元格标记为Gb，与红色同一行中的绿色单元格标记为Gr。模式可以以R，Gr，Gb或B中的任何一个开头。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/5bfd1de8f3d9be1c11337c90cfb3ed96.png)
 
-彩色滤光片的这种布置实质上导致了色彩信息空间欠采样，去马赛克单元负责从这种不完整色彩信息中重建全彩色图像（每个像素含R、G、B三色信息）。![](./image/isp_system/fc1ece44a956c1be254dc257e400c9f2.png)
+彩色滤光片的这种布置实质上导致了色彩信息空间欠采样，去马赛克单元负责从这种不完整色彩信息中重建全彩色图像（每个像素含R、G、B三色信息）。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/fc1ece44a956c1be254dc257e400c9f2.png)
 
 该模块由许多滤波器组成，这些滤波器根据内插的亮度通道重建色度通道。它还考虑了信号相关的传感器噪声（基于较早确定的噪声轮廓），以保持边缘的清晰度和区域均匀的平滑度，同时插补缺失的像素分量。也因此，缺失像素分量的插值包含了传感器的噪声。内置的锐化最大程度地减少了高频噪声的放大。
 
@@ -57,7 +57,7 @@ Demosaic单元负责从覆盖有颜色过滤器阵列（CFA）的图像传感器
 暗区使用配置寄存器：luma thresh low 以及 luma slope low；
 
 亮区使用配置寄存器：luma thresh high 以及 luma slope high。
-下图显示了这四个参数对于sharpen效果的影响：![](./image/isp_system/9eaa1e65ba21c013ed572f20193fe614.png)
+下图显示了这四个参数对于sharpen效果的影响：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/9eaa1e65ba21c013ed572f20193fe614.png)
 
 ### Gamma
 
@@ -65,7 +65,7 @@ Demosaic单元负责从覆盖有颜色过滤器阵列（CFA）的图像传感器
 
 此模块分别为三个（R，G，B）颜色通道中的每一个应用Gamma LUT。
 
-在典型配置中，LUT具有129个均匀间隔的节点，标记为0…128，硬件在这些节点之间应用线性插值。![](./image/isp_system/2c8942a6ea8766837bedf807ec126d28.png)
+在典型配置中，LUT具有129个均匀间隔的节点，标记为0…128，硬件在这些节点之间应用线性插值。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/2c8942a6ea8766837bedf807ec126d28.png)
 
 每个数据值都是16位无符号数，因此可以预计Gamma [0] = 0和Gamma [128] =
 0xFFFF，其他127个值定义Gamma校正曲线。
@@ -94,7 +94,7 @@ CNR模块通过对周边色度均值智能估计的方式进行α-混合来矫�
 
 大多数情况下，标准颜色无法提供最佳图像质量。根据应用程序或客户喜好，CCM模块可以对颜色进行校正和调整。该模块更改图像的色度值以匹配标准色彩空间的色度值。
 
-通过捕获该模块对输入的 `{R，G，B}` 或 `{R，G，B，Ir}` 像素值应用线性颜色校正。计算系数矩阵如图所示：![](./image/isp_system/8d9c2a42362a495faa03dc054781802a.png)
+通过捕获该模块对输入的 `{R，G，B}` 或 `{R，G，B，Ir}` 像素值应用线性颜色校正。计算系数矩阵如图所示：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/8d9c2a42362a495faa03dc054781802a.png)
 
 In1、In2、In3和In4是输入（分别是R、G、B和Ir），A11到A34是可配置的矩阵系数。系数为s4.8数字格式的13位值，其中Msbit(12bits)为符号位。负值的MSbit(12bits)设置为1。
 
@@ -127,19 +127,19 @@ Profile LUT来保证。参考数据通过DMA存储在DDR中，有2个读DMA和2�
 
 由于镜头光学折射不均匀，导致画面出现中心亮四周暗的现象。网格着色校正为非线性着色失真提供了进一步的校正，并微调径向着色校正所产生的效果。
 
-该模块使用最大64x 64区域的网格对图像应用网格着色校正。网格校正有3页（R/G/B）的校正表，4种不同模式：![](./image/isp_system/faa3129f78eedd29839392c093e6e330.png)
+该模块使用最大64x 64区域的网格对图像应用网格着色校正。网格校正有3页（R/G/B）的校正表，4种不同模式：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/faa3129f78eedd29839392c093e6e330.png)
 
 设置 Mesh Alpha Mode = 0<br/>
-![](./image/isp_system/a021fb719e5465ec10e9153e421d1100.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/a021fb719e5465ec10e9153e421d1100.png)
 
 设置 Mesh Alpha Mode = 1<br/>
-![](./image/isp_system/c0b25e9a65732282d5f19a7635a0ddd2.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/c0b25e9a65732282d5f19a7635a0ddd2.png)
 
 设置 Mesh Alpha Mode = 2<br/>
-![](./image/isp_system/082b39c7f8f634a6bf3192b3fc447344.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/082b39c7f8f634a6bf3192b3fc447344.png)
 
 设置 Mesh Alpha Mode = 3<br/>
-![](./image/isp_system/7e2b1477f23a6869573ca5b0d18080a8.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/7e2b1477f23a6869573ca5b0d18080a8.png)
 
 ### Radial Shading
 
@@ -149,9 +149,9 @@ Profile LUT来保证。参考数据通过DMA存储在DDR中，有2个读DMA和2�
 
 ### Color Space Conversion
 
-此模块将输入的 `{R，G，B}` 像素值转换为 `{Y，U，V}`值，并使用标准3x3矩阵乘法和向量偏移。如果转换未激活，则ISP输出RGB格式的像素。![](./image/isp_system/349a1fb120a6478e02d6ae647f8b43b5.png)
+此模块将输入的 `{R，G，B}` 像素值转换为 `{Y，U，V}`值，并使用标准3x3矩阵乘法和向量偏移。如果转换未激活，则ISP输出RGB格式的像素。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/349a1fb120a6478e02d6ae647f8b43b5.png)
 
-如果需要，可以对参数进行修改，以提供不同的转换。以BT.709为例进行说明，公式如下所示：![](./image/isp_system/31ead51a2003c093e39a8660d535adde.png)
+如果需要，可以对参数进行修改，以提供不同的转换。以BT.709为例进行说明，公式如下所示：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/31ead51a2003c093e39a8660d535adde.png)
 
 则calibration中RGB2YUV_CONVERSION中对应的参数如公式所示：
 
@@ -170,7 +170,7 @@ AE自动曝光统计信息用于调整传感器曝光，这是通过收集5-bin�
 
 AF模块计算图像中的统计清晰度值。软件使用此值/统计信息来调整镜头，使其在感兴趣区域（ROI）上具有最佳聚焦。该模块计算区域和整个图像的边缘值。
 
-ISP为各统计模块提供可编程的标记点。![](./image/isp_system/265bc3c2561f462db3e18c6e76c6dd62.png)
+ISP为各统计模块提供可编程的标记点。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/265bc3c2561f462db3e18c6e76c6dd62.png)
 
 #### AWB统计信息
 
@@ -188,11 +188,11 @@ Cb_Ref_Min/Max，Cr_Ref_Min/Max这4个值限定了R/G，B/G的最大值和最小
 
 另外，可通过Cb_Ref_Low/High，Cr_Ref_Low/High来限定更小的R/G，B/G范围。
 
-![](./image/isp_system/82efe11737fca5681b2df8a3af582612.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/82efe11737fca5681b2df8a3af582612.png)
 
 全局统计信息：由三个寄存器AWB RG，AWB BG，SUM来存储；
 
-区域统计信息：![](./image/isp_system/b7004c4bfc0cfea42dfd9c922ad3e52e.png)
+区域统计信息：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/b7004c4bfc0cfea42dfd9c922ad3e52e.png)
 
 #### AE统计信息
 
@@ -209,40 +209,43 @@ bin，j bin间的强度阈值。
 
 Statistics_Hist[i] 提供i bin的全局归一化像素数，总和归一化为0xFFFF。
 
-不提供中间bin的直方图，但可通过软件来计算得到：![](./image/isp_system/ebea37c8cf8b3d7e3bcc6049715ff0a5.png)
+不提供中间bin的直方图，但可通过软件来计算得到：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/ebea37c8cf8b3d7e3bcc6049715ff0a5.png)
 
 包含Histx数据的内部表提供了每个区域的直方图的归一化值，如下表中mxn区域所示。区域的顺序是从图像的左上角开始的栅格顺序。对于每个区域，直方图数据的总和被标准化为0xFFFF。
 
 最多支持
 
-![](./image/isp_system/9a978ee0b05af72629b9ab769ccd65ec.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/9a978ee0b05af72629b9ab769ccd65ec.png)
 
 33x33分块。
 
 #### 1024-bin直方图
 
 为整个图像构建全局1024-bin直方图。全局直方图可设置区域权重，但未标准化，ISP
-Firmware会执行统计数据的标准化。![](./image/isp_system/7715fc9e61a93745eb21ea33691af15e.png)![](./image/isp_system/44de7677ae0485a0be2b89fc6ca62eef.png)
+Firmware会执行统计数据的标准化。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/7715fc9e61a93745eb21ea33691af15e.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/44de7677ae0485a0be2b89fc6ca62eef.png)
 
 #### AF统计信息
 
 自动对焦统计信息由感兴趣区域（ROI）或区域的、标准化的全图像多方向对比度指标组成。CPU使用此对比度度量来确定镜头的位置，以实现最佳聚焦。
 
-AF 统计模块的清晰度评价函数计算像素点四个方向的对比度，计算示意如下图所示，![](./image/isp_system/af7452605a6fd44cf2f233c04dd50efa.png)
+AF 统计模块的清晰度评价函数计算像素点四个方向的对比度，计算示意如下图所示，![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/af7452605a6fd44cf2f233c04dd50efa.png)
 
-需要注意的是，AF统计模块不支持修改清晰度评价函数的系数。用户可修改kernel改变清晰度计算的像素点位置来适配不同的场景。AF统计模块不同kernel下清晰度计算方式如下图所示。![](./image/isp_system/320db90e9c15074cef59f9abf2a95e7c.png)
+需要注意的是，AF统计模块不支持修改清晰度评价函数的系数。用户可修改kernel改变清晰度计算的像素点位置来适配不同的场景。AF统计模块不同kernel下清晰度计算方式如下图所示。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/320db90e9c15074cef59f9abf2a95e7c.png)
 
 对于AF模块，可以通过软件配置区域。模块为每个像素计算区域对比度度量，并在整个区域内进行累积。对于每个像素，沿4个方向计算对比度。除此之外，还可以使用内核选择配置参数来控制对角线的角度方向，如上表所示。为了改善在弱光和低通成像情况下的响应，所计算的对比度为四级（四次对比度总和）。
 
 这些区域度量标准不会在硬件中加权，但是软件可以在计算后应用基于区域的权重。
 
-下图表明当AF对比度指标达到最高点时可以实现最佳对焦：![](./image/isp_system/eb46356fc26d3b00fc5c41a191b77a69.png)
+下图表明当AF对比度指标达到最高点时可以实现最佳对焦：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/eb46356fc26d3b00fc5c41a191b77a69.png)
 
 #### AF度量数据计算
 
 区域累积对比度度量标准以16b尾数和5b指数的浮点格式存储。除了对比度指标外，我们还在该区域上累积平方图像和四次图像数据，如下图所示I2值是指图1所示四个方向像素的差值的平方和，I4是图1四个方向像素差的四次方和，E4是4个kernel下像素差四次方和累加，如图2，16b Mantissa存的是底数，5b Exponent存的是指数，Register1和Register2合起来64bit使用，用户不需要自己直接去计算，可以直接使用HB_ISP_GetMeteringData拿到cv值。
 
-每个区域累积的统计信息如下表所示：![](./image/isp_system/92ed8281119113cec44cca19621de865.png)![](./image/isp_system/63be20d81aeffdf2e29f10eac189f2e8.png)
+每个区域累积的统计信息如下表所示：![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/92ed8281119113cec44cca19621de865.png)
+
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/63be20d81aeffdf2e29f10eac189f2e8.png)
 
 AF区域数据以如下形式存储：
 
@@ -250,7 +253,7 @@ AF区域数据以如下形式存储：
 
 #### Auto Level统计信息
 
-iridix模块提供的1024bin统计数据。![](./image/isp_system/51b1c86929ebf73752bf1803d437a06c.png)
+iridix模块提供的1024bin统计数据。![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/51b1c86929ebf73752bf1803d437a06c.png)
 
 
 #### 平均亮度和平均亮度方差统计信息
@@ -264,7 +267,7 @@ reserved + 12bits亮度方差 + 10bits 亮度平均值。
 
 #### 算法库与ISP Firmware交互框图
 
-![](./image/isp_system/3f6586aeb35102bf50fc3a8c45f90c82.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/3f6586aeb35102bf50fc3a8c45f90c82.png)
 
 MEM中的内容有两部分，一是提供给算法库的数据，二是算法库给ISP Driver传入的值，ISP
 Driver中如AWB收到算法配置的值会更新到ISP寄存器空间；
@@ -5679,27 +5682,27 @@ AE区域权重表通过AE_ZONE_WGHT_VER和AE_ZONE_WGHT_HOR 共同确定
 
 其中AE_ZONE_WGHT_HOR和AE_ZONE_WGHT_VER的lut表如control tool工具截图，总共32个值，每个值16bit，0表示该块不统计，1表示统计1次，2表示统计2次，依次类推，其中15比较特殊，表示统计16次。
 
-![image-20221118175019755](./image/isp_system/image-20221118175019755.png)
+![image-20221118175019755](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118175019755.png)
 
 AE_ZONES_WEIGHT如control tool截图，统计模块将整幅画面默认分为horz_zones（33） *vore_zones（33） 块，总共1089个值，其中horz_zones，vore_zones可以通过接口设置，AE_ZONES_WEIGHT的权重值 = (int(ae_zone_wght_ver * ae_zone_wght_hor) / 16) - (int(ae_zone_wght_ver * ae_zone_wght_hor/16 > 1 ? 1 : 0)) （int(ae_zone_wght_ver * ae_zone_wght_hor/16 > 1 大于1 取1，否则取0）
 
-![image-20221118180830337](./image/isp_system/image-20221118180830337.png)
+![image-20221118180830337](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118180830337.png)
 
 AE_ZONE_WGHT_HOR表示纵轴的行的权重系数，一个数据控制几列与horz_zones相关，数据控制列数 =1 + int((horz_zones - 1)/(AE_ZONE_WGHT_HOR的lut表长度)) ，比如horz_zones\*vore_zones为33\*33,则AE_ZONE_WGHT_HOR一个下标数据控制就是（1+int((33 - 1)/(32)）= 2列，AE_ZONE_WGHT_HOR的lut表的长度/2的下标（中心）位置控制horz_zones/2的列数，比如lut表的16下标是中心点，lut表下标改成0的话就是控制的AE_ZONES_WEIGHT的第16和17列，如下control tool图1，图2，AE_ZONE_WGHT_HOR的lut表中心点往中心点两边计算，比如下标15控制AE_ZONES_WEIGHT的第14和15列，下标17控制AE_ZONES_WEIGHT的第18和19列，如图3，图4，其他下标控制如此类推，由于horz_zones会修改，修改后通过数据控制列数公式计算出一个下标控制几列，然后根据与中心距离，得出对应关系。
 
-![image-20221118184855810](./image/isp_system/image-20221118184855810.png)
+![image-20221118184855810](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118184855810.png)
 
 图1
 
-![image-20221118183608168](./image/isp_system/image-20221118183608168.png)
+![image-20221118183608168](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118183608168.png)
 
 图2
 
-![image-20221118185143974](./image/isp_system/image-20221118185143974.png)
+![image-20221118185143974](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118185143974.png)
 
 图3
 
-![image-20221118185333583](./image/isp_system/image-20221118185333583.png)
+![image-20221118185333583](../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118185333583.png)
 
 图4
 

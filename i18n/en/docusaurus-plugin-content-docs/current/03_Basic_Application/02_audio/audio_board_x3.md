@@ -18,7 +18,7 @@ If you are prompted that the Miniboot version is not the latest after installing
 
 WM8960 Audio HAT is an audio adapter board produced by Waveshare, using the WM8960 Codec solution, and can achieve dual channel microphone recording and audio playback functions. The appearance of the adapter board is as shown in the figure below:
 
-![image-audio-wm8960](./image/image-audio-wm8960.jpg)
+![image-audio-wm8960](../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
 
 This audio sub-board is only compatible with RDK X3 version 2.0, and the version number can be queried as follows. The return value 8 indicates that the device is 2.0 version.
 ```shell
@@ -31,12 +31,12 @@ For a detailed introduction to the audio adapter board, please refer to [WM8960 
 ### Installation Method
 
 1. Connect the adapter board to the 40-pin header of RDK X3 as shown in the following picture  
-![image-wm8960-audio-hat-setup](./image/image-wm8960-audio-hat-setup.jpg)
+![image-wm8960-audio-hat-setup](../../../../../../static/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
 
 2. Configure the audio board using `srpi-config`  
 Enter `3 Interface Options` -> `I5 Audio`  
 Select `WM8960 Audio HAT`:
-![image-audio-driver-hat-config00](./image/image-audio-driver-hat-config01.png) 
+![image-audio-driver-hat-config00](../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config01.png) 
 
 3. Run the command `sync && reboot` to restart the development board. If the device nodes like the following appear under /dev/snd, it indicates that the adapter board is installed successfully.
     ```shell

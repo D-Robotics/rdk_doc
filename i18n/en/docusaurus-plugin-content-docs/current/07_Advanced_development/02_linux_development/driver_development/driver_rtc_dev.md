@@ -16,7 +16,7 @@ drivers/rtc/rtc-pcf8563.c
 
 CONFIG_RTC_DRV_PCF8563
 
-![image-20220323100439451](./image/driver_develop_guide/image-20220323100439451.png)
+![image-20220323100439451](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220323100439451.png)
 
 ## Using the RTC
 

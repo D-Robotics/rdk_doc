@@ -87,7 +87,7 @@ sudo ./decode_rtsp_stream.py -a
 ### 注意事项
 
 - 推流服务器推送的rtsp码流里面需要包含`PPS`和`SPS`参数信息，否则会导致开发板解码异常，错误信息如下：
-![image-20220728110439753](./image/pydev_vio_demo/image-20220728110439753.png)
+![image-20220728110439753](../../../static/img/03_Basic_Application/04_multi_media/image/pydev_vio_demo/image-20220728110439753.png)
 
 - 使用`ffmpeg`打开`.mp4 .avi`等格式的视频文件推流时，需要添加`-vbsf h264_mp4toannexb`选项，以添加码流的`PPS` 和`SPS`信息，例如：
 

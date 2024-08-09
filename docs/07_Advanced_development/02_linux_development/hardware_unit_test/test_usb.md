@@ -25,7 +25,7 @@ modprobe g_mass_storage file=/dev/loop0 removable=1
 1. PC端会出现新磁盘设备的提醒，将其格式化为FAT32格式。
 2. PC打开`CrystalDiskMark`，选择刚挂载的X3设备，点击`All`开始测试，若出现空间不足的提示，则调整测试文件大小。
 3. 测试完成之后，前两项`SEQ1M*`表示顺序读写速度，后面两项`RND4K*`表示4k小文件随机读写速度。
-   ![10_usb_benchmark](./image/hardware_unit_test/10_usb_benchmark.png)  
+   ![10_usb_benchmark](../../../../static/img/07_Advanced_development/02_linux_development/hardware_unit_test/10_usb_benchmark.png)  
 
 
   **图片中的速度仅供参考**

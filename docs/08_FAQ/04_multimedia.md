@@ -9,7 +9,7 @@ sidebar_position: 4
 <font color='Blue'>【问题】</font> 
 
 - 开发板解码rtsp视频流报错，错误如下：  
-![image-20220728110439753](./image/multimedia/image-20220728110439753.png)
+![image-20220728110439753](../../static/img/08_FAQ/image/multimedia/image-20220728110439753.png)
 
 <font color='Green'>【解答】</font> 
 

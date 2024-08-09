@@ -7,7 +7,7 @@ sidebar_position: 11
 
 In VIN, the control of the camera is done entirely in user space, while the control of mipi/ISP is done in the driver. By passing the user-space related configurations to the driver, the driver sets up the hardware. The relevant device nodes are as follows:
 
-![image-20220327233823654](./image/debug_info/image-20220327233823654.png)
+![image-20220327233823654](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/drive_and_multimedia.png)
 
 - **mipi_host0\~4:** mipi host configuration nodes, mainly for mipi\_host initialization.
 - **mipi\_dphy:** dphy related node.
@@ -30,7 +30,7 @@ SIF takes the data received by MIPI HOST and performs certain processing, such a
 
 ISP's functions are relatively complex. It needs to interact with the sensor, load the corresponding algorithm library and effect library. In the configuration code:
 
-![](./image/debug_info/7c497fc6373c2c0a35f2248f7fc16280.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/7c497fc6373c2c0a35f2248f7fc16280.png)
 
 - **ispAlgoState:** This tag indicates the use of 3A algorithm, which will use the algorithm in the lib_algo.so library.
 - **calib:** This is the effect library configured for different sensors, used to adjust sensor effects.
@@ -45,7 +45,7 @@ View SIF debug information:
 cat /sys/devices/platform/soc/a4001000.sif/cfg_info
 ```
 
-![](./image/debug_info/354af0a4710e0c5a631ab6a96bf932c6.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/354af0a4710e0c5a631ab6a96bf932c6.png)
 
 ### ISP Debug Information
 
@@ -55,7 +55,7 @@ View ISP debug information:
 cat /sys/devices/platform/soc/b3000000.isp/isp_status
 ```
 
->   ![](./image/debug_info/a6cabe90c204d0510e417106b32b3622.png)
+>   ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/a6cabe90c204d0510e417106b32b3622.png)
 
 ### IPU Debug Information
 
@@ -73,7 +73,7 @@ cat /sys/devices/platform/soc/a4040000.ipu/info/pipelinex_info # x can be 0-7
 cat /sys/devices/platform/soc/a4040000.ipu/info/pipeline0_info
 ```
 
-![](./image/debug_info/5c314a3ac1028e4de8293548efb65704.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/5c314a3ac1028e4de8293548efb65704.png)
 
 Explanation:
 
@@ -95,7 +95,7 @@ cat /sys/devices/platform/soc/a4042000.pym/info/pipelinex_info # x takes values 
 cat /sys/devices/platform/soc/a4042000.pym/info/pipeline0_info
 ```
 
-![](./image/debug_info/81aec6c1b63287146ec1a11be9780b71.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/81aec6c1b63287146ec1a11be9780b71.png)
 
 ### IAR Debug Information
 
@@ -105,7 +105,7 @@ View IAR debug information:
 cat /sys/kernel/debug/iar
 ```
 
-![](./image/debug_info/c437b118301b57610a49246d39de9213.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/c437b118301b57610a49246d39de9213.png)
 
 ## VPU Debug Information
 
@@ -117,9 +117,9 @@ View encoding information:
 cat /sys/kernel/debug/vpu/venc
 ```
 
-![](./image/debug_info/01ef41acb92787b58fe84a0a5241b7dc.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/01ef41acb92787b58fe84a0a5241b7dc.png)
 
-![](./image/debug_info/c5df92bf5f46a0575c1f049867871ffe.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/c5df92bf5f46a0575c1f049867871ffe.png)
 
 ### VDEC Debug Information
 
@@ -129,7 +129,7 @@ View decoding information:
 cat /sys/kernel/debug/vpu/vdec
 ```
 
-![](./image/debug_info/7f297a9c2dfd3b25a308f898b97f89c2.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/7f297a9c2dfd3b25a308f898b97f89c2.png)
 
 ## JPU Debug Information
 
@@ -140,7 +140,7 @@ View encoding information:
 cat /sys/kernel/debug/jpu/jenc
 ```
 
-![](./image/debug_info/1944f201c81a20991a2623a464ac749c.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/1944f201c81a20991a2623a464ac749c.png)
 
 ### JDEC Debug Information
 
@@ -150,7 +150,7 @@ View decoding information:
 cat /sys/kernel/debug/jpu/jdec
 ```
 
-![](./image/debug_info/64fdce46047c2462decae977fd2d2288.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/64fdce46047c2462decae977fd2d2288.png)
 
 ## Media Module Log Viewing
 

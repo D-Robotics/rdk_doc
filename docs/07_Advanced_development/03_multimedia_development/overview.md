@@ -12,7 +12,7 @@ sidebar_position: 1
 
 地平线多媒体处理的主要内部处理流程如下图所示，主要分为视频输入（ VIN ）、视频处理（ VPS ）、视频编码（ VENC ）、视频解码（ VDEC ）、视频输出 (VOT) 、区域处理（ REGION ）、AI算法推理（BPU）等模块。
 
-![X3-ss_mm_system_topology](./image/overview/X3-ss_mm_system_topology-16485465559782.png)
+![X3-ss_mm_system_topology](../../../static/img/07_Advanced_development/03_multimedia_development/overview/X3-ss_mm_system_topology-16485465559782.png)
 
 ## 术语约定{#terminology}
 

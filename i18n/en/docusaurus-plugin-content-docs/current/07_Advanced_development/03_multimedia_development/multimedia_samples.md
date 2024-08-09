@@ -9,7 +9,7 @@ This chapter briefly describes the D-Robotics multimedia application examples. T
 
 The following diagram shows the video data path diagram of X3M, for explanations of the professional terms, please refer to [Overview of Multimedia Development - Terminology](./overview#terminology).
 
-![image-20220517184132422](./image/multimedia_samples/image-20220517184132422.png)
+![image-20220517184132422](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517184132422.png)
 
 `get_sif_data` completes the initialization of the `sensor`, `MIPI CSI`, and `SIF` modules, and implements the function of acquiring video frame data from the `SIF` module, supporting obtaining images in both `Raw` and `YUV` formats from the `SIF` module.
 
@@ -206,13 +206,13 @@ After running the program, it will acquire images named similarly to `pipe0_plan
 
 Configure options as shown in the figure below, focusing on `pic_type`, `raw_type`, `pix_length`, `width`, and `height`. For F37, configure as (PIC_RAW, MIPI_RAW, RAW_BIT_10, 1920, 1080), and for IMX415, configure as (PIC_RAW, MIPI_RAW, RAW_BIT_12, 3840, 2160).
 
-![./image/multimedia_samples/image-20220517211101610.png](./image/multimedia_samples/image-20220517211101610.png)
+![../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517211101610.png](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517211101610.png)
 
 - **Viewing YUV Images:**
 
 Configure options as per the steps shown, paying attention to `pic_type`, `yuv_type`, `width`, and `height`. For F37, configure as (PIC_YUV, YUV_NV12, 1920, 1080), and for IMX415, configure as (YUV_NV12, 3840, 2160).
 
-![image-20220517212105959](./image/multimedia_samples/image-20220517212105959.png)
+![image-20220517212105959](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517212105959.png)
 
 ## get_isp_data Usage Guide{#get_isp_data}
 
@@ -220,7 +220,7 @@ Configure options as per the steps shown, paying attention to `pic_type`, `yuv_t
 
 The following diagram illustrates the video data path for the X3M, with technical terms explained in the [Multimedia Development Overview - Terminology](./overview#terminology).
 
-![image-20220517184132422](./image/multimedia_samples/image-20220517184132422.png)
+![image-20220517184132422](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517184132422.png)
 
 The `get_isp_data` function initializes the `sensor`, `MIPI CSI`, `SIF`, and `ISP` modules, enabling the retrieval of video frame data from the `ISP` module. It supports obtaining images in YUV format from the ISP.
 
@@ -419,7 +419,7 @@ Please use the [hobotplayer](http://sunrise.horizon.cc/downloads/hobotplayer/hob
 
 Configure the options as shown below, paying attention to the configuration of `pic_type`, `yuv_type`, `width`, and `height` in the `file config`. F37 configuration is (PIC_YUV, YUV_NV12, 1920, 1080), IMX415 configuration is (YUV_NV12, 3840, 2160).
 
-![image-20220517212105959](./image/multimedia_samples/image-20220517212105959.png)
+![image-20220517212105959](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517212105959.png)
 
 ## Sample_isp User Manual
 
@@ -615,7 +615,7 @@ The `YUV` image is processed using `vps` for cropping, rotation, scaling, and ot
 
 The `sample_vps_zoom` program uses the `ipu` and `pym` hardware modules of `vps` to zoom in on multiple areas of the `YUV` image, encode the processed `YUV` image into an `H264` video stream, and preview it directly using tools such as `MPC-BE`. It is similar to the `zoom` function in an electronic gimbal. The entire program's `Pipeline` is shown in the following figure:
 
-![Pipeline](./image/multimedia_samples/vps_zoom_pipeline.png)
+![Pipeline](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/vps_zoom_pipeline.png)
 
 
 As shown in the `Pipeline`, the program reads the `YUV` image through `vps0`, binds `vps0 chn1` and `vps1`, processes it through `crop` and enlargement using `ipu` and `pym`, and sends the data to `venc chn1` for `H264` encoding to achieve the `zoom` effect. At the same time, `vps0 chn2` is bound to `venc chn0` for `H264` encoding, and `vps0 chn3` is bound to `venc chn2` for `H264` encoding.
@@ -658,7 +658,7 @@ Execute the program `./sample_vps_zoom`.
 
 The `YUV` image is encoded into a smooth zoom `H264` stream by using the backfill method and the `ipu`, `pym`, `venc` modules. The effect is shown below.
 
-![vps_1_chn_5_venc_0.h264_20230523_143448](./image/multimedia_samples/vps_1_chn_5_venc_0.h264_20230523_143448.gif)
+![vps_1_chn_5_venc_0.h264_20230523_143448](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/vps_1_chn_5_venc_0.h264_20230523_143448.gif)
 
 ## sample_osd Instructions{#sample_osd}
 
@@ -701,7 +701,7 @@ $ ls
 
 The `YUV` image output by the `vps` channel after overlaying `osd` is shown in the following figure:
 
-![Osd](./image/multimedia_samples/image-20220517151700.png)
+![Osd](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517151700.png)
 
 ## Usage of sample video codec{#sample_video_codec}
 
@@ -916,7 +916,7 @@ framesize:3110400
 
 The program reads the `1920_1080yuv8.yuv` file into memory and sends the data to the `bt1120` interface of the `VOT` module through the interface, and then outputs the `hdmi` effect to the display device through the `hdmi` conversion chip as shown in the following figure.
 
-![](./image/multimedia_samples/20220520-163716.jpg)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220520-163716.jpg)
 
 ## sample_lcd Usage Instructions{#sample_lcd}
 
@@ -973,7 +973,7 @@ framesize:1382400
 
 The program reads the `720x1280.yuv` file into memory and sends the data to the `VOT` module's `midi-dsi` interface through an interface, and then displays it on the `lcd` screen device as shown in the following image.
 
-![](./image/multimedia_samples/20220520-161120.jpg)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220520-161120.jpg)
 
 ## Usage Instructions for `sample_usb_cam_4k60` {#sample_usb_cam_4k60}
 
@@ -983,7 +983,7 @@ The `sample_usb_cam_4k60` program initializes the `sensor`, `MIPI CSI`, `SIF`, `
 
 The software architecture diagram is as follows:
 
-![](./image/multimedia_samples/4k_60_usb_pipeline.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/4k_60_usb_pipeline.png)
 
 ### Function Usage
 
@@ -1142,11 +1142,11 @@ control request (entity_id 00 req 81 cs 02)
 
 By using Potplayer, select UVC Camera, set the resolution to H264 3840x2160P 60, and once the device is opened, you can play the UVC video stream. The output from the x3 side appears as shown below:
 
-![](./image/multimedia_samples/20220523-173933.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220523-173933.png)
 
 A screenshot of the running Potplayer is as follows:
 
-![](./image/multimedia_samples/20220527131109.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220527131109.png)
 
 ### Program Development
 
@@ -1236,7 +1236,7 @@ A screenshot of the running Potplayer is as follows:
 
 The flowchart of the program startup process is as follows:
 
-![](./image/multimedia_samples/4k60usbcam.drawio.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/4k60usbcam.drawio.png)
 
 #### Compilation
 
@@ -1263,14 +1263,14 @@ If there is a new sensor that needs debugging, refer to the source code files un
 
 Taking the camera_imx415.cpp file for IMX415 as an example, the key code needs to add new sensor structure variables: MIPI_SENSOR_INFO_S, MIPI_ATTR_S, VIN_DEV_ATTR_S, VIN_PIPE_ATTR_S, VIN_DIS_ATTR_S, VIN_LDC_ATTR_S.
 
-![](./image/multimedia_samples/20220525-112411.jpg)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112411.jpg)
 
-![](./image/multimedia_samples/20220525-112559.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112559.png)
 
-![](./image/multimedia_samples/20220525-112809.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112809.png)
 
-![](./image/multimedia_samples/20220525-112844.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112844.png)
 
 At the same time, in inc/camera/camera.h, extern the newly added sensor variables, as shown in the example of IMX415:
 
-![](./image/multimedia_samples/20220525-113456.png)
+![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-113456.png)

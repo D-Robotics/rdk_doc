@@ -8,7 +8,7 @@ RDK X3 Module载板提供一路MIPI DSI接口，支持多种LCD屏幕的接入�
 
 屏幕连接方式如下图所示：
 
-![image-mipi-dsi-lcd1](./image/rdk_x3_module/image-mipi-dsi-lcd1.png)
+![image-mipi-dsi-lcd1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-mipi-dsi-lcd1.png)
 
 :::caution 注意
 严禁在开发板未断电的情况下插拔屏幕，否则容易引起短路并烧坏屏幕模组。

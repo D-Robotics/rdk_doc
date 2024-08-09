@@ -18,21 +18,21 @@ RDK X3 Module目前提供对**Audio Driver HAT**、**WM8960 Audio HAT**两款音
 
 Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES7210+ES8156双Codec方案，可实现环形4MIC录音、双通道音频播放、音频信号回采功能，转接板外观如下图：
 
-![image-audio-driver-hat](./image/image-audio-driver-hat.jpg)
+![image-audio-driver-hat](../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat.jpg)
 
 关于音频转接板的详细介绍，请参考[Audio Driver HAT](https://www.waveshare.net/shop/Audio-Driver-HAT.htm)。
 
 ### 安装方法
 
 1. 按照下图方式，将转接板接入RDK X3 Module的40pin header  
-![image-audio-driver-hat-setup](./image/image-audio-driver-hat-setup.jpg)  
+![image-audio-driver-hat-setup](../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)  
 并将拨码开关全部拨到**off**
 
 
 2. 使用`srpi-config`配置音频板  
 进入`3 Interface Options`->`I5 Audio`  
 选择`Audio Driver HAT V2`：
-![image-audio-driver-hat-config00](./image/image-audio-driver-hat-config00.png)  
+![image-audio-driver-hat-config00](../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config00.png)  
 
 
 3. 运行命令`sync && reboot`重启开发板，如`/dev/snd`下出现如下设备节点，说明转接板安装成功
@@ -122,19 +122,19 @@ RDK X3 Module不支持老款Audio Driver HAT REV1音频板，请用户升级到R
 
 WM8960 Audio HAT是由微雪电子生产的一款音频转接板，采用WM8960 Codec方案，可实现双通道麦克风录音、音频播放功能，转接板外观如下图：
 
-![image-audio-wm8960](./image/image-audio-wm8960.jpg)
+![image-audio-wm8960](../../../static/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
 
 关于音频转接板的详细介绍，请参考[WM8960音频转接板](https://www.waveshare.net/wiki/WM8960_Audio_HAT)。
 
 ### 安装方法
 
 1. 按照下图方式，将转接板接入RDK X3的40pin header  
-![image-wm8960-audio-hat-setup](./image/image-wm8960-audio-hat-setup.jpg)
+![image-wm8960-audio-hat-setup](../../../static/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
 
 2. 使用`srpi-config`配置音频板  
 进入`3 Interface Options`->`I5 Audio`  
 选择`WM8960 Audio HAT`：
-![image-audio-driver-hat-config00](./image/image-audio-driver-hat-config01.png)  
+![image-audio-driver-hat-config00](../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config01.png)  
 
 3. 运行命令`sync && reboot`重启开发板，如`/dev/snd`下出现如下设备节点，说明转接板安装成功
     ```shell

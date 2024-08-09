@@ -144,7 +144,7 @@ sidebar_position: 5
     ```
 
     注意，如果在运行`start_nginx.sh`时报以下错误，说明设备上已经有运行httpd的服务，tcp的80端口已经被占用
-    ![image-20220719003947031](./image/pydev_dnn_demo/image-20220719003947031.png)
+    ![image-20220719003947031](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220719003947031.png)
 
     此时需要找到并结束掉占用`80`端口的进程，可以执行命令`lsof -i:80`，得到占用端口的进程PID，并用`kill -9 PID`结束掉进程即可。
 
@@ -225,5 +225,5 @@ sidebar_position: 5
 - web端查看展示效果
 
     在`chrome`浏览器输入开发板IP地址，即可实时预览渲染后的视频画面  
-    ![image-20220719003512782](./image/pydev_dnn_demo/image-20220719003512782.png)
+    ![image-20220719003512782](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220719003512782.png)
 

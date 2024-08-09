@@ -9,7 +9,7 @@ The D-Robotics Plugin Pytorch (referred to as Plugin) refers to the PyTorch offi
 
 The basic process of using the quantization training tool is as follows:
 
-![quick_start](./image/expert/quick_start.svg)
+![quick_start](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/quick_start.svg)
 
 Below, we take the `MobileNetV2` model in `torchvision` as an example to introduce the specific operations of each stage in the process.
 

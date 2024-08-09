@@ -143,7 +143,7 @@ The data preprocessing, model inference, and post-processing code in this exampl
     ```
 
     Note that if you encounter the following error when running `start_nginx.sh`, it means that there is already an httpd service running on the device and TCP port 80 is occupied:
-    ![image-20220719003947031](./image/pydev_dnn_demo/image-20220719003947031.png)
+    ![image-20220719003947031](../../../../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220719003947031.png)
 
     In this case, you need to find and terminate the process that occupies port `80`. You can execute the command `lsof -i:80` to get the PID of the process occupying the port, and then use `kill -9 PID` to terminate the process.
     
@@ -224,4 +224,4 @@ async def web_service(websocket, path):
 - View the display effect on the web
 
     Enter the IP address of the development board in the `chrome` browser to preview the video image rendered in real time  
-    ![image-20220719003512782](./image/pydev_dnn_demo/image-20220719003512782.png)
+    ![image-20220719003512782](../../../../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220719003512782.png)

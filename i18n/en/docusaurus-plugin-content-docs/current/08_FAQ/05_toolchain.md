@@ -1054,7 +1054,7 @@ F32ToU8Transformer()
             #  x[i] = x[i].view(bs, self.na, self.no, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
             x[i] = x[i].permute(0, 2, 3, 1).contiguous()
 ```
-![yolov5](./image/multimedia/yolov5.png)
+![yolov5](../../../../../static/img/08_FAQ/image/multimedia/yolov5.png)
 
 3. After cloning the code, run the script at https://github.com/ultralytics/yolov5/blob/v2.0/models/export.py to convert the .pt files to ONNX.
 
@@ -1073,7 +1073,7 @@ Please note that I have translated the text into English while maintaining the o
 
 Follow the steps 1-5 strictly to verify the model's accuracy, and keep the code and results for each step:
 
-![](./image/multimedia/model_accuracy_check.png)
+![](../../../../../static/img/08_FAQ/image/multimedia/model_accuracy_check.png)
 
 **Before starting, ensure you have the correct Docker image or conversion environment version, and record the version information.**
 

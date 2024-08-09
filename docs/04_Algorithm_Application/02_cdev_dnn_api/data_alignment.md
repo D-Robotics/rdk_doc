@@ -93,4 +93,4 @@ NV12图像格式属于YUV颜色空间中的YUV420SP格式，每四个Y分量共�
 
 排列方式如下：
 
-![nv12_layout](./image/cdev_dnn_api/nv12_layout.png)
+![nv12_layout](../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/nv12_layout.png)

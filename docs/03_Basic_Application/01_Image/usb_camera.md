@@ -23,7 +23,7 @@ sidebar_position: 2
 
 ## 预期效果
 程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：  
-  ![image-20220612110739490](./image/usb_camera/image-20220612110739490.png)
+  ![image-20220612110739490](../../../static/img/03_Basic_Application/01_Image/image/usb_camera/image-20220612110739490.png)
 
 :::tip
 

@@ -6,7 +6,7 @@ sidebar_position: 12
 ## 概述
 Camera是图像数据的主要外部来源，VIO部分软件是一个相对不透明的内部软件，主要面向提供内部应用软件提供相关的图像以及信息，XJ3芯片内部图像处理IP信息大致如下：
 
-![image-20220329205706352](./image/performance_debug/image-20220329205706352.png)
+![image-20220329205706352](../../../static/img/07_Advanced_development/03_multimedia_development/performance_debug/multimedia_all.png)
 
 | 输入方式       | IP   | 输出方式       |
 |----------------|------|----------------|
@@ -126,7 +126,7 @@ XJ3 VIO子模块包括SIF_W、ISP0\_M0、ISP0\_M2、GDC0、DIS、SIF_R、IPU0、
 
 可以通过AXIBUS寄存器将这些子模块配置到VIO0或者VIO1上，XJ3系统启动后默认配置IAR和SIF_W到VIO1，其余模块配置到VIO0。AXIBUS寄存器bit31\~bit16对应子模块如下图：
 
-![](./image/performance_debug/3bbeb4873d19bd13fa9428d926853d2c.png)
+![](../../../static/img/07_Advanced_development/03_multimedia_development/performance_debug/vio_config.png)
 
 其中灰色部分模块不存在，对应bit设置为1，该子模块被配置到VIO1上，否则配置到VIO0上。可以通过all属性一次性配置或查询，查询返回vio1上的模块，别的模块在vio0上。也可以通过子模块属性单独配置或查询。
 
@@ -300,7 +300,7 @@ vio_frame_state_pipe[pipeline]_[time].log
 
 如下截图：
 
-![image-20220929113655983](./image/performance_debug/image-20220929113655983.png)
+![image-20220929113655983](../../../static/img/07_Advanced_development/03_multimedia_development/performance_debug/vio_delay_view.png)
 
 ### 方法二
 

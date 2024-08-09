@@ -88,7 +88,7 @@ sidebar_position: 4
   模型限制：在模型转换时，将编译参数 `input_source` 设置为 ```{`input_name`: `resizer`}``` 即可生成resizer模型，具体参数配置细节可参考[PTQ量化原理及步骤说明的转换模型](/toolchain_development/intermediate/ptq_process#model_conversion)中的介绍。
 
 
-  ![resizer](./image/cdev_dnn_api/resizer.png)
+  ![resizer](../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/resizer.png)
 
   目前也支持多输入的nv12数据，resizer常用的输出尺寸(HxW)：128x128、128x64、64x128、160x96
 :::

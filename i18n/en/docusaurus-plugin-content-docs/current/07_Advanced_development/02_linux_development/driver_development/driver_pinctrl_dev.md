@@ -22,7 +22,7 @@ include/linux/platform_data/pinctrl-single.h # pinctrl driver header file
 
 CONFIG_PINCTRL_SINGLE
 
-![image-20220321233840795](./image/driver_develop_guide/image-20220321233840795.png)
+![image-20220321233840795](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220321233840795.png)
 
 ### Pinctrl DTS Configuration
 
