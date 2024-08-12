@@ -191,15 +191,15 @@ To determine whether the failure to start properly is caused by a power supply p
 
 At this time, it is in the Uboot stage, most of the tasks of Uboot have been completed, but when loading the kernel, device tree, etc. from the SD card to memory, or when jumping into the kernel for execution, the development board restarts abnormally.
 
-![image-20230914173433676](image/system/image-20230914173433676.png)
+![image-20230914173433676](../../../../../static/img/08_FAQ/image/hardware_and_system/image-20230914173433676.png)
 
-![image-20230914173911690](image/system/image-20230914173911690.png)
+![image-20230914173911690](../../../../../static/img/08_FAQ/image/hardware_and_system/image-20230914173911690.png)
 
 ### Phenomenon 2: Already running in the kernel, restarts after a few seconds
 
 At this time, the kernel has been loaded and running, and the loading and initialization of the kernel and drivers are in progress, but the development board restarts abnormally.
 
-![image-20230914174123619](image/system/image-20230914174123619.png)
+![image-20230914174123619](../../../../../static/img/08_FAQ/image/hardware_and_system/image-20230914174123619.png)
 
 ### Other Phenomena:
 

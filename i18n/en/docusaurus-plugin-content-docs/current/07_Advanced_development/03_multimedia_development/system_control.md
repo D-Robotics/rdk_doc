@@ -14,7 +14,7 @@ The video pool is composed of a group of physically contiguous and equally sized
 
 ### Binding Relationship
 
-![image-20220329183230983](../../../../../../static/img/07_Advanced_development/03_multimedia_development/system_control/image-20220329183230983.png)
+![image-20220329183230983](../../../../../../static/img/07_Advanced_development/03_multimedia_development/system_control/system_control_bind_relationship.png)
 
 Note: The binding relationship between modules can be established using the HB_SYS_Bind interface. Once bound, the data processed by the data source will be automatically sent to the data sink.
 

@@ -42,7 +42,7 @@ With the information provided in the above sections, you should now have the abi
 
 The interface of the tool is shown in the image below. Users can input the `GPIO number` or `GPIO pin` to query the various register addresses of the pin and generate helper commands for setting the pin. Please refer to the [GPIO User Space Usage Guide](#user-space) for command details.
 
-![image-20220529120102028](./image/driver_develop_guide/image-20220529120102028.png)
+![image-20220529120102028](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220529120102028.png)
 
 ## Driver Code
 
