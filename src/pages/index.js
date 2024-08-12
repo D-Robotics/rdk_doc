@@ -12,7 +12,7 @@ function HomeRedirect() {
 
   useEffect(() => {
     // 重定向到文档的首页路径
-    history.push('/docs/');
+    history.push('/rdk_doc/RDK');
   }, [history]);
 
   return null; // 不渲染任何内容

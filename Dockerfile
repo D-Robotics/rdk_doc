@@ -1,11 +1,14 @@
-# 使用 Node.js 官方镜像
+# Use the official Node.js image
 FROM node:18-alpine
 
-# 设置工作目录
+# Set the working directory
 WORKDIR /app
 
-# 公开端口
+# Expose the port
 EXPOSE 3000
 
-# 默认命令: 构建和启动 Docusaurus 网站
-CMD ["sh", "-c", "npm install && npm run build"]
+# Default command: Build and start the Docusaurus site
+CMD ["sh", "-c", "npm run build"]
+
+# Add environment setup option, refer to the usage below
+# CMD ["sh", "-c", "npm install && npm run build && npm run serve"]
