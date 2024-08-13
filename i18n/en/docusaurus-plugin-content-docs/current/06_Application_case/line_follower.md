@@ -19,7 +19,7 @@ The line following task refers to the ability of a robot car to autonomously fol
 
 The commonly used methods mentioned above often require repeated image collection, threshold adjustment, and testing to achieve good recognition results when there are changes in lighting conditions or the environment. Is it possible to make the robot adapt to changes in the environment without the need for manual threshold adjustment? Convolutional Neural Network (CNN) is one of the most successful applications of deep learning algorithms, with good adaptability and robustness. With the rapid development of processors in recent years, CNN inference can already be performed on embedded devices. Here, CNN is used to perceive the position of the guide line in the line following task.
 
-Code repository:  (https://github.com/HorizonRDK/line_follower)
+Code repository:  (https://github.com/D-Robotics/line_follower)
 
 ## Supported Platforms
 
@@ -30,15 +30,15 @@ Code repository:  (https://github.com/HorizonRDK/line_follower)
 
 ## Preparation
 
-### Horizon RDK
+### D-Robotics RDK
 
-1. Horizon RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
+1. D-Robotics RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by Horizon.
 
-2. TogetheROS.Bot has been successfully installed on the Horizon RDK.
+2. TogetheROS.Bot has been successfully installed on the D-Robotics RDK.
 
-3. MIPI or USB camera has been installed on the Horizon RDK.
+3. MIPI or USB camera has been installed on the D-Robotics RDK.
 
-4. The PC is in the same network segment (wired or connected to the same wireless network) as the Horizon RDK. The following environment needs to be installed on the PC:
+4. The PC is in the same network segment (wired or connected to the same wireless network) as the D-Robotics RDK. The following environment needs to be installed on the PC:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -58,21 +58,21 @@ Code repository:  (https://github.com/HorizonRDK/line_follower)
    - Algorithm toolchain for Docker (obtain by running the following command):
 `wget -c ftp://vrftp.horizon.ai/Open_Explorer_gcc_9.3.0/2.3.3/x3pi_toolchain/ai_toolchain_2.3.3.tar.gz`
    - Project source code
-`https://github.com/HorizonRDK/line_follower/tree/develop`
+`https://github.com/D-Robotics/line_follower/tree/develop`
   
 ## Usage
 
-### Horizon RDK
+### D-Robotics RDK
 
 ![](../../../../../static/img/06_Application_case/line_follower/framework.png)
 
-The OriginBot kit is selected for the chassis of the car, which has two active wheels and one passive wheel. The rotation control of the car is achieved through the differential speed of the two active wheels. The MCU module is mainly used for the motor control of the car and communicates with the main control board Horizon RDK through serial communication. OriginBot website: [www.originbot.org](https://www.originbot.org/)
+The OriginBot kit is selected for the chassis of the car, which has two active wheels and one passive wheel. The rotation control of the car is achieved through the differential speed of the two active wheels. The MCU module is mainly used for the motor control of the car and communicates with the main control board D-Robotics RDK through serial communication. OriginBot website: [www.originbot.org](https://www.originbot.org/)
 
 ![](../../../../../static/img/06_Application_case/line_follower/car.png)
 
-As shown in the above figure, the Horizon RDK obtains the environmental data in front of the car through a camera. The image data is processed by a trained CNN model to infer the coordinates of the guiding line. Then, based on a certain control strategy, the motion mode of the car is calculated. The motion control instructions are sent to the car through UART to achieve closed-loop control of the entire system.
+As shown in the above figure, the D-Robotics RDK obtains the environmental data in front of the car through a camera. The image data is processed by a trained CNN model to infer the coordinates of the guiding line. Then, based on a certain control strategy, the motion mode of the car is calculated. The motion control instructions are sent to the car through UART to achieve closed-loop control of the entire system.
 
-The PC is used for data annotation and training. To improve efficiency, the Horizon RDK is used to send images to the PC for annotation through Ethernet.
+The PC is used for data annotation and training. To improve efficiency, the D-Robotics RDK is used to send images to the PC for annotation through Ethernet.
 
 ![](../../../../../static/img/06_Application_case/line_follower/roadmap.png)
 
@@ -81,8 +81,8 @@ The entire software engineering process includes 5 main steps:
 - Data acquisition and annotation: Obtain the corresponding data according to the task goal and annotate it for model training.
 - Model selection: Select a suitable model structure based on the task goal to ensure both performance and accuracy.
 - Model training: Train the model using annotated data to achieve satisfactory accuracy requirements.
-- Model conversion: Use the algorithm toolchain to convert the trained floating-point model into a fixed-point model that can run on the Horizon RDK.
-- On-device deployment: Run the converted model on the Horizon RDK to obtain perception results and control the robot's motion.
+- Model conversion: Use the algorithm toolchain to convert the trained floating-point model into a fixed-point model that can run on the D-Robotics RDK.
+- On-device deployment: Run the converted model on the D-Robotics RDK to obtain perception results and control the robot's motion.
 
 **X86**
 
@@ -92,7 +92,7 @@ Data collection and annotation are essential for model training. Here, we utiliz
 
 ![](../../../../../static/img/06_Application_case/line_follower/annotation.png)
 
-On the Horizon RDK, start mipi_cam. The selected camera module is F37, and the output image format is BGR8 with a resolution of 960x544. The communication method is non-zero copy.
+On the D-Robotics RDK, start mipi_cam. The selected camera module is F37, and the output image format is BGR8 with a resolution of 960x544. The communication method is non-zero copy.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -159,7 +159,7 @@ Taking into account the maturity of the model, the hardware requirements of the 
 
 ![](../../../../../static/img/06_Application_case/line_follower/model.png)
 
-On the Horizon RDK, ResNet18 has a high inference performance of up to 232FPS, and ResNet50 has an inference performance of over 100FPS. The high frame rate ensures the real-time nature of data processing, which is a necessary condition for improving vehicle speed and implementing more complex applications in the future. ResNet18 network structure is used here initially, and a deeper ResNet50 network structure will be considered later if a bottleneck is encountered. In order to satisfy the output of guide line coordinates x and y, the FC output of ResNet18 network needs to be modified to 2 directly outputting the x and y coordinates of the guide line. The input resolution of ResNet18 is 224x224.
+On the D-Robotics RDK, ResNet18 has a high inference performance of up to 232FPS, and ResNet50 has an inference performance of over 100FPS. The high frame rate ensures the real-time nature of data processing, which is a necessary condition for improving vehicle speed and implementing more complex applications in the future. ResNet18 network structure is used here initially, and a deeper ResNet50 network structure will be considered later if a bottleneck is encountered. In order to satisfy the output of guide line coordinates x and y, the FC output of ResNet18 network needs to be modified to 2 directly outputting the x and y coordinates of the guide line. The input resolution of ResNet18 is 224x224.
 The training framework selected here is the popular PyTorch. The CPU version of PyTorch is installed here, but the GPU version of PyTorch can be used if there is a GPU card on the hardware. The installation command is as follows:
 
 ```shell
@@ -208,7 +208,7 @@ ros2 run line_follower_model training
 
 ![](../../../../../static/img/06_Application_case/line_follower/model_convert.png)
 
-If the floating-point model obtained by training with PyTorch is run directly on the Horizon RDK, the efficiency will be low. In order to improve the running efficiency and use the 5T computing power of BPU, it is necessary to convert the floating-point model to a fixed-point model.
+If the floating-point model obtained by training with PyTorch is run directly on the D-Robotics RDK, the efficiency will be low. In order to improve the running efficiency and use the 5T computing power of BPU, it is necessary to convert the floating-point model to a fixed-point model.
 
 1. Generate ONNX model from the PyTorch model
 
@@ -282,7 +282,7 @@ sh 02_preprocess.sh
 
 #### Deployment
 
-Through the previous model conversion, we have obtained a fixed-point model that can run on the Horizon RDKBPU. How can we deploy it on the Horizon RDK to achieve the complete functionality of image acquisition, model inference, and motion control? Here, we rely on the hobot_dnn implementation in the tros.b. Hobot_dnn is a board-end algorithm inference framework in the tros.b software stack, which uses the BPU processor on the Horizon RDK to implement algorithm inference functions. It provides a simpler and easier-to-use model integration and development interface for robot application development, including model management, input processing and output parsing based on model descriptions, and model output memory allocation and management.
+Through the previous model conversion, we have obtained a fixed-point model that can run on the D-Robotics RDKBPU. How can we deploy it on the D-Robotics RDK to achieve the complete functionality of image acquisition, model inference, and motion control? Here, we rely on the hobot_dnn implementation in the tros.b. Hobot_dnn is a board-end algorithm inference framework in the tros.b software stack, which uses the BPU processor on the D-Robotics RDK to implement algorithm inference functions. It provides a simpler and easier-to-use model integration and development interface for robot application development, including model management, input processing and output parsing based on model descriptions, and model output memory allocation and management.
 
 Inherit DnnNode to implement necessary interfaces. Here, public inheritance is used, and the interfaces that must be implemented are:
 

@@ -154,7 +154,7 @@ static int hb_spi_probe(struct platform_device *pdev)
 
 ### 硬件初始化
 
-硬件初始化函数如下，寄存器含义可通过与地平线相关确认
+硬件初始化函数如下，寄存器含义可通过与D-Robotics 相关确认
 
 ```c
 /* spi hw init */

@@ -20,7 +20,7 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font>
 
-- 可参考论坛文章，[旭日X3派WiringPi](https://developer.horizon.ai/forumDetail/109609560406362634)
+- 可参考论坛文章，[旭日X3派WiringPi](https://developer.d-robotics.cc/forumDetail/109609560406362634)
 
 ### 串口
 

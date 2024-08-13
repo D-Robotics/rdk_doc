@@ -4,12 +4,12 @@ sidebar_position: 1
 
 # 环境安装
 
-本章节主要介绍地平线算法工具链完整开发环境部署方法。
+本章节主要介绍D-Robotics 算法工具链完整开发环境部署方法。
 
 ## 交付物使用说明{#deliverables_instructions}
 
 
-在进行算法工具链使用环境部署前，请下载地平线提供的[**嵌入式应用开发Sample交付包**](https://pan.horizon.ai/index.php/s/iZwyzXoJLs8Btme)到Linux开发机环境中。
+在进行算法工具链使用环境部署前，请下载D-Robotics 提供的[**嵌入式应用开发Sample交付包**](https://pan.horizon.ai/index.php/s/iZwyzXoJLs8Btme)到Linux开发机环境中。
 
 ### 示例包源码目录结构说明
 
@@ -35,12 +35,12 @@ sidebar_position: 1
 
 ## 开发机部署{#machine_deploy}
 
-对于开发机的环境部署，地平线支持使用Docker部署方式。
+对于开发机的环境部署，D-Robotics 支持使用Docker部署方式。
 
 ### 开发机准备
 
 
-为了顺利地使用算法工具链，地平线建议您选择的开发机应满足以下要求：
+为了顺利地使用算法工具链，D-Robotics 建议您选择的开发机应满足以下要求：
 
   | 硬件/操作系统 | 要求                                 |
   |---------------|------|
@@ -53,10 +53,10 @@ sidebar_position: 1
 
 ### 使用Docker环境
 
-为了帮助您快速使用算法工具链，地平线提供了包含完整开发环境的Docker镜像，大大简化了环境的部署过程。
+为了帮助您快速使用算法工具链，D-Robotics 提供了包含完整开发环境的Docker镜像，大大简化了环境的部署过程。
 
 在阅读此部分内容前，我们希望您的开发机中已经预装好了Docker的基础环境。
-地平线要求的Docker基础环境信息如下：
+D-Robotics 要求的Docker基础环境信息如下：
 
 - Docker（>=1.12 建议安装18.03.0-ce）, 安装手册 https://docs.docker.com/install/。
 - NVIDIA Docker（2.0.3），安装手册[**NVIDIA/nvidia-docker**](https://github.com/nvidia/nvidia-docker/wiki)。
@@ -72,7 +72,7 @@ sidebar_position: 1
 
 获取本节需要使用的Docker镜像的地址如下：
 
-- [**地平线 Docker Hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu)
+- [**D-Robotics  Docker Hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu)
 
 镜像文件命名形式为：
 
@@ -81,9 +81,9 @@ sidebar_position: 1
 
 :::tip 小技巧
 
-  执行命令时将 ``{version}`` 替换为您获取到的 **最新版本的Docker镜像** ，例如： [**地平线 docker hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu) 中目前的最新版本为 ``openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu:v1.0.0``。
+  执行命令时将 ``{version}`` 替换为您获取到的 **最新版本的Docker镜像** ，例如： [**D-Robotics  docker hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu) 中目前的最新版本为 ``openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu:v1.0.0``。
 
-  本地Docker镜像包版本，可以联系地平线技术支持团队获取。
+  本地Docker镜像包版本，可以联系D-Robotics 技术支持团队获取。
 
   开发机并不是必须含有GPU卡，一般使用CPU开发机加载Docker镜像即可做模型转换！
 :::

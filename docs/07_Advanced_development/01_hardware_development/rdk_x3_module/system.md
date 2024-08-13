@@ -43,7 +43,7 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
 当RDK X3模组需要烧录系统到SD上，不从eMMC模式启动时，请参考[安装系统](../../installation/install_os.md)完成SD卡系统的烧录。
 
-RDK X3模组烧录eMMC系统镜像时，需要使用地平线`hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://sunrise.horizon.cc/downloads/hbupdate/)。
+RDK X3模组烧录eMMC系统镜像时，需要使用D-Robotics `hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
 
 工具使用注意事项如下：
 - 解压工具压缩包，注意解压路径中不要包含**空格、中文、特殊字符**等内容。
@@ -59,7 +59,7 @@ RDK X3模组烧录eMMC系统镜像时，需要使用地平线`hbupdate`烧录工
    ![image-carrier-board-microusb](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)  
 3. 给设备上电，然后观察电脑设备管理器端口状态，如出现`USB download gadget`未知设备时，需要更新设备驱动，否则可跳过下述步骤。  
    ![image-usb-driver1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png)  
-4. 下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://sunrise.horizon.cc/downloads/hbupdate/android_hobot.zip) 。
+4. 下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip) 。
 5. 进入解压后的目录，以管理员身份运行 `5-runasadmin_register-CA-cer.cmd`，完成驱动程序的注册。
 6. 双击`USB download gadget`未知设备，选择驱动包解压目录，然后点击下一步。   
    ![image-usb-driver2](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png)

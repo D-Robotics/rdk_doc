@@ -119,7 +119,7 @@ sidebar_position: 4
 
 #### 编译
 
-编译需要当前环境安装好交叉编译工具： ``aarch64-linux-gnu-g++`` ， ``aarch64-linux-gnu-gcc``。 请使用地平线提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](/toolchain_development/intermediate/environment_config#machine_deploy) 章节内容；
+编译需要当前环境安装好交叉编译工具： ``aarch64-linux-gnu-g++`` ， ``aarch64-linux-gnu-gcc``。 请使用D-Robotics 提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](/toolchain_development/intermediate/environment_config#machine_deploy) 章节内容；
 根据自身使用的开发板情况，请使用horizon_runtime_sample/code目录下的 ``build_xj3.sh`` 或 ``build_ultra.sh`` 脚本，即可一键编译开发板环境下的可执行程序，可执行程序和对应依赖会自动复制到 ``xj3/script`` 目录下的 ``aarch64`` 目录下 或 ``ultra/script`` 目录下的 ``aarch64`` 目录下。
 
 :::info 备注
@@ -504,7 +504,7 @@ sidebar_position: 4
 
 :::caution 注意
 
-  1. 表格中的数据均为在地平线RDK X3开发板的实测结果，测试模型均来自于[horizon_model_convert_sample](../beginner.md#env_install) 模型示例包；
+  1. 表格中的数据均为在D-Robotics RDK X3开发板的实测结果，测试模型均来自于[horizon_model_convert_sample](../beginner.md#env_install) 模型示例包；
 
   2. 对于模型示例包中的 BPU/CPU 混合异构模型，单帧的耗时主要由输入量化CPU节点、模型BPU算子、模型CPU算子、输出反量化CPU节点、CPU后处理等模块构成，具体说明如下：
 
@@ -520,9 +520,9 @@ sidebar_position: 4
 
       c. 输出反量化CPU节点：完成int8到float32的输出反量化操作。量化耗时与输出 shape 大小成正比
 
-      d. 地平线目前支持将模型的 量化/反量化节点手动摘除，由用户自行融入前后处理代码中实现，以减少数据重复遍历的损耗。以 EfficientDet 模型为例，摘除了反量化节点合入后处理，推理性能从 66FPS提高到100FPS
+      d. D-Robotics 目前支持将模型的 量化/反量化节点手动摘除，由用户自行融入前后处理代码中实现，以减少数据重复遍历的损耗。以 EfficientDet 模型为例，摘除了反量化节点合入后处理，推理性能从 66FPS提高到100FPS
 
-      e. 目前地平线示例模型的后处理均未做针对性的性能优化，您可以根据实际需求采用如近似高效实现等优化手段进行代码级加速
+      e. 目前D-Robotics 示例模型的后处理均未做针对性的性能优化，您可以根据实际需求采用如近似高效实现等优化手段进行代码级加速
 
   3. 在实际应用中，BPU 和 CPU 可以并发运行，提高整体推理速度。
 
@@ -539,7 +539,7 @@ sidebar_position: 4
 
 #### 简介
 
-本章节介绍公版模型精度性能评测 ai_benchmark 示例包的具体用法， 示例包中预置了源码、可执行程序和评测脚本，开发者可以直接在地平线开发板上体验并基于这些示例进行嵌入式应用开发，降低开发门槛。
+本章节介绍公版模型精度性能评测 ai_benchmark 示例包的具体用法， 示例包中预置了源码、可执行程序和评测脚本，开发者可以直接在D-Robotics 开发板上体验并基于这些示例进行嵌入式应用开发，降低开发门槛。
 
 示例包提供常见的分类、检测和分割模型的性能评测和精度评测示例，详细内容请阅读下文。
 
@@ -687,8 +687,8 @@ sidebar_position: 4
 ```
 
 - **code**：该目录内是评测程序的源码，用来进行模型性能和精度评测。
-- **xj3**： 提供了已经编译好的应用程序，以及各种评测脚本，用来测试多种模型在地平线BPU上运行的性能，精度等(**RDK X3** 使用)。
-- **ultra**： 提供了已经编译好的应用程序，以及各种评测脚本，用来测试多种模型在地平线BPU上运行的性能，精度等(**RDK Ultra** 使用)。
+- **xj3**： 提供了已经编译好的应用程序，以及各种评测脚本，用来测试多种模型在D-Robotics BPU上运行的性能，精度等(**RDK X3** 使用)。
+- **ultra**： 提供了已经编译好的应用程序，以及各种评测脚本，用来测试多种模型在D-Robotics BPU上运行的性能，精度等(**RDK Ultra** 使用)。
 - **build_ptq_xj3.sh**：开发板程序一键编译脚本(**RDK X3** 使用)。
 - **build_ptq_ultra.sh**：开发板程序一键编译脚本(**RDK Ultra** 使用)。
 - **deps/deps_gcc9.3**：示例代码所需要的依赖，主要如下所示:
@@ -763,7 +763,7 @@ sidebar_position: 4
 
 #### 编译环境准备
 
-编译需要当前环境安装好交叉编译工具 ``gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu``。请使用地平线提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](/toolchain_development/intermediate/environment_config#machine_deploy) 章节内容；
+编译需要当前环境安装好交叉编译工具 ``gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu``。请使用D-Robotics 提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](/toolchain_development/intermediate/environment_config#machine_deploy) 章节内容；
 请使用code目录下的 ``build_ptq_xj3.sh`` 或 ``build_ptq_ultra.sh`` 脚本，即可一键编译开发板环境下的可执行程序，可执行程序和对应依赖会自动复制到 ``xj3/ptq/script`` 目录下的 ``aarch64`` 目录下 或 ``ultra/ptq/script`` 目录下的 ``aarch64`` 目录下。
 
 :::info 备注
@@ -1553,7 +1553,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 ### 概述
 
-本章节介绍地平线算法工具链中模型上板推理的快速验证工具，方便开发者可以快速获取到 ``***.bin`` 模型的信息、模型推理的性能、模型debug等内容。
+本章节介绍D-Robotics 算法工具链中模型上板推理的快速验证工具，方便开发者可以快速获取到 ``***.bin`` 模型的信息、模型推理的性能、模型debug等内容。
 
 ### hrt_model_exec 工具使用说明
 
@@ -1613,7 +1613,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 该参数用于获取模型信息，模型支持范围：QAT模型，PTQ模型。
 该参数与 ``model_file`` 一起使用，用于获取模型的详细信息；
-模型的信息包括：模型输入输出信息 ``hbDNNTensorProperties`` 和模型的分段信息 ``stage`` ；模型的分段信息是：一张图片可以分多个阶段进行推理，stage信息为[x1, y1, x2, y2]，分别为图片推理的左上角和右下角坐标，目前地平线RDK Ultra的bayes架构支持这类分段模型的推理，RDK X3上模型均为1个stage。
+模型的信息包括：模型输入输出信息 ``hbDNNTensorProperties`` 和模型的分段信息 ``stage`` ；模型的分段信息是：一张图片可以分多个阶段进行推理，stage信息为[x1, y1, x2, y2]，分别为图片推理的左上角和右下角坐标，目前D-Robotics RDK Ultra的bayes架构支持这类分段模型的推理，RDK X3上模型均为1个stage。
 
 :::tip 小技巧
 

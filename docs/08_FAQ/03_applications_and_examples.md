@@ -6,11 +6,11 @@ sidebar_position: 3
 
 ## 第三方库在RDK上的安装/交叉编译和使用
 
-如需交叉编译部署，请参考[交叉编译环境部署](https://developer.horizon.cc/forumDetail/112555549341653662)
+如需交叉编译部署，请参考[交叉编译环境部署](https://developer.d-robotics.cc/forumDetail/112555549341653662)
 
 ## 编译大型程序过程中提示编译进程被kill错误日志如何解决？
 
-参考[Swap使用教程](https://developer.horizon.cc/forumDetail/98129467158916281)
+参考[Swap使用教程](https://developer.d-robotics.cc/forumDetail/98129467158916281)
 
 ```shell
 sudo mkdir -p /swapfile 
@@ -288,7 +288,7 @@ Installed-Size: unknown
 Depends: hobot-models-basic, tros-ros-base, tros-ai-msgs, tros-audio-control, tros-audio-msg, tros-audio-tracking, tros-body-tracking, tros-dnn-benchmark-example, tros-dnn-node, tros-dnn-node-example, tros-dnn-node-sample, tros-elevation-net, tros-gesture-control, tros-hand-gesture-detection, tros-hand-lmk-detection, tros-hbm-img-msgs, tros-hobot-app-xrrobot-body-tracking, tros-hobot-app-xrrobot-gesture-control, tros-hobot-codec, tros-hobot-cv, tros-hobot-falldown-detection, tros-hobot-hdmi, tros-hobot-image-publisher, tros-hobot-mot, tros-hobot-usb-cam, tros-image-subscribe-example, tros-img-msgs, tros-imu-sensor, tros-line-follower-model, tros-line-follower-perception, tros-mipi-cam, tros-mono2d-body-detection, tros-mono2d-trash-detection, tros-mono3d-indoor-detection, tros-parking-perception, tros-parking-search, tros-rgbd-sensor, tros-websocket, tros-xrrobot, tros-xrrobot-msgs
 Download-Size: 980 B
 APT-Manual-Installed: yes
-APT-Sources: http://sunrise.horizon.cc/ubuntu-rdk focal/main arm64 Packages
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk focal/main arm64 Packages
 Description: TogetheROS Bot
 
 root@ubuntu:~#
@@ -306,7 +306,7 @@ Maintainer: kairui.wang <kairui.wang@horizon.ai>
 Installed-Size: 1,536 MB
 Pre-Depends: hhp-verify
 Depends: symlinks, locales, hhp-verify, hobot-models-basic, hobot-arm64-libs (>= 1.1.6)
-Apt-Sources: http://sunrise.horizon.cc/ubuntu-ports focal/main arm64 Packages
+Apt-Sources: http://archive.d-robotics.cc/ubuntu-ports focal/main arm64 Packages
 Date: 2023-03-24_17-29-12
 Download-Size: 116 MB
 APT-Manual-Installed: yes
@@ -323,10 +323,10 @@ root@ubuntu:~#
 
 - 2.x版本tros.b：仅支持2.x版本系统；支持RDK、RDK Module等全系列硬件；未来tros.b的新增功能将会发布在2.x版本tros.b；代码托管在github。
 
-- [1.x版本tros.b](https://developer.horizon.cc/api/v1/fileData/TogetherROS/index.html)：历史版本；仅支持1.x版本系统和RDK；未来1.x版本tros.b仅发布问题修复版本；代码托管在gitlab。
+- [1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)：历史版本；仅支持1.x版本系统和RDK；未来1.x版本tros.b仅发布问题修复版本；代码托管在gitlab。
 
 :::caution **注意**
-1.x版本tros.b无法通过apt命令直接升级到2.x版本tros.b，需要以烧录镜像的方式重新[安装系统](https://developer.horizon.cc/documents_rdk/installation/install_os)后再安装2.x版本tros.b。
+1.x版本tros.b无法通过apt命令直接升级到2.x版本tros.b，需要以烧录镜像的方式重新[安装系统](https://developer.d-robotics.cc/documents_rdk/installation/install_os)后再安装2.x版本tros.b。
 :::
 
 **功能差异**
@@ -353,7 +353,7 @@ root@ubuntu:~#
 
 ## WEB浏览器只显示图像，无感知结果渲染
 
-1、检查web node启动命令是否开启渲染感知结果功能。详细参数说明查看[hobot_websocket的README](https://github.com/HorizonRDK/hobot_websocket#%E5%8F%82%E6%95%B0)
+1、检查web node启动命令是否开启渲染感知结果功能。详细参数说明查看[hobot_websocket的README](https://github.com/D-Robotics/hobot_websocket#%E5%8F%82%E6%95%B0)
 
 2、检查web node启动终端是否有错误log输出，如果有请按照提示信息进行排查。
 
@@ -365,7 +365,7 @@ root@ubuntu:~#
 
 **Ubuntu系统**
 
-参考[hobot_shm](https://github.com/HorizonRDK/hobot_shm/blob/develop/README_cn.md
+参考[hobot_shm](https://github.com/D-Robotics/hobot_shm/blob/develop/README_cn.md
 )的使用说明。
 
 **Linux系统**

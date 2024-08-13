@@ -130,7 +130,7 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 
 <iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196536307&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
 
-点击 [**下载镜像**](https://sunrise.horizon.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
+点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
 
 ![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
@@ -148,7 +148,7 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-点击 [**下载镜像**](https://sunrise.horizon.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
+点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
 
 ![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
@@ -163,7 +163,7 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 
 <TabItem value="ulrta" label="RDK Ultra">
 
-点击 [**下载镜像**](https://sunrise.horizon.cc/downloads/os_images)，选择rdk_ultra目录，选择对应版本，进入文件下载页。以下载1.0.0版本的系统镜像为例：
+点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，选择rdk_ultra目录，选择对应版本，进入文件下载页。以下载1.0.0版本的系统镜像为例：
 
 ![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/20231010120539.png)
 
@@ -214,9 +214,9 @@ balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作�
 RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
 - **使用SD卡**：如需烧录系统到SD上（不从eMMC模式启动），系统烧录步骤与RDK X3相同；
-- **使用eMMC**：需要使用地平线`hbupdate`烧录工具。（**以下主要介绍该方法**）
+- **使用eMMC**：需要使用D-Robotics `hbupdate`烧录工具。（**以下主要介绍该方法**）
 
-`hbupdate`工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://sunrise.horizon.cc/downloads/hbupdate/)。
+`hbupdate`工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
 
 :::tip 注意事项
 
@@ -235,7 +235,7 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
    （3）给设备上电，然后观察电脑设备管理器端口状态，如出现`USB download gadget`未知设备时，需要更新设备驱动，否则可跳过下述步骤。  
    ![image-usb-driver1](../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
 
-   （4）下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://sunrise.horizon.cc/downloads/hbupdate/android_hobot.zip) 。
+   （4）下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip) 。
 
    （5）进入解压后的目录，以管理员身份运行 `5-runasadmin_register-CA-cer.cmd`，完成驱动程序的注册。
 
@@ -293,7 +293,7 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
 <TabItem value="ulrta" label="RDK Ultra">
 
-RDK Ultra开发套件烧录Ubuntu系统时，需要使用地平线`hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://sunrise.horizon.cc/downloads/hbupdate/)。
+RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
 
 :::tip 注意事项
 
@@ -452,6 +452,6 @@ Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上�
 
 :::tip
 
-更多问题的处理，可以查阅 [常见问题](../08_FAQ) 章节，同时可以访问 [地平线开发者官方论坛](https://developer.horizon.ai/forum) 获得帮助。
+更多问题的处理，可以查阅 [常见问题](../08_FAQ) 章节，同时可以访问 [D-Robotics 开发者官方论坛](https://developer.d-robotics.cc/forum) 获得帮助。
 
 :::

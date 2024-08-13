@@ -6,11 +6,11 @@ sidebar_position: 1
 
 ## 概述
 
-地平线提供的多媒体接口包含系统控制、视频输入、视频处理（ISP图像处理器、裁剪、缩放、旋转、矫正）、H.264/H.265/JPEG/MJPEG编码和解码、视频输出显示等功能，接口做了抽象化的封装，是底层级别的接口集合，这些底层接口通过更好地控制底层硬件模块来支持更加灵活的应用程序开发。
+D-Robotics 提供的多媒体接口包含系统控制、视频输入、视频处理（ISP图像处理器、裁剪、缩放、旋转、矫正）、H.264/H.265/JPEG/MJPEG编码和解码、视频输出显示等功能，接口做了抽象化的封装，是底层级别的接口集合，这些底层接口通过更好地控制底层硬件模块来支持更加灵活的应用程序开发。
 
 ## 多媒体系统架构
 
-地平线多媒体处理的主要内部处理流程如下图所示，主要分为视频输入（ VIN ）、视频处理（ VPS ）、视频编码（ VENC ）、视频解码（ VDEC ）、视频输出 (VOT) 、区域处理（ REGION ）、AI算法推理（BPU）等模块。
+D-Robotics 多媒体处理的主要内部处理流程如下图所示，主要分为视频输入（ VIN ）、视频处理（ VPS ）、视频编码（ VENC ）、视频解码（ VDEC ）、视频输出 (VOT) 、区域处理（ REGION ）、AI算法推理（BPU）等模块。
 
 ![X3-ss_mm_system_topology](../../../static/img/07_Advanced_development/03_multimedia_development/overview/X3-ss_mm_system_topology-16485465559782.png)
 
@@ -38,7 +38,7 @@ sidebar_position: 1
 | GDC    | Geometrical Distortion Correction   | 几何畸变矫正                                                 |
 | PYM    | Pyramid                             | 图像金字塔                                                   |
 | OSD    | On Screen Display                   | 视频图像叠层显示                                             |
-| BPU    | Brain Process Unit                  | 地平线机器人自主研发的可编程AI加速引擎                       |
+| BPU    | Brain Process Unit                  | D-Robotics 机器人自主研发的可编程AI加速引擎                       |
 | HAL    | Hardware Abstraction Layer          | 硬件抽象层                                                   |
 | FW     | Firmware                            | 固件                                                         |
 | Sensor | Sensor                              | 如不做特别说明，特指CMOS图像传感器                           |

@@ -141,7 +141,7 @@ It should be noted that **this interface cannot be left floating, otherwise the 
 :::caution When switching levels, please strictly follow the following steps.
 By default, the firmware of the RDK X3 Module core module and the level configuration of the board are set to 3.3V. If you need to switch the IO level, please follow the steps below:
 
-1. Download the startup firmware that supports the 1.8V level configuration at [firmware download address](http://sunrise.horizon.cc/downloads/miniboot).
+1. Download the startup firmware that supports the 1.8V level configuration at [firmware download address](http://archive.d-robotics.cc/downloads/miniboot).
 2. Use the official burning tool `hbupdate` to update the core board's startup firmware. For specific methods, please refer to [Image Burning](./system.md).
 3. Power off the device, use jumper caps to short the `vref` and `1.8V` signals, and then power on again.
 :::## 40pin header interface

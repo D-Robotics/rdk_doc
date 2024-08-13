@@ -7,19 +7,19 @@ sidebar_position: 2
 ## 概述
 
 
-本指南用于介绍地平线算法工具链中训练后量化PTQ方法的使用流程，若您是第一次使用地平线算法工具链的用户，建议您根据本指南章节步骤进行学习；若您已完成入门指南章节内容的学习，下一步可以参考本指南的[**快速体验**](#quick_experiments)章节步骤来进行私有模型的模型转换及上板运行；
-如果需要了解地平线算法工具链的更多内容，请跳转至[**进阶指南**](./intermediate) 章节。
+本指南用于介绍D-Robotics 算法工具链中训练后量化PTQ方法的使用流程，若您是第一次使用D-Robotics 算法工具链的用户，建议您根据本指南章节步骤进行学习；若您已完成入门指南章节内容的学习，下一步可以参考本指南的[**快速体验**](#quick_experiments)章节步骤来进行私有模型的模型转换及上板运行；
+如果需要了解D-Robotics 算法工具链的更多内容，请跳转至[**进阶指南**](./intermediate) 章节。
 
 
 ## 环境安装{#env_install}
 
 
-本章节主要介绍使用地平线算法工具链前必须的环境准备工作。
+本章节主要介绍使用D-Robotics 算法工具链前必须的环境准备工作。
 
 
 **硬件环境**
 
-为了顺利地使用地平线算法工具链，地平线建议您选择的开发机应满足以下要求：
+为了顺利地使用D-Robotics 算法工具链，D-Robotics 建议您选择的开发机应满足以下要求：
 
 
 
@@ -47,7 +47,7 @@ sidebar_position: 2
 
 :::tip 小技巧
   1. 若需更多公版模型转换示例，可执行命令： ``wget -c ftp://xj3ftp@vrftp.horizon.ai/model_convert_sample/horizon_model_convert_sample.tar.gz --ftp-password=xj3ftp@123$%`` 获取。
-  2. 地平线同时提供有支持模型转换的Docker镜像，若需使用Docker环境，请阅读 [**进阶指南-使用docker环境**](./intermediate/environment_config#使用docker环境) 章节。
+  2. D-Robotics 同时提供有支持模型转换的Docker镜像，若需使用Docker环境，请阅读 [**进阶指南-使用docker环境**](./intermediate/environment_config#使用docker环境) 章节。
 :::
 
 - 2.创建模型转换环境：
@@ -97,12 +97,12 @@ sidebar_position: 2
 
   后续进行模型转换时，请首先使用命令 ``source activate horizon_bpu`` 或 ``conda activate horizon_bpu`` 进入模型转换环境!
 
-  地平线算法工具链环境安装包整体大小 ``200M`` 左右，下载安装包和安装依赖包受网络速率影响，整个安装过程耗时大约20分钟左右，请您耐心等候安装完成。
+  D-Robotics 算法工具链环境安装包整体大小 ``200M`` 左右，下载安装包和安装依赖包受网络速率影响，整个安装过程耗时大约20分钟左右，请您耐心等候安装完成。
 :::
 
 ## 快速体验{#quick_experiments}
 
-本章节中，我们为您介绍地平线算法工具链PTQ方案的基本使用流程，便于您实现快速上手。 这里我们以 **RDK X3** 开发板上运行的 yolov5s 模型为例，为您进行使用演示，地平线算法工具链PTQ方案的更多详细内容，请阅读 [**进阶指南-PTQ原理及步骤详解**](/toolchain_development/intermediate/ptq_process) 章节。
+本章节中，我们为您介绍D-Robotics 算法工具链PTQ方案的基本使用流程，便于您实现快速上手。 这里我们以 **RDK X3** 开发板上运行的 yolov5s 模型为例，为您进行使用演示，D-Robotics 算法工具链PTQ方案的更多详细内容，请阅读 [**进阶指南-PTQ原理及步骤详解**](/toolchain_development/intermediate/ptq_process) 章节。
 :::tip 小技巧
   若要转换RDK Ultra支持的模型，请将以下章节步骤中的``0x_xx_X3.sh``脚本命令替换为 ``0x_xx_Ultra.sh`` 脚本命令进行模型转换即可。
 :::
@@ -143,7 +143,7 @@ sidebar_position: 2
 
 ### 模型验证
 
-若示例浮点模型已准备完成，根据以下步骤进行模型验证，确保其符合地平线RDK X3处理器的支持约束。
+若示例浮点模型已准备完成，根据以下步骤进行模型验证，确保其符合D-Robotics RDK X3处理器的支持约束。
 
 -   进入浮点模型转换示例yolov5s模型目录
 
@@ -204,7 +204,7 @@ sidebar_position: 2
 -   torch-jit-export_subgraph_0.json        # 静态性能评估文件
 -   hb_model_modifier.log                   # 模型转换步骤生成日志信息
 -   cache.json                              # 缓存文件（RDK Ultra 优化等级optimize_level配置为O3场景下会自动生成）
--   yolov5s_672x672_nv12.bin     # 用于在地平线处理器上加载运行的模型
+-   yolov5s_672x672_nv12.bin     # 用于在D-Robotics 处理器上加载运行的模型
 -   yolov5s_672x672_nv12_calibrated_model.onnx      # 中间过程模型文件，可用于后续模型的精度校验
 -   yolov5s_672x672_nv12_optimized_float_model.onnx # 中间过程模型文件，可用于后续模型的精度校验
 -   yolov5s_672x672_nv12_original_float_model.onnx # 中间过程模型文件，可用于后续模型的精度校验
@@ -253,13 +253,13 @@ sidebar_position: 2
 
 ### 公版模型性能精度指标
 
-下表提供了典型深度神经网络模型在地平线 ``RDK X3`` 开发板上的性能、精度指标。
+下表提供了典型深度神经网络模型在D-Robotics  ``RDK X3`` 开发板上的性能、精度指标。
 
 ![model_accuracy](../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/model_accuracy.png)
 
 **注意**：
 
-1. 表格中的数据均为在地平线RDK X3开发板的实测结果，测试模型均来自于 [horizon_model_convert_sample](./beginner) 模型示例包；
+1. 表格中的数据均为在D-Robotics RDK X3开发板的实测结果，测试模型均来自于 [horizon_model_convert_sample](./beginner) 模型示例包；
 
 2. 对于模型示例包中的 BPU/CPU 混合异构模型，单帧的耗时主要由输入量化CPU节点、模型BPU算子、模型CPU算子、输出反量化CPU节点、CPU后处理等模块构成，具体说明如下：
 
@@ -275,8 +275,8 @@ sidebar_position: 2
 
     c. 输出反量化CPU节点：完成int8到float32的输出反量化操作。量化耗时与输出 shape 大小成正比
 
-    d. 地平线目前支持将模型的 量化/反量化节点手动摘除，由用户自行融入前后处理代码中实现，以减少数据重复遍历的损耗。以 EfficientDet 模型为例，摘除了反量化节点合入后处理，推理性能从 66FPS提高到100FPS
+    d. D-Robotics 目前支持将模型的 量化/反量化节点手动摘除，由用户自行融入前后处理代码中实现，以减少数据重复遍历的损耗。以 EfficientDet 模型为例，摘除了反量化节点合入后处理，推理性能从 66FPS提高到100FPS
 
-    e. 目前地平线示例模型的后处理均未做针对性的性能优化，您可以根据实际需求采用如近似高效实现等优化手段进行代码级加速
+    e. 目前D-Robotics 示例模型的后处理均未做针对性的性能优化，您可以根据实际需求采用如近似高效实现等优化手段进行代码级加速
 
 3. 在实际应用中，BPU 和 CPU 可以并发运行，提高整体推理速度。

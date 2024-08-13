@@ -70,7 +70,7 @@ python get-pip.py
 Execute the following command to download the cross-compilation toolchain:
 
 ```shell
-curl -fO http://sunrise.horizon.cc/toolchain/gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu.tar.xz
+curl -fO http://archive.d-robotics.cc/toolchain/gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu.tar.xz
 ```
 
 Unzip and install it. It is recommended to install it under the /opt directory. Usually, writing data to the /opt directory requires sudo permission, for example:
@@ -283,7 +283,7 @@ If you have added a custom-named software package and want to install it into th
 
 The bootloader source code is used to generate the minimal boot image `disk_xxx_miniboot.img`, which contains the partition table, spl, ddr, bl31, and uboot.
 
-The minimal boot image of RDK X3 is generally maintained and released by D-Robotics. You can download the corresponding version from [miniboot](http://sunrise.horizon.cc/downloads/miniboot/). If there are no modifications to uboot, you can directly use the official release image.
+The minimal boot image of RDK X3 is generally maintained and released by D-Robotics. You can download the corresponding version from [miniboot](http://archive.d-robotics.cc/downloads/miniboot/). If there are no modifications to uboot, you can directly use the official release image.
 
 Follow the steps below to recompile and generate `miniboot`.
 

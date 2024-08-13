@@ -189,7 +189,7 @@ RDK平台启动程序：
 ============================================
         audio control usage
 
-Wake up device is "地平线你好".
+Wake up device is "D-Robotics 你好".
 Audio control commnad word definitions are:
         "向前走": move front.
         "向后退": move back.
@@ -199,7 +199,7 @@ Audio control commnad word definitions are:
 
 ```
 
-以上log截取了一段音频控制pkg启动后的输出。log内容显示，此语音控制模块配置的设备唤醒词是“地平线你好”，控制小车运动的命令词有：“向前走”、“向后退”、“向左转”，“向右转”。
+以上log截取了一段音频控制pkg启动后的输出。log内容显示，此语音控制模块配置的设备唤醒词是“D-Robotics 你好”，控制小车运动的命令词有：“向前走”、“向后退”、“向左转”，“向右转”。
 
 PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 

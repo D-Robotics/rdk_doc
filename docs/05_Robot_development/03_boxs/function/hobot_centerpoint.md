@@ -5,7 +5,7 @@ sidebar_position: 9
 
 ## 功能介绍
 
-激光雷达目标检测算法是使用[OpenExplorer](https://developer.horizon.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`CenterPoint`算法模型。
+激光雷达目标检测算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`CenterPoint`算法模型。
 
 算法输入为32线激光雷达点云数据，输出信息包括目标的3D检测框、置信度、类别。支持的目标检测类型包括car、truck、bus、barrier、motorcycle、pedestrian共六大类别。
 
@@ -41,7 +41,7 @@ sidebar_position: 9
 
 ```shell
 # 板端下载回灌的点云文件
-wget http://sunrise.horizon.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
+wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
 # 解压缩
 mkdir config

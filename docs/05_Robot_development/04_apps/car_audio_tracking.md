@@ -204,7 +204,7 @@ RDK平台启动程序：
 ============================================
         audio tracking usage
 
-Wake up device is "地平线你好".
+Wake up device is "D-Robotics 你好".
 Audio control commnad word definitions are:
         "向前走"
         "向后退"
@@ -239,7 +239,7 @@ rotate_step: 0.348
 [WARN] [1663149823.377099758] [audio_tracking]: cancel move
 ```
 
-以上log截取了一段音频控制pkg启动后的输出。log内容显示，智能语音识别模块配置的设备唤醒词是“地平线你好”，语音追踪控制模块接收到唤醒事件之后接收到DOA角度信息，如log上面显示DOA是80度，此时语音追踪控制模块发布控制小车左转20度，转动之后控制小车前进，后面控制小车停止运动。
+以上log截取了一段音频控制pkg启动后的输出。log内容显示，智能语音识别模块配置的设备唤醒词是“D-Robotics 你好”，语音追踪控制模块接收到唤醒事件之后接收到DOA角度信息，如log上面显示DOA是80度，此时语音追踪控制模块发布控制小车左转20度，转动之后控制小车前进，后面控制小车停止运动。
 
 PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 

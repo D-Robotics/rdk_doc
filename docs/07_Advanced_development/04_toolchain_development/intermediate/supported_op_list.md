@@ -7,13 +7,13 @@ sidebar_position: 3
 
 ## 使用限制说明
 
-本章节主要介绍地平线处理器支持的 `Caffe` 和 `ONNX` 算子情况，其他未列出的算子因地平线处理器 bpu硬件限制，暂不支持。
+本章节主要介绍D-Robotics 处理器支持的 `Caffe` 和 `ONNX` 算子情况，其他未列出的算子因D-Robotics 处理器 bpu硬件限制，暂不支持。
 
 **术语概念：**
 
--    BPU加速   ：地平线处理器可以进行加速的算子（一定约束条件下），如果不满足约束条件，则会在CPU进行计算
+-    BPU加速   ：D-Robotics 处理器可以进行加速的算子（一定约束条件下），如果不满足约束条件，则会在CPU进行计算
 
--    CPU计算   ：当前已经在地平线ARM CPU上进行优化的算子，支持onnx opset10与opset11。
+-    CPU计算   ：当前已经在D-Robotics ARM CPU上进行优化的算子，支持onnx opset10与opset11。
 
 -    CPU计算※   ：暂时未集成的CPU算子。
 
@@ -28,11 +28,11 @@ sidebar_position: 3
 
 -   ``Cast`` , ``Constant`` , ``Dropout`` , ``Reshape`` , ``Squeeze`` , ``Unsqueeze`` , ``Shape`` 这些算子(OP)无法直接运行在BPU上，但在一些情况下（常量折叠）算法工具链会将其优化掉进而实现支持的效果。
 
--   标记为PyTorch的算子(OP)为官方的opset11不包含的算子，地平线算法工具链提供了导出脚本可以将其从PyTorch导出到地平线自定义的onnx OP中。
+-   标记为PyTorch的算子(OP)为官方的opset11不包含的算子，D-Robotics 算法工具链提供了导出脚本可以将其从PyTorch导出到D-Robotics 自定义的onnx OP中。
 
 -   基于tensorlfow-onnx（https://github.com/onnx/tensorflow-onnx）转换工具，支持将 ``tensorlfow1.*`` 版本的算子稳定的转换到opset6-opset11版本的ONNX模型格式，但是 ``Tensroflow2.*`` 当前支持还属于实验版本。
 
--   关于OP主动量化被动量化的说明：一个符合本章节约束条件的OP仍然运行在CPU的主要原因是该OP属于被动量化OP，算法工具链会根据OP的计算特性和BPU底层逻辑等多方面考虑设计量化逻辑，当前量化逻辑分为：主动量化，被动量化，手动量化。量化逻辑更多信息请阅读：[**算法工具链中的主动量化和被动量化逻辑**](https://developer.horizon.ai/forumDetail/118364000835765793) 章节。
+-   关于OP主动量化被动量化的说明：一个符合本章节约束条件的OP仍然运行在CPU的主要原因是该OP属于被动量化OP，算法工具链会根据OP的计算特性和BPU底层逻辑等多方面考虑设计量化逻辑，当前量化逻辑分为：主动量化，被动量化，手动量化。量化逻辑更多信息请阅读：[**算法工具链中的主动量化和被动量化逻辑**](https://developer.d-robotics.cc/forumDetail/118364000835765793) 章节。
 
 
 ## RDK X3支持的Caffe算子列表

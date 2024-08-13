@@ -8,7 +8,7 @@ X3 Pinctrl使用Linux Kernel主线代码的pinctl-single作为驱动，主要通
 
 ## 管脚查询
 
-IO管脚的复用和配置可以在 [datasheets](https://sunrise.horizon.cc/downloads/datasheets/) 查阅《PL-2500-3-X3 PIN SW Reg-V1.2.xls》。
+IO管脚的复用和配置可以在 [datasheets](https://archive.d-robotics.cc/downloads/datasheets/) 查阅《PL-2500-3-X3 PIN SW Reg-V1.2.xls》。
 
 在 《PL-2500-3-X3 PIN SW Reg-V1.2.xls》可以比较直观的查询到管脚的上电默认状态、复用、驱动能力、上下拉、施密特触发配置。
 

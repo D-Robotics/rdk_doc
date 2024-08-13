@@ -31,7 +31,7 @@ FAIL：测试完成后，DUT功能出现损坏或功能失效，或未达到指�
 | 测试脚本 | xj3_ddr_stress.tar.gz | 压力测试通用   |
 | DUT数量  | 5台及以上             | 压力测试通用   |
 
-从 [unittest](https://sunrise.horizon.cc/downloads/unittest/) 选择对应sdk版本的目录下载 `xj3_ddr_stress_gcc9.3.tar.gz`
+从 [unittest](https://archive.d-robotics.cc/downloads/unittest/) 选择对应sdk版本的目录下载 `xj3_ddr_stress_gcc9.3.tar.gz`
 
 ### 压力程序使用方法
 

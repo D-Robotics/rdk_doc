@@ -102,7 +102,7 @@ sidebar_position: 4
   - ``resizer_count`` : 模型输入源为 resizer 的分支数量（≤input_count），模型处理一批数据时，一个 resizer 输入源分支处理一个 roi
   - ``roiCount`` : roi 总数，其数值为 ``batch * resizer_count``
   - ``data_batch`` : 模型需要推理的数据批数，其数值为 ``roiCount / resizer_count``
-  - ``model_batch`` : 模型内部的 batch 数量。即模型实际推理时，输入给模型的 batch_size。地平线工具链支持将模型编译为 batch model
+  - ``model_batch`` : 模型内部的 batch 数量。即模型实际推理时，输入给模型的 batch_size。D-Robotics 工具链支持将模型编译为 batch model
 
   输入/输出示例说明：
 

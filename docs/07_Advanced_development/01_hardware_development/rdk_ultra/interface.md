@@ -45,7 +45,7 @@ RDK Ultra开发板提供`CAM 0~3`四组摄像头接口，可以满足4路MIPI Ca
 | 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
 | 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
 
-Camera模组的购买方式可参考社区配件页，[购买链接](https://developer.horizon.cc/accessory)。
+Camera模组的购买方式可参考社区配件页，[购买链接](https://developer.d-robotics.cc/accessory)。
 
 :::caution 注意
 重要提示：严禁在开发板未断电的情况下插拔摄像头，否则非常容易烧坏摄像头模组。

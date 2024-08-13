@@ -19,11 +19,11 @@ RDK Ultra开发套件包含了开发板和常用的外设配件，以达到开�
 
 **规格书**：介绍产品规格、特色、尺寸及型号等内容
 
-- [RDK Ultra Module规格书](https://sunrise.horizon.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf)
-- [RDK Ultra开发套件规格书](https://sunrise.horizon.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf)
+- [RDK Ultra Module规格书](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf)
+- [RDK Ultra开发套件规格书](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf)
 
 ## 设计资料
 
 主要包含原理图、PCB、3d模型、BOM list、gerber等资料内容，下载链接如下：
 
-- [RDK Ultra参考设计资料](https://sunrise.horizon.cc/downloads/hardware/rdk_ultra/reference_design)
+- [RDK Ultra参考设计资料](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design)

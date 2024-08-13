@@ -102,7 +102,7 @@ The RDK suite currently provides the Ubuntu 20.04/22.04 system image, which supp
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/du1EypDtxMY?si=VJr2JZnOigFySoBR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Click [**Download image**](http://sunrise.horizon.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
+Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
 ![image-20230510143353330](../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
@@ -116,7 +116,7 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-Click [**Download image**](http://sunrise.horizon.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
+Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
 ![image-20230510143353330](../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
@@ -171,7 +171,7 @@ The RDK X3 Module supports booting the system from two modes: eMMC and SD card:
 - **Using SD card**: If you want to burn the system to an SD card (not booting from eMMC mode), follow the same steps as RDK X3 for burning the system.
 - **Using eMMC**: You need to use the D-Robotics `hbupdate` tool. (**This method is mainly described below**)
 
-The `hbupdate` tool supports two versions: Windows and Linux, which start with `hbupdate_win64` and `hbupdate_linux` respectively. The tool download link is: [hbupdate](http://sunrise.horizon.cc/downloads/hbupdate/).
+The `hbupdate` tool supports two versions: Windows and Linux, which start with `hbupdate_win64` and `hbupdate_linux` respectively. The tool download link is: [hbupdate](http://archive.d-robotics.cc/downloads/hbupdate/).
 
 :::tip Note
 
@@ -190,7 +190,7 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
    (3) Power on the device and observe the port status of the computer device manager. If the `USB download gadget` unknown device appears, you need to update the device driver; otherwise, you can skip the following steps.  
    ![image-usb-driver1](../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
 
-   (4) Download and extract the driver package `android_hobot.zip`. The download link is [android_hobot](http://sunrise.horizon.cc/downloads/hbupdate/android_hobot.zip).
+   (4) Download and extract the driver package `android_hobot.zip`. The download link is [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
 
    (5) Go to the extracted directory and run `5-runasadmin_register-CA-cer.cmd` as an administrator to complete the registration of the driver program.
 

@@ -200,7 +200,7 @@ quit
 
 #### Running Results Explanation
 
-After running the program, it will acquire images named similarly to `pipe0_plane0_1920x1080_frame_4609.raw` or `pipe0_1920x1080_frame_1024.yuv`. To view these images, use the [hobotplayer](http://sunrise.horizon.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) tool with the following configuration settings:
+After running the program, it will acquire images named similarly to `pipe0_plane0_1920x1080_frame_4609.raw` or `pipe0_1920x1080_frame_1024.yuv`. To view these images, use the [hobotplayer](http://archive.d-robotics.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) tool with the following configuration settings:
 
 - **Viewing RAW Images:**
 
@@ -413,7 +413,7 @@ quit
 
 After running the program, you will obtain a `yuv` image named `pipe0_1920x1080_frame_4609.yuv`.
 
-Please use the [hobotplayer](http://sunrise.horizon.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) tool to view the image. The configuration of the image is as follows:
+Please use the [hobotplayer](http://archive.d-robotics.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) tool to view the image. The configuration of the image is as follows:
 
 - View the YUV image
 

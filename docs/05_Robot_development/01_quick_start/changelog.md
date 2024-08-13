@@ -131,7 +131,7 @@ sidebar_position: 6
 
 ### 版本号：2.0-Beta（2.0.0）
 
-2.0-Beta（2.0.0）是第一个2.x版本tros.b，建议[1.x版本tros.b](https://developer.horizon.cc/api/v1/fileData/TogetherROS/index.html)的用户升级到2.x版本。
+2.0-Beta（2.0.0）是第一个2.x版本tros.b，建议[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)的用户升级到2.x版本。
 
 功能变更：
 
@@ -152,4 +152,4 @@ sidebar_position: 6
 其他更新：
 
 - 更新示例的launch启动脚本，应用引用依赖模块的launch脚本并配置参数。
-- webscoket更新展示端的地平线logo。
+- webscoket更新展示端的D-Robotics logo。

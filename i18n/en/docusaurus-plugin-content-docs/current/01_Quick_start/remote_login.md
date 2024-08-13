@@ -20,7 +20,7 @@ Before remote login via network, the development board needs to be connected to 
 
 Before using serial port login, it is necessary to confirm that the serial port cable of the development board is correctly connected to the computer. The connection method can refer to the [Serial Port Debugging](/installation/hardware_interface#debug_uart) chapter. Serial port login requires a PC terminal tool. The commonly used tools are `Putty`, `MobaXterm`, etc. Users can choose according to their own habits. The port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
 
-- When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. The driver can be obtained from the [Tools sub-column](https://developer.horizon.cc/resource) of the Resource Center. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:  
+- When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. The driver can be obtained from the [Tools sub-column](https://developer.d-robotics.cc/resource) of the Resource Center. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:  
 ![image-20220416105939067](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
 - Open the `MobaXterm` tool, click `Session`, and then select `Serial`.

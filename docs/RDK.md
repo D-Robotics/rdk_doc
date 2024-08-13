@@ -2,16 +2,16 @@
 sidebar_position: 0
 ---
 
-# 地平线RDK套件
+# D-Robotics RDK套件
 
-本文档为地平线RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户更新体验，具体方法请参考 [快速开始](/category/installation) 章节。
+本文档为D-Robotics RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户更新体验，具体方法请参考 [快速开始](/category/installation) 章节。
 
 :::info 注意
 
 - 本文档中**RDK X3**均使用2.0版本Ubuntu操作系统，对于仍需使用**旭日X3派1.0版本系统**的用户，可从下述链接中获取资料：<br/>
-     [旭日X3派用户手册](https://developer.horizon.ai/api/v1/fileData/documents_pi/index.html)<br/>
-     [旭日X3派Ubuntu镜像](https://sunrise.horizon.cc/downloads/os_images/)，选择1.x.x 版本目录下的镜像<br/>
-     [旭日X3派资料包](https://developer.horizon.ai/api/v1/static/fileData/X3%E6%B4%BE%E8%B5%84%E6%96%99%E5%8C%85_20220711175326.zip)<br/>
+     [旭日X3派用户手册](https://developer.d-robotics.cc/api/v1/fileData/documents_pi/index.html)<br/>
+     [旭日X3派Ubuntu镜像](https://archive.d-robotics.cc/downloads/os_images/)，选择1.x.x 版本目录下的镜像<br/>
+     [旭日X3派资料包](https://developer.d-robotics.cc/api/v1/static/fileData/X3%E6%B4%BE%E8%B5%84%E6%96%99%E5%8C%85_20220711175326.zip)<br/>
 
 -  **RDK X3 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，建议参考本文档完成[最新版本系统镜像的烧写](/installation/install_os)。
 
@@ -20,12 +20,12 @@ sidebar_position: 0
 
 
 
-## 地平线RDK套件概述
+## D-Robotics RDK套件概述
 
-**Horizon Robotics Developer Kits**，简称地平线RDK套件，是基于地平线智能芯片打造的机器人开发者套件，包括RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK Ultra。
-搭配TogetheROS.Bot机器人中间件，地平线RDK套件可以帮助发者快速搭建机器人原型，开展评测和验证工作。
+**D-Robotics Developer Kits**，简称D-Robotics RDK套件，是基于D-Robotics 智能芯片打造的机器人开发者套件，包括RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK Ultra。
+搭配TogetheROS.Bot机器人中间件，D-Robotics RDK套件可以帮助发者快速搭建机器人原型，开展评测和验证工作。
 
-本文将详细说明地平线RDK套件的使用方法，包括开发环境搭建、示例教程的运行、应用程序的开发、系统镜像的定制等方面内容。无论您选择使用哪种硬件，本文所介绍的内容都将为您提供一致的使用体验。
+本文将详细说明D-Robotics RDK套件的使用方法，包括开发环境搭建、示例教程的运行、应用程序的开发、系统镜像的定制等方面内容。无论您选择使用哪种硬件，本文所介绍的内容都将为您提供一致的使用体验。
 
 ## 产品介绍
 
@@ -67,7 +67,7 @@ sidebar_position: 0
 介绍了RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK Ultra的硬件规格接口、设计文件及设计指导，提供规格书、原理图、尺寸图等设计资料。
 
 **[算法工具链开发指南](/category/toolchain_development)**  
-介绍地平线算法量化工具链的使用方法，涵盖了常用的算法模型、开发工具的使用和优化技巧等内容。  
+介绍D-Robotics 算法量化工具链的使用方法，涵盖了常用的算法模型、开发工具的使用和优化技巧等内容。  
 
 **[常见问题](/category/common_questions)**  
 本章节回答了用户在使用开发者套件过程中可能遇到的常见问题和疑惑。它提供了解决方案和技巧，帮助用户解决常见问题并顺利进行开发工作。
@@ -98,7 +98,7 @@ sidebar_position: 0
 问题修复：
 
 - 删除Wi-Fi驱动的冗余内核日志。
-- 修改apt源域名为sunrise.horizon.cc
+- 修改apt源域名为archive.d-robotics.cc
 
 其他更新：
 
@@ -112,7 +112,7 @@ sidebar_position: 0
 
 - 我们完全开放了操作系统的源代码，包括系统核心模块和功能模块的源代码。开发者可以自由地查看和修改源代码，为定制化和优化提供了更大的灵活性。
 - 详细的代码文档和注释将提供给开发者，以帮助他们更好地理解和使用源代码。
-- 我们欢迎开发者通过开源社区参与代码贡献和讨论，共同推动操作系统的改进和优化，源码在 [HorizonRDK](https://github.com/HorizonRDK) 上维护。
+- 我们欢迎开发者通过开源社区参与代码贡献和讨论，共同推动操作系统的改进和优化，源码在 [D-Robotics](https://github.com/D-Robotics) 上维护。
 
 支持RDK X3 Module：
 

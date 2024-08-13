@@ -66,9 +66,9 @@ sidebar_position: 8
 
 1. 开发机模拟器在使用时，可以通过设置环境变量 ``HB_DNN_SIM_PLATFORM`` 来指定需要模拟的处理器架构，可执行如下命令：
 
-   - ``export HB_DNN_SIM_PLATFORM=BERNOULLI``，为 ``BERNOULLI`` 架构，模拟地平线 ``xj2`` 平台；
-   - ``export HB_DNN_SIM_PLATFORM=BERNOULLI2``，为 ``BERNOULLI2`` 架构，模拟地平线 ``x3`` 平台, **RDK X3** 可使用；
-   - ``export HB_DNN_SIM_PLATFORM=BAYES``，为 ``BAYES`` 架构，模拟地平线 ``xj5`` 平台， **RDK Ultra** 可使用。
+   - ``export HB_DNN_SIM_PLATFORM=BERNOULLI``，为 ``BERNOULLI`` 架构，模拟D-Robotics  ``xj2`` 平台；
+   - ``export HB_DNN_SIM_PLATFORM=BERNOULLI2``，为 ``BERNOULLI2`` 架构，模拟D-Robotics  ``x3`` 平台, **RDK X3** 可使用；
+   - ``export HB_DNN_SIM_PLATFORM=BAYES``，为 ``BAYES`` 架构，模拟D-Robotics  ``xj5`` 平台， **RDK Ultra** 可使用。
 
 2. 如果不设置 ``HB_DNN_SIM_PLATFORM`` 环境变量，会根据第一次加载的模型架构来设置模拟器平台，例如：第一次加载的模型是 ``BERNOULLI2`` 架构，则程序默认设置的平台为 ``x3``。
 

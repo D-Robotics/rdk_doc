@@ -43,7 +43,7 @@ The RDK X3 Module supports booting the system from both eMMC and SD card:
 
 When the RDK X3 module needs to burn the system to the SD card and does not boot from the eMMC mode, please refer to [Install OS](../../installation/install_os.md) to complete the burning of the SD card system.
 
-When burning the eMMC system image on the RDK X3 module, the D-Robotics `hbupdate` burning tool is required. Currently, the tool supports two versions: Windows and Linux, which are respectively named `hbupdate_win64` and `hbupdate_linux`. The tool can be downloaded from the following link: [hbupdate](http://sunrise.horizon.cc/downloads/hbupdate/).
+When burning the eMMC system image on the RDK X3 module, the D-Robotics `hbupdate` burning tool is required. Currently, the tool supports two versions: Windows and Linux, which are respectively named `hbupdate_win64` and `hbupdate_linux`. The tool can be downloaded from the following link: [hbupdate](http://archive.d-robotics.cc/downloads/hbupdate/).
 
 The following precautions should be taken when using the tool:
 - Unzip the compressed file of the tool, and make sure that the decompression path does not contain any **spaces, Chinese characters, special characters**, etc.
@@ -59,7 +59,7 @@ For a PC using the Windows operating system, before using the flashing tool, it 
    ![image-carrier-board-microusb](./image/rdk_x3_module/image-carrier-board-microusb.png)  
 3. Power on the device and observe the port status in the computer's Device Manager. If there is an unknown device named `USB download gadget`, the driver needs to be updated. Otherwise, you can skip the following steps.  
    ![image-usb-driver1](./image/rdk_x3_module/image-usb-driver1.png)  
-4. Download and unzip the driver package `android_hobot.zip` from the following link: [android_hobot](http://sunrise.horizon.cc/downloads/hbupdate/android_hobot.zip).
+4. Download and unzip the driver package `android_hobot.zip` from the following link: [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
 5. Go to the extracted directory and run `5-runasadmin_register-CA-cer.cmd` as an administrator to complete the driver program registration.
 6. Double-click the unknown device named `USB download gadget` and select the directory where the driver package is extracted. Then click Next.   
    ![image-usb-driver2](./image/rdk_x3_module/image-usb-driver2.png)

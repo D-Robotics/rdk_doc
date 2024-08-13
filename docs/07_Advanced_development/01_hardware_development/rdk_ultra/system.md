@@ -12,7 +12,7 @@ sidebar_position: 3
 
 
 
-RDK Ultra开发套件烧录Ubuntu系统时，需要使用地平线`hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://sunrise.horizon.cc/downloads/hbupdate/)。
+RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
 
 工具使用注意事项如下：
 - 解压工具压缩包，注意解压路径中不要包含**空格、中文、特殊字符**等内容。

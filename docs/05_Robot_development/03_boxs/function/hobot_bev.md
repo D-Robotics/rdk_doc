@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## 功能介绍
 
-BEV感知算法是使用[OpenExplorer](https://developer.horizon.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`BEV`多任务模型。
+BEV感知算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`BEV`多任务模型。
 
 算法输入为6组图像数据，分别是前视，左前，右前，后视，左后，右后图。模型输出为10个类别的目标以及对应的3D检测框，包括障碍物、多种类型车辆、交通标志等，以及车道线、人行道、马路边缘的语义分割。
 
@@ -37,7 +37,7 @@ BEV感知算法是使用[OpenExplorer](https://developer.horizon.cc/api/v1/fileD
 
 ```shell
 # 板端下载数据集
-wget http://sunrise.horizon.cc/TogetheROS/data/hobot_bev_data.tar.gz
+wget http://archive.d-robotics.cc/TogetheROS/data/hobot_bev_data.tar.gz
 
 # 解压缩
 mkdir -p hobot_bev_data

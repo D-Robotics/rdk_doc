@@ -53,11 +53,11 @@ For the conversion from different frameworks to ONNX, there are currently corres
 
   We also provide tutorials on how to export ONNX and visualize models for Pytorch, PaddlePaddle, and TensorFlow2 frameworks. Please refer to:
 
-  - [**Pytorch Export ONNX and Model Visualization Tutorial**](https://developer.horizon.ai/forumDetail/146177165367615499);
+  - [**Pytorch Export ONNX and Model Visualization Tutorial**](https://developer.d-robotics.cc/forumDetail/146177165367615499);
 
-  - [**PaddlePaddle Export ONNX and Model Visualization Tutorial**](https://developer.horizon.ai/forumDetail/146177165367615500);
+  - [**PaddlePaddle Export ONNX and Model Visualization Tutorial**](https://developer.d-robotics.cc/forumDetail/146177165367615500);
 
-  - [**TensorFlow2 Export ONNX and Model Visualization Tutorial**](https://developer.horizon.ai/forumDetail/146177165367615501);
+  - [**TensorFlow2 Export ONNX and Model Visualization Tutorial**](https://developer.d-robotics.cc/forumDetail/146177165367615501);
 :::
 
 :::caution Caution
@@ -176,7 +176,7 @@ After using ``hb_mapper checker`` to check this model, you will get the followin
 
 :::caution Note
 
-  - If the model check step is terminated abnormally or there is an error message, it means that the model verification fails. Please confirm the error message and modification suggestions according to the terminal print or the generated ``hb_mapper_checker.log`` log file in the current path. You can find the solution to the error in the "Model Quantization Errors and Solutions" section. If the above steps still cannot resolve the problem, please contact the D-Robotics technical support team or submit your question in the [D-Robotics Official Developer Community](https://developer.horizon.ai/). We will provide support within 24 hours.
+  - If the model check step is terminated abnormally or there is an error message, it means that the model verification fails. Please confirm the error message and modification suggestions according to the terminal print or the generated ``hb_mapper_checker.log`` log file in the current path. You can find the solution to the error in the "Model Quantization Errors and Solutions" section. If the above steps still cannot resolve the problem, please contact the D-Robotics technical support team or submit your question in the [D-Robotics Official Developer Community](https://developer.d-robotics.cc/). We will provide support within 24 hours.
 :::
 
 
@@ -449,7 +449,7 @@ Microarchitecture of BPU. Set it to "bernoulli2" if using "RDK X3", and set it t
 
 - For "RDK Ultra yaml configuration file", fill in the template file [**RDK Ultra Caffe model quantization yaml template**](../../common_questions/toolchain#rdk_ultra_caffe_yaml_template) or [**RDK Ultra ONNX model quantization yaml template**](../../common_questions/toolchain#rdk_ultra_onnx_yaml_template) directly.
 
-- If the hb_mapper makertbin step terminates abnormally or shows an error message, it means that the model conversion has failed. Please check the error message and modification suggestions in the terminal printout or in the ``hb_mapper_makertbin.log`` log file generated in the current path. You can find the solution for the error in the [**Model Quantization Errors and Solutions**](../../common_questions/toolchain#model_convert_errors_and_solutions) section. If the problem cannot be solved after these steps, please contact the D-Robotics technical support team or submit your question in the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/). We will provide support within 24 hours.
+- If the hb_mapper makertbin step terminates abnormally or shows an error message, it means that the model conversion has failed. Please check the error message and modification suggestions in the terminal printout or in the ``hb_mapper_makertbin.log`` log file generated in the current path. You can find the solution for the error in the [**Model Quantization Errors and Solutions**](../../common_questions/toolchain#model_convert_errors_and_solutions) section. If the problem cannot be solved after these steps, please contact the D-Robotics technical support team or submit your question in the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/). We will provide support within 24 hours.
 
 :::
 
@@ -603,7 +603,7 @@ For specific configuration methods, please refer to: ``run_on_cpu: 'conv_0; conv
 :::caution Caution
 - Please note that if you set ``input_type_rt`` to ``nv12`` or ``yuv444``, the input size of the model cannot have odd numbers.
 - Please note that currently RDK X3 does not support the combination of ``input_type_rt`` as ``yuv444`` and ``input_layout_rt`` as ``NCHW``.
-- After the model conversion is successful, if an OP that meets the constraints of BPU operators still runs on the CPU, the main reason is that the OP belongs to the passive quantization OP. For information about passive quantization, please read the section [**Active and Passive Quantization Logic in the Algorithm Toolchain**](https://developer.horizon.ai/forumDetail/118364000835765793).
+- After the model conversion is successful, if an OP that meets the constraints of BPU operators still runs on the CPU, the main reason is that the OP belongs to the passive quantization OP. For information about passive quantization, please read the section [**Active and Passive Quantization Logic in the Algorithm Toolchain**](https://developer.d-robotics.cc/forumDetail/118364000835765793).
 :::
 
 The following is a description of the specific parameter information. There will be many parameters, and we will introduce them in the order of the parameter groups mentioned above.
@@ -947,7 +947,7 @@ Missing keys: 'caffe_model', 'prototxt'
 2021-04-21 14:45:34,085 ERROR exception in command: makertbin
 ```
 
-If the log information output to the console cannot help you find the problem, please refer to the section [Model Quantization Errors and Solutions](../../common_questions/toolchain#model_convert_errors_and_solutions) for troubleshooting. If the above steps still cannot solve the problem, please contact the D-Robotics technical support team or submit your issue in the [official D-Robotics developer community](https://developer.horizon.ai/), and we will provide support within 24 hours.
+If the log information output to the console cannot help you find the problem, please refer to the section [Model Quantization Errors and Solutions](../../common_questions/toolchain#model_convert_errors_and_solutions) for troubleshooting. If the above steps still cannot solve the problem, please contact the D-Robotics technical support team or submit your issue in the [official D-Robotics developer community](https://developer.d-robotics.cc/), and we will provide support within 24 hours.
 
 
 #### Conversion Output Interpretation`{`#conversion_output`}`
@@ -963,7 +963,7 @@ As mentioned earlier, the successful conversion of the model produces four parts
 The process of generating \*\*\*_original_float_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 The computation accuracy of this model is exactly the same as the original float model used in the conversion input. 
 One important change is the addition of some data preprocessing computations to adapt to the D-Robotics platform (an additional preprocessing operator node called "HzPreprocess" has been added, which can be viewed using the netron tool to open the onnx model. For details about this operator, please see [**Preprocessing Parameters of Operator HzPreprocess**](#pre_process)). 
-In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to D-Robotics's technical support team, or submit your questions in the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/). This will help you quickly resolve your issue.
+In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to D-Robotics's technical support team, or submit your questions in the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/). This will help you quickly resolve your issue.
 
 The process of generating \*\*\*_calibrated_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 This model is produced by the model conversion toolchain, which optimizes the float model's structure and obtains the quantization parameters for each node by calculating with calibration data, which are saved in the calibration node as intermediate products.
@@ -971,7 +971,7 @@ This model is produced by the model conversion toolchain, which optimizes the fl
 The process of generating \*\*\*_optimized_float_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 This model undergoes some operator-level optimization operations, such as operator fusion. 
 By comparing it with the original_float model visually, you can clearly see some changes at the operator structure level, but these do not affect the model's computation accuracy. 
-In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to D-Robotics's technical support team, or submit your questions in the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/). This will help you quickly resolve your issue.
+In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to D-Robotics's technical support team, or submit your questions in the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/). This will help you quickly resolve your issue.
 
 The process of generating \*\*\*_quantized_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 This model has completed the calibration and quantization process. 
@@ -1330,7 +1330,7 @@ This section focuses on the hardware characteristics of D-Robotics Processors. D
 
   D-Robotics's BPU has targeted optimizations for `depthwise convolution` and `group convolution`. Therefore, we recommend using models with a Depthwise+Pointwise structure, such as MobileNetv2, EfficientNet_lite, and the custom-designed VarGNet based on GroupConv, as the backbone of the model to achieve higher performance benefits.
 
-  We are continually exploring more model structures and business models, and we will provide more diverse models for your reference. These outputs will be periodically updated to https://github.com/D-RoboticsRobotics-Platform/ModelZoo/tree/master. If you still cannot find a suitable model, please feel free to reach out to us on the [D-Robotics Official Technical Community](https://developer.horizon.ai). We will provide more targeted guidance and suggestions based on your specific problems. 
+  We are continually exploring more model structures and business models, and we will provide more diverse models for your reference. These outputs will be periodically updated to https://github.com/D-RoboticsRobotics-Platform/ModelZoo/tree/master. If you still cannot find a suitable model, please feel free to reach out to us on the [D-Robotics Official Technical Community](https://developer.d-robotics.cc). We will provide more targeted guidance and suggestions based on your specific problems. 
 
 ### Model Accuracy Analysis `{`#accuracy_evaluation`}`
 
@@ -2276,7 +2276,7 @@ When all parameters are set to defaults, the tool performs the following steps:
 
 If `node_type='node'`, the tool retrieves the top 5 nodes and their corresponding calibration nodes, displaying data distributions and box plots.
 
-Based on previous optimization experience, this strategy covers most scenarios. If issues persist, follow the [**Precision Optimization Checklist**](../../common_questions/toolchain#checklist) to gather detailed model configuration information, ensure all troubleshooting steps have been completed, and report the filled checklist, the original float model file, and relevant configuration files to the D-Robotics support team or the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/) for further assistance.
+Based on previous optimization experience, this strategy covers most scenarios. If issues persist, follow the [**Precision Optimization Checklist**](../../common_questions/toolchain#checklist) to gather detailed model configuration information, ensure all troubleshooting steps have been completed, and report the filled checklist, the original float model file, and relevant configuration files to the D-Robotics support team or the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/) for further assistance.
 
 
 

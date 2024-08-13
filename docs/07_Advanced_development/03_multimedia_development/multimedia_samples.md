@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # 7.3.2 示例程序
-本章简述地平线多媒体应用示例，所涉及源码可以通过 sudo apt install hobot-multimedia-samples 获得，安装在 /app/multimedia_samples 目录下。
+本章简述D-Robotics 多媒体应用示例，所涉及源码可以通过 sudo apt install hobot-multimedia-samples 获得，安装在 /app/multimedia_samples 目录下。
 ## get_sif_data 使用说明{#get_sif_data}
 
 ### 程序功能
@@ -124,7 +124,7 @@ RDK X3 开发板通过`mipi host`接口用于连接`Sensor`模组，请根据当
 chmod +x get_sif_data
 ./get_sif_data
 
-Horizon Robotics Sensor Test Tools V1.0
+D-Robotics Sensor Test Tools V1.0
 
 ********************** Sensor Lists *************************
         0 -- IMX415
@@ -209,7 +209,7 @@ quit
 
 执行程序后会获取到如 `pipe0_plane0_1920x1080_frame_4609.raw` 一样命名的`raw`图像，或者如`pipe0_1920x1080_frame_1024.yuv`一样命名的`yuv`图像。
 
-请使用 [hobotplayer](https://sunrise.horizon.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) 工具浏览图像，图像的参数配置说明如下：
+请使用 [hobotplayer](https://archive.d-robotics.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) 工具浏览图像，图像的参数配置说明如下：
 
 - 浏览RAW图
 
@@ -342,7 +342,7 @@ RDK X3 开发板通过`mipi host`接口用于连接`Sensor`模组，请根据当
 chmod +x get_isp_data
 ./get_isp_data
 
-Horizon Robotics Sensor Test Tools V1.0
+D-Robotics Sensor Test Tools V1.0
 
 ********************** Sensor Lists *************************
         0 -- IMX415
@@ -427,7 +427,7 @@ quit
 
 执行程序后会获取到如 `pipe0_1920x1080_frame_4609.yuv` 一样命名的`yuv`图像
 
-请使用 [hobotplayer](https://sunrise.horizon.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) 工具浏览图像，图像的参数配置说明如下：
+请使用 [hobotplayer](https://archive.d-robotics.cc/downloads/hobotplayer/hobotplayerv.2.07.1.rar) 工具浏览图像，图像的参数配置说明如下：
 
 - 浏览YUV图
 

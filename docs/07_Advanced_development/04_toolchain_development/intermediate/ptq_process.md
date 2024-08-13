@@ -6,35 +6,35 @@ sidebar_position: 2
 
 ### 简介{#PTQ_introduction}
 
-模型转换是指将原始浮点模型转换为地平线混合异构模型的过程。原始浮点模型（文中部分地方也称为浮点模型）是指您通过TensorFlow/PyTorch等DL框架训练得到的可用模型，这个模型的计算精度为float32；混合异构模型是一种适合在地平线处理器上运行的模型格式。
+模型转换是指将原始浮点模型转换为D-Robotics 混合异构模型的过程。原始浮点模型（文中部分地方也称为浮点模型）是指您通过TensorFlow/PyTorch等DL框架训练得到的可用模型，这个模型的计算精度为float32；混合异构模型是一种适合在D-Robotics 处理器上运行的模型格式。
 本章节将反复使用到这两种模型名词，为避免理解歧义，请先理解这个概念再阅读下文。
 
-配合地平线算法工具链的模型完整开发过程，需要经过 **浮点模型准备**、 **模型验证**、 **模型转换**、 **性能评估** 和 **精度评估** 共五个重要阶段，如下图:
+配合D-Robotics 算法工具链的模型完整开发过程，需要经过 **浮点模型准备**、 **模型验证**、 **模型转换**、 **性能评估** 和 **精度评估** 共五个重要阶段，如下图:
 
 ![model_conversion_flowchart](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_conversion_flowchart.png)
 
 
-**浮点模型准备** 本阶段用来确保原始浮点模型的格式为地平线模型转换工具支持的格式，原始浮点模型来自于您通过TensorFlow/PyTorch等DL框架训练得到可用模型。具体的浮点模型要求与建议，请阅读[**浮点模型准备**](#model_preparation)章节内容。
+**浮点模型准备** 本阶段用来确保原始浮点模型的格式为D-Robotics 模型转换工具支持的格式，原始浮点模型来自于您通过TensorFlow/PyTorch等DL框架训练得到可用模型。具体的浮点模型要求与建议，请阅读[**浮点模型准备**](#model_preparation)章节内容。
 
-**模型验证** 本阶段用来校验原始浮点模型是否满足地平线算法工具链的要求。地平线提供 ``hb_mapper checker`` 检查工具来完成浮点模型的检查。具体使用方法，请阅读[**验证模型**](#model_check) 章节内容。
+**模型验证** 本阶段用来校验原始浮点模型是否满足D-Robotics 算法工具链的要求。D-Robotics 提供 ``hb_mapper checker`` 检查工具来完成浮点模型的检查。具体使用方法，请阅读[**验证模型**](#model_check) 章节内容。
 
-**模型转换** 本阶段用来完成浮点模型到地平线混合异构模型的转换，经过这个阶段，您将得到一个可以在地平线处理器上运行的模型。地平线提供 ``hb_mapper makertbin`` 转换工具来完成模型优化、量化和编译等关键步骤。具体使用方法，请阅读[**模型转换**](#model_conversion)章节内容。
+**模型转换** 本阶段用来完成浮点模型到D-Robotics 混合异构模型的转换，经过这个阶段，您将得到一个可以在D-Robotics 处理器上运行的模型。D-Robotics 提供 ``hb_mapper makertbin`` 转换工具来完成模型优化、量化和编译等关键步骤。具体使用方法，请阅读[**模型转换**](#model_conversion)章节内容。
 
-**性能评估** 本阶段主要用于测评地平线混合异构模型的推理性能情况，地平线提供了模型性能评估的工具，您可以使用这些工具验证模型性能是否达到应用要求。具体使用说明，请阅读 [**模型性能分析与调优**](#performance_evaluation)章节内容。
+**性能评估** 本阶段主要用于测评D-Robotics 混合异构模型的推理性能情况，D-Robotics 提供了模型性能评估的工具，您可以使用这些工具验证模型性能是否达到应用要求。具体使用说明，请阅读 [**模型性能分析与调优**](#performance_evaluation)章节内容。
 
-**精度评估** 本阶段主要用于测评地平线混合异构模型的推理精度情况，地平线提供了模型精度评估的工具。具体使用说明，请阅读[**模型精度分析与调优**](#accuracy_evaluation)章节内容。
+**精度评估** 本阶段主要用于测评D-Robotics 混合异构模型的推理精度情况，D-Robotics 提供了模型精度评估的工具。具体使用说明，请阅读[**模型精度分析与调优**](#accuracy_evaluation)章节内容。
 
 
 
 ### 模型准备{#model_preparation}
 
 
-基于公开DL框架训练得到的浮点模型是地平线模型转换工具的输入，目前转换工具支持的DL框架如下：
+基于公开DL框架训练得到的浮点模型是D-Robotics 模型转换工具的输入，目前转换工具支持的DL框架如下：
 
 
   | **框架**         | Caffe | PyTorch | TensorFlow | MXNet | PaddlePaddle |
   |-------|------------|--------------|--------------|--------------|--------------|
-  | **地平线工具链** | 支持  |   支持（转ONNX）|支持（转ONNX）|支持（转ONNX）|支持（转ONNX）|
+  | **D-Robotics 工具链** | 支持  |   支持（转ONNX）|支持（转ONNX）|支持（转ONNX）|支持（转ONNX）|
 
 
 以上框架中， Caffe框架导出的caffemodel是直接支持的，PyTorch、TensorFlow和MXNet等DL框架通过转换到ONNX格式间接支持。
@@ -58,20 +58,20 @@ sidebar_position: 2
 
   关于Pytorch、PaddlePaddle、TensorFlow2框架的模型，我们也提供了如何导出ONNX及模型可视化的教程，请参考：
 
-  - [**Pytorch导出ONNX及模型可视化教程**](https://developer.horizon.ai/forumDetail/146177165367615499) ；
+  - [**Pytorch导出ONNX及模型可视化教程**](https://developer.d-robotics.cc/forumDetail/146177165367615499) ；
 
-  - [**PaddlePaddle导出ONNX及模型可视化教程**](https://developer.horizon.ai/forumDetail/146177165367615500) ；
+  - [**PaddlePaddle导出ONNX及模型可视化教程**](https://developer.d-robotics.cc/forumDetail/146177165367615500) ；
 
-  - [**TensorFlow2导出ONNX及模型可视化教程**](https://developer.horizon.ai/forumDetail/146177165367615501) ；
+  - [**TensorFlow2导出ONNX及模型可视化教程**](https://developer.d-robotics.cc/forumDetail/146177165367615501) ；
 :::
 
 :::caution 注意
 
-  - 浮点模型中所使用的算子需要符合地平线算法工具链的算子约束条件，具体请阅读 [**模型算子支持列表**](./supported_op_list) 章节进行查询。
+  - 浮点模型中所使用的算子需要符合D-Robotics 算法工具链的算子约束条件，具体请阅读 [**模型算子支持列表**](./supported_op_list) 章节进行查询。
 
   - 目前转换工具仅支持输出个数小于或等于32的模型进行转换。
   
-  - 支持 ``caffe 1.0`` 版本的caffe浮点模型和 ``ir_version≤7`` , ``opset=10`` 、 ``opset=11`` 版本的onnx浮点模型量化成地平线支持的定点模型, onnx模型的ir_version与onnx版本的对应关系请参考[**onnx官方文档**](https://github.com/onnx/onnx/blob/main/docs/Versioning.md) ；
+  - 支持 ``caffe 1.0`` 版本的caffe浮点模型和 ``ir_version≤7`` , ``opset=10`` 、 ``opset=11`` 版本的onnx浮点模型量化成D-Robotics 支持的定点模型, onnx模型的ir_version与onnx版本的对应关系请参考[**onnx官方文档**](https://github.com/onnx/onnx/blob/main/docs/Versioning.md) ；
 
   - 模型输入维度只支持 ``固定4维`` 输入NCHW或NHWC（N维度只能为1），例如：1x3x224x224或1x224x224x3， 不支持动态维度及非4维输入；
 
@@ -82,11 +82,11 @@ sidebar_position: 2
 ### 模型验证{#model_check}
 
 
-模型正式转换前，请先使用 ``hb_mapper checker`` 工具进行模型验证，确保其符合地平线处理器的支持约束。
+模型正式转换前，请先使用 ``hb_mapper checker`` 工具进行模型验证，确保其符合D-Robotics 处理器的支持约束。
 
 :::tip 小技巧
 
-  建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的脚本方法: ``01_check_X3.sh`` 或 ``01_check_Ultra.sh``。
+  建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的脚本方法: ``01_check_X3.sh`` 或 ``01_check_Ultra.sh``。
 :::
 #### 使用 ``hb_mapper checker`` 工具验证模型
 ```
@@ -107,7 +107,7 @@ hb_mapper checker 参数解释：
   用于指定检查输入的模型类型，目前只支持设置 ``caffe`` 或者 ``onnx``。
 
 --march
-  用于指定需要适配的地平线处理器类型，可设置值为 ``bernoulli2`` 和 ``bayes``；RDK X3设置为 ``bernoulli2``，RDK Ultra设置为 ``bayes``。
+  用于指定需要适配的D-Robotics 处理器类型，可设置值为 ``bernoulli2`` 和 ``bayes``；RDK X3设置为 ``bernoulli2``，RDK Ultra设置为 ``bayes``。
 
 --proto<br/>
   此参数仅在 ``model-type`` 指定 ``caffe`` 时有效，取值为Caffe模型的prototxt文件名称。
@@ -181,7 +181,7 @@ hb_mapper checker 参数解释：
 
 :::caution 注意
 
-  - 如果模型检查步骤异常终止或者出现报错信息，则说明模型验证不通过，请根据终端打印或在当前路径下生成的 ``hb_mapper_checker.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions) 章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系地平线技术支持团队或在[**地平线官方技术社区**](https://developer.horizon.ai/)提出您的问题，我们将在24小时内给您提供支持。
+  - 如果模型检查步骤异常终止或者出现报错信息，则说明模型验证不通过，请根据终端打印或在当前路径下生成的 ``hb_mapper_checker.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions) 章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 :::
 
 
@@ -203,7 +203,7 @@ hb_mapper checker 参数解释：
   ...
 ```
 
-结果中每行都代表一个模型节点的check情况，每行含Node、ON、Subgraph和Type四列，分别为节点名称、执行节点计算的硬件、节点所属子图和节点映射到的地平线算子名称。
+结果中每行都代表一个模型节点的check情况，每行含Node、ON、Subgraph和Type四列，分别为节点名称、执行节点计算的硬件、节点所属子图和节点映射到的D-Robotics 算子名称。
 如果模型在网络结构中出现了CPU计算的算子，hb_mapper checker工具将把这个算子前后连续在BPU计算的部分拆分为两个Subgraph（子图）。
 
 #### 检查结果的调优指导
@@ -294,12 +294,12 @@ hb_mapper checker 参数解释：
 
 根据 hb_mapper checker 给出的提示，一般来说算子运行在BPU上会有更好的性能表现，这里可以将pow、reshape 这类CPU算子从模型中移除，将对应算子的功能放入后处理中计算，从而减少子图数量。
 
-当然，多个子图也不会影响整个转换流程，但会较大程度地影响模型性能，建议尽量调整模型算子到BPU上执行，可参考地平线处理器算子支持列表中的BPU算子支持列表来做同功能的算子替换或者将模型中的CPU算子移到模型推理的前、后处理中去做CPU计算。
+当然，多个子图也不会影响整个转换流程，但会较大程度地影响模型性能，建议尽量调整模型算子到BPU上执行，可参考D-Robotics 处理器算子支持列表中的BPU算子支持列表来做同功能的算子替换或者将模型中的CPU算子移到模型推理的前、后处理中去做CPU计算。
 
 
 ### 模型转换{#model_conversion}
 
-模型转换阶段会完成浮点模型到地平线混合异构模型的转换，经过这个阶段，您将得到一个可以在地平线处理器上运行的模型。
+模型转换阶段会完成浮点模型到D-Robotics 混合异构模型的转换，经过这个阶段，您将得到一个可以在D-Robotics 处理器上运行的模型。
 在进行转换之前，请确保已经顺利通过了上文的验证模型过程。
 
 模型转换使用 ``hb_mapper makertbin`` 工具完成，转换期间会完成模型优化和校准量化等重要过程，校准需要依照模型预处理要求准备校准数据。
@@ -336,7 +336,7 @@ layout( ``input_layout_train`` )，对于featuremap输入的模型，您可以�
 
 :::tip 小技巧
 
-  建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法: ``02_preprocess.sh`` 和 ``preprocess.py`` 。
+  建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法: ``02_preprocess.sh`` 和 ``preprocess.py`` 。
 :::
 ```
   # 本示例使用skimage，如果是opencv会有所区别
@@ -408,7 +408,7 @@ hb_mapper makertbin提供两种模式，开启 ``fast-perf`` 模式和不开启 
 
 :::tip 小技巧
 
-  建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的脚本方法: ``03_build_X3.sh`` 或 ``03_build_Ultra.sh``。
+  建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的脚本方法: ``03_build_X3.sh`` 或 ``03_build_Ultra.sh``。
 :::
 
 hb_mapper makertbin命令使用方式如下：
@@ -461,7 +461,7 @@ hb_mapper makertbin参数解释：
   - ``RDK X3 yaml配置文件``，可直接使用[**RDK X3 Caffe模型量化yaml文件模板**](../../common_questions/toolchain#rdk_x3_caffe_yaml_template) 和[**RDK X3 ONNX模型量化yaml文件模板**](../../common_questions/toolchain#rdk_x3_onnx_yaml_template)模板文件进行填写。
 
   - ``RDK Ultra yaml配置文件``，可直接使用[**RDK Ultra Caffe模型量化yaml文件模板**](../../common_questions/toolchain#rdk_ultra_caffe_yaml_template) 和[**RDK Ultra ONNX模型量化yaml文件模板**](../../common_questions/toolchain#rdk_ultra_onnx_yaml_template)模板文件进行填写。 
-  - 若 hb_mapper makertbin 步骤异常终止或者出现报错信息，则说明模型转换失败，请根据终端打印或在当前路径下生成的 ``hb_mapper_makertbin.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions)章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系地平线技术支持团队或在[**地平线官方技术社区**](https://developer.horizon.ai/)提出您的问题，我们将在24小时内给您提供支持。
+  - 若 hb_mapper makertbin 步骤异常终止或者出现报错信息，则说明模型转换失败，请根据终端打印或在当前路径下生成的 ``hb_mapper_makertbin.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions)章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 :::
 
 #### 模型转换yaml配置参数说明{#yaml_config}
@@ -482,7 +482,7 @@ hb_mapper makertbin参数解释：
     # 原始Onnx浮点模型文件
     onnx_model: '****.onnx'
 
-    # 转换的目标处理器架构，保持默认，地平线RDK X3使用的是bernoulli2架构， RDK Ultra使用的是bayes架构。march: 'bayes'
+    # 转换的目标处理器架构，保持默认，D-Robotics RDK X3使用的是bernoulli2架构， RDK Ultra使用的是bayes架构。march: 'bayes'
     march: 'bernoulli2'
 
     # 模型转换输出的用于上板执行的模型文件的名称前缀
@@ -619,7 +619,7 @@ hb_mapper makertbin参数解释：
 
   - 请注意，如果设置 ``input_type_rt`` 为 ``nv12`` 或 ``yuv444`` ，则模型的输入尺寸中不能出现奇数。
   - 请注意，目前RDK X3上暂不支持 ``input_type_rt`` 为 ``yuv444`` 且 ``input_layout_rt`` 为 ``NCHW`` 组合的场景。
-  - 模型转换成功后，若出现符合地平线BPU算子约束条件的OP仍然运行在CPU上，其主要原因是该OP属于被动量化OP，关于被动量化相关内容，请阅读 [**算法工具链中的主动量化和被动量化逻辑**](https://developer.horizon.ai/forumDetail/118364000835765793) 章节。
+  - 模型转换成功后，若出现符合D-Robotics BPU算子约束条件的OP仍然运行在CPU上，其主要原因是该OP属于被动量化OP，关于被动量化相关内容，请阅读 [**算法工具链中的主动量化和被动量化逻辑**](https://developer.d-robotics.cc/forumDetail/118364000835765793) 章节。
 :::
 
 以下是具体参数信息，参数会比较多，我们依照上述的参数组次序介绍。
@@ -682,7 +682,7 @@ hb_mapper makertbin参数解释：
 |------------|----------|----------|--------|
 |``compile_mode``| **参数作用**：编译策略选择。<br/>**参数说明**：``latency`` 以优化推理时间为目标；bandwidth 以优化ddr的访问带宽为目标。如果模型没有严重超过预期的带宽占用，建议您使用 ``latency`` 策略。| **取值范围**：``latency``、 ``bandwidth``。<br/> **默认配置**：``latency``。|必选 |
 |``debug``| **参数作用**：是否打开编译的debug信息。<br/>**参数说明**：开启该参数的场景下，模型的静态分析的性能结果将保存在模型中，您可以在模型成功转换后生成的静态性能评估文件html页和hb_perf时产生的html页内，在Layer Details选项卡中查看模型逐层BPU算子的性能信息（包括计算量、计算耗时和数据搬运耗时）。 默认情况下，建议您保持该参数关闭。| **取值范围**：``True`` 、 ``False``。<br/> **默认配置**： ``False``。|可选 |
-|``core_num``| **参数作用**：模型运行核心数。<br/>**参数说明**：地平线平台支持利用多个AI加速器核心同时完成一个推理任务， 多核心适用于输入尺寸较大的情况， 理想状态下的双核速度可以达到单核的1.5倍左右。如果您的模型输入尺寸较大，对于模型速度有极致追求， 可以配置 ``core_num=2``。<br/> **注意：** **RDK Ultra** 该选项尚不支持, 请勿配置! | **取值范围**：``1``、 ``2`` 。<br/> **默认配置**：``1``。|可选 |=
+|``core_num``| **参数作用**：模型运行核心数。<br/>**参数说明**：D-Robotics 平台支持利用多个AI加速器核心同时完成一个推理任务， 多核心适用于输入尺寸较大的情况， 理想状态下的双核速度可以达到单核的1.5倍左右。如果您的模型输入尺寸较大，对于模型速度有极致追求， 可以配置 ``core_num=2``。<br/> **注意：** **RDK Ultra** 该选项尚不支持, 请勿配置! | **取值范围**：``1``、 ``2`` 。<br/> **默认配置**：``1``。|可选 |=
 |``optimize_level``| **参数作用**：模型编译的优化等级选择。<br/>**参数说明**：优化等级可选范围为 ``O0`` ~ ``O3``。``O0`` 不做任何优化, 编译速度最快，优化程度最低。``O1`` - ``O3`` 随着优化等级提高， 预期编译后的模型的执行速度会更快， 但是所需编译时间也会变长。正常用于生成和验证性能的模型， 必须使用 ``O3`` 级别优化才能保证得到最优性能。某些流程验证或精度调试过程中， 可以尝试使用更低级别优化加快过程速度。| **取值范围**：``O0`` 、 ``O1`` 、 ``O2`` 、 ``O3``。<br/> **默认配置**：无。|必选 |
 |``input_source``| **参数作用**：设置上板bin模型的输入数据来源。<br/>**参数说明**：这个参数是适配工程环境的选项， 建议您已经全部完成模型验证后再配置。``ddr`` 表示数据来自内存，``pyramid`` 和 ``resizer`` 表示来自处理器上的固定硬件。注意：如果设置为resizer，模型的 h*w 要小于18432。具体在工程环境中如何适配 ``pyramid`` 和 ``resizer`` 数据源， 此参数配置有点特殊，例如模型输入名称为 data, 数据源为内存(ddr), 则此处应该配置值为 ``{"data": "ddr"}``。| **取值范围**：``ddr``, ``pyramid``, ``resizer``<br/> **默认配置**：无，默认会根据input_type_rt的值从可选范围中自动选择。|可选 |
 |``max_time_per_fc``| **参数作用**：指定模型的每个function-call的最大可连续执行时间(单位us)。<br/>**参数说明**：编译后的数据指令模型在BPU上进行推理计算时， 它将表现为1个或者多个function-call（BPU的执行粒度）的调用，取值为0代表不做限制。该参数用来限制每个function-call最大的执行时间, 模型只有在单个function-call执行完时才有机会被抢占。详情参见 模型优先级控制 部分的介绍。- 此参数仅用于实现模型抢占功能，如无需实现该功能则可以忽略。<br/> - 模型抢占功能仅支持在开发板端实现，不支持PC端模拟器实现。| **取值范围**：``0或1000-4294967295``。<br/> **默认配置**：``0``。|可选 |
@@ -709,7 +709,7 @@ hb_mapper makertbin参数解释：
 对于不支持的场景，模型转换工具会打印log提示该int16配置组合暂时不被支持并回退到int8计算。
 
 ##### 预处理HzPreprocess算子说明{#pre_process}
-预处理HzPreprocess算子是地平线模型转换工具在模型转换过程中根据yaml配置文件生成的一个插在模型输入节点后的预处理算子节点，用来给模型的输入数据做归一化操作，本节主要介绍 ``norm_type`` 、 ``mean_value`` 、 ``scale_value`` 参数变量和模型预处理 HzPreprocess 算子节点生成的说明。
+预处理HzPreprocess算子是D-Robotics 模型转换工具在模型转换过程中根据yaml配置文件生成的一个插在模型输入节点后的预处理算子节点，用来给模型的输入数据做归一化操作，本节主要介绍 ``norm_type`` 、 ``mean_value`` 、 ``scale_value`` 参数变量和模型预处理 HzPreprocess 算子节点生成的说明。
 
 **norm_type参数说明**
 
@@ -806,13 +806,13 @@ HzPreprocess内的计算公式为：`((input（取值范围[-128,127]）+ 128) -
 
 #### 转换内部过程解读{#conversion_interpretation}
 
-模型转换阶段完成浮点模型到地平线混合异构模型的转换。为了使得这个异构模型能快速高效地在嵌入式端运行，模型转换重点在解决 **输入数据处理** 和 **模型优化编译** 两个问题，本节会依次围绕这两个重点问题展开。
+模型转换阶段完成浮点模型到D-Robotics 混合异构模型的转换。为了使得这个异构模型能快速高效地在嵌入式端运行，模型转换重点在解决 **输入数据处理** 和 **模型优化编译** 两个问题，本节会依次围绕这两个重点问题展开。
 
-**输入数据处理** 地平线X3处理器会为某些特定类型的模型输入通路提供硬件级的支撑方案。
+**输入数据处理** D-Robotics X3处理器会为某些特定类型的模型输入通路提供硬件级的支撑方案。
 例如：视频通路方面的视频处理子系统，为图像采集提供图像裁剪、缩放和其他图像质量优化功能，这些子系统的输出是YUV420 NV12格式图像，
 而算法模型往往是基于bgr/rgb等一般常用图像格式训练得到的。
 
-地平线针对此种情况提供的解决方案是：
+D-Robotics 针对此种情况提供的解决方案是：
 
 - 1. 每个转换的模型都提供两种描述，一种用于描述原始浮点模型的输入数据（ ``input_type_train`` 和 ``input_layout_train`` ），另一种则用于描述我们需要对接的处理器的输入数据（ ``input_type_rt`` 和 ``input_layout_rt`` ）。
 
@@ -824,9 +824,9 @@ HzPreprocess内的计算公式为：`((input（取值范围[-128,127]）+ 128) -
 
 上图中的数据排布就只有NCHW和NHWC两种数据排布格式，N代表数量、C代表channel、H代表高度、W代表宽度，
 两种不同的排布体现的是不同的内存访问特性。在TensorFlow模型NHWC较常用，Caffe中就都使用NCHW，
-地平线处理器不会限制使用的数据排布，但是有两条要求：第一是 ``input_layout_train`` 必须与原始模型的数据排布一致；第二是在处理器上准备好与 ``input_layout_rt`` 一致排布的数据，正确的数据排布是顺利解析数据的基础。
+D-Robotics 处理器不会限制使用的数据排布，但是有两条要求：第一是 ``input_layout_train`` 必须与原始模型的数据排布一致；第二是在处理器上准备好与 ``input_layout_rt`` 一致排布的数据，正确的数据排布是顺利解析数据的基础。
 
-模型转换工具会根据 ``input_type_rt`` 和 ``input_type_train`` 指定的数据格式自动添加数据转换节点，根据地平线的实际使用经验，
+模型转换工具会根据 ``input_type_rt`` 和 ``input_type_train`` 指定的数据格式自动添加数据转换节点，根据D-Robotics 的实际使用经验，
 并不是任意类型组合都是需要的，为了避免您误用，我们只开放了一些固定的类型组合，如下表：
 
   | ``input_type_train`` \\ ``input_type_rt`` | nv12 | yuv444 | rgb | bgr | gray | featuremap |
@@ -880,7 +880,7 @@ HzPreprocess内的计算公式为：`((input（取值范围[-128,127]）+ 128) -
 这个ONNX模型计算精度仍然是float32，但在输入部分加入了一个数据预处理节点。
 
 理想状态下，这个预处理节点应该完成 ``input_type_rt`` 到 ``input_type_train`` 的完整转换，
-实际情况是整个type转换过程会配合地平线处理器硬件完成，ONNX模型里面并没有包含硬件转换的部分。
+实际情况是整个type转换过程会配合D-Robotics 处理器硬件完成，ONNX模型里面并没有包含硬件转换的部分。
 因此ONNX的真实输入类型会使用一种中间类型，这种中间类型就是硬件对 ``input_type_rt`` 的处理结果类型，
 数据layout(NCHW/NHWC)会保持原始浮点模型的输入layout一致。
 每种 ``input_type_rt`` 都有特定的对应中间类型，如下表：
@@ -901,7 +901,7 @@ HzPreprocess内的计算公式为：`((input（取值范围[-128,127]）+ 128) -
   - featuremap 是一个四维张量数据，每个数值采用float32表示。
 :::
 
-**模型优化阶段** 实现模型的一些适用于地平线平台的算子优化策略，例如BN融合到Conv等。
+**模型优化阶段** 实现模型的一些适用于D-Robotics 平台的算子优化策略，例如BN融合到Conv等。
 此阶段的产出是一个optimized_float_model.onnx，这个ONNX模型的计算精度仍然是float32，经过优化后不会影响模型的计算结果。
 模型的输入数据要求还是与前面的original_float_model一致。
 
@@ -930,8 +930,8 @@ HzPreprocess内的计算公式为：`((input（取值范围[-128,127]）+ 128) -
   请注意，如果input_type_rt为nv12时，对应quanti.onnx的输入layout都是NHWC。
 :::
 
-**模型编译阶段** 会使用地平线模型编译器，将量化模型转换为地平线平台支持的计算指令和数据，
-这个阶段的产出一个 ``***.bin`` 模型，这个bin模型就是可在地平线嵌入式平台运行的模型，也就是模型转换的最终产出结果。
+**模型编译阶段** 会使用D-Robotics 模型编译器，将量化模型转换为D-Robotics 平台支持的计算指令和数据，
+这个阶段的产出一个 ``***.bin`` 模型，这个bin模型就是可在D-Robotics 嵌入式平台运行的模型，也就是模型转换的最终产出结果。
 
 
 #### 转换结果解读
@@ -957,7 +957,7 @@ HzPreprocess内的计算公式为：`((input（取值范围[-128,127]）+ 128) -
 ```
 上面列举的输出内容中，Node、ON、Subgraph、Type与 ``hb_mapper checker`` 工具的解读是一致的，
 请参考前文 [**检查结果解读**](#check_result)；
-Threshold是每个层次的校准阈值，用于异常状态下向地平线技术支持反馈信息，正常状况下不需要关注；
+Threshold是每个层次的校准阈值，用于异常状态下向D-Robotics 技术支持反馈信息，正常状况下不需要关注；
 Cosine Similarity一列反映的是Node列中对应算子的原始浮点模型与量化模型输出结果的余弦相似度。
 
 :::tip 小技巧
@@ -991,7 +991,7 @@ Missing keys: 'caffe_model', 'prototxt'
 2021-04-21 14:45:34,085 ERROR yaml file parse failed. Please double check your input
 2021-04-21 14:45:34,085 ERROR exception in command: makertbin
 ```
-如果控制台输出日志信息不能帮助您发现问题，请参考[**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions)章节内容进行查找，若以上步骤仍不能排除问题，请联系地平线技术支持团队或在[**地平线官方技术社区**](https://developer.horizon.ai/)提出您的问题，我们将在24小时内给您提供支持。
+如果控制台输出日志信息不能帮助您发现问题，请参考[**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions)章节内容进行查找，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 
 
 #### 转换产出物解读{#conversion_output}
@@ -1005,8 +1005,8 @@ Missing keys: 'caffe_model', 'prototxt'
 - \*\*\*.bin
 
 \*\*\*_original_float_model.onnx的产出过程可以参考[**转换内部过程解读**](#conversion_interpretation)的介绍，
-这个模型计算精度与转换输入的原始浮点模型是一模一样的，有个重要的变化就是为了适配地平线平台添加了一些数据预处理计算（增加了一个预处理算子节点 ``HzPreprocess``, 可以使用netron工具打开onnx模型查看,此算子的详情可查看[**预处理HzPreprocess算子说明**](#pre_process) 内容）。
-一般情况下，您不需要使用这个模型，若在转换结果出现异常时，通过上文介绍的定位方法仍不能解决您的问题，请将这个模型提供给地平线的技术支持团队或在[**地平线官方技术社区**](https://developer.horizon.ai/)提出您的问题，将有助于帮助您快速解决问题。
+这个模型计算精度与转换输入的原始浮点模型是一模一样的，有个重要的变化就是为了适配D-Robotics 平台添加了一些数据预处理计算（增加了一个预处理算子节点 ``HzPreprocess``, 可以使用netron工具打开onnx模型查看,此算子的详情可查看[**预处理HzPreprocess算子说明**](#pre_process) 内容）。
+一般情况下，您不需要使用这个模型，若在转换结果出现异常时，通过上文介绍的定位方法仍不能解决您的问题，请将这个模型提供给D-Robotics 的技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，将有助于帮助您快速解决问题。
 
 \*\*\*_calibrated_model.onnx的产出过程可以参考[**转换内部过程解读**](#conversion_interpretation)的介绍，
 这个模型是模型转换工具链将浮点模型经过结构优化后，通过校准数据计算得到的每个节点对应的量化参数并将其保存在校准节点中得到的中间产物。
@@ -1014,28 +1014,28 @@ Missing keys: 'caffe_model', 'prototxt'
 \*\*\*_optimized_float_model.onnx的产出过程可以参考[**转换内部过程解读**](#conversion_interpretation) 的介绍，
 这个模型经过一些算子级别的优化操作，常见的就是算子融合。
 通过与original_float模型的可视化对比，您可以明显看到一些算子结构级别的变化，不过这些都不影响模型的计算精度。
-一般情况下，您不需要使用这个模型，若在转换结果出现异常时，通过上文介绍的定位方法仍不能解决您的问题，请将这个模型提供给地平线的技术支持团队或在[**地平线官方技术社区**](https://developer.horizon.ai/)提出您的问题，将有助于帮助您快速解决问题。
+一般情况下，您不需要使用这个模型，若在转换结果出现异常时，通过上文介绍的定位方法仍不能解决您的问题，请将这个模型提供给D-Robotics 的技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，将有助于帮助您快速解决问题。
 
 \*\*\*_quantized_model.onnx的产出过程可以参考[**转换内部过程解读**](#conversion_interpretation) 的介绍，
 这个模型已经完成了校准和量化过程，量化后的模型精度损失情况，可以阅读下文模型精度分析与调优内容来评估此模型。
 这个模型是精度验证过程中必须要使用的模型，具体使用方式请参考[**模型精度分析与调优**](#accuracy_evaluation)的介绍。
 
-\*\*\*.bin就是可以用于在地平线处理器上加载运行的模型，
+\*\*\*.bin就是可以用于在D-Robotics 处理器上加载运行的模型，
 配合 上板运行(runtime)应用开发说明 章节介绍的内容，
-您就可以将模型快速在地平线处理器上部署运行。不过为了确保模型的性能与精度效果是符合您的预期的，
+您就可以将模型快速在D-Robotics 处理器上部署运行。不过为了确保模型的性能与精度效果是符合您的预期的，
 我们建议完成[**模型转换**](#model_conversion)和[**模型精度分析与调优**](#accuracy_evaluation)
 介绍的性能和精度分析过程后再进入到应用开发和部署。
 
 :::caution 注意
 
-  通常在模型转换阶段完成后就可以得到在地平线处理器上运行的模型，但是为了确保您得到的模型性能和精度都是符合应用要求的，地平线建议每次转换后都完成后续的性能评估与精度评估步骤。
+  通常在模型转换阶段完成后就可以得到在D-Robotics 处理器上运行的模型，但是为了确保您得到的模型性能和精度都是符合应用要求的，D-Robotics 建议每次转换后都完成后续的性能评估与精度评估步骤。
 
   模型转换过程会生成onnx模型, 该模型均为中间产物, 只是便于用户验证模型精度情况, 因此不保证其在版本间的兼容性。 若使用示例中的评测脚本对onnx模型进行单张图片评测或在测试集上评测时, 请用当前版本工具重新生成的onnx模型进行操作。
 :::
 
 ### 模型性能分析{#performance_evaluation}
 
-本节介绍如何使用地平线提供的工具来评估模型性能，使用这些工具可以得到与实际上板执行基本一致的性能效果，如果发现评估结果不符合预期，建议您尽量根据地平线提供的优化建议解决性能问题，不要将模型的性能问题延伸到应用开发阶段。
+本节介绍如何使用D-Robotics 提供的工具来评估模型性能，使用这些工具可以得到与实际上板执行基本一致的性能效果，如果发现评估结果不符合预期，建议您尽量根据D-Robotics 提供的优化建议解决性能问题，不要将模型的性能问题延伸到应用开发阶段。
 
 #### 开发机评测性能{#hb_perf}
 
@@ -1299,7 +1299,7 @@ Perf result:
 
 #### 模型性能优化
 
-通过以上性能分析结果，您可能发现模型性能结果不及预期，本章节内容介绍地平线对提升模型性能的建议与措施，包括检查yaml配置参数、处理CPU算子、高性能模型设计建议、使用地平线平台友好结构&模型几个方面。
+通过以上性能分析结果，您可能发现模型性能结果不及预期，本章节内容介绍D-Robotics 对提升模型性能的建议与措施，包括检查yaml配置参数、处理CPU算子、高性能模型设计建议、使用D-Robotics 平台友好结构&模型几个方面。
 
 :::caution 注意
   本章节中部分修改建议可能会影响原始浮点模型的参数空间，因此需要您重训模型，为了避免在性能调优过程中反复调整并训练模型，建议您在得到满意模型性能前，使用随机参数导出模型来验证性能。
@@ -1376,11 +1376,11 @@ Perf result:
 出现这种情况时，表明模型已经使用了所有的BPU的计算器件，因此下一步的可以提升计算资源的利用率来进行性能优化。
 因为每种处理器都有自己的硬件特性，算法模型的计算参数是否很好地符合了相应的硬件特性，这些直接决定了模型的计算资源利用率，符合度越高则利用率越高，反之则越低。
 
-本节内容重点介绍地平线处理器的硬件特性：地平线提供的是旨在加速CNN（卷积神经网络）的处理器，主要的计算资源都集中在处理各种卷积计算；建议您的模型是以卷积计算为主的模型，因为卷积之外的算子都会导致计算资源的利用率降低，不同OP的造成的性能影响程度不一样。
+本节内容重点介绍D-Robotics 处理器的硬件特性：D-Robotics 提供的是旨在加速CNN（卷积神经网络）的处理器，主要的计算资源都集中在处理各种卷积计算；建议您的模型是以卷积计算为主的模型，因为卷积之外的算子都会导致计算资源的利用率降低，不同OP的造成的性能影响程度不一样。
 
 - **其他建议**
 
-  地平线处理器上的 ``depthwise convolution`` 的计算效率接近100%，所以对于 ``MobileNet类`` 的模型，BPU具有效率优势。
+  D-Robotics 处理器上的 ``depthwise convolution`` 的计算效率接近100%，所以对于 ``MobileNet类`` 的模型，BPU具有效率优势。
 
   建议您在模型设计时，尽量让模型BPU段的输入输出维度降低，以减少量化、反量化节点的耗时和硬件的带宽压力。
   以典型的分割模型为例，建议将Argmax算子直接合入模型本身，但需注意，只有满足以下条件，Argmax才支持BPU加速：
@@ -1390,16 +1390,16 @@ Perf result:
 
 - **BPU面向高效率模型优化**
 
-  地平线处理器的BPU对于 ``Depthwise Convolution`` 和 ``Group Convolution`` 都做了针对性的优化，所以我们更推荐采用Depthwise+Pointwise 结构的MobileNetv2、EfficientNet_lite， 以及地平线基于 GroupConv 手工设计自研的 VarGNet 作为模型的 Backbone，以便获得更高的性能收益。
+  D-Robotics 处理器的BPU对于 ``Depthwise Convolution`` 和 ``Group Convolution`` 都做了针对性的优化，所以我们更推荐采用Depthwise+Pointwise 结构的MobileNetv2、EfficientNet_lite， 以及D-Robotics 基于 GroupConv 手工设计自研的 VarGNet 作为模型的 Backbone，以便获得更高的性能收益。
 
   更多的模型结构和业务模型都在持续探索中，我们将提供更加丰富的模型给您作为直接的参考，这些产出将不定期更新至 https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master。
-  如果以上依然不能满足您的需要，欢迎在[**地平线官方技术社区**](https://developer.horizon.ai)发帖与我们取得联系，我们将根据您的具体问题提供更具针对性的指导建议。
+  如果以上依然不能满足您的需要，欢迎在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc)发帖与我们取得联系，我们将根据您的具体问题提供更具针对性的指导建议。
 
 
 ### 模型精度分析{#accuracy_evaluation}
 
 基于几十或上百张校准数据实现浮点模型到定点模型转换的PTQ后量化方式，不可避免地会存在一定的精度损失。
-地平线的PTQ转换工具经过大量实际使用经验验证，在筛选出最优的量化参数组合时，大部分情况下，都可以将模型的精度损失保持在 ``1%`` 以内。
+D-Robotics 的PTQ转换工具经过大量实际使用经验验证，在筛选出最优的量化参数组合时，大部分情况下，都可以将模型的精度损失保持在 ``1%`` 以内。
 
 本节先介绍如何正确地进行模型精度分析，如果通过评估发现不及预期，则可以参考 **精度调优** 小节的内容进行模型精度调优。
 
@@ -1412,18 +1412,18 @@ Perf result:
 - \*\*\*_quantized_model.onnx
 - \*\*\*.bin
 
-虽然最后的bin模型才是部署到地平线处理器上的模型，但考虑到方便在Ubuntu/CentOS开发机上快速得到模型精度，我们同时支持使用 \*\*\*_quantized_model.onnx 来完成模型的精度测试； \*\*\*_quantized_model.onnxquantized模型和X3处理器运行的bin模型具有一致的精度效果。
+虽然最后的bin模型才是部署到D-Robotics 处理器上的模型，但考虑到方便在Ubuntu/CentOS开发机上快速得到模型精度，我们同时支持使用 \*\*\*_quantized_model.onnx 来完成模型的精度测试； \*\*\*_quantized_model.onnxquantized模型和X3处理器运行的bin模型具有一致的精度效果。
 
-建议您使用地平线开发库加载ONNX模型来完成推理，基本流程如下所示：
+建议您使用D-Robotics 开发库加载ONNX模型来完成推理，基本流程如下所示：
 
 :::caution 注意
   1. 示例代码不仅适用于quantized模型，对original和optimized模型同样适用，可以根据不同模型的输入类型和layout要求准备数据进行模型推理。
 
-  2. 建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的精度验证方法: ``04_inference.sh`` 和 ``postprocess.py`` 。
+  2. 建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的精度验证方法: ``04_inference.sh`` 和 ``postprocess.py`` 。
 :::
 
 ```
-# 加载地平线依赖库
+# 加载D-Robotics 依赖库
 from horizon_tc_ui import HB_ONNXRuntime
 
 # 准备模型运行的feed_dict
@@ -1482,7 +1482,7 @@ if __name__ == '__main__':
 3. 按通道减mean。
 4. 数据乘以scale系数。
 
-使用地平线转换这个原始浮点模型时，
+使用D-Robotics 转换这个原始浮点模型时，
 ``input_type_train`` 设置 ``bgr``、 ``input_layout_train`` 设置 ``NCHW``、 ``input_type_rt`` 设置 ``bgr``、
 ``input_layout_rt`` 设置 ``NHWC``。
 根据[**转换内部过程解读**](#conversion_interpretation) 部分介绍的规则， \*\*\*_quantized_model.onnx接受的输入应该为bgr_128、NHWC排布。
@@ -1520,10 +1520,10 @@ def your_custom_data_prepare_sample(image_file):
 基于前文的精度分析工作，如果确定模型的量化精度不符合预期，则主要可分为以下两种情况进行解决：
 
 - 1. 精度有较明显损失（损失大于4%）。
-  这种问题往往是由于yaml配置不当，校验数据集不均衡等导致的，建议根据地平线接下来提供的建议逐一排查。
+  这种问题往往是由于yaml配置不当，校验数据集不均衡等导致的，建议根据D-Robotics 接下来提供的建议逐一排查。
 
 - 2. 精度损失较小（1.5%~3%）。
-  排除1导致的精度问题后，如果仍然出现精度有小幅度损失，往往是由于模型自身的敏感性导致，建议使用地平线提供的精度调优工具进行调优。
+  排除1导致的精度问题后，如果仍然出现精度有小幅度损失，往往是由于模型自身的敏感性导致，建议使用D-Robotics 提供的精度调优工具进行调优。
 
 - 3. 在尝试1和2后，如果精度仍无法满足预期，可以尝试使用我们提供的精度debug工具进行进一步尝试。
 
@@ -1554,13 +1554,13 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
 - 未正确指定 ``read_mode``：02_preprocess.sh中可通过--read_mode参数指定读图方式，支持 ``opencv`` 及 ``skimage``。
   此外preprocess.py中亦是通过imread_mode参数设定读图方式，也需要做出修改。使用 skimage的图片读取，得到的是 ``RGB`` 通道顺序，取值范围为 ``0~1``，数值类型为 ``float``； 而使用 opencv，得到的是 ``BGR`` 通道顺序，取值范围为 ``0~255``，数据类型为 ``uint8``。
 
-- 校准数据集的存储格式设置不正确：目前地平线采用的是 ``numpy.tofile`` 来保存校准数据，这种方式不会保存shape和类型信息；如果input_type_train为 ``非featuremap`` 格式，则会通过校准数据存放路径是否包含 “f32” 来判断数据dtype，若包含f32关键字，则按float32解析数据；反之则按uint8解析数据。
+- 校准数据集的存储格式设置不正确：目前D-Robotics 采用的是 ``numpy.tofile`` 来保存校准数据，这种方式不会保存shape和类型信息；如果input_type_train为 ``非featuremap`` 格式，则会通过校准数据存放路径是否包含 “f32” 来判断数据dtype，若包含f32关键字，则按float32解析数据；反之则按uint8解析数据。
   此外，为方便用户设置校准数据的解析方式，在X3算法工具链v2.2.3a版本之后，在yaml中新增了参数 ``cal_data_type`` 来设置二进制文件的数据存储类型。
 
-- transformer实现方式不一致：地平线提供了一系列常见预处理函数，存放在 ``/horizon_model_convert_sample/01_common/python/data/transformer.py`` 文件中，部分预处理操作的实现方式可能会有所区别，例如ResizeTransformer，采用的是opencv默认插值方式（linear），
+- transformer实现方式不一致：D-Robotics 提供了一系列常见预处理函数，存放在 ``/horizon_model_convert_sample/01_common/python/data/transformer.py`` 文件中，部分预处理操作的实现方式可能会有所区别，例如ResizeTransformer，采用的是opencv默认插值方式（linear），
   若为其他插值方式可直接修改transformer.py源码，确保与训练时预处理代码保持一致, 具体使用请参考[**transformer使用方法**](../../common_questions/toolchain#transposetransformer)章节内容。
 
-- 建议您在地平线算法工具链使用过程中，依然使用原始浮点模型训练验证阶段依赖的数据处理库。
+- 建议您在D-Robotics 算法工具链使用过程中，依然使用原始浮点模型训练验证阶段依赖的数据处理库。
   对于鲁棒性较差的模型，不同库实现的功能resize、crop等典型功能都可能引起扰动，进而影响模型精度。
 
 - 校验图片集是否合理设置。校准图片集数量应该在 ``一百张`` 左右，同时最好可以覆盖到数据分布的各种场合，例如在多任务或多分类时，校验图片集可以覆盖到各个预测分支或者各个类别。
@@ -1594,7 +1594,7 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
 
 - 指定算子运行在 CPU 上请通过yaml文件中的 ``run_on_cpu`` 参数，通过指定节点名称将对应算子运行在cpu上（参考示例：run_on_cpu: conv_0）。
 
-- 若run_on_cpu之后模型编译报错，请联系地平线技术支持团队。
+- 若run_on_cpu之后模型编译报错，请联系D-Robotics 技术支持团队。
 
 
 ##### 精度Debug工具
@@ -1618,7 +1618,7 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
 
 2. 模型中各个节点的误差累积导致模型整体出现较大的校准误差，主要包含：权重量化导致的误差累积、激活量化导致的误差累积以及全量量化导致的误差累积。
 
-针对该情况，地平线提供了精度debug工具用以协助您自主定位模型量化过程中产生的精度问题。
+针对该情况，D-Robotics 提供了精度debug工具用以协助您自主定位模型量化过程中产生的精度问题。
 该工具能够协助您对校准模型进行节点粒度的量化误差分析，最终帮助您快速定位出现精度异常的节点。
 
 精度debug工具提供多种分析功能供您使用，例如：
@@ -2383,7 +2383,7 @@ runall流程：
 
 根据以往的使用调优经验，以上策略已经可以应对各种实际问题。
 
-如果经过以上尝试仍然未能解决您的问题，请根据[**精度调优checklist**](../../common_questions/toolchain#checklist)文档步骤填写模型配置的具体信息来进行检查，确保每一步排查都已完成，并根据checklist锁定是在模型转换的那个具体步骤出现异常，然后将填写完整的 **精度调优checklist** 信息、原始f浮点模型文件、模型量化相关的配置文件等一起反馈给地平线技术支持团队或在[**地平线官方技术社区**](https://developer.horizon.ai/)提出您的问题，我们将在24小时内给您提供支持。
+如果经过以上尝试仍然未能解决您的问题，请根据[**精度调优checklist**](../../common_questions/toolchain#checklist)文档步骤填写模型配置的具体信息来进行检查，确保每一步排查都已完成，并根据checklist锁定是在模型转换的那个具体步骤出现异常，然后将填写完整的 **精度调优checklist** 信息、原始f浮点模型文件、模型量化相关的配置文件等一起反馈给D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 
 
 ### 其它工具使用说明
@@ -2405,7 +2405,7 @@ runall流程：
 
 #### ``hb_perf`` 工具
 
-``hb_perf`` 是用于分析地平线量化混合模型性能的分析工具。
+``hb_perf`` 是用于分析D-Robotics 量化混合模型性能的分析工具。
 
 - 使用方法
 

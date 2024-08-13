@@ -77,4 +77,4 @@ dtc -I dts -O dtb -o /boot/hobot/hobot-x3-pi.dtb hobot-x3-pi.dts
 注意事项：
 
 - 修改DTB文件可能会影响您的系统的稳定性和安全性。在修改DTB文件之前，请确保您了解您要更改的内容的含义，并备份原始DTB文件以防止意外错误。
-- /boot/hobot/ 下文件由地平线软件包管理，如果升级了系统软件，则用户的修改会被重置为默认配置（672MB）
+- /boot/hobot/ 下文件由D-Robotics 软件包管理，如果升级了系统软件，则用户的修改会被重置为默认配置（672MB）

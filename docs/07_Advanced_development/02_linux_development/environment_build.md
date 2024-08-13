@@ -72,7 +72,7 @@ python get-pip.py
 执行以下命令下载交叉编译工具链：
 
 ```shell
-curl -fO https://sunrise.horizon.cc/toolchain/gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu.tar.xz
+curl -fO https://archive.d-robotics.cc/toolchain/gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu.tar.xz
 ```
 
 解压并安装，建议安装到/opt目录下，通常向/opt目录写数据需要sudo权限，例如:
@@ -94,12 +94,12 @@ export ARCH=arm64
 
 ## 编译环境源码(rdk-gen)
 
-rdk-gen用于构建适用于地平线RDK X3的定制操作系统镜像。它提供了一个可扩展的框架，允许用户根据自己的需求定制和构建RDK X3的Ubuntu操作系统。
+rdk-gen用于构建适用于D-Robotics RDK X3的定制操作系统镜像。它提供了一个可扩展的框架，允许用户根据自己的需求定制和构建RDK X3的Ubuntu操作系统。
 
 下载源码：
 
 ```shell
-git clone https://github.com/HorizonRDK/rdk-gen.git
+git clone https://github.com/D-Robotics/rdk-gen.git
 ```
 
 下载完成后，rdk-gen的目录结构如下：
@@ -108,7 +108,7 @@ git clone https://github.com/HorizonRDK/rdk-gen.git
 | ------------------------- | ------------------------------------------------------------ |
 | pack_image.sh             | 构建系统镜像的代码入口                                       |
 | download_samplefs.sh      | 下载预先制作的基础ubuntu文件系统                       |
-| download_deb_pkgs.sh      | 下载地平线的deb软件包，需要预装到系统镜像中，包括内核、多媒体库、示例代码、tros.bot等 |
+| download_deb_pkgs.sh      | 下载D-Robotics 的deb软件包，需要预装到系统镜像中，包括内核、多媒体库、示例代码、tros.bot等 |
 | hobot_customize_rootfs.sh | 定制化修改ubuntu文件系统                               |
 | source_sync.sh            | 下载源码，包括bootloader、uboot、kernel、示例代码等源码      |
 | mk_kernel.sh              | 编译内核、设备树和驱动模块                                   |
@@ -129,14 +129,14 @@ sudo ./pack_image.sh
 
 ### pack_image.sh 编译过程介绍
 
-1. 调用 download_samplefs.sh 和 download_deb_pkgs.sh 两个脚本从地平线的文件服务器上下载samplefs和需要预装的deb软件包
+1. 调用 download_samplefs.sh 和 download_deb_pkgs.sh 两个脚本从D-Robotics 的文件服务器上下载samplefs和需要预装的deb软件包
 2. 解压samplefs，并调用 hobot_customize_rootfs.sh 脚本对filesystem做定制化配置
 3. 把deb安装进filesystem
 4. 生成系统镜像，参考 [安装系统](../installation/install_os) 使用系统镜像
 
 ## 下载源代码
 
-只运行`pack_image.sh`编译系统镜像是不需要下载源代码的，因为`pack_image.sh`会从地平线的文件服务器上下载官方的debian软件包直接安装进系统，只有当您需要修改debian软件包的内容，重新制作自定义软件包的时候才需要下载源代码。
+只运行`pack_image.sh`编译系统镜像是不需要下载源代码的，因为`pack_image.sh`会从D-Robotics 的文件服务器上下载官方的debian软件包直接安装进系统，只有当您需要修改debian软件包的内容，重新制作自定义软件包的时候才需要下载源代码。
 
 rdk-linux相关的linux内核、bootloader、hobot-xxx软件包源码都托管在 [GitHub](https://github.com/)上。在下载代码前，请先注册、登录  [GitHub](https://github.com/)，并通过 [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) 方式添加开发服务器的`SSH Key`到用户设置中。
 
@@ -205,7 +205,7 @@ dtb  Image  Image.lz4  kernel_headers  modules
 
 ## 编译hobot-xxx软件包
 
-hobot-xxx软件包是地平线维护的debian软件包的源码和配置，下载源码后，可以执行 `mk_debs.sh` 重新构建debian包。
+hobot-xxx软件包是D-Robotics 维护的debian软件包的源码和配置，下载源码后，可以执行 `mk_debs.sh` 重新构建debian包。
 
 帮助信息如下：
 
@@ -248,8 +248,8 @@ image/environment_build/image-20221102173111002.jpg)
 | **hobot-camera_xxx.deb**             | 适配的camera sensor的驱动和isp参数库                         |
 | **hobot-dnn_xxx.deb**                | 所有与算法相关的 运行库和头文件                              |
 | **hobot-io_xxx.deb**                 | 40Pin管脚使用的接口和头文件（Python语言实现）                |
-| **hobot-configs_xxx.deb**            | 地平线的自定义系统配置内容：udev配置、apt source配置、网络、蓝牙、usb配置、自启动项配置等 |
-| **hobot-utils_xxx.deb**              | 地平线官方提供的常用命令集                                   |
+| **hobot-configs_xxx.deb**            | D-Robotics 的自定义系统配置内容：udev配置、apt source配置、网络、蓝牙、usb配置、自启动项配置等 |
+| **hobot-utils_xxx.deb**              | D-Robotics 官方提供的常用命令集                                   |
 | **hobot-display_xxx.deb**            | 图像显示相关，Hdmi、LCD显示的配置                            |
 | **hobot-wifi_xxx.deb**               | Wi-Fi 和蓝牙模块的配置                                       |
 | **hobot-kernel-headers_xxx.deb**     | 内核编译后的配置文件和头文件，用于支持用户单独编译内核驱动   |
@@ -277,7 +277,7 @@ image/environment_build/image-20221102173111002.jpg)
 
 ### 使用自定义的debian包
 
-`pack_image.sh`不带参数运行时，默认从地平线文件服务器上下载最新发布的debian软件包安装进系统，如果您修改了同名软件包，则需要跳过从文件服务器上下载debian包的过程，可以在执行 `pack_image.sh`命令时带上任意选项参数即可，如以下命令则不会重新下载debian包，把自己做的包替换原来下载好的软件包后重新打包即可，例如您重新生成了`hobot-boot`，命名为 `hobot-boot_2.0.0-customer_arm64.deb`, 则用该文件替换`deb_packages`目录下的`hobot-boot-xxx_arm64.deb`文件。
+`pack_image.sh`不带参数运行时，默认从D-Robotics 文件服务器上下载最新发布的debian软件包安装进系统，如果您修改了同名软件包，则需要跳过从文件服务器上下载debian包的过程，可以在执行 `pack_image.sh`命令时带上任意选项参数即可，如以下命令则不会重新下载debian包，把自己做的包替换原来下载好的软件包后重新打包即可，例如您重新生成了`hobot-boot`，命名为 `hobot-boot_2.0.0-customer_arm64.deb`, 则用该文件替换`deb_packages`目录下的`hobot-boot-xxx_arm64.deb`文件。
 
 ```shell
 sudo ./pack_image.sh c
@@ -289,7 +289,7 @@ sudo ./pack_image.sh c
 
 `bootloader`源码用于生成最小启动镜像`disk_xxx_miniboot.img`，生成包含分区表、spl、ddr、bl31、uboot一体的启动固件。
 
-RDK X3的最小启动镜像一般会由地平线官方进行维护发布，可以从 [miniboot](https://sunrise.horizon.cc/downloads/miniboot/) 下载对应的版本，如果没有对uboot有修改需求可以直接使用官方发布的镜像。
+RDK X3的最小启动镜像一般会由D-Robotics 官方进行维护发布，可以从 [miniboot](https://archive.d-robotics.cc/downloads/miniboot/) 下载对应的版本，如果没有对uboot有修改需求可以直接使用官方发布的镜像。
 
 按照以下步骤重新编译生成`miniboot`。
 
@@ -381,7 +381,7 @@ cd build
 
 ## Ubuntu 文件系统制作
 
-本章节介绍如何制作 `samplefs_desktop-v2.0.0.tar.gz` 文件系统，地平线会维护该文件系统，如果有定制化需求，则需按照本章说明重新制作。
+本章节介绍如何制作 `samplefs_desktop-v2.0.0.tar.gz` 文件系统，D-Robotics 会维护该文件系统，如果有定制化需求，则需按照本章说明重新制作。
 
 ### 环境配置
 
@@ -431,7 +431,7 @@ parted命令是由GNU组织开发的一款功能强大的磁盘分区和分区�
 下载`rdk-gen`源码：
 
 ```shell
-git clone https://github.com/HorizonRDK/rdk-gen.git
+git clone https://github.com/D-Robotics/rdk-gen.git
 ```
 
 执行以下命令生成ubuntu文件系统：
@@ -491,4 +491,4 @@ rootfs/                                    # 解压 samplefs_desktop-v2.0.0.tar.
 
 **DESKTOP_PACKAGE_LIST**: 支持桌面图形化界面需要安装的软件包
 
-地平线官方维护的 `samplefs_desktop` 文件系统会包含以上所有配置包的内容，用户可以根据自己的需求进行增、删。
+D-Robotics 官方维护的 `samplefs_desktop` 文件系统会包含以上所有配置包的内容，用户可以根据自己的需求进行增、删。

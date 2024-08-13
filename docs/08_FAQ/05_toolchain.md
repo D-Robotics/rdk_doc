@@ -30,7 +30,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是使用的CPU算子为地平线不支持的CPU算子。 针对此错误，您可以根据我们提供的算子支持列表中的内容对算子进行替换；若不被支持的CPU算子为模型核心算子，请您联系地平线对此进行开发评估。
+- 发生此错误的原因可能是使用的CPU算子为D-Robotics 不支持的CPU算子。 针对此错误，您可以根据我们提供的算子支持列表中的内容对算子进行替换；若不被支持的CPU算子为模型核心算子，请您联系D-Robotics 对此进行开发评估。
 
 <font color='Blue'>【问题】</font> 
 
@@ -42,7 +42,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是使用的BPU算子为地平线不支持的BPU算子。针对此错误，若模型整体性能可满足需要，您可以忽略该日志；若模型整体性能不能达到您的预期，您可以根据我们提供的算子支持列表中的内容对算子进行替换。
+- 发生此错误的原因可能是使用的BPU算子为D-Robotics 不支持的BPU算子。针对此错误，若模型整体性能可满足需要，您可以忽略该日志；若模型整体性能不能达到您的预期，您可以根据我们提供的算子支持列表中的内容对算子进行替换。
 
 <font color='Blue'>【问题】</font> 
 
@@ -54,7 +54,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是使用的自定义算子为地平线不支持的自定义算子。针对此错误，您可以根据我们提供的算子支持列表中的内容对算子进行替换或参考自定义算子开发完成自定义CPU算子注册。
+- 发生此错误的原因可能是使用的自定义算子为D-Robotics 不支持的自定义算子。针对此错误，您可以根据我们提供的算子支持列表中的内容对算子进行替换或参考自定义算子开发完成自定义CPU算子注册。
 
 
 #### hb_mapper makertbin (03_build.sh) 模型转换错误
@@ -96,7 +96,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是，`{op_name}`算子优化失败。针对此错误，请您将模型以及.log文件收集好后提供给地平线技术人员进行分析处理。
+- 发生此错误的原因可能是，`{op_name}`算子优化失败。针对此错误，请您将模型以及.log文件收集好后提供给D-Robotics 技术人员进行分析处理。
 
 <font color='Blue'>【问题】</font> 
 
@@ -108,7 +108,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是该算子onnxruntime暂未支持。针对此错误，您可以根据我们提供的算子支持列表中的内容对算子进行替换，如不被支持的算子为核心算子，请您联系地平线对此进行开发评估。
+- 发生此错误的原因可能是该算子onnxruntime暂未支持。针对此错误，您可以根据我们提供的算子支持列表中的内容对算子进行替换，如不被支持的算子为核心算子，请您联系D-Robotics 对此进行开发评估。
 
 <font color='Blue'>【问题】</font> 
 
@@ -148,7 +148,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是模型量化/编译失败。针对此错误，请您将模型以及.log文件收集好后提供给地平线技术人员进行分析处理。
+- 发生此错误的原因可能是模型量化/编译失败。针对此错误，请您将模型以及.log文件收集好后提供给D-Robotics 技术人员进行分析处理。
 
 <font color='Blue'>【问题】</font> 
 
@@ -160,7 +160,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是onnx模型的输入shape非法，或者是工具优化pass有误。针对此错误，请您确保onnx模型的有效性，若onnx模型可正常推理，请将模型提供给地平线技术人员进行分析处理。
+- 发生此错误的原因可能是onnx模型的输入shape非法，或者是工具优化pass有误。针对此错误，请您确保onnx模型的有效性，若onnx模型可正常推理，请将模型提供给D-Robotics 技术人员进行分析处理。
 
 <font color='Blue'>【问题】</font> 
 
@@ -184,7 +184,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是模型编译失败。针对此错误，请您将模型以及.log文件收集好后提供给地平线技术人员进行分析处理。
+- 发生此错误的原因可能是模型编译失败。针对此错误，请您将模型以及.log文件收集好后提供给D-Robotics 技术人员进行分析处理。
 
 <font color='Blue'>【问题】</font> 
 
@@ -208,7 +208,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是工具链暂不支持op的该属性。针对此错误，您可以根据我们提供的算子支持列表中的内容进行替换或联系地平线对此进行开发评估。
+- 发生此错误的原因可能是工具链暂不支持op的该属性。针对此错误，您可以根据我们提供的算子支持列表中的内容进行替换或联系D-Robotics 对此进行开发评估。
 
 <font color='Blue'>【问题】</font> 
 
@@ -220,7 +220,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是模型中没有可量化的BPU节点。针对此错误，请您确保onnx模型的有效性，且模型中至少使用了一个conv；若前述条件均已满足，请您将模型以及.log文件收集好后提供给地平线技术人员进行分析处理。
+- 发生此错误的原因可能是模型中没有可量化的BPU节点。针对此错误，请您确保onnx模型的有效性，且模型中至少使用了一个conv；若前述条件均已满足，请您将模型以及.log文件收集好后提供给D-Robotics 技术人员进行分析处理。
 
 <font color='Blue'>【问题】</font> 
 
@@ -256,7 +256,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是目前暂不支持将该算子run_on_bpu。``run_on_bpu`` 暂仅支持指定模型尾部的 ``Relu/Softmax/pooling（maxpool、avgpool等）`` 算子以及CPU*+Transpose组合（可通过声明 ``Transpose`` 节点名称，将 ``CPU*+Transpose`` 都运行在BPU上，CPU*特指BPU支持的op），若满足前述条件但仍 ``run_on_bpu`` 失败，请您联系地平线技术人员对此进行分析处理；若不满足前述条件，可联系地平线技术人员对此进行开发评估。
+- 发生此错误的原因可能是目前暂不支持将该算子run_on_bpu。``run_on_bpu`` 暂仅支持指定模型尾部的 ``Relu/Softmax/pooling（maxpool、avgpool等）`` 算子以及CPU*+Transpose组合（可通过声明 ``Transpose`` 节点名称，将 ``CPU*+Transpose`` 都运行在BPU上，CPU*特指BPU支持的op），若满足前述条件但仍 ``run_on_bpu`` 失败，请您联系D-Robotics 技术人员对此进行分析处理；若不满足前述条件，可联系D-Robotics 技术人员对此进行开发评估。
 
 <font color='Blue'>【问题】</font> 
 
@@ -280,7 +280,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是，环境配置不正确。请使用地平线提供的docker环境进行量化。
+- 发生此错误的原因可能是，环境配置不正确。请使用D-Robotics 提供的docker环境进行量化。
 
 <font color='Blue'>【问题】</font> 
 
@@ -367,7 +367,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是libDNN暂不支持该op的某个属性。针对此错误，您可以根据我们提供的算子支持列表中的内容进行替换或联系地平线对此进行开发评估。
+- 发生此错误的原因可能是libDNN暂不支持该op的某个属性。针对此错误，您可以根据我们提供的算子支持列表中的内容进行替换或联系D-Robotics 对此进行开发评估。
 
 <font color='Blue'>【问题】</font> 
 
@@ -379,7 +379,7 @@ sidebar_position: 5
 <font color='Green'>【解答】</font> 
 
 
-- 发生此错误的原因可能是libDNN暂不支持该输入类型（后续我们将逐步把算子约束前移至模型转换阶段提醒）。针对此错误，您可以根据我们提供的算子支持列表中的内容进行替换或联系地平线对此进行开发评估。
+- 发生此错误的原因可能是libDNN暂不支持该输入类型（后续我们将逐步把算子约束前移至模型转换阶段提醒）。针对此错误，您可以根据我们提供的算子支持列表中的内容进行替换或联系D-Robotics 对此进行开发评估。
 
 <font color='Blue'>【问题】</font> 
 
@@ -414,7 +414,7 @@ sidebar_position: 5
 
 在文档内容开始阅读前，以下内容请您注意：
 
--  图片数据为 ``三维数据``，但地平线提供的transformer都是以 ``四维数据`` 的方式来进行获取和处理的，transformer只会对输入数据中的 ``第0张`` 图片做该操作。
+-  图片数据为 ``三维数据``，但D-Robotics 提供的transformer都是以 ``四维数据`` 的方式来进行获取和处理的，transformer只会对输入数据中的 ``第0张`` 图片做该操作。
 
 ##### AddTransformer
 
@@ -1289,7 +1289,7 @@ YUV_BT601_Video_Range，某些摄像头输入数据都是YUV BT601(Video Range)�
 
       在使用export.py脚本时，请注意：
 
-      1. 由于地平线AI工具链支持的ONNX opset版本为 ``10`` 和 ``11``，请将 ``torch.onnx.export`` 的 ``opset_version`` 参数根据您要使用的版本进行修改。
+      1. 由于D-Robotics AI工具链支持的ONNX opset版本为 ``10`` 和 ``11``，请将 ``torch.onnx.export`` 的 ``opset_version`` 参数根据您要使用的版本进行修改。
       2. 将 ``torch.onnx.export`` 部分的默认输入名称参数由 ``'images'`` 
          改为 ``'data'``，与模型转换示例包的YOLOv5x示例脚本保持一致。
       3. 将 ``parser.add_argument`` 部分中默认的数据输入尺寸640x640改为模型转换示例包YOLOv5x示例中的672x672。
@@ -1350,11 +1350,11 @@ YUV_BT601_Video_Range，某些摄像头输入数据都是YUV BT601(Video Range)�
 
 由于HzPreprocess节点的存在，会使得转换后的模型其预处理操作可能会和原始模型有所不同，该算子是在进行模型转换时，根据yaml配置文件中的配置参数（input_type_rt、input_type_train以及norm_type、mean_value、scale_value）来决定是否为模型加入HzPreprocess节点，预处理节点的生成细节，请参考PTQ原理及步骤详解章节的 ``norm_type 配置参数说明`` 内容，另外预处理节点会出现在转换过程产生的所有产物中。
 
-理想状态下，这个HzPreprocess节点应该完成 input_type_rt 到 input_type_train 的完整转换， 但实际情况是整个type转换过程需要使用地平线AI芯片硬件完成，但ONNX模型里面并没有包含硬件转换的部分，因此ONNX的真实输入类型会使用一种中间类型，这种中间类型就是硬件对 input_type_rt 的处理结果类型， 故针对图像输入数据类型为：RGB/BGR/NV12/YUV444/GRAY，并且数据dtype= uint8的模型时，在预处理代码中需要做 ``-128`` 的操作，``featuremap`` 数据类型因为使用的是float32，因此预处理代码中 ``不需要-128`` 的操作； original_float.onnx的数据layout(NCHW/NHWC)会保持和原始浮点模型的输入layout一致。 
+理想状态下，这个HzPreprocess节点应该完成 input_type_rt 到 input_type_train 的完整转换， 但实际情况是整个type转换过程需要使用D-Robotics AI芯片硬件完成，但ONNX模型里面并没有包含硬件转换的部分，因此ONNX的真实输入类型会使用一种中间类型，这种中间类型就是硬件对 input_type_rt 的处理结果类型， 故针对图像输入数据类型为：RGB/BGR/NV12/YUV444/GRAY，并且数据dtype= uint8的模型时，在预处理代码中需要做 ``-128`` 的操作，``featuremap`` 数据类型因为使用的是float32，因此预处理代码中 ``不需要-128`` 的操作； original_float.onnx的数据layout(NCHW/NHWC)会保持和原始浮点模型的输入layout一致。 
 
 可参考如下示例代码步骤，来确认 original_float.onnx 模型的推理的步骤、数据预处理、后处理代码是否正确！
 
-**数据预处理部分建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法**
+**数据预处理部分建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法**
 
 ```python
 
@@ -1399,7 +1399,7 @@ YUV_BT601_Video_Range，某些摄像头输入数据都是YUV BT601(Video Range)�
 
 optimize_float.onnx模型的推理可参考如下示例代码步骤，来确认 optimize_float.onnx 模型的推理的步骤、数据预处理、后处理代码是否正确！
 
-**数据预处理部分建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法**
+**数据预处理部分建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法**
 
 ```python
 
@@ -1444,7 +1444,7 @@ optimize_float.onnx模型的推理可参考如下示例代码步骤，来确认 
 
 quantized.onnx模型的推理可参考如下示例代码步骤，来确认 quantized.onnx 模型的推理的步骤、数据预处理、后处理代码是否正确！
 
-**数据预处理部分建议参考使用地平线模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法**
+**数据预处理部分建议参考使用D-Robotics 模型转换 ``horizon_model_convert_sample`` 示例包中的caffe、onnx等示例模型的预处理步骤方法**
 
 ```python
 
@@ -1489,7 +1489,7 @@ hb_model_verifier工具（详细介绍可参考）的使用方法，请参考PTQ
 
 若模型一致性校验通过，则请仔细检查开发板端的前、后处理代码！
 
-若quantized.onnx与.bin模型一致性校验失败，请联系地平线技术人员
+若quantized.onnx与.bin模型一致性校验失败，请联系D-Robotics 技术人员
 
 #### 模型量化yaml配置文件模板
 
@@ -1499,7 +1499,7 @@ hb_model_verifier工具（详细介绍可参考）的使用方法，请参考PTQ
 
 ```python
 
-# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+# Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
 # 模型转化相关的参数
 model_parameters:
@@ -1581,7 +1581,7 @@ compiler_parameters:
 
 ```python
 
-# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+# Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
 # 模型转化相关的参数
 model_parameters:
@@ -1659,7 +1659,7 @@ compiler_parameters:
 
 ```python
 
-# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+# Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
 # 模型转化相关的参数
 model_parameters:
@@ -1741,7 +1741,7 @@ compiler_parameters:
 
 ```python
 
-# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+# Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
 # 模型转化相关的参数
 model_parameters:
@@ -1815,7 +1815,7 @@ compiler_parameters:
 
 #### X3多核BPU使用说明
 
-因X3中有2颗BPU核，所以在BPU使用中存在单核模型和双核模型的情况，多核BPU的使用注意事项参考文档：[X3多核BPU的合理使用技巧与建议](https://developer.horizon.ai/forumDetail/136488103547258549)
+因X3中有2颗BPU核，所以在BPU使用中存在单核模型和双核模型的情况，多核BPU的使用注意事项参考文档：[X3多核BPU的合理使用技巧与建议](https://developer.d-robotics.cc/forumDetail/136488103547258549)
 
 #### 定点.bin模型上板多batch使用说明
 

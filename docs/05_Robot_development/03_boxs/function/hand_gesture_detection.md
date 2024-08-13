@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
 
 小车手势控制案例：[小车手势控制](/docs/05_Robot_development/04_apps/car_gesture_control.md)
 
-基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.horizon.cc/forumDetail/112555512834430487)
+基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台
 

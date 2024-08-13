@@ -377,7 +377,7 @@ RDK Ultra开发板提供`CAM 0~3`四组摄像头接口，可以满足4路MIPI Ca
 | 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
 | 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
 
-Camera模组的购买方式可参考社区配件页，[购买链接](https://developer.horizon.cc/accessory)。
+Camera模组的购买方式可参考社区配件页，[购买链接](https://developer.d-robotics.cc/accessory)。
 
 </TabItem>
 
@@ -595,7 +595,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 :::caution 当需要切换电平时，请严格按照下述步骤进行。
 默认情况下，RDK X3 Module核心模组固件、载板电平配置为3.3V，如需要切换IO电平时，需要按如下步骤进行：
 
-1. 下载支持1.8V电平配置的启动固件，[固件下载地址](https://sunrise.horizon.cc/downloads/miniboot)。
+1. 下载支持1.8V电平配置的启动固件，[固件下载地址](https://archive.d-robotics.cc/downloads/miniboot)。
 2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](./system.md)。
 3. 设备断电，使用跳线帽将`vref`、`1.8V`信号短接后重新上电。
 :::

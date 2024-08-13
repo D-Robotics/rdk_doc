@@ -31,7 +31,7 @@ FAIL: After the test is completed, the DUT's functions are damaged or malfunctio
 | Test Script | xj3_ddr_stress.tar.gz | General Stress Testing |
 | Number of DUTs | 5 or more | General Stress Testing |
 
-Download `xj3_ddr_stress_gcc9.3.tar.gz` from the corresponding SDK version directory of [unittest](http://sunrise.horizon.cc/downloads/unittest/)
+Download `xj3_ddr_stress_gcc9.3.tar.gz` from the corresponding SDK version directory of [unittest](http://archive.d-robotics.cc/downloads/unittest/)
 
 ### How to Use the Stress Program
 

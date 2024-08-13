@@ -58,7 +58,7 @@ import TabItem from '@theme/TabItem';
     </Tabs>
 
     ```bash
-    wget http://sunrise.horizon.cc/tts-model/tts_model.tar.gz
+    wget http://archive.d-robotics.cc/tts-model/tts_model.tar.gz
     sudo tar -xf tts_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_tts/
     ```
 
@@ -74,7 +74,7 @@ import TabItem from '@theme/TabItem';
    :::caution
    首次使用音频板需要使用`srpi-config`进行配置，否则无法识别出音频设备。
    
-   配置方法参考RDK用户手册[音频转接板](https://developer.horizon.cc/documents_rdk/hardware_development/rdk_x3/audio_board)章节。
+   配置方法参考RDK用户手册[音频转接板](https://developer.d-robotics.cc/documents_rdk/hardware_development/rdk_x3/audio_board)章节。
    :::
 
 3. 启动hobot_tts程序
@@ -133,7 +133,7 @@ import TabItem from '@theme/TabItem';
   </Tabs>
 
    ```bash
-   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""你知道地平线吗？是的，我知道地平线。它是一条从地面延伸到天空的线，它定义了地面和天空之间的分界线。""}"
+   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""你知道D-Robotics 吗？是的，我知道D-Robotics 。它是一条从地面延伸到天空的线，它定义了地面和天空之间的分界线。""}"
    ```
 
 5. 耳机或音响可以听到播放的声音

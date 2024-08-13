@@ -5,11 +5,11 @@ sidebar_position: 3
 
 ## Installation/Cross-compilation and Usage of Third-party Libraries on RDK
 
-For cross-compilation and deployment, please refer to [Cross-Compilation Environment Setup](https://developer.horizon.cc/forumDetail/112555549341653662)
+For cross-compilation and deployment, please refer to [Cross-Compilation Environment Setup](https://developer.d-robotics.cc/forumDetail/112555549341653662)
 
 ## How to Resolve "Compilation Process Killed" Error during Large Program Compilation?
 
-Refer to [Swap Usage Tutorial](https://developer.horizon.cc/forumDetail/98129467158916281)
+Refer to [Swap Usage Tutorial](https://developer.d-robotics.cc/forumDetail/98129467158916281)
 
 ```shell
 sudo mkdir -p /swapfile 
@@ -278,7 +278,7 @@ Installed-Size: unknown
 Depends: hobot-models-basic, tros-ros-base, tros-ai-msgs, tros-audio-control, tros-audio-msg, tros-audio-tracking, tros-body-tracking, tros-dnn-benchmark-example, tros-dnn-node, tros-dnn-node-example, tros-dnn-node-sample, tros-elevation-net, tros-gesture-control, tros-hand-gesture-detection, tros-hand-lmk-detection, tros-hbm-img-msgs, tros-hobot-app-xrrobot-body-tracking, tros-hobot-app-xrrobot-gesture-control, tros-hobot-codec, tros-hobot-cv, tros-hobot-falldown-detection, tros-hobot-hdmi, tros-hobot-image-publisher, tros-hobot-mot, tros-hobot-usb-cam, tros-image-subscribe-example, tros-img-msgs, tros-imu-sensor, tros-line-follower-model, tros-line-follower-perception, tros-mipi-cam, tros-mono2d-body-detection, tros-mono2d-trash-detection, tros-mono3d-indoor-detection, tros-parking-perception, tros-parking-search, tros-rgbd-sensor, tros-websocket, tros-xrrobot, tros-xrrobot-msgs
 Download-Size: 980 B
 APT-Manual-Installed: yes
-APT-Sources: http://sunrise.horizon.cc/ubuntu-rdk focal/main arm64 Packages
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk focal/main arm64 Packages
 Description: TogetheROS Bot
 
 root@ubuntu:~#
@@ -297,7 +297,7 @@ Solution: Kill the running nginx process on RDK or restart RDK.
 
 ## Only image is displayed in the web browser, no perception result rendering
 
-1. Check if the rendering perception result feature is enabled in the web node startup command. For detailed parameter explanation, refer to the [README of hobot_websocket](https://github.com/HorizonRDK/hobot_websocket#%E5%8F%82%E6%95%B0).
+1. Check if the rendering perception result feature is enabled in the web node startup command. For detailed parameter explanation, refer to the [README of hobot_websocket](https://github.com/D-Robotics/hobot_websocket#%E5%8F%82%E6%95%B0).
 
 2. Check if there are any error logs outputted in the web node startup terminal. If there are any, follow the prompt to troubleshoot.
 
@@ -309,7 +309,7 @@ Solution: Kill the running nginx process on RDK or restart RDK.
 
 **Ubuntu system**
 
-Reference [hobot_shm](https://github.com/HorizonRDK/hobot_shm/blob/develop/README_cn.md
+Reference [hobot_shm](https://github.com/D-Robotics/hobot_shm/blob/develop/README_cn.md
 ) instructions for use.
 
 **Linux system**

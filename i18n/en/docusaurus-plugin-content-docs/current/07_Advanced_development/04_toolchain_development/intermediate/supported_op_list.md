@@ -30,7 +30,7 @@ This section primarily covers the operators supported by the D-Robotics Processo
 
 - Tensorflow-onnx conversion tool (https://github.com/onnx/tensorflow-onnx) supports converting TensorFlow 1.x operators to stable ONNX opsets 6-11, but TensorFlow 2.x support is still experimental.
 
-- **Quantization Details**: A compliant operator may still run on CPU due to being a passively quantized OP. The algorithm toolchain designs quantization logic based on the OP's computation characteristics and BPU low-level logic. For more information on active, passive, and manual quantization, see the "[Quantization Logic in Algorithm Toolchain](https://developer.horizon.ai/forumDetail/118364000835765793)" chapter.
+- **Quantization Details**: A compliant operator may still run on CPU due to being a passively quantized OP. The algorithm toolchain designs quantization logic based on the OP's computation characteristics and BPU low-level logic. For more information on active, passive, and manual quantization, see the "[Quantization Logic in Algorithm Toolchain](https://developer.d-robotics.cc/forumDetail/118364000835765793)" chapter.
 
 ## RDK X3 List of supported Caffe operators
 

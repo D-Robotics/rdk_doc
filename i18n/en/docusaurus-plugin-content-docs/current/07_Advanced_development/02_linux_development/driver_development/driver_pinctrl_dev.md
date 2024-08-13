@@ -7,7 +7,7 @@ X3 Pinctrl uses the pinctrl-single driver from the mainline Linux Kernel code, p
 
 ## Pin Query
 
-You can find the multiplexing and configuration of IO pins in the [datasheets](http://sunrise.horizon.cc/downloads/datasheets/) under "PL-2500-3-X3 PIN SW Reg-V1.2.xls".
+You can find the multiplexing and configuration of IO pins in the [datasheets](http://archive.d-robotics.cc/downloads/datasheets/) under "PL-2500-3-X3 PIN SW Reg-V1.2.xls".
 
 In "PL-2500-3-X3 PIN SW Reg-V1.2.xls", you can intuitively query the default power-up state, multiplexing, drive strength, pull-up/pull-down configurations, and Schmitt trigger settings for each pin.
 

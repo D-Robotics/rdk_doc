@@ -21,7 +21,7 @@ sidebar_position: 4
 
 在使用串口登录前，需要确认开发板串口线跟电脑正确连接，连接方法可参考[调试串口](/installation/hardware_interface#debug_uart)章节。串口登录需要借助PC终端工具，目前常用的工具有`Putty`、`MobaXterm`等，用户可根据自身使用习惯来选择。不同工具的端口配置流程基本类似，下面以`MobaXterm`为例，介绍新建串口连接过程：
 
-- 当串口USB转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.horizon.ai/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：  
+- 当串口USB转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.d-robotics.cc/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：  
 
 ![image-20220416105939067](../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 

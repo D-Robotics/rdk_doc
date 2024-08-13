@@ -7,7 +7,7 @@ The X3 chip has a total of 121 IO functional pins, each of which can be configur
 
 ## Pin Query
 
-The multiplexing and configuration of IO pins can be found in the "PL-2500-3-X3 PIN SW Reg-V1.2.xls" and "RM-2500-5-X3M Register Reference Manual-GPIO&PIN-V1.1.pdf" in the [datasheets](http://sunrise.horizon.cc/downloads/datasheets/).
+The multiplexing and configuration of IO pins can be found in the "PL-2500-3-X3 PIN SW Reg-V1.2.xls" and "RM-2500-5-X3M Register Reference Manual-GPIO&PIN-V1.1.pdf" in the [datasheets](http://archive.d-robotics.cc/downloads/datasheets/).
 
 In the "PL-2500-3-X3 PIN SW Reg-V1.2.xls", you can intuitively query the default power-on state, multiplexing, drive capability, pull-up/down, and Schmitt trigger configuration of each pin.
 

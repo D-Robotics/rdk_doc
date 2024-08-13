@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # 8.1 Hardware and System
 
-For certified accessories and purchasing links, please refer to the [Certified Accessories List](https://developer.horizon.cc/documents_rdk/hardware_development/rdk_x3/accessory).
+For certified accessories and purchasing links, please refer to the [Certified Accessories List](https://developer.d-robotics.cc/documents_rdk/hardware_development/rdk_x3/accessory).
 
-For more details, please refer to the [Frequently Asked Questions](https://developer.horizon.cc/documents_rdk/category/common_questions) section in the Horizon Robotics RDK User Manual.
+For more details, please refer to the [Frequently Asked Questions](https://developer.d-robotics.cc/documents_rdk/category/common_questions) section in the D-Robotics RDK User Manual.
 
-## What is Horizon Robotics Developer Kit (RDK)?
+## What is D-Robotics Developer Kit (RDK)?
 
-Horizon Robotics Developer Kit [RDK](https://developer.horizon.cc/documents_rdk/), is a developer kit for robotics based on Horizon's intelligent chips, including **RDK X3**, **RDK X3 Module**.
+D-Robotics Developer Kit [RDK](https://developer.d-robotics.cc/documents_rdk/), is a developer kit for robotics based on Horizon's intelligent chips, including **RDK X3**, **RDK X3 Module**.
 
 ## How to check the system version number?
 
@@ -247,7 +247,7 @@ Currently, the phenomena caused by insufficient power supply are easily confused
 
 <font color='Green'>【Answer】</font>
 
-- The `adbd` service is enabled by default in Ubuntu system. Users only need to install the adb tool on the computer to use it. The method can refer to [bootloader image update](https://developer.horizon.ai/forumDetail/88859074455714818).
+- The `adbd` service is enabled by default in Ubuntu system. Users only need to install the adb tool on the computer to use it. The method can refer to [bootloader image update](https://developer.d-robotics.cc/forumDetail/88859074455714818).
 
 ## apt update Update Fail
 

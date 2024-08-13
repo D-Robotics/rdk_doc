@@ -8,7 +8,7 @@ X3 芯片共有121个IO功能管脚，每个管脚都可以配置工作在gpio�
 
 ## 管脚查询
 
-IO管脚的复用和配置可以在 [datasheets](https://sunrise.horizon.cc/downloads/datasheets/) 查阅《PL-2500-3-X3 PIN SW Reg-V1.2.xls》 和《RM-2500-5-X3M Register Reference Manual-GPIO&PIN-V1.1.pdf》。
+IO管脚的复用和配置可以在 [datasheets](https://archive.d-robotics.cc/downloads/datasheets/) 查阅《PL-2500-3-X3 PIN SW Reg-V1.2.xls》 和《RM-2500-5-X3M Register Reference Manual-GPIO&PIN-V1.1.pdf》。
 
 在 《PL-2500-3-X3 PIN SW Reg-V1.2.xls》可以比较直观的查询到管脚的上电默认状态、复用、驱动能力、上下拉、施密特触发配置。
 
@@ -40,7 +40,7 @@ IO管脚的复用和配置可以在 [datasheets](https://sunrise.horizon.cc/down
 
 ### GPIO帮助工具
 
-通过以上章节，相信你已经具备自主查询、设置各管脚的配置的能力。针对旭日X3M芯片，地平线还提供了一个小软件帮助用户快速完成以上寄存器的查询，并且提供管脚设置的帮助命令，可以从 [地平线GPIO帮助工具](https://pan.horizon.ai/index.php/s/JTitK4g8SLzSGa6/download?path=%2FGpio_tools&files=%E5%9C%B0%E5%B9%B3%E7%BA%BFGPIO%E5%B8%AE%E5%8A%A9%E5%B7%A5%E5%85%B7v1.0.exe)下载使用。
+通过以上章节，相信你已经具备自主查询、设置各管脚的配置的能力。针对旭日X3M芯片，D-Robotics 还提供了一个小软件帮助用户快速完成以上寄存器的查询，并且提供管脚设置的帮助命令，可以从 [D-Robotics GPIO帮助工具](https://pan.horizon.ai/index.php/s/JTitK4g8SLzSGa6/download?path=%2FGpio_tools&files=%E5%9C%B0%E5%B9%B3%E7%BA%BFGPIO%E5%B8%AE%E5%8A%A9%E5%B7%A5%E5%85%B7v1.0.exe)下载使用。
 
 工具的界面如下图所示，用户可以控制输入 `GPIO编号` 或者 `GPIO管脚 `来查询管脚的各种寄存器地址，并且生成gpio功能的帮助命令，命令说明请查看 [GPIO用户空间使用说明](#user-space)了解详情。
 

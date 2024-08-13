@@ -20,7 +20,7 @@ sidebar_position: 2
 
 <font color='Green'>[Answer]</font>
 
-- Please refer to the forum article, [X3Lite WiringPi](https://developer.horizon.ai/forumDetail/109609560406362634)
+- Please refer to the forum article, [X3Lite WiringPi](https://developer.d-robotics.cc/forumDetail/109609560406362634)
 
 ### Serial Interface
 

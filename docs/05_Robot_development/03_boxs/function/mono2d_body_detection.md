@@ -33,7 +33,7 @@ import TabItem from '@theme/TabItem';
 
 姿态检测案例：[4.3. 姿态检测](../../apps/fall_detection)    
 小车人体跟随案例：[4.4. 小车人体跟随](../../apps/car_tracking)  
-基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.horizon.cc/forumDetail/112555512834430487)
+基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台
 

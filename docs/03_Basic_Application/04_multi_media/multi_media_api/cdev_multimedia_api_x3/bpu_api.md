@@ -27,7 +27,7 @@ sidebar_position: 5
 
 **【参数】**
 
-- `model_file_name`： 算法模型文件，需要是经过地平线AI算法工具链转换的或者训练得到的定点模型。
+- `model_file_name`： 算法模型文件，需要是经过D-Robotics AI算法工具链转换的或者训练得到的定点模型。
 
 **【返回类型】** 
 

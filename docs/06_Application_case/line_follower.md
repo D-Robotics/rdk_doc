@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 上述常用方法当光照环境、场地发生变化，一般需要反复通过采集图像调整阈值以及进行测试来实现比较好的识别结果。那有没有可能让机器人能够自行适应环境的变化，不再需要人为的调整阈值呢？卷积神经网络（CNN），是深度学习算法应用最成功的领域之一，具有不错的适应性和鲁棒性，近年来随着处理器的快速发展，已经可以在嵌入式端进行CNN推理，这里使用CNN的方式实现巡线任务中引导线的位置感知。
 
-代码仓库： (https://github.com/HorizonRDK/line_follower)
+代码仓库： (https://github.com/D-Robotics/line_follower)
 
 ## 支持平台
 
@@ -29,15 +29,15 @@ import TabItem from '@theme/TabItem';
 
 ## 准备工作
 
-### 地平线RDK平台
+### D-Robotics RDK平台
 
-1. 地平线RDK已烧录好地平线提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. D-Robotics RDK已烧录好D-Robotics 提供的Ubuntu 20.04/Ubuntu 22.04系统镜像。
 
-2. 地平线RDK已成功安装TogetheROS.Bot。
+2. D-Robotics RDK已成功安装TogetheROS.Bot。
 
-3. 地平线RDK已安装MIPI或者USB摄像头。
+3. D-Robotics RDK已安装MIPI或者USB摄像头。
 
-4. 和地平线RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+4. 和D-Robotics RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -57,21 +57,21 @@ import TabItem from '@theme/TabItem';
    - 算法工具链docker获取方式
 `wget -c ftp://vrftp.horizon.ai/Open_Explorer_gcc_9.3.0/2.3.3/x3pi_toolchain/ai_toolchain_2.3.3.tar.gz`
    - 工程源码
-`https://github.com/HorizonRDK/line_follower/tree/develop`
+`https://github.com/D-Robotics/line_follower/tree/develop`
   
 ## 使用介绍
 
-### 地平线RDK平台
+### D-Robotics RDK平台
 
 ![](../../static/img/06_Application_case/line_follower/framework.png)
 
-小车本体这里选用OriginBot套件，该小车本体具有两个主动轮，一个从动轮，通过两个主动轮差速进行旋转控制。其中MCU模块主要用于小车的电机运动控制通过串口与主控地平线RDK进行通信。OriginBot网址：[www.originbot.org](https://www.originbot.org/)
+小车本体这里选用OriginBot套件，该小车本体具有两个主动轮，一个从动轮，通过两个主动轮差速进行旋转控制。其中MCU模块主要用于小车的电机运动控制通过串口与主控D-Robotics RDK进行通信。OriginBot网址：[www.originbot.org](https://www.originbot.org/)
 
 ![](../../static/img/06_Application_case/line_follower/car.png)
 
-整套系统如上图所示，地平线RDK通过摄像头获取小车前方环境数据，图像数据通过训练好的CNN模型进行推理得到引导线的坐标值，然后依据一定的控制策略计算小车的运动方式，通过UART向小车下发运动控制指令实现整个系统的闭环控制。
+整套系统如上图所示，D-Robotics RDK通过摄像头获取小车前方环境数据，图像数据通过训练好的CNN模型进行推理得到引导线的坐标值，然后依据一定的控制策略计算小车的运动方式，通过UART向小车下发运动控制指令实现整个系统的闭环控制。
 
-PC用于进行数据标注以及训练，为了提高效率这里采用地平线RDK将图片通过以太网发送至PC端进行标注的方式。
+PC用于进行数据标注以及训练，为了提高效率这里采用D-Robotics RDK将图片通过以太网发送至PC端进行标注的方式。
 
 ![](../../static/img/06_Application_case/line_follower/roadmap.png)
 
@@ -80,8 +80,8 @@ PC用于进行数据标注以及训练，为了提高效率这里采用地平线
 - 数据采集与标注，根据任务目标获取相应的数据并进行标注，用于模型训练；
 - 模型选择，根据任务目标选取合适的模型结构确保性能和精度都能够满足需要；
 - 模型训练，使用标注的数据对模型进行训练，以达到满意的精度要求；
-- 模型转换，使用算法工具链将训练得到的浮点模型转换为可以在地平线RDK上运行的定点模型；
-- 端侧部署，在地平线RDK上运行转换后的模型，得到感知结果并控制机器人运动
+- 模型转换，使用算法工具链将训练得到的浮点模型转换为可以在D-Robotics RDK上运行的定点模型；
+- 端侧部署，在D-Robotics RDK上运行转换后的模型，得到感知结果并控制机器人运动
 
 **Ubuntu**
 
@@ -91,7 +91,7 @@ PC用于进行数据标注以及训练，为了提高效率这里采用地平线
 
 ![](../../static/img/06_Application_case/line_follower/annotation.png)
 
-地平线RDK上启动mipi_cam，选用的摄像头模组为F37，输出图像格式为BGR8，分辨率为960x544，消息通信方式为非零拷贝方式
+D-Robotics RDK上启动mipi_cam，选用的摄像头模组为F37，输出图像格式为BGR8，分辨率为960x544，消息通信方式为非零拷贝方式
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -160,7 +160,7 @@ ros2 run line_follower_model annotation
 
 ![](../../static/img/06_Application_case/line_follower/model.png)
 
-在地平线RDK上ResNet18推理性能高达232FPS，ResNet50推理性能也超过100FPS，高帧率保证了数据处理的实时性，是后续提高车速以及实现更复杂应用的必要条件。这里先使用ResNet18网络结构，后期遇到瓶颈考虑更深的ResNet50网络结构。为了满足输出引导线坐标值x，y这里需要修改ResNet18网络FC输出为2，即直接输出引导线的x，y坐标值。ResNet18输入分辨率为224x224。
+在D-Robotics RDK上ResNet18推理性能高达232FPS，ResNet50推理性能也超过100FPS，高帧率保证了数据处理的实时性，是后续提高车速以及实现更复杂应用的必要条件。这里先使用ResNet18网络结构，后期遇到瓶颈考虑更深的ResNet50网络结构。为了满足输出引导线坐标值x，y这里需要修改ResNet18网络FC输出为2，即直接输出引导线的x，y坐标值。ResNet18输入分辨率为224x224。
 训练框架选用最近比较火热的pytorch，这里安装CPU版本pytorch，若硬件上有GPU卡可选用GPU版本pytorch。安装命令如下：
 
 ```shell
@@ -209,7 +209,7 @@ ros2 run line_follower_model training
 
 ![](../../static/img/06_Application_case/line_follower/model_convert.png)
 
-pytorch训练得到的浮点模型如果直接运行在地平线RDK上效率会很低，为了提高运行效率，发挥BPU的5T算力，这里需要进行浮点模型转定点模型操作。
+pytorch训练得到的浮点模型如果直接运行在D-Robotics RDK上效率会很低，为了提高运行效率，发挥BPU的5T算力，这里需要进行浮点模型转定点模型操作。
 
 1. pytorch模型生成onnx模型
 
@@ -287,7 +287,7 @@ pytorch训练得到的浮点模型如果直接运行在地平线RDK上效率会�
 
 #### 端侧部署
 
-通过前面模型转换已经得到可以在地平线RDKBPU上运行的定点模型，如何将其部署在地平线RDK上，实现图像获取、模型推理、运动控制整套功能呢？这里基于tros.b中的hobot_dnn实现。Hobot实现。hobot_dnn是tros.b软件栈中的板端算法推理框架，在地平线地平线RDK上利用BPU处理器实现算法推理功能，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
+通过前面模型转换已经得到可以在D-Robotics RDKBPU上运行的定点模型，如何将其部署在D-Robotics RDK上，实现图像获取、模型推理、运动控制整套功能呢？这里基于tros.b中的hobot_dnn实现。Hobot实现。hobot_dnn是tros.b软件栈中的板端算法推理框架，在D-Robotics D-Robotics RDK上利用BPU处理器实现算法推理功能，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
 
 继承DnnNode实现必要的接口。这里采用公有继承方式，其中必须要实现的接口为：
 
