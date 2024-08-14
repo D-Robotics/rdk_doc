@@ -16,7 +16,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 The main classes and interfaces used in the `hobot_dnn` inference library are as follows:
 
-- **Model**: AI algorithm model class, used for loading algorithm models and performing inference calculations. For more information, please refer to the [Model](/python_development/pydev_dnn_api#model) documentation.
-- **pyDNNTensor**: AI algorithm input and output data tensor class. For more information, please refer to the [pyDNNTensor](/python_development/pydev_dnn_api) documentation.
-- **TensorProperties**: Class for the properties of the input tensor of the model. For more information, please refer to the [TensorProperties](/python_development/pydev_dnn_api) documentation.
-- **load**: Load algorithm models. For more information, please refer to the [API interface](/python_development/pydev_dnn_api) documentation.
+- **Model**: AI algorithm model class, used for loading algorithm models and performing inference calculations. For more information, please refer to the [Model](./pydev_dnn_api.md) documentation.
+- **pyDNNTensor**: AI algorithm input and output data tensor class. For more information, please refer to the [pyDNNTensor](./pydev_dnn_api.md) documentation.
+- **TensorProperties**: Class for the properties of the input tensor of the model. For more information, please refer to the [TensorProperties](./pydev_dnn_api.md) documentation.
+- **load**: Load algorithm models. For more information, please refer to the [API interface](./pydev_dnn_api.md) documentation.

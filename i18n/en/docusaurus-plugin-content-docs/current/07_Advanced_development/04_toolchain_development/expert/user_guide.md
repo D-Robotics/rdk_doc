@@ -584,7 +584,7 @@ def round_ste(x: Tensor):
 ```
 Please refer to `default_qat_8bit_lsq_quant_qconfig` and its related interfaces for instructions on how to use the tool.
 
-Users who are interested in further understanding can refer to the following paper: [**Learned Step Size Quantization**]( `https://arxiv.org/abs/1902.08153>)
+Users who are interested in further understanding can refer to the following paper: [**Learned Step Size Quantization**](https://arxiv.org/abs/1902.08153)
 
 ## Heterogeneous Model Guide
 
@@ -2577,7 +2577,7 @@ When encountering difficulties in training QAT models that lead to poor performa
 
 :::info Note
 
-If you use fx for quantization, you can directly refer to the API documentation [**prepare_qat_fx**](../api_reference/apis/qat.html#horizon_plugin_pytorch.quantization.prepare_qat_fx) and use the `hybrid` and `hybrid_dict` parameters to enable step-wise quantization.# from horizon_plugin_pytorch.quantization import prepare_qat
+If you use fx for quantization, you can directly refer to the API documentation [**prepare_qat_fx**](../expert/api_reference.md) and use the `hybrid` and `hybrid_dict` parameters to enable step-wise quantization.# from horizon_plugin_pytorch.quantization import prepare_qat
 :::
 
 ```python
@@ -3406,7 +3406,7 @@ Besides adjusting the learning rate as mentioned in the [**Recommended Configura
 
   :::info Note
 
-    If the accuracy of Calibration is not significantly different from floating-point, it is best not to adjust the activation scale further, i.e., set activation averaging_constant=0.0; specific settings can be found in [**Custom Qconfig**](../advanced_content/custom_qconfig).
+    If the accuracy of Calibration is not significantly different from floating-point, it is best not to adjust the activation scale further, i.e., set activation averaging_constant=0.0; specific settings can be found in [**Custom Qconfig**](./advanced_content.md).
   :::
 
 - Transform (Data Augmentation)
@@ -3799,7 +3799,7 @@ Solution: Please refer to the [**Quantization Training Precision Tuning Guide**]
 
 `RuntimeError: Unknown builtin op: horizon::bpu_scale_quantization`
 
-Solution: Please check if you have imported horizon_plugin_pytorch before using `torch.jit.load`. Otherwise, the corresponding D-Robotics operator cannot be found during loading. It is recommended to use [**horizon.jit.save/load**](../api_reference/apis/save_load) to save and load pt files to avoid such errors. In addition, when saving pt using `horizon.jit.save`, the version number of horizon_plugin_pytorch will also be saved, and `horizon.jit.load` will check if the current horizon_plugin_pytorch version is compatible with the saved pt. If not, a corresponding warning will be output.
+Solution: Please check if you have imported horizon_plugin_pytorch before using `torch.jit.load`. Otherwise, the corresponding D-Robotics operator cannot be found during loading. It is recommended to use [**horizon.jit.save/load**](./api_reference.md) to save and load pt files to avoid such errors. In addition, when saving pt using `horizon.jit.save`, the version number of horizon_plugin_pytorch will also be saved, and `horizon.jit.load` will check if the current horizon_plugin_pytorch version is compatible with the saved pt. If not, a corresponding warning will be output.
 
 ## Common Misunderstandings
 

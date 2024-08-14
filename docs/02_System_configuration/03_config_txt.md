@@ -14,7 +14,7 @@ RDK 使用配置文件`config.txt`来设置一些启动时候的系统配置。`
 
 2. 系统版本不低于 `2.1.0`。
 
-3. `miniboot`版本不能低于 `20231126`日期的版本。参考[rdk-miniboot-update](rdk-command-manual/cmd_rdk-miniboot-update)在板更新miniboot。
+3. `miniboot`版本不能低于 `20231126`日期的版本。参考[rdk-miniboot-update](../09_Appendix/rdk-command-manual/cmd_rdk-miniboot-update.md)在板更新miniboot。
 
 4. 如果您在本配置文件添加了过滤项，那么使用`srpi-config`工具时请注意配置项是否会被过滤掉。
 

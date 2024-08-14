@@ -128,7 +128,7 @@ sudo chmod +x ./Examples/Monocular/mono_euroc
 
 tros.b基于ORB-SLAM3和ROS2开发了一套示例程序，集成了图像和IMU数据的订阅以及地图点云、位姿、行驶轨迹的话题发布功能，可通过Rviz2可视化软件方便地观察程序运行结果，帮助开发者在ROS2开发、调试ORB-SLAM3。
 
-最新版本的镜像在内核打上了RealSense 系列相机的UVC和HID驱动补丁，直接使用apt命令安装RealSense SDK以及ROS2 package后即可直接使用测试程序。ROS2的package与tros.b的并存的安装方法见[1.5 使用ROS2 package](../../quick_start/ros_pkg.md)
+最新版本的镜像在内核打上了RealSense 系列相机的UVC和HID驱动补丁，直接使用apt命令安装RealSense SDK以及ROS2 package后即可直接使用测试程序。ROS2的package与tros.b的并存的安装方法见[1.5 使用ROS2 package](../../01_quick_start/ros_pkg.md)
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">

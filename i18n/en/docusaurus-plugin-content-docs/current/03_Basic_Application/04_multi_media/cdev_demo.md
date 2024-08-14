@@ -66,7 +66,7 @@ The `vio_capture` example in this document realizes the function of capturing im
 ![image-capture](../../../../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
  - **Preparation:**
-   - Connect the `MIPI` camera to the development board while the development board is powered off. For the connection method, see [MIPI Camera Connection Guide](../installation/hardware_interface#mipi_port).
+   - Connect the `MIPI` camera to the development board while the development board is powered off. For the connection method, see [MIPI Camera Connection Guide](../../01_Quick_start/hardware_introduction.md).
    - Connect the development board and the monitor with an HDMI cable.
    - Power on the development board and log in through the command line.
 

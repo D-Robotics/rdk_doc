@@ -181,7 +181,7 @@ hb_mapper checker 参数解释：
 
 :::caution 注意
 
-  - 如果模型检查步骤异常终止或者出现报错信息，则说明模型验证不通过，请根据终端打印或在当前路径下生成的 ``hb_mapper_checker.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions) 章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
+  - 如果模型检查步骤异常终止或者出现报错信息，则说明模型验证不通过，请根据终端打印或在当前路径下生成的 ``hb_mapper_checker.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../../08_FAQ/05_toolchain.md#model_convert_errors_and_solutions) 章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 :::
 
 
@@ -332,7 +332,7 @@ layout( ``input_layout_train`` )，对于featuremap输入的模型，您可以�
 
 针对上述举例模型的样本处理代码如下：
 
-为避免过长代码篇幅，各种简单transformer实现代码未贴出，具体使用请参考[**transformer使用方法**](../../common_questions/toolchain#transposetransformer) 章节内容。
+为避免过长代码篇幅，各种简单transformer实现代码未贴出，具体使用请参考[**transformer使用方法**](../../../08_FAQ/05_toolchain.md#transposetransformer) 章节内容。
 
 :::tip 小技巧
 
@@ -458,10 +458,10 @@ hb_mapper makertbin参数解释：
 
 :::caution 注意
 
-  - ``RDK X3 yaml配置文件``，可直接使用[**RDK X3 Caffe模型量化yaml文件模板**](../../common_questions/toolchain#rdk_x3_caffe_yaml_template) 和[**RDK X3 ONNX模型量化yaml文件模板**](../../common_questions/toolchain#rdk_x3_onnx_yaml_template)模板文件进行填写。
+  - ``RDK X3 yaml配置文件``，可直接使用[**RDK X3 Caffe模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_x3_caffe_yaml_template) 和[**RDK X3 ONNX模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_x3_onnx_yaml_template)模板文件进行填写。
 
-  - ``RDK Ultra yaml配置文件``，可直接使用[**RDK Ultra Caffe模型量化yaml文件模板**](../../common_questions/toolchain#rdk_ultra_caffe_yaml_template) 和[**RDK Ultra ONNX模型量化yaml文件模板**](../../common_questions/toolchain#rdk_ultra_onnx_yaml_template)模板文件进行填写。 
-  - 若 hb_mapper makertbin 步骤异常终止或者出现报错信息，则说明模型转换失败，请根据终端打印或在当前路径下生成的 ``hb_mapper_makertbin.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions)章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
+  - ``RDK Ultra yaml配置文件``，可直接使用[**RDK Ultra Caffe模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_ultra_caffe_yaml_template) 和[**RDK Ultra ONNX模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_ultra_onnx_yaml_template)模板文件进行填写。 
+  - 若 hb_mapper makertbin 步骤异常终止或者出现报错信息，则说明模型转换失败，请根据终端打印或在当前路径下生成的 ``hb_mapper_makertbin.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../../08_FAQ/05_toolchain.md#model_convert_errors_and_solutions)章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 :::
 
 #### 模型转换yaml配置参数说明{#yaml_config}
@@ -991,7 +991,7 @@ Missing keys: 'caffe_model', 'prototxt'
 2021-04-21 14:45:34,085 ERROR yaml file parse failed. Please double check your input
 2021-04-21 14:45:34,085 ERROR exception in command: makertbin
 ```
-如果控制台输出日志信息不能帮助您发现问题，请参考[**模型量化错误及解决方法**](../../common_questions/toolchain#model_convert_errors_and_solutions)章节内容进行查找，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
+如果控制台输出日志信息不能帮助您发现问题，请参考[**模型量化错误及解决方法**](../../../08_FAQ/05_toolchain.md#model_convert_errors_and_solutions)章节内容进行查找，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 
 
 #### 转换产出物解读{#conversion_output}
@@ -1558,7 +1558,7 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
   此外，为方便用户设置校准数据的解析方式，在X3算法工具链v2.2.3a版本之后，在yaml中新增了参数 ``cal_data_type`` 来设置二进制文件的数据存储类型。
 
 - transformer实现方式不一致：D-Robotics 提供了一系列常见预处理函数，存放在 ``/horizon_model_convert_sample/01_common/python/data/transformer.py`` 文件中，部分预处理操作的实现方式可能会有所区别，例如ResizeTransformer，采用的是opencv默认插值方式（linear），
-  若为其他插值方式可直接修改transformer.py源码，确保与训练时预处理代码保持一致, 具体使用请参考[**transformer使用方法**](../../common_questions/toolchain#transposetransformer)章节内容。
+  若为其他插值方式可直接修改transformer.py源码，确保与训练时预处理代码保持一致, 具体使用请参考[**transformer使用方法**](../../../08_FAQ/05_toolchain.md#transposetransformer)章节内容。
 
 - 建议您在D-Robotics 算法工具链使用过程中，依然使用原始浮点模型训练验证阶段依赖的数据处理库。
   对于鲁棒性较差的模型，不同库实现的功能resize、crop等典型功能都可能引起扰动，进而影响模型精度。
@@ -2383,7 +2383,7 @@ runall流程：
 
 根据以往的使用调优经验，以上策略已经可以应对各种实际问题。
 
-如果经过以上尝试仍然未能解决您的问题，请根据[**精度调优checklist**](../../common_questions/toolchain#checklist)文档步骤填写模型配置的具体信息来进行检查，确保每一步排查都已完成，并根据checklist锁定是在模型转换的那个具体步骤出现异常，然后将填写完整的 **精度调优checklist** 信息、原始f浮点模型文件、模型量化相关的配置文件等一起反馈给D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
+如果经过以上尝试仍然未能解决您的问题，请根据[**精度调优checklist**](../../../08_FAQ/05_toolchain.md#checklist)文档步骤填写模型配置的具体信息来进行检查，确保每一步排查都已完成，并根据checklist锁定是在模型转换的那个具体步骤出现异常，然后将填写完整的 **精度调优checklist** 信息、原始f浮点模型文件、模型量化相关的配置文件等一起反馈给D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 
 
 ### 其它工具使用说明

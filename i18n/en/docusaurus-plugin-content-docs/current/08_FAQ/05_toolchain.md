@@ -1231,20 +1231,19 @@ if __name__ == '__main__':
 
 **Verifying Model Compilation and Code Correctness**
 
-Use the `hb_model_verifier` tool to ensure consistency between the quantized.onnx and .bin files, with model outputs aligned to at least two or three decimal places.
+Use the `hb_model_verifier` tool to ensure ../07_Advanced_development between the quantized.onnx and .bin files, with model outputs aligned to at least two or three decimal places.
 
 For detailed instructions on using `hb_model_verifier`, please refer to the section on PTQ principles and steps in the "hb_model_verifier tool" content.
 
-If the model consistency check passes, carefully examine the board-side preprocessing and post-processing code!
+If the model ../07_Advanced_development check passes, carefully examine the board-side preprocessing and post-processing code!
 
-In case of a failure in the consistency check between the quantized.onnx and .bin models, contact D-Robotics technical support.
+In case of a failure in the ../07_Advanced_development check between the quantized.onnx and .bin models, contact D-Robotics technical support.
 
 #### Quantization YAML Configuration File Templates
 
 ##### RDK X3 Caffe Model Quantization YAML Template {#rdk_x3_caffe_yaml_template}
 
-Create a `caffe_config.yaml` file and copy the following content, then fill in the marked **`required parameters`** to proceed with model conversion. For more information on parameter usage, see the "[YAML Configuration File Explanation](../toolchain_development/intermediate/ptq_process#yaml_config)" chapter.
-
+Create a `caffe_config.yaml` file and copy the following content, then fill in the marked **`required parameters`** to proceed with model conversion. For more information on parameter usage, see the "[YAML Configuration File Explanation](../07_Advanced_development/04_toolchain_development/intermediate/ptq_process#yaml_config)" chapter.
 ```yaml
 # Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
@@ -1320,7 +1319,7 @@ compiler_parameters:
 
 ##### RDK X3 ONNX Model Quantization YAML Template {#rdk_x3_onnx_yaml_template}
 
-Create a `onnx_config.yaml` file and copy the following content, then fill in the marked **`required parameters`** to proceed with model conversion. For more information on parameter usage, see the "[YAML Configuration File Explanation](../toolchain_development/intermediate/ptq_process#yaml_config)" chapter.
+Create a `onnx_config.yaml` file and copy the following content, then fill in the marked **`required parameters`** to proceed with model conversion. For more information on parameter usage, see the "[YAML Configuration File Explanation](../../07_Advanced_development/04_toolchain_development/intermediate/ptq_process#yaml_config)" chapter.
 
 ```yaml
 # Copyright (c) 2020 D-Robotics.All Rights Reserved.

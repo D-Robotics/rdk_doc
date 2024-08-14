@@ -38,7 +38,7 @@ cls id: 340 Confidence: 0.991851
     ```
 
 - 模型加载
-    调用 [load](../pydev_dnn_api.md) 接口加载模型文件，并返回`hobot_dnn.pyeasy_dnn.Model`类的list。
+    调用 [load](./pydev_dnn_api.md) 接口加载模型文件，并返回`hobot_dnn.pyeasy_dnn.Model`类的list。
 
     ```python
     models = dnn.load('../models/mobilenetv1_224x224_nv12.bin')
@@ -78,7 +78,7 @@ cls id: 340 Confidence: 0.991851
 
 - 模型推理
 
-    调用 [Model](../pydev_dnn_api#model) 类的 `forward` 接口进行算法推理，然后得到一个含有1000个值的list，表示1000个类别的预测概率值。
+    调用 [Model](./pydev_dnn_api.md) 类的 `forward` 接口进行算法推理，然后得到一个含有1000个值的list，表示1000个类别的预测概率值。
 
     ```python
     outputs = models[0].forward(nv12_data)

@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # 3.3.1 管脚定义与应用
 
-开发板上的40PIN功能管脚，接口定义请查看[40PIN管脚定义](#40pin_define)章节。
+开发板上的40PIN功能管脚，接口定义请查看本章节。
 
 ## 管脚复用关系配置
 
-40PIN的管脚会按照 [40PIN管脚定义](#40pin_define) 所示，默认使能UART、SPI、I2C、I2S等专用功能，如需将特定管脚配置成GPIO功能，需要通过`srpi-config`图形化配置工具进行配置。
+40PIN的管脚会按照本章节所示，默认使能UART、SPI、I2C、I2S等专用功能，如需将特定管脚配置成GPIO功能，需要通过`srpi-config`图形化配置工具进行配置。
 
 注意，`srpi-config`程序需要在**全屏命令行窗口**中运行，方法如下：
 
@@ -45,7 +45,7 @@ RDK Ultra 外扩40PIN管脚及其定义如下：
 
 <iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557887&page=16" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
 
-开发板 `/app/40pin_samples/` 目录下，预置了多种40PIN管脚的功能测试代码，包括gpio的输入/输出测试、PWM、I2C、SPI、UART等测试。所有测试程序均使用python语言编写，详细信息可以查阅 [40PIN 功能使用](../python_development/40pin_user_guide/40pin_define.md)。
+开发板 `/app/40pin_samples/` 目录下，预置了多种40PIN管脚的功能测试代码，包括gpio的输入/输出测试、PWM、I2C、SPI、UART等测试。所有测试程序均使用python语言编写，详细信息可以查阅本章节其他模块。
 
 以`/app/40pin_samples/button_led.py`为例，该程序配置`38`号管脚为输入，配置`36`号管脚配置为输出，并根据`38`号管脚的输入状态来控制`36`号管脚的输出状态。
 

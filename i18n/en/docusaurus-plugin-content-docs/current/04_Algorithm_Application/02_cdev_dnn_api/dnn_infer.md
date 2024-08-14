@@ -82,9 +82,9 @@ Execute an ROI inference task based on the input parameters. The caller can use 
 
   Currently, up to 32 model tasks can exist simultaneously.
 
-  API Example: Please refer to the ``roi_infer.sh`` instructions in [Model Inference DNN API Usage Example Documentation](/toolchain_development/intermediate/runtime_sample#model-inference-dnn-api-usage-examples) for more details.
+  API Example: Please refer to the ``roi_infer.sh`` instructions in [Model Inference DNN API Usage Example Documentation](../../07_Advanced_development/04_toolchain_development/intermediate/runtime_sample#model-inference-dnn-api-usage-examples) for more details.
 
-  Model Limitations: During the model conversion, set the compilation parameter input_source to `{'input_name': 'resizer'}` to generate a resizer model. For specific parameter configuration details, refer to the introduction in [PTQ Quantization Principles and Steps for Model Conversion](/toolchain_development/intermediate/ptq_process#model-conversion).
+  Model Limitations: During the model conversion, set the compilation parameter input_source to `{'input_name': 'resizer'}` to generate a resizer model. For specific parameter configuration details, refer to the introduction in [PTQ Quantization Principles and Steps for Model Conversion](../../07_Advanced_development/04_toolchain_development/intermediate/ptq_process#model-conversion).
 
   ![resizer](../../../../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/resizer.png)
 

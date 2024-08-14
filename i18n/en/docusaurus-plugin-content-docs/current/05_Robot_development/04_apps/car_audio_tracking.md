@@ -68,7 +68,7 @@ Code repository:  (https://github.com/D-Robotics/audio_tracking.git)
    </TabItem>
    </Tabs>
 
-4. The compatible audio board has been successfully connected to the RDK (refer to the [Intelligent Voice section](../boxs/function/hobot_audio.md) for details).
+4. The compatible audio board has been successfully connected to the RDK (refer to the [Intelligent Voice section](../03_boxs/function/hobot_audio.md) for details).
 
 5. The PC that is in the same network segment as the RDK (either wired or connected to the same wireless network) needs to have the following environment packages installed:
 

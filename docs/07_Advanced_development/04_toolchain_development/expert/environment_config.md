@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 环境依赖
 
-本节为您介绍 Horizon Plugin Pytorch 所需的环境依赖条件；建议使用D-Robotics 提供的Docker环境，获取方式可参考 [**开发机环境部署**](/toolchain_development/intermediate/environment_config#machine_deploy) 文档内容。
+本节为您介绍 Horizon Plugin Pytorch 所需的环境依赖条件；建议使用D-Robotics 提供的Docker环境，获取方式可参考 [**开发机环境部署**](../intermediate/environment_config#machine_deploy) 文档内容。
 
 |             | gpu                      | cpu         |
 | ----------- | ------------------------ | ----------- |

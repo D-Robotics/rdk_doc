@@ -12,7 +12,7 @@ sidebar_position: 2
 ![image-vio_to_display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg)
 
  - **环境准备：** 
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../../01_Quick_start/hardware_introduction.md)
    - 通过HDMI线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 

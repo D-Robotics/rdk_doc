@@ -73,7 +73,7 @@ nv12_data = bgr2nv12_opencv(resized_data)
 
 - Model Inference
 
-    Call the `forward` interface of the [Model](../pydev_dnn_api#model) class for inference. The model will output 15 sets of data representing the detected object bounding boxes.
+    Call the `forward` interface of the [Model](./pydev_dnn_api.md) class for inference. The model will output 15 sets of data representing the detected object bounding boxes.
 
     ```python
     outputs = models[0].forward(nv12_data)
@@ -89,7 +89,7 @@ nv12_data = bgr2nv12_opencv(resized_data)
 
 - Visualize the Detection Results
 
-    The example renders the algorithm results and the original video stream, and outputs them through the `HDMI` interface for real-time preview on a monitor. The Display function of the hobot_vio module is used for displaying. For more information about this module, please refer to the [Display section](../pydev_multimedia_api_x3/object_display.md).
+    The example renders the algorithm results and the original video stream, and outputs them through the `HDMI` interface for real-time preview on a monitor. The Display function of the hobot_vio module is used for displaying. For more information about this module, please refer to the [Display section](../../03_Basic_Application/04_multi_media/pydev_multimedia_api_x3/object_display.md).
 
     ```python
     # create display object

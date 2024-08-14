@@ -18,19 +18,19 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-RDK X3开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电，推荐使用[基础配件清单](/hardware_development/rdk_x3/accessory#basic_accessories)中推荐的电源适配器型号。
+RDK X3开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电，推荐使用[基础配件清单](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)中推荐的电源适配器型号。
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-RDK X3 Module通过载板上的电源接口供电，[官方载板](https://localhost:3000/documents_rdk/hardware_development/rdk_x3_module/interface)通过DC接口供电，推荐使用认证配件清单中推荐的**12V/2A**适配器。
+RDK X3 Module通过载板上的电源接口供电，[官方载板](../07_Advanced_development/01_hardware_development/rdk_x3_module/accessory.md)通过DC接口供电，推荐使用认证配件清单中推荐的**12V/2A**适配器。
 
 </TabItem>
 
 <TabItem value="ultra" label="RDK Ultra">
 
-RDK Ultra开发板通过DC接口供电，推荐使用[官方套件](https://localhost:3000/documents_rdk/hardware_development/rdk_ultra/interface)中自带的电源适配器，或者使用至少**12V/5A**的电源适配器供电。
+RDK Ultra开发板通过DC接口供电，推荐使用`官方套件`中自带的电源适配器，或者使用至少**12V/5A**的电源适配器供电。
 
 </TabItem>
 </Tabs>
@@ -39,7 +39,7 @@ RDK Ultra开发板通过DC接口供电，推荐使用[官方套件](https://loca
 
 请不要使用电脑USB接口为开发板供电，否则会因供电不足造成开发板**异常断电、反复重启**等异常情况。
 
-更多问题的处理，可以查阅 [常见问题](../category/common_questions) 章节。
+更多问题的处理，可以查阅 [常见问题](../08_FAQ/01_hardware_and_system.md) 章节。
 
 :::
 
@@ -452,6 +452,6 @@ Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上�
 
 :::tip
 
-更多问题的处理，可以查阅 [常见问题](../08_FAQ) 章节，同时可以访问 [D-Robotics 开发者官方论坛](https://developer.d-robotics.cc/forum) 获得帮助。
+更多问题的处理，可以查阅 [常见问题](../08_FAQ/01_hardware_and_system.md) 章节，同时可以访问 [D-Robotics 开发者官方论坛](https://developer.d-robotics.cc/forum) 获得帮助。
 
 :::

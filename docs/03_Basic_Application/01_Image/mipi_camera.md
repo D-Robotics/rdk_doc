@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## 环境准备
 
-  - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考[MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)章节
+  - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考[MIPI摄像头连接教程](../../01_Quick_start/hardware_introduction.md)章节
   - 通过HDMI线缆连接开发板和显示器
 
 ## 运行方式
@@ -27,6 +27,6 @@ sidebar_position: 1
 
 :::tip
 
-详细代码实现说明请查阅[基于MIPI摄像头推理](/python_development/pydev_dnn_demo/mipi_camera)章节。
+详细代码实现说明请查阅[基于MIPI摄像头推理](../../04_Algorithm_Application/01_pydev_dnn_demo/mipi_camera.md)章节。
 
 :::

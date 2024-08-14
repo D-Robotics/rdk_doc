@@ -26,4 +26,4 @@ This section is applicable to developers using the D-Robotics processor and is u
 
 ### Explanation of Model Operators List
 
--   Currently, all Caffe and ONNX operators supported by the D-Robotics processor are provided. Other operators that are not listed are not supported due to hardware limitations of the D-Robotics processor. For the specific supported operator list, please refer to the chapter [**Supported Operator List**](/toolchain_development/intermediate/supported_op_list).
+-   Currently, all Caffe and ONNX operators supported by the D-Robotics processor are provided. Other operators that are not listed are not supported due to hardware limitations of the D-Robotics processor. For the specific supported operator list, please refer to the chapter [**Supported Operator List**](./intermediate/supported_op_list).

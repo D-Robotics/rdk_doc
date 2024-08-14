@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # 8.1 Hardware and System
 
-For certified accessories and purchasing links, please refer to the [Certified Accessories List](https://developer.d-robotics.cc/documents_rdk/hardware_development/rdk_x3/accessory).
+For certified accessories and purchasing links, please refer to the [Certified Accessories List](https://developer.d-robotics.cc/rdk_doc/en/Advanced_development/hardware_development/rdk_x3/accessory).
 
-For more details, please refer to the [Frequently Asked Questions](https://developer.d-robotics.cc/documents_rdk/category/common_questions) section in the D-Robotics RDK User Manual.
+For more details, please refer to the [Frequently Asked Questions](../08_FAQ/01_hardware_and_system.md) section in the D-Robotics RDK User Manual.
 
 ## What is D-Robotics Developer Kit (RDK)?
 
-D-Robotics Developer Kit [RDK](https://developer.d-robotics.cc/documents_rdk/), is a developer kit for robotics based on Horizon's intelligent chips, including **RDK X3**, **RDK X3 Module**.
+D-Robotics Developer Kit [RDK](https://developer.d-robotics.cc/rdk_doc/), is a developer kit for robotics based on D-Robotics's intelligent chips, including **RDK X3**, **RDK X3 Module**.
 
 ## How to check the system version number?
 
@@ -181,7 +181,7 @@ fi
 
 If the status LED of the development board does not turn off or blink continuously after power on, and no display is shown on the HDMI monitor, it is recommended to first check if the power supply is normal.
 
-- Use a power adapter that supports **5V 3A** to power the development board, it is recommended to use the power adapter model recommended in the [Basic Accessories list](/hardware_development/rdk_x3/accessory#basic_accessories).
+- Use a power adapter that supports **5V 3A** to power the development board, it is recommended to use the power adapter model recommended in the [Basic Accessories list](https://developer.d-robotics.cc/rdk_doc/en/Advanced_development/hardware_development/rdk_x3/accessory).
 - If using your own charger, please choose a USB Type C cable from a reputable brand and ensure it meets the requirement of **5V 3A**.
 - Do not directly power the development board from the USB port of a computer.
 

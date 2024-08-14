@@ -102,7 +102,7 @@ After successful installation, you can type the command hb_mapper --help to veri
   
 ## Quick Experience {#quick_experiments}
 
-In this chapter, we introduce the basic usage process of the D-Robotics algorithm toolchain PTQ solution, so that you can quickly get started. Here we take yolov5s model running on the RDK X3 development board as an example to demonstrate the usage for you. For more detailed content of the D-Robotics algorithm toolchain PTQ solution, please read the [**Advanced Guide - PTQ Principles and Steps**](/toolchain_development/intermediate/ptq_process) chapter.
+In this chapter, we introduce the basic usage process of the D-Robotics algorithm toolchain PTQ solution, so that you can quickly get started. Here we take yolov5s model running on the RDK X3 development board as an example to demonstrate the usage for you. For more detailed content of the D-Robotics algorithm toolchain PTQ solution, please read the [**Advanced Guide - PTQ Principles and Steps**](./intermediate/ptq_process) chapter.
 
 :::tip Tips
   To convert models supported by RDK Ultra, replace the ``0x_xx_X3.sh`` script command in the steps of the following chapters with the ``0x_xx_Ultra.sh`` script command for model conversion.
@@ -247,7 +247,7 @@ After successful execution, the segmentation results of the image will be output
 
 ![yolov5s-result](../../../../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/yolov5s-result.png)
 
-For examples of common APIs, please refer to the [**yolov5 Object Detection Algorithm**](/python_development/pydev_dnn_demo/static_image#detection_yolov5) section.For more API instructions on model inference, please refer to the chapter [**Python Development Guide - Model Inference API Usage Instructions**](../python_development/pydev_dnn_api) and [**C/C++ Development Guide - Model Inference API Usage Instructions**](../clang_development/cdev_dnn_api).
+For examples of common APIs, please refer to the [**yolov5 Object Detection Algorithm**](../../04_Algorithm_Application/01_pydev_dnn_demo/static_image.md) section.For more API instructions on model inference, please refer to the chapter [**Python Development Guide - Model Inference API Usage Instructions**](../../04_Algorithm_Application/01_pydev_dnn_demo/pydev_dnn_api.md) and [**C/C++ Development Guide - Model Inference API Usage Instructions**](../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md).
 
 ### Generic Model Performance Accuracy Metrics
 

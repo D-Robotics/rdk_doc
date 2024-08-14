@@ -66,7 +66,7 @@ Execute the `sudo srpi-config` command to enter the configuration menu. Select I
 
 </Tabs>
 
-Please refer to [Remote Login - SSH Login](../installation/remote_login#ssh) for how to use SSH.
+Please refer to [Remote Login - SSH Login](./remote_login#ssh) for how to use SSH.
 
 ## Enable VNC Service
 
@@ -84,7 +84,7 @@ Select Interface Options -> VNC, and follow the prompts to enable or disable the
 </TabItem>
 </Tabs>
 
-Please refer to [Remote Login - VNC Login](../installation/remote_login#vnc-login) for how to use VNC.
+Please refer to [Remote Login - VNC Login](./remote_login#vnc-login) for how to use VNC.
 
 ## Set Login Mode
 

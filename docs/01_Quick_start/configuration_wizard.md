@@ -70,7 +70,7 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
-SSH的使用请查看 [远程登录 - SSH登录](../installation/remote_login#ssh)。
+SSH的使用请查看 [远程登录 - SSH登录](./remote_login#ssh)。
 
 ## 开启VNC服务
 
@@ -88,7 +88,7 @@ SSH的使用请查看 [远程登录 - SSH登录](../installation/remote_login#ss
 </TabItem>
 </Tabs>
 
-VNC的使用请查看 [远程登录 - VNC登录](../installation/remote_login#vnc登录)。
+VNC的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 ## 设置登录模式
 

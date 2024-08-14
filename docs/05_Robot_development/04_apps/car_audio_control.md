@@ -56,7 +56,7 @@ APP以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
    </TabItem>
    </Tabs>
 
-4. RDK已成功接好适配的音频板（可参考[智能语音章节](../boxs/function/hobot_audio.md)）。
+4. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/function/hobot_audio.md)）。
 
 5. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 

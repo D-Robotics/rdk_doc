@@ -15,7 +15,7 @@ This example mainly achieves the following functions:
 
 ### Running Method
 
-Please refer to [MIPI Camera AI Inference](/first_application/mipi_camera) for how to quickly run this example.
+Please refer to [MIPI Camera AI Inference](../../03_Basic_Application/01_Image/mipi_camera.md) for how to quickly run this example.
 
 ### Example Code Analysis
 
@@ -33,7 +33,7 @@ Please refer to [MIPI Camera AI Inference](/first_application/mipi_camera) for h
 
 - Load the model file
 
-    Call the [load](/python_development/pydev_dnn_api) method to load the model file and return a list of `hobot_dnn.pyeasy_dnn.Model` class.
+    Call the [load](./pydev_dnn_api) method to load the model file and return a list of `hobot_dnn.pyeasy_dnn.Model` class.
 
     ```shell
     models = dnn.load('../models/fcos_512x512_nv12.bin')
@@ -81,11 +81,11 @@ Please refer to [MIPI Camera AI Inference](/first_application/mipi_camera) for h
     srcampy.bind(cam, disp)
     ```
     
-    For more information about the detailed usage of the camera, please refer to the [Camera section](../pydev_multimedia_api_x3/object_camera.md).
+    For more information about the detailed usage of the camera, please refer to the [Camera section](../../03_Basic_Application/04_multi_media/pydev_multimedia_api_x3/object_camera.md).
     
 - Model Inference
 
-    Call the `forward` interface of the [Model](../pydev_dnn_api#model) class for inference. The model outputs 15 sets of data to represent the detected object detection boxes.
+    Call the `forward` interface of the [Model](./pydev_dnn_api.md) class for inference. The model outputs 15 sets of data to represent the detected object detection boxes.
     
     ```python
     outputs = models[0].forward(nv12_data)
@@ -101,7 +101,7 @@ Please refer to [MIPI Camera AI Inference](/first_application/mipi_camera) for h
     ```
 - Visualization of Detection Results
 
-    The example renders the algorithm results and the original video stream and outputs them through the HDMI interface. Users can preview the effects in real time on a display. The display part uses the Display function of the hobot_vio module, for more detailed information about this module, please refer to the [Display section](../pydev_multimedia_api_x3/object_display.md).
+    The example renders the algorithm results and the original video stream and outputs them through the HDMI interface. Users can preview the effects in real time on a display. The display part uses the Display function of the hobot_vio module, for more detailed information about this module, please refer to the [Display section](../../03_Basic_Application/04_multi_media/pydev_multimedia_api_x3/object_display.md).
 
     ```python
     for index, bbox in enumerate(prediction_bbox):

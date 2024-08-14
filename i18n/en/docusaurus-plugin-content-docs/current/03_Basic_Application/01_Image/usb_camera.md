@@ -26,6 +26,6 @@ After running the program, the monitor will display the camera image and the res
 
 :::tip
 
-For detailed code implementation instructions, please refer to the [USB Camera Inference](/python_development/pydev_dnn_demo/usb_camera) chapter.
+For detailed code implementation instructions, please refer to the [USB Camera Inference](../../04_Algorithm_Application/01_pydev_dnn_demo/usb_camera.md) chapter.
 
 :::

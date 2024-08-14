@@ -31,7 +31,7 @@ sidebar_position: 2
 <font color='Green'>[Answer]</font> 
 
 - Check whether the red power indicator on the development board is on.
-- Check the connection between the development board and the serial interface board, refer to the [Debug UART](../installation/hardware_interface#debug_uart) chapter for more details.
+- Check the connection between the development board and the serial interface board, refer to the [Debug UART](../01_Quick_start/remote_login.md) chapter for more details.
 - Check the serial port parameter configuration in the terminal software, the correct configuration is as follows:  
 
 ![image-20221124200013163](../../../../../static/img/08_FAQ/image/interface/image-20221124200013163.png)
@@ -44,13 +44,13 @@ sidebar_position: 2
 
 <font color='Green'>[Answer]</font> 
 
-- Check the network configuration, please refer to the [Network Configuration](../configuration/network) chapter.
+- Check the network configuration, please refer to the [Network Configuration](../02_System_configuration/01_network_blueteeth.md) chapter.
 
 <font color='Blue'>[Question]</font> 
 
 - The development board cannot be connected via SSH.<font color='Green'>【Answer】</font>
 
-- The prompt "Connection timed out" indicates a network communication error. Please refer to the [SSH login](../installation/remote_login#ssh) chapter for network configuration confirmation.
+- The prompt "Connection timed out" indicates a network communication error. Please refer to the [SSH login](../01_Quick_start/remote_login.md) chapter for network configuration confirmation.
 - The prompt "Authentication failed" indicates incorrect user or password for login. Please confirm and try again.
 
 ![image-20221124201544978](../../../../../static/img/08_FAQ/image/interface/image-20221124201544978.png)
@@ -109,7 +109,7 @@ When connecting a remote control joystick to the development board, the `/dev/in
 
 <font color='Green'>【Answer】</font>
 
-- Please refer to the [MIPI camera](../installation/hardware_interface#mipi_port) section to confirm the camera's connection method.
+- Please refer to the [MIPI camera](../01_Quick_start/hardware_introduction.md) section to confirm the camera's connection method.
 - Do not plug or unplug the camera while the development board is powered on, as it may damage the camera due to short circuit.
 
 <font color='Blue'>【Question】</font>
@@ -137,4 +137,4 @@ When connecting a remote control joystick to the development board, the `/dev/in
 
 <font color='Green'>【Answer】</font>
 
-- Supported resolution types can be found in the [HDMI interface](../installation/hardware_interface#hdmi_interface) section.
+- Supported resolution types can be found in the [HDMI interface](../01_Quick_start/hardware_introduction.md) section.

@@ -19,13 +19,13 @@ Before using the RDK X3 development board, the following preparations need to be
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-The RDK X3 development board is powered by a USB Type C interface. It requires a power adapter that supports **5V/3A** to power the board. It is recommended to use the recommended power adapter model in the [Basic Accessories List](/hardware_development/rdk_x3/accessory#basic_accessories) section.
+The RDK X3 development board is powered by a USB Type C interface. It requires a power adapter that supports **5V/3A** to power the board. It is recommended to use the recommended power adapter model in the [Basic Accessories List](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md) section.
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-The RDK X3 Module is powered through the power interface on the carrier board. The [official carrier board](http://localhost:3000/documents_rdk/hardware_development/rdk_x3_module/interface) is powered through a DC interface. It is recommended to use the **12V/2A** adapter recommended in the certified accessories list.
+The RDK X3 Module is powered through the power interface on the carrier board. The [official carrier board](../07_Advanced_development/01_hardware_development/rdk_x3_module/accessory.md) is powered through a DC interface. It is recommended to use the **12V/2A** adapter recommended in the certified accessories list.
 
 </TabItem>
 
@@ -35,7 +35,7 @@ The RDK X3 Module is powered through the power interface on the carrier board. T
 
 Please do not power the development board through the USB interface of a computer, as it may cause abnormal power failure and repeated restarts due to insufficient power supply.
 
-For more troubleshooting, please refer to the [Common Questions](../category/common_questions) section.
+For more troubleshooting, please refer to the [Common Questions](../08_FAQ/01_hardware_and_system.md) section.
 
 :::
 
@@ -334,7 +334,7 @@ Here are some common issues when using the development board for the first time:
 
 :::tip
 
-For more problem-solving, please refer to the [Frequently Asked Questions](../category/common_questions) section, and you can also visit the [D-Robotics Developer Forum](https://developer.d-robotics.cc/forum) for assistance.
+For more problem-solving, please refer to the [Frequently Asked Questions](../08_FAQ/01_hardware_and_system.md) section, and you can also visit the [D-Robotics Developer Forum](https://developer.d-robotics.cc/forum) for assistance.
 
 :::
 

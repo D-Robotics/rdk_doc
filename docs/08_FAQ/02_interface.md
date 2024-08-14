@@ -31,7 +31,7 @@ sidebar_position: 2
 <font color='Green'>【解答】</font> 
 
 - 检查开发板红色电源指示灯是否点亮
-- 检查开发板和串口转接板的连接方式，可参考[调试串口](../installation/hardware_interface#debug_uart)章节
+- 检查开发板和串口转接板的连接方式，可参考[调试串口](../01_Quick_start/remote_login.md)章节
 - 检查终端软件的串口参数配置，正确配置如下所示：  
 ![image-20221124200013163](../../static/img/08_FAQ/image/interface/image-20221124200013163.png)
 
@@ -43,7 +43,7 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font> 
 
-- 需要确认网络配置，具体请参考[网络配置](../configuration/network)章节
+- 需要确认网络配置，具体请参考[网络配置](../02_System_configuration/01_network_blueteeth.md)章节
 
 <font color='Blue'>【问题】</font> 
 
@@ -51,7 +51,7 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font> 
 
-- 提示`Connection timed out`，说明网络通讯异常。请参考[SSH登录](../installation/remote_login#ssh)章节确认网络配置
+- 提示`Connection timed out`，说明网络通讯异常。请参考[SSH登录](../01_Quick_start/remote_login.md)章节确认网络配置
 - 提示 `Authentication failed`，说明登录使用的用户、密码错误，请确认后重试  
 ![image-20221124201544978](../../static/img/08_FAQ/image/interface/image-20221124201544978.png)
 
@@ -110,7 +110,7 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font> 
 
-- 请参考[MIPI摄像头](../installation/hardware_interface#mipi_port)章节，确认摄像头连接方式
+- 请参考[MIPI摄像头](../01_Quick_start/hardware_introduction.md)章节，确认摄像头连接方式
 - 请勿在开发板通电情况下插拔摄像头，否则会因短路而损坏摄像头
 
 <font color='Blue'>【问题】</font> 
@@ -138,4 +138,4 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font> 
 
-- 支持的分辨率类型，可参考[HDMI接口](../installation/hardware_interface#hdmi_interface)章节
+- 支持的分辨率类型，可参考[HDMI接口](../01_Quick_start/hardware_introduction.md)章节

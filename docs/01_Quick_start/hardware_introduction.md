@@ -276,7 +276,7 @@ USB主从模式切换完全由硬件电路实现，用户只需按照上表的�
 
 ### 接入USB串口转接板
 
-开发板USB Type A接口(接口5和6)，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../python_development/40pin_user_guide/uart.md#40pin_uart_usage) 章节对串口进行使用。
+开发板USB Type A接口(接口5和6)，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../03_Basic_Application/03_40pin_user_guide/uart.md#40pin_uart_usage) 章节对串口进行使用。
 
 </TabItem>
 
@@ -356,7 +356,7 @@ RDK X3 Module载板提供CAM 0/1/2三组MIPI CSI接口，可以满足3路Camera�
 | 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
 | 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
 
-上述Camera模组的购买方式可参考[购买链接](/hardware_development/rdk_x3_module/accessory)。
+上述Camera模组的购买方式可参考[购买链接](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)。
 
 </TabItem>
 
@@ -377,7 +377,7 @@ RDK Ultra开发板提供`CAM 0~3`四组摄像头接口，可以满足4路MIPI Ca
 | 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
 | 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
 
-Camera模组的购买方式可参考社区配件页，[购买链接](https://developer.d-robotics.cc/accessory)。
+Camera模组的购买方式可参考社区配件页，[购买链接](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)。
 
 </TabItem>
 
@@ -491,7 +491,7 @@ RDK X3 2.0 & Module 外扩40PIN管脚及其定义如下：
 
 ![image-X3-PI-40Pin_Index](../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
-40PIN各功能的使用方法请查看 [40PIN 功能使用](../python_development/40pin_user_guide/40pin_define.md) 章节。
+40PIN各功能的使用方法请查看 [40PIN 功能使用](../03_Basic_Application/03_40pin_user_guide/40pin_define.md) 章节。
 
 </TabItem>
 
@@ -596,7 +596,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 默认情况下，RDK X3 Module核心模组固件、载板电平配置为3.3V，如需要切换IO电平时，需要按如下步骤进行：
 
 1. 下载支持1.8V电平配置的启动固件，[固件下载地址](https://archive.d-robotics.cc/downloads/miniboot)。
-2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](./system.md)。
+2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](../01_Quick_start/install_os.md)。
 3. 设备断电，使用跳线帽将`vref`、`1.8V`信号短接后重新上电。
 :::
 

@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # Environment Dependency
 
-This section introduces the environment dependency requirements for D-Robotics Plugin Pytorch. We recommend using the Docker environment provided by D-Robotics, and you can refer to the [**Machine Deployment**](/toolchain_development/intermediate/environment_config#machine_deploy) documentation for instructions on how to obtain it.
+This section introduces the environment dependency requirements for D-Robotics Plugin Pytorch. We recommend using the Docker environment provided by D-Robotics, and you can refer to the [**Machine Deployment**](../intermediate/environment_config#machine_deploy) documentation for instructions on how to obtain it.
 
 |             | gpu                      | cpu         |
 | ----------- | ------------------------ | ----------- |

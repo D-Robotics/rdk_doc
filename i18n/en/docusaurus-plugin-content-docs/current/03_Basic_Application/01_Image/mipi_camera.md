@@ -9,7 +9,7 @@ The development board is installed with the "mipi_camera.py" program to test the
 
 ## Environment Preparation
 
-  - Connect the MIPI camera module to the development board's MIPI CSI interface. For specific connection methods, please refer to the [MIPI Camera Connection Tutorial](../installation/hardware_interface#mipi_port) chapter.
+  - Connect the MIPI camera module to the development board's MIPI CSI interface. For specific connection methods, please refer to the [MIPI Camera Connection Tutorial](../../01_Quick_start/hardware_introduction.md) chapter.
   - Connect the development board to the monitor via an HDMI cable.
 
 ## Running the Program
@@ -26,6 +26,6 @@ After the program is executed, the monitor will display the camera image and the
 
 :::tip
 
-For detailed code implementation explanation, please refer to the [MIPI Camera Inference](/python_development/pydev_dnn_demo/mipi_camera) chapter.
+For detailed code implementation explanation, please refer to the [MIPI Camera Inference](../../04_Algorithm_Application/01_pydev_dnn_demo/mipi_camera.md) chapter.
 
 :::

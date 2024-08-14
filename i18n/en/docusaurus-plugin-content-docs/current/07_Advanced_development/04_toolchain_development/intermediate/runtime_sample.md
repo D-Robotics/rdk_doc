@@ -20,7 +20,7 @@ Please read on for more details.
 
 :::tip Tip
 
-To obtain the horizon_runtime_sample package, please refer to the [Deliverables Instructions](/toolchain_development/intermediate/environment_config#deliverables_instructions).
+To obtain the horizon_runtime_sample package, please refer to the [Deliverables Instructions](../intermediate/environment_config.md).
 :::
 
 
@@ -114,13 +114,13 @@ To obtain the horizon_runtime_sample package, please refer to the [Deliverables 
 
 #### Development Board Preparation
 
-1. After receiving the development board, please update the development board image to the latest version. For the upgrade method, please refer to the [**System Update**](../..../../../01_Quick_start/install_os.md#flash_system) chapter.
+1. After receiving the development board, please update the development board image to the latest version. For the upgrade method, please refer to the [**System Update**](../../../01_Quick_start/install_os.md#flash_system) chapter.
 
 2. Ensure that the local development machine and the development board can be connected remotely.
 
 #### Compilation
 
-Compilation requires the installation of cross-compilation tools: ``aarch64-linux-gnu-g++``, ``aarch64-linux-gnu-gcc``. Please use the D-Robotics provided development machine Docker image for compilation directly. Please read the [**Environment Installation**](/toolchain_development/intermediate/environment_config#machine_deploy) chapter for obtaining and using the development machine Docker environment;
+Compilation requires the installation of cross-compilation tools: ``aarch64-linux-gnu-g++``, ``aarch64-linux-gnu-gcc``. Please use the D-Robotics provided development machine Docker image for compilation directly. Please read the [**Environment Installation**](../intermediate/environment_config.md) chapter for obtaining and using the development machine Docker environment;
 According to the situation of the development board used, please use the ``build_xj3.sh`` or ``build_ultra.sh`` script under the horizon_runtime_sample/code directory to compile the executable program in the development board environment with one click. The executable program and corresponding dependencies will be automatically copied to the ``xj3/script`` directory under the ``aarch64`` directory or the ``ultra/script`` directory under the ``aarch64`` directory.
 
 :::info Note
@@ -537,7 +537,7 @@ The example package provides performance and accuracy evaluation examples for co
 
 :::tip Tip
 
-To obtain the ai_benchmark example package for public model accuracy and performance evaluation, please refer to the [Deliverables Instructions](/toolchain_development/intermediate/environment_config#deliverables_instructions).
+To obtain the ai_benchmark example package for public model accuracy and performance evaluation, please refer to the [Deliverables Instructions](../intermediate/environment_config.md).
 :::#### Example Code Package Structure
 
 ```bash
@@ -749,7 +749,7 @@ Please download them in a Linux environment using the following links:
 
 #### Compiler Environment Preparation
 
-The compilation requires the installation of the cross-compilation tool `gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu` in the current environment. Please use the Docker image provided by D-Robotics for development machine, and directly compile and use it. Read the chapter [**Environment Installation**](/toolchain_development/intermediate/environment_config#machine_deploy) for obtaining and using the development machine Docker environment;
+The compilation requires the installation of the cross-compilation tool `gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu` in the current environment. Please use the Docker image provided by D-Robotics for development machine, and directly compile and use it. Read the chapter [**Environment Installation**](../intermediate/environment_config.md) for obtaining and using the development machine Docker environment;
 Please use the script `build_ptq_xj3.sh` or `build_ptq_ultra.sh` under the code directory to compile the executable program in the development board environment. The executable program and its corresponding dependencies will be automatically copied to the directory `xj3/ptq/script` under the `aarch64` directory or the directory `ultra/ptq/script` under the `aarch64` directory.
 
 :::info Note
@@ -1052,7 +1052,7 @@ Running "hb_eval_preprocess --help" directly will display the usage rules of thi
 
 :::tip Tips
 
-1. To learn about the command-line parameters of the "hb_eval_preprocess" tool, you can enter "hb_eval_preprocess -h" or refer to the section [**hb_eval_preprocess Tool**](/toolchain_development/intermediate/ptq_process#hb_eval_preprocess) for an explanation of PTQ quantization principles and steps.
+1. To learn about the command-line parameters of the "hb_eval_preprocess" tool, you can enter "hb_eval_preprocess -h" or refer to the section [**hb_eval_preprocess Tool**](../intermediate/ptq_process.md) for an explanation of PTQ quantization principles and steps.
 :::
 
 Next, we will provide a detailed introduction to the dataset corresponding to each model in the example package and the preprocessing operations for the corresponding dataset:
@@ -1262,7 +1262,7 @@ The /nfs folder on the PC side is mounted to the /mnt folder on the board side. 
   The following example is the actual test result using **RDK X3** development board. If using **RDK Ultra** development board, there may be differences in the information. Please refer to the specific test for accuracy!
 :::
 
-After mounting the data, please log in to the development board. For the login method, please read the [**development board login**](../../installation/remote_login) section. After successful login, execute the `accuracy.sh` script in the `fcos_efficientnetb0/` directory as shown below:
+After mounting the data, please log in to the development board. For the login method, please read the [**development board login**](../../../01_Quick_start/remote_login.md) section. After successful login, execute the `accuracy.sh` script in the `fcos_efficientnetb0/` directory as shown below:
 
 ```bash
   /userdata/ptq/script/detection/fcos# sh accuracy.sh
@@ -1425,7 +1425,7 @@ Users can obtain different logs based on their needs.
 
 - Model inference API DNN logs
 
-For the configuration of model inference DNN API logs, please refer to the "Configuration Information" section in the "Model Inference DNN API Usage Guide" document (/clang_development/cdev_dnn_api/model_debug#configuration_information).#### Operator Time Explanation
+For the configuration of model inference DNN API logs, please refer to the "Configuration Information" section in the [Model Inference DNN API Usage Guide](../../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md).#### Operator Time Explanation
 
 
 The statistics on the performance of the model operators (OP) are achieved by setting the environment variable ``HB_DNN_PROFILER_LOG_PATH``. This section introduces the performance analysis of the model's inference, which helps developers to understand the real inference performance of the model.

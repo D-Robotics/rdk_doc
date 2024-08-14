@@ -15,7 +15,7 @@ sidebar_position: 5
 
 ### 运行方法
 
-请查阅 [MIPI摄像头AI推理](/first_application/mipi_camera) 了解如何快速运行本示例。
+请查阅 [MIPI摄像头AI推理](../../03_Basic_Application/01_Image/mipi_camera.md) 了解如何快速运行本示例。
 
 ### 示例代码解析
 
@@ -33,7 +33,7 @@ sidebar_position: 5
 
 - 加载模型文件
 
-    调用[load](/python_development/pydev_dnn_api)方法加载模型文件，并返回一个 `hobot_dnn.pyeasy_dnn.Model` 类的 list。
+    调用[load](./pydev_dnn_api)方法加载模型文件，并返回一个 `hobot_dnn.pyeasy_dnn.Model` 类的 list。
 
     ```shell
     models = dnn.load('../models/fcos_512x512_nv12.bin')
@@ -82,11 +82,11 @@ sidebar_position: 5
     srcampy.bind(cam, disp)
     ```
 
-    关于camera详细使用方法，可以查看[Camera章节](../pydev_multimedia_api_x3/object_camera.md)了解更多信息。
+    关于camera详细使用方法，可以查看[Camera章节](../../03_Basic_Application/04_multi_media/multi_media_api/pydev_multimedia_api_x3/object_camera.md)了解更多信息。
 
 - 模型推理
 
-    调用 [Model](../pydev_dnn_api#model) 类的 `forward` 接口进行推理，模型输出15组数据，用来表示检测到的物体检测框。
+    调用 [Model](./pydev_dnn_api.md) 类的 `forward` 接口进行推理，模型输出15组数据，用来表示检测到的物体检测框。
 
     ```python
     outputs = models[0].forward(nv12_data)
@@ -102,7 +102,7 @@ sidebar_position: 5
 
 - 检测结果可视化
 
-    示例对算法结果和原始视频流进行了渲染，并通过`HDMI`接口输出，用户可在显示器上实时预览效果。显示部分用到了hobot_vio模块的Display功能，该模块详细信息请查看 [Display章节](../pydev_multimedia_api_x3/object_display.md)。
+    示例对算法结果和原始视频流进行了渲染，并通过`HDMI`接口输出，用户可在显示器上实时预览效果。显示部分用到了hobot_vio模块的Display功能，该模块详细信息请查看 [Display章节](../../03_Basic_Application/04_multi_media/multi_media_api/pydev_multimedia_api_x3/object_display.md)。
 
     ```python
     for index, bbox in enumerate(prediction_bbox):

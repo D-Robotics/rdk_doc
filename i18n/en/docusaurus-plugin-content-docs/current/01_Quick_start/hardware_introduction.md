@@ -263,7 +263,7 @@ sunrise@ubuntu:/media/sda1$
 
 ### Using a USB Serial Port Adapter
 
-The USB Type A interfaces (Interfaces 5 and 6) on the development board support USB serial port adapter functionality. They can automatically detect the USB serial port adapter and create device nodes `/dev/ttyUSB*` or `/dev/ttyACM*` (the asterisk represents a number starting from 0). Users can refer to the [UART Usage](../python_development/40pin_user_guide/uart.md#40pin_uart_usage) section for instructions on using the serial port.
+The USB Type A interfaces (Interfaces 5 and 6) on the development board support USB serial port adapter functionality. They can automatically detect the USB serial port adapter and create device nodes `/dev/ttyUSB*` or `/dev/ttyACM*` (the asterisk represents a number starting from 0). Users can refer to the [UART Usage](../03_Basic_Application/03_40pin_user_guide/uart.md#40pin_uart_usage) section for instructions on using the serial port.
 
 </TabItem>
 
@@ -398,7 +398,7 @@ sunrise@ubuntu:~# sudo i2cdetect -y -r 1
 70: -- -- -- -- -- -- -- --                         
 ```
 
-The purchase method for the above Camera module can be referred to on the [purchase link](/hardware_development/rdk_x3_module/accessory).
+The purchase method for the above Camera module can be referred to on the [purchase link](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
 
 </TabItem>
 
@@ -419,7 +419,7 @@ The basic specifications of the camera modules are as follows:
 | 4      | IMX477 | 12MP       | H:62  V:37 D:68  | 0x1a               |
 | 5      | OV5647 | 5MP        | H:62  V:37 D:68  | 0x36               |
 
-The purchase links for the above camera modules can be found [here](/hardware_development/rdk_x3_module/accessory).
+The purchase links for the above camera modules can be found [here](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
 
 </TabItem>
 
@@ -513,7 +513,7 @@ The development board has silk screen marking for the 40-pin interface, making i
 
 ![image-X3-PI-40Pin_Index](../../../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
-For the usage of each function of the 40-pin interface, please refer to the [40PIN Function Usage](../python_development/40pin_user_guide/40pin_define) section.
+For the usage of each function of the 40-pin interface, please refer to the [40PIN Function Usage](../03_Basic_Application/03_40pin_user_guide/40pin_define.md) section.
 
 </TabItem>
 

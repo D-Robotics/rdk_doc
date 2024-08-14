@@ -13,7 +13,7 @@ RDK uses the configuration file `config.txt` to set system configurations during
 
 2. The system version must be at least `2.1.0`.
 
-3. The `miniboot` version cannot be earlier than the version dated `20231126`. Refer to [rdk-miniboot-update](rdk-command-manual/cmd_rdk-miniboot-update) for updating the miniboot on the board.
+3. The `miniboot` version cannot be earlier than the version dated `20231126`. Refer to [rdk-miniboot-update](../09_Appendix/rdk-command-manual/cmd_rdk-miniboot-update.md) for updating the miniboot on the board.
 
 4. If you add filtering items to this configuration file, please note whether the configuration items will be filtered out when using the `srpi-config` tool.
 

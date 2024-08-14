@@ -19,7 +19,7 @@ sidebar_position: 4
 
 <iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196550506&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
 
-在使用串口登录前，需要确认开发板串口线跟电脑正确连接，连接方法可参考[调试串口](/installation/hardware_interface#debug_uart)章节。串口登录需要借助PC终端工具，目前常用的工具有`Putty`、`MobaXterm`等，用户可根据自身使用习惯来选择。不同工具的端口配置流程基本类似，下面以`MobaXterm`为例，介绍新建串口连接过程：
+在使用串口登录前，需要确认开发板串口线跟电脑正确连接，连接方法可参考[调试串口](../01_Quick_start/hardware_introduction.md)章节。串口登录需要借助PC终端工具，目前常用的工具有`Putty`、`MobaXterm`等，用户可根据自身使用习惯来选择。不同工具的端口配置流程基本类似，下面以`MobaXterm`为例，介绍新建串口连接过程：
 
 - 当串口USB转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.d-robotics.cc/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：  
 
@@ -90,7 +90,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 ![image-20220416110242445](../../static/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
 
-如需将开发板有线网络配置为动态获取DHCP模式，可参考[有线网络](../configuration/network#config_ethnet)章节进行配置。
+如需将开发板有线网络配置为动态获取DHCP模式，可参考[有线网络](../02_System_configuration/01_network_blueteeth.md)章节进行配置。
 
 ## VNC登录
 

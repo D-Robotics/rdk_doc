@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # 3.3.1 Pin Configuration and Definition
 
-For the 40-pin on the development board, please refer to the [40-Pin GPIO Definition](#40pin_define) section for interface definitions.
+For the 40-pin on the development board, please refer to the [40-Pin GPIO Definition](./40pin_define) section for interface definitions.
 
 ## Pin Multiplexing Configuration
 

@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # 8.1 硬件和系统
 
-认证配件及购买链接请参考[认证配件清单](https://developer.d-robotics.cc/documents_rdk/hardware_development/rdk_x3/accessory)
+认证配件及购买链接请参考[认证配件清单](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory)
 
-详细请参考[D-Robotics RDK套件用户手册的常见问题](https://developer.d-robotics.cc/documents_rdk/category/common_questions)
+详细请参考[D-Robotics RDK套件用户手册的常见问题](../08_FAQ/01_hardware_and_system.md)
 
 ## 什么是D-Robotics RDK套件？
 
-D-Robotics Developer Kits，简称[D-Robotics RDK套件](https://developer.d-robotics.cc/documents_rdk/)，是基于D-Robotics 智能芯片打造的机器人开发者套件，包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK Ultra**。
+D-Robotics Developer Kits，简称[D-Robotics RDK套件](https://developer.d-robotics.cc/rdk_doc/)，是基于D-Robotics 智能芯片打造的机器人开发者套件，包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK Ultra**。
 
 ## 如何查看系统版本号
 
@@ -218,7 +218,7 @@ fi
 
 如果发现开发板上电后状态灯一直不熄灭或者不闪烁，HDMI显示器上也不显示任何画面，则建议先排查供电是否正常。
 
-- 需要使用支持**5V 3A**的电源适配器为开发板供电，推荐使用[基础配件清单](/hardware_development/rdk_x3/accessory#basic_accessories)中推荐的电源适配器型号。
+- 需要使用支持**5V 3A**的电源适配器为开发板供电，推荐使用[基础配件清单](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory)中推荐的电源适配器型号。
 - 如果使用自己的充电器，请选用正规品牌的USB Type C 口供电线，并且满足**5V 3A**
 - 不要直接使用电脑的USB口给开发板供电
 

@@ -20,7 +20,7 @@ sidebar_position: 4
 
 :::tip 小技巧
 
-  horizon_runtime_sample 示例包获取请参考[《交付物说明》](/toolchain_development/intermediate/environment_config#deliverables_instructions)。 
+  horizon_runtime_sample 示例包获取请参考 [交付物说明](../intermediate/environment_config.md)。 
 :::
 
 #### 示例代码包结构介绍
@@ -119,7 +119,7 @@ sidebar_position: 4
 
 #### 编译
 
-编译需要当前环境安装好交叉编译工具： ``aarch64-linux-gnu-g++`` ， ``aarch64-linux-gnu-gcc``。 请使用D-Robotics 提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](/toolchain_development/intermediate/environment_config#machine_deploy) 章节内容；
+编译需要当前环境安装好交叉编译工具： ``aarch64-linux-gnu-g++`` ， ``aarch64-linux-gnu-gcc``。 请使用D-Robotics 提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](../intermediate/environment_config.md) 章节内容；
 根据自身使用的开发板情况，请使用horizon_runtime_sample/code目录下的 ``build_xj3.sh`` 或 ``build_ultra.sh`` 脚本，即可一键编译开发板环境下的可执行程序，可执行程序和对应依赖会自动复制到 ``xj3/script`` 目录下的 ``aarch64`` 目录下 或 ``ultra/script`` 目录下的 ``aarch64`` 目录下。
 
 :::info 备注
@@ -492,7 +492,7 @@ sidebar_position: 4
 
 #### 模型推理 DNN API日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](/clang_development/cdev_dnn_api/model_debug#configuration_information) 文档中的 ``配置信息`` 一节内容。
+关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 文档中的 ``配置信息`` 一节内容。
 
 ## 公版模型性能精度测评说明
 
@@ -545,7 +545,7 @@ sidebar_position: 4
 
 :::tip 小技巧
 
-  公版模型精度性能评测 ai_benchmark 示例包获取，请参考[《交付物说明》](/toolchain_development/intermediate/environment_config#deliverables_instructions)。 
+  公版模型精度性能评测 ai_benchmark 示例包获取，请参考[《交付物说明》](../intermediate/environment_config#deliverables_instructions)。 
 :::
 
 #### 示例代码包结构
@@ -763,7 +763,7 @@ sidebar_position: 4
 
 #### 编译环境准备
 
-编译需要当前环境安装好交叉编译工具 ``gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu``。请使用D-Robotics 提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](/toolchain_development/intermediate/environment_config#machine_deploy) 章节内容；
+编译需要当前环境安装好交叉编译工具 ``gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu``。请使用D-Robotics 提供的开发机Docker镜像，直接进行编译使用。开发机Docker环境的获取及使用方法，请阅读[**环境安装**](../intermediate/environment_config#machine_deploy.md) 章节内容；
 请使用code目录下的 ``build_ptq_xj3.sh`` 或 ``build_ptq_ultra.sh`` 脚本，即可一键编译开发板环境下的可执行程序，可执行程序和对应依赖会自动复制到 ``xj3/ptq/script`` 目录下的 ``aarch64`` 目录下 或 ``ultra/ptq/script`` 目录下的 ``aarch64`` 目录下。
 
 :::info 备注
@@ -1069,7 +1069,7 @@ workflow_latency.json 如下：
 :::tip 小技巧
 
   1. 关于 ``hb_eval_preprocess`` 工具命令行参数，可键入 ``hb_eval_preprocess -h``， 或查看 PTQ量化原理及步骤说明的
-     [**hb_eval_preprocess工具**](/toolchain_development/intermediate/ptq_process#hb_eval_preprocess) 一节内容。
+     [**hb_eval_preprocess工具**](../intermediate/ptq_process#hb_eval_preprocess.md) 一节内容。
      :::
 
 下面将详细介绍示例包中每一个模型对应的数据集，以及对应数据集的预处理操作：
@@ -1282,7 +1282,7 @@ workflow_latency.json 如下：
   以下示例是使用 **RDK X3** 开发板的实测结果，若使用 **RDK Ultra** 开发板信息会有所差异，以具体实测为准！
 :::
 
-挂载完数据后，请登录开发板，开发板登录方法，请阅读[**开发板登录**](../../installation/remote_login) 章节内容，登录成功后，执行 ``fcos_efficientnetb0/`` 目录下的accuracy.sh脚本，如下所示：
+挂载完数据后，请登录开发板，开发板登录方法，请阅读[**开发板登录**](../../../01_Quick_start/remote_login.md) 章节内容，登录成功后，执行 ``fcos_efficientnetb0/`` 目录下的accuracy.sh脚本，如下所示：
 
 ```bash
   /userdata/ptq/script/detection/fcos# sh accuracy.sh

@@ -324,7 +324,7 @@ The data preprocessing for model inference using the validation set is as follow
 
 The sample processing code for the example model mentioned above is as follows:
 
-To avoid excessive code length, the implementation code of various simple transformers is not included. For specific usage, please refer to the chapter "Transformer Usage" in the [**Toolchain**](../../common_questions/toolchain#transposetransformer) section.
+To avoid excessive code length, the implementation code of various simple transformers is not included. For specific usage, please refer to the chapter "Transformer Usage" in the [**Toolchain**](../../../08_FAQ/05_toolchain.md#transposetransformer) section.
 
 :::tip Tips
 
@@ -445,11 +445,11 @@ Microarchitecture of BPU. Set it to "bernoulli2" if using "RDK X3", and set it t
 
 :::caution Note
 
-- For "RDK X3 yaml configuration file", fill in the template file [**RDK X3 Caffe model quantization yaml template**](../../common_questions/toolchain#rdk_x3_caffe_yaml_template) or [**RDK X3 ONNX model quantization yaml template**](../../common_questions/toolchain#rdk_x3_onnx_yaml_template) directly.
+- For "RDK X3 yaml configuration file", fill in the template file [**RDK X3 Caffe model quantization yaml template**](../../../08_FAQ/05_toolchain.md#rdk_x3_caffe_yaml_template) or [**RDK X3 ONNX model quantization yaml template**](../../../08_FAQ/05_toolchain.md#rdk_x3_onnx_yaml_template) directly.
 
-- For "RDK Ultra yaml configuration file", fill in the template file [**RDK Ultra Caffe model quantization yaml template**](../../common_questions/toolchain#rdk_ultra_caffe_yaml_template) or [**RDK Ultra ONNX model quantization yaml template**](../../common_questions/toolchain#rdk_ultra_onnx_yaml_template) directly.
+- For "RDK Ultra yaml configuration file", fill in the template file [**RDK Ultra Caffe model quantization yaml template**](../../../08_FAQ/05_toolchain.md#rdk_ultra_caffe_yaml_template) or [**RDK Ultra ONNX model quantization yaml template**](../../../08_FAQ/05_toolchain.md#rdk_ultra_onnx_yaml_template) directly.
 
-- If the hb_mapper makertbin step terminates abnormally or shows an error message, it means that the model conversion has failed. Please check the error message and modification suggestions in the terminal printout or in the ``hb_mapper_makertbin.log`` log file generated in the current path. You can find the solution for the error in the [**Model Quantization Errors and Solutions**](../../common_questions/toolchain#model_convert_errors_and_solutions) section. If the problem cannot be solved after these steps, please contact the D-Robotics technical support team or submit your question in the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/). We will provide support within 24 hours.
+- If the hb_mapper makertbin step terminates abnormally or shows an error message, it means that the model conversion has failed. Please check the error message and modification suggestions in the terminal printout or in the ``hb_mapper_makertbin.log`` log file generated in the current path. You can find the solution for the error in the [**Model Quantization Errors and Solutions**](../../../08_FAQ/05_toolchain.md#model_convert_errors_and_solutions) section. If the problem cannot be solved after these steps, please contact the D-Robotics technical support team or submit your question in the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/). We will provide support within 24 hours.
 
 :::
 
@@ -947,7 +947,7 @@ Missing keys: 'caffe_model', 'prototxt'
 2021-04-21 14:45:34,085 ERROR exception in command: makertbin
 ```
 
-If the log information output to the console cannot help you find the problem, please refer to the section [Model Quantization Errors and Solutions](../../common_questions/toolchain#model_convert_errors_and_solutions) for troubleshooting. If the above steps still cannot solve the problem, please contact the D-Robotics technical support team or submit your issue in the [official D-Robotics developer community](https://developer.d-robotics.cc/), and we will provide support within 24 hours.
+If the log information output to the console cannot help you find the problem, please refer to the section [Model Quantization Errors and Solutions](../../../08_FAQ/05_toolchain.md#model_convert_errors_and_solutions) for troubleshooting. If the above steps still cannot solve the problem, please contact the D-Robotics technical support team or submit your issue in the [official D-Robotics developer community](https://developer.d-robotics.cc/), and we will provide support within 24 hours.
 
 
 #### Conversion Output Interpretation`{`#conversion_output`}`
@@ -1488,7 +1488,7 @@ This part applies mainly to users who prepare calibration data and evaluation co
 
 - Incorrect storage format for calibration datasets: D-Robotics uses `numpy.tofile` for saving calibration data, which does not preserve shape or type information. If `input_type_train` is not in "featuremap" format, the program will infer the data type based on whether the calibration data path contains "f32". From X3 algorithm toolchain v2.2.3a, a new parameter `cal_data_type` has been added to set the binary file data storage type.
 
-- Inconsistent transformer implementation: D-Robotics provides common preprocessing functions in `/horizon_model_convert_sample/01_common/python/data/transformer.py`. Differences in ResizeTransformer implementation might exist, such as using OpenCV's default interpolation method (linear). To modify other interpolation methods, edit the `transformer.py` source code and ensure consistency with the training-time preprocessing code. Refer to the [**Transformer Usage**](../../common_questions/toolchain#transposetransformer) section for more details.
+- Inconsistent transformer implementation: D-Robotics provides common preprocessing functions in `/horizon_model_convert_sample/01_common/python/data/transformer.py`. Differences in ResizeTransformer implementation might exist, such as using OpenCV's default interpolation method (linear). To modify other interpolation methods, edit the `transformer.py` source code and ensure consistency with the training-time preprocessing code. Refer to the [**Transformer Usage**](../../../08_FAQ/05_toolchain.md#transposetransformer) section for more details.
 
 - Continue using the original float model's data processing library during the D-Robotics algorithm toolchain. For less robust models, discrepancies in resize, crop, and other common functions across libraries can affect precision.
 
@@ -2276,7 +2276,7 @@ When all parameters are set to defaults, the tool performs the following steps:
 
 If `node_type='node'`, the tool retrieves the top 5 nodes and their corresponding calibration nodes, displaying data distributions and box plots.
 
-Based on previous optimization experience, this strategy covers most scenarios. If issues persist, follow the [**Precision Optimization Checklist**](../../common_questions/toolchain#checklist) to gather detailed model configuration information, ensure all troubleshooting steps have been completed, and report the filled checklist, the original float model file, and relevant configuration files to the D-Robotics support team or the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/) for further assistance.
+Based on previous optimization experience, this strategy covers most scenarios. If issues persist, follow the [**Precision Optimization Checklist**](../../../08_FAQ/05_toolchain.md#checklist) to gather detailed model configuration information, ensure all troubleshooting steps have been completed, and report the filled checklist, the original float model file, and relevant configuration files to the D-Robotics support team or the [**D-Robotics Official Technical Community**](https://developer.d-robotics.cc/) for further assistance.
 
 
 

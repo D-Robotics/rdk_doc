@@ -601,7 +601,7 @@ def round_ste(x: Tensor):
 
 在工具中的使用方法请参考 `default_qat_8bit_lsq_quant_qconfig` 及其相关接口。
 
-有兴趣进一步了解的用户可以参考如下论文：[**Learned Step Size Quantization**]( `https://arxiv.org/abs/1902.08153>)
+有兴趣进一步了解的用户可以参考如下论文：[**Learned Step Size Quantization**](https://arxiv.org/abs/1902.08153)
 
 ## 异构模型指南
 
@@ -2597,7 +2597,7 @@ compare_weights(float_net, qat_net)
 
 :::info 备注
 
-若您使用 fx 进行量化，可以直接参考 API 文档中的 [**prepare_qat_fx**](../api_reference/apis/qat.html#horizon_plugin_pytorch.quantization.prepare_qat_fx)，通过 `hybrid` 和 `hybrid_dict` 参数进行开启分步量化。
+若您使用 fx 进行量化，可以直接参考 API 文档中的 [**prepare_qat_fx**](../expert/api_reference.md)，通过 `hybrid` 和 `hybrid_dict` 参数进行开启分步量化。
 :::
 
 ```python
@@ -3434,7 +3434,7 @@ QAT 训练或 quantized 模型部署时，常见的几种异常现象如下：
 
   :::info 备注
 
-    如果 Calibration 的精度跟浮点相差不大时，最好不再调整 activation scale，即设置 activation  averaging_constant=0.0；具体设置方法见 [**自定义 qconfig**](../advanced_content/custom_qconfig)。
+    如果 Calibration 的精度跟浮点相差不大时，最好不再调整 activation scale，即设置 activation  averaging_constant=0.0；具体设置方法见 [**自定义 qconfig**](./advanced_content.md)。
   :::
 
 - Transform（数据增强）
@@ -3834,7 +3834,7 @@ QAT/Quantized 精度不符合预期、出现 NAN 或 QAT 初始 loss 相对 floa
 
 `RuntimeError: Unknown builtin op: horizon::bpu_scale_quantization`
 
-解决方法：请检查在使用 `torch.jit.load` 前是否有 `import horizon_plugin_pytorch`。否则，加载时找不到对应的 horizon 算子。推荐使用 [**horizon.jit.save/load**](../api_reference/apis/save_load) 保存和加载 pt 文件，避免这样的错误。此外，`horizon.jit.save` 在保存 pt 时还会额外保存 horizon_plugin_pytorch 的版本号，`horizon.jit.load` 会检查当前 horizon_plugin_pytorch 的版本是否和保存 pt 时的兼容，若不兼容，会输出相应的警告。
+解决方法：请检查在使用 `torch.jit.load` 前是否有 `import horizon_plugin_pytorch`。否则，加载时找不到对应的 horizon 算子。推荐使用 [**horizon.jit.save/load**](./api_reference.md) 保存和加载 pt 文件，避免这样的错误。此外，`horizon.jit.save` 在保存 pt 时还会额外保存 horizon_plugin_pytorch 的版本号，`horizon.jit.load` 会检查当前 horizon_plugin_pytorch 的版本是否和保存 pt 时的兼容，若不兼容，会输出相应的警告。
 
 
 ## 常见使用误区

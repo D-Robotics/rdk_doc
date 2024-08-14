@@ -102,7 +102,7 @@ sidebar_position: 2
 
 ## 快速体验{#quick_experiments}
 
-本章节中，我们为您介绍D-Robotics 算法工具链PTQ方案的基本使用流程，便于您实现快速上手。 这里我们以 **RDK X3** 开发板上运行的 yolov5s 模型为例，为您进行使用演示，D-Robotics 算法工具链PTQ方案的更多详细内容，请阅读 [**进阶指南-PTQ原理及步骤详解**](/toolchain_development/intermediate/ptq_process) 章节。
+本章节中，我们为您介绍D-Robotics 算法工具链PTQ方案的基本使用流程，便于您实现快速上手。 这里我们以 **RDK X3** 开发板上运行的 yolov5s 模型为例，为您进行使用演示，D-Robotics 算法工具链PTQ方案的更多详细内容，请阅读 [**进阶指南-PTQ原理及步骤详解**](./intermediate/ptq_process.md) 章节。
 :::tip 小技巧
   若要转换RDK Ultra支持的模型，请将以下章节步骤中的``0x_xx_X3.sh``脚本命令替换为 ``0x_xx_Ultra.sh`` 脚本命令进行模型转换即可。
 :::
@@ -246,9 +246,9 @@ sidebar_position: 2
 
 ![yolov5s-result](../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/yolov5s-result.png)
 
-常用API示例，请参考 [**yolov5目标检测算法**](/python_development/pydev_dnn_demo/static_image#detection_yolov5) 章节内容。
+常用API示例，请参考 [**yolov5目标检测算法**](../../04_Algorithm_Application/01_pydev_dnn_demo/static_image.md) 章节内容。
 
-更多模型推理API使用说明，请参考 [**Python开发指南-模型推理接口使用说明**](../python_development/pydev_dnn_api) 和 [**C/C++开发指南-模型推理接口使用说明**](../clang_development/cdev_dnn_api) 章节内容。
+更多模型推理API使用说明，请参考 [**Python开发指南-模型推理接口使用说明**](../../04_Algorithm_Application/01_pydev_dnn_demo/pydev_dnn_api.md) 和 [**C/C++开发指南-模型推理接口使用说明**](../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 章节内容。
 
 
 ### 公版模型性能精度指标

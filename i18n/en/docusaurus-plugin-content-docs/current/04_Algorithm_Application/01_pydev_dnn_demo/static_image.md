@@ -38,7 +38,7 @@ cls id: 340 Confidence: 0.991851
     ```
 
 - Model loading
-    Call the [load](../pydev_dnn_api.md) interface to load the model file and return a list of `hobot_dnn.pyeasy_dnn.Model` class.
+    Call the [load](./pydev_dnn_api.md) interface to load the model file and return a list of `hobot_dnn.pyeasy_dnn.Model` class.
 
     ```python
     models = dnn.load('../models/mobilenetv1_224x224_nv12.bin')
@@ -78,7 +78,7 @@ cls id: 340 Confidence: 0.991851
 
 - Model inference
 
-    Call the `forward` interface of the [Model](../pydev_dnn_api#model) class for algorithm inference, and then obtain a list of 1000 values representing the predicted probabilities for 1000 categories.
+    Call the `forward` interface of the [Model](./pydev_dnn_api) class for algorithm inference, and then obtain a list of 1000 values representing the predicted probabilities for 1000 categories.
 
     ```python
     outputs = models[0].forward(nv12_data)

@@ -17,9 +17,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 `hobot_dnn`推理库主要使用的类和接口如下：
 
-- **Model** ： AI 算法模型类，执行加载算法模型、推理计算， 更多信息请查阅 [Model](/python_development/pydev_dnn_api#model) 。
-- **pyDNNTensor**：AI 算法输入、输出数据 tensor 类， 更多信息请查阅 [pyDNNTensor](/python_development/pydev_dnn_api) 。
-- **TensorProperties** ：模型输入 tensor 的属性类， 更多信息请查阅 [TensorProperties](/python_development/pydev_dnn_api) 。
-- **load**：加载算法模型，更多信息请查阅 [API接口](/python_development/pydev_dnn_api) 。
+- **Model** ： AI 算法模型类，执行加载算法模型、推理计算， 更多信息请查阅 [Model](./pydev_dnn_api.md) 。
+- **pyDNNTensor**：AI 算法输入、输出数据 tensor 类， 更多信息请查阅 [pyDNNTensor](./pydev_dnn_api.md) 。
+- **TensorProperties** ：模型输入 tensor 的属性类， 更多信息请查阅 [TensorProperties](./pydev_dnn_api.md) 。
+- **load**：加载算法模型，更多信息请查阅 [API接口](./pydev_dnn_api.md) 。
 
 

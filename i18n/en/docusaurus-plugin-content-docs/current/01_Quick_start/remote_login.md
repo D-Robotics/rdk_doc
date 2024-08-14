@@ -18,7 +18,7 @@ Before remote login via network, the development board needs to be connected to 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dYV5nw_PDMw?si=SzkP6H_QaL1OPft9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Before using serial port login, it is necessary to confirm that the serial port cable of the development board is correctly connected to the computer. The connection method can refer to the [Serial Port Debugging](/installation/hardware_interface#debug_uart) chapter. Serial port login requires a PC terminal tool. The commonly used tools are `Putty`, `MobaXterm`, etc. Users can choose according to their own habits. The port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
+Before using serial port login, it is necessary to confirm that the serial port cable of the development board is correctly connected to the computer. The connection method can refer to the [Serial Port Debugging](../01_Quick_start/hardware_introduction.md) chapter. Serial port login requires a PC terminal tool. The commonly used tools are `Putty`, `MobaXterm`, etc. Users can choose according to their own habits. The port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
 
 - When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. The driver can be obtained from the [Tools sub-column](https://developer.d-robotics.cc/resource) of the Resource Center. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:  
 ![image-20220416105939067](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
@@ -88,7 +88,7 @@ The wired Ethernet of the development board is set to use the static IP mode by 
 
 ![image-20220416110242445](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
 
-If you want to configure the wired network of the development board to obtain IP dynamically via DHCP mode, please refer to the [Wired Network](../configuration/network#config_ethnet) chapter for configuration.
+If you want to configure the wired network of the development board to obtain IP dynamically via DHCP mode, please refer to the [Wired Network](../02_System_configuration/01_network_blueteeth.md) chapter for configuration.
 
 ## VNC Login
 
