@@ -114,7 +114,7 @@ To obtain the horizon_runtime_sample package, please refer to the [Deliverables 
 
 #### Development Board Preparation
 
-1. After receiving the development board, please update the development board image to the latest version. For the upgrade method, please refer to the [**System Update**](../../installation/install_os#flash_system) chapter.
+1. After receiving the development board, please update the development board image to the latest version. For the upgrade method, please refer to the [**System Update**](../..../../../01_Quick_start/install_os.md#flash_system) chapter.
 
 2. Ensure that the local development machine and the development board can be connected remotely.
 
@@ -743,7 +743,7 @@ Please download them in a Linux environment using the following links:
 
 #### Development Board Preparation
 
-1. After receiving the development board, please update the board image to the latest version. Refer to the chapter [**Installation**](../../installation/install_os#flash_system) for the upgrade method.
+1. After receiving the development board, please update the board image to the latest version. Refer to the chapter [**Installation**](../..../../../01_Quick_start/install_os.md#flash_system) for the upgrade method.
 
 2. Make sure that the local development machine and the development board can be connected remotely.
 

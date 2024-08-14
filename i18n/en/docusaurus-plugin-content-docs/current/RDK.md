@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # D-Robotics  RDK Suite
 
-This document is the user manual for the D-Robotics RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. Users are welcome to update and experience, please refer to the [Quick Start](/category/installation) section for specific instructions.
+This document is the user manual for the D-Robotics RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. Users are welcome to update and experience, please refer to the [System Burning](./01_Quick_start/install_os.md) section for specific instructions.
 
 :::info Note
 
-- All **RDK X3** mentioned in this document use the Ubuntu 2.0 and 3.0 version operating system.
+- All **RDK X3** mentioned in this document use the Ubuntu 22.04 operating system.
 
-- The **RDK X3 Module** comes with a pre-burned test version system image, to ensure the use of the latest version of the system, it is recommended to refer to this document to complete [the burning of the latest version of the system image](/installation/install_os).
+- The **RDK X3 Module** comes with a pre-burned test version system image, to ensure the use of the latest version of the system, it is recommended to refer to this document to complete [the burning of the latest version of the system image](./01_Quick_start/install_os.md).
 
 To check the system version number, you can use the following command `cat /etc/version`.
 :::
@@ -19,7 +19,7 @@ To check the system version number, you can use the following command `cat /etc/
 
 ## Overview of D-Robotics RDK Suite
 
-**D-Robotics Developer Kits**, abbreviated as D-Robotics RDK Suite, is a robot development kit built on the D-Robotics intelligent chip, including RDK X3, RDK X3 Module, and RDK Ultra. In combination with the TogetheROS.Bot robot middleware, the D-Robotics RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
+**D-Robotics Developer Kits**, abbreviated as D-Robotics RDK Suite, is a robot development kit built on the D-Robotics intelligent chip, including RDK X3, RDK X3 Module. In combination with the TogetheROS.Bot robot middleware, the D-Robotics RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
 
 This document will provide detailed instructions on how to use the D-Robotics RDK Suite, including setting up the development environment, running example tutorials, developing applications, and customizing system images. Regardless of which hardware you choose to use, the content described in this document will provide you with a consistent user experience.
 
@@ -32,41 +32,37 @@ This document will provide detailed instructions on how to use the D-Robotics RD
 ![image-20230522171439846](../../../../static/img/image-rdk-serials_en.jpg)
 
 
-## Document Usage Guide
+## Documentation Usage Guide
 
-The following will introduce the overall content division of the user manual, helping users quickly understand the structure and content of the document in order to better utilize the document for development and learning work.
+The following is an introduction to the overall content division of the user manual, helping users quickly understand the structure and content of the document for better use in development and learning.
 
-**[System Installation and Login](/category/installation)**  
-Introducing system installation and beginner's guide to hardware interface usage, helping users quickly get started with the development board.
+**I. Quick Start**  
+This section provides an introduction to system installation and hardware interface usage, helping users quickly get started with the development board.  
 
-**[System Configuration](/category/configuration)**  
-Introducing a series of configuration steps and tips to ensure that the system works properly and meets specific requirements. It guides users to configure the system, including system upgrades, network, and Bluetooth configurations.**[First Application](/category/first_application)**  
-Introduces pre-installed functional examples in the system, such as IO pin control, video capture, and algorithm inference.
+**II. System Configuration**  
+This section introduces a series of configuration steps and tips to ensure the system works properly and meets specific needs, guiding users through system configuration, including system upgrades, network, and Bluetooth settings.  
 
-**[Python Development Guide](/category/python_development)**  
-Introduces the usage of Python language version's simplified interfaces for video, image, and algorithm. This interface is simple and easy to use, allowing users to quickly get started. It is based on encapsulating lower-level multimedia interfaces.
+**III. Basic Application Development**  
+This section covers the pre-installed function examples in the system, such as GPIO control, audio/video capture, and initial multimedia usage.  
 
-**[C/C++ Development Guide](/category/clang_development)**  
-Introduces the usage of C/C++ language version's simplified interfaces for video, image, and algorithm, as well as the libdnn algorithm interface library. This chapter also provides application examples of C/C++ on the RDK X3 development board to help users develop more rapidly.
+**IV. Algorithm Application Development Guide**  
+This section introduces the usage of simplified algorithm interfaces in both Python and C++, which are easy to use and allow users to get started quickly. These interfaces are built on lower-level inference interfaces and come with basic usage examples.  
 
-**[Linux Development Guide](/category/linux_development)**  
-Introduces relevant content of operating system software development, including installation and configuration of development environment, compilation and building methods for Ubuntu platform, driver development, system debugging and optimization, and more.
+**V. Robot Application Development Guide**  
+This section is aimed at robot manufacturers and ecosystem developers, introducing a robot operating system designed to unleash the intelligent potential of robotic scenarios, enabling efficient and convenient robot development for ecosystem developers and commercial customers, and helping to create competitive intelligent robot products.  
 
-**[Multimedia Development Guide](/category/multimedia_development)**  
-Introduces the usage of video, image, and multimedia low-level interfaces, covering technologies and examples in image processing, audio processing, video processing, video codec/decoding, etc. The interface functions are rich and can implement complex and flexible functional requirements.
+**VI. Application Development Guide**  
+This section includes application development guides for various aspects, such as deep learning line-following cars, AMR development guides, and large model applications.  
 
-**[Hardware Development Guide](/category/hardware_development)**  
-Introduces the hardware specifications, interfaces, design files, and design guidelines for RDK X3 (Sunrise X3), RDK X3 Module (Sunrise X3 Module), and RDK Ultra. It provides design materials such as specifications, schematics, dimension drawings, etc.
+**VII. Advanced Development Guide**  
+This section provides a comprehensive introduction to hardware development, system development, multimedia application development, and algorithm development guides. It covers the development processes of hardware design, system configuration and compilation, multimedia usage and debugging, and algorithm training and quantization for deployment. The interfaces are rich in functionality, capable of meeting complex and flexible functional requirements.  
 
-**[Algorithm Toolchain Development Guide](/category/toolchain_development)**  
-Introduces the usage of D-Robotics's algorithm quantization toolchain, covering commonly used algorithm models, usage of development tools, optimization techniques, and more.
-
-**[Common Questions](/category/common_questions)**  
-This chapter answers common questions and doubts that users may encounter when using the developer kit. It provides solutions and tips to help users solve common problems and carry out development work smoothly.
+**VIII. Frequently Asked Questions**  
+This section addresses common issues and questions that users may encounter while using the developer kit. It provides solutions and tips to help users resolve common problems and proceed smoothly with their development work.
 
 ## Version Release History
 
-### Version: 2.1.0
+### Version: 3.0.0
 
 New Features:
 

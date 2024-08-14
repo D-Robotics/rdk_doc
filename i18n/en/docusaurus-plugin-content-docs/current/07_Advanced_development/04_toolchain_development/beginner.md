@@ -214,7 +214,7 @@ After the model conversion is completed, the model files and static performance 
 
 ### Model Deployment
 
-**Note**: Before deploying the model, make sure to complete the environment setup on the development board according to the steps in the [**System Installation**](../installation/install_os) section. 
+**Note**: Before deploying the model, make sure to complete the environment setup on the development board according to the steps in the [**System Installation**](..../../../01_Quick_start/install_os.md) section. 
 Copy the fixed-point model `yolov5s_672x672_nv12.bin` to the `/app/pydev_demo/models` directory on the development board, and run the following command:
 
 ```bash

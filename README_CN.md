@@ -47,8 +47,8 @@ $ npm run serve
 
 启动一个静态文件服务器，并在浏览器中提供以下链接进行访问,端口号以实际端口号为主：
 
-**英文手册链接**：http://localhost:3000/en/docs/
+**英文手册链接**：http://localhost:3000/en/rdk_doc/
 
-**中文手册链接**：http://localhost:3000/docs/
+**中文手册链接**：http://localhost:3000/rdk_doc/
 
 

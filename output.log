@@ -1,0 +1,299 @@
+
+> rdk-doc@0.0.0 build
+> docusaurus build
+
+
+ ------------------------------------------------------------------------------                                                                                                          Update available 3.4.0 → 3.5.2                                                                                                                 To upgrade Docusaurus packages with the latest version, run the                                       following command:                                        `npm i @docusaurus/core@latest @docusaurus/preset-classic@latest                @docusaurus/module-type-aliases@latest @docusaurus/types@latest`                                                                                         ------------------------------------------------------------------------------ 
+
+[INFO] Website will be built for all these locales: 
+- zh-Hans
+- en
+[INFO] Website will be built for all these locales: 
+- zh-Hans
+- en
+[INFO] [zh-Hans] Creating an optimized production build...
+Warn: `blogDir` doesn't exist: "/home/xgs/project/rdk_doc/blog".
+ℹ Compiling Client
+ℹ Compiling Server
+✔ Server: Compiled successfully in 4.96s
+✔ Client: Compiled successfully in 8.25s
+[WARNING] Docusaurus found broken links!
+
+Please check the pages of your site in the list below, and make sure you don't reference any path that does not exist.
+Note: it's possible to ignore broken links with the 'onBrokenLinks' Docusaurus configuration, and let the build pass.
+
+Exhaustive list of all broken links found:
+- Broken link on source page path = /rdk_doc/Advanced_development/linux_development/driver_development/driver_codec_dev:
+   -> linking to ../../hardware_development/rdk_x3_module/audio_board.md (resolved as: /rdk_doc/Advanced_development/hardware_development/rdk_x3_module/audio_board.md)
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/beginner:
+   -> linking to /rdk_doc/toolchain_development/intermediate/ptq_process
+   -> linking to /rdk_doc/python_development/pydev_dnn_demo/static_image#detection_yolov5
+   -> linking to ../python_development/pydev_dnn_api (resolved as: /rdk_doc/Advanced_development/python_development/pydev_dnn_api)
+   -> linking to ../clang_development/cdev_dnn_api (resolved as: /rdk_doc/Advanced_development/clang_development/cdev_dnn_api)
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/expert/environment_config:
+   -> linking to /rdk_doc/toolchain_development/intermediate/environment_config#machine_deploy
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/expert/user_guide:
+   -> linking to %60https://arxiv.org/abs/1902.08153%3E (resolved as: /rdk_doc/Advanced_development/toolchain_development/expert/%60https://arxiv.org/abs/1902.08153%3E)
+   -> linking to ../api_reference/apis/qat.html#horizon_plugin_pytorch.quantization.prepare_qat_fx (resolved as: /rdk_doc/Advanced_development/toolchain_development/api_reference/apis/qat.html#horizon_plugin_pytorch.quantization.prepare_qat_fx)
+   -> linking to ../advanced_content/custom_qconfig (resolved as: /rdk_doc/Advanced_development/toolchain_development/advanced_content/custom_qconfig)
+   -> linking to ../api_reference/apis/save_load (resolved as: /rdk_doc/Advanced_development/toolchain_development/api_reference/apis/save_load)
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/intermediate/:
+   -> linking to /rdk_doc/toolchain_development/beginner
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/intermediate/ptq_process:
+   -> linking to ../../common_questions/toolchain#model_convert_errors_and_solutions (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#model_convert_errors_and_solutions)
+   -> linking to ../../common_questions/toolchain#transposetransformer (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#transposetransformer)
+   -> linking to ../../common_questions/toolchain#rdk_x3_caffe_yaml_template (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#rdk_x3_caffe_yaml_template)
+   -> linking to ../../common_questions/toolchain#rdk_x3_onnx_yaml_template (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#rdk_x3_onnx_yaml_template)
+   -> linking to ../../common_questions/toolchain#rdk_ultra_caffe_yaml_template (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#rdk_ultra_caffe_yaml_template)
+   -> linking to ../../common_questions/toolchain#rdk_ultra_onnx_yaml_template (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#rdk_ultra_onnx_yaml_template)
+   -> linking to ../../common_questions/toolchain#checklist (resolved as: /rdk_doc/Advanced_development/common_questions/toolchain#checklist)
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/intermediate/runtime_sample:
+   -> linking to /rdk_doc/toolchain_development/intermediate/environment_config#deliverables_instructions
+   -> linking to /rdk_doc/toolchain_development/intermediate/environment_config#machine_deploy
+   -> linking to /rdk_doc/clang_development/cdev_dnn_api/model_debug#configuration_information
+   -> linking to /rdk_doc/toolchain_development/intermediate/ptq_process#hb_eval_preprocess
+   -> linking to ../../installation/remote_login (resolved as: /rdk_doc/Advanced_development/installation/remote_login)
+- Broken link on source page path = /rdk_doc/Advanced_development/toolchain_development/overview:
+   -> linking to /rdk_doc/toolchain_development/intermediate/supported_op_list
+- Broken link on source page path = /rdk_doc/Algorithm_Application/cdev_dnn_api/cdev_dnn_api:
+   -> linking to ../../toolchain_development/intermediate/environment_config#deliverables_instructions (resolved as: /rdk_doc/toolchain_development/intermediate/environment_config#deliverables_instructions)
+- Broken link on source page path = /rdk_doc/Algorithm_Application/cdev_dnn_api/dnn_infer:
+   -> linking to /rdk_doc/toolchain_development/intermediate/runtime_sample#%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86dnn-api%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%E8%AF%B4%E6%98%8E
+   -> linking to /rdk_doc/toolchain_development/intermediate/ptq_process#model_conversion
+- Broken link on source page path = /rdk_doc/Algorithm_Application/pydev_dnn_demo/mipi_camera:
+   -> linking to /rdk_doc/first_application/mipi_camera
+   -> linking to /rdk_doc/python_development/pydev_dnn_api
+   -> linking to ../pydev_multimedia_api_x3/object_camera.md (resolved as: /rdk_doc/Algorithm_Application/pydev_multimedia_api_x3/object_camera.md)
+   -> linking to ../pydev_dnn_api#model (resolved as: /rdk_doc/Algorithm_Application/pydev_dnn_api#model)
+   -> linking to ../pydev_multimedia_api_x3/object_display.md (resolved as: /rdk_doc/Algorithm_Application/pydev_multimedia_api_x3/object_display.md)
+- Broken link on source page path = /rdk_doc/Algorithm_Application/pydev_dnn_demo/model_import:
+   -> linking to /rdk_doc/python_development/pydev_dnn_api#model
+   -> linking to /rdk_doc/python_development/pydev_dnn_api
+- Broken link on source page path = /rdk_doc/Algorithm_Application/pydev_dnn_demo/static_image:
+   -> linking to ../pydev_dnn_api.md (resolved as: /rdk_doc/Algorithm_Application/pydev_dnn_api.md)
+   -> linking to ../pydev_dnn_api#model (resolved as: /rdk_doc/Algorithm_Application/pydev_dnn_api#model)
+- Broken link on source page path = /rdk_doc/Algorithm_Application/pydev_dnn_demo/usb_camera:
+   -> linking to /rdk_doc/first_application/usb_camera
+   -> linking to /rdk_doc/python_development/pydev_dnn_api
+   -> linking to ../pydev_dnn_api#model (resolved as: /rdk_doc/Algorithm_Application/pydev_dnn_api#model)
+   -> linking to ../pydev_multimedia_api_x3/object_display.md (resolved as: /rdk_doc/Algorithm_Application/pydev_multimedia_api_x3/object_display.md)
+- Broken link on source page path = /rdk_doc/Basic_Application/03_40pin_user_guide/40pin_define:
+   -> linking to ../python_development/40pin_user_guide/40pin_define.md (resolved as: /rdk_doc/Basic_Application/python_development/40pin_user_guide/40pin_define.md)
+- Broken link on source page path = /rdk_doc/Basic_Application/Image/mipi_camera:
+   -> linking to ../installation/hardware_interface#mipi_port (resolved as: /rdk_doc/Basic_Application/installation/hardware_interface#mipi_port)
+   -> linking to /rdk_doc/python_development/pydev_dnn_demo/mipi_camera
+- Broken link on source page path = /rdk_doc/Basic_Application/Image/usb_camera:
+   -> linking to /rdk_doc/python_development/pydev_dnn_demo/usb_camera
+- Broken link on source page path = /rdk_doc/Basic_Application/multi_media/cdev_demo:
+   -> linking to ../installation/hardware_interface#mipi_port (resolved as: /rdk_doc/Basic_Application/installation/hardware_interface#mipi_port)
+- Broken link on source page path = /rdk_doc/FAQ/hardware_and_system:
+   -> linking to /rdk_doc/hardware_development/rdk_x3/accessory#basic_accessories
+- Broken link on source page path = /rdk_doc/FAQ/interface:
+   -> linking to ../installation/hardware_interface#debug_uart (resolved as: /rdk_doc/installation/hardware_interface#debug_uart)
+   -> linking to ../configuration/network (resolved as: /rdk_doc/configuration/network)
+   -> linking to ../installation/remote_login#ssh (resolved as: /rdk_doc/installation/remote_login#ssh)
+   -> linking to ../installation/hardware_interface#mipi_port (resolved as: /rdk_doc/installation/hardware_interface#mipi_port)
+   -> linking to ../installation/hardware_interface#hdmi_interface (resolved as: /rdk_doc/installation/hardware_interface#hdmi_interface)
+- Broken link on source page path = /rdk_doc/FAQ/toolchain:
+   -> linking to ../toolchain_development/intermediate/ptq_process#yaml_config (resolved as: /rdk_doc/toolchain_development/intermediate/ptq_process#yaml_config)
+- Broken link on source page path = /rdk_doc/Quick_start/configuration_wizard:
+   -> linking to ../installation/remote_login#ssh (resolved as: /rdk_doc/installation/remote_login#ssh)
+   -> linking to ../installation/remote_login#vnc%E7%99%BB%E5%BD%95 (resolved as: /rdk_doc/installation/remote_login#vnc%E7%99%BB%E5%BD%95)
+- Broken link on source page path = /rdk_doc/Quick_start/hardware_introduction:
+   -> linking to ../python_development/40pin_user_guide/uart.md#40pin_uart_usage (resolved as: /rdk_doc/python_development/40pin_user_guide/uart.md#40pin_uart_usage)
+   -> linking to /rdk_doc/hardware_development/rdk_x3_module/accessory
+   -> linking to /rdk_doc/hardware_development/rdk_x3_module/display
+   -> linking to ../python_development/40pin_user_guide/40pin_define.md (resolved as: /rdk_doc/python_development/40pin_user_guide/40pin_define.md)
+   -> linking to ./system.md (resolved as: /rdk_doc/Quick_start/system.md)
+- Broken link on source page path = /rdk_doc/Quick_start/install_os:
+   -> linking to /rdk_doc/hardware_development/rdk_x3/accessory#basic_accessories
+   -> linking to ../category/common_questions (resolved as: /rdk_doc/category/common_questions)
+   -> linking to /rdk_doc/hardware_development/rdk_x3_module/interface#%E5%8A%9F%E8%83%BD%E6%8E%A7%E5%88%B6%E6%8E%A5%E5%8F%A3
+   -> linking to ../08_FAQ (resolved as: /rdk_doc/08_FAQ)
+- Broken link on source page path = /rdk_doc/Quick_start/remote_login:
+   -> linking to /rdk_doc/installation/hardware_interface#debug_uart
+   -> linking to ../configuration/network#config_ethnet (resolved as: /rdk_doc/configuration/network#config_ethnet)
+- Broken link on source page path = /rdk_doc/Robot_development/apps/car_audio_control:
+   -> linking to ../boxs/function/hobot_audio.md (resolved as: /rdk_doc/Robot_development/boxs/function/hobot_audio.md)
+- Broken link on source page path = /rdk_doc/Robot_development/apps/car_audio_tracking:
+   -> linking to ../boxs/function/hobot_audio.md (resolved as: /rdk_doc/Robot_development/boxs/function/hobot_audio.md)
+- Broken link on source page path = /rdk_doc/Robot_development/boxs/function/orb_slam3:
+   -> linking to ../../quick_start/ros_pkg.md (resolved as: /rdk_doc/Robot_development/quick_start/ros_pkg.md)
+- Broken link on source page path = /rdk_doc/Robot_development/quick_demo/hobot_tts:
+   -> linking to ../boxs/function/hobot_audio.md (resolved as: /rdk_doc/Robot_development/boxs/function/hobot_audio.md)
+- Broken link on source page path = /rdk_doc/System_configuration/config_txt:
+   -> linking to rdk-command-manual/cmd_rdk-miniboot-update (resolved as: /rdk_doc/System_configuration/rdk-command-manual/cmd_rdk-miniboot-update)
+
+[WARNING] Docusaurus found broken anchors!
+
+Please check the pages of your site in the list below, and make sure you don't reference any anchor that does not exist.
+Note: it's possible to ignore broken anchors with the 'onBrokenAnchors' Docusaurus configuration, and let the build pass.
+
+Exhaustive list of all broken anchors found:
+- Broken anchor on source page path = /rdk_doc/Advanced_development/multimedia_development/isp_system:
+   -> linking to #_1_HB_ISP_AE_FUNC_S (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_1_HB_ISP_AE_FUNC_S)
+   -> linking to #_2_HB_ISP_AWB_FUNC_S (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_2_HB_ISP_AWB_FUNC_S)
+   -> linking to #_2_HB_ISP_AF_FUNC_S (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_2_HB_ISP_AF_FUNC_S)
+   -> linking to #_%E7%AE%97%E6%B3%95%E6%B3%A8%E5%86%8C%E4%B8%BE%E4%BE%8B (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_%E7%AE%97%E6%B3%95%E6%B3%A8%E5%86%8C%E4%B8%BE%E4%BE%8B)
+   -> linking to #_AE%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_AE%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF)
+   -> linking to #_AWB%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_AWB%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF)
+   -> linking to #_AF%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_AF%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF)
+   -> linking to #_HB_ISP_OP_TYPE_E (resolved as: /rdk_doc/Advanced_development/multimedia_development/isp_system#_HB_ISP_OP_TYPE_E)
+- Broken anchor on source page path = /rdk_doc/Advanced_development/multimedia_development/video_output:
+   -> linking to #HB_VOT_Enable (resolved as: /rdk_doc/Advanced_development/multimedia_development/video_output#HB_VOT_Enable)
+- Broken anchor on source page path = /rdk_doc/Advanced_development/toolchain_development/intermediate/ptq_process:
+   -> linking to #compiler_parameters (resolved as: /rdk_doc/Advanced_development/toolchain_development/intermediate/ptq_process#compiler_parameters)
+   -> linking to #deliverables_instructions (resolved as: /rdk_doc/Advanced_development/toolchain_development/intermediate/ptq_process#deliverables_instructions)
+   -> linking to ./runtime_sample#data_preprocess (resolved as: /rdk_doc/Advanced_development/toolchain_development/intermediate/runtime_sample#data_preprocess)
+- Broken anchor on source page path = /rdk_doc/Advanced_development/toolchain_development/intermediate/runtime_sample:
+   -> linking to /rdk_doc/Quick_start/install_os#flash_system
+
+[SUCCESS] Generated static files in "build".
+[INFO] [en] Creating an optimized production build...
+Warn: `blogDir` doesn't exist: "/home/xgs/project/rdk_doc/blog".
+ℹ Compiling Client
+ℹ Compiling Server
+✔ Server: Compiled successfully in 2.88s
+✔ Client: Compiled successfully in 5.78s
+[WARNING] Docusaurus found broken links!
+
+Please check the pages of your site in the list below, and make sure you don't reference any path that does not exist.
+Note: it's possible to ignore broken links with the 'onBrokenLinks' Docusaurus configuration, and let the build pass.
+
+Exhaustive list of all broken links found:
+- Broken link on source page path = /rdk_doc/en/Advanced_development/hardware_development/rdk_ultra/system:
+   -> linking to ../../../01_Quick_start/install_os.md (resolved as: /rdk_doc/en/01_Quick_start/install_os.md)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/hardware_development/rdk_x3_module/system:
+   -> linking to ../..../../../01_Quick_start/install_os.md.md (resolved as: /rdk_doc/en/Advanced_development/01_Quick_start/install_os.md.md)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/linux_development/driver_development/driver_codec_dev:
+   -> linking to ../../hardware_development/rdk_x3_module/audio_board.md (resolved as: /rdk_doc/en/Advanced_development/hardware_development/rdk_x3_module/audio_board.md)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/linux_development/environment_build:
+   -> linking to ..../../../01_Quick_start/install_os.md (resolved as: /rdk_doc/en/Advanced_development/01_Quick_start/install_os.md)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/multimedia_development/video_input:
+   -> linking to ./multimedia_samples/get_sif_data (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/multimedia_samples/get_sif_data)
+   -> linking to ./multimedia_samples/get_isp_data (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/multimedia_samples/get_isp_data)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/beginner:
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/ptq_process
+   -> linking to ..../../../01_Quick_start/install_os.md (resolved as: /rdk_doc/en/Advanced_development/01_Quick_start/install_os.md)
+   -> linking to /rdk_doc/en/python_development/pydev_dnn_demo/static_image#detection_yolov5
+   -> linking to ../python_development/pydev_dnn_api (resolved as: /rdk_doc/en/Advanced_development/python_development/pydev_dnn_api)
+   -> linking to ../clang_development/cdev_dnn_api (resolved as: /rdk_doc/en/Advanced_development/clang_development/cdev_dnn_api)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/expert/environment_config:
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/environment_config#machine_deploy
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/expert/user_guide:
+   -> linking to %60https://arxiv.org/abs/1902.08153%3E (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/expert/%60https://arxiv.org/abs/1902.08153%3E)
+   -> linking to ../api_reference/apis/qat.html#horizon_plugin_pytorch.quantization.prepare_qat_fx (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/api_reference/apis/qat.html#horizon_plugin_pytorch.quantization.prepare_qat_fx)
+   -> linking to ../advanced_content/custom_qconfig (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/advanced_content/custom_qconfig)
+   -> linking to ../api_reference/apis/save_load (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/api_reference/apis/save_load)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/intermediate/:
+   -> linking to /rdk_doc/en/toolchain_development/beginner
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/intermediate/environment_config:
+   -> linking to ../..../../../01_Quick_start/install_os.md#flash_system (resolved as: /rdk_doc/en/Advanced_development/01_Quick_start/install_os.md#flash_system)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/intermediate/ptq_process:
+   -> linking to ../../common_questions/toolchain#transposetransformer (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#transposetransformer)
+   -> linking to ../../common_questions/toolchain#rdk_x3_caffe_yaml_template (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#rdk_x3_caffe_yaml_template)
+   -> linking to ../../common_questions/toolchain#rdk_x3_onnx_yaml_template (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#rdk_x3_onnx_yaml_template)
+   -> linking to ../../common_questions/toolchain#rdk_ultra_caffe_yaml_template (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#rdk_ultra_caffe_yaml_template)
+   -> linking to ../../common_questions/toolchain#rdk_ultra_onnx_yaml_template (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#rdk_ultra_onnx_yaml_template)
+   -> linking to ../../common_questions/toolchain#model_convert_errors_and_solutions (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#model_convert_errors_and_solutions)
+   -> linking to ../../common_questions/toolchain#checklist (resolved as: /rdk_doc/en/Advanced_development/common_questions/toolchain#checklist)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/intermediate/runtime_sample:
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/environment_config#deliverables_instructions
+   -> linking to ../..../../../01_Quick_start/install_os.md#flash_system (resolved as: /rdk_doc/en/Advanced_development/01_Quick_start/install_os.md#flash_system)
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/environment_config#machine_deploy
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/ptq_process#hb_eval_preprocess
+   -> linking to ../../installation/remote_login (resolved as: /rdk_doc/en/Advanced_development/installation/remote_login)
+- Broken link on source page path = /rdk_doc/en/Advanced_development/toolchain_development/overview:
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/supported_op_list
+- Broken link on source page path = /rdk_doc/en/Algorithm_Application/cdev_dnn_api/cdev_dnn_api:
+   -> linking to ../../toolchain_development/intermediate/environment_config#deliverables_instructions (resolved as: /rdk_doc/en/toolchain_development/intermediate/environment_config#deliverables_instructions)
+- Broken link on source page path = /rdk_doc/en/Algorithm_Application/cdev_dnn_api/dnn_infer:
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/runtime_sample#model-inference-dnn-api-usage-examples
+   -> linking to /rdk_doc/en/toolchain_development/intermediate/ptq_process#model-conversion
+- Broken link on source page path = /rdk_doc/en/Algorithm_Application/pydev_dnn_demo/mipi_camera:
+   -> linking to /rdk_doc/en/first_application/mipi_camera
+   -> linking to /rdk_doc/en/python_development/pydev_dnn_api
+   -> linking to ../pydev_multimedia_api_x3/object_camera.md (resolved as: /rdk_doc/en/Algorithm_Application/pydev_multimedia_api_x3/object_camera.md)
+   -> linking to ../pydev_dnn_api#model (resolved as: /rdk_doc/en/Algorithm_Application/pydev_dnn_api#model)
+   -> linking to ../pydev_multimedia_api_x3/object_display.md (resolved as: /rdk_doc/en/Algorithm_Application/pydev_multimedia_api_x3/object_display.md)
+- Broken link on source page path = /rdk_doc/en/Algorithm_Application/pydev_dnn_demo/model_import:
+   -> linking to /rdk_doc/en/python_development/pydev_dnn_api#model
+   -> linking to /rdk_doc/en/python_development/pydev_dnn_api
+- Broken link on source page path = /rdk_doc/en/Algorithm_Application/pydev_dnn_demo/static_image:
+   -> linking to ../pydev_dnn_api.md (resolved as: /rdk_doc/en/Algorithm_Application/pydev_dnn_api.md)
+   -> linking to ../pydev_dnn_api#model (resolved as: /rdk_doc/en/Algorithm_Application/pydev_dnn_api#model)
+- Broken link on source page path = /rdk_doc/en/Algorithm_Application/pydev_dnn_demo/usb_camera:
+   -> linking to /rdk_doc/en/first_application/usb_camera
+   -> linking to ../pydev_dnn_api#model (resolved as: /rdk_doc/en/Algorithm_Application/pydev_dnn_api#model)
+   -> linking to ../pydev_multimedia_api_x3/object_display.md (resolved as: /rdk_doc/en/Algorithm_Application/pydev_multimedia_api_x3/object_display.md)
+- Broken link on source page path = /rdk_doc/en/Basic_Application/Image/mipi_camera:
+   -> linking to ../installation/hardware_interface#mipi_port (resolved as: /rdk_doc/en/Basic_Application/installation/hardware_interface#mipi_port)
+   -> linking to /rdk_doc/en/python_development/pydev_dnn_demo/mipi_camera
+- Broken link on source page path = /rdk_doc/en/Basic_Application/Image/usb_camera:
+   -> linking to /rdk_doc/en/python_development/pydev_dnn_demo/usb_camera
+- Broken link on source page path = /rdk_doc/en/Basic_Application/multi_media/cdev_demo:
+   -> linking to ../installation/hardware_interface#mipi_port (resolved as: /rdk_doc/en/Basic_Application/installation/hardware_interface#mipi_port)
+- Broken link on source page path = /rdk_doc/en/FAQ/hardware_and_system:
+   -> linking to /rdk_doc/en/hardware_development/rdk_x3/accessory#basic_accessories
+- Broken link on source page path = /rdk_doc/en/FAQ/interface:
+   -> linking to ../installation/hardware_interface#debug_uart (resolved as: /rdk_doc/en/installation/hardware_interface#debug_uart)
+   -> linking to ../configuration/network (resolved as: /rdk_doc/en/configuration/network)
+   -> linking to ../installation/remote_login#ssh (resolved as: /rdk_doc/en/installation/remote_login#ssh)
+   -> linking to ../installation/hardware_interface#mipi_port (resolved as: /rdk_doc/en/installation/hardware_interface#mipi_port)
+   -> linking to ../installation/hardware_interface#hdmi_interface (resolved as: /rdk_doc/en/installation/hardware_interface#hdmi_interface)
+- Broken link on source page path = /rdk_doc/en/FAQ/toolchain:
+   -> linking to ../toolchain_development/intermediate/ptq_process#yaml_config (resolved as: /rdk_doc/en/toolchain_development/intermediate/ptq_process#yaml_config)
+- Broken link on source page path = /rdk_doc/en/Quick_start/configuration_wizard:
+   -> linking to ../installation/remote_login#ssh (resolved as: /rdk_doc/en/installation/remote_login#ssh)
+   -> linking to ../installation/remote_login#vnc-login (resolved as: /rdk_doc/en/installation/remote_login#vnc-login)
+- Broken link on source page path = /rdk_doc/en/Quick_start/hardware_introduction:
+   -> linking to ../python_development/40pin_user_guide/uart.md#40pin_uart_usage (resolved as: /rdk_doc/en/python_development/40pin_user_guide/uart.md#40pin_uart_usage)
+   -> linking to /rdk_doc/en/hardware_development/rdk_x3_module/accessory
+   -> linking to /rdk_doc/en/hardware_development/rdk_x3_module/display
+   -> linking to ../python_development/40pin_user_guide/40pin_define (resolved as: /rdk_doc/en/python_development/40pin_user_guide/40pin_define)
+- Broken link on source page path = /rdk_doc/en/Quick_start/install_os:
+   -> linking to /rdk_doc/en/hardware_development/rdk_x3/accessory#basic_accessories
+   -> linking to ../category/common_questions (resolved as: /rdk_doc/en/category/common_questions)
+   -> linking to /rdk_doc/en/hardware_development/rdk_x3_module/interface#function-control-interface
+- Broken link on source page path = /rdk_doc/en/Quick_start/remote_login:
+   -> linking to /rdk_doc/en/installation/hardware_interface#debug_uart
+   -> linking to ../configuration/network#config_ethnet (resolved as: /rdk_doc/en/configuration/network#config_ethnet)
+- Broken link on source page path = /rdk_doc/en/Robot_development/apps/car_audio_tracking:
+   -> linking to ../boxs/function/hobot_audio.md (resolved as: /rdk_doc/en/Robot_development/boxs/function/hobot_audio.md)
+- Broken link on source page path = /rdk_doc/en/System_configuration/config_txt:
+   -> linking to rdk-command-manual/cmd_rdk-miniboot-update (resolved as: /rdk_doc/en/System_configuration/rdk-command-manual/cmd_rdk-miniboot-update)
+
+[WARNING] Docusaurus found broken anchors!
+
+Please check the pages of your site in the list below, and make sure you don't reference any anchor that does not exist.
+Note: it's possible to ignore broken anchors with the 'onBrokenAnchors' Docusaurus configuration, and let the build pass.
+
+Exhaustive list of all broken anchors found:
+- Broken anchor on source page path = /rdk_doc/en/Advanced_development/hardware_development/rdk_x3_module/system:
+   -> linking to ../rdk_x3_module/interface#function_control_interface (resolved as: /rdk_doc/en/Advanced_development/hardware_development/rdk_x3_module/interface#function_control_interface)
+- Broken anchor on source page path = /rdk_doc/en/Advanced_development/multimedia_development/isp_system:
+   -> linking to #_1_HB_ISP_AE_FUNC_S (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_1_HB_ISP_AE_FUNC_S)
+   -> linking to #_2_HB_ISP_AWB_FUNC_S (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_2_HB_ISP_AWB_FUNC_S)
+   -> linking to #_2_HB_ISP_AF_FUNC_S (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_2_HB_ISP_AF_FUNC_S)
+   -> linking to #_AE_Statistics_Information (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_AE_Statistics_Information)
+   -> linking to #_AWB_Statistics (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_AWB_Statistics)
+   -> linking to #_AF_Statistical_Information (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_AF_Statistical_Information)
+   -> linking to #_HB_ISP_OP_TYPE_E (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/isp_system#_HB_ISP_OP_TYPE_E)
+   -> linking to ./multimedia_samples#sample_isp (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/multimedia_samples#sample_isp)
+- Broken anchor on source page path = /rdk_doc/en/Advanced_development/multimedia_development/video_output:
+   -> linking to #HB_VOT_Enable (resolved as: /rdk_doc/en/Advanced_development/multimedia_development/video_output#HB_VOT_Enable)
+- Broken anchor on source page path = /rdk_doc/en/Advanced_development/toolchain_development/expert/user_guide:
+   -> linking to ./quick_start#Float-Model (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/expert/quick_start#Float-Model)
+   -> linking to #a-name-para-policy-a (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/expert/user_guide#a-name-para-policy-a)
+   -> linking to #debug-a-name-quantization-exception-a (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/expert/user_guide#debug-a-name-quantization-exception-a)
+- Broken anchor on source page path = /rdk_doc/en/Advanced_development/toolchain_development/intermediate/ptq_process:
+   -> linking to #model_conversion (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/intermediate/ptq_process#model_conversion)
+   -> linking to #conversion_interpretation (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/intermediate/ptq_process#conversion_interpretation)
+   -> linking to #deliverables_instructions (resolved as: /rdk_doc/en/Advanced_development/toolchain_development/intermediate/ptq_process#deliverables_instructions)
+- Broken anchor on source page path = /rdk_doc/en/Quick_start/install_os:
+   -> linking to #power_supply (resolved as: /rdk_doc/en/Quick_start/install_os#power_supply)
+- Broken anchor on source page path = /rdk_doc/en/System_configuration/config_txt:
+   -> linking to frequency_management#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86 (resolved as: /rdk_doc/en/System_configuration/frequency_management#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86)
+
+[SUCCESS] Generated static files in "build/en".
+[INFO] Use `npm run serve` command to test your build locally.

@@ -6,7 +6,8 @@ sidebar_position: 3
 
 :::tip
 
-系统镜像下载与烧录的完整步骤，请[**点击查看该章节**](/installation/install_os)。
+系统镜像下载与烧录的完整步骤，请[**点击查看该章节**](../../../01_Quick_start/install_os.md)。
+
 
 :::
 

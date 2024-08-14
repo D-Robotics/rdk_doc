@@ -130,7 +130,7 @@ sudo privileges are required for compilation. After successful compilation, the 
 1. Call the scripts download_samplefs.sh and download_deb_pkgs.sh to download samplefs and the required pre-installed deb packages from D-Robotics's file server.
 2. Extract samplefs and call the hobot_customize_rootfs.sh script to customize the filesystem configuration.
 3. Install deb packages into the filesystem.
-4. Generate the system image. Refer to [Install OS](../installation/install_os) for how to use the system image.
+4. Generate the system image. Refer to [Install OS](..../../../01_Quick_start/install_os.md) for how to use the system image.
 
 ## Downloading Source Code
 

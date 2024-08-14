@@ -87,7 +87,7 @@ root@ubuntu:~#
 
 **注意**
 
-- **1.x版本系统无法通过apt命令直接升级到2.x版本系统，需要以烧录镜像的方式重新[安装系统](https://developer.d-robotics.cc/documents_rdk/installation/install_os)。**
+- **1.x版本系统无法通过apt命令直接升级到2.x版本系统，需要以烧录镜像的方式重新[安装系统](https://developer.d-robotics.cc/documents_rdk../../../01_Quick_start/install_os.md)。**
 
 - **2.x版本tros.b仅支持2.x版本系统，1.x版本tros.b仅支持1.x版本系统。**
 

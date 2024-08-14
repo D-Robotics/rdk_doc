@@ -46,6 +46,6 @@ $ npm run serve
 
 This will start a static file server and provide the following links for access in the browser，The port number should be based on the actual port number:
 
-***English manual link***: http://localhost:3000/en/docs/
+***English manual link***: http://localhost:3000/en/rdk_doc/
 
-***Chinese manual link***: http://localhost:3000/docs/
+***Chinese manual link***: http://localhost:3000/rdk_doc/

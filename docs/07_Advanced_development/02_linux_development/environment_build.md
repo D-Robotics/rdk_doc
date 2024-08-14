@@ -132,7 +132,7 @@ sudo ./pack_image.sh
 1. 调用 download_samplefs.sh 和 download_deb_pkgs.sh 两个脚本从D-Robotics 的文件服务器上下载samplefs和需要预装的deb软件包
 2. 解压samplefs，并调用 hobot_customize_rootfs.sh 脚本对filesystem做定制化配置
 3. 把deb安装进filesystem
-4. 生成系统镜像，参考 [安装系统](../installation/install_os) 使用系统镜像
+4. 生成系统镜像，参考 [安装系统](../../01_Quick_start/install_os.md) 使用系统镜像
 
 ## 下载源代码
 

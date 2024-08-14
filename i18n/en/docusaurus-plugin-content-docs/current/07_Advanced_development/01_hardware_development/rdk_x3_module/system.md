@@ -6,7 +6,7 @@ sidebar_position: 3
 
 :::info Note
 
-The **RDK X3 Module** comes with a pre-burned test version of the system image. To ensure the use of the latest version of the system, it is recommended to refer to this document to complete the [burning of the latest version of the system image](/installation/install_os).
+The **RDK X3 Module** comes with a pre-burned test version of the system image. To ensure the use of the latest version of the system, it is recommended to refer to this document to complete the [burning of the latest version of the system image](../../../01_Quick_start/install_os.md).
 
 :::
 
@@ -41,7 +41,7 @@ The RDK X3 Module supports booting the system from both eMMC and SD card:
   sudo reboot
   ```
 
-When the RDK X3 module needs to burn the system to the SD card and does not boot from the eMMC mode, please refer to [Install OS](../../installation/install_os.md) to complete the burning of the SD card system.
+When the RDK X3 module needs to burn the system to the SD card and does not boot from the eMMC mode, please refer to [Install OS](../..../../../01_Quick_start/install_os.md.md) to complete the burning of the SD card system.
 
 When burning the eMMC system image on the RDK X3 module, the D-Robotics `hbupdate` burning tool is required. Currently, the tool supports two versions: Windows and Linux, which are respectively named `hbupdate_win64` and `hbupdate_linux`. The tool can be downloaded from the following link: [hbupdate](http://archive.d-robotics.cc/downloads/hbupdate/).
 

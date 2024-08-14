@@ -213,7 +213,7 @@ sidebar_position: 2
 
 ### 模型上板运行
 
-**注意事项**：模型上板运行前，请确保已按照 [**安装系统**](../installation/install_os) 章节完成 开发板  端的环境部署。
+**注意事项**：模型上板运行前，请确保已按照 [**安装系统**](../../01_Quick_start/install_os.md) 章节完成 开发板  端的环境部署。
 将 ``yolov5s_672x672_nv12.bin`` 定点模型拷贝 **替换** 至开发板的 `/app/pydev_demo/models` 目录下，调用以下命令运行
 
 ```bash
