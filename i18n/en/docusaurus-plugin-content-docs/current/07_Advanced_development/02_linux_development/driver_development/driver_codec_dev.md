@@ -202,7 +202,7 @@ crw-rw----+ 1 root audio 116, 33 Mar 28 01:54 timer
 ```
 #### Using the Sound Card
 
-Please refer to [Audio Adapter Board Usage](../../hardware_development/rdk_x3_module/audio_board.md) for instructions.
+Please refer to [Audio Adapter Board Usage](../../../03_Basic_Application/02_audio/audio_board_x3.md) for instructions.
 
 ### Common Debugging Methods
 
