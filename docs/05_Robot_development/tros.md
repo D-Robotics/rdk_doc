@@ -3,7 +3,7 @@ sidebar_position: 0
 ---
 
 # TogetheROS.Bot 简介
-TogetheROS.Bot是地瓜面（D-Robotics）向机器人厂商和生态开发者推出的机器人操作系统，旨在释放机器人场景的智能潜能，助力生态开发者和商业客户能够高效、便捷的进行机器人开发，打造具有竞争力的智能机器人产品。
+TogetheROS.Bot是D-Robotics面向机器人厂商和生态开发者推出的机器人操作系统，旨在释放机器人场景的智能潜能，助力生态开发者和商业客户能够高效、便捷的进行机器人开发，打造具有竞争力的智能机器人产品。
 
 TogetheROS.Bot支持在RDK平台上运行，同时提供模拟器版本在X86平台上运行。RDK平台涵盖下图所示的全部功能，X86平台支持以图片回灌方式体验部分功能，提高用户算法开发和验证效率，并能够快速迁移到RDK平台。
 
@@ -31,7 +31,7 @@ Communication是在ROS2 Foxy和Humble版本通信核心组件基础上进行的�
 
 ## Boxs算法仓库
 
-Boxs是地瓜面向机器人厂商和生态开发者推出的基于TogetheROS.Bot的智能算法包，旨在提升基于地瓜RDK机器人操作系统进行机器人智能算法集成和落地的效率。
+Boxs是D-Robotics面向机器人厂商和生态开发者推出的基于TogetheROS.Bot的智能算法包，旨在提升基于D-Robotics RDK机器人操作系统进行机器人智能算法集成和落地的效率。
 
 - 图像检测算法如FCOS、YOLO、FasterRCNN、Efficientdet、Mobilenet_ssd;
 - 图像分类模型如Mobilenet
@@ -40,7 +40,7 @@ Boxs是地瓜面向机器人厂商和生态开发者推出的基于TogetheROS.Bo
 
 ## Apps应用示例
 
-Apps是基于地瓜RDK机器人操作系统Communication和Boxs开发的算法应用示例，旨在打通图像输入、感知、策略等完整链路，展示应用效果，加速客户demo开发效率。
+Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算法应用示例，旨在打通图像输入、感知、策略等完整链路，展示应用效果，加速客户demo开发效率。
 
 ## 常见名词解释
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-语音控制小车运动功能通过语音控制机器人向前、向后、向左、向右运动，需要搭配地瓜RDK机器人操作系统的智能语音模块一起使用。流程如下图：
+语音控制小车运动功能通过语音控制机器人向前、向后、向左、向右运动，需要搭配D-Robotics RDK机器人操作系统的智能语音模块一起使用。流程如下图：
 
 ![](/../static/img/05_Robot_development/04_apps/image/car_audio_control/audio_control.jpg)
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目标检测算法示例。与以往功能展示不同，本示例将以2D垃圾检测任务为例，展示如何基于开源框架训练模型、D-Robotics工具链转换模型、地瓜RDK机器人操作系统完成算法全流程部署工作。
+mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目标检测算法示例。与以往功能展示不同，本示例将以2D垃圾检测任务为例，展示如何基于开源框架训练模型、D-Robotics工具链转换模型、D-Robotics RDK机器人操作系统完成算法全流程部署工作。
 
 本package支持直接订阅sensors/msg/Image类型的话题，并且支持读取本地图片的形式进行推理，将算法信息通过话题发布的同时会将结果在Web页面渲染可视化，本地图片回灌时将渲染图片保存在当前目录。
 
@@ -40,7 +40,7 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 
 由于部署阶段我们不考虑算法模型内部的结构信息，只关注算法前后处理环节，前处理部分如图像读取、图像Resize等，后处理部分如检测头解码器、非极大值抑制（NMS）等。这些前后处理的方法在多数同类模型中是一致的，通用性较强，因此可以利用基础部署包进行快速部署。
 
-地瓜RDK机器人操作系统提供了[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)部署包用于快速部署基础算法。目前支持的常见算法有图像分类、2D目标检测、语义分割。其中2D目标检测集成了Fasterrcnn、Fcos、yolov2、yolov3、yolov5、SSD、efficientnet供用户选择。
+D-Robotics RDK机器人操作系统提供了[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)部署包用于快速部署基础算法。目前支持的常见算法有图像分类、2D目标检测、语义分割。其中2D目标检测集成了Fasterrcnn、Fcos、yolov2、yolov3、yolov5、SSD、efficientnet供用户选择。
 
 本示例利用[dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example)，通过替换D-Robotics交叉编译模型、后处理配置文件、检测类别配置文件用以适配自定义检测模型。
 
