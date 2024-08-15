@@ -39,14 +39,13 @@ In order to use the D-Robotics algorithm toolchain smoothly, D-Robotics recommen
 :::
 
 - 1.Execute the following command on the development machine to obtain the model conversion data package:
-```bash
-    wget -c ftp://xj3ftp@vrftp.horizon.ai/ai_toolchain/ai_toolchain.tar.gz --ftp-password=xj3ftp@123$%
 
-    wget -c ftp://xj3ftp@vrftp.horizon.ai/model_convert_sample/yolov5s_v2.0.tar.gz --ftp-password=xj3ftp@123$%
-```
+[ai_toolchain](https://archive.d-robotics.cc/downloads/toolchain/ai_toolchain.tar.gz)
+
+[yolov5s_v2](https://archive.d-robotics.cc/downloads/toolchain//yolov5s_v2.0.tar.gz)
 
 :::tip Tip
-  1. If you need more examples of public model conversion, you can execute the command: ``wget -c ftp://xj3ftp@vrftp.horizon.ai/model_convert_sample/horizon_model_convert_sample.tar.gz --ftp-password=xj3ftp@123$%`` to obtain them.
+  1. If you need more examples of public model conversion, you can use: [horizon_model_convert_sample](https://archive.d-robotics.cc/downloads/toolchain/horizon_model_convert_sample.tar.gz) to obtain them.
   2. D-Robotics also provides a Docker image that supports model conversion. If you need to use the Docker environment, please read the [**Intermediate Guide-Using Docker Environment**](./intermediate/environment_config#using-docker-environment) section.- 
 :::
 

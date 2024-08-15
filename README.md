@@ -27,8 +27,6 @@ $ npm run start  -- --locale en
 
 This method does not support switching between Chinese and English documents. It can only build a single language document. If you need to display Chinese and English simultaneously, please refer to the method in Step III.
 
-Alternatively, open two windows and run `npm run start` and `npm run start -- --locale en`
-
 ### III. Offline Deployment
 
 
@@ -41,7 +39,13 @@ $ npm run build
 To deploy the documents, use the following command:
 
 ```shell
+#Direct Deployment
+
 $ npm run serve
+
+#Deploy with Specified IP Address and Port Number
+
+$ npm run serve -- --host=10.64.29.52 --port=1688 --no-open
 ```
 
 This will start a static file server and provide the following links for access in the browser，The port number should be based on the actual port number:
@@ -49,3 +53,6 @@ This will start a static file server and provide the following links for access 
 ***English manual link***: http://localhost:3000/en/rdk_doc/
 
 ***Chinese manual link***: http://localhost:3000/rdk_doc/
+
+**Note:** Please ensure that Node.js version 18.0 or higher is required.
+

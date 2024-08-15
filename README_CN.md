@@ -27,9 +27,6 @@ $ npm run start  -- --locale en
 
 本方式无法实现文档的中英文切换，只能实现单种语言文档的构建，如果需要中英文同步显示，需要参考步骤三的方式。
 
-或者开两个窗口，同时运行`npm run start`和`npm run start -- --locale en`
-
-
 
 ### 三、离线部署
 
@@ -42,7 +39,14 @@ $ npm run build
 文档部署方式，使用以下命令：
 
 ```shell
+#直接部署
+
 $ npm run serve
+
+#指定ip地址和端口号部署
+
+$ npm run serve -- --host=10.64.29.52 --port=1688 --no-open
+
 ```
 
 启动一个静态文件服务器，并在浏览器中提供以下链接进行访问,端口号以实际端口号为主：
@@ -51,4 +55,6 @@ $ npm run serve
 
 **中文手册链接**：http://localhost:3000/rdk_doc/
 
+
+**注意：** 请确保使用的 Node.js 版本 为18.0或以上版本。
 

@@ -38,15 +38,15 @@ sidebar_position: 2
   在进行模型转换前，请确保已在开发机的Ubuntu或Centos系统中安装完成支持 Python 3.8.x 版本的 ``Anaconda3`` 环境。  
 :::
 
-- 1.开发机中执行如下命令，获取模型转换资料包：
-```bash
-    wget -c ftp://xj3ftp@vrftp.horizon.ai/ai_toolchain/ai_toolchain.tar.gz --ftp-password=xj3ftp@123$%
+- 1.开发机中，获取模型转换资料包：
 
-    wget -c ftp://xj3ftp@vrftp.horizon.ai/model_convert_sample/yolov5s_v2.0.tar.gz --ftp-password=xj3ftp@123$%
-```
+[ai_toolchain](https://archive.d-robotics.cc/downloads/toolchain/ai_toolchain.tar.gz)
+
+[yolov5s_v2](https://archive.d-robotics.cc/downloads/toolchain//yolov5s_v2.0.tar.gz)
+
 
 :::tip 小技巧
-  1. 若需更多公版模型转换示例，可执行命令： ``wget -c ftp://xj3ftp@vrftp.horizon.ai/model_convert_sample/horizon_model_convert_sample.tar.gz --ftp-password=xj3ftp@123$%`` 获取。
+  1. 若需更多公版模型转换示例，可通过链接获取： [horizon_model_convert_sample](https://archive.d-robotics.cc/downloads/toolchain/horizon_model_convert_sample.tar.gz)
   2. D-Robotics 同时提供有支持模型转换的Docker镜像，若需使用Docker环境，请阅读 [**进阶指南-使用docker环境**](./intermediate/environment_config#使用docker环境) 章节。
 :::
 
