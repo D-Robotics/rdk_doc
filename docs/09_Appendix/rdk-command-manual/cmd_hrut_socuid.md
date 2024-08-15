@@ -2,14 +2,14 @@
 sidebar_position: 1
 ---
 
-# hrut_socid
+# hrut_socuid
 
-**hrut_socid** 命令打印当前soc芯片的uid（唯一标识符）。
+**hrut_socuid** 命令打印当前 soc 芯片的 uid（唯一标识符）。
 
 ## 语法说明
 
 ```
-hrut_socid
+hrut_socuid
 ```
 
 ## 常用命令
