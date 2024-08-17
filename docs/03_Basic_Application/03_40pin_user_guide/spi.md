@@ -4,17 +4,19 @@ sidebar_position: 6
 
 # 3.3.6 SPI应用
 
-RDK X3在40Pin上物理管脚 `19, 21, 23, 24`引出了旭日X3M芯片的 `SPI2` 总线，支持一个片选，IO电压3.3V。
+RDK X3 在 40PIN 上物理管脚 `19, 21, 23, 24`引出了芯片的 `SPI2` 总线，支持一个片选，IO电压3.3V。
 
-RDK Ultra在40Pin上物理管脚 `19, 21, 23, 24, 26`引出了的 `SPI0` 总线，支持两个片选，IO电压3.3V。
+RDK X5 在 40PIN 上物理管脚 `19, 21, 23, 24, 26`引出了芯片的 `SPI1` 总线，支持两个片选，IO电压3.3V。
+
+RDK Ultra 在 40PIN 上物理管脚 `19, 21, 23, 24, 26`引出了的 `SPI0` 总线，支持两个片选，IO电压3.3V。
 
 请参阅 `/app/40pin_samples/test_spi.py`了解如何使用SPI的详细信息。
 
 ## 回环测试
-把MISO和MOSI在硬件上进行连接，然后运行spi测试程序，进行写和读操作，预期结果是读出的数据要完全等于写入的数据
+把 MISO 和 MOSI 在硬件上进行连接，然后运行 SPI 测试程序，进行写和读操作，预期结果是读出的数据要完全等于写入的数据
 
 ### 硬件连接
-把MISO和MOSI通过跳线帽直接硬件上连接在一起
+把MISO和MOSI通过跳线帽直接硬件上连接在一起：
 
 ![image-20220512101915524](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220512101915524.png)
 
@@ -43,13 +45,16 @@ Starting demo now! Press CTRL+C to exit
 ```python
 #!/usr/bin/env python3
 
-from __future__ import print_function
 import sys
+import signal
 import os
 import time
 
 # 导入spidev模块
 import spidev
+
+def signal_handler(signal, frame):
+    sys.exit(0)
 
 def BytesToHex(Bytes):
     return ''.join(["0x%02X " % x for x in Bytes]).strip()
@@ -68,7 +73,7 @@ def spidevTest():
 
     print("Starting demo now! Press CTRL+C to exit")
 
-    # 发送 [0x55, 0xAA], 接收 到的应该也是 [0x55, 0xAA]
+    # 发送 [0x55, 0xAA], 接收的数据应该也是 [0x55, 0xAA]
     try:
         while True:
             resp = spi.xfer2([0x55, 0xAA])
@@ -79,9 +84,11 @@ def spidevTest():
         spi.close()
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     print("List of enabled spi controllers:")
     os.system('ls /dev/spidev*')
 
     spidevTest()
+
 ```
 

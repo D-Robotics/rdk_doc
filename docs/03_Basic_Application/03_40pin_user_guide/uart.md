@@ -4,25 +4,27 @@ sidebar_position: 4
 
 # 3.3.4 串口应用
 
-RDK X3在40PIN上默认使能 UART3，物理管脚号 8 和 10，IO电压 3.3V。
+RDK X3 在 40PIN 上默认使能 UART3，物理管脚号 8 和 10，IO电压 3.3V。
 
-RDK Ultra在40PIN上默认使能 UART2，物理管脚号 8 和 10，IO电压 3.3V。
+RDK X5 在 40PIN 上默认使能 UART1，物理管脚号 8 和 10，IO电压 3.3V。
+
+RDK Ultra 在 40PIN 上默认使能 UART2，物理管脚号 8 和 10，IO电压 3.3V。
 
 请参阅 `/app/40pin_samples/test_serial.py`了解如何使用串口的详细信息。
 
 ## 回环测试
-把TXD和RXD在硬件上进行连接，然后运行测试程序，进行写和读操作，预期结果是读出的数据要完全等于写入的数据
+把 TXD 和 RXD 在硬件上进行连接，然后运行测试程序，进行写和读操作，预期结果是读出的数据要完全等于写入的数据
 
 ### 硬件连接
 
-把TXD和RXD通过跳线帽直接硬件上连接在一起
+把 TXD 和 RXD 通过跳线帽直接硬件上连接在一起：
 
 ![image-20220512101820743](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220512101820743.png)
 
 ### 测试过程
 
 - 运行 `python3 /app/40pin_samples/test_serial.py`
-- 从打印的串口设备（其中/dev/ttyS0是系统调试口，不建议对它进行测试，除非你完全明白它的作用）中选择总线号和片选号作为输入选项，例如选择测试 `/dev/ttyS3`，按回车键确认，并输入波特率参数：
+- 从打印的串口设备（其中 /dev/ttyS0 是系统调试口，不建议对它进行测试，除非你完全明白它的作用）中选择总线号和片选号作为输入选项，例如 RDK X3 选择测试 `/dev/ttyS3`，RDK X5 选择测试 `/dev/ttyS1`，RDK Ultra 选择测试 `/dev/ttyS2` 按回车键确认，并输入波特率参数：
 
 ```
 List of enabled UART:
@@ -47,12 +49,16 @@ Recv:  AA55
 #!/usr/bin/env python3
 
 import sys
+import signal
 import os
 import time
 
 # 导入python串口库
 import serial
 import serial.tools.list_ports
+
+def signal_handler(signal, frame):
+    sys.exit(0)
 
 def serialTest():
     print("List of enabled UART:")
@@ -84,6 +90,7 @@ def serialTest():
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     if serialTest() != 0:
         print("Serial test failed!")
     else:
