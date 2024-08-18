@@ -24,7 +24,7 @@ sudo python3 ./test_mobilenetv1.py
 
 ```shell
 ========== Classification result ==========
-cls id: 340 Confidence: 0.991851
+cls id: 340, Confidence: 0.9915, class_name: zebra
 ```
 
 ### 示例代码解析
@@ -89,17 +89,14 @@ cls id: 340 Confidence: 0.991851
     算法模型的输出结果需要通过后处理，得到我们需要的类别、检测框等信息。本示例中模型输出对应1000个类别，需要根据置信度进行过滤，并得到正确结果。
 
     ```python
-    print("=" * 10, "Classification result", "=" * 10)
-    np.argmax(outputs[0].buffer)
-    # output target id and confidence
-    print("cls id: %d Confidence: %f" % (np.argmax(outputs[0].buffer), outputs[0].buffer[0][np.argmax(outputs[0].buffer)]))
+    print(f"cls id: {label}, Confidence: {prob}, class_name: {name}")
     ```
-
+    
     正确运行的结果为：
-
+    
     ```shell
     ========== Classification result ==========
-    cls id: 340 Confidence: 0.991851
+    cls id: 340, Confidence: 0.9915, class_name: zebra
     ```
 
 
