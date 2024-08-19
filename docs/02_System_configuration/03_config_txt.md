@@ -34,10 +34,32 @@ dtdebug=1
 
 支持设备树覆盖，提供更加灵活的设备树调整方式。
 
-例如通过`ion_resize`调整`ION`内存的大小，以下配置会修改`ION`内存大小为 `1GB`。
+[X5不支持] 例如通过`ion_resize`调整`ION`内存的大小，以下配置会修改`ION`内存大小为 `1GB`。
 
 ```Shell
 dtoverlay=ion_resize,size=0x40000000
+```
+
+[仅X5支持] 通过dtoverlay_spi5_spidev增加/dev/spidev5.0（注意：can设备也接到了spi5，spidev和can只能二选一）
+
+```Shell
+dtoverlay=dtoverlay_spi5_spidev
+```
+
+### [仅X5支持]ion
+
+通过ion_reserved_size ion_carveout_size ion_cma_size修改boot环境变量，进而修改ION分区大小
+
+| boot环境变量名         | dts标签        | dts compatible字符串 | 默认大小 |
+| ----------------- | ------------ | ----------------- | ---- |
+| ion_reserved_size | ion_reserved | ion-pool          | 320M |
+| ion_carveout_size | ion_carveout | ion-carveout      | 320M |
+| ion_cma_size      | ion_cma      | ion-cma           | 128M |
+
+```Shell
+ion=ion_reserved_size=0x14000000
+ion=ion_carveout_size=0x14000000
+ion=ion_cma_size=0x08000000
 ```
 
 ### dtparam
@@ -45,6 +67,8 @@ dtoverlay=ion_resize,size=0x40000000
 支持设置uart、i2c、spi、i2s等总线的使能与关闭。
 
 目前支持的选项参数：uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
+
+[X5] uart0, uart1, uart5, spi1, spi5, i2c0, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, dw_i2s0, dw_i2s1
 
 例如关闭串口3：
 
@@ -166,6 +190,7 @@ gpio=6=op,dl,pu
 | [rdkv1.2] | RDK x3 v1.2              |
 | [rdkv2]   | RDK x3 v2.1              |
 | [rdkmd]   | RDK x3 Module            |
+| [x5-rdk]  | RDK X5 V0.1             |
 
 ## 电压域
 
