@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# RDK X3
+# 1.1.1 RDK X3
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# RDK X5
+# 1.2.2 RDK X5
 
 
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# RDK X3
+# 1.2.1 RDK X3
 
 
 ```mdx-code-block
