@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 4.3 姿态检测
+# 5.4.3 姿态检测
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

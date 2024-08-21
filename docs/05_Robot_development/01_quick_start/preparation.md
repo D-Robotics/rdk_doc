@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 1.1 环境准备
+# 5.1.1 环境准备
 
 TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
 

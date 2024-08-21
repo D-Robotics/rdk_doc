@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 ---
-# 2.4 图像处理加速
+# 5.2.4 图像处理加速
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 2.2 数据展示
+# 5.2.2 数据展示
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

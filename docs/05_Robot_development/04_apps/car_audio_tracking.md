@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 4.7 语音追踪控制小车运动
+# 5.4.7 语音追踪控制小车运动
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

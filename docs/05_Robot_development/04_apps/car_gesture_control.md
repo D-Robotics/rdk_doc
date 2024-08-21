@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 4.5 小车手势控制
+# 5.4.5 小车手势控制
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
