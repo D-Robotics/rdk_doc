@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 1.1 硬件简介
+# RDK X3
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 RDK X3提供了网口、USB、摄像头、LCD、HDMI、40PIN等功能接口，方便用户进行图像多媒体、深度学习算法等应用的开发和测试。开发板接口布局如下：
 
 
-![image-20220802160110194](../../static/img/01_Quick_start/image/hardware_interface/image-20220802160110194.jpg)
+![image-20220802160110194](../../../static/img/01_Quick_start/image/hardware_interface/image-20220802160110194.jpg)
 
 
 | 序号 | 功能 | 序号 | 功能 | 序号 | 功能 |
@@ -33,7 +33,7 @@ RDK X3提供了网口、USB、摄像头、LCD、HDMI、40PIN等功能接口，�
 
 RDK X3 Module官方载板提供了以太网口、USB、HDMI、MIPI CSI、MIPI DSI、40PIN等多种外围接口，方便用户对RDK X3 Module进行功能验证、开发测试等工作。接口布局如下：
 
-![image-carrier-board1](../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board1.jpg) 
+![image-carrier-board1](../../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board1.jpg) 
 
 | 序号 | 接口功能        | 序号 | 接口功能                | 序号 | 接口功能               |
 | ---- | --------------- | ---- | ----------------------- | ---- | ---------------------- |
@@ -46,23 +46,6 @@ RDK X3 Module官方载板提供了以太网口、USB、HDMI、MIPI CSI、MIPI DS
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发套件提供了以太网口、USB、HDMI、MIPI CSI、40PIN等多种外围接口，方便用户对RDK Ultra开发套件进行功能体验、开发测试等工作，接口布局如下：
-
-![image-carrier-board1](../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface1.jpg)
-![image-carrier-board2](../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface2.jpg) 
-
-| 序号 | 接口功能      | 序号 | 接口功能               | 序号 | 接口功能                 |
-| ---- | ------------- | ---- | ---------------------- | ---- | ------------------------ |
-| 1    | 电源接口      | 7    | 40pin header           | 13   | CAM3接口，24PIN，4lane   |
-| 2    | HDMI显示接口  | 8    | PWM风扇接口            | 14   | CAM1接口，24PIN，4lane   |
-| 3    | 4组USB3.0接口 | 9    | rtc电池接口            | 15   | 无线网卡接口，PCIe M.2-E |
-| 4    | 千兆以太网口  | 10   | 功能控制接口           | 16   | SSD硬盘接口，PCIe M.2-M  |
-| 5    | 调试接口      | 11   | CAM2接口，15PIN，2lane | 17   | SSD硬盘接口，PCIe M.2-M  |
-| 6    | 状态指示灯    | 12   | CAM0接口，15PIN，2lane |      |                          |
-
-</TabItem>
 
 </Tabs>
 
@@ -81,7 +64,7 @@ RDK Ultra开发套件提供了以太网口、USB、HDMI、MIPI CSI、40PIN等多
 
 RDK X3 Module载板提供一组200pin板板连接器，用于核心模组的安装。安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
 
-![image-x3-md-setup](../../static/img/01_Quick_start/image/hardware_interface/image-x3-md-setup.jpg) 
+![image-x3-md-setup](../../../static/img/01_Quick_start/image/hardware_interface/image-x3-md-setup.jpg) 
 
 模组安装方法如下：
 
@@ -91,13 +74,6 @@ RDK X3 Module载板提供一组200pin板板连接器，用于核心模组的安�
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra Module核心板硬件接口兼容 Jetson Orin 系列开发板，方便用户快速集成和产品化落地。
-
-![rdk_ultra_module](../../static/img/01_Quick_start/image/hardware_interface/rdk_ultra_module.png)
-
-</TabItem>
 
 </Tabs>
 
@@ -115,12 +91,6 @@ RDK Ultra Module核心板硬件接口兼容 Jetson Orin 系列开发板，方便
 <TabItem value="x3md" label="RDK X3 Module">
 
 RDK X3 Module载板通过DC接口供电，推荐使用认证配件清单中推荐的**12V/2A**适配器。接入电源后，如<font color='Red'>红色</font>电源指示灯正常点亮（接口8），说明设备供电正常。
-
-</TabItem>
-
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发板通过DC接口供电，推荐使用套件中自带的电源适配器，或者使用至少**12V/5A**的电源适配器供电。接入电源后，如红色电源指示灯点亮（接口6），说明设备供电正常。
 
 </TabItem>
 
@@ -150,7 +120,7 @@ RDK Ultra开发板通过DC接口供电，推荐使用套件中自带的电源适
 - 流控（Flow Control）：无
 
 串口连接时，需要将杜邦线接入开发板接口3，串口USB转接板接入电脑。连接完成后如下图：  
-![debug_uart_x3](../../static/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
+![debug_uart_x3](../../../static/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
 </TabItem>
 
@@ -168,19 +138,7 @@ RDK X3 Module载板提供一路调试（接口15），硬件上通过`CH340`芯�
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
 
-RDK Ultra开发板提供了一路调试接口（接口5），硬件上通过`CH340`芯片将核心模组调试串口转换为USB接口，用户可使用该接口进行各种调试工作。电脑串口工具的参数需按如下方式配置：
-
-- 波特率（Baud rate）：921600
-- 数据位（Data bits）：8
-- 奇偶校验（Parity）：None
-- 停止位（Stop bits）：1
-- 流控（Flow Control）：无
-
-通常情况下，用户第一次使用该接口时需要在电脑上安装CH340驱动，用户可搜索`CH340串口驱动`关键字进行下载、安装。
-
-</TabItem>
 
 </Tabs>
 
@@ -202,11 +160,7 @@ RDK Ultra开发板提供了一路调试接口（接口5），硬件上通过`CH3
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
 
-开发板提供一路千兆以太网接口(接口4)，支持1000BASE-T、100BASE-T标准，默认采用静态IP模式，IP地址`192.168.1.10`。如需确认开发板IP地址，可通过串口登录设备，并用`ifconfig`命令进行查看 `eth0`网口的配置。
-
-</TabItem>
 
 </Tabs>
 
@@ -241,13 +195,6 @@ RDK X3 Module载板提供一路HDMI显示接口（接口2），最高支持1080P
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发板提供一路HDMI显示接口（接口2），最高支持1080P分辨率。开发板上电后会通过HDMI接口输出Ubuntu图形界面，配合特定的示例程序，HDMI接口还支持摄像头、视频流画面的预览显示功能。
-
-目前HDMI接口只支持1080p60的显示模式，更多的显示模式会在后续的软件版本中支持。
-
-</TabItem>
 
 </Tabs>
 
@@ -297,11 +244,6 @@ USB主从模式切换完全由硬件电路实现，用户只需按照上表的�
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发板提供了四路USB3.0标准接口（接口3），可以满足4路USB外设同时接入使用。需要注意的是，RDK Ultra的USB接口只支持Host模式。
-
-</TabItem>
 
 </Tabs>
 
@@ -334,7 +276,7 @@ RDK Ultra开发板提供了四路USB3.0标准接口（接口3），可以满足4
 摄像头模组通过FPC排线跟开发板连接，注意排线两端蓝面向上插入连接器。
 
 以JXF37摄像头模组为例，安装完成后如下图：  
-![image-X3-PI-Camera](../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
+![image-X3-PI-Camera](../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
 
 安装完成后，用户可以通过i2cdetect命令确认模组I2C地址能否正常检测到。
 </TabItem>
@@ -360,26 +302,6 @@ RDK X3 Module载板提供CAM 0/1/2三组MIPI CSI接口，可以满足3路Camera�
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发板提供`CAM 0~3`四组摄像头接口，可以满足4路MIPI Camera模组的同时接入，使用注意事项如下：
-
-1. CAM 0/2（接口11/12），采用15pin FPC连接器，支持接入树莓派OV5647、IMX219、IMX477等Camera模组。
-2. CAM 1/3（接口13/14），采用24pin FPC连接器，支持接入F37、GC4663、IMX415等Camera模组。
-
-摄像头模组的规格参数如下：
-
-| 序号 | Sensor | 分辨率 | FOV              | I2C 设备地址 |
-| ---- | ------ | ------ | ---------------- | ------------ |
-| 1    | GC4663 | 400W   | H:104 V:70 D:113 | 0x29         |
-| 2    | JXF37  | 200W   | H:62  V:37 D:68  | 0x40         |
-| 3    | IMX219 | 800W   | H:62  V:37 D:68  | 0x10         |
-| 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
-| 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
-
-Camera模组的购买方式可参考社区配件页，[购买链接](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)。
-
-</TabItem>
 
 </Tabs>
 
@@ -427,11 +349,6 @@ RDK X3 Module载板提供一路Micro SD存储卡接口（接口18）。推荐使
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-无该接口。
-
-</TabItem>
 
 </Tabs>
 
@@ -461,7 +378,7 @@ RDK X3 Module载板提供一路Micro SD存储卡接口（接口18）。推荐使
 
 RDK X3 Module无板载天线，通常情况下需要连接外置天线，以增强信号强度。
 
-![rdk_x3_module_wifi](../../static/img/01_Quick_start/image/hardware_interface/rdk_x3_module_wifi.jpg)
+![rdk_x3_module_wifi](../../../static/img/01_Quick_start/image/hardware_interface/rdk_x3_module_wifi.jpg)
 
 </TabItem>
 
@@ -480,16 +397,16 @@ RDK X3 Module无板载天线，通常情况下需要连接外置天线，以增�
 
 RDK X3开发板提供40pin header接口，IO信号采用3.3V电平设计。管脚定义兼容树莓派等产品，详细管脚定义、复用关系如下：
 
-![image-20220501181722851](../../static/img/01_Quick_start/image/hardware_interface/rdkx3_40pin_cn.png)
+![image-20220501181722851](../../../static/img/01_Quick_start/image/hardware_interface/rdkx3_40pin_cn.png)
 
 
 RDK X3 2.0 & Module 外扩40PIN管脚及其定义如下：
 
-![image-20230510155124570](../../static/img/01_Quick_start/image/hardware_interface/image-20230510155124570.png)
+![image-20230510155124570](../../../static/img/01_Quick_start/image/hardware_interface/image-20230510155124570.png)
 
 开发板40PIN接口位置提供了丝印网表，方便用户对照操作，PIN1、PIN40位置如下：
 
-![image-X3-PI-40Pin_Index](../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
+![image-X3-PI-40Pin_Index](../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
 40PIN各功能的使用方法请查看 [40PIN 功能使用](../03_Basic_Application/03_40pin_user_guide/40pin_define.md) 章节。
 
@@ -499,19 +416,11 @@ RDK X3 2.0 & Module 外扩40PIN管脚及其定义如下：
 
 RDK X3 Module载板提供一组40pin header接口（接口9），接口信号电平由IO电平切换header指定（接口14），支持1.8V、3.3V两种模式。管脚定义兼容树莓派等产品，详细管脚定义、复用关系如下：
 
-![image-40pin-header](../../static/img/01_Quick_start/image/hardware_interface/image-40pin-header.png)
+![image-40pin-header](../../../static/img/01_Quick_start/image/hardware_interface/image-40pin-header.png)
 
 :::caution 注意
 默认情况下，RDK X3 Module核心模组固件、载板电平配置为3.3V，如需要切换IO电平时，请参考[IO电平选择header接口](#io电平切换接口)。
 :::
-
-</TabItem>
-
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发板提供一组40pin header接口（接口7），支持GPIO、UART、I2C、SPI、I2S等多种接口，详细管脚定义、复用关系如下：
-
-![image-40pin-header](../../static/img/01_Quick_start/image/hardware_interface/image-interface-40pin.jpg)
 
 </TabItem>
 
@@ -545,29 +454,10 @@ RDK X3 Module载板提供一组控制IO接口（接口13），用户使用跳线
 
 此外，为方便用户查询，上述管脚定义在载板丝印也有体现。  
 
-![image-carrier-board-control-pin1](../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board-control-pin1.png)  
+![image-carrier-board-control-pin1](../../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board-control-pin1.png)  
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发板提供了一组功能控制接口（接口10），可实现对核心模组功能模式的控制，管脚功能定义如下：
-
-| 管脚号 | 管脚名称 | 功能描述                   | 使用方式                            |
-| ------ | -------- | -------------------------- | ----------------------------------- |
-| 1      | WAKE_UP  | 用于唤醒开发板             | 使用跳线帽跟GND短接                 |
-| 2      | GND      | 地信号                     | GND                                 |
-| 3      | FC_REC   | 强制开发板进入recovery模式 | 使用跳线帽跟GND短接                 |
-| 4      | GND      | 地信号                     | GND                                 |
-| 5      | SYS_RST  | 用于复位系统               | 使用跳线帽跟GND短接后断开，系统复位 |
-| 6      | GND      | 地信号                     | GND                                 |
-| 7      | PWR_EN   | 供电使能信号               | 使用跳线帽跟GND短接，关闭核心板供电 |
-| 8      | GND      | GDN                        | GND                                 |
-
-
-![image-carrier-board-control-pin1](../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface-control.jpg)  
-
-</TabItem>
 
 </Tabs>
 
@@ -588,7 +478,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 
 接口信号从上往下分别为3.3V、VREF、1.8V，具体如下图：
 
-![image-x3-md-vref](../../static/img/01_Quick_start/image/hardware_interface/image-x3-md-vref.png)
+![image-x3-md-vref](../../../static/img/01_Quick_start/image/hardware_interface/image-x3-md-vref.png)
 
 需要说明的是，**该接口不能悬空，否则核心模组会因供电异常无法开机**。
 
@@ -602,10 +492,5 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-无该接口。
-
-</TabItem>
 
 </Tabs>

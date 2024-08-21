@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # 1.2 System Burning
@@ -311,7 +311,7 @@ RDK X3 Module supports two modes of system startup: eMMC mode and SD card mode.
 
 After the Ubuntu Desktop version system is fully booted, the system desktop will be displayed on the monitor via the HDMI interface, as shown in the following figure:
 
-![image-desktop_display.png](../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.png)
+![image-desktop_display.jpg](../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 
 ## **Frequently Asked Questions**  

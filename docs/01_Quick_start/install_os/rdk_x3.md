@@ -1,8 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# 1.2 系统烧录
+# RDK X3
+
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -18,28 +19,24 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-RDK X3开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电，推荐使用[基础配件清单](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)中推荐的电源适配器型号。
+RDK X3开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电，推荐使用[基础配件清单](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)中推荐的电源适配器型号。
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-RDK X3 Module通过载板上的电源接口供电，[官方载板](../07_Advanced_development/01_hardware_development/rdk_x3_module/accessory.md)通过DC接口供电，推荐使用认证配件清单中推荐的**12V/2A**适配器。
+RDK X3 Module通过载板上的电源接口供电，[官方载板](../../07_Advanced_development/01_hardware_development/rdk_x3_module/accessory.md)通过DC接口供电，推荐使用认证配件清单中推荐的**12V/2A**适配器。
 
 </TabItem>
 
-<TabItem value="ultra" label="RDK Ultra">
 
-RDK Ultra开发板通过DC接口供电，推荐使用`官方套件`中自带的电源适配器，或者使用至少**12V/5A**的电源适配器供电。
-
-</TabItem>
 </Tabs>
 
 :::caution
 
 请不要使用电脑USB接口为开发板供电，否则会因供电不足造成开发板**异常断电、反复重启**等异常情况。
 
-更多问题的处理，可以查阅 [常见问题](../08_FAQ/01_hardware_and_system.md) 章节。
+更多问题的处理，可以查阅 [常见问题](../../08_FAQ/01_hardware_and_system.md) 章节。
 
 :::
 
@@ -57,11 +54,6 @@ RDK X3开发板采用Micro SD存储卡作为系统启动介质，推荐至少8GB
 
 RDK X3 Module板载eMMC（可选），支持从eMMC和SD卡两种模式启动系统。
 
-</TabItem>
-
-<TabItem value="ultra" label="RDK Ultra">
-
-RDK Ultra板载64GB eMMC存储空间，不需要额外准备存储卡。
 
 </TabItem>
 </Tabs>
@@ -82,11 +74,6 @@ RDK X3 Module支持HDMI显示接口，通过HDMI线缆连接官方载板和显�
 
 </TabItem>
 
-<TabItem value="ultra" label="RDK Ultra">
-
-RDK Ultra开发板支持HDMI显示接口，通过HDMI线缆连接开发板和显示器，支持图形化桌面显示。
-
-</TabItem>
 </Tabs>
 
 
@@ -104,19 +91,13 @@ RDK X3开发板支持以太网、Wi-Fi两种网络接口，用户可通过任意
 RDK X3 Module支持以太网、Wi-Fi（可选）两种网络接口，用户可通过任意接口实现网络连接功能。
 
 </TabItem>
-
-<TabItem value="ultra" label="RDK Ultra">
-
-RDK Ultra开发板支持以太网、Wi-Fi两种网络接口，用户可通过任意接口实现网络连接功能。
-
-</TabItem>
 </Tabs>
 
 
 ## 系统烧录
 
 
-RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化交互。
+RDK套件目前提供Ubuntu 20.04/22.04系统镜像，可支持Desktop桌面图形化交互。
 
 :::info 注意
 
@@ -132,9 +113,9 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 
 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
 
-![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
-![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
 
 下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64.img`
@@ -150,7 +131,7 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 
 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
 
-![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
 下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64.img`
 
@@ -161,15 +142,6 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，选择rdk_ultra目录，选择对应版本，进入文件下载页。以下载1.0.0版本的系统镜像为例：
-
-![image-20230510143353330](../../static/img/01_Quick_start/image/install_os/20231010120539.png)
-
-下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64-rdkultra.img`
-
-</TabItem>
 
 </Tabs>
 
@@ -197,15 +169,15 @@ RDK套件目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化�
 balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作工具，制作SD启动卡流程如下：
 1. 打开balenaEtcher工具，点击`Flash frome file`按钮，选择解压出来的`ubuntu-preinstalled-desktop-arm64.img`文件作为烧录镜像 
 
-    ![image-X3-Update-balena1](../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-X3-Update-balena1](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
 
 2. 点击`Select target`按钮，选择对应的Micro SD存储卡作为目标存储设备  
 
-    ![image-X3-Update-balena3](../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-X3-Update-balena3](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
 
 3. 点击`Flash`按钮开始烧录，待工具提示`Flash Complete`时，表示镜像烧录完成，可以关闭balenaEtcher并取出存储卡
 
-    ![image-X3-Update-balena4](../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-X3-Update-balena4](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
 
 </TabItem>
 
@@ -227,29 +199,29 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 1. 对于使用Windows系统的PC，在使用刷机工具前，需要确认是否安装过fastboot驱动程序，请按照如下步骤进行确认：
 
    （1）使用跳线帽将RDK X3载板的`Boot`管脚接地，管脚位置参考下图。    
-   ![image-carrier-board-bootstrap](../../static/img/01_Quick_start/image/install_os/image-carrier-board-bootstrap.png)  
+   ![image-carrier-board-bootstrap](../../../static/img/01_Quick_start/image/install_os/image-carrier-board-bootstrap.png)  
 
    （2）将载板的Micro USB接口与电脑通过USB线连接，接口位置参考下图。  
-   ![image-carrier-board-microusb](../../static/img/01_Quick_start/image/install_os/image-carrier-board-microusb.png)  
+   ![image-carrier-board-microusb](../../../static/img/01_Quick_start/image/install_os/image-carrier-board-microusb.png)  
 
    （3）给设备上电，然后观察电脑设备管理器端口状态，如出现`USB download gadget`未知设备时，需要更新设备驱动，否则可跳过下述步骤。  
-   ![image-usb-driver1](../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
+   ![image-usb-driver1](../../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
 
    （4）下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip) 。
 
    （5）进入解压后的目录，以管理员身份运行 `5-runasadmin_register-CA-cer.cmd`，完成驱动程序的注册。
 
    （6）双击`USB download gadget`未知设备，选择驱动包解压目录，然后点击下一步。   
-   ![image-usb-driver2](../../static/img/01_Quick_start/image/install_os/image-usb-driver2.png)
+   ![image-usb-driver2](../../../static/img/01_Quick_start/image/install_os/image-usb-driver2.png)
 
    （7）驱动安装完成后，设备管理器会显示fastboot设备`Android Device`。   
-   ![image-usb-driver3](../../static/img/01_Quick_start/image/install_os/image-usb-driver3.png)
+   ![image-usb-driver3](../../../static/img/01_Quick_start/image/install_os/image-usb-driver3.png)
 
    
 
 2. 确认PC设备管理器显示fastboot设备`Android Device`后，运行`hbupdate.exe`打开烧录工具，按照以下步骤进行烧录：
 
-   ![image-flash-system1](../../static/img/01_Quick_start/image/install_os/image-flash-system1.png)
+   ![image-flash-system1](../../../static/img/01_Quick_start/image/install_os/image-flash-system1.png)
 
    （1）选择开发板型号，必选项。
 
@@ -261,15 +233,15 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
    - RDK_X3_MD_4GB： RDK X3 Module，4GB内存版本
 
-   ![image-flash-system2](../../static/img/01_Quick_start/image/install_os/image-flash-system2.png)
+   ![image-flash-system2](../../../static/img/01_Quick_start/image/install_os/image-flash-system2.png)
 
    （2）点击`Browse`按钮选择将要烧录的镜像文件，必选项。
 
-   ![image-flash-system3](../../static/img/01_Quick_start/image/install_os/image-flash-system3.png)
+   ![image-flash-system3](../../../static/img/01_Quick_start/image/install_os/image-flash-system3.png)
 
    （3）点击`Start`按钮开始刷机，根据弹窗提示开始烧录：
 
-   ![image-flash-system4](../../static/img/01_Quick_start/image/install_os/image-flash-system4.png)
+   ![image-flash-system4](../../../static/img/01_Quick_start/image/install_os/image-flash-system4.png)
 
    - 烧录镜像时，需要通过跳线帽将`BOOT`管脚接地，管脚位置参考[功能控制接口](/hardware_development/rdk_x3_module/interface#功能控制接口)
 
@@ -283,63 +255,11 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
    - 镜像烧录成功时，工具提示如下：
 
-   ![image-flash-system6](../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
+   ![image-flash-system6](../../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
 
    - 镜像烧录失败时，工具提示如下，此时需要确认PC设备管理器是否存在`Android Device`设备
 
-   ![image-flash-system7](../../static/img/01_Quick_start/image/install_os/image-flash-system7.png)
-
-</TabItem>
-
-<TabItem value="ulrta" label="RDK Ultra">
-
-RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
-
-:::tip 注意事项
-
-  - 解压工具压缩包，注意解压路径中不要包含**空格、中文、特殊字符**等内容。
-  - 工具通过网口跟RDK Ultra通讯，为保证烧录速度，请确保**PC支持千兆网口，并采用直连方式**。
-  - PC端网络需要提前配置为**静态IP方式**，具体如下：
-    - IP：192.168.1.195
-    - netmask：255.255.255.0
-    - gateway：192.168.1.1
-:::
-
-1. 通过网线将RDK Ultra和PC机直连，并确保网络可以ping通。
-
-2. 将功能控制接口（接口10）的`FC_REC`和`GND`信号短接。
-
-![image-ultra-fc-rec](../../static/img/01_Quick_start/image/install_os/image-ultra-fc-rec.jpg)
-
-
-3. 运行`hbupdate`主程序，打开下载工具并选择开发板型号为`RDK_ULTRA`，必选项。
-
-![image-flash-system1](../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system1.jpg)
-
-4. 点击`Browse`按钮选择将要烧录的镜像文件，必选项。
-
-![image-flash-system2](../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system2.jpg)
-
-5. 点击`Start`按钮开始刷机，根据提示信息确认操作无误后，点击`OK`按钮：
-
-![image-flash-system3](../../static/img/01_Quick_start/image/install_os/image-system-download3.jpg)
-
-6. 当工具显示如下打印时，说明进入烧写过程，该过程耗时依赖于网络传输速度，请耐心等待。
-
-![image-flash-system4](../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system4.jpg)
-
-7. 等待工具烧录完成，并检查烧录结果：
-
-- 镜像烧录成功时，工具提示如下：
-
-![image-flash-system6](../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system6.png)
-
-- 工具提示如下错误时，请确认步骤1~3是否操作正确。
-
-![image-flash-system7](../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system7.png)
-
-- 工具提示如下错误时，说明网络传输速度过慢，建议更换性能更好的PC后重新升级。
-  ![image-flash-system8](../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system8.jpg)
+   ![image-flash-system7](../../../static/img/01_Quick_start/image/install_os/image-flash-system7.png)
 
 </TabItem>
 
@@ -416,13 +336,6 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
 </TabItem>
 
-<TabItem value="ulrta" label="RDK Ultra">
-
-首先保持开发板断电，去除功能控制接口（接口10）的FC_REC和GND信号短接线，通过HDMI线缆连接开发板与显示器，最后给开发板上电。
-
-系统首次启动时会进行默认环境配置，整个过程持续45秒左右，配置结束后会在显示器输出Ubuntu系统桌面。
-
-</TabItem>
 
 </Tabs>
 
@@ -430,7 +343,7 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
 Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上输出系统桌面，如下图：
 
-![image-desktop_display.png](../../static/img/01_Quick_start/image/install_os/image-desktop_display.png)
+![image-desktop_display.jpg](../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 ## **常见问题**  
 
@@ -452,6 +365,6 @@ Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上�
 
 :::tip
 
-更多问题的处理，可以查阅 [常见问题](../08_FAQ/01_hardware_and_system.md) 章节，同时可以访问 [D-Robotics 开发者官方论坛](https://developer.d-robotics.cc/forum) 获得帮助。
+更多问题的处理，可以查阅 [常见问题](../../08_FAQ/01_hardware_and_system.md) 章节，同时可以访问 [D-Robotics 开发者官方论坛](https://developer.d-robotics.cc/forum) 获得帮助。
 
 :::
