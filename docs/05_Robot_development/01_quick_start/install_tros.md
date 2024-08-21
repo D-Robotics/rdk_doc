@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 1.2 apt安装与升级
+# 5.1.2 apt安装与升级
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

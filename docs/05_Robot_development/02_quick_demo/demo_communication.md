@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 2.5 数据通信
+# 5.2.5 数据通信
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

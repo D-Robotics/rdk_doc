@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 2.7 工具
+# 5.2.7 工具
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

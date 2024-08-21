@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 4.2 Navigation2
+# 5.4.2 Navigation2
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
