@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# 2.3 confit.txt Configuration File
+# 2.3 config.txt Configuration File
 
 RDK uses the configuration file `config.txt` to set system configurations during startup. `config.txt` is read during the `uboot` stage and supports modifications to device tree configurations, IO pin states, ION memory, CPU frequency, etc. This file is usually accessible from Linux at `/boot/config.txt` and must be edited as the `root` user. If the `config.txt` file does not exist but there are configuration settings, simply create it as a new text file.
 

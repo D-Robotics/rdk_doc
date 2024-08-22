@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 2.3 confit.txt 文件配置
+# 2.3 config.txt 文件配置
 
 RDK 使用配置文件`config.txt`来设置一些启动时候的系统配置。`config.txt` 会在`uboot`阶段被读取，支持修改设备树的配置，IO管脚状态，ION内存，CPU频率等。该文件通常可以从 Linux 访问`/boot/config.txt`，并且必须以`root`用户身份进行编辑。如果在`config.txt`配置设置，但是该文件还不存在，只需将其创建为新的文本文件即可。
 
