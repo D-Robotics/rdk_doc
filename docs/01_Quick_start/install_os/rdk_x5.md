@@ -110,7 +110,7 @@ balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作�
 
 
 
-* **<font color='Green'>绿色</font>**指示灯：点亮代表硬件上电正常
+* **<font color='Green'>绿色</font>** 指示灯：点亮代表硬件上电正常
 
 
 
@@ -120,7 +120,7 @@ balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作�
 
 
 
-Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上输出系统桌面，如下图：
+Ubuntu Desktop 版本系统启动完成后，会通过 HDMI 接口在显示器上输出系统桌面，如下图：
 
 ![image-desktop_display.jpg](../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
@@ -135,8 +135,8 @@ Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上�
 
 ### **注意事项**
 
-- 禁止带电时拔插除USB、HDMI、网线之外的任何设备
-- RDK X5的 Type C USB接口仅用作供电 
+- 禁止带电时拔插除 USB、HDMI、网线之外的任何设备
+- RDK X5 的 Type C USB 接口仅用作供电 
 - 选用正规品牌的USB Type C 口供电线，否则会出现供电异常，导致系统异常断电的问题
 
 

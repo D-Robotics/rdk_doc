@@ -5,7 +5,7 @@ sidebar_position: 2
 # 2.2 srpi-config 工具配置
 
 :::info 注意
-`srpi-config`配置工具仅适用于`RDK X3`和`RDK X3 Module`开发板，不适用于`RDK Ultra`开发板
+`srpi-config`配置工具仅适用于`RDK X3`、`RDK X5`和`RDK X3 Module`开发板，不适用于`RDK Ultra`开发板
 :::
 
 ## 简介
@@ -16,7 +16,7 @@ sidebar_position: 2
 sudo srpi-config
 ```
 
-> sudo 是提权管理命令，这里必须输入，这样就可以root权限来进行配置管理，默认的sunrise账号不具备系统文件修改权限。
+> sudo 是提权管理命令，这里必须输入，这样就可以 root 权限来进行配置管理，默认的 sunrise 账号不具备系统文件修改权限。
 
 ![image-20231123101913960](../../static/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
 
@@ -30,7 +30,7 @@ sudo srpi-config
 
 ## System Options
 
-系统选项菜单，允许对Wi-Fi网络、用户密码、主机名、系统登录模式、浏览器选择等各个部分进行配置更改，以及一些系统级别的更改。
+系统选项菜单，允许对 Wi-F i网络、用户密码、主机名、系统登录模式、浏览器选择等各个部分进行配置更改，以及一些系统级别的更改。
 
 ![image-20231123102447793](../../static/img/02_System_configuration/image/srpi-config/image-20231123102447793.png)
 
@@ -66,19 +66,21 @@ sudo srpi-config
 
 - **FB Console Resolution**
   
-  支持设置`Server`系统和`console`模式下的HDMI显示分辨率。
-
-[仅X5支持]
-
-![image-20240113163313195](../../static/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)
+  支持设置`Server`系统和`console`模式下的 HDMI 显示分辨率。
 
 - **Dsiplay Chose DSI or HDMI**
   
   支持`DSI`和`HDMI`显示显示切换。
+  
+  :::info 注意
+  仅 RDK X5 支持切换显示屏
+  :::
+  
+  ![image-20240113163313195](../../static/img/02_System_configuration/image/srpi-config//image-20240819160611000.png)
 
 ## Interface Options
 
-接口选项菜单，有以下选项可启用/禁用：SSH、VNC、SPI、I2C、I2S、Serial等功能。
+接口选项菜单，有以下选项可启用/禁用：SSH、VNC、SPI、I2C、I2S、Serial 等功能。
 
 ![image-20231123103322961](../../static/img/02_System_configuration/image/srpi-config/image-20240819162241000.png)
 
@@ -95,18 +97,17 @@ sudo srpi-config
 - **Peripheral bus config**
   
   启用/禁用40pin接口上的 SPI、I2C、Serial Port、I2S等接口。本配置方式会直接修改使用的设备树文件的对应总线的`status`，重启后生效。
-  [X5] 
+  [RDK X5] 
   X5增加了PWM接口；
   下表中，每行的接口使用相同的引脚，同时只能生效一种功能，当一行的所有接口都为dsiable时，引脚为gpio功能脚
 
-    | 功能1 | 功能2 | 
+  | 功能1 | 功能2 | 
   | ---- | ---- |
   | serial3 | i2c5 |
   | i2c0 | pwm2 |
   | spi2 | pwm0 |
   | spi2 | pwm1 |
   | i2c1 | pwm3 |
-  
   ![image-20231123103758686](../../static/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
 
 - **Configure Wi-Fi antenna**
@@ -116,9 +117,7 @@ sudo srpi-config
 
 - **Audio**
  安装和卸载音频转接板
-可能支持的音频转接板包括Audio Driver HAT V1 Audio Driver HAT V2 、WM8960 Audio HAT，不同的硬件能支持的音频转接板也有差别
-
- ![image-20231123103758686](../../static/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
+ 可能支持的音频转接板包括Audio Driver HAT V1 Audio Driver HAT V2 、WM8960 Audio HAT，不同的硬件能支持的音频转接板也有差别 ![image-20231123103758686](../../static/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
 
 ## Performance Options
 

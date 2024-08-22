@@ -10,11 +10,11 @@ RDK 使用配置文件`config.txt`来设置一些启动时候的系统配置。`
 
 :::info 注意
 
-1. `config.txt`配置文件仅适用于`RDK X3`和`RDK X3 Module`开发板，不适用于`RDK Ultra`开发板。
+1. `config.txt`配置文件仅适用于`RDK X3`、`RDK X5`和`RDK X3 Module`开发板，不适用于`RDK Ultra`开发板。
 
 2. 系统版本不低于 `2.1.0`。
 
-3. `miniboot`版本不能低于 `20231126`日期的版本。参考[rdk-miniboot-update](../09_Appendix/rdk-command-manual/cmd_rdk-miniboot-update.md)在板更新miniboot。
+3. `miniboot`版本不能低于 `20231126`日期的版本。参考 [rdk-miniboot-update](../09_Appendix/rdk-command-manual/cmd_rdk-miniboot-update.md) 在板更新 miniboot。
 
 4. 如果您在本配置文件添加了过滤项，那么使用`srpi-config`工具时请注意配置项是否会被过滤掉。
 
@@ -34,21 +34,21 @@ dtdebug=1
 
 支持设备树覆盖，提供更加灵活的设备树调整方式。
 
-[X5不支持] 例如通过`ion_resize`调整`ION`内存的大小，以下配置会修改`ION`内存大小为 `1GB`。
+【RDK X3】例如通过`ion_resize`调整`ION`内存的大小，以下配置会修改`ION`内存大小为 `1GB`。
 
 ```Shell
 dtoverlay=ion_resize,size=0x40000000
 ```
 
-[仅X5支持] 通过dtoverlay_spi5_spidev增加/dev/spidev5.0（注意：can设备也接到了spi5，spidev和can只能二选一）
+【RDK X5】通过dtoverlay_spi5_spidev增加/dev/spidev5.0（注意：can设备也接到了spi5，spidev和can只能二选一）
 
 ```Shell
 dtoverlay=dtoverlay_spi5_spidev
 ```
 
-### [仅X5支持]ion
+### RDK X5 配置 ION
 
-通过ion_reserved_size ion_carveout_size ion_cma_size修改boot环境变量，进而修改ION分区大小
+通过 ion_reserved_size，ion_carveout_size， ion_cma_size 修改 boot 环境变量，进而修改 ION 分区大小。
 
 | boot环境变量名         | dts标签        | dts compatible字符串 | 默认大小 |
 | ----------------- | ------------ | ----------------- | ---- |
@@ -64,11 +64,13 @@ ion=ion_cma_size=0x08000000
 
 ### dtparam
 
-支持设置uart、i2c、spi、i2s等总线的使能与关闭。
+支持设置 uart、i2c、spi、i2s 等总线的使能与关闭。
 
-目前支持的选项参数：uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
+目前支持的选项参数：
 
-[X5] uart0, uart1, uart5, spi1, spi5, i2c0, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, dw_i2s0, dw_i2s1
+RDK X3 支持： uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
+
+RDK X5 支持： uart0, uart1, uart5, spi1, spi5, i2c0, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, dw_i2s0, dw_i2s1
 
 例如关闭串口3：
 
@@ -86,7 +88,7 @@ dtparam=i2c5=on
 
 ### arm_boost
 
-当设置为1时，开启超频，RDK v1.x 版本最高频率提高到1.5GHz，RDK V2.0 和 RDK Module 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/scaling_boost_frequencies` 获取使能boost后会开放哪些更高CPU频率。
+当设置为1时，开启超频，RDK v1.x 版本最高频率提高到 1.5GHz，RDK V2.0 、RDK X5 和 RDK Module 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/scaling_boost_frequencies` 获取使能 boost 后会开放哪些更高 CPU 频率。
 
 默认不开启超频，设置`arm_boost` 为 `1`时开启，例如：
 
@@ -104,7 +106,7 @@ CPU 频率的调度方式，有 `conservative ondemand userspace powersave perfo
 governor=performance
 ```
 
-有关`CPU`调度方式的说明请查阅[CPU频率管理](frequency_management#cpu频率管理)。
+有关`CPU`调度方式的说明请查阅 [CPU频率管理](frequency_management#cpu频率管理)。
 
 ### frequency
 
@@ -171,7 +173,7 @@ gpio=6=op,dl,pu
 
 ### throttling_temp
 
-系统CPU、BPU降频温度点，温度超过该温度点时，CPU和BPU会降低运行频率来减低功耗，CPU最低降到240MHz，BPU最低降到400MHz。 
+系统 CPU、BPU 降频温度点，温度超过该温度点时，CPU 和 BPU 会降低运行频率来减低功耗，CPU最低降到 240MHz，BPU 最低降到 400MHz。 
 
 ### shutdown_temp
 
