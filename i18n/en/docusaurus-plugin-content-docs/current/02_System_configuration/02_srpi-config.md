@@ -137,14 +137,6 @@ The System Options menu allows you to configure changes to various parts such as
 
 > ION memory is a physical memory space reserved for the BPU, image, and video multimedia functions. The default configuration size is 672MB. If you need to run large algorithm models or decode multiple videos at the same time, adjust the memory size according to specific needs.
 
-- **[X5] ION memory**
-
-  The ION of X5 is divided into three partitions, and the sizes of the three partitions need to be set separately. The default size configuration is ion_cma 128MB, ion_deserved 320MB, ion_carveout 320MB, for a total of 768MB.
-
-  ![image-20231123104553727](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819165124000.png)
-
-  ![image-20231123104553727](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819165138000.png)
-
 ## Localisation Options
 
 Localisation options provide the following choices: local language, time zone, and keyboard layout.

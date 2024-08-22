@@ -99,13 +99,13 @@ sudo srpi-config
   X5增加了PWM接口；
   下表中，每行的接口使用相同的引脚，同时只能生效一种功能，当一行的所有接口都为dsiable时，引脚为gpio功能脚
 
-  | 功能1 | 功能2 | 
-| ---- | ---- |
-| serial3 | i2c5 |
-| i2c0 | pwm2 |
-| spi2 | pwm0 |
-| spi2 | pwm1 |
-| i2c1 | pwm3 |
+    | 功能1 | 功能2 | 
+  | ---- | ---- |
+  | serial3 | i2c5 |
+  | i2c0 | pwm2 |
+  | spi2 | pwm0 |
+  | spi2 | pwm1 |
+  | i2c1 | pwm3 |
   
   ![image-20231123103758686](../../static/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
 
@@ -137,14 +137,6 @@ sudo srpi-config
   可以通过此选项配置ION内存的常用大小。
 
 > ION 内存是预留出来给BPU和图像、视频多媒体功能的物理内存空间。默认配置大小为672MB，如果需要运行比较大的算法模型、同时编解码多路视频时，请根据具体需要调整该内存大小。
-
-- **[X5] ION memory**
-
-  X5的ION分为了三个分区，三个分区的大小需要分别设置，默认大小配置为ion_cma 128MB ion_reserved 320MB ion_carveout 320MB, 总共为768MB。
-
-  ![image-20231123104553727](../../static/img/02_System_configuration/image/srpi-config/image-20240819165124000.png)
-
-  ![image-20231123104553727](../../static/img/02_System_configuration/image/srpi-config/image-20240819165138000.png)
 
 ## Localisation Options
 
