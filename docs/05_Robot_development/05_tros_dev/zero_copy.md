@@ -22,9 +22,7 @@ import TabItem from '@theme/TabItem';
 
 已按照[安装](/docs/05_Robot_development/01_quick_start/install_tros.md)成功安装tros.b，并已掌握ROS2 node，topic，qos等基础知识，以及如何创建package和使用自定义消息，具体教程可见[ROS2官方文档](https://docs.ros.org/en/foxy/Tutorials.html)。
 
-已安装ROS2软件包构建系统ament_cmake。安装命令：`apt update; apt-get install python3-catkin-pkg; pip3 install empy`
-
-已安装ROS2编译工具colcon。安装命令：`pip3 install -U colcon-common-extensions`
+ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev-tools`
 
 ## 任务内容
 
@@ -542,7 +540,7 @@ colcon build --packages-select hbmem_pubsub
 若提示`colcon`命令未安装，使用以下命令安装即可：
 
 ```shell
-pip3 install -U colcon-common-extensions
+sudo apt install ros-dev-tools
 ```
 
 ### 6. 运行
