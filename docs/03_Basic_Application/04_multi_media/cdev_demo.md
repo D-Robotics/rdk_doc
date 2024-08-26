@@ -139,12 +139,12 @@ sidebar_position: 2
    程序正确运行后，当前目录保存指定数量的图片文件，`RAW`格式以`raw_*.raw`方式命名，`YUV`格式以`yuv_*.yuv`方式命名。运行log如下：
 
    ```bash
-   sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo ./capture -b 12 -c 10 -h 1080 -w 1920
+   sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo ./capture -b 16 -c 10 -h 1080 -w 1920
    [INFO] board_id is 301, not need skip sci1.
    Searching camera sensor on device: /proc/device-tree/soc/cam/vcon@0 i2c bus: 6 mipi rx phy: 0
    INFO: Found sensor name:ov5647 on mipi rx csi 0, i2c addr 0x36, config_file:linear_1920x1080_raw10_30fps_2lane.c
-   2000/01/01 18:41:44.702 !INFO [CamInitParam][0139]Setting VSE channel-0: input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
-   2000/01/01 18:41:44.702 !INFO [CamInitParam][0139]Setting VSE channel-1: input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
+   2000/01/01 08:18:54.877 !INFO [CamInitParam][0139]Setting VSE channel-0: input_width:1920, input_height:1080,  dst_w:1920, dst_h:1080
+   2000/01/01 08:18:54.877 !INFO [CamInitParam][0139]Setting VSE channel-1: input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
    ... 省略 ...
    capture time :0
    temp_ptr.data_size[0]:4147200
