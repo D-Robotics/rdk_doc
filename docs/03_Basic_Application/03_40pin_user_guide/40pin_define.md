@@ -72,7 +72,7 @@ sudo srpi-config
 
 开发板 `/app/40pin_samples/` 目录下，预置了多种40PIN管脚的功能测试代码，包括gpio的输入/输出测试、PWM、I2C、SPI、UART等测试。所有测试程序均使用python语言编写，详细信息可以查阅本章节其他模块。
 
-以`/app/40pin_samples/button_led.py`为例，该程序配置`38`号管脚为输入，配置`36`号管脚配置为输出，并根据`38`号管脚的输入状态来控制`36`号管脚的输出状态。
+以`/app/40pin_samples/button_led.py`为例，该程序配置`37`号管脚为输入，配置`36`号管脚配置为输出，并根据`37`号管脚的输入状态来控制`36`号管脚的输出状态。
 
 ## 环境准备
 使用杜邦线连接 `37`号管脚到 3.3v or GND，以控制其高低电平。
@@ -86,7 +86,7 @@ sudo srpi-config
   ```
 
 ## 预期效果
-通过控制`38`号管脚的高低电平，可以改变 `36`号管脚的输出电平值。
+通过控制`37`号管脚的高低电平，可以改变 `36`号管脚的输出电平值。
 
   ```bash
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
