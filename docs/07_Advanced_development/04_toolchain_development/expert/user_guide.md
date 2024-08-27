@@ -14,7 +14,219 @@ sidebar_position: 3
 
 由于 BPU 只支持数量有限的算子，因此，horizon_plugin_pytorch 只支持算子列表中的算子和基于 BPU 限制而内部特殊定义的特殊算子。
 
+### 构建量化友好模型
 
+浮点模型变为定点模型的过程存在一定的精度误差，越是量化友好的浮点模型， qat 精度提升越容易，量化后的精度也越高。一般而言，有以下几种情况会导致模型变得量化不友好：
+
+1. 使用有精度风险的算子。例如： softmax , layernorm 等（详见 op 文档），这类算子一般底层由查表或多个 op 拼接实现，容易发生掉点问题。
+
+2. 一次 forward 中多次调用同一算子。同一算子多次调用，对应的输出分布存在差异，但只会统计一组量化参数，当多次调用的输出分布差异过大时，量化误差会变大。
+
+3. add , cat 等多输入算子的不同输入差异过大，可能造成较大误差。
+
+4. 数据分布不合理。plugin 采用的是均匀对称量化，所以 0 均值的均匀分布最好，应尽量避免长尾和离群点。同时，数值范围需要与量化 bit 相匹配，如果使用int8量化分布为 [-1000, 1000] 均匀分布的数据，那么精度显然也是不够的。例如，下面三个分布图，从左到右对量化的友好性依次递减，模型中大部分数值的分布应当为中间这种分布。在实际使用中，可以用 debug 工具查看模型 weight 和 feature map 的分布是否量化友好。因为模型冗余性的存在，有些看起来分布非常量化不友好的 op 并不会显著降低模型的最终精度，需要结合实际的 qat 训练难度和最后达到的量化精度综合考虑。
+
+![data_distribution](./image/expert/data_distribution.png)
+
+那么如何使得模型更加量化友好呢？具体来说：
+
+1. 尽量少使用精度风险过大的算子，详见 op 文档。
+
+2. 保证多次调用的共享算子每次调用的输出分布差异不要太大，或者将共享算子拆开分别单独使用。
+
+3. 避免多输入算子不同输入的数值范围差异过大。
+
+4. 使用 int16 量化数值范围和误差都非常大的 op 。可通过 debug 工具找到这类 op 。
+
+5. 通过调大 weight decay ，增加数据增强等方式防止模型过拟合。过拟合模型容易出现较大数值，且对输入非常敏感，轻微的误差可能导致输出完全错误。
+
+6. 使用 BN 。
+
+7. 对模型输入做关于0对称的归一化。
+
+需要注意的是， qat 自身具有一定的调整能力，量化不友好并不代表不能量化，很多情况下，即使出现上面的不适合量化的现象，仍然可以量化得很好。因为上述建议也可能会导致浮点模型精度下降，所以应当在 qat 精度无法达标时再尝试上述建议，尤其是 1 - 5 条建议，最后应当是在浮点模型精度和量化模型精度中找一个平衡点。
+
+
+## qconfig 详解
+
+### 什么是 qconfig
+
+模型的量化方式由 qconfig 决定，在准备 qat / calibration 模型之前，需要先给模型设置 qconfig。我们不推荐您自定义 qconfig，尽量只使用预定义好的qconfig变量，因为自定义 qconfig 需要对具体的处理器限制认知清晰，详细了解训练工具的工作原理，定义出错可能导致模型无法正常收敛、模型无法编译等问题，浪费大量时间和人力。
+
+```{attention}
+目前，Plugin 中维护了两个版本的qconfig，早期版本的 qconfig 将在不久的将来被废弃，我们只推荐您使用此文档中介绍的 qconfig 用法。
+```
+
+### 如何获取 qconfig
+
+1. 使用封装好的 qconfig 变量。这些 qconfig 存放在 `horizon_plugin_pytorch/quantization/qconfig.py` 中，可以适用于绝大多数情况。包括：
+
+```python
+from horizon_plugin_pytorch.quantization.qconfig import (
+    default_calib_8bit_fake_quant_qconfig,
+    default_qat_8bit_fake_quant_qconfig,
+    default_qat_8bit_fixed_act_fake_quant_qconfig,
+    default_calib_8bit_weight_16bit_act_fake_quant_qconfig,
+    default_qat_8bit_weight_16bit_act_fake_quant_qconfig,
+    default_qat_8bit_weight_16bit_fixed_act_fake_quant_qconfig,
+    default_qat_8bit_weight_32bit_out_fake_quant_qconfig, # 参考算子列表，支持高精度输出的算子可以设置此 qconfig 获得更高的精度
+    default_calib_8bit_weight_32bit_out_fake_quant_qconfig, # 参考算子列表，支持高精度输出的算子可以设置此 qconfig 获得更高的精度
+)
+```
+
+2. 使用 `get_default_qconfig` 接口。此接口较固定 qconfig 变量更灵活，我们推荐您对量化和硬件限制有清晰认知之后再使用。常用参数和解释如下：
+
+```python
+from horizon_plugin_pytorch.quantization.qconfig import get_default_qconfig
+
+qconfig = get_default_qconfig(
+    activation_fake_quant="fake_quant",  # 支持 fake_quant, lsq, pact，常用 fake quant
+    weight_fake_quant="fake_quant", # 支持 fake_quant, lsq, pact，常用 fake quant
+    activation_observer="min_max", # 支持 min_max, fixed_scale, clip, percentile, clip_std, mse, kl
+    weight_observer="min_max", # 支持 min_max, fixed_scale, clip, percentile, clip_std, mse, kl
+    activation_qkwargs={
+        "dtype": qint16, # 由具体算子决定是否支持 int16
+        "is_sync_quantize": False, # 是否同步统计数据，默认关闭提升forward速度
+        "averaging_constant": 0.01 # 滑动平均系数，设置为0时，scale不更新
+    },
+    weight_qkwargs={ # 只支持 dtype = qint8, qscheme = torch.per_channel_symmetric, ch_axis = 0, 不建议做额外配置
+        "dtype": qint8,
+        "qscheme": torch.per_channel_symmetric,
+        "ch_axis": 0,
+    },
+)
+```
+
+### 如何设置 qconfig
+
+共有三种设置方法，我们推荐您使用前两种，最后一种设置方式将废弃。
+
+1. 直接设置 qconfig 属性。此方法优先级最高，其余方法不会覆盖直接设置的 qconfig。
+
+```python
+model.qconfig = default_qat_8bit_fake_quant_qconfig
+```
+
+2. qconfig 模板。在 prepare 接口上指定 qconfig setter 和 example_inputs，自动为模型设置 qconfig。
+
+```python
+model = prepare_qat_fx(
+    model,
+    example_inputs=data,
+    qconfig_setter=default_qat_qconfig_setter,
+)
+```
+
+3. qconfig_dict。在 prepare_qat_fx 接口上指定 qconfig_dict。此用法将逐步废弃，如无兼容性需求，不推荐再使用，这里不展开介绍。
+
+```py
+model = prepare_qat_fx(
+    model,
+    qconfig_dict={"": default_qat_qconfig_setter},
+)
+```
+
+### qconfig 模板
+
+长期以来，配置 qconfig 出错的问题经常发生，因此我们开发了 qconfig 模板。qconfig 模板基于 subclass trace 方案感知模型的图结构，并按设定的规则自动设置 qconfig，是我们最推荐的设置 qconfig 方法。用法如下：
+
+```python
+qat_model = prepare_qat_fx(
+    model,
+    example_inputs=example_input,  # 用来感知图结构
+    qconfig_setter=( # qconfig 模板，支持传入多个模板，优先级从高到低。
+        sensitive_op_qat_8bit_weight_16bit_act_qconfig_setter(table, ratio=0.2),
+        default_calibration_qconfig_setter,
+    )
+)
+```
+
+```{attention}
+模板的优先级低于直接给模型设置 qconfig 属性，如果模型在 prepare 之前已经使用 model.qconfig = xxx 进行了配置，那么模板将不会生效。如果没有特殊需求，我们不推荐将两者混合使用，这很容易引发低级错误。绝大多数情况下，我们推荐您使用模板和 model.qconfig = xxx 两种设置方式中的一种即可满足需求。
+```
+
+模板可分为三类：
+
+1. 固定模板。固定模板中 calibration / qat / qat_fixed_act_scale 区别在于使用的 observer 类型和 scale 更新逻辑，分别用于校准，qat 训练，固定 activation scale qat 训练。default 模板( default_calibration_qconfig_setter / default_qat_qconfig_setter / default_qat_fixed_act_qconfig_setter )会做三件事：首先，将可以设置的高精度输出都设置上，对于不支持高精度的输出将给出提示；然后，从 grid sample 算子的 grid 输入向前搜索，直到出现第一个 gemm 类算子或者QuantStub，将中间的所有算子都设置为 int16。根据经验这里的 grid 一般表达范围较宽，int8 有较大可能不满足精度需求；最后，将其余算子设置为 int8。int16 模板( qat_8bit_weight_16bit_act_qconfig_setter / qat_8bit_weight_16bit_fixed_act_qconfig_setter / calibration_8bit_weight_16bit_act_qconfig_setter )会做两件事：首先，将可以设置的高精度输出都设置上，对于不支持高精度的输出将给出提示；其次，将其余算子设置为 int16。
+
+```python
+from horizon_plugin_pytorch.quantization.qconfig_template import (
+    default_calibration_qconfig_setter,
+    default_qat_qconfig_setter,
+    default_qat_fixed_act_qconfig_setter,
+    qat_8bit_weight_16bit_act_qconfig_setter,
+    qat_8bit_weight_16bit_fixed_act_qconfig_setter,
+    calibration_8bit_weight_16bit_act_qconfig_setter,
+)
+```
+
+2. 敏感度模板。敏感度模板有 sensitive_op_calibration_8bit_weight_16bit_act_qconfig_setter， sensitive_op_qat_8bit_weight_16bit_act_qconfig_setter， sensitive_op_qat_8bit_weight_16bit_fixed_act_qconfig_setter，三者的区别和固定模板中三者的区别一致，也是分别用于校准，qat 训练，固定 activation scale qat 训练。
+敏感度模板的第一个输入是精度 debug 工具产生的敏感度结果，第二个参数可以指定 ratio 或 topk ，敏感度模板会将量化敏感度最高的 topk 个算子设置为 int16。搭配固定模板，可以轻松实现混合精度调优。
+
+```python
+from horizon_plugin_pytorch.quantization.qconfig_template import (
+    default_calibration_qconfig_setter,
+    default_qat_qconfig_setter,
+    default_qat_fixed_act_qconfig_setter,
+    qat_8bit_weight_16bit_act_qconfig_setter,
+    qat_8bit_weight_16bit_fixed_act_qconfig_setter,
+    calibration_8bit_weight_16bit_act_qconfig_setter,
+    sensitive_op_qat_8bit_weight_16bit_act_qconfig_setter,
+    sensitive_op_qat_8bit_weight_16bit_fixed_act_qconfig_setter,
+    sensitive_op_calibration_8bit_weight_16bit_act_qconfig_setter,
+)
+
+table = torch.load("output_0-0_dataindex_1_sensitive_ops.pt")
+
+qat_model = prepare_qat_fx(
+    model,
+    example_inputs=example_input,
+    qconfig_setter=( 
+        sensitive_op_qat_8bit_weight_16bit_fixed_act_qconfig_setter(table, ratio=0.2),
+        default_calibration_qconfig_setter,
+    )
+)
+```
+
+3. 自定义模板。自定义模板只有 ModuleNameQconfigSetter，需要传入模块名和对应 qconfig 的字典，一般用于设置 fixed scale 等特殊需求，可以和固定模板，敏感度模板搭配使用。
+
+```python
+from horizon_plugin_pytorch.quantization.qconfig_template import (
+    default_calibration_qconfig_setter,
+    default_qat_qconfig_setter,
+    default_qat_fixed_act_qconfig_setter,
+    qat_8bit_weight_16bit_act_qconfig_setter,
+    qat_8bit_weight_16bit_fixed_act_qconfig_setter,
+    calibration_8bit_weight_16bit_act_qconfig_setter,
+    sensitive_op_qat_8bit_weight_16bit_act_qconfig_setter,
+    sensitive_op_qat_8bit_weight_16bit_fixed_act_qconfig_setter,
+    sensitive_op_calibration_8bit_weight_16bit_act_qconfig_setter,
+    ModuleNameQconfigSetter,
+)
+
+table = torch.load("output_0-0_dataindex_1_sensitive_ops.pt")
+
+module_name_to_qconfig = {
+    "op_1": default_qat_8bit_fake_quant_qconfig,
+    "op_2": get_default_qconfig(
+        activation_observer="fixed_scale",
+        activation_qkwargs={
+            "dtype": qint16,
+            "scale": OP2_MAX / QINT16_MAX,
+        },
+    )
+}
+
+qat_model = prepare_qat_fx(
+    model,
+    example_inputs=example_input,
+    qconfig_setter=(
+        ModuleNameQconfigSetter(module_name_to_qconfig),
+        sensitive_op_qat_8bit_weight_16bit_fixed_act_qconfig_setter(table, ratio=0.2),
+        default_calibration_qconfig_setter,
+    )
+)
+```
 ## Calibration 指南{#Calibration}
 
 在量化中，一个重要的步骤是确定量化参数，合理的初始量化参数能够显著提升模型精度并加快模型的收敛速度。Calibration 就是在浮点模型中插入 Observer，使用少量训练数据，在模型 forward 过程中统计各处的数据分布，以确定合理的量化参数的过程。虽然不做 Calibration 也可以进行量化训练，但一般来说，它对量化训练有益无害，所以推荐用户将此步骤作为必选项。
@@ -759,7 +971,7 @@ def convert_fx(
 
    - 对于非 `module` 的运算，如果需要单独设置 `qconfig` 或指定其运行在 CPU 上，需要将其封装成 `module` ，参考示例中的 `_SeluModule` 。
 
-2. 设置 `march` 。 **RDK X3** 设置bernoulli2， **RDK Ultra** 设置为bayes。
+2. 设置 `march` 。 **RDK X3** 设置bernoulli2， **RDK Ultra** 设置为bayes， **RDK X5** 设置为bayes-e。
 
 3. 设置 `qconfig` 。保留非异构模式下在 `module` 内设置 `qconfig` 的配置方式，除此以外，还可以通过 `prepare_qat_fx` 接口的 `qconfig_dict` 参数传入 `qconfig`，具体用法见接口参数说明。
 
@@ -771,7 +983,7 @@ def convert_fx(
 
 :::caution 注意
 
-目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 支持设置 ``int16`` 量化。
+目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 和  ``BAYES_E`` 的 **RDK X5** 支持设置 ``int16`` 量化。
 :::
 
 4. 设置 `hybrid_dict` 。可选，具体用法见接口参数说明，如果没有主动指定的 CPU 算子，可以不设置 `hybrid_dict` 。
@@ -858,7 +1070,7 @@ class HybridModel(nn.Module):
         x = self.selu(x)
         return self.dequant(x)
 
-# 设置 march **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# 设置 march **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 data_shape = [1, 3, 224, 224]
 data = torch.rand(size=data_shape)
@@ -1203,7 +1415,7 @@ class TestFuseNet(nn.Module):
         x = self.relu(x)
         return self.dequant(x)
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 device = torch.device("cpu")
 data = torch.arange(1 * 3 * 4 * 4) / 100 + 1
@@ -1639,7 +1851,7 @@ class TestFuseNet(nn.Module):
 
 float_net = TestFuseNet(3)
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 
 # 手动构造不支持的或特殊的 cases
@@ -1892,7 +2104,7 @@ class Net(nn.Module):
             x = self.float_ops(x)
         return x
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 device = torch.device("cuda")
 float_net = Net(quant=True, share_op=True).to(device)
@@ -2034,7 +2246,7 @@ class Net(nn.Module):
             x = self.float_ops(x)
         return x
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 device = torch.device("cuda")
 float_net = Net(quant=True, share_op=True).to(device)
@@ -2156,7 +2368,7 @@ featuremap_similarity(qat_net, bpu_net, (data, data))
 
 :::caution 注意
 
-目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 支持设置 ``int16`` 量化。
+目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 和 ``BAYES_E`` 的 **RDK X5** 支持设置 ``int16`` 量化。
 :::
 
 ```python
@@ -2309,7 +2521,7 @@ class Net(nn.Module):
             x = self.float_ops(x)
         return x
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 device = torch.device("cuda")
 float_net = Net(quant=True, share_op=True).to(device)
@@ -2343,7 +2555,7 @@ profile_featuremap(get_raw_features(qat_net, (data, data)), True)
 
 :::caution 注意
 
-目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 支持设置 ``int16`` 量化。
+目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra**  和 ``BAYES_E`` 的 **RDK X5** 支持设置 ``int16`` 量化。
 :::
 
     - Mean：数据的均值；
@@ -2356,7 +2568,7 @@ profile_featuremap(get_raw_features(qat_net, (data, data)), True)
 
 :::caution 注意
 
-目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 支持设置 ``int16`` 量化。
+目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra**  和 ``BAYES_E`` 的 **RDK X5** 支持设置 ``int16`` 量化。
 :::
 
     正常情况下，statistic.txt 中会包含两个上述格式的表格，一个是按照模型 forward 顺序打印的每一层的统计量；另一个是按照量化数据的范围从大到小打印的每一层的统计量信息，方便您快速定位到某些数值范围很大的层。若模型中某些层存在 NaN 或者 inf，那 statistic.txt 中也会额外包含一个哪些层 NaN 或者 inf 的表格，该表格也会在屏幕打印，提示您检查这些异常层。
@@ -2546,7 +2758,7 @@ from torch.quantization import DeQuantStub, QuantStub
 # 这里略去 Resnet18 的定义
 float_net = Resnet18().to(device)
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 float_net.qconfig = get_default_qat_qconfig()
 float_net2 = deepcopy(float_net)
@@ -2670,7 +2882,7 @@ class HyperQuantModel(nn.Module):
 shape = np.random.randint(10, 20, size=4).tolist()
 data = torch.rand(size=shape)
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 model = HyperQuantModel(shape[1])
 
@@ -2856,7 +3068,7 @@ model = TestFuseNet(3)
 set_preserve_qat_mode(float_net, ("convmod1"), ())
 model.convmod1.preserve_qat_mode = True
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 qat_net = prepare_qat_fx(model, {"": default_qat_8bit_fake_quant_qconfig})
 quant_model = horizon.quantization.convert_fx(qat_net)
@@ -2959,7 +3171,7 @@ class HybridModel(nn.Module):
         x = self.selu(x)
         return self.dequant(x)
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 shape = np.random.randint(10, 20, size=4).tolist()
 infer_shape = [1] + shape[1:]
@@ -3046,7 +3258,7 @@ def script_profile(
         example_inputs: 模型输入
         out_dir: 保存结果的路径。若为 None，则保存在当前路径下。默认为 None
         march: 使用的 BPU 架构。若为 None，会自动使用 get_march() 获取当前指定的架构。
-            默认为 None。 **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+            默认为 None。 **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
         mark_node_func: 标记 ScriptModule 中哪些节点的结果需要保存的标记函数。
             若为 None，使用默认的标记函数。默认为 None。
         compare_with_hbdk_parser: 是否将 ScriptModule 中每个 op 的结果和 hbdk 解析
@@ -3121,7 +3333,7 @@ class Net(nn.Module):
         x = self.dequant_stub(x)
         return x
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 device = torch.device("cpu")
 data = torch.rand((1, 10, 5, 5), device=device)
@@ -3134,7 +3346,7 @@ qat_net(*data)
 bpu_net = convert_fx(qat_net)
 script_module = torch.jit.trace(bpu_net.eval(), data)
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 script_profile(bpu_net, data, march=March.BAYES)
 ```
 
@@ -3190,7 +3402,7 @@ def compare_script_models(
         model2: 使用另一个版本 horizon_plugin_pytorch 生成的 ScriptModule
         example_inputs: 模型输入
         march: 使用的 BPU 架构。若为 None，会自动使用 get_march() 获取当前指定的架构。
-            默认为 None。 **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+            默认为 None。 **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
     """
 ```
 
@@ -3255,7 +3467,7 @@ class Net(nn.Module):
         x = self.dequant_stub(x)
         return x
 
-# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 set_march(March.BAYES)
 device = torch.device("cpu")
 data = torch.rand((1, 10, 5, 5), device=device)
@@ -3619,7 +3831,7 @@ QAT 训练或 quantized 模型部署时，常见的几种异常现象如下：
 
 :::info 备注
 
-目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra** 支持设置 ``int16`` 量化。
+目前只有BPU架构为 ``BAYES`` 的 **RDK Ultra**   和 ``BAYES_E`` 的 **RDK X5** 支持设置 ``int16`` 量化。
 
 1. 采用 int16 会带来部署性能的降低，请根据具体情况选择使用；
 2. 部分算子不支持 int16 量化，详见算子支持列表；
@@ -3862,6 +4074,9 @@ horizon.march.set_march(horizon.march.March.Bayes)
 
 ## RDK X3 需要使用 Bernoulli2
 horizon.march.set_march(horizon.march.March.Bernoulli2)
+
+## RDK X5 需要使用 Bayes-e
+horizon.march.set_march(horizon.march.March.Bayes-e)
 ```
 
 ------------------------------------------------------------------------
