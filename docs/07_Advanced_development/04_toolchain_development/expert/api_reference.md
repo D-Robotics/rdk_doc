@@ -17,6 +17,9 @@ BPU platform.
 
 - **BERNOULLI2**: Bernoulli2 platform
 
+- **BAYES_E**: Bayes platform
+
+
 
 ## qconfig
 
@@ -90,7 +93,7 @@ default_qat_8bit_lsq_quant_qconfig = get_default_qconfig(
 ```
 
 
-- **RDK Ultra** 使用示例如下：
+- **RDK Ultra** 和 **RDK X5** 使用示例如下：
 
 ```python
 
@@ -155,7 +158,7 @@ Simulate the quantize and dequantize operations in training time.
 
 The output of this module is given by
 
-- x_out = (clamp(round(x/scale + zero_point), quant_min, quant_max)-zero_point)*scale # noqa
+fake_quant_x = clamp(floor(x / scale + 0.5), quant_min, quant_max) * scale # noqa
 
 - scale defines the scale factor used for quantization.
 
@@ -242,7 +245,7 @@ False
 ## QAT
 
 ```python
-horizon_plugin_pytorch.quantization.convert(module, mapping=None, inplace=False, remove_qconfig=True, fast_mode=False)
+horizon_plugin_pytorch.quantization.convert(module: torch.nn.modules.module.Module, mapping: Optional[Dict[Type[torch.nn.modules.module.Module], Type[torch.nn.modules.module.Module]]] = None, inplace: bool = False, remove_qconfig: bool = True, fast_mode: bool = False)
 ```
 
 Convert modules.
@@ -395,7 +398,7 @@ Examples:
 ```
 
 ```python
-horizon_plugin_pytorch.quantization.prepare_qat(model: torch.nn.modules.module.Module, mapping: Optional[Dict[Type[torch.nn.modules.module.Module], Type[torch.nn.modules.module.Module]]] = None, inplace: bool = False, optimize_graph: bool = False, hybrid: bool = False, optimize_kwargs: Optional[Dict[str, Tuple]] = None)
+horizon_plugin_pytorch.quantization.prepare_qat(model: torch.nn.modules.module.Module, mapping: Optional[Dict[Type[torch.nn.modules.module.Module], Type[torch.nn.modules.module.Module]]] = None, inplace: bool = False, optimize_graph: bool = False, hybrid: bool = False, optimize_kwargs: Optional[Dict[str, Tuple]] = None, example_inputs: Any = None, qconfig_setter: Optional[Union[Tuple[horizon_plugin_pytorch.quantization.qconfig_template.QconfigSetterBase, ...], horizon_plugin_pytorch.quantization.qconfig_template.QconfigSetterBase]] = None, verbose: int = 0)
 
 ```
 
@@ -442,9 +445,23 @@ optimize_kwargs = {
 }
 ```
 
+- **example_inputs** – model inputs. It is used to trace model or check model structure.
+
+- **qconfig_setter** – Qconfig setter. Only needed when using qconfig template.
+
+- **verbose** – whether check model structure. it has two levels: 0: do nothing 1: check model structure
+```python
+    a. if model has shared ops
+
+    b. if model has unfused operations
+
+    c. model quantization config
+```
+
+
 ```python
 
-horizon_plugin_pytorch.quantization.prepare_qat_fx(model: Union[torch.nn.modules.module.Module, torch.fx.graph_module.GraphModule], qconfig_dict: Optional[Dict[str, Any]] = None, prepare_custom_config_dict: Optional[Dict[str, Any]] = None, optimize_graph: bool = False, hybrid: bool = False, hybrid_dict: Optional[Dict[str, List]] = None) → horizon_plugin_pytorch.quantization.fx.graph_module.ObservedGraphModule
+horizon_plugin_pytorch.quantization.prepare_qat_fx(model: Union[torch.nn.modules.module.Module, torch.fx.graph_module.GraphModule], qconfig_dict: Optional[Dict[str, Any]] = None, prepare_custom_config_dict: Optional[Dict[str, Any]] = None, optimize_graph: bool = False, hybrid: bool = False, hybrid_dict: Optional[Dict[str, List]] = None, opset_version: str = 'hbdk3', example_inputs: Any = None, qconfig_setter: Optional[Union[Tuple[horizon_plugin_pytorch.quantization.qconfig_template.QconfigSetterBase, ...], horizon_plugin_pytorch.quantization.qconfig_template.QconfigSetterBase]] = None, verbose: int = 0) → horizon_plugin_pytorch.quantization.fx.graph_module.ObservedGraphModule
 ```
 
 Prepare a model for quantization aware training.
@@ -515,6 +532,22 @@ hybrid_dict = {
 # priority (in increasing order): module_type, module_name
 # To set a function or method as CPU op, wrap it as a module.
 ```
+
+- **opset_version** – opset_version specifics the version of opset that determines the behavior of hybrid mode. Ops that in the quantized opset will be considered as quantized ops and run on BPU, while ops not in the quantized opset but in the float opset will be marked as hybrid (float) ops and run on CPU. Valid options are “hbdk3” and “hbdk4”.
+
+- **hybrid_dict** – model inputs. It is used to trace model or check model structure.
+
+- **hybrid_dict** – Qconfig setter. Only needed when using qconfig template.
+
+- **hybrid_dict** – whether check model structure. It has three levels: 0: do nothing 1: check qat model structure.
+```python
+    a. if model has shared ops
+
+    b. if model has unfused operations
+
+    c. model quantization config
+```
+
 
 **返回**
 
@@ -648,8 +681,7 @@ Export a (float or qat)model into ONNX format.
 
 - **do_constant_folding** (bool, default False) – Apply the constant-folding optimization. Constant-folding will replace some of the ops that have all constant inputs with pre-computed constant nodes.
 
-- **dynamic_axes** (`dict<str, list(int)/dict<int, str>>`, default empty dict) –
-
+- **dynamic_axes** (dict<str, list(int)/dict<int, str>>, default empty dict) –
 
     By default the exported model will have the shapes of all input and output tensors set to exactly match those given in args (and example_outputs when that arg is required). To specify axes of tensors as dynamic (i.e. known only at run-time), set dynamic_axes to a dict with schema:
 
@@ -659,7 +691,7 @@ Export a (float or qat)model into ONNX format.
 
 - **keep_initializers_as_inputs** (bool, default None) – If True, all the initializers (typically corresponding to parameters) in the exported graph will also be added as inputs to the graph. If False, then initializers are not added as inputs to the graph, and only the non-parameter inputs are added as inputs. This may allow for better optimizations (e.g. constant folding) by backends/runtimes.
 
-- **custom_opsets** (`dict<str, int>`, default empty dict) –
+- **custom_opsets** (dict<str, int>, default empty dict) –
 
     A dict with schema:
 
@@ -912,6 +944,10 @@ Major differences with DetectionPostProcess:
 
 - **bbox_min_hw** – Minimum height and width of selected bounding boxes.
 
+- **exp_overwrite** – Overwrite the exp func in box decode.
+
+- **input_shift** – Customize input shift of quantized DPP.
+
 ```python
 forward(data: List[torch.Tensor], anchors: List[torch.Tensor], image_sizes: Tuple[int, int] = None) → torch.Tensor
 ```
@@ -933,6 +969,68 @@ list of (bbox (x1, y1, x2, y2), score, class_idx).
 **返回类型**
 
 List[Tuple[Tensor, Tensor, Tensor]]
+
+```python
+class horizon_plugin_pytorch.nn.MultiScaleDeformableAttention(embed_dims: int = 256, num_heads: int = 8, num_levels: int = 4, num_points: int = 4, im2col_step: int = 64, dropout: float = 0.1, batch_first: bool = False, value_proj_ratio: float = 1.0)
+```
+
+An attention module used in Deformable-Detr.
+
+[Deformable DETR: Deformable Transformers for End-to-End Object Detection.](https://arxiv.org/pdf/2010.04159)
+
+**参数**
+
+- **embed_dims** – The embedding dimension of Attention. Default: 256.
+
+- **num_heads** – Parallel attention heads. Default: 8.
+
+- **num_levels** – The number of feature map used in Attention. Default: 4.
+
+- **num_points** – The number of sampling points for each query in each head. Default: 4.
+
+- **im2col_step** – The step used in image_to_column. Default: 64.
+
+- **dropout** – A Dropout layer on inp_identity. Default: 0.1.
+
+- **batch_first** – Key, Query and Value are shape of (batch, n, embed_dim) or (n, batch, embed_dim). Default to False.
+
+- **value_proj_ratio** – The expansion ratio of value_proj. Default: 1.0.
+
+
+```python
+forward(query: Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor], key: Optional[Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor]] = None, value: Optional[Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor]] = None, identity: Optional[Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor]] = None, query_pos: Optional[Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor]] = None, key_padding_mask: Optional[torch.Tensor] = None, reference_points: Optional[Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor]] = None, spatial_shapes: Optional[torch.Tensor] = None) → torch.Tensor
+```
+
+Forward Function of MultiScaleDeformAttention.
+
+
+**参数**
+
+- **query** – Query of Transformer with shape (num_query, bs, embed_dims).
+
+- **key** – The key tensor with shape (num_key, bs, embed_dims).
+
+- **value** – The value tensor with shape (num_key, bs, embed_dims).
+
+- **identity** – The tensor used for addition, with the same shape as query. Default None. If None, query will be used.
+
+- **query_pos** – The positional encoding for query. Default: None.
+
+- **key_padding_mask** – ByteTensor for query, with shape [bs, num_key].
+
+- **reference_points** – The normalized reference points with shape (bs, num_query, num_levels, 2), all elements is range in [0, 1], top-left (0,0), bottom-right (1, 1), including padding area. or (bs, num_query, num_levels, 4), add additional two dimensions is (w, h) to form reference boxes.
+
+- **spatial_shapes** – Spatial shape of features in different levels. int tensor with shape (num_levels, 2), last dimension represents (h, w).
+
+
+**返回**
+
+the same shape with query.
+
+**返回类型**
+
+Tensor
+
 
 ```python
 class horizon_plugin_pytorch.nn.PointPillarsScatter(output_shape=None)
@@ -966,15 +1064,15 @@ Post Process of RCNN output.
 
 Given bounding boxes and corresponding scores and deltas, decodes bounding boxes and performs NMS. In details, it consists of:
 
-Argmax on multi-class scores
+- Argmax on multi-class scores
 
-Filter out those belows the given threshold
+- Filter out those belows the given threshold
 
-Non-linear Transformation, convert box deltas to original image coordinates
+- Non-linear Transformation, convert box deltas to original image coordinates
 
-Bin-sort remaining boxes on score
+- Bin-sort remaining boxes on score
 
-Apply class-aware NMS and return the firstnms_output_box_num of boxes
+- Apply class-aware NMS and return the firstnms_output_box_num of boxes
 
 **参数**
 
@@ -1017,7 +1115,33 @@ output data in format
 
 Tensor[num_batch, post_nms_top_k, 6]
 
-horizon plugin.
+```python
+class horizon_plugin_pytorch.nn.SoftmaxBernoulli2(dim: int = None, max_value_only: Optional[bool] = False)
+```
+SoftmaxBernoulli2 is designed to run on Bernoulli2.
+
+This operator is considered hacky and should not been used by most users.
+
+The calculation logic of this operator is as follows roughly:
+    y = exp(x - x.max(dim)) / sum(exp(x - x.max(dim)), dim)
+
+The output of this operator is float type and cannot be fed into other quantized operators.
+
+In the FLOAT phase, users can set qconfig to this operator as usual. However, there are some peculiarities in QAT and QUANTIZED inference phases. Please read the following carefully.
+
+In the QAT phase, the operator only applies fake quantization to exp(x), then computes the division in the float domain and returns the unfakequantized(float) result directly. This operator will ignore the qconfig set by users or propagated from the parent module. However, to integrate this into the workflow of converting QAT models to QUANTIZED models, a reasonable qconfig is needed.
+
+In the QUANTIZED inference phase, the operator retrieves the result of exp(x) from a lookup table and computes the division in the float domain.
+
+When max_value_only is set to True, the maximum value of softmax along dim will be returned, which is equal to max(softmax(x, dim), dim). We combine softmax and max in this op because the hbdk compiler requires it to optimize performance without the effort of graph analysis. This argument is only intended for this specific purpose and should not be used in other cases.
+
+
+**参数**
+
+- **dim** – The dimension along which Softmax will be computed. only supports dim=1.
+
+- **max_value_only** – If True, return the max value along dim, if False, equal to normal softmax. Refer to the above for more information.
+
 
 ```python
 horizon_plugin_pytorch.bgr2centered_gray(input: torch.Tensor) → torch.Tensor
@@ -1299,7 +1423,7 @@ Dump advices for improving performance on BPU.
 
 - **example_inputs** (A tuple of example inputs, in torch.tensor format.) – For jit.trace and shape inference.
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2 and bayes-e. If not provided, use horizon plugin global march.
 
 - **input_source** (Specify input features' sources(ddr/resizer/pyramid)) –
 
@@ -1329,7 +1453,7 @@ Compile the nn.Module or jit.ScriptModule.
 
 - **hbm** (Specify the output path of hbdk-cc.) –
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2 and bayes-e. If not provided, use horizon plugin global march.
 
 - **name** (Name of the model, recorded in hbm.) – Can be obtained by hbdk-disas or hbrtGetModelNamesInHBM in runtime.
 
@@ -1373,7 +1497,7 @@ Export the nn.Module or jit.ScriptModule to hbdk3.HBIR.
 
 - **hbir** (Specify the output path of hbir.) –
 
-- **march** (Specify march to export hbir.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify march to export hbir.) – Valid options are bayes and bernoulli2 and bayes-e. If not provided, use horizon plugin global march.
 
 **返回**
 **返回类型**
@@ -1392,7 +1516,7 @@ Estimate the performance of nn.Module or jit.ScriptModule.
 
 - **example_inputs** (A tuple of example inputs, in torch.tensor format.) – For jit.trace and shape inference.
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2 and bayes-e. If not provided, use horizon plugin global march.
 
 - **out_dir** (Specify the output directry to hold the performance results.) –
 
@@ -1435,7 +1559,7 @@ Visualize nn.Module or jit.ScriptModule at the view of HBDK.
 
 - **example_inputs** (A tuple of example inputs, in torch.tensor format.) – For jit.trace and shape inference.
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2 and bayes-e. If not provided, use horizon plugin global march.
 
 - **save_path** (Specify path to save the plot image.) –
 
