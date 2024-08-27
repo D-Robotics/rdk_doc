@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 3.3.3 PWM应用
 
-Hobot.GPIO 库仅在带有附加硬件 PWM 控制器的引脚上支持 PWM。与 RPi.GPIO 库不同，Hobot.GPIO 库不实现软件模拟 PWM。RDK X3、RDK X5 和 RDK Ultra 都支持 2 个 PWM 通道。
+Hobot.GPIO 库仅在带有附加硬件 PWM 控制器的引脚上支持 PWM。与 RPi.GPIO 库不同，Hobot.GPIO 库不实现软件模拟 PWM。RDK X3和RDK Ultra都支持2个PWM通道。
 
 请参阅 `/app/40pin_samples/simple_pwm.py`了解如何使用 PWM 通道的详细信息。
 
@@ -13,29 +13,23 @@ Hobot.GPIO 库仅在带有附加硬件 PWM 控制器的引脚上支持 PWM。与
 
 ```python
 #!/usr/bin/env python3
-import sys
-import signal
+
 import Hobot.GPIO as GPIO
 import time
 
-def signal_handler(signal, frame):
-    sys.exit(0)
-
-# 支持PWM的管脚: 32 and 33, 在使用PWM时，必须确保该管脚没有被其他功能占用
+# 支持PWM的管脚: 32 and 33
 output_pin = 33
-
-GPIO.setwarnings(False)
 
 def main():
     # Pin Setup:
     # Board pin-numbering scheme
     GPIO.setmode(GPIO.BOARD)
-    # 支持的频率范围： 48KHz ~ 192MHz
+    # RDK X3支持的频率范围： 48KHz ~ 192MHz
+    # RDK Ultra支持的频率范围： 1Hz ~ 12MHz
     p = GPIO.PWM(output_pin, 48000)
     # 初始占空比 25%， 先每0.25秒增加5%占空比，达到100%之后再每0.25秒减少5%占空比
     val = 25
     incr = 5
-    p.ChangeDutyCycle(val)
     p.start(val)
 
     print("PWM running. Press CTRL+C to exit.")
@@ -53,7 +47,6 @@ def main():
         GPIO.cleanup()
 
 if __name__ == '__main__':
-    signal.signal(signal.SIGINT, signal_handler)
     main()
 
 ```

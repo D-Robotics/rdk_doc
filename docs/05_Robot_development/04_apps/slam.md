@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 5.4.1 SLAM建图
+# 4.1 SLAM建图
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

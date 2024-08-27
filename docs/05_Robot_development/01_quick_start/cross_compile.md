@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 5.1.3 源码安装
+# 1.3 源码安装
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

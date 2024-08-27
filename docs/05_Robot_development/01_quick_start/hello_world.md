@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 5.1.4 运行“Hello World”
+# 1.4 运行“Hello World”
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

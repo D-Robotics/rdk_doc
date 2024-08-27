@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 5.4.6 语音控制小车运动
+# 4.6 语音控制小车运动
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

@@ -4,27 +4,28 @@ sidebar_position: 2
 
 # 3.3.2 GPIO应用
 
-开发板预置了 GPIO Python 库 `Hobot.GPIO`，用户可以通过如下命令导入GPIO库。
+开发板预置了GPIO Python库`Hobot.GPIO`，用户可以通过如下命令导入GPIO库。
 
 ```shell
 sunrise@ubuntu:~$ sudo python3
-Python 3.8.10 (default, Mar 15 2022, 12:22:08)
+Python 3.8.10 (default, Mar 15 2022, 12:22:08) 
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import Hobot.GPIO as GPIO
+Get board ID: 0x504
 >>> GPIO.VERSION
 '0.0.2'
 >>> GPIO.model
-'RDK_X5'
+'X3PI'
 ```
 
 ## 设置引脚编码方式
 
-开发板的引脚编码有 4 种模式：
+开发板的引脚编码有4种模式：
 
 - BOARD：物理引脚序号，与开发板的丝印序号一一对应。
 - BCM：根据博通SoC制定的GPIO命名规则。
 - CVM： 使用字符串代替数字，对应于CVM / CVB连接器的信号名称。
-- SOC： 对应的编号是芯片内部的 GPIO 管脚序号。
+- SOC： 对应的编号是旭日X3M芯片的GPIO管脚序号，与芯片数据手册一一对应。
 
 本文推荐用户使用`BOARD`编码模式，设置编码的方式如下：
 
@@ -34,7 +35,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setmode(GPIO.BCM)
 # or
 GPIO.setmode(GPIO.CVM)
-# or
+# or 
 GPIO.setmode(GPIO.SOC)
 ```
 
@@ -242,19 +243,15 @@ GPIO.remove_event_detect(channel)
 
 ```python
 #!/usr/bin/env python3
-import sys
-import signal
+
 import Hobot.GPIO as GPIO
 import time
 
-def signal_handler(signal, frame):
-    sys.exit(0)
-
-# 定义使用的GPIO通道为37
-output_pin = 37 # BOARD 编码 37
+# 定义使用的GPIO通道为38
+output_pin = 38 # BOARD 编码 38
 
 def main():
-    # 设置管脚编码模式为硬件编号 BOARD
+    # 设置管脚编码模式为硬件编码 BOARD
     GPIO.setmode(GPIO.BOARD)
     # 设置为输出模式，并且初始化为高电平
     GPIO.setup(output_pin, GPIO.OUT, initial=GPIO.HIGH)
@@ -271,7 +268,6 @@ def main():
         GPIO.cleanup()
 
 if __name__=='__main__':
-    signal.signal(signal.SIGINT, signal_handler)
     main()
 ```
 
@@ -279,23 +275,17 @@ if __name__=='__main__':
 
 ```python
 #!/usr/bin/env python3
-import sys
-import signal
+
 import Hobot.GPIO as GPIO
 import time
 
-def signal_handler(signal, frame):
-    sys.exit(0)
-
-# 定义使用的GPIO通道为37
-input_pin = 37 # BOARD 编码 37
-
-GPIO.setwarnings(False)
+# 定义使用的GPIO通道为38
+input_pin = 38 # BOARD 编码 38 
 
 def main():
     prev_value = None
 
-    # 设置管脚编码模式为硬件编号 BOARD
+    # 设置管脚编码模式为硬件编码 BOARD
     GPIO.setmode(GPIO.BOARD)
     # 设置为输入模式
     GPIO.setup(input_pin, GPIO.IN)
@@ -317,34 +307,29 @@ def main():
         GPIO.cleanup()
 
 if __name__=='__main__':
-    signal.signal(signal.SIGINT, signal_handler)
     main()
 
 ```
 
-- GPIO 设置为输入模式，捕获管脚的上升沿、下降沿事件，测试代码 `button_event.py`, 实现检测37号管脚的下降沿，然后控制36号管脚的输出：
+- GPIO 设置为输入模式，捕获管脚的上升沿、下降沿事件，测试代码 `button_event.py`, 实现检测38号管脚的下降沿，然后控制36号管脚的输出：
 
 ```python
 #!/usr/bin/env python3
-import sys
-import signal
+
 import Hobot.GPIO as GPIO
 import time
 
-def signal_handler(signal, frame):
-    sys.exit(0)
-
 # 定义使用的GPIO通道：
 # 36号作为输出，可以点亮一个LED
-# 37号作为输入，可以接一个按钮
+# 38号作为输入，可以接一个按钮
 led_pin = 36 # BOARD 编码 36
-but_pin = 37 # BOARD 编码 37
+but_pin = 38 # BOARD 编码 38
 
 # 禁用警告信息
 GPIO.setwarnings(False)
 
 def main():
-    # 设置管脚编码模式为硬件编号 BOARD
+    # 设置管脚编码模式为硬件编码 BOARD
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(led_pin, GPIO.OUT)  # LED pin set as output
     GPIO.setup(but_pin, GPIO.IN)  # button pin set as input
@@ -367,12 +352,10 @@ def main():
         GPIO.cleanup()  # cleanup all GPIOs
 
 if __name__ == '__main__':
-    signal.signal(signal.SIGINT, signal_handler)
     main()
-
 ```
 
-- GPIO 设置为输入模式，启动gpio中断功能，响应管脚的上升沿、下降沿事件，测试代码 `button_interrupt.py`, 实现检测 37 号管脚的下降沿，然后控制13号管脚快速切换高低电平 5 次：
+- GPIO 设置为输入模式，启动gpio中断功能，响应管脚的上升沿、下降沿事件，测试代码 `button_interrupt.py`, 实现检测38号管脚的下降沿，然后控制36号管脚快速切换高低电平5秒钟：
 
 ```python
 #!/usr/bin/env python3
@@ -385,13 +368,12 @@ def signal_handler(signal, frame):
     sys.exit(0)
 
 # 定义使用的GPIO通道：
-# 15号作为输出，可以点亮一个LED
-# 16号作为输出，可以点亮一个LED
-# 37号作为输入，可以接一个按钮
-led_pin_1 = 15 # BOARD 编码 15
-led_pin_2 = 16 # BOARD 编码 16
-but_pin = 37   # BOARD 编码 37
-
+# 12号作为输出，可以点亮一个LED
+# 13号作为输出，可以点亮一个LED
+# 38号作为输入，可以接一个按钮
+led_pin_1 = 12 # BOARD 编码 12
+led_pin_2 = 13 # BOARD 编码 13
+but_pin = 38   # BOARD 编码 38
 
 # 禁用警告信息
 GPIO.setwarnings(False)
@@ -432,5 +414,4 @@ def main():
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
-
 ```

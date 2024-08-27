@@ -13,9 +13,9 @@ sidebar_position: 4
 ```bash
 sudo apt install hobot-kernel-headers
 ```
-命令运行成功后，内核头文件会被安装到`/usr/src`目录下
+命令运行成功后，内核头文件会被安装到`/usr/src/linux-headers-4.14.87`目录下
 ```bash
-root@ubuntu:~# ls /usr/src/linux-headers-*
+root@ubuntu:~# ls /usr/src/linux-headers-4.14.87/
 arch   certs   Documentation  firmware  include  ipc      kernel  Makefile  Module.symvers  samples  security  System.map  usr
 block  crypto  drivers        fs        init     Kconfig  lib     mm        net             scripts  sound     tools       virt
 ```
@@ -43,12 +43,12 @@ MODULE_DESCRIPTION("Hello World");
 
 static int __init hello_init(void)
 {
-	printk(KERN_ERR "Hello, World!\n");
-	return 0;
+    printk(KERN_ERR "Hello, World!\n");
+    return 0;
 }
 static void __exit hello_exit(void)
 {
-	printk(KERN_EMERG "Goodbye, World!\n");
+    printk(KERN_EMERG "Goodbye, World!\n");
 }
 
 module_init(hello_init);
@@ -60,15 +60,15 @@ module_exit(hello_exit);
 打开你熟悉的编辑器（比如VIM），创建文件 `Makefile`，输入下面的内容：
 ```c
 ifneq ($(KERNELRELEASE),)
-	obj-m := hello.o
+    obj-m := hello.o
 else
-	PWD=$(shell pwd)
-	KDIR := /usr/src/linux-headers-$(shell uname -r)
+    PWD=$(shell pwd)
+    KDIR := /usr/src/linux-headers-4.14.87
 
 all:
-	make -C $(KDIR) M=$(PWD) modules
+    make -C $(KDIR) M=$(PWD) modules
 clean:
-	rm -rf *.ko *.o *.mod.o *.mod.c *.symvers  modul* .*.ko.cmd .*.o.cmd .tmp_versions
+    rm -rf *.ko *.o *.mod.o *.mod.c *.symvers  modul* .*.ko.cmd .*.o.cmd .tmp_versions
 endif
 ```
 - `PWD`指定源码路径，即hello.c的路径。
@@ -77,15 +77,15 @@ endif
 
 保存`Makefile`后，执行`make`命令完成模块的编译，生成`hello.ko`文件。
 ```bash
-root@ubuntu:~# make
-make  -C /usr/src/linux-headers-6.1.83 M=/root modules
-make[1]: Entering directory '/usr/src/linux-headers-6.1.83'
+root@ubuntu:~# make 
+make  -C /usr/src/linux-headers-4.14.87 M=/root modules
+make[1]: Entering directory '/usr/src/linux-headers-4.14.87'
   CC [M]  /root/hello.o
   Building modules, stage 2.
   MODPOST 1 modules
   CC      /root/hello.mod.o
   LD [M]  /root/hello.ko
-make[1]: Leaving directory '/usr/src/linux-headers-6.1.83'
+make[1]: Leaving directory '/usr/src/linux-headers-4.14.87'
 ```
 
 ### 模块签名
@@ -108,7 +108,7 @@ root@ubuntu:~# insmod hello.ko
 ```
 卸载ko：`rmmod hello`
 ```bash
-root@ubuntu:~# rmmod hello
+root@ubuntu:~# rmmod hello 
 [ 3136.909409] Goodbye, World!
 ```
 
@@ -129,9 +129,9 @@ hello                  16384  0
 
 如果想要自定义的驱动模块在开机时自动加载，请按照以下步骤进行配置：
 
-拷贝`hello.ko`到 `/lib/modules/{Kernel Version}` 目录，命令如下：
+拷贝`hello.ko`到 `/lib/modules/4.14.87` 目录，命令如下：
 ```bash
-sudo cp -f hello.ko /lib/modules/`uname -r`
+sudo cp -f hello.ko /lib/modules/4.14.87/
 ```
 执行`depmod`命令更新模块的依赖关系：
 ```bash

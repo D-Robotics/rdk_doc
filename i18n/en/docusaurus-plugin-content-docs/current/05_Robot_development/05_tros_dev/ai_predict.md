@@ -17,7 +17,8 @@ By reading this chapter, users can use the models provided by D-Robotics to crea
 1. RDK development board with relevant software installed, including:
    -  Ubuntu 20.04/22.04 system image provided by D-Robotics.
    - tros.b software package.
-   - Development tools: Compilers and other tools to build ROS packages. `sudo apt install ros-dev-tools`
+   - ROS2 software package build system ament_cmake. Installation command: `apt update; apt-get install python3-catkin-pkg; pip3 install empy`
+   - ROS2 build tools colcon. Installation command: `pip3 install -U colcon-common-extensions`
 
 2. RDK with F37 or GC4663 camera installed.
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# 2.3 config.txt Configuration File
+# 2.3 confit.txt Configuration File
 
 RDK uses the configuration file `config.txt` to set system configurations during startup. `config.txt` is read during the `uboot` stage and supports modifications to device tree configurations, IO pin states, ION memory, CPU frequency, etc. This file is usually accessible from Linux at `/boot/config.txt` and must be edited as the `root` user. If the `config.txt` file does not exist but there are configuration settings, simply create it as a new text file.
 
@@ -33,32 +33,10 @@ dtdebug=1
 
 Supports device tree overlays, providing a more flexible way to adjust the device tree.
 
-[X5 not supported] For example, to adjust the size of `ION` memory using `ion_resize`, the following configuration will modify the `ION` memory size to `1GB`.
+For example, to adjust the size of `ION` memory using `ion_resize`, the following configuration will modify the `ION` memory size to `1GB`.
 
 ```Shell
 dtoverlay=ion_resize,size=0x40000000
-```
-
-[Only X5 supports] Use dtoverlay_spi5_spidev to add /dev/spidev5.0（Note: The CAN device has also received SPI5, so Spidev and CAN can only choose one from the other）
-
-```Shell
-dtoverlay=dtoverlay_spi5_spidev
-```
-
-### [Only X5 supports]ion
-
-use ion_reserved_size ion_carveout_size ion_cma_size  to modify the ION partition size
-
-| boot name       | dts name        | dts compatible | size |
-| ----------------- | ------------ | ----------------- | ---- |
-| ion_reserved_size | ion_reserved | ion-pool          | 320M |
-| ion_carveout_size | ion_carveout | ion-carveout      | 320M |
-| ion_cma_size      | ion_cma      | ion-cma           | 128M |
-
-```Shell
-ion=ion_reserved_size=0x14000000
-ion=ion_carveout_size=0x14000000
-ion=ion_cma_size=0x08000000
 ```
 
 ### dtparam
@@ -66,8 +44,6 @@ ion=ion_cma_size=0x08000000
 Supports enabling and disabling buses such as uart, i2c, spi, i2s, etc.
 
 Currently supported options: uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
-
-[X5] uart0, uart1, uart5, spi1, spi5, i2c0, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, dw_i2s0, dw_i2s1
 
 For example, to disable uart3:
 
@@ -190,7 +166,6 @@ The supported filtering items are differentiated by hardware model, and the foll
 | [rdkv1.2]      | RDK x3 v1.2               |
 | [rdkv2]        | RDK x3 v2.1               |
 | [rdkmd]        | RDK x3 Module             |
-| [x5-rdk]  | RDK X5 V0.1             |
 
 ## Voltage Domain
 

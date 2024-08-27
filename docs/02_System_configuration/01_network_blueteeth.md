@@ -10,7 +10,7 @@ sidebar_position: 1
 
 <iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557461&page=11" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
 
-开发板有线网络默认采用静态IP配置，初始IP地址为`192.168.127.10`。用户可通过如下方法实现静态、DHCP模式的切换。
+开发板有线网络默认采用静态IP配置，初始IP地址为`192.168.1.10`。用户可通过如下方法实现静态、DHCP模式的切换。
 
 ### 修改静态IP配置 
 开发板静态网络配置保存在`/etc/network/interfaces`文件中，通过修改`address`、`netmask`、`gateway`等字段，可完成对静态IP配置的修改，`metric`是网络优先级配置，设置为`700`是为了让有线网络的优先级更低，当有线和无线网络同时使能时优先会使用无线网络，例如：
@@ -25,10 +25,9 @@ sudo vim /etc/network/interfaces
 source-directory /etc/network/interfaces.d
 auto eth0
 iface eth0 inet static
-    pre-up /etc/set_mac_address.sh
-    address 192.168.127.10
+    address 192.168.1.10
     netmask 255.255.255.0
-    gateway 192.168.127.1
+    gateway 192.168.1.1 
     metric 700
 ```
 
@@ -67,11 +66,9 @@ sudo vim /etc/network/interfaces
 source-directory /etc/network/interfaces.d
 auto eth0
 iface eth0 inet static
-    pre-up /etc/set_mac_address.sh
-    address 192.168.127.10
+    address 192.168.1.10
     netmask 255.255.255.0
-    gateway 192.168.127.1
-    metric 700
+    gateway 192.168.1.1 
     pre-up ifconfig eth0 hw ether 00:11:22:9f:51:27
 ```
 

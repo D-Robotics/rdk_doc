@@ -4,18 +4,18 @@ sidebar_position: 1
 
 # 3.4.1 参考示例（python）
 
-本章节将通过视频流解码等示例程序，介绍 D-Robotics Python 语言的 `hobot_vio` 图像多媒体库的使用方法，包括视频拉流、缩放及编解码等操作。
+本章节将通过视频流解码等示例程序，介绍D-Robotics Python语言的`hobot_vio`图像多媒体库的使用方法，包括视频拉流、缩放及编解码等操作。
 
 ## 视频流解码
 
 本示例代码位于`/app/pydev_demo/08_decode_rtsp_stream/` 目录下，所实现的功能有：
-1. 通过 opencv 打开 rtsp 码流，获取到码流数据
+1. 通过opencv打开rtsp码流，获取到码流数据
 2. 调用视频解码接口对码流进行解码
-3. 把解码后的视频通过 HDMI 显示
+3. 把解码后的视频通过HDMI显示
 
 ### 运行方法
 
-本示例运行依赖 rtsp 流，如用户不方便搭建 rtsp 推流服务，可使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/1080P_test.h264`。
+本示例运行依赖rtsp流，如用户不方便搭建rtsp推流服务，可使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成rtsp流，url地址为`rtsp://127.0.0.1/1080P_test.h264`。
 
 用户可通过如下命令启动推流服务：
 
@@ -26,21 +26,20 @@ root@ubuntu:/app/pydev_demo/08_decode_rtsp_stream# sudo ./live555MediaServer &
 
 服务正常启动后的log如下， 注意最后一行的 `We use port 80`, 说明rtsp服务运行在80端口，它有可能存在8000和8080的情况，在后面设置rtsp url的时候需要根据实际使用的端口号做修改：
 ```bash
-root@ubuntu:/app/pydev_demo/08_decode_rtsp_stream#
+root@ubuntu:/app/pydev_demo/08_decode_rtsp_stream# 
 LIVE555 Media Server version 1.01 (LIVE555 Streaming Media library version 2020.07.09).
 Play streams from this server using the URL
-        rtsp://192.168.127.10/<filename>
+        rtsp://192.168.1.10/<filename>
 where <filename> is a file present in the current directory.
-Each file's type is inferred from its name suffix:
-        ".264" => a H.264 Video Elementary Stream file
-... 省略 ...
+...
+...
 (We use port 80 for optional RTSP-over-HTTP tunneling, or for HTTP live streaming (for indexed Transport Stream files only).)
 ```
 
-然后调用 `./decode_rtsp_stream.py ` 命令，启动拉流解码程序，并将 url 地址、分辨率、帧率等信息通过控制台输出，log 如下：
+然后调用`./decode_rtsp_stream.py `命令，启动拉流解码程序，并将url地址、分辨率、帧率等信息通过控制台输出，log如下：
 
 ```shell
-root@ubuntu:/app/pydev_demo/08_decode_rtsp_stream# ./decode_rtsp_stream.py
+root@ubuntu:/app/pydev_demo/08_decode_rtsp_stream# ./decode_rtsp_stream.py 
 ['rtsp://127.0.0.1/1080P_test.h264']
 RTSP stream frame_width:1920, frame_height:1080
 Decoder(0, 1) return:0 frame count: 0
@@ -52,7 +51,7 @@ Display FPS: 24.98
 RTSP stream frame_width:1920, frame_height:1080
 ```
 
-最后，视频流会通过 HDMI 接口输出，用户可以通过显示器预览视频画面。
+最后，视频流会通过HDMI接口输出，用户可以通过显示器预览视频画面。
 
 ### 选项参数说明
 
@@ -96,6 +95,6 @@ sudo ./decode_rtsp_stream.py -a
     ffmpeg -re -stream_loop -1 -i xxx.mp4 -vcodec copy -vbsf h264_mp4toannexb -f rtsp rtsp://192.168.1.195:8554/h264_stream
     ```
 
-- rtsp视频流目前仅支持 1080P 分辨率
+- rtsp视频流目前仅支持1080p分辨率
 
-- 不支持使用 vlc 软件进行 rtsp 推流，原因是 vlc 软件不支持添加`PPS`和`SPS`信息
+- 不支持使用vlc软件进行rtsp推流，原因是vlc软件不支持添加`PPS`和`SPS`信息

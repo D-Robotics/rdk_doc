@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 5.2.6 模型推理
+# 2.6 模型推理
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

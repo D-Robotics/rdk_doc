@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# 5.2.9 大语言模型
+# 2.9 大语言模型
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

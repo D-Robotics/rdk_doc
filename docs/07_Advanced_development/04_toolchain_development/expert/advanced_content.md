@@ -4,6 +4,49 @@ sidebar_position: 4
 
 # 深入探索
 
+## 自定义 qconfig
+
+自定义 qconfig 要求用户对具体的处理器限制认知清晰，详细了解训练工具的工作原理，详细了解如何通过 qconfig 体现处理器的限制。量化训练需要一定的训练成本，qconfig 定义出错可能导致模型无法正常收敛、模型无法编译等问题，因此，对于普通用户不推荐自定义 qconfig。
+
+horizon_plugin_pytorch 采用 PyTorch 提供的 partial function 的方法实现 qcofnig 的定义，关于该方法的使用见[**官方说明**](https://github.com/pytorch/pytorch/blob/v2.0.0/torch/ao/quantization/observer.py#L77)，对该方法不了解的用户在继续阅读之前，请先自行学习该方法。
+
+目前，qconfig 处理两类信息：
+
+1. activation 的量化信息
+2. weight 的量化信息
+
+### Activation 的量化信息
+
+```python
+activation_8bit_fake_quant = FakeQuantize.with_args(
+                         observer=MovingAveragePerTensorMinMaxObserver,
+                         dtype="qint8",
+                         ch_axis=0,
+                         averaging_constant=0 # 自定义 observer 的参数
+)
+```
+
+### Weight 的量化信息
+
+```python
+weight_8bit_fake_quant = FakeQuantize.with_args(
+                         observer=MovingAveragePerChannelMinMaxObserver,
+                         dtype="qint8",
+                         ch_axis=0,
+                         averaging_constant=1 # 自定义 observer 的参数
+)
+```
+
+### QConfig
+
+通过 `Qconfig` 把 activation 和 weight 的量化信息封装起来，即可得到 qconfig
+
+```python
+qat_8bit_qconfig = QConfig(
+    activation=activation_8bit_fake_quant, weight=weight_8bit_fake_quant
+)
+```
+
 ## FX Quantization 原理介绍
 
 阅读此文档前，建议先阅读 [torch.fx — PyTorch documentation](https://pytorch.org/docs/stable/fx.html)，以对 torch 的 FX 机制有初步的了解。
@@ -32,7 +75,7 @@ fused_model = horizon.quantization.fuse_fx(model)
 - 和 `fuse_fx` 类似，此接口不支持 `inplace` 参数，且在 `prepare_qat_fx` 之后请不要对输入的模型做任何修改
 
 ```python
-# 设置 march **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES，**RDK X5** 设置为 BAYES_E 。
+# 设置 march **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
 horizon.march.set_march(horizon.march.March.BAYES)
 qat_model = horizon.quantization.prepare_qat_fx(
     model,
@@ -59,10 +102,10 @@ quantized_model = horizon.quantization.convert_fx(qat_model)
 - FX 不支持的操作：torch 的 symbolic trace 支持的操作是有限的，例如不支持将非静态变量作为判断条件、默认不支持 torch 以外的 pkg（如 numpy）等，且未执行到的条件分支将被丢弃
 - 不想被 FX 处理的操作：如果模型的前后处理中使用了 torch 的 op，FX 在 trace 时会将他们视为模型的一部分，产生不符合预期的行为（例如将 torch 的某些 function 调用替换为 FloatFunctional）。
 
-以上两种情况，都可以采用 wrap 的方法来避免，下面以 RetinaNet 为例进行说明。
+以上两种情况，都可以采用 warp 的方法来避免，下面以 RetinaNet 为例进行说明。
 
 ```python
-from horizon_plugin_pytorch.utils.fx_helper import wrap as fx_wrap
+from horizon_plugin_pytorch.utils.fx_helper import wrap as fx_warp
 
 class RetinaNet(nn.Module):
     def __init__(
@@ -106,7 +149,7 @@ class RetinaNet(nn.Module):
         # prepare_qat_fx 和 convert_fx 替换）
         return self._post_process( data, feat, cls_scores, bbox_preds)
 
-    @fx_wrap()  # fx_wrap 支持直接装饰 class method
+    @fx_warp()  # fx_wrap 支持直接装饰 class method
     def _post_process(self, data, feat, cls_scores, bbox_preds)
         anchors = self.anchors(feat)
 
@@ -284,7 +327,7 @@ class Net(torch.nn.Module):
 data = torch.rand(1, 3, 28, 28)
 net = Net()
 
-# 设置 march **RDK X3** 设置为bernoulli2， **RDK Ultra** 设置为bayes， **RDK X5** 设置为bayes-e。
+# 设置 march **RDK X3** 设置为bernoulli2， **RDK Ultra** 设置为bayes。
 set_march("bayes")
 
 net.set_qconfig()
@@ -527,231 +570,3 @@ def register_fusion_patterns():
                     )(ConvBNAddedReLUFusion)
 ```
 
-## Adaround（实验性功能）
-
-Adaround 是一种业界前沿的 PTQ 量化方法，通过逐层学习模型权重是向上取整还是向下取整，可以取得比传统的四舍五入策略更好的量化精度。在我们的实验中，Adaround 在不少任务中（分类、分割、BEV等）都可以以较小的性能代价有效地提升模型 calibration 精度，成为了现有 calibration 流程的有效补充。
-
-### 基本原理
-Adaround 旨在通过学习更好的取整范式降低权重的量化误差，因此其优化对象是带权重的算子。目前仅支持 Conv 和 Linear。Adaround 会以拓扑顺序逐层优化 Conv/Linear，基于单算子量化误差最小化学习向上/向下取整的 mask，最后 inplace 地修改 weight 完成优化。
-
-### 接口定义
-```python
-def weight_reconstruction(
-    calib_model: torch.nn.Module,
-    batches: Union[list, tuple, DataLoader],
-    batch_process_func: Callable = None,
-    custom_config_dict: dict = None,
-):
-    pass
-```
-其中，custom_config_dict 为 adaround 相关的一些配置参数。
-包含了以下参数：
-```python
-    custom_config_dict = {
-        "num_batches": 10,
-        "num_steps": 100,
-        "exclude_prefix": [],
-        "warm_up": 0.2,
-        "weight": 0.01,
-        "b_range": [20, 2],
-    }
-```
-`num_batches`: 仅当您传的数据是 Dataloader 时才有效，代表了 Dataloader 中参与 adaround 优化的 batch 数量。如果您传的数据是 list/tuple 的格式，则该参数不起作用，adaround 会使用 list 中全部的 batch。一般使用默认值 10 即可。
-
-`num_step`: 每个 Conv/Linear 的优化次数，次数越大理论效果越好。这是您在 adaround 的调参过程中需要关注的主要参数。
-
-`exclude_prefix`: 如果您有部分 module 不想被 adaround 优化，可在此添加其 prefix，所有以该 prefix 开头的 module 都不会被优化。在我们的实验中，绝大部分模型都不需要设置该参数，可以稳定地提升 calibration 精度。但极个别检测模型存在优化其检测 head 反而导致精度下降的情况，此时可通过该参数过滤。
-
-`warm_up`: [0, 1] 之间的参数，表示 warm_up 所占比率，前 warm_up * num_step 的优化不会施加对 round 的正则，使得优化可以完全以精度最优为准则进行。对精度的影响不大，一般保持为默认值 0.2 即可。
-
-`weight`: round loss 的正则化权重系数，weight 越大则 round loss 在 loss 中的统治地位越强。这是您在 adaround 的调参过程中可关注的次要参数，默认值是 0.01，可适当在默认值上下调节, 如根据 loss 相对大小情况尝试 0.1、 0.001 等。
-
-`b_range`: `b` 是决定 round loss 平滑程度的一个参数，`b_range` 控制其范围。一般不需要调节，保持默认值 [20, 2]即可。这意味着该参数一开始是 20，并随 step 数线性衰减到 2。
-
-`batch_size` * `num_step` 是算子在优化过程中实际跑的样本数（样本由于随机采样会有重复），一个可供参考的取值是让 `batch_size` * `num_step` 在 10000~20000 左右。
-
-```{attention}
-
-1. `num_step` **是影响 Adaround 精度的主要参数，您在调整超参时一般只需关注该参数即可。**
-
-2. 在我们的实验中，Adaround 在大部分任务中都可以通过简单调节 `num_step` 参数稳定地提升 calibration 精度，但在检测任务中，可能需要仔细设置 `exclude_prefix` 过滤 head 中的部分层才能实现精度的提升。当您在检测任务中遇到 Adaround 导致模型 calibration 精度下降的情况时，我们建议您直接选择量化感知训练（QAT）提升量化精度。
-
-```
-
-其余参数说明请参考接口的 docstring。
-
-### 使用方法
-我们支持两种给数据的方式。
-
-#### list/tuple（推荐）
-由于该接口需要频繁读取数据，我们推荐您将数据打包成 list/tuple 送入接口。这种情况下，我们会将数据全部搬移到显存/内存（取决于模型参数的 device ）上，减少频繁读取数据带来的访存瓶颈。相对于传 DataLoader 的方式，该方式具有较大的性能优势。
-
-```python
-# 先走正常的 calibration 流程
-calib_model = horizon.quantization.prepare_qat_fx(float_model)
-calib_model.eval()
-horizon.quantization.set_fake_quantize(
-    calib_model, horizon.quantization.FakeQuantState.CALIBRATION
-)
-for image, label in dataloader:
-    calib_model(image)
-
-# 准备 adaround 所需数据
-batches = []
-n = 0
-for image, label in dataloader:
-    if n >= 10:
-        break
-    batches.append(image)
-    n += 1
-
-# 自定义 adaround 配置。用户自定义不优化模型中的 head。
-custom_config_dict = {"num_steps": 100, "exclude_prefix": ["head",]}
-
-horizon.quantization.weight_reconstruction(
-    calib_model,
-    batches,
-    None, # batch_process_func，由于 batches 中的数据已经满足要求，此处保持默认即可
-    custom_config_dict,
-)
-
-# eval
-calib_model.eval()
-horizon.quantization.set_fake_quantize(
-    calib_model, horizon.quantization.FakeQuantState.VALIDATION
-)
-for image, label in eval_dataloader:
-    pred = calib_model(image)
-    pass
-```
-
-#### torch.utils.data.DataLoader
-尽管传 list 的方式在性能上有较大优势，但因为需要将用来校准的数据全部加载到显存/内存上，对计算设备存在一定要求。因此，我们也支持您直接传 torch DataLoader 以方便您在某些场景和任务下的使用。由于 DataLoader 只会在必要的时候加载数据，相比 list 占用显存更小，同时也带来了的较高的访存压力。在我们的实验中，DataLoader 方式的性能表现与 list 方式存在较大差距，请您酌情使用。
-
-```python
-# 先走正常的 calibration 流程
-calib_model = horizon.quantization.prepare_qat_fx(float_model)
-calib_model.eval()
-horizon.quantization.set_fake_quantize(
-    calib_model, horizon.quantization.FakeQuantState.CALIBRATION
-)
-for image, label in dataloader:
-    calib_model(image)
-
-# 自定义 adaround 配置，这里和上面不同的是设置了 num_batches 为 16，表示 dataloader 中实际只有 16 个 batch 会参与优化
-custom_config_dict = {"num_batches": 16, "num_steps": 100, "exclude_prefix": ["head",]}
-
-horizon.quantization.mix_calibration(
-    calib_model,
-    dataloader, # 直接传 dataloader
-    lambda x: x[0], # batch_process_func，由于该 dataloader 返回的 batch 是 Tuple[image, label] 的格式，所以需要索引后才能送入模型
-    custom_config_dict,
-)
-
-# eval
-calib_model.eval()
-horizon.quantization.set_fake_quantize(
-    calib_model, horizon.quantization.FakeQuantState.VALIDATION
-)
-for image, label in eval_dataloader:
-    pred = calib_model(image)
-    pass
-```
-
-
-## 自动校准（实验性功能）
-
-量化感知训练工具链目前已经集成了多种 calibration 策略，如 mse、kl、percentile、min-max 等。对于大多数模型，mse 都能取得不错的 calibration 精度。但如果您相关知识储备丰富，有意愿探索精度更高的 calibration 流水线，目前的 calibration 接口可能无法满足您的要求。对此，我们特别探索开发了自动校准的接口，您可以通过该接口自定义需要搜索的 calibration 策略和超参数，基于模型输出相似度逐层搜索最优的量化参数。
-
-本接口与我们 Calibration 流程中的 Mix Observer 有所不同，具体如下：
-1. Mix Observer 在搜索某一算子的量化参数时，只将该算子的输出相似度作为评价指标。而本接口将模型最终输出的相似度作为评价指标来搜索最优量化参数。
-2. Mix Observer 在搜索某一算子的量化参数时，前面的算子都是浮点计算，没有考虑累积的量化误差。而本接口在搜索某一算子的量化参数时，其前面所有的激活和权重都是量化的。
-
-我们开展的消融实验表明上述两点都对模型的 Calibration 精度有一定提升作用。
-
-需要注意的是，由于该策略基于对模型各层的逐层搜索，并以模型最终输出作为量化参数的评价指标，需要耗费较多的时长。
-
-### 基本原理
-1. 记录浮点模型所有 DeQuantize 算子的输出
-
-2. 以拓扑排序逐个遍历各个待量化的算子：
-
-    1. 校准某个算子时， 将其 weight（如果有） 和 activation 进行量化，遍历用户指定的 calibration 策略，记录模型对应的 DeQuantize 输出
-
-    2. 对量化输出和浮点输出计算 L2 距离 ，更新最优量化参数
-
-    3. 遍历完所有的 calibration 策略后，将最优量化参数应用到该算子上，开始搜索下一个算子
-
-### 接口定义
-```python
-def auto_calibrate(
-    calib_model: torch.nn.Module,
-    batches: Union[list, tuple, DataLoader],
-    num_batches: int = 10,
-    batch_process_func: Callable = None,
-    observer_list: list = ("percentile", "mse", "kl", "min_max"),
-    percentile_list: list = None,
-):
-    pass
-```
-进一步的接口说明请参考接口的 docstring。
-
-### 使用方法
-我们支持两种给数据的方式。
-
-#### list/tuple（推荐）
-由于该接口需要频繁读取数据，我们推荐您将数据打包成 list/tuple 送入接口。这种情况下，我们会将数据全部搬移到显存/内存（取决于模型参数的 device ）上，减少频繁读取数据带来的访存瓶颈。相对于传 DataLoader 的方式，该方式具有较大的性能优势。
-
-```python
-calib_model = horizon.quantization.prepare_qat_fx(float_model)
-batches = []
-n = 0
-for image, label in dataloader:
-    if n >= 10:
-        break
-    batches.append(image)
-    n += 1
-
-horizon.quantization.auto_calibration(
-    calib_model,
-    batches,
-    10, # num_batches，该方式下不起作用，保持默认即可。list 中所有的 batch 都会被用来校准
-    None, # batch_process_func，由于 batches 中的数据已经满足要求，此处保持默认即可
-    ["percentile", "min_max"], # 自定义搜索的 calibration 策略
-    [99.99, 99.999, 99.9995, 999.9999], # 自定义的 percentile 参数
-)
-
-# eval
-calib_model.eval()
-horizon.quantization.set_fake_quantize(
-    calib_model, horizon.quantization.FakeQuantState.VALIDATION
-)
-for image, label in eval_dataloader:
-    pred = calib_model(image)
-    pass
-```
-
-#### torch.utils.data.DataLoader
-尽管传 list 的方式在性能上有较大优势，但因为需要将用来校准的数据全部加载到显存/内存上，对计算设备存在一定要求。因此，我们也支持您直接传 torch DataLoader 以方便您在某些场景和任务下的使用。由于 DataLoader 只会在必要的时候加载数据，相比 list 占用显存更小，同时也带来了的较高的访存压力。在我们的实验中，DataLoader 方式的性能表现与 list 方式存在较大差距，请您酌情使用。
-
-```python
-calib_model = horizon.quantization.prepare_qat_fx(float_model)
-
-horizon.quantization.auto_calibration(
-    calib_model,
-    dataloader, # 直接传 dataloader
-    10, # num_batches，只用 dataloader 中的 10 个 batch 进行校准
-    lambda x: x[0], # batch_process_func，由于该 dataloader 返回的 batch 是 Tuple[image, label] 的格式，所以需要索引后才能送入模型
-    ["percentile", "min_max"], # 自定义搜索的 calibration 策略
-    [99.99, 99.999, 99.9995, 999.9999], # 自定义的 percentile 参数
-)
-
-# eval
-calib_model.eval()
-horizon.quantization.set_fake_quantize(
-    calib_model, horizon.quantization.FakeQuantState.VALIDATION
-)
-for image, label in eval_dataloader:
-    pred = calib_model(image)
-    pass
-```

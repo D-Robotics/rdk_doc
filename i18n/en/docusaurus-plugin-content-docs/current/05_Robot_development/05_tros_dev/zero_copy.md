@@ -22,7 +22,7 @@ Communication is a fundamental function of the robot development engine. When us
 1. tros.b has been successfully installed following the guide [Installation](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/01_quick_start/install_tros.md).
 2. Familiarity with ROS2 nodes, topics, QoS, as well as creating packages and using custom messages. For detailed tutorials, please refer to the [official ROS2 documentation](https://docs.ros.org/en/foxy/Tutorials.html).
 3. The ROS2 package build system ament_cmake has been installed. Installation command: `apt update; apt-get install python3-catkin-pkg; pip3 install empy`.
-4. Development tools: Compilers and other tools to build ROS packages. `sudo apt install ros-dev-tools`
+4. The ROS2 build tool colcon has been installed. Installation command: `pip3 install -U colcon-common-extensions`.
 
 ## Usage
 
@@ -520,7 +520,7 @@ colcon build --packages-select hbmem_pubsub
 If the `colcon` command is not installed, use the following command to install it:
 
 ```shell
-sudo apt install ros-dev-tools
+pip3 install -U colcon-common-extensions
 ```
 
 ### 6. Run
