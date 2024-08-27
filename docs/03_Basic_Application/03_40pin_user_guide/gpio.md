@@ -27,7 +27,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 - SOC： 对应的编号是芯片内部的 GPIO 管脚序号。
 
 本文推荐用户使用`BOARD`编码模式，设置编码的方式如下：
-
+注意：编码每次只能设置一次，如果想要重新设置，需要`GPIO.cleanup()`后重新设置
 ```python
 GPIO.setmode(GPIO.BOARD)
 # or
@@ -41,7 +41,7 @@ GPIO.setmode(GPIO.SOC)
 查询编码方式：
 
 ```python
-mode = GPIO.getmode()
+GPIO.getmode()
 ```
 
 程序会输出 `BOARD, BCM, CVM, SOC or None` 其中的一种结果。
