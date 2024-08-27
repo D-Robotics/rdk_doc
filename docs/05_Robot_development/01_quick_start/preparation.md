@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 1.1 环境准备
+# 5.1.1 环境准备
 
 TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
 
@@ -12,7 +12,7 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 
 ### 系统安装
 
-安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu 20.04/Ubuntu 22.04镜像烧录方法：[Ubuntu镜像烧录方法](/docs/01_Quick_start/install_os.md)
+安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu 20.04/Ubuntu 22.04镜像烧录方法：[Ubuntu镜像烧录方法](/install_os/)
 
 如果已经安装镜像，可以通过命令`sudo apt update`和`sudo apt upgrade`完成升级。
 

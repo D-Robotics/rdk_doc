@@ -107,7 +107,7 @@ hb_mapper checker 参数解释：
   用于指定检查输入的模型类型，目前只支持设置 ``caffe`` 或者 ``onnx``。
 
 --march
-  用于指定需要适配的D-Robotics 处理器类型，可设置值为 ``bernoulli2`` 和 ``bayes``；RDK X3设置为 ``bernoulli2``，RDK Ultra设置为 ``bayes``。
+  用于指定需要适配的D-Robotics 处理器类型，可设置值为 ``bernoulli2`` 和 ``bayes``；RDK X3设置为 ``bernoulli2``，RDK Ultra设置为 ``bayes``，RDK X5设置为 ``bayes-e``。
 
 --proto<br/>
   此参数仅在 ``model-type`` 指定 ``caffe`` 时有效，取值为Caffe模型的prototxt文件名称。
@@ -400,7 +400,7 @@ hb_mapper makertbin提供两种模式，开启 ``fast-perf`` 模式和不开启 
 
 ``fast-perf`` 模式开启后，会在转换过程中生成可以在板端运行最高性能的bin模型，工具内部主要进行以下操作：
 
-- 将BPU可执行算子尽可能运行在BPU上（若使用 ``RDK Ultra`` 则可以通过yaml文件中node_info参数指定在BPU上运行的算子， ``RDK X3`` 是自动优化，无法通过yaml配置文件指定算子）。
+- 将BPU可执行算子尽可能运行在BPU上（若使用 ``RDK Ultra`` 和 ``RDK X5`` 则可以通过yaml文件中node_info参数指定在BPU上运行的算子， ``RDK X3`` 是自动优化，无法通过yaml配置文件指定算子）。
 
 - 删除模型首尾不可删除的CPU算子，包括：Quantize/Dequantize、Transpose、Cast、Reshape等。
 
@@ -453,7 +453,7 @@ hb_mapper makertbin参数解释：
   用于指定Caffe模型prototxt文件。
 
   ``--march``<br/>
-  BPU的微架构。若使用 ``RDK X3`` 则设置为 ``bernoulli2``，若使用 ``RDK Ultra`` 则设置为 ``bayes``。
+  BPU的微架构。若使用 ``RDK X3`` 则设置为 ``bernoulli2``，若使用 ``RDK Ultra`` 则设置为 ``bayes``，若使用 ``RDK X5`` 则设置为 ``bayes-e``。
 
 
 :::caution 注意
@@ -461,6 +461,9 @@ hb_mapper makertbin参数解释：
   - ``RDK X3 yaml配置文件``，可直接使用[**RDK X3 Caffe模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_x3_caffe_yaml_template) 和[**RDK X3 ONNX模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_x3_onnx_yaml_template)模板文件进行填写。
 
   - ``RDK Ultra yaml配置文件``，可直接使用[**RDK Ultra Caffe模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_ultra_caffe_yaml_template) 和[**RDK Ultra ONNX模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_ultra_onnx_yaml_template)模板文件进行填写。 
+
+  - ``RDK X5 yaml配置文件``，可直接使用[**RDK X5 Caffe模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_x5_caffe_yaml_template) 和[**RDK X5 ONNX模型量化yaml文件模板**](../../../08_FAQ/05_toolchain.md#rdk_x5_onnx_yaml_template)模板文件进行填写。 
+
   - 若 hb_mapper makertbin 步骤异常终止或者出现报错信息，则说明模型转换失败，请根据终端打印或在当前路径下生成的 ``hb_mapper_makertbin.log`` 日志文件确认报错信息和修改建议，错误信息可以在 [**模型量化错误及解决方法**](../../../08_FAQ/05_toolchain.md#model_convert_errors_and_solutions)章节来查找错误的解决方法，若以上步骤仍不能排除问题，请联系D-Robotics 技术支持团队或在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc/)提出您的问题，我们将在24小时内给您提供支持。
 :::
 
@@ -482,7 +485,7 @@ hb_mapper makertbin参数解释：
     # 原始Onnx浮点模型文件
     onnx_model: '****.onnx'
 
-    # 转换的目标处理器架构，保持默认，D-Robotics RDK X3使用的是bernoulli2架构， RDK Ultra使用的是bayes架构。march: 'bayes'
+    # 转换的目标处理器架构，保持默认，D-Robotics RDK X3使用的是bernoulli2架构， RDK Ultra使用的是bayes架构。march: 'bayes'， RDK X5使用的是bayes-e架构。march: 'bayes-e'
     march: 'bernoulli2'
 
     # 模型转换输出的用于上板执行的模型文件的名称前缀
@@ -613,6 +616,8 @@ hb_mapper makertbin参数解释：
   - 当模型为多输入模型时, 建议用户将可选参数（ ``input_name``, ``input_shape`` 等）显式的写出, 以免造成参数对应顺序上的错误。
 
   - 在配置march为bayes，即在进行RDK Ultra模型转换时，如您将优化等级optimize_level配置为O3，hb_mapper makerbin默认提供缓存能力。即在您第一次使用hb_mapper makerbin对模型进行编译时，会自动创建缓存文件，后续在您的working_dir不变的情况下，在重复编译时会自动调用此文件，降低您的编译时间。
+
+  - 在配置march为bayes-e，即在进行RDK X5模型转换时，如您将优化等级optimize_level配置为O3，hb_mapper makerbin默认提供缓存能力。即在您第一次使用hb_mapper makerbin对模型进行编译时，会自动创建缓存文件，后续在您的working_dir不变的情况下，在重复编译时会自动调用此文件，降低您的编译时间。
 :::
 
 :::caution 注意
@@ -639,9 +644,9 @@ hb_mapper makertbin参数解释：
 |``output_nodes``| **参数作用**：指定模型的输出节点。<br/>**参数说明**：一般情况下，转换工具会自动识别模型的输出节点。此参数用于支持您指定一些中间层次作为输出。设置值为模型中的具体节点名称，多个值的配置方法请参考前文对 ``param_value`` 配置描述。需要您注意的是，一旦设置此参数后，工具将不再自动识别输出节点，您通过此参数指定的节点就是全部的输出。| **取值范围**：无。<br/> **默认配置**：无。|可选 |
 |``remove_node_type``| **参数作用**：设置删除节点的类型。<br/>**参数说明**：该参数为隐藏参数，不设置或设置为空不影响模型转换过程。此参数用于支持您设置待删除节点的类型信息。被删除的节点必须在模型的开头或者末尾, 与模型的输入或输出连接。注意：待删除节点会按顺序依次删除，并动态更新模型结构；同时在节点删除前还会判断该节点是否位于模型的输入输出处。因此节点的删除顺序很重要。| **取值范围**：”Quantize”, “Transpose”, “Dequantize”, “Cast”, “Reshape”。不同类型用”;”分割。<br/> **默认配置**：无。|可选 |
 |``remove_node_name``| **参数作用**：设置删除节点的名称。<br/>**参数说明**：该参数为隐藏参数， 不设置或设置为空不影响模型转换过程。 此参数用于支持您设置待删除节点的名称。被删除的节点必须在模型的开头或者末尾, 与模型的输入或输出连接。注意：待删除节点会按顺序依次删除，并动态更新模型结构；同时在节点删除前还会判断该节点是否位于模型的输入输出处。因此节点的删除顺序很重要。| **取值范围**：无。不同类型用";"分割。<br/> **默认配置**：无。|可选 |
-|``set_node_data_type``| **参数作用**：配置指定op的输出数据类型为int16，此参数 **只支持RDK Ultra配置！** <br/> **参数说明**：在模型转换过程中，大多数op的默认输入输出数据类型为int8，通过该参数可以指定特定op的输出数据类型为int16（在满足一定的约束条件下）。int16相关说明详见：[**int16配置说明**](#int16_config)部分的描述。 <br/> **注意：** 该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。 | **取值范围**：支持配置int16的算子范围您可参考[**模型算子支持列表**](./supported_op_list)中RDK Ultra算子支持约束列表。<br/> **默认配置**：无。|可选 |
+|``set_node_data_type``| **参数作用**：配置指定op的输出数据类型为int16，此参数 **只支持RDK Ultra和RDK X5配置！** <br/> **参数说明**：在模型转换过程中，大多数op的默认输入输出数据类型为int8，通过该参数可以指定特定op的输出数据类型为int16（在满足一定的约束条件下）。int16相关说明详见：[**int16配置说明**](#int16_config)部分的描述。 <br/> **注意：** 该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。 | **取值范围**：支持配置int16的算子范围您可参考[**模型算子支持列表**](./supported_op_list)中RDK Ultra 和 RDK X5算子支持约束列表。<br/> **默认配置**：无。|可选 |
 |``debug_mode``| **参数作用**：保存用于精度debug分析的校准数据。<br/>**参数说明**：该参数作用为保存用于精度debug分析的校准数据，数据格式为.npy。该数据通过np.load()可直接送入模型进行推理。若不设置此参数，您也可自行保存数据并使用精度debug工具进行精度分析。 | **取值范围**：``"dump_calibration_data"``<br/> **默认配置**：无。|可选 |
-|``node_info``| **参数作用**：支持配置指定OP的输入输出数据类型为int16以及强制指定算子在CPU或BPU上运行。此参数 **只支持RDK Ultra配置！** <br/>**参数说明**：基于减少yaml中的参数的原则，我们将 ``set_node_data_type`` 、``run_on_cpu`` 和 ``run_on_bpu`` 三个参数的能力融合到本参数中，并在此基础上扩充支持配置指定op输入数据类型为int16的能力。<br/> ``node_info`` 参数使用方式：  <br/>- 仅指定OP运行在BPU/CPU上（下以BPU为例，CPU方法一致）：<br/> node_info: `{ <br/>"node_name":<br/> { 'ON': 'BPU', <br/>}  <br/>}` <br/> - 仅配置节点数据类型： <br/> node_info: 'node_name1:int16;node_name2:int16' <br/>  多个值的配置方法请参考 `param_value配置 <param_value>`。 <br/> - 指定OP运行在BPU上，同时配置OP的输入输出数据类型：<br/> node_info: `{ <br/>"node_name": { <br/>'ON': 'BPU', <br/>'InputType': 'int16', <br/>'OutputType': 'int16'<br/> } <br/>  } ` <br/> 'InputType': 'int16'代表指定算子的所有输入数据类型为int16。 <br/>如需指定算子特定输入的InputType，可在InputType后通过指定数字来进行配置。如：<br/>'InputType0': 'int16'代表指定算子的第一个输入数据类型为int16，<br/>'InputType1': 'int16'代表指定算子的第二个输入数据类型为int16，以此类推。<br/>**注意：** 'OutputType' 不支持指定算子特定输出的OutputType，配置后对算子的所有输出生效，不支持配置 'OutputType0' 、 'OutputType1'等。 | **取值范围**：支持配置int16的算子范围您可参考[模型算子支持列表](./supported_op_list)中RDK Ultra算子支持约束列表。可指定在CPU或BPU运行的算子需为模型中包含的算子。<br/> **默认配置**：无。|可选 |
+|``node_info``| **参数作用**：支持配置指定OP的输入输出数据类型为int16以及强制指定算子在CPU或BPU上运行。此参数 **只支持RDK Ultra和RDK X5配置！** <br/>**参数说明**：基于减少yaml中的参数的原则，我们将 ``set_node_data_type`` 、``run_on_cpu`` 和 ``run_on_bpu`` 三个参数的能力融合到本参数中，并在此基础上扩充支持配置指定op输入数据类型为int16的能力。<br/> ``node_info`` 参数使用方式：  <br/>- 仅指定OP运行在BPU/CPU上（下以BPU为例，CPU方法一致）：<br/> node_info: `{ <br/>"node_name":<br/> { 'ON': 'BPU', <br/>}  <br/>}` <br/> - 仅配置节点数据类型： <br/> node_info: 'node_name1:int16;node_name2:int16' <br/>  多个值的配置方法请参考 `param_value配置 <param_value>`。 <br/> - 指定OP运行在BPU上，同时配置OP的输入输出数据类型：<br/> node_info: `{ <br/>"node_name": { <br/>'ON': 'BPU', <br/>'InputType': 'int16', <br/>'OutputType': 'int16'<br/> } <br/>  } ` <br/> 'InputType': 'int16'代表指定算子的所有输入数据类型为int16。 <br/>如需指定算子特定输入的InputType，可在InputType后通过指定数字来进行配置。如：<br/>'InputType0': 'int16'代表指定算子的第一个输入数据类型为int16，<br/>'InputType1': 'int16'代表指定算子的第二个输入数据类型为int16，以此类推。<br/>**注意：** 'OutputType' 不支持指定算子特定输出的OutputType，配置后对算子的所有输出生效，不支持配置 'OutputType0' 、 'OutputType1'等。 | **取值范围**：支持配置int16的算子范围您可参考[模型算子支持列表](./supported_op_list)中RDK Ultra 和 RDK X5算子支持约束列表。可指定在CPU或BPU运行的算子需为模型中包含的算子。<br/> **默认配置**：无。|可选 |
 
 - ###### 输入信息参数组
 
@@ -659,7 +664,25 @@ hb_mapper makertbin参数解释：
 |``mean_value``| **参数作用**：指定预处理方法的图像减去的均值。<br/>**参数说明**：当 ``norm_type`` 存在 ``data_mean_and_scale`` 或 data_mean 时需要配置该参数。对于每一个输入节点而言，存在两种配置方式。第一种是仅配置一个数值，表示所有通道都减去这个均值；第二种是提供与通道数量一致的数值（这些数值以空格分隔开）， 表示每个通道都会减去不同的均值。配置的输入节点数量必须与 norm_type 配置的节点数量一致， 如果存在某个节点不需要 mean 处理，则为该节点配置 ``'None'``。多个值的配置方法请参考前文对``param_value``配置描述。| **取值范围**：无。<br/> **默认配置**：无。|可选 |
 |``scale_value``| **参数作用**：指定预处理方法的数值scale系数。<br/>**参数说明**：当 ``norm_type`` 存在 ``data_mean_and_scale`` 或 ``data_scale`` 时需要配置该参数。对于每一个输入节点而言，存在两种配置方式。第一种是仅配置一个数值，表示所有通道都乘以这个系数；第二种是提供与通道数量一致的数值（这些数值以空格分隔开）， 表示每个通道都会乘以不同的系数。配置的输入节点数量必须与 ``norm_type`` 配置的节点数量一致， 如果存在某个节点不需要 ``scale`` 处理，则为该节点配置 ``'None'``。多个值的配置方法请参考前文对 ``param_value`` 配置描述。| **取值范围**：无。<br/> **默认配置**：无。|可选 |
 
+**input_type_rt/input_type_train补充说明**
 
+RDK X5的计算平台架构，在设计时为了提升性能，做了两点假设：
+
+1. 假设输入的数据都是int8的量化数据。
+
+2. 摄像头获取到的数据是nv12。
+
+因此，如果您在模型训练时使用rgb(NCHW)输入格式，但是想使这个模型能够高效处理nv12数据，只需要在模型转换时做如下配置：
+
+```bash
+  input_parameters:
+      input_type_rt: 'nv12'
+      input_type_train: 'rgb'
+      input_layout_train: 'NCHW'
+```
+
+**小技巧：**
+- 若您在训练模型时使用gray格式，而实际使用中输入的数据格式为nv12格式，则可以将模型转换时的 ``input_type_rt`` 及 ``input_type_train`` 均配置为 ``gray``，在嵌入式应用开发时仅使用nv12的y通道地址作为输入即可。
 
 - ###### 校准参数组
 
@@ -671,9 +694,9 @@ hb_mapper makertbin参数解释：
 |``calibration_type``| **参数作用**：校准使用的算法类型。<br/>**参数说明**：每 ``kl`` 和 ``max`` 都是公开的校准量化算法， 其基本原理可以通过网络资料查阅。使用 ``load`` 方式校准时, qat模型必须是通过plugin导出的的模型。``mix`` 是一个集成多种校准方法的搜索策略，能够自动确定量化敏感节点，并在节点粒度上从不同的校准方法中挑选出最佳方法，最终构建一个融合了多种校准方法优势的组合校准方式。``default`` 是一个自动搜索的策略， 会尝试从系列校准量化参数中获得一个相对效果较好的组合。建议您先尝试 ``default``， 如果最终的精度结果不满足预期， 再根据 精度调优 部分建议配置不同的校准参数。若您只想尝试对模型性能进行验证，但对精度没有要求， 则可以尝试 “skip” 方式进行校准。该方式会使用随机数进行校准， 不需要您准备校准数据，比较适合初次尝试对模型结构进行验证。注意： 使用skip方式时，因使用随机数校准, 得到的模型不可用于精度验证。| **取值范围**：``default``、``mix`、```kl``、``max``、``load`` 和 ``skip``。<br/> **默认配置**：``default``。|必选 |
 |``max_percentile``| **参数作用**：该参数为 ``max`` 校准方法的参数，用以调整 ``max`` 校准的截取点。<br/>**参数说明**：此参数仅在 ``calibration_type`` 为 ``max`` 时有效。常用配置选项有：0.99999/0.99995/0.99990/0.99950/0.99900。建议您先尝试 ``calibration_type`` 配置 ``default``， 如果最终的精度结果不满足预期， 再根据 精度调优 部分建议调整该参数。| **取值范围**：``0.0``~``1.0`` 。<br/> **默认配置**：``1.0`` 。|可选 |
 |``per_channel``| **参数作用**：控制是否针对featuremap的每个channel进行校准。<br/>**参数说明**：``calibration_type`` 设置非default时有效。建议您先尝试 ``default``， 如果最终的精度结果不满足预期， 再根据 精度调优 部分建议调整该参数。| **取值范围**：``True`` 、 ``False``。<br/> **默认配置**：``False``。|可选 |
-|``run_on_cpu``| **参数作用**：强制指定算子在CPU上运行。<br/>**参数说明**：CPU上虽然性能不及BPU，但是提供的是float精度计算。如果您确定某些算子需要在CPU上计算， 可以通过该参数指定。 设置值为模型中的具体节点名称，多个值的配置方法请参考前文对 ``param_value`` 配置描述。<br/> **注意：** **RDK Ultra** 中该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。**RDK X3** 仍继续使用。 | **取值范围**：无。<br/> **默认配置**：无。|可选 |
-|``run_on_bpu``| **参数作用**：强制指定OP在BPU上运行。<br/>**参数说明**：为了保证最终量化模型的精度，少部分情况下， 转换工具会将一些具备BPU计算条件的算子放在CPU上运行。如果您对性能有较高的要求，愿意以更多一些量化损失为代价， 则可以通过该参数明确指定算子运行在BPU上。设置值为模型中的具体节点名称， 多个值的配置方法请参考前文对 ``param_value`` 配置描述。<br/> **注意：** **RDK Ultra** 中该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。**RDK X3** 仍继续使用。| **取值范围**：无。<br/> **默认配置**：无。|可选 |
-|``optimization``| **参数作用**：使模型以 int8/int16 格式输出。<br/>**参数说明**：指定值为set_model_output_int8时，设置模型为 int8 格式低精度输出；指定值为set_model_output_int16时，设置模型为 int16 格式低精度输出。<br/> **注意：**  **RDK X3** 只支持设置set_model_output_int8， <br/>**RDK Ultra** 可设置set_model_output_int8或者set_model_output_int16。|**取值范围**：``set_model_output_int8`` 或者 ``set_model_output_int16`` 。<br/> **默认配置**：无。|可选 |
+|``run_on_cpu``| **参数作用**：强制指定算子在CPU上运行。<br/>**参数说明**：CPU上虽然性能不及BPU，但是提供的是float精度计算。如果您确定某些算子需要在CPU上计算， 可以通过该参数指定。 设置值为模型中的具体节点名称，多个值的配置方法请参考前文对 ``param_value`` 配置描述。<br/> **注意：** **RDK Ultra 和 RDK X5** 中该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。**RDK X3** 仍继续使用。 | **取值范围**：无。<br/> **默认配置**：无。|可选 |
+|``run_on_bpu``| **参数作用**：强制指定OP在BPU上运行。<br/>**参数说明**：为了保证最终量化模型的精度，少部分情况下， 转换工具会将一些具备BPU计算条件的算子放在CPU上运行。如果您对性能有较高的要求，愿意以更多一些量化损失为代价， 则可以通过该参数明确指定算子运行在BPU上。设置值为模型中的具体节点名称， 多个值的配置方法请参考前文对 ``param_value`` 配置描述。<br/> **注意：** **RDK Ultra 和 RDK X5** 中该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。**RDK X3** 仍继续使用。| **取值范围**：无。<br/> **默认配置**：无。|可选 |
+|``optimization``| **参数作用**：使模型以 int8/int16 格式输出。<br/>**参数说明**：指定值为set_model_output_int8时，设置模型为 int8 格式低精度输出；指定值为set_model_output_int16时，设置模型为 int16 格式低精度输出。<br/> **注意：**  **RDK X3** 只支持设置set_model_output_int8， <br/>**RDK Ultra 和 RDK X5** 可设置set_model_output_int8或者set_model_output_int16。|**取值范围**：``set_model_output_int8`` 或者 ``set_model_output_int16`` 。<br/> **默认配置**：无。|可选 |
 
 
 - ###### 编译参数组 
@@ -682,7 +705,7 @@ hb_mapper makertbin参数解释：
 |------------|----------|----------|--------|
 |``compile_mode``| **参数作用**：编译策略选择。<br/>**参数说明**：``latency`` 以优化推理时间为目标；bandwidth 以优化ddr的访问带宽为目标。如果模型没有严重超过预期的带宽占用，建议您使用 ``latency`` 策略。| **取值范围**：``latency``、 ``bandwidth``。<br/> **默认配置**：``latency``。|必选 |
 |``debug``| **参数作用**：是否打开编译的debug信息。<br/>**参数说明**：开启该参数的场景下，模型的静态分析的性能结果将保存在模型中，您可以在模型成功转换后生成的静态性能评估文件html页和hb_perf时产生的html页内，在Layer Details选项卡中查看模型逐层BPU算子的性能信息（包括计算量、计算耗时和数据搬运耗时）。 默认情况下，建议您保持该参数关闭。| **取值范围**：``True`` 、 ``False``。<br/> **默认配置**： ``False``。|可选 |
-|``core_num``| **参数作用**：模型运行核心数。<br/>**参数说明**：D-Robotics 平台支持利用多个AI加速器核心同时完成一个推理任务， 多核心适用于输入尺寸较大的情况， 理想状态下的双核速度可以达到单核的1.5倍左右。如果您的模型输入尺寸较大，对于模型速度有极致追求， 可以配置 ``core_num=2``。<br/> **注意：** **RDK Ultra** 该选项尚不支持, 请勿配置! | **取值范围**：``1``、 ``2`` 。<br/> **默认配置**：``1``。|可选 |=
+|``core_num``| **参数作用**：模型运行核心数。<br/>**参数说明**：D-Robotics 平台支持利用多个AI加速器核心同时完成一个推理任务， 多核心适用于输入尺寸较大的情况， 理想状态下的双核速度可以达到单核的1.5倍左右。如果您的模型输入尺寸较大，对于模型速度有极致追求， 可以配置 ``core_num=2``。<br/> **注意：** **RDK Ultra 和 RDK X5** 该选项尚不支持, 默认配置为1，请勿配置! | **取值范围**：``1``、 ``2`` 。<br/> **默认配置**：``1``。|可选 |=
 |``optimize_level``| **参数作用**：模型编译的优化等级选择。<br/>**参数说明**：优化等级可选范围为 ``O0`` ~ ``O3``。``O0`` 不做任何优化, 编译速度最快，优化程度最低。``O1`` - ``O3`` 随着优化等级提高， 预期编译后的模型的执行速度会更快， 但是所需编译时间也会变长。正常用于生成和验证性能的模型， 必须使用 ``O3`` 级别优化才能保证得到最优性能。某些流程验证或精度调试过程中， 可以尝试使用更低级别优化加快过程速度。| **取值范围**：``O0`` 、 ``O1`` 、 ``O2`` 、 ``O3``。<br/> **默认配置**：无。|必选 |
 |``input_source``| **参数作用**：设置上板bin模型的输入数据来源。<br/>**参数说明**：这个参数是适配工程环境的选项， 建议您已经全部完成模型验证后再配置。``ddr`` 表示数据来自内存，``pyramid`` 和 ``resizer`` 表示来自处理器上的固定硬件。注意：如果设置为resizer，模型的 h*w 要小于18432。具体在工程环境中如何适配 ``pyramid`` 和 ``resizer`` 数据源， 此参数配置有点特殊，例如模型输入名称为 data, 数据源为内存(ddr), 则此处应该配置值为 ``{"data": "ddr"}``。| **取值范围**：``ddr``, ``pyramid``, ``resizer``<br/> **默认配置**：无，默认会根据input_type_rt的值从可选范围中自动选择。|可选 |
 |``max_time_per_fc``| **参数作用**：指定模型的每个function-call的最大可连续执行时间(单位us)。<br/>**参数说明**：编译后的数据指令模型在BPU上进行推理计算时， 它将表现为1个或者多个function-call（BPU的执行粒度）的调用，取值为0代表不做限制。该参数用来限制每个function-call最大的执行时间, 模型只有在单个function-call执行完时才有机会被抢占。详情参见 模型优先级控制 部分的介绍。- 此参数仅用于实现模型抢占功能，如无需实现该功能则可以忽略。<br/> - 模型抢占功能仅支持在开发板端实现，不支持PC端模拟器实现。| **取值范围**：``0或1000-4294967295``。<br/> **默认配置**：``0``。|可选 |
@@ -698,10 +721,10 @@ hb_mapper makertbin参数解释：
 |``custom_op_dir``| **参数作用**：自定义算子的Python实现文件存放路径。<br/>**参数说明**：设置路径时，请使用相对路径。| **取值范围**：无 。<br/> **默认配置**：无。|可选 |
 
 
-##### RDK Ultra int16配置说明{#int16_config}
+##### RDK Ultra 和 RDK X5 int16配置说明{#int16_config}
   
 在模型转换的过程中，模型中的大部分算子都会被量化到int8进行计算，而通过配置 ``node_info`` 参数，
-可以详细指定某个op的输入/输出数据类型为int16计算（具体支持的算子范围可参考[**模型算子支持列表**](./supported_op_list)章节中的RDK Ultra算子支持列表内容。
+可以详细指定某个op的输入/输出数据类型为int16计算（具体支持的算子范围可参考[**模型算子支持列表**](./supported_op_list)章节中的RDK Ultra 和 RDK X5算子支持列表内容。
 基本原理如下：
 
 在您配置了某个op输入/输出数据类型为int16后，模型转换内部会自动进行op输入输出上下文（context）int16配置的更新和检查。
@@ -1604,10 +1627,10 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
 
 :::tip 小技巧
 
-  若您使用的是 **RDK Ultra** 产品，那么您也可以通过配置部分op以int16计算来进行尝试精度调优（**RDK X3** 不支持算子int16计算）：
+  若您使用的是 **RDK Ultra 和 RDK X5** 产品，那么您也可以通过配置部分op以int16计算来进行尝试精度调优（**RDK X3** 不支持算子int16计算）：
 
   在模型转换过程中，大部分op默认会以int8的数据计算，在一些场景下部分op使用int8计算会导致精度损失明显。
-  针对 **RDK Ultra** 产品，目前算法工具链已经提供了指定特定op以int16 bit计算的能力，
+  针对 **RDK Ultra 和 RDK X5** 产品，目前算法工具链已经提供了指定特定op以int16 bit计算的能力，
   详情可参考 [**int16配置说明**](#int16_config) 参数配置的说明。
   通过配置量化精度损失敏感op（以余弦相似度为参考）以int16 bit计算，一些场景下可以解决精度损失问题。
 :::
@@ -1643,7 +1666,7 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
 
 :::caution 注意
 
-  对于当前版本的精度debug调试工具： **RDK Ultra** 对应的 ``bayes`` 架构模型支持命令行和API方式， **RDK X3** 对应的 ``bernoulli2`` 架构模型只支持API方式进行debug调试。
+  对于当前版本的精度debug调试工具： **RDK Ultra** 对应的 ``bayes`` 架构模型支持命令行和API方式，**RDK X5** 对应的 ``bayes-e`` 架构模型支持命令行和API方式， **RDK X3** 对应的 ``bernoulli2`` 架构模型只支持API方式进行debug调试。
 :::
 
 整体流程如下图所示：
@@ -2310,7 +2333,7 @@ activation：
 
 :::caution 注意
 
-  当前版本 runall 功能只适用于 **RDK Ultra** 产品。
+  当前版本 runall 功能只适用于 **RDK Ultra 和 RDK X5** 产品。
 :::
 
 **功能**：一键运行原本debug工具中的所有功能。

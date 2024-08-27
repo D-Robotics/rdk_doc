@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 2.3 图像编解码
+# 5.2.3 图像编解码
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

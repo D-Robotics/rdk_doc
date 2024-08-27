@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# hrut_boardid
+# hrut_boardid （RDK X3）
 
 **hrut_boardid** 命令是用来获取当前开发板的编号  (不同开发板的编号不同）。
 
@@ -25,15 +25,13 @@ Options:
 
 ```
 
-- **g：**从`veeprom`获取开发板编号。
-- **s：**从`veeprom`设置开发板编号。
-- **G：**从`bootinfo`获取开发板编号。
-- **S：**从`bootinfo`设置开发板编号。
-- **c：**清除`veeprom`中的开发板编号配置。
-- **C：**清除`bootinfo`中的开发板编号配置。
-- **h：**获取帮助信息。
-
-------
+- **g：** 从`veeprom`获取开发板编号。
+- **s：** 从`veeprom`设置开发板编号。
+- **G：** 从`bootinfo`获取开发板编号。
+- **S：** 从`bootinfo`设置开发板编号。
+- **c：** 清除`veeprom`中的开发板编号配置。
+- **C：** 清除`bootinfo`中的开发板编号配置。
+- **h：** 获取帮助信息。
 
 ## boardid编号定义
 

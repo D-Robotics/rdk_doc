@@ -5,11 +5,11 @@
   },
   "sidebar.tutorialSidebar.category.1.快速开始": {
     "message": "1.Quick Start",
-    "description": "The label for category 1.Quick Start in sidebar tutorialSidebar"
+    "description": "The label for category 1.快速开始 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.快速开始.link.generated-index.description": {
     "message": "RDK system installation and quick start",
-    "description": "The generated-index page description for category 1.Quick Start in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category 1.快速开始 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.2. 系统配置": {
     "message": "2. System Configuration",
@@ -127,7 +127,6 @@
     "message": "5.5 Feature Development",
     "description": "The label for category 5.5 功能开发 in sidebar tutorialSidebar"
   },
-  
   "sidebar.tutorialSidebar.category.6. 应用开发指南": {
     "message": "6. Application Development Guide",
     "description": "The label for category 6. 应用开发指南 in sidebar tutorialSidebar"
@@ -227,6 +226,37 @@
   "sidebar.tutorialSidebar.category.9.2 Linux命令用法": {
     "message": "9.2 Linux Command Usage",
     "description": "The label for category 9.2 Linux命令用法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.1 硬件简介": {
+    "message": "1.1 hardware_introduction",
+    "description": "The label for category 1.1 硬件简介 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2 系统烧录": {
+    "message": "1.2 install_os",
+    "description": "The label for category 1.2 系统烧录 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK X3/X5（Python）": {
+    "message": "RDK X3/X5（Python）",
+    "description": "The label for category RDK X3/X5（Python） in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK X3/X5（C++）": {
+    "message": "RDK X3/X5（C++）",
+    "description": "The label for category RDK X3/X5（C++） in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.1 目标检测": {
+    "message": "5.3.1 目标检测",
+    "description": "The label for category 5.3.1 目标检测 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.2 图像分类": {
+    "message": "5.3.2 图像分类",
+    "description": "The label for category 5.3.2 图像分类 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.3 语义分割": {
+    "message": "5.3.3 语义分割",
+    "description": "The label for category 5.3.3 语义分割 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.4 应用算法": {
+    "message": "5.3.4 应用算法",
+    "description": "The label for category 5.3.4 应用算法 in sidebar tutorialSidebar"
   }
 }
-  

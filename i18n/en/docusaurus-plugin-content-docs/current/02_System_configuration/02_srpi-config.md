@@ -64,12 +64,20 @@ The System Options menu allows you to configure changes to various parts such as
 - **FB Console Resolution**
  
   Supports setting the HDMI display resolution in `Server` system and `console` mode.
- 
+
+[Only X5 supports]
+
+![image-20240113163313195](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)
+
+- **Dsiplay Chose DSI or HDMI**
+  
+  Support switching between `DSI` and `HDMI` display.
+
 ## Interface Options
  
  Interface options menu, with the following options to enable/disable: SSH, VNC, SPI, I2C, I2S, Serial, etc.
  
- ![image-20231123103322961](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123103322961.png)
+ ![image-20231123103322961](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819162241000.png)
  
 - **SSH**
  
@@ -84,14 +92,33 @@ The System Options menu allows you to configure changes to various parts such as
 - **Peripheral bus config**
  
   Enable/disable SPI, I2C, Serial Port, I2S and other interfaces on the 40-pin interface. This configuration directly modifies the `status` of the corresponding bus in the device tree file and takes effect after reboot.
+  [X5] 
+  X5 has added a PWM interface;
+  In the table below, each row of interfaces uses the same pins and can only have one function in effect. When all interfaces in a row are dsiable, the pins are gpio function pins
 
+
+  | fun1 | fun2 | 
+| ---- | ---- |
+| serial3 | i2c5 |
+| i2c0 | pwm2 |
+| spi2 | pwm0 |
+| spi2 | pwm1 |
+| i2c1 | pwm3 |
+  
  ![image-20231123103758686](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
  
 - **Configure Wi-Fi antenna**
   
   Switch Wi-Fi antenna mode, supports setting to use onboard or external antenna.
 
-> Currently supported in RDK X3 V2.1 version.
+> Currently supported in RDK X3 V2.1 RDK X5.
+
+- **Audio**
+  Install and uninstall audio adapter board
+  Possible supported audio adapters include Audio Driver HAT V1, Audio Driver HAT V2, and WM8960 Audio HAT. Different hardware may also support different audio adapters
+
+
+ ![image-20231123103758686](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
 
 ## Performance Options
  

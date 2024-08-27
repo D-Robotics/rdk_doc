@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# 1.2 System Burning
+# 1.2.1 RDK X3
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -19,13 +19,13 @@ Before using the RDK X3 development board, the following preparations need to be
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-The RDK X3 development board is powered by a USB Type C interface. It requires a power adapter that supports **5V/3A** to power the board. It is recommended to use the recommended power adapter model in the [Basic Accessories List](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md) section.
+The RDK X3 development board is powered by a USB Type C interface. It requires a power adapter that supports **5V/3A** to power the board. It is recommended to use the recommended power adapter model in the [Basic Accessories List](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md) section.
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-The RDK X3 Module is powered through the power interface on the carrier board. The [official carrier board](../07_Advanced_development/01_hardware_development/rdk_x3_module/accessory.md) is powered through a DC interface. It is recommended to use the **12V/2A** adapter recommended in the certified accessories list.
+The RDK X3 Module is powered through the power interface on the carrier board. The [official carrier board](../../07_Advanced_development/01_hardware_development/rdk_x3_module/accessory.md) is powered through a DC interface. It is recommended to use the **12V/2A** adapter recommended in the certified accessories list.
 
 </TabItem>
 
@@ -35,7 +35,7 @@ The RDK X3 Module is powered through the power interface on the carrier board. T
 
 Please do not power the development board through the USB interface of a computer, as it may cause abnormal power failure and repeated restarts due to insufficient power supply.
 
-For more troubleshooting, please refer to the [Common Questions](../08_FAQ/01_hardware_and_system.md) section.
+For more troubleshooting, please refer to the [Common Questions](../../08_FAQ/01_hardware_and_system.md) section.
 
 :::
 
@@ -104,7 +104,7 @@ The RDK suite currently provides the Ubuntu 20.04/22.04 system image, which supp
 
 Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
-![image-20230510143353330](../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
 After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`.
 
@@ -118,7 +118,7 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 
 Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
-![image-20230510143353330](../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
 After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`
 
@@ -154,15 +154,15 @@ Before burning the Ubuntu system image, please make the following preparations:
 balenaEtcher is a PC-side boot disk creation tool that supports multiple platforms such as Windows/Mac/Linux. The process of creating an SD boot card is as follows:
 1. Open the balenaEtcher tool, click the `Flash from file` button, and select the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the burning image.
 
-    ![image-X3-Update-balena1](../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-X3-Update-balena1](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
 
 2. Click the `Select target` button and select the corresponding Micro SD storage card as the target storage device.
 
-    ![image-X3-Update-balena3](../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-X3-Update-balena3](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
 
 3. Click the `Flash` button to start burning. When the tool prompts `Flash Complete`, it means the image burning is complete. You can close balenaEtcher and remove the storage card.
 
-    ![image-X3-Update-balena4](../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-X3-Update-balena4](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
 
 </TabItem><TabItem value="x3md" label="RDK X3 Module">
 
@@ -182,29 +182,29 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
 1. For PCs using the Windows system, before using the flashing tool, you need to confirm whether the fastboot driver program has been installed. Please follow the steps below to check:
 
    (1) Ground the `Boot` pin of the RDK X3 carrier board using a jumper cap. Refer to the figure below for the pin position.    
-   ![image-carrier-board-bootstrap](../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-bootstrap.png)  
+   ![image-carrier-board-bootstrap](../../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-bootstrap.png)  
 
    (2) Connect the Micro USB interface of the carrier board to the computer via a USB cable. Refer to the figure below for the interface position.  
-   ![image-carrier-board-microusb](../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-microusb.png)  
+   ![image-carrier-board-microusb](../../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-microusb.png)  
 
    (3) Power on the device and observe the port status of the computer device manager. If the `USB download gadget` unknown device appears, you need to update the device driver; otherwise, you can skip the following steps.  
-   ![image-usb-driver1](../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
+   ![image-usb-driver1](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
 
    (4) Download and extract the driver package `android_hobot.zip`. The download link is [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
 
    (5) Go to the extracted directory and run `5-runasadmin_register-CA-cer.cmd` as an administrator to complete the registration of the driver program.
 
    (6) Double-click the `USB download gadget` unknown device, select the driver package extraction directory, and then click Next.   
-   ![image-usb-driver2](../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver2.png)
+   ![image-usb-driver2](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver2.png)
 
    (7) After the driver installation is complete, the device manager will display the fastboot device `Android Device`.   
-   ![image-usb-driver3](../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver3.png)
+   ![image-usb-driver3](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver3.png)
 
    
 
 2. After confirming that the PC device manager displays the fastboot device `Android Device`, run `hbupdate.exe` to open the burning tool, and follow the steps below to burn the system:
 
-   ![image-flash-system1](../../../../../static/img/01_Quick_start/image/install_os/image-flash-system1.png)
+   ![image-flash-system1](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system1.png)
 
    (1) Select the development board model, which is a required field.
 
@@ -215,15 +215,15 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
    - RDK_X3_MD_2GB: RDK X3 Module, 2GB RAM version
    - RDK_X3_MD_4GB: RDK X3 Module, 4GB RAM version
 
-   ![image-flash-system2](../../../../../static/img/01_Quick_start/image/install_os/image-flash-system2.png)
+   ![image-flash-system2](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system2.png)
 
    (2) Click the `Browse` button to select the image file to be burned, this is a required option.
 
-   ![image-flash-system3](../../../../../static/img/01_Quick_start/image/install_os/image-flash-system3.png)
+   ![image-flash-system3](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system3.png)
 
    (3) Click the `Start` button to start the flashing process, and follow the popup prompts to continue:
 
-   ![image-flash-system4](../../../../../static/img/01_Quick_start/image/install_os/image-flash-system4.png)
+   ![image-flash-system4](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system4.png)
 
    - When burning the image, it is necessary to connect the `BOOT` pin to the ground using a jumper cap. The pin position can be referred to in the [Function Control Interface](/hardware_development/rdk_x3_module/interface#function-control-interface).
 
@@ -237,11 +237,11 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
 
    - When the image burning is successful, the tool will prompt as follows:
 
-   ![image-flash-system6](../../../../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
+   ![image-flash-system6](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
 
    - When the image burning fails, the tool will prompt as follows, and at this time, you need to check if the `Android Device` device exists in the PC device manager.
 
-   ![image-flash-system7](../../../../../static/img/01_Quick_start/image/install_os/image-flash-system7.png)
+   ![image-flash-system7](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system7.png)
 
 </TabItem>
 
@@ -311,7 +311,7 @@ RDK X3 Module supports two modes of system startup: eMMC mode and SD card mode.
 
 After the Ubuntu Desktop version system is fully booted, the system desktop will be displayed on the monitor via the HDMI interface, as shown in the following figure:
 
-![image-desktop_display.png](../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.png)
+![image-desktop_display.jpg](../../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 
 ## **Frequently Asked Questions**  
@@ -334,7 +334,7 @@ Here are some common issues when using the development board for the first time:
 
 :::tip
 
-For more problem-solving, please refer to the [Frequently Asked Questions](../08_FAQ/01_hardware_and_system.md) section, and you can also visit the [D-Robotics Developer Forum](https://developer.d-robotics.cc/forum) for assistance.
+For more problem-solving, please refer to the [Frequently Asked Questions](../../08_FAQ/01_hardware_and_system.md) section, and you can also visit the [D-Robotics Developer Forum](https://developer.d-robotics.cc/forum) for assistance.
 
 :::
 

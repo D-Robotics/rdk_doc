@@ -6,7 +6,7 @@ sidebar_position: 3
 
 :::tip
 
-本章节介绍的入门配置方式仅在RDK X3 和 RDK X3 Module型号上支持；
+本章节介绍的入门配置方式仅支持在 RDK X3 、RDK X5 和 RDK X3 Module 型号的开发板上使用；
 
 系统版本不低于 `2.1.0`。
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
 ## 开启SSH服务
 
-当前系统版本默认开启 SSH 登录服务，用户可以使用本方法开关该服务。
+当前系统版本默认开启 SSH 登录服务，用户可以使用本方法开、关 SSH 服务。
 
 <Tabs groupId="rdk-type">
 <TabItem value="desktop" label="Desktop">
@@ -81,14 +81,14 @@ SSH的使用请查看 [远程登录 - SSH登录](./remote_login#ssh)。
 
 ![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112029088.png)
 
-选择 Interface Options -> VNC 项，根据提示选择使能或者关闭`VNC` 服务。选择使能 `VNC` 时需要设置登录密码，密码必须是一个8位长度的由数字、字符组成的字符串。
+选择 Interface Options -> VNC 项，根据提示选择使能或者关闭`VNC` 服务。选择使能 `VNC` 时需要设置登录密码，密码必须是一个8位长度的由字符组成的字符串。
 
 ![image-20231127112202713](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112202713.png)
 
 </TabItem>
 </Tabs>
 
-VNC的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
+VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 ## 设置登录模式
 
@@ -137,7 +137,7 @@ VNC的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 第二步：选择默认的语言环境，中文环境选择 `zh_CN.UTF-8 UTF-8` 即可。回车确认后需要等待一会完成配置。
 
-第三步：重启机器，使最新配置生效。`sudo reboot`
+第三步：重启开发板，使最新配置生效。`sudo reboot`
 
 :::tip
 
@@ -158,7 +158,7 @@ VNC的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 第二步：选择默认的语言环境，中文环境选择 `zh_CN.UTF-8 UTF-8` 即可。回车确认后需要等待一会完成配置。
 
-第三步：重启机器，使最新配置生效。`sudo reboot`
+第三步：重启开发板，使最新配置生效。`sudo reboot`
 
 </TabItem>
 </Tabs>

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 5.2 模型推理
+# 5.5.2 模型推理
 
 ## 模型推理开发
 
@@ -20,9 +20,7 @@ sidebar_position: 2
 
 - tros.b软件包。
 
-- ROS2软件包构建系统ament_cmake。安装命令：`apt update; apt-get install python3-catkin-pkg; pip3 install empy`
-
-- ROS2编译工具colcon。安装命令：`pip3 install -U colcon-common-extensions`
+- ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev-tools`
 
 2 RDK已安装F37或者GC4663摄像头。
 

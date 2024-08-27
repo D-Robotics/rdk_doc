@@ -314,7 +314,7 @@ qat_model = load_model()
 #### 设置 BPU 架构{#set-bpu}
 
 ```python
-# 设置 march **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES。
+# 设置 march **RDK X3** 设置BERNOULLI2， **RDK Ultra** 设置为BAYES， **RDK X5** 设置为BAYES_E。
 horizon.march.set_march(horizon.march.March.BAYES)
 ```
 

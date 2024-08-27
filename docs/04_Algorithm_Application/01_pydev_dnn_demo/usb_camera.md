@@ -15,7 +15,7 @@ sidebar_position: 4
 
 ### 运行方法
 
-请查阅 [USB摄像头AI推理](/first_application/usb_camera) 了解如何快速运行本示例。
+请查阅 [USB摄像头AI推理](/Basic_Application/Image/usb_camera) 了解如何快速运行本示例。
 
 ### 示例代码解析
 - 导入算法推理模块hobot_dnn、视频输出模块hobot_vio、numpy、opencv、colorsys等模块
