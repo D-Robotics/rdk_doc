@@ -162,7 +162,7 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
     ignore_broadcast_ssid=0
     wpa=2
     wpa_key_mgmt=WPA-PSK
-    rsn_pairwise=CCMP
+    wpa_pairwise=CCMP
     wpa_passphrase=12345678
     ```
 
