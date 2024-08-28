@@ -681,7 +681,7 @@ Export a (float or qat)model into ONNX format.
 
 - **do_constant_folding** (bool, default False) – Apply the constant-folding optimization. Constant-folding will replace some of the ops that have all constant inputs with pre-computed constant nodes.
 
-- **dynamic_axes** (dict<str, list(int)/dict<int, str>>, default empty dict) –
+- **dynamic_axes** `(dict<str, list(int)/dict<int, str>>, default empty dict) –`
 
     By default the exported model will have the shapes of all input and output tensors set to exactly match those given in args (and example_outputs when that arg is required). To specify axes of tensors as dynamic (i.e. known only at run-time), set dynamic_axes to a dict with schema:
 
@@ -691,7 +691,7 @@ Export a (float or qat)model into ONNX format.
 
 - **keep_initializers_as_inputs** (bool, default None) – If True, all the initializers (typically corresponding to parameters) in the exported graph will also be added as inputs to the graph. If False, then initializers are not added as inputs to the graph, and only the non-parameter inputs are added as inputs. This may allow for better optimizations (e.g. constant folding) by backends/runtimes.
 
-- **custom_opsets** (dict<str, int>, default empty dict) –
+- **custom_opsets** `(dict<str, int>, default empty dict) –`
 
     A dict with schema:
 
