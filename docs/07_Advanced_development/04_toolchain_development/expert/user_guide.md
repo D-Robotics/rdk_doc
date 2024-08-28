@@ -26,7 +26,7 @@ sidebar_position: 3
 
 4. 数据分布不合理。plugin 采用的是均匀对称量化，所以 0 均值的均匀分布最好，应尽量避免长尾和离群点。同时，数值范围需要与量化 bit 相匹配，如果使用int8量化分布为 [-1000, 1000] 均匀分布的数据，那么精度显然也是不够的。例如，下面三个分布图，从左到右对量化的友好性依次递减，模型中大部分数值的分布应当为中间这种分布。在实际使用中，可以用 debug 工具查看模型 weight 和 feature map 的分布是否量化友好。因为模型冗余性的存在，有些看起来分布非常量化不友好的 op 并不会显著降低模型的最终精度，需要结合实际的 qat 训练难度和最后达到的量化精度综合考虑。
 
-![data_distribution](./image/expert/data_distribution.png)
+![data_distribution](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/data_distribution.png)
 
 那么如何使得模型更加量化友好呢？具体来说：
 
