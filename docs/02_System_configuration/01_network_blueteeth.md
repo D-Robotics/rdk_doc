@@ -191,6 +191,7 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
 4. 停止 `wpa_supplicant` 服务，并重启 `wlan0`
 
     ```bash
+    systemctl mask wpa_supplicant
     systemctl stop wpa_supplicant
 
     ip addr flush dev wlan0
@@ -237,6 +238,7 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
     ifconfig wlan0 up
     
     # 重启 wpa_supplicant
+    systemctl unmask wpa_supplicant
     systemctl restart wpa_supplicant
     
     # 连接热点,，具体操作可以查看上一章节 “无线网络”
