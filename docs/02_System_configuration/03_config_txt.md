@@ -24,7 +24,7 @@ RDK 使用配置文件`config.txt`来设置一些启动时候的系统配置。`
 
 ### dtdebug
 
-`dtdebug` 如果非零，在`uboot`阶段的设备树配置过程中会输出配置日志。
+`dtdebug` 如果非零，在`uboot`阶段的设备树配置过程中会在串口输出配置日志。
 
 ```
 dtdebug=1
@@ -62,6 +62,15 @@ ion=ion_carveout_size=0x14000000
 ion=ion_cma_size=0x08000000
 ```
 
+可以通过启动信息查看各个ION区域的大小：
+
+```Shell
+root@ubuntu:~# dmesg | grep ION
+[    0.187961] Reserved ION Carveout(ion-pool) MEM start 0xa4100000, size 0x14000000
+[    0.187989] Reserved ION cma(ion-carveout) reserved MEM start 0xb8100000, size 0x14000000
+[    0.188075] Reserved ION cma(ion-cma) reserved MEM start 0xcc100000, size 0x8000000
+```
+
 ### dtparam
 
 支持设置 uart、i2c、spi、i2s 等总线的使能与关闭。
@@ -70,7 +79,7 @@ ion=ion_cma_size=0x08000000
 
 RDK X3 支持： uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
 
-RDK X5 支持： uart0, uart1, uart5, spi1, spi5, i2c0, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, dw_i2s0, dw_i2s1
+RDK X5 支持： uart1, uart2, uart3, uart6，spi1, spi2, i2c0, i2c1, i2c5, i2c4, i2c5, dw_i2s1
 
 例如关闭串口3：
 
@@ -84,11 +93,11 @@ dtparam=uart3=off
 dtparam=i2c5=on
 ```
 
-## CPU频率
+## X3 CPU频率
 
 ### arm_boost
 
-当设置为1时，开启超频，RDK v1.x 版本最高频率提高到 1.5GHz，RDK V2.0 、RDK X5 和 RDK Module 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/scaling_boost_frequencies` 获取使能 boost 后会开放哪些更高 CPU 频率。
+当设置为1时，开启超频，RDK v1.x 版本最高频率提高到 1.5GHz，RDK V2.0 和 RDK Module 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/scaling_boost_frequencies` 获取使能 boost 后会开放哪些更高 CPU 频率。
 
 默认不开启超频，设置`arm_boost` 为 `1`时开启，例如：
 
@@ -106,7 +115,7 @@ CPU 频率的调度方式，有 `conservative ondemand userspace powersave perfo
 governor=performance
 ```
 
-有关`CPU`调度方式的说明请查阅 [CPU频率管理](frequency_management#cpu频率管理)。
+有关`CPU`调度方式的说明请查阅 [X3 CPU频率管理](x3_frequency_management#cpu频率管理)。
 
 ### frequency
 
@@ -117,6 +126,41 @@ governor=performance
 ```
 governor=userspace
 frequency=1000000
+```
+
+## X5 CPU频率
+
+有关`CPU`调度方式的说明请查阅 [X5 CPU频率管理](x5_frequency_management#cpu频率管理)，这里仅介绍config.txt的配置方法。
+
+### arm_boost
+
+当设置为1时，开启超频，RDK RDK X5 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies` 获取使能 boost 后会开放哪些更高 CPU 频率。
+
+默认不开启超频，设置`arm_boost` 为 `1`时开启，例如：
+
+```
+arm_boost=1
+```
+
+### governor
+
+CPU 频率的调度方式，有 `conservative ondemand userspace powersave performance schedutil ` 方式可以选择， 通过 `cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors` 获取可以设置的模式。
+
+例如设置`CPU`运行在性能模式：
+
+```
+governor=performance
+```
+
+### frequency
+
+`governor`设置为 `userspace` 时，可以通过本选型设置`CPU`运行在一个固定的频率上，目前一般可以设置`300000 600000 1200000 1500000`这些频率，具体可以通过`cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies` 获取可以设置的频率列表。
+
+例如设置`CPU`降频运行在 `1.2GHz`：
+
+```
+governor=userspace
+frequency=1200000
 ```
 
 ## IO初始化
