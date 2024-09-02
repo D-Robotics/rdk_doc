@@ -49,7 +49,7 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
  </TabItem>
  </Tabs>
 
-:::caution
+:::info
  如果安装失败，并且报错如下：
 
  ```bash
@@ -127,6 +127,10 @@ source /opt/ros/humble/setup.bash
 export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
+
+:::info
+ 如果启动失败，并且报错`[ERROR] [gzclient-2]: process has died`，请执行命令`source /usr/share/gazebo/setup.sh`后再启动。
+:::
 
 仿真环境如下图所示：
 ![](/../static/img/05_Robot_development/04_apps/image/slam/gazebo.jpg)
