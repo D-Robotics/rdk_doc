@@ -44,12 +44,13 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 #### RDK
 
-1. 开始测试前，需要将RDK调整为性能模型，以保证测试结果准确性，命令如下：
+1. 开始测试前，需要将RDK调整为性能模型，以保证测试结果准确性。命令如下：
 
    ```bash
-   echo performance > /sys/class/devfreq/devfreq0/governor
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
+
+   更多配置说明参考[系统配置](/System_configuration/)章节。
 
 2. RDK已成功安装performance_test工具包，安装命令：
 

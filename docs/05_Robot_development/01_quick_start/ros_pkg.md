@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 前提：已成功安装TogetheROS.Bot
 
-tros.b和ROS2 Foxy/Humble版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 foxy版本ros-foxy-image-transport为例介绍如何在tros.b中使用ROS package。
+tros.b和ROS2 Foxy/Humble版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 image-transport为例介绍如何在tros.b中使用ROS package。
 
 ## 安装ROS2 package
 
@@ -27,19 +27,47 @@ sudo apt update
 
 ### 2 安装packages
 
-```shell
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
 sudo apt install ros-foxy-image-transport
 sudo apt install ros-foxy-image-transport-plugins
 ```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+sudo apt install ros-humble-image-transport
+sudo apt install ros-humble-image-transport-plugins
+```
+
+</TabItem>
+</Tabs>
 
 ## 使用ROS2 package
 
 与ROS使用一样
 
-```shell
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
 source /opt/tros/setup.bash
 ros2 run image_transport list_transports
 ```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+</Tabs>
 
 运行结果如下，展示了image_transport package支持的图像格式
 

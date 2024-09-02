@@ -107,8 +107,28 @@ import TabItem from '@theme/TabItem';
 
 2. Web端查看JPEG编码图像，另起一个终端：
 
-    ```shell
+    <Tabs groupId="tros-distro">
+    <TabItem value="foxy" label="Foxy">
+
+    ```bash
+    # 配置tros.b环境
     source /opt/tros/setup.bash
+    ```
+
+    </TabItem>
+
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
@@ -213,4 +233,4 @@ import TabItem from '@theme/TabItem';
 如遇到 Hobot codec 节点启动异常，可通过下述步骤进行问题排查：
 
 1. 是否设置 tros.b 环境
-2. 参数是否正确，具体参考Hobot_codec README.md
+2. 参数是否正确，具体参考Hobot_codec [README.md](https://github.com/D-Robotics/hobot_codec)

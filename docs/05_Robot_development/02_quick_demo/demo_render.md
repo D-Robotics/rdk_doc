@@ -21,8 +21,8 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头人体检测并通过Web展示图像和算法效果 |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI摄像头人体检测并通过Web展示图像和算法效果 |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
+| RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI摄像头，并通过Web展示图像 |
 | X86     | Ubuntu 20.04 (Foxy) | 启动USB摄像头，并通过Web展示图像 |
 
 ### 准备工作
@@ -128,7 +128,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像和算法效果，IP为RDK IP地址。
+2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像，IP为RDK IP地址。
 
    ![websocket](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png "预览图像")
 
