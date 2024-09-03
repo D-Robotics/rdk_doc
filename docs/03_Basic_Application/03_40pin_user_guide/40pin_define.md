@@ -60,7 +60,7 @@ sudo srpi-config
 
 <TabItem value="rdkx5" label="RDK X5">
 
-【TODO】
+![image-20230510155124570](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240902-234214.png)
 
 </TabItem>
 
