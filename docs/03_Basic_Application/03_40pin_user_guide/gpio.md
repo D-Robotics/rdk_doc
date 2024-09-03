@@ -434,3 +434,38 @@ if __name__ == '__main__':
     main()
 
 ```
+## hb_gpioinfo工具介绍
+  hb_gpioinfo 是适配X5的一个gpio帮助工具，可以查看当前开发板的的PinName和PinNum的对应关系
+### hb_gpioinfo组成
+  hb_gpioinfo工具由驱动和应用两部分组成,驱动负责解析pinmux-gpio.dtsi并将pinnode和pinname信息导出到debugfs系统中，hb_gpioinfo应用进行解析打印到终端上
+驱动代码路径：`kernel/drivers/gpio/hobot_gpio_debug.c`
+### hb_gpioinfo使用实例
+- PinName:指的是Soc上的管脚名字，原理图上X5 Soc管脚命名一致
+- PinNode：指的是设备树中的PinNode信息
+- PinNum：指的是X5实际的对应的管脚gpio编号
+
+```bash
+root@ubuntu:~# hb_gpioinfo
+gpiochip0 - 8 lines: @platform/31000000.gpio: @GPIOs 498-505
+        [Number]                [Mode]  [Status]  [GpioName]       [PinName]              [PinNode]           [PinNum]
+        line  0:        unnamed input                             AON_GPIO0_PIN0        aon_gpio_0              498
+        line  1:        unnamed input                             AON_GPIO0_PIN1        aon_gpio_1              499
+        line  2:        unnamed input  active-low  GPIO Key Power AON_GPIO0_PIN2        aon_gpio_2              500
+        line  3:        unnamed input              interrupt      AON_GPIO0_PIN3        aon_gpio_3              501
+        line  4:        unnamed input                             AON_GPIO0_PIN4        aon_gpio_4              502
+        line  5:        unnamed input              id             AON_ENV_VDD           aon_gpio_5              503
+        line  6:        unnamed input              id             AON_ENV_CNN0          aon_gpio_6              504
+        line  7:        unnamed input                             AON_ENV_CNN1          aon_gpio_7              505
+gpiochip1 - 31 lines: @platform/35060000.gpio: @GPIOs 466-496
+        [Number]                [Mode]  [Status]  [GpioName]       [PinName]              [PinNode]           [PinNum]
+        line  0:        unnamed input                             HSIO_ENET_MDC         hsio_gpio0_0            466
+        line  1:        unnamed input                             HSIO_ENET_MDIO        hsio_gpio0_1            467
+        line  2:        unnamed input                             HSIO_ENET_TXD_0       hsio_gpio0_2            468
+        line  3:        unnamed input                             HSIO_ENET_TXD_1       hsio_gpio0_3            469
+        line  4:        unnamed input                             HSIO_ENET_TXD_2       hsio_gpio0_4            470
+        line  5:        unnamed input                             HSIO_ENET_TXD_3       hsio_gpio0_5            471
+        line  6:        unnamed input                             HSIO_ENET_TXEN        hsio_gpio0_6            472
+        line  7:        unnamed input                             HSIO_ENET_TX_CLK      hsio_gpio0_7            473
+        line  8:        unnamed input                             HSIO_ENET_RX_CLK      hsio_gpio0_8            474
+        ....
+```
