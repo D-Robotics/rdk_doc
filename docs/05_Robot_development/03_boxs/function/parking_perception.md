@@ -260,6 +260,6 @@ package初始化后，在运行终端输出如下信息：
 
 可视化结果可以看到，室外场景下停车区域与行车区域有效分割开，区分了停车车道线和行车车道线，同时目标检测任务定位到远处车辆。
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png)
 
 "dump_render_img"设置为"1"时，渲染效果保存在当前路径的result目录下。

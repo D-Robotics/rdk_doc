@@ -236,6 +236,6 @@ Select the "Full Image Segmentation" option to display the rendering effect.
 
 From the visualization result, we can see that the parking area and driving area in the outdoor scene are effectively segmented, distinguishing the parking lane from the driving lane, and the object detection task also locates the vehicles in the distance.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render.png)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png)
 
 When "dump_render_img" is set to "1", the rendering effect will be saved in the "result" directory at the current path.
