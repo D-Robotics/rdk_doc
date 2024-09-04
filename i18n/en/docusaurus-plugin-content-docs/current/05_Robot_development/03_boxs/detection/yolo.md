@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports four versions: yolov2, yolov3, yolov5, and yolov5x.
+YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports six versions: yolov2, yolov3, yolov5, yolov5x, yolov8, and yolov10.
 
 The model is trained using the [COCO dataset](http://cocodataset.org/), and the supported object detection types include humans, animals, fruits, and vehicles, totaling 80 types.
 
@@ -22,7 +22,7 @@ Use cases: As a representative algorithm in single-stage object detection, the Y
 
 | Platform              | System | Supported Algorithms | Function                                            |
 | --------------------- | ---------------- | -------------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | yolov2/yolov3/yolov5 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | yolov2/yolov3/yolov5/yolov8/yolov10 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
 
 ## Preparations
 
@@ -136,7 +136,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2, YOLOv3 and YOLOv5 are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`.
+In addition to the YOLOv2, YOLOv3, YOLOv5, YOLOv8 and YOLOv10 are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`.
 
 ## Result Analysis
 

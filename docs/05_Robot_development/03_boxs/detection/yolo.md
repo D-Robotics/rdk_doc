@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持yolov2、yolov3、yolov5、yolov5x四个版本。
+YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持yolov2、yolov3、yolov5、yolov5x、yolov8、yolov10六个版本。
 
 模型使用[COCO数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型。
 
@@ -25,7 +25,7 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 
 | 平台                  | 运行方式     | 支持算法             | 示例功能                                                     |
 | --------------------- | ------------ | -------------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5x/yolov8/yolov10 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK Ultra             | Ubuntu 20.04 (Foxy) | yolov5x              | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | yolov2/yolov3        | · 使用本地回灌，渲染结果保存在本地                           |
@@ -151,7 +151,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-除了YOLOv2算法，还支持YOLOv3和YOLOv5算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`。
+除了YOLOv2算法，还支持YOLOv3、YOLOv5、YOLOv8和YOLOv10算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`。
 
 ### RDK Ultra平台
 
