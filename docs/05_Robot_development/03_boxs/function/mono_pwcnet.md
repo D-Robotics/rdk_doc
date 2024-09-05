@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 15
 ---
 # 光流估计
 
@@ -25,8 +25,7 @@ import TabItem from '@theme/TabItem';
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
-| X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过Web展示推理渲染结果                |
+| RDK X5 | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
 ## 准备工作
 
@@ -40,11 +39,6 @@ import TabItem from '@theme/TabItem';
 
 4. 确认PC机能够通过网络访问RDK。
 
-### X86平台
-
-1. X86环境已配置Ubuntu 20.04系统镜像。
-
-2. X86环境已成功安装tros.b。
 
 ## 使用介绍
 
@@ -55,14 +49,6 @@ import TabItem from '@theme/TabItem';
 **使用MIPI摄像头发布图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -89,14 +75,6 @@ ros2 launch mono_pwcnet mono_pwcnet.launch.py
 **使用USB摄像头发布图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -124,14 +102,6 @@ ros2 launch mono_pwcnet mono_pwcnet.launch.py
 **使用本地回灌图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -156,23 +126,6 @@ ros2 launch mono_pwcnet mono_pwcnet.launch.py
 
 ```
 
-### X86平台
-
-**使用本地回灌图片**
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
-
-# 配置本地回灌图片
-export CAM_TYPE=fb
-
-# 启动launch文件
-ros2 launch mono_pwcnet mono_pwcnet.launch.py
-```
 
 ## 结果分析
 

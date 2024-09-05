@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 16
 ---
 # YOLO-World
 
@@ -21,8 +21,7 @@ YOLO-World是一种先进的开放词汇目标检测方法，根据输入文本�
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
-| X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过Web展示推理渲染结果                |
+| RDK X5 | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
 ## 准备工作
 
@@ -46,36 +45,12 @@ YOLO-World是一种先进的开放词汇目标检测方法，根据输入文本�
 
 YOLO-World(hobot_yolo_world) package订阅sensor package发布的图片，同时YOLO-World支持根据输入文本变化改变检测类别，其中文本特征来源于本地特征库，通过输入文本查询对应特征，并输入模型推理，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果。
 
-### 本地文本特征生成
-
-```bash
-# 从tros.b的安装路径中拷贝出运行示例需要的工具文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/tool/ .
-```
-
-```bash
-cd tool/
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 生成本地词汇
-python main.py
-```
 
 ### RDK平台
 
 **使用MIPI摄像头发布图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -88,28 +63,17 @@ source /opt/tros/setup.bash
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
-
-# 拷贝文本特征
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
 
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
 
 # 启动launch文件
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
+ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
 **使用USB摄像头发布图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -126,28 +90,17 @@ source /opt/tros/humble/setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
-
-# 拷贝文本特征
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
 
 # 配置USB摄像头
 export CAM_TYPE=usb
 
 # 启动launch文件
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
+ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
 **使用本地回灌图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -164,36 +117,12 @@ source /opt/tros/humble/setup.bash
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# 拷贝文本特征
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
-
 # 配置本地回灌图片
 export CAM_TYPE=fb
 
 # 启动launch文件
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
+ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 
-```
-
-### X86平台
-
-**使用本地回灌图片**
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
-
-# 拷贝文本特征
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
-
-# 配置本地回灌图片
-export CAM_TYPE=fb
-
-# 启动launch文件
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
 ```
 
 ## 结果分析
@@ -204,13 +133,13 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stai
 [hobot_yolo_world-3] [WARN] [0000003710.693524477] [hobot_yolo_world]: This is hobot yolo world!
 [hobot_yolo_world-3] [WARN] [0000003710.792557185] [hobot_yolo_world]: Parameter:
 [hobot_yolo_world-3]  feed_type(0:local, 1:sub): 1
-[hobot_yolo_world-3]  image: config/00131.jpg
+[hobot_yolo_world-3]  image: config/yolo_world_test.jpg
 [hobot_yolo_world-3]  dump_render_img: 0
 [hobot_yolo_world-3]  is_shared_mem_sub: 1
 [hobot_yolo_world-3]  score_threshold: 0.05
 [hobot_yolo_world-3]  iou_threshold: 0.45
 [hobot_yolo_world-3]  nms_top_k: 50
-[hobot_yolo_world-3]  texts: trash bin,red bottle
+[hobot_yolo_world-3]  texts: red bottle,trash bin
 [hobot_yolo_world-3]  ai_msg_pub_topic_name: /hobot_yolo_world
 [hobot_yolo_world-3]  ros_img_sub_topic_name: /image
 [hobot_yolo_world-3]  ros_string_sub_topic_name: /target_words
@@ -236,3 +165,27 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stai
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
+
+
+## 进阶用法
+如果您想更改本地的文本特征，可以利用相应的工具在本地生成
+
+```bash
+# 从tros.b的安装路径中拷贝出运行示例需要的工具文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/tool/ .
+```
+
+```bash
+cd tool/
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 修改class.list里的词汇
+
+# 生成本地词汇
+python main.py
+
+#拷贝新的词汇特征
+mv offline_vocabulary_embeddings.json ../config/
+```

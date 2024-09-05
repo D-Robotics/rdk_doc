@@ -24,8 +24,7 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X5| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
-| X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
+| RDK X5| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 
 ## 准备工作
 
@@ -37,11 +36,6 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 
 3. RDK已安装MIPI或者USB摄像头，无摄像头的情况下通过回灌本地JPEG/PNG格式图片的方式体验算法效果。
 
-### X86平台
-
-1. X86环境已配置好Ubuntu 20.04系统镜像。
-
-2. X86环境系统已成功安装tros.b。
 
 ## 使用介绍
 
@@ -54,14 +48,6 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 YOLOv8-Seg实例分割示例订阅sensor package发布的图片，经过推理后发布算法msg，并在运行路径下自动保存渲染后的图片，命名方式为render_frameid_时间戳秒_时间戳纳秒.jpg。
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -85,14 +71,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 ##### 使用USB摄像头发布图片
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -118,14 +96,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 YOLOv8-Seg分割示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -138,38 +108,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 
-
-```shell
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image:=config/raw_unet.jpeg
-```
-
-### X86平台
-
-#### 使用本地图片回灌
-
-YOLOv8-Seg分割示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
 
 ```shell
 # 启动launch文件

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 16
 ---
 # YOLO-World
 
@@ -20,7 +20,7 @@ Application Scenarios: The robust zero-shot detection capability of YOLO-World e
 
 | Platform                            | System | Function                                     |
 | ----------------------------------- | -------------- | -------------------------------------------------------- |
-| RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
 
 ## Preparation
 
@@ -39,22 +39,6 @@ Application Scenarios: The robust zero-shot detection capability of YOLO-World e
 
 YOLO-World (hobot_yolo_world) package subscribes to images published by the sensor package. It has the capability to alter the detection categories based on variations in the input text. The text features are sourced from a local feature library, which is queried through the input text to match corresponding features. These features are then inputted into the model for inference. The websocket package is used to render and display the images and corresponding algorithm results on a PC browser.
 
-### Local Text Feature Generation
-
-```bash
-# Copy the configuration file required for generating the text feature from the installation path of tros.b.
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/tool/ .
-```
-
-```bash
-cd tool/
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Generate text feature
-python main.py
-```
 
 
 ### RDK
@@ -62,14 +46,6 @@ python main.py
 **Use MIPI Camera to Publish Images**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -85,29 +61,17 @@ source /opt/tros/humble/setup.bash
 ```shell
 # Copy the configuration file required for running the example from the installation path of tros.b.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
-
-# Copy the text feature
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
 
 # Configuring MIPI camera
 export CAM_TYPE=mipi
 
 # Start the launch file
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
-
+ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
 **Use USB Camera to Publish Images**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -124,28 +88,17 @@ source /opt/tros/humble/setup.bash
 
 # Copy the configuration file required for running the example from the installation path of tros.b.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
-
-# Copy the text feature
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
 
 # Configuring USB camera
 export CAM_TYPE=usb
 
 # Start the launch file
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
+ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
 **Use Local Image Offline**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -162,15 +115,11 @@ source /opt/tros/humble/setup.bash
 # Copy the configuration file required for running the example from the installation path of tros.b.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# Copy the text feature
-cp tool/offline_vocabulary_embeddings.json config/offline_vocabulary_embeddings.json
-
 # Configure the local playback image.
 export CAM_TYPE=fb
 
 # Start the launch file
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="liquid stain,mild stain,solid stain,congee stain"
-
+ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
 ## Result analysis
@@ -181,13 +130,13 @@ The following information is outputted in the terminal:
 [hobot_yolo_world-3] [WARN] [0000003710.693524477] [hobot_yolo_world]: This is hobot yolo world!
 [hobot_yolo_world-3] [WARN] [0000003710.792557185] [hobot_yolo_world]: Parameter:
 [hobot_yolo_world-3]  feed_type(0:local, 1:sub): 1
-[hobot_yolo_world-3]  image: config/00131.jpg
+[hobot_yolo_world-3]  image: config/yolo_world_test.jpg
 [hobot_yolo_world-3]  dump_render_img: 0
 [hobot_yolo_world-3]  is_shared_mem_sub: 1
 [hobot_yolo_world-3]  score_threshold: 0.05
 [hobot_yolo_world-3]  iou_threshold: 0.45
 [hobot_yolo_world-3]  nms_top_k: 50
-[hobot_yolo_world-3]  texts: trash bin,red bottle
+[hobot_yolo_world-3]  texts: red bottle,trash bin
 [hobot_yolo_world-3]  ai_msg_pub_topic_name: /hobot_yolo_world
 [hobot_yolo_world-3]  ros_img_sub_topic_name: /image
 [hobot_yolo_world-3]  ros_string_sub_topic_name: /target_words
@@ -213,3 +162,28 @@ The following information is outputted in the terminal:
 You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
+
+
+
+## Advance
+If you want to modify the text features, you can utilize the tools to generate them locally.
+
+```bash
+# Copy the configuration file required for generating the text features from the installation path of tros.b.
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/tool/ .
+```
+
+```bash
+cd tool/
+
+# Modify the 'class.list'
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Generate text features
+python main.py
+
+# Copy new text features
+mv offline_vocabulary_embeddings.json ../config/
+```

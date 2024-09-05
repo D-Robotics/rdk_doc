@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 15
 ---
 # Optical Flow Estimation
 
@@ -25,7 +25,7 @@ Application Scenarios: Optical flow prediction is a technique used to determine 
 
 | Platform                            | System | Function                                     |
 | ----------------------------------- | -------------- | -------------------------------------------------------- |
-| RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
 
 ## Preparation
 
@@ -50,14 +50,6 @@ Optical flow estimation (mono_pwcnet) package subscribes to images published by 
 **Use MIPI Camera to Publish Images**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -84,14 +76,6 @@ ros2 launch mono_pwcnet mono_pwcnet.launch.py
 **Use USB Camera to Publish Images**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -119,14 +103,6 @@ ros2 launch mono_pwcnet mono_pwcnet.launch.py
 **Use Local Image Offline**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 

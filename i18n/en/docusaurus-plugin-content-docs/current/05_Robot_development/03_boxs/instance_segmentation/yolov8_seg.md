@@ -23,7 +23,7 @@ Applications: YOLOv8-Seg is capable of recognizing objects and performing precis
 
 | Platform | System | Function                     |
 | -------- | ------------ | ---------------------------------------- |
-| RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK X5 | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
 
 ## Preparation
 
@@ -42,14 +42,6 @@ Applications: YOLOv8-Seg is capable of recognizing objects and performing precis
 The YOLOv8-Seg example subscribes to images published by the sensor package. After inference, it publishes algorithm messages and saves the rendered images automatically in the running directory. The saved images are named in the format of `render_frameid_timestampInSeconds_timestampInNanoseconds.jpg`.
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -73,14 +65,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 ##### Use a USB Camera to Publish Images 
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -106,14 +90,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 The YOLOv8-Seg example uses local JPEG/PNG format images for feedback. After inference, the rendered images of the algorithm results are stored in the local running path.
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 
 <TabItem value="humble" label="Humble">
 
@@ -129,7 +105,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 # Start the launch file
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image:=config/raw_unet.jpeg
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image:=config/test.jpeg
 ```
 
 ## Analysis of Results
