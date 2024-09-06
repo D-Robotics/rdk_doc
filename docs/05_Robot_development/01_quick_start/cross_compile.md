@@ -56,7 +56,7 @@ sudo docker load --input pc_tros_ubuntu22.04_v1.0.0.tar.gz
 ## 查看pc_tros对应的image ID
 sudo docker images
 ## 启动docker挂载目录
-sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imageID，这里以 sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 9c2ca340973e 为例
+sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imageID，这里以 sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19 为例
 ```
 
 </TabItem>

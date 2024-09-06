@@ -56,7 +56,7 @@ sudo docker load --input pc_tros_ubuntu22.04_v1.0.0.tar.gz
 sudo docker images
 ## Launch Docker and mount the directory
 sudo docker run -it --entrypoint="/bin/bash" -v PC local directory: Docker directory imageID, here is an example using:
-sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 9c2ca340973e
+sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19
 ```
 
 </TabItem>
