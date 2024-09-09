@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-[CLIP](https://github.com/openai/CLIP/) 是由OpenAI提出的一种多模态机器学习模型。该模型通过对大规模图像和文本对进行对比学习，能够同时处理图像和文本，并将它们映射到一个共享的向量空间中。本示例展示在RDK平台上利用CLIP进行图片管理与文本搜图的功能。
+[CLIP](https://github.com/openai/CLIP/) 是由OpenAI提出的一种多模态机器学习模型。该模型通过对大规模图像和文本对进行对比学习, 能够同时处理图像和文本, 并将它们映射到一个共享的向量空间中。本示例展示在RDK平台上利用CLIP进行图片管理与文本搜图的功能。
 
 代码仓库： (https://github.com/D-Robotics/hobot_clip.git)
 
@@ -104,6 +104,9 @@ sudo tar -xf text_encoder.tar.gz -C config
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
+</TabItem>
+
+</Tabs>
 
 **检索结果可视化**
 
@@ -152,7 +155,7 @@ python -m http.server 8080
 
 **检索结果可视化**
 
-使用谷歌浏览器或Edge，输入<http://IP:8080>，即可查看图像检索结果（IP为设备IP地址）。
+在PC端的浏览器输入http://IP:8000 即可查看图像检索结果（IP为设备IP地址）。
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png)
 
