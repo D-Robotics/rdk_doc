@@ -70,7 +70,7 @@ jupyter lab --allow-root --ip 10.112.148.68
 
 ![](/../static/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
 
-## 3. 模块介绍
+## 模块介绍
 
 RDK 系列 Model Zoo总体分为如下模块（这部分以RDK X5为例，请根据实际情况跳转自对应分支）：
 
