@@ -1,7 +1,7 @@
 ---
 sidebar_position: 13
 ---
-# Road Structuring
+# CLIP
 
 
 ```mdx-code-block
@@ -159,7 +159,7 @@ The following information will be displayed in the terminal:
 
 **Display Query Result**
 
-Use Google Chrome or Edge and enter <http://IP:8080> to view the image retrieval results (where IP is the device's IP address).
+Use Google Chrome or Edge and enter http://IP:8080 to view the image retrieval results (where IP is the device's IP address).
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png)
 

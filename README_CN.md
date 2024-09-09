@@ -9,6 +9,9 @@
 
 ```shell
 $ npm install
+
+# 如安装失败
+$ npm install --registry=https://registry.npmmirror.com
 ```
 
 ### 二、在线运行

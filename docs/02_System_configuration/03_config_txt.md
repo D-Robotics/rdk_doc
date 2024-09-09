@@ -115,7 +115,7 @@ CPU 频率的调度方式，有 `conservative ondemand userspace powersave perfo
 governor=performance
 ```
 
-有关`CPU`调度方式的说明请查阅 [X3 CPU频率管理](x3_frequency_management#cpu频率管理)。
+有关`CPU`调度方式的说明请查阅 [X3 CPU频率管理](frequency_management#cpu频率管理)。
 
 ### frequency
 
@@ -130,7 +130,7 @@ frequency=1000000
 
 ## X5 CPU频率
 
-有关`CPU`调度方式的说明请查阅 [X5 CPU频率管理](x5_frequency_management#cpu频率管理)，这里仅介绍config.txt的配置方法。
+有关`CPU`调度方式的说明请查阅 [X5 CPU频率管理](frequency_management#cpu频率管理-1)，这里仅介绍config.txt的配置方法。
 
 ### arm_boost
 
