@@ -16,7 +16,7 @@ bpu_infer_lib可使用
 pip install bpu_infer_lib
 ```
 
-的方式在X5板端进行安装。
+的方式在RDK系列开发板端进行安装。
 
 ## 快速上手
 
@@ -27,7 +27,7 @@ pip install bpu_infer_lib
 Yoloworld仓库链接：https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/llm/yoloworld
 :::
 
-该仓库已为开发者提供了可在X5开发板上直接部署的地瓜异构模型`yolo_world.bin`。
+该仓库已为开发者提供了可在RDK系列开发板上直接部署的地瓜异构模型`yolo_world.bin`。
 
 假设开发者已将该模型下载，此时我们可以导入bpu_infer_lib推理库，并使用该库最重要的一个类 - **Infer**类来创建一个对象：
 
