@@ -58,7 +58,7 @@ source /opt/tros/humble/setup.bash
 # Configuring MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Start the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=1 dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
