@@ -328,7 +328,7 @@ def test_camera_vps():
     vps.close_cam()
     print("test_camera_vps done!!!")
 
-test_camera_vps():
+test_camera_vps()
 ```
 
 ## close_cam
