@@ -171,7 +171,12 @@ from hobot_vio import libsrcampy
 def test_cam_bind_encode_decode_bind_display():
     #camera start
     cam = libsrcampy.Camera()
-    ret = cam.open_cam(0, 1, 30, [1920, 1280], [1080, 720])
+    # If you know the pipe_id and video_index, you can specify the first two arguments.
+    # ret = cam.open_cam(0, 1, 30, [1920, 1280], [1080, 720])
+
+    # If you do not know the pipe_id and video_index, you can use the following
+    # code to detect them, and it will default to using the first detected camera.
+    ret = cam.open_cam(0, -1, 30, [1920, 1280], [1080, 720])
     print("Camera open_cam return:%d" % ret)
 
     #enable encoder
@@ -205,7 +210,7 @@ def test_cam_bind_encode_decode_bind_display():
     cam.close_cam()
     print("test_cam_bind_encode_decode_bind_display done!!!")
 
-    test_cam_bind_encode_decode()
+test_cam_bind_encode_decode_bind_display()
 ```
 
 ## close

@@ -204,7 +204,7 @@ def test_cam_bind_encode_decode_bind_display():
     cam.close()
     print("test_cam_bind_encode_decode_bind_display done!!!")
 
-    test_cam_bind_encode_decode()
+test_cam_bind_encode_decode_bind_display()
 ```
 
 ## close
