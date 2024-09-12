@@ -97,7 +97,7 @@ mipi_image_width:=1280 mipi_image_height:=640
 ros2 launch stereonet_model stereonet_model.launch.py \
 stereo_image_topic:=/image_combine_raw stereo_combine_mode:=1 need_rectify:="True" log_level:=debug
 ```
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/consume.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/consume.png)
 
 # 注意事项
 1. 模型的输入尺寸为宽：1280，高640，相机发布的图像分辨率应为1280x640
