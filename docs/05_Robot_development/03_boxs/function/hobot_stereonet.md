@@ -1,99 +1,104 @@
----
-sidebar_position: 11
----
-# 双目深度估计算法
+# 功能介绍
 
-## 功能介绍
-
-双目深度估计算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/stereonet.html)在[SceneFlow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)数据集上训练出来的`StereoNet`模型。
+双目深度估计算法是使用地平线[OpenExplorer](https://developer.horizon.ai/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/stereonet.html)在[SceneFlow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)数据集上训练出来的`StereoNet`模型。
 
 算法输入为双目图像数据，分别是左右视图。算法输出为左视图的视差。
 
-此示例使用ZED 2i双目相机作为图像数据输入源，利用BPU进行算法推理，发布包含双目图像左图和感知结果的话题消息，在PC端浏览器上渲染显示算法结果。
+此示例使用mipi双目相机作为图像数据输入源，利用BPU进行算法推理，发布包含双目图像左图和感知结果的话题消息，
+在PC端rviz2上渲染算法结果。
 
-代码仓库： (https://github.com/D-Robotics/hobot_stereonet.git)
+# 物料清单
 
-## 支持平台
+双目相机
 
-| 平台      | 运行方式     | 示例功能                                |
-| --------- | ------------ | --------------------------------------- |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 使用本地回灌，并通过web展示推理渲染结果 |
+# 使用方法
 
-## 准备工作
+## 功能安装
 
-1. RDK已烧录好Ubuntu 20.04系统镜像。
+在RDK系统的终端中运行如下指令，即可快速安装：
 
-2. RDK已成功安装TogetheROS.Bot。
-
-3. ZED 2i双目相机，连接到RDK的USB 3.0接口。
-
-4. 确认PC机能够通过网络访问RDK。
-
-## 使用介绍
-
-订阅从ZED 2i双目相机采集到的图像数据作为输入，经过推理后发布包含双目图像左图和感知结果的话题消息，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
-
-启动命令：
-
-
+tros humble 版本
 ```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 启动websocket服务
-ros2 launch websocket websocket_service.launch.py
-
-ros2 launch hobot_stereonet hobot_stereonet_demo.launch.py 
+sudo apt update
+sudo apt install -y tros-humble-hobot-stereonet
 ```
 
-## 结果分析
+## 启动双目图像发布、算法推理和图像可视化
 
-在运行终端输出如下信息：
+在RDK系统的终端中运行如下指令启动：
 
-```text
-[INFO] [launch]: All log files can be found below /root/.ros/log/2023-07-05-18-23-51-350999-hobot-2628272
-[INFO] [launch]: Default logging verbosity is set to INFO
-webserver has launch
-[INFO] [hobot_stereo_usb_cam-1]: process started with pid [2628275]
-[INFO] [talker-2]: process started with pid [2628277]
-[INFO] [websocket-3]: process started with pid [2628279]
-[INFO] [hobot_stereonet-4]: process started with pid [2628281]
-[hobot_stereo_usb_cam-1] [WARN] [1688581432.042569331] [stereo_usb_cam_node]: Get params complete.
-[hobot_stereo_usb_cam-1]  camera_name: default_cam
-[hobot_stereo_usb_cam-1]  video_device index: 0
-[hobot_stereo_usb_cam-1]  image_width: 1280
-[hobot_stereo_usb_cam-1]  image_height: 720
-[hobot_stereo_usb_cam-1]  io_method_name: shared_mem
-[hobot_stereo_usb_cam-1]  pub_topic_name: hbmem_stereo_img
-[hobot_stereo_usb_cam-1]  out_format: nv12
-[hobot_stereo_usb_cam-1]  enable_fb: 0
-[hobot_stereo_usb_cam-1]  enable_dump: 0
-[hobot_stereonet-4] [WARN] [1688581432.071555206] [stereonet_node]:
-[hobot_stereonet-4]  sub_hbmem_topic_name: hbmem_stereo_img
-[hobot_stereonet-4]  ros_img_topic_name: /stereonet_node_output
-[hobot_stereo_usb_cam-1] [sl_oc::video::VideoCapture] INFO: ZED Open Capture - Camera module - Version: 0.6.0
-[hobot_stereo_usb_cam-1] [sl_oc::video::VideoCapture] INFO: Camera resolution: 2560x720@30Hz
-[hobot_stereo_usb_cam-1] [sl_oc::video::VideoCapture] INFO: Trying to open the device '/dev/video0'
-[hobot_stereonet-4] [BPU_PLAT]BPU Platform Version(1.3.3)!
-[hobot_stereonet-4] [HBRT] set log level as 0. version = 3.14.25.0
-[hobot_stereonet-4] [DNN] Runtime version = 1.12.3_(3.14.25 HBRT)
-[hobot_stereo_usb_cam-1] [sl_oc::video::VideoCapture] INFO: Opened camera with SN: 38085162
-[hobot_stereo_usb_cam-1] [sl_oc::video::VideoCapture] INFO: Device '/dev/video0' opened
-[hobot_stereonet-4] [WARN] [1688581432.344738873] [dnn]: Run default SetOutputParser.
-[hobot_stereonet-4] [WARN] [1688581432.344880957] [dnn]: Set output parser with default dnn node parser, you will get all output tensors and should parse output_tensors in PostProcess.
-[hobot_stereonet-4] [WARN] [1688581432.347218373] [stereonet_node]: model_input_count: 1, model_input_width: 1280, model_input_height: 720
-[hobot_stereo_usb_cam-1] [WARN] [1688581432.412578248] [stereo_usb_cam_node]: Open video device 0 success.
-[hobot_stereo_usb_cam-1] camera sn: 38085162[/dev/video0]
-[hobot_stereonet-4] [WARN] [1688581434.992634291] [stereonet_node]: input fps: 1.60, out fps: 1.60, preprocess time ms: 1191, infer time ms: 48, msg preparation for pub time cost ms: 8
-[hobot_stereonet-4] [WARN] [1688581436.203778417] [stereonet_node]: input fps: 0.82, out fps: 0.82, preprocess time ms: 1157, infer time ms: 47, msg preparation for pub time cost ms: 2
+tros humble 版本
+```shell
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 终端1 启动双目模型launch文件
+ros2 launch stereonet_model stereonet_model.launch.py \
+stereo_image_topic:=/image_combine_raw stereo_combine_mode:=1 need_rectify:="True" \
+height_min:=0.1 height_max:=1.0 KMean:=10 stdv:=0.01 leaf_size:=0.05
+
+# 终端2 启动mipi双目相机launch文件
+ros2 launch mipi_cam mipi_cam_dual_channel.launch.py \
+mipi_image_width:=1280 mipi_image_height:=640
 ```
 
-在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+另外可以通过 component 的方式启动节点
+```shell 
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 终端1 启动双目模型launch文件
+ros2 launch stereonet_model stereonet_model_component.launch.py \
+stereo_image_topic:=/image_combine_raw stereo_combine_mode:=1 need_rectify:="True" \
+height_min:=0.1 height_max:=1.0 KMean:=10 stdv:=0.01 leaf_size:=0.05
+
+# 终端2 启动mipi双目相机launch文件
+ros2 launch mipi_cam mipi_cam_dual_channel.launch.py \
+mipi_image_width:=1280 mipi_image_height:=640
+```
+
+启动成功后，打开同一网络电脑的rviz2，订阅双目模型节点发布的相关话题，即可看到算法可视化的实时效果：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rdk.png)
 
-相同场景下ZED的深度估计可视化效果如下：
+# 接口说明
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed.png)
+## 订阅话题
 
-可以看到对于有光线变化区域，深度学习方法的深度估计准确率更高。
+| 名称         | 消息类型                             | 说明                                     |
+| ------------ | ------------------------------------ | ---------------------------------------- |
+| /image_combine_raw  | sensor_msgs::msg::Image   | 双目相机节点发布的左右目拼接图像话题，用于模型推理深度             |
+
+
+## 发布话题
+
+| 名称         | 消息类型                             | 说明                                     |
+| ------------ | ------------------------------------ | ---------------------------------------- |
+| /StereoNetNode/stereonet_pointcloud2  | sensor_msgs::msg::PointCloud2                | 发布的点云深度话题             |
+| /StereoNetNode/stereonet_depth  | sensor_msgs::msg::Image                | 发布的深度图像，像素值为深度，单位为毫米              |
+| /StereoNetNode/stereonet_visual  | sensor_msgs::msg::Image                | 发布的比较直观的可视化渲染图像             |
+
+## 参数
+
+| 名称                         | 参数值   | 说明     |
+| --------------------------- | ------------------------ | ------------------------------ |
+| stereo_image_topic        | 默认 /image_combine_raw | 订阅双目图像消息的话题名                        |
+| need_rectify        | 默认 True | 是否对双目数据做基线对齐和去畸变，相机内外参在config/stereo.yaml文件内指定
+| stereo_combine_mode        | 默认 1 | 左右目图像往往拼接在一张图上再发布出去，1为上下拼接，0为左右拼接，指示双目算法如何拆分图像   
+| height_min        | 默认 -0.2 |  过滤掉相机垂直方向上高度小于height_min的点，单位为米
+| height_max        | 默认 999.9 | 过滤掉相机垂直方向上高度大于height_max的点，单位为米   
+| KMean        | 默认 10 | 过滤稀疏离群点时每个点的临近点的数目，统计每个点与周围最近10个点的距离 
+| stdv        | 默认 0.01 | 过滤稀疏离群点时判断是否为离群点的阈值，将标准差的倍数设置为0.01  
+| leaf_size        | 默认 0.05 | 设置点云的单位密度，表示半径0.05米的三维球内只有一个点   
+
+# 算法耗时
+当log等级设置为debug时，程序会打印出算法各阶段耗时情况，供用户debug算法性能瓶颈。
+```shell
+ros2 launch stereonet_model stereonet_model.launch.py \
+stereo_image_topic:=/image_combine_raw stereo_combine_mode:=1 need_rectify:="True" log_level:=debug
+```
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/consume.jpeg)
+
+# 注意事项
+1. 模型的输入尺寸为宽：1280，高640，相机发布的图像分辨率应为1280x640
+2. 如果双目相机发布图像的格式为NV12，那么双目图像的拼接方式必须为上下拼接
