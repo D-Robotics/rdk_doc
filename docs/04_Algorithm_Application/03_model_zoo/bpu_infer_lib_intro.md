@@ -13,7 +13,11 @@ ModelZoo使用的板端推理接口为**bpu_infer_lib**，bpu_infer_lib是对板
 bpu_infer_lib可使用
 
 ```
-pip install bpu_infer_lib
+# RDK X5 使用以下命令
+pip install bpu_infer_lib_x5
+
+# RDK X3 使用以下命令
+pip install bpu_infer_lib_x3
 ```
 
 的方式在RDK系列开发板端进行安装。
