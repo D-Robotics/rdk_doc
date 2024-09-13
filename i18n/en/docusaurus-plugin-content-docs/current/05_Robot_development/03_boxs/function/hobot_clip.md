@@ -64,7 +64,7 @@ pip3 install regex
 
 **Mode One: Storage**
 
-Set clip_mode to "0" to store the image files from the "config" directory into the "clip.db" database.
+Set clip_mode to "0" to store the image files from the "/root/config" directory into the "clip.db" database.
 
 (Users can change the image folder path "clip_storage_folder" and the database name "clip_db_file" as needed. It is recommended to use absolute paths.)
 
@@ -79,7 +79,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
 # Start the launch file
-ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=config
+ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
 </TabItem>
