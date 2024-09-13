@@ -60,7 +60,7 @@ pip3 install regex
 
 **模式1 入库**
 
-设置clip_mode为“0”, 将"config"目录下的图片文件入库, 存在"clip.db"数据库中。
+设置clip_mode为“0”, 将"/root/config"目录下的图片文件入库, 存在"clip.db"数据库中。
 
 （用户可根据需要, 更换需要入库的图片文件夹路径clip_storage_folder、存放的数据库名clip_db_file, 建议使用绝对路径。）
 
@@ -76,7 +76,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
 # 启动launch文件
-ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=config
+ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
 </TabItem>
