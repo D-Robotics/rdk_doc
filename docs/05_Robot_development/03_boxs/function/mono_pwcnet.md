@@ -63,7 +63,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
 export CAM_TYPE=mipi
 
 # 启动launch文件
-ros2 launch mono_pwcnet mono_pwcnet.launch.py
+ros2 launch mono_pwcnet pwcnet.launch.py
 ```
 </TabItem>
 
@@ -89,7 +89,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
 export CAM_TYPE=usb
 
 # 启动launch文件
-ros2 launch mono_pwcnet mono_pwcnet.launch.py
+ros2 launch mono_pwcnet pwcnet.launch.py
 ```
 
 </TabItem>
@@ -115,7 +115,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
 export CAM_TYPE=fb
 
 # 启动launch文件
-ros2 launch mono_pwcnet mono_pwcnet.launch.py
+ros2 launch mono_pwcnet pwcnet.launch.py
 
 ```
 </TabItem>
