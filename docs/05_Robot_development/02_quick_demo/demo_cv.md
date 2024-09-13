@@ -206,7 +206,7 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取ToF图片，进行均值滤波 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取ToF图片，进行均值滤波 |
 
 ### 准备工作
 
