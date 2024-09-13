@@ -65,7 +65,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=mipi
 
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=1 dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=0 dnn_example_config_file:=config/yolov8segworkconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 ##### 使用USB摄像头发布图片
@@ -88,7 +88,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=usb
 
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=1 dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=0 dnn_example_config_file:=config/yolov8segworkconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 #### 使用本地图片回灌
@@ -111,7 +111,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov8workconfig.json dnn_example_image:=config/test.jpg
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov8segworkconfig.json dnn_example_image:=config/test.jpg
 ```
 
 ## 结果分析
