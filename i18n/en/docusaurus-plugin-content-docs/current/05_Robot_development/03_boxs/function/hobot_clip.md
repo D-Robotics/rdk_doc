@@ -58,6 +58,13 @@ pip3 install wcwidth
 pip3 install regex
 ```
 
+### Model Download
+```shell
+# Download the model file from the web.
+wget http://archive.d-robotics.cc/models/clip_encode_text/text_encoder.tar.gz
+sudo tar -xf text_encoder.tar.gz -C config
+```
+
 ## Usage
 
 ### RDK
@@ -98,10 +105,6 @@ Set clip_mode to "1", set database path to "clip.db" and set query text "a diagr
 ```shell
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
-
-# Download the model file from the web.
-wget http://archive.d-robotics.cc/models/clip_encode_text/text_encoder.tar.gz
-sudo tar -xf text_encoder.tar.gz -C config
 
 # Start the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"

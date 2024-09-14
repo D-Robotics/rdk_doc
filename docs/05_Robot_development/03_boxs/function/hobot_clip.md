@@ -54,6 +54,13 @@ pip3 install wcwidth
 pip3 install regex
 ```
 
+### 模型下载
+```shell
+# 从Web端下载运行示例需要的模型文件。
+wget http://archive.d-robotics.cc/models/clip_encode_text/text_encoder.tar.gz
+sudo tar -xf text_encoder.tar.gz -C config
+```
+
 ## 使用介绍
 
 ### RDK平台
@@ -96,10 +103,6 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 ```shell
 # 配置ROS2环境
 source /opt/tros/humble/setup.bash
-
-# 从Web端下载运行示例需要的模型文件。
-wget http://archive.d-robotics.cc/models/clip_encode_text/text_encoder.tar.gz
-sudo tar -xf text_encoder.tar.gz -C config
 
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
