@@ -302,13 +302,13 @@ Here is an example using the RDK platform:
 
 To achieve environmental perception capabilities, robots often carry cameras, ToF, and other types of sensors. In order to reduce the cost of sensor adaptation and usage for users, TogetheROS.Bot wraps multiple commonly used sensors into the hobot_sensor module and abstracts them into ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program will automatically adapt to the correct sensor type. The currently supported MIPI sensor types are as follows:
 
-| Type | Model | Specifications | Supported Platforms |
-| ------ | ------ | ------ | ------ |
-| Camera | F37 | 200W | RDK X3, RDK X3 Module |
-| Camera | GC4663 | 400W | RDK X3, RDK X3 Module |
-| Camera | IMX219 | 200W | RDK X3, RDK X3 Module, RDK X5  |
-| Camera | IMX477 | 200W | RDK X3, RDK X3 Module |
-| Camera | OV5647 | 200W | RDK X3, RDK X3 Module, RDK X5 |
+| Index | Name    | Representational Image                     | Parameters     | Reference Link                                                |
+| ----- | ------- | ------------------------------------------ | -------------- | ------------------------------------------------------------- |
+| 1    | F37    | ![F37](/../static/img/05_Robot_development/02_quick_demo/image/F37.jpg)       | 200W Pixel | RDK X3, RDK X3 Module | [F37](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
+| 2    | GC4663 | ![GC4663](/../static/img/05_Robot_development/02_quick_demo/image/GC4663.jpg) | 400W Pixel | RDK X3, RDK X3 Module | [GC4663](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
+| 3    | IMX219 | ![IMX219](/../static/img/05_Robot_development/02_quick_demo/image/IMX219.jpg) | 800W Pixel | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 4    | IMX477 | ![IMX477](/../static/img/05_Robot_development/02_quick_demo/image/IMX477.jpg) | 200W Pixel | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
+| 5    | OV5647 | ![OV5647](/../static/img/05_Robot_development/02_quick_demo/image/OV5647.jpg) | 200W Pixel | RDK X3, RDK X3 Module, RDK X5 | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
 
 Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 

@@ -315,22 +315,16 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot会对多种常用传感器进行封装，并抽象成hobot_sensor模块，支持ROS标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的MIPI传感器类型如下所示：
 
-| 类型 | 型号 | 规格 | 支持平台 |
-| ------ | ------ | ------ | ------ |
-| 摄像头| F37 | 200W | RDK X3, RDK X3 Module |
-| 摄像头| GC4663 | 400W | RDK X3, RDK X3 Module |
-| 摄像头| IMX219 | 200W | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 |
-| 摄像头| IMX477 | 200W | RDK X3, RDK X3 Module |
-| 摄像头| OV5647 | 200W | RDK X3, RDK X3 Module, RDK X5 |
+
+| 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | F37    | ![F37](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W像素 | RDK X3, RDK X3 Module | [F37](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
+| 2    | GC4663 | ![GC4663](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W像素 | RDK X3, RDK X3 Module | [GC4663](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
+| 3    | IMX219 | ![IMX219](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W像素 | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 4    | IMX477 | ![IMX477](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 200W像素 | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
+| 5    | OV5647 | ![OV5647](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W像素 | RDK X3, RDK X3 Module, RDK X5 | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
-
-### 支持平台
-
-| 平台   | 运行方式      |
-| ------ | ------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  |
-| RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
