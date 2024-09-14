@@ -162,3 +162,5 @@ The following information is outputted in the terminal:
 ```
 
 On the PC browser, enter http://IP:8000 and then click on the 'Full Image Segmentation' to view the rendering effect of the image and algorithm.
+
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv//pwcnet.gif)

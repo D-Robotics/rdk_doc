@@ -158,3 +158,4 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 
 在PC端的浏览器输入http://IP:8000 ,然后点击右侧的Full Image Segmentation查看渲染效果（IP为RDK设备的IP地址）
 
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv//pwcnet.gif)
