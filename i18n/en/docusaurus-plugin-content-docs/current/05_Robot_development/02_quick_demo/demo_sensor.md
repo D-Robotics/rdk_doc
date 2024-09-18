@@ -528,6 +528,118 @@ Take the F37 as an example to introduce the method of acquiring and previewing i
 	- Make sure you have set up the tros.b environment.
 	- Verify the parameters are correct, for more details refer to the Hobot_Sensors README.md file.
 
+## Dual MIPI camera
+
+### Introduction
+
+To achieve environmental perception capabilities, robots often carry stereo cameras, ToF, and other types of sensors. In order to reduce the cost of sensor adaptation and usage for users, TogetheROS.Bot wraps multiple commonly used sensors into the hobot_sensor module and abstracts them into ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program will automatically adapt to the correct sensor type. The currently supported MIPI sensor types are as follows:
+
+| Type | Model | Specifications | Supported Platforms |
+| ------ | ------ | ------ | ------ |
+| Camera | SC230ai | 200W | RDK X5 |
+
+Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
+
+### Supported Platforms
+
+| Platform   | System      | Function                          |
+| ------ | ------------- | --------------------------------- |
+| RDK X5 | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
+
+### Preparation
+
+#### RDK
+
+1. Confirm that the camera is correctly connected to RDK. For example, the connection between the dual camera and RDK X5 is shown in the following figure:
+
+    ![image-X5-PI-DualCamera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
+
+2. RDK is flashed with the  Ubuntu 22.04 system image provided by D-Robotics
+
+3. RDK has successfully installed tros.b
+
+4. Confirm that the PC can access RDK through the network
+
+### Usage
+
+#### RDK Platform
+
+Take the SC230ai as an example to introduce the method of acquiring and previewing images:
+
+1. SSH into RDK and determine the camera model, take `SC230ai` as an example.
+
+2. Start the `hobot_sensor` node with the following command:
+
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # Configure the tros.b environment
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
+    # Start the launch file
+    ros2 launch mipi_cam mipi_cam_dual_channel.launch.py
+    ```
+
+3. If the following information is outputted, it means that the node has been successfully started:
+
+    ```text
+    [INFO] [launch]: All log files can be found below /root/.ros/log/2024-09-18-19-15-26-160110-ubuntu-3931
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    config_file_path is  /opt/tros/humble/lib/mipi_cam/config/
+    Hobot shm pkg enables zero-copy with fastrtps profiles file: /opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+    Hobot shm pkg sets RMW_FASTRTPS_USE_QOS_FROM_XML: 1
+    env of RMW_FASTRTPS_USE_QOS_FROM_XML is  1 , ignore env setting
+    [INFO] [mipi_cam-1]: process started with pid [3932]
+    [mipi_cam-1] [WARN] [1726658126.449994704] [mipi_node]: frame_ts_type value: sensor
+    [mipi_cam-1] [ERROR] [1726658126.455022356] [mipi_factory]: This is't support device type(), start defaule capture.
+    [mipi_cam-1]
+    [mipi_cam-1] [WARN] [1726658126.456074125] [mipi_cam]: this board support mipi:
+    [mipi_cam-1] [WARN] [1726658126.456274529] [mipi_cam]: host 0
+    [mipi_cam-1] [WARN] [1726658126.456333567] [mipi_cam]: host 2
+    [mipi_cam-1] [WARN] [1726658128.722451045] [mipi_cam]: [init]->cap default init success.
+    [mipi_cam-1]
+    ...
+    ```
+4. To view the dual camera image on the web, as raw data needs to be encoded into JPEG images, need to be coded Jpeg image node,  and one for publishing with a webservice node.
+
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # Configure the tros.b environment
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
+    # Start the launch file
+    ros2 launch mipi_cam mipi_cam_dual_channel_websocket.launch.py
+    ```
+
+5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the dual camera's output.
+    ![web-dualcamera-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg "Real-time image")
+
+### Caution
+
+1. Caution when plugging/unplugging the camera:
+
+   **NEVER plug or unplug the camera module without powering off the development board first. Otherwise, it may result in damaging the camera module.**
+
+2. If you encounter any issues with the startup of the hobot_sensor node, you can troubleshoot the problems by following these steps:
+	- Check the hardware connections.
+	- Make sure you have set up the tros.b environment.
+	- Verify the parameters are correct, for more details refer to the Hobot_Sensors README.md file.
+
 ## RGBD camera
 
 ### Introduction

@@ -538,6 +538,120 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     - 是否设置 tros.b 环境
     - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
 
+## 双目MIPI图像采集
+
+### 功能介绍
+
+为了实现环境的立体感知能力，机器人产品中通常会搭载双目摄像头、ToF等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot会对多种常用传感器进行封装，并抽象成hobot_sensor模块，支持ROS标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的MIPI传感器类型如下所示：
+
+| 类型 | 型号 | 规格 | 支持平台 |
+| ------ | ------ | ------ | ------ |
+| 摄像头| SC230ai | 200W | RDK X5 |
+
+代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
+
+### 支持平台
+
+| 平台   | 运行方式      |
+| ------ | ------------- |
+| RDK X5 | Ubuntu 22.04 (Humble)  |
+
+### 准备工作
+
+#### RDK平台
+
+1. 确认摄像头正确接入RDK，例如 SC230ai 双目摄像头的接入RDK X5方式如下图：
+
+    ![image-X5-PI-DualCamera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
+
+2. RDK已烧录好Ubuntu 22.04系统镜像
+
+3. RDK已成功安装tros.b
+
+4. 确认PC机能够通过网络访问RDK
+
+### 使用方式
+
+#### RDK平台
+
+下面以 SC230ai 为例，介绍摄像头数据获取和预览的方法：
+
+1. 通过 SSH 登录RDK，确定摄像头型号，这里以`SC230ai`为例
+
+2. 并通过下述命令启动 hobot_sensor 节点  
+
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
+    # launch 方式启动
+    ros2 launch mipi_cam mipi_cam_dual_channel.launch.py
+    ```
+
+3. 如程序输出如下信息，说明节点已成功启动
+
+    ```text
+    [INFO] [launch]: All log files can be found below /root/.ros/log/2024-09-18-19-15-26-160110-ubuntu-3931
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    config_file_path is  /opt/tros/humble/lib/mipi_cam/config/
+    Hobot shm pkg enables zero-copy with fastrtps profiles file: /opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+    Hobot shm pkg sets RMW_FASTRTPS_USE_QOS_FROM_XML: 1
+    env of RMW_FASTRTPS_USE_QOS_FROM_XML is  1 , ignore env setting
+    [INFO] [mipi_cam-1]: process started with pid [3932]
+    [mipi_cam-1] [WARN] [1726658126.449994704] [mipi_node]: frame_ts_type value: sensor
+    [mipi_cam-1] [ERROR] [1726658126.455022356] [mipi_factory]: This is't support device type(), start defaule capture.
+    [mipi_cam-1]
+    [mipi_cam-1] [WARN] [1726658126.456074125] [mipi_cam]: this board support mipi:
+    [mipi_cam-1] [WARN] [1726658126.456274529] [mipi_cam]: host 0
+    [mipi_cam-1] [WARN] [1726658126.456333567] [mipi_cam]: host 2
+    [mipi_cam-1] [WARN] [1726658128.722451045] [mipi_cam]: [init]->cap default init success.
+    [mipi_cam-1]
+    ...
+    ```
+
+4. Web端查看双目摄像头图像，由于发布原始数据，需要一个编码JPEG图像的节点，一个用webservice发布的节点，启动命令如下：
+
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
+    # launch 方式启动
+    ros2 launch mipi_cam mipi_cam_dual_channel_websocket.launch.py
+    ```
+
+5. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为RDK IP地址），点击左上方Web端展示即可看到双目输出的实时画面
+    ![web-dualcamera-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg "实时图像")
+
+
+### 注意事项
+
+1. 摄像头插拔注意事项
+
+   **严禁在开发板未断电的情况下插拔摄像头，否则非常容易烧坏摄像头模组。**
+
+2. 如遇到hobot_sensor节点启动异常，可通过下述步骤进行问题排查：
+    - 检查硬件连接
+    - 是否设置 tros.b 环境
+    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+
 ## RGBD图像采集
 
 ### 功能介绍
