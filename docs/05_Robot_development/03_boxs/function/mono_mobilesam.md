@@ -175,10 +175,6 @@ package初始化后, 在运行终端输出如下信息：
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
 
-"dump_render_img"设置为"1"时, 渲染效果保存在当前路径的result目录下。
-
-（具体设置方法：修改 /opt/tros/humble/share/mono_mobilesam/launch/sam.launch.py 文件, 在 sam_node中, parameters属性下, 添加 {"dump_render_img": 1}）
-
 ## 进阶使用
 
 如需调整检测框大小, 可参考下面方法验证。更重要的是可以通过上游检测节点检测结果作为sam输入。
