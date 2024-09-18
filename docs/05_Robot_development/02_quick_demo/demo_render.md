@@ -753,7 +753,7 @@ ros2 bag record -a
 
 2. Foxglove在线页面播放rosbag数据
 
-1）PC浏览器（chrome/firefox/edge）输入 (https://foxglove.dev/studio`，进入foxglove官网
+1）PC浏览器（chrome/firefox/edge）输入 (https://foxglove.dev/studio) , 进入foxglove官网
 
    ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png "foxglove使用指导1")
 
