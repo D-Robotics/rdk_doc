@@ -177,6 +177,8 @@ The result will be rendered on web. On the PC-side browser, you can view the ima
 
 When "dump_render_img" is set to "1", the rendering effect will be saved in the "result" directory at the current path.
 
+（More detial：vi /opt/tros/humble/share/mono_mobilesam/launch/sam.launch.py, in sam_node, parameters, add {"dump_render_img": 1}）
+
 ## Advance
 
 If you need to adjust the size of the detection box, you can refer to the following method for verification. What's more, the detection results of the other dnn detection node can be used as the input for Sam.
