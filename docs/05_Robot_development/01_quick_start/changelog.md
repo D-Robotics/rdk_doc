@@ -6,7 +6,21 @@ sidebar_position: 6
 
 ## tros-humble
 
-### 版本号：2.2.0
+### 版本号：2.3.0 (2024-09-19)
+
+新增功能：
+
+- 支持`RDK X5`平台。
+- 数据采集增加[双目MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)功能。
+- 算法仓库新增`yolov8`和`yolov10`[目标检测](/docs/05_Robot_development/03_boxs/detection/yolo.md)，`yolov8-seg`[图像分割](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md)参考算法。
+- 算法仓库新增[YOLO-World算法](/docs/05_Robot_development/03_boxs/function/hobot_yolo_world.md)，用于开放性词汇输入检测。
+- 算法仓库新增[光流估计算法](/docs/05_Robot_development/03_boxs/function/mono_pwcnet.md)，用于光流检测。
+- 算法仓库新增[分割一切算法](/docs/05_Robot_development/03_boxs/function/mono_mobilesam.md)，用于无差别分割一切。
+- 算法仓库新增[文本图片特征检索算法](/docs/05_Robot_development/03_boxs/function/hobot_clip.md)，用于文本图片特征提取检索。
+- 算法仓库新增[双目深度估计算法](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md)，实现基于视觉的深度估计。
+
+
+### 版本号：2.2.0 (2024-04-11)
 
 功能变更：
 
@@ -30,7 +44,7 @@ sidebar_position: 6
 
 ## tros-foxy
 
-### 版本号：2.1.3
+### 版本号：2.1.3 (2024-03-11)
 
 功能变更：
 
@@ -39,7 +53,7 @@ sidebar_position: 6
 - 引入表示TROS发行版的环境变量TROS_DISTRO，执行`source /opt/tros/setup.bash`/`source /opt/tros/local_setup.bash`命令后，环境变量`TROS_DISTRO`的值为空。hobot_codec, hobot_audio, hobot_mipi_cam, hobot_usb_cam等模块使用的配置文件路径由`/opt/tros/lib`变更为`/opt/tros/${TROS_DISTRO}/lib`。
 
 
-### 版本号：2.1.2
+### 版本号：2.1.2 (2024-01-19)
 
 新增功能：
 
@@ -52,7 +66,7 @@ sidebar_position: 6
 - `hobot_tts`更新音频播放函数调用，解决新版本系统播放失败问题。
 - `hobot_llm`删除config设备树文件，以及更新README，新版本系统可通过命令工具设置ION内存大小。
 
-### 版本号：2.1.1
+### 版本号：2.1.1 (2023-11-03)
 
 新增功能：
 
@@ -62,7 +76,7 @@ sidebar_position: 6
 
 - 文本转语音`hobot_tts` node，修复某些字符导致应用退出问题。
 
-### 版本号：2.1.0
+### 版本号：2.1.0 (2023-09-14)
 
 功能变更：
 
@@ -80,7 +94,7 @@ sidebar_position: 6
 - MIPI图像采集`hobot_mipi_cam` node修复发送RGB格式数据消息step字段设置错误问题。
 
 
-### 版本号：2.0.2
+### 版本号：2.0.2 (2023-08-28)
 
 功能变更：
 
@@ -99,7 +113,7 @@ sidebar_position: 6
 - 修复数据可视化消息转换`hobot_visualization` node的launch启动文件配置无效的问题。
 
 
-### 版本号：2.0-Release（2.0.1）
+### 版本号：2.0-Release（2.0.1） (2023-06-10)
 
 功能变更：
 
@@ -129,7 +143,7 @@ sidebar_position: 6
 - 修复orb_slam3算法编译脚本路径错误导致的编译失败问题。
 
 
-### 版本号：2.0-Beta（2.0.0）
+### 版本号：2.0-Beta（2.0.0） (2023-05-29)
 
 2.0-Beta（2.0.0）是第一个2.x版本tros.b，建议[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)的用户升级到2.x版本。
 
