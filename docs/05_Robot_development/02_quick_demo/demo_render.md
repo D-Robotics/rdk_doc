@@ -246,6 +246,14 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+使用RDK X5时, 需要额外使用下面命令:
+```bash
+# 关闭桌面显示
+sudo systemctl stop lightdm
+# 复制运行依赖
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_hdmi/config/ .
+```
+
 </TabItem>
 
 </Tabs>

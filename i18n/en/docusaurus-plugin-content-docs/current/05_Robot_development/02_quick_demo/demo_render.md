@@ -179,6 +179,13 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+If use RDK X5, run commod:
+```bash
+# 关闭桌面显示
+sudo systemctl stop lightdm
+# 复制运行依赖
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_hdmi/config/ .
+```
 </TabItem>
 
 </Tabs>
