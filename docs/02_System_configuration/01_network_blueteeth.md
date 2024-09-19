@@ -226,6 +226,34 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
 ![image-20220601203025803](../../static/img/02_System_configuration/image/network/image-20220601203025803.png)  
 
 7. 如需切换回`Station`模式，可按如下方式进行：
+
+    [RDK X5]
+
+    ```bash
+    # 停止 hostapd
+    killall -9 hostapd
+    
+    # 清除 wlan0 的地址
+    ip addr flush dev wlan0
+    sleep 0.5
+    ifconfig wlan0 down
+    sleep 1
+    ifconfig wlan0 up
+    
+    # 重启 wpa_supplicant
+    systemctl unmask wpa_supplicant
+    systemctl restart wpa_supplicant
+
+    #重装wifi驱动
+    rmmod aic8800_fdrv 
+    modprobe aic8800_fdrv
+
+    # 连接热点,，具体操作可以查看上一章节 “无线网络”
+    wifi_connect "WiFi-Test" "12345678"
+    ```
+
+    [Other]
+
     ```bash
     # 停止 hostapd
     killall -9 hostapd
