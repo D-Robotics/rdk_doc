@@ -45,7 +45,7 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 
 ##### 使用MIPI摄像头发布图片
 
-YOLOv8-Seg实例分割示例订阅sensor package发布的图片，经过推理后发布算法msg，并在运行路径下自动保存渲染后的图片，命名方式为render_frameid_时间戳秒_时间戳纳秒.jpg。
+YOLOv8-Seg实例分割示例订阅sensor package发布的图片, 经过推理后发布算法msg。默认不保存渲染图片, 如需保存, 需要在运行时设置 dnn_example_dump_render_img 为1, 会在运行路径下自动保存渲染后的图片，命名方式为render_frameid_时间戳秒_时间戳纳秒.jpg。
 
 <Tabs groupId="tros-distro">
 

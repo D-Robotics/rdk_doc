@@ -39,7 +39,7 @@ Applications: YOLOv8-Seg is capable of recognizing objects and performing precis
 
 ##### Use a MIPI Camera to Publish Images 
 
-The YOLOv8-Seg example subscribes to images published by the sensor package. After inference, it publishes algorithm messages and saves the rendered images automatically in the running directory. The saved images are named in the format of `render_frameid_timestampInSeconds_timestampInNanoseconds.jpg`.
+The YOLOv8-Seg example subscribes to images published by the sensor package. IF set "dnn_example_dump_render_img:=1", it will save the rendered images automatically in the running directory. The saved images are named in the format of `render_frameid_timestampInSeconds_timestampInNanoseconds.jpg`.
 
 <Tabs groupId="tros-distro">
 
