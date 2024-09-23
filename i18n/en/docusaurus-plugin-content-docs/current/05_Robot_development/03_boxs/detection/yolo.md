@@ -136,7 +136,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2, YOLOv3 and YOLOv5 are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`.
+In addition to the YOLOv2, YOLOv3 and YOLOv5 are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`, and for the YOLOv8 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov8workconfig.json"`, and for the YOLOv10 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov10workconfig.json"`.
 
 ## Result Analysis
 
