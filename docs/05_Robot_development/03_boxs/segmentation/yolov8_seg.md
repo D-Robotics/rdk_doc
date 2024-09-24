@@ -12,10 +12,10 @@ import TabItem from '@theme/TabItem';
 
 YOLOv8-Seg实例分割算法示例使用图片作为输入，利用BPU进行算法推理，发布包含检测和分割结果msg。
 
-YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来的Onnx模型，模型来源： (https://github.com/D-Robotics/hobot_model)。
+YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来的Onnx模型，模型来源： https://github.com/D-Robotics/hobot_model 。
 支持对人、动物、水果、交通工具等共80种类型进行实例分割。
 
-代码仓库： (https://github.com/D-Robotics/hobot_dnn)
+代码仓库： https://github.com/D-Robotics/hobot_dnn
 
 应用场景：YOLOv8-Seg能够识别图像中的单个物体并对其进行精确分割。这种技术可以应用在自动驾驶、遥感图像分析、医疗影像分析等领域。
 
