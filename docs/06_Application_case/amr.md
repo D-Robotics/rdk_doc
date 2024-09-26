@@ -148,14 +148,14 @@ cat /sys/devices/virtual/input/input2/gry_bal
 
 ### 3.2 功能安装
 ```shell
-sudo apt -y tros-hobot-nav2 ros-foxy-navigation2 ros-foxy-nav-msgs
+sudo apt -y tros-hobot-nav2 libsuitesparse-dev libblas-dev liblapack-dev libeigen3-dev libopencv-dev libspdlog-dev libconsole-bridge-dev libpcl-dev libgoogle-glog-dev libtf2-dev  ros-humble-cv-bridge  ros-humble-nav-msgs ros-humble-image-transport ros-humble-tf2-ros ros-humble-pcl-conversions ros-humble-navigation2 libceres-dev
 ```
 
 ### 3.3 源码获取（无安装包的功能，需编译源码）
 ```shell
 mkdir -p ~/amr_ws/src && cd src
 #tofSLAM 
-git clone https://github.com/wunuo1/Tofslam_ros2.git
+git clone https://github.com/wunuo1/Tofslam.git -b humble
 
 #点云过滤
 git clone https://github.com/wunuo1/voxel_filter.git
@@ -169,6 +169,14 @@ git clone https://github.com/D-Robotics/hobot_stereonet.git
 
 ### 3.4 代码编译
 ```shell
+#编译前需先编译g2o功能包，代码从文末附件获取
+#编译方式如下
+cd g2o
+mkdir build && cd build
+cmake ..
+make
+
+#完成g2o的编译后，即可编译ros2的各个功能包
 cd ~/amr_ws
 source /opt/tros/humble/setup.bash
 colcon build
@@ -428,7 +436,7 @@ vim storage-results-imucam.txt
 #####    3. bask_link-imu的变换（用于tofSLAM），可通过tof_cam-imu与tof_cam-bask_link变化得到（变换矩阵相乘）
 
 ### 3.6 更改配置文件（用于tofSLAM）
-修改config文件夹下mapping.yaml文件，关注带有说明的参数：
+修改config文件夹下mapping.yaml文件，关注带有说明的参数，output文件从文末附件中获取：
 ```yaml
 YAML: 1.0
 

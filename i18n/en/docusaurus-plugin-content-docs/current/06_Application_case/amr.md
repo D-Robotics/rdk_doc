@@ -147,14 +147,14 @@ cat /sys/devices/virtual/input/input2/gry_bal
 
 ### 3.2 Function installation
 ```shell
-sudo apt -y tros-hobot-nav2 ros-foxy-navigation2 ros-foxy-nav-msgs
+sudo apt -y tros-hobot-nav2 libsuitesparse-dev libblas-dev liblapack-dev libeigen3-dev libopencv-dev libspdlog-dev libconsole-bridge-dev libpcl-dev libgoogle-glog-dev libtf2-dev  ros-humble-cv-bridge  ros-humble-nav-msgs ros-humble-image-transport ros-humble-tf2-ros ros-humble-pcl-conversions ros-humble-navigation2 libceres-dev
 ```
 
 ### 3.3 Source code acquisition (without installation package function, requires source code compilation)
 ```shell
 mkdir -p ~/amr_ws/src && cd src
 #tofSLAM 
-git clone https://github.com/wunuo1/Tofslam_ros2.git
+git clone https://github.com/wunuo1/Tofslam.git -b humble
 
 #point cloud filter
 git clone https://github.com/wunuo1/voxel_filter.git
@@ -168,6 +168,14 @@ git clone https://github.com/D-Robotics/hobot_stereonet.git
 
 ### 3.4 Compile code
 ```shell
+#Before compilation, the g2o feature package needs to be compiled, and the code can be obtained from the attachment at the end of the article
+#The compilation method is as follows
+cd g2o
+mkdir build && cd build
+cmake ..
+make
+
+#After compiling g2o, you can compile various feature packages of ros2
 cd ~/amr_ws
 source /opt/tros/humble/setup.bash
 colcon build
@@ -427,7 +435,7 @@ The external reference results are as follows：
 #####    3.  The transformation of bask_link imu (for tofSLAM) can be obtained by multiplying the transformation matrices of tof_cam imu and tof_cam bask_link
 
 ### 3.6 Change configuration file (for tofSLAM)
-Modify the mapping.yaml file in the config folder and pay attention to the parameters with explanations:
+Modify the mapping.yaml file in the config folder and pay attention to the parameters with explanations，the output file is obtained from the attachment at the end of the article
 ```yaml
 YAML: 1.0
 
