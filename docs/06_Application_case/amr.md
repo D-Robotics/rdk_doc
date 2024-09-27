@@ -169,6 +169,12 @@ git clone https://github.com/D-Robotics/hobot_stereonet.git
 
 ### 3.4 代码编译
 ```shell
+#编译前建议开启交换内存
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+swapon /swapfile
+
 #编译前需先编译g2o功能包，代码从文末附件获取
 #编译方式如下
 cd g2o
@@ -250,7 +256,7 @@ ros2 run mipi_cam mipi_cam --ros-args -p device_mode:="dual" -p out_format:="nv1
 ```shell
 #安装ros1_bridge
 sudo apt update
-sudo apt install ros-foxy-ros1-bridge
+sudo apt install ros-humble-ros1-bridge
 
 #启动终端
 source /opt/ros/noetic/setup.bash
@@ -258,7 +264,7 @@ roscore
 
 #启动新终端
 source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics=false --bridge-topic sensor_msgs/msg/Image /image_combine_raw
 
 #启动新终端 记录图像数据（移动摄像头至不同位置）
@@ -327,7 +333,7 @@ roscore
 
 #启动新终端
 source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics=false --bridge-topic sensor_msgs/msg/Imu /imu_data
 
 #启动新终端 记录imu数据（imu需静置30min以上，存储数据）
@@ -399,7 +405,7 @@ ros2 launch imu_sensor imu_sensor.launch.py
 ```shell
 #安装ros1_bridge
 sudo apt update
-sudo apt install ros-foxy-ros1-bridge
+sudo apt install ros-humble-ros1-bridge
 
 #启动终端
 source /opt/ros/noetic/setup.bash
@@ -407,7 +413,7 @@ roscore
 
 #启动新终端
 source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
 #启动新终端 记录图像数据（移动摄像头至不同位置）

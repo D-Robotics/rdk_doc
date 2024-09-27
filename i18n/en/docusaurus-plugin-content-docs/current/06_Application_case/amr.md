@@ -168,6 +168,12 @@ git clone https://github.com/D-Robotics/hobot_stereonet.git
 
 ### 3.4 Compile code
 ```shell
+#It is recommended to enable swap memory before compilation
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+swapon /swapfile
+
 #Before compilation, the g2o feature package needs to be compiled, and the code can be obtained from the attachment at the end of the article
 #The compilation method is as follows
 cd g2o
@@ -249,7 +255,7 @@ ros2 run mipi_cam mipi_cam --ros-args -p device_mode:="dual" -p out_format:="nv1
 ```shell
 # Install ros1_bridge
 sudo apt update
-sudo apt install ros-foxy-ros1-bridge
+sudo apt install ros-humble-ros1-bridge
 
 #Start Terminal
 source /opt/ros/noetic/setup.bash
@@ -257,7 +263,7 @@ roscore
 
 #Start a new terminal
 source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics=false --bridge-topic sensor_msgs/msg/Image /image_combine_raw
 
 #Start a new terminal to record image data (move the camera to different positions)
@@ -326,7 +332,7 @@ roscore
 
 #Start a new Terminal
 source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics=false --bridge-topic sensor_msgs/msg/Imu /imu_data
 
 #Start a new terminal to record IMU data (IMU needs to be left idle for more than 30 minutes to store data)
@@ -398,7 +404,7 @@ ros2 launch imu_sensor imu_sensor.launch.py
 ```shell
 #Install ros1_bridge
 sudo apt update
-sudo apt install ros-foxy-ros1-bridge
+sudo apt install ros-humble-ros1-bridge
 
 #Start terminal
 source /opt/ros/noetic/setup.bash
@@ -406,7 +412,7 @@ roscore
 
 #Start a new terminal
 source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
 #Start a new terminal to record image data (move the camera to different positions)
