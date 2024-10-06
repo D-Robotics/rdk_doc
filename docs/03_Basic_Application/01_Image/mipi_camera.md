@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## 环境准备
 
-  - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考[MIPI摄像头连接教程](../../01_Quick_start/hardware_introduction.md)章节
+  - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
   - 通过HDMI线缆连接开发板和显示器
 
 ## 运行方式
