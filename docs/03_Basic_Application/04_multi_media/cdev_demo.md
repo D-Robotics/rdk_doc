@@ -14,7 +14,7 @@ sidebar_position: 2
 ![image-vio_to_display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../../01_Quick_start/hardware_introduction.md)
+   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过HDMI线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
@@ -68,7 +68,7 @@ sidebar_position: 2
 ![image-capture](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.png)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过HDMI线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
@@ -114,7 +114,7 @@ sidebar_position: 2
 
  - **环境准备：**
 
-   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 [MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
@@ -166,7 +166,7 @@ sidebar_position: 2
 ![image-capture](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.png)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过HDMI线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
    - **如果需要获取raw数据，请先按照以下步骤进行配置**：
@@ -219,7 +219,7 @@ sidebar_position: 2
 ![image-vio_to_encoder](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过HDMI线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
@@ -275,7 +275,7 @@ sidebar_position: 2
 
  - **环境准备：**
 
-   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 [MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
@@ -506,7 +506,7 @@ sidebar_position: 2
 本示例基于`YOLOv5`模型，实现了摄像头目标检测算法功能，用户可通过显示器预览检测结果。
 
 - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考[MIPI摄像头连接教程](../installation/hardware_interface#mipi_port)
+   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
   - 通过HDMI线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
 
