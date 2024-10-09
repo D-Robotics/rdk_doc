@@ -8,7 +8,7 @@ sidebar_position: 2
 ## 接口总览
 
 
-RDK X5提供了网口、USB、摄像头、LCD、HDMI、40PIN等功能接口，方便用户进行图像多媒体、深度学习算法等应用的开发和测试。开发板接口布局如下：
+RDK X5提供了网口、USB、摄像头、LCD、HDMI、CANFD、40PIN等功能接口，方便用户进行图像多媒体、深度学习算法等应用的开发和测试。开发板接口布局如下：
 
 
 ![RDK_X5_interface](../../../static/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.png)
@@ -135,6 +135,11 @@ RDK X5 提供一路 MIPI DSI 的 LCD 显示接口（接口14），可以用于 L
 
 开发板的无线网络支持板载和外置天线两种配置，通常情况下板载天线可以满足使用需求。当开发板安装金属材质外壳后，需要连接外置天线到（接口12旁的天线接口），以增强信号强度。
 
+
+## CANFD 接口
+
+
+RDK X5开发板提供 CANFD 接口，可用于CAN及CAN FD通信，具体信息请参考 [CAN使用](../../07_Advanced_development/01_hardware_development/rdk_x5/can.md) 章节
 
 
 ## 40PIN 接口
