@@ -100,7 +100,7 @@ The RDK suite currently provides the Ubuntu 20.04/22.04 system image, which supp
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/du1EypDtxMY?si=VJr2JZnOigFySoBR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=du1EypDtxMY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=15
 
 Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 

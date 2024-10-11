@@ -178,7 +178,7 @@ sudo bash -c "echo 1000000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_set
 The following content is applicable to `RDK X3` and `RDK X3 Module` development boards and not applicable to the `RDK Ultra` development board.
 :::
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WqLxbN2qw-k?si=UM_e7W97TfRGDGDp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=WqLxbN2qw-k&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=5
 
 The development board uses the CPU Freq driver to manage the CPU operating state. The default mode is the 'ondemand' mode, where the CPU frequency is dynamically adjusted based on the load to save power. User can change to the 'performance' mode to make the CPU always operate at the highest frequency. The command is as follows:
 

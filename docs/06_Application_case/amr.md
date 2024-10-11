@@ -538,7 +538,7 @@ ros2 run ct_lio ct_lio_eskf
 ![](../../static/img/06_Application_case/amr/pcl_viewer.jpg)
 
 建图效果视频：
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113135360935522&bvid=BV1T4tKeoEsH&cid=25857032715&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"></iframe>
+Video: https://www.bilibili.com/video/BV1T4tKeoEsH
 
 ### 4.2 tofSLAM定位
 ```shell
@@ -609,7 +609,7 @@ ros2 run demo demo
 ```shell
 ros2 launch nav2_bringup rviz_launch.py
 ```
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113135361000125&bvid=BV1t4tKeoEgh&cid=25857034090&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"></iframe>
+Video: https://www.bilibili.com/video/BV1t4tKeoEgh
 
 ### 4.5 目标检测与分割
 ####  1. 复制该launch脚本到板端，更改对应参数：

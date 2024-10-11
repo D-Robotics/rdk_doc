@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 # 3.1.2 Using USB Camera
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7xNgU1i2xsk?si=I5jr2TTbLipLmYHR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=7xNgU1i2xsk&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=2
 
 The development board is equipped with the `usb_camera_fcos.py` program to test the data path of the USB camera. This example will capture the image data from the USB camera in real time, then run the object detection algorithm, and finally output the merged image data and detection results through the HDMI interface.
 

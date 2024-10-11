@@ -217,7 +217,7 @@ USB主从模式切换完全由硬件电路实现，用户只需按照上表的�
 
 ### 接入U盘
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196553711&page=5" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=5
 
 开发板USB Type A接口(接口5和6)，支持U盘功能，可自动检测U盘接入并挂载，默认挂载目录为`/media/sda1`。
 
@@ -251,7 +251,7 @@ USB主从模式切换完全由硬件电路实现，用户只需按照上表的�
 
 ## USB摄像头
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554247&page=6" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=6
 
 开发板USB Type A接口，支持USB摄像头功能，可自动检测USB摄像头接入并创建设备节点`/dev/video8`。
 
@@ -261,7 +261,7 @@ USB主从模式切换完全由硬件电路实现，用户只需按照上表的�
 
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554333&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=7
 
 开发板提供1路MIPI CSI接口(接口2)，可实现MIPI摄像头的接入。目前开发板适配了多种规格的摄像头模组，模组型号、规格如下：
 
@@ -363,7 +363,7 @@ RDK X3 Module载板提供一路Micro SD存储卡接口（接口18）。推荐使
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557162&page=8" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=8
 
 开发板的无线网络支持板载和外置天线两种配置，通常情况下板载天线可以满足使用需求。当开发板安装金属材质外壳后，需要连接外置天线到（接口11），以增强信号强度。
 

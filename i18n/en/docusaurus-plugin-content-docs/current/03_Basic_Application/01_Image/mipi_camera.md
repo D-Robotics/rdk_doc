@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # 3.1.1 Using MIPI Camera
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nabpS2CUkjY?si=Hv1j0OYGoqj1eWjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=nabpS2CUkjY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=18
 
 The development board is installed with the "mipi_camera.py" program to test the data path of the MIPI camera. This example will capture the image data of the MIPI camera in real time, then run the object detection algorithm, and finally output the image data and detection results through the HDMI interface.
 

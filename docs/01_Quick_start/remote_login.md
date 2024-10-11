@@ -17,7 +17,7 @@ sidebar_position: 4
 
 ## 串口登录{#login_uart}
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196550506&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
 
 在使用串口登录前，需要确认开发板串口线跟电脑正确连接，连接方法可参考[调试串口](../01_Quick_start/hardware_introduction.md)章节。串口登录需要借助PC终端工具，目前常用的工具有`Putty`、`MobaXterm`等，用户可根据自身使用习惯来选择。不同工具的端口配置流程基本类似，下面以`MobaXterm`为例，介绍新建串口连接过程：
 
@@ -75,7 +75,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 ## 网络状态确认{#network_config}
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554007&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=3
 
 在使用远程登录前，需要确保电脑、开发板网络通信正常，如无法`ping`通，需按如下步骤进行确认：
 - 确认开发板、电脑IP地址配置，一般前三段需要是一样的，例如开发板：`192.168.127.10`  电脑：`192.168.127.100`
@@ -94,7 +94,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 ## VNC登录
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196553936&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 
 本章节面向使用Ubuntu Desktop系统版本的用户，介绍如何通过`VNC Viewer`实现远程桌面登录功能。`VNC Viewer`是一个图形桌面共享软件，可在电脑上实现设备远程登录和控制桌面。该软件可以通过电脑显示器预览开发板系统桌面，并使用电脑的鼠标、键盘进行远程操作。用户通过VNC Viewer操作，可以获得跟开发板本地操作相同的效果，下载链接[VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)。
 

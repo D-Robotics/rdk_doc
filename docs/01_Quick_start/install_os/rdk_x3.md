@@ -109,7 +109,7 @@ RDK套件目前提供Ubuntu 20.04/22.04系统镜像，可支持Desktop桌面图�
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196536307&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=1
 
 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入文件下载页。以下载2.0.0版本的系统镜像为例：
 

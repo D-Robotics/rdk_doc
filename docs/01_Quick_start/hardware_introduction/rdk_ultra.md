@@ -113,7 +113,7 @@ RDK Ultra开发板提供了四路USB3.0标准接口（接口3），可以满足4
 
 ## USB摄像头
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554247&page=6" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=6
 
 开发板USB Type A接口，支持USB摄像头功能，可自动检测USB摄像头接入并创建设备节点`/dev/video8`。
 
