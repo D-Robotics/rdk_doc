@@ -7,7 +7,7 @@ This section mainly introduces the methods for modifying the wired and wireless 
 
 ## Wired Network {#config_ethnet}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/omaAU6sab2A?si=5h8H4if2XBdZRqaD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=omaAU6sab2A&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=8
 
 The default wired network configuration of the development board uses static IP configuration, and the initial IP address is `192.168.1.10`. Users can switch between static and DHCP modes by the following methods.
 
@@ -75,7 +75,7 @@ After modifying, `reboot` to make the configuration take effect.
 
 ## Wireless Network
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KrlTudL0_JE?si=I9B8zN-pquC28-zf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=KrlTudL0_JE&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=7
 
 The development board integrates a 2.4GHz wireless WiFi module, which supports Soft AP and Station modes, and runs in Station mode by default. The following introduces how to use the two modes.
 
@@ -249,7 +249,7 @@ By default, the development board's wireless network runs in Station mode. To us
 
 ## DNS Server
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YCNFSC7LpCY?si=nmnWJTcbtIQqDiWD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=YCNFSC7LpCY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=6
 
 DNS (Domain Name Server) is a server that converts domain names to their corresponding IP addresses.
 
@@ -299,7 +299,7 @@ sudo reboot
 
 ## Bluetooth
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ov8mL8P_yUY?si=Qh3JqKko1vbOvW7P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=Ov8mL8P_yUY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=10
 
 ### Initialization
 

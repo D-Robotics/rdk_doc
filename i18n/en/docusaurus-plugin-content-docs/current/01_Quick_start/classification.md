@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 # 1.5 Image Classification Algorithm Example
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lGFel8uabLY?si=TijOhxNW8YMLIHGv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=lGFel8uabLY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=3
 
 The development board is installed with the program `test_mobilenetv1.py` for testing the functionality of the mobilenet v1 image classification algorithm. This program reads the static image `zebra_cls.jpg` as the input of the model, and outputs the classification result `cls id: 340 Confidence: 0.991851` in the command line terminal.
 

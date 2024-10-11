@@ -551,8 +551,7 @@ The path specified in the mapping. yaml file will generate the following product
 Use the pcl_viewer tool to view point cloud maps:
 ![](../../../../../static/img/06_Application_case/amr/pcl_viewer.jpg)
 
-Architectural effect video:
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113135360935522&bvid=BV1T4tKeoEsH&cid=25857032715&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"></iframe>
+Architectural effect video: https://www.youtube.com/watch?v=TKRYnEfsEoQ&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=20
 
 ### 4.2 TofSLAM-positioning
 ```shell
@@ -623,7 +622,7 @@ ros2 run demo demo
 ```shell
 ros2 launch nav2_bringup rviz_launch.py
 ```
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113135361000125&bvid=BV1t4tKeoEgh&cid=25857034090&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"></iframe>
+Video: https://www.youtube.com/watch?v=IYsS2bADpeQ&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=21
 
 ### 4.5 Object detection and segmentation
 ####  1. Copy the launch script to the board and change the corresponding parameters:

@@ -163,7 +163,7 @@ const config = {
               },
               {
                 label: 'BiLiBiLi',
-                href: 'https://github.com/D-Robotics',
+                href: 'https://space.bilibili.com/437998606',
               },
             ],
           },

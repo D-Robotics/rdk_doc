@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 # 2.5 Autostart Programs on Boot
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9N_wFttgPeE?si=8RgCA4FsF29l186G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Video: https://www.youtube.com/watch?v=9N_wFttgPeE&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=4
 
 There are multiple ways to add autostart programs in Ubuntu system. This section provides two methods as reference.
 
