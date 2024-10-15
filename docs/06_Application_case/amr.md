@@ -798,5 +798,5 @@ https://github.com/wunuo1/pose_setter.git
   5. nav2导航插件中，在障碍物层增加了点云信息做，用于避开高度低于激光雷达的障碍物，但因原生点云数据会有噪声，并且点云数据量过多，所以增加点云筛选节点对点云进行稀疏化以及过滤。
 
 ## 6. 附件
-链接：https://pan.baidu.com/s/1Sg7zNvwnfBDLywBvjYKDbA?pwd=oxh7 
-提取码：oxh7
+链接：https://pan.baidu.com/s/14A4mqJvqzfp-MZaQkGpvLg?pwd=8VpL
+提取码：8VpL
