@@ -321,8 +321,8 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-#在line_follower_perception文件夹路径下执行
-clocon build --packages-select line_follower_perception
+#在line_follower_perception文件夹路径下执行，x3版本分支为feature-x3，x5版本分支为feature-x5，请根据设备型号拉取对应分支进行编译
+colcon build --packages-select line_follower_perception
 ```
 
 编译完成后，通过参数model_path和model_name指定模型的路径和名称

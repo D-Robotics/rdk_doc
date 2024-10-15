@@ -316,8 +316,8 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Execute in the line_follower_perception folder path
-clocon build --packages-select line_follower_perception
+# Execute in the line_follower_perception folder path，the branch of x3 verison is feature-x3, and the branch of x5 verison is feature-x5. Please pull the corresponding branch according to the device model for compilation
+colcon build --packages-select line_follower_perception
 ```
 
 After the compilation is completed, specify the model path and name through the parameters model_path and model_name.
