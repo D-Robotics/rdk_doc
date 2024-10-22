@@ -201,7 +201,7 @@ cansend can0 123#1122334455667788
 仲裁段波特率为500K，数据场波特率为2M
   ```bash
 ip link set can0 down
-ip link set can0 up type can bitrate 500000 dbitrate 2000000  fd on
+ip link set can0 type can bitrate 500000 dbitrate 2000000  fd on
 ip link set can0 type can loopback on
 ip link set can0 up
   ```
