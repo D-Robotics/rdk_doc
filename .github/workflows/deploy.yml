@@ -27,7 +27,11 @@ jobs:
       run: |
         echo "GIT_USER: ${{ secrets.GITHUB_ACTOR }}"
         echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
-
+        
+    - name: Set up Git config
+      run: |
+        git config --global user.email "xgs11@qq.com"
+        git config --global user.name "xuguosheng110"
 
     - name: Deploy to GitHub Pages
       env:
