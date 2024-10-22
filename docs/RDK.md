@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # D-Robotics RDK套件
 
-本文档为D-Robotics RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考 [系统烧录](./01_Quick_start/install_os.md) 章节。
+本文档为D-Robotics RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考**系统烧录**章节。
 
 :::info 注意
 
@@ -13,7 +13,7 @@ sidebar_position: 0
      [旭日X3派Ubuntu镜像](https://archive.d-robotics.cc/downloads/os_images/)，选择1.x.x 版本目录下的镜像<br/>
      [旭日X3派资料包](https://developer.d-robotics.cc/api/v1/static/fileData/X3%E6%B4%BE%E8%B5%84%E6%96%99%E5%8C%85_20220711175326.zip)<br/>
 
--  **RDK X3 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，建议参考本文档完成[系统烧录](./01_Quick_start/install_os.md)。
+-  **RDK X3 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，建议参考本文档完成**系统烧录**章节。
 
 用户如需确认系统版本号，可通过该命令查询 `cat /etc/version`, 2.1.0 及以上版本可以通过 `rdkos_info` 命令查看具体的版本信息。
 :::
