@@ -27,6 +27,8 @@ jobs:
       run: |
         echo "GIT_USER: ${{ secrets.GITHUB_ACTOR }}"
         echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+        echo "GITHUB_TOKEN: ${{ secrets.GIT_SECRET }}"
+
         
     - name: Set up Git config
       run: |
@@ -37,5 +39,10 @@ jobs:
       env:
         # GIT_USER: ${{ secrets.GITHUB_ACTOR }}
         GIT_USER: "xuguosheng110"  # 硬编码 GitHub 用户名
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub 提供的默认令牌
+        
+        GITHUB_TOKEN: ${{ secrets.GIT_SECRET }}  # 直接使用 GitHub 自动提供的 Token
+
+        run: |
+        echo "GIT_USER: ${{ secrets.GITHUB_ACTOR }}"
+
       run: USE_SSH=false npm run deploy
