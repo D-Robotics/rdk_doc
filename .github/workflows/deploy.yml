@@ -28,8 +28,10 @@ jobs:
         echo "GIT_USER: ${{ secrets.GITHUB_ACTOR }}"
         echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
 
+
     - name: Deploy to GitHub Pages
       env:
-        GIT_USER: ${{ secrets.GITHUB_ACTOR }}
+        # GIT_USER: ${{ secrets.GITHUB_ACTOR }}
+        GIT_USER: "xuguosheng110"  # 硬编码 GitHub 用户名
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub 提供的默认令牌
       run: USE_SSH=false npm run deploy
