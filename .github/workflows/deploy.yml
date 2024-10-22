@@ -1,0 +1,31 @@
+name: Deploy Docusaurus site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 当 main 分支有推送时触发部署
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build Docusaurus site
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      env:
+        GIT_USER: ${{ secrets.GITHUB_ACTOR }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub 提供的默认令牌
+      run: USE_SSH=false npm run deploy
