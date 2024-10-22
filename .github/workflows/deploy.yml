@@ -23,6 +23,11 @@ jobs:
     - name: Build Docusaurus site
       run: npm run build
 
+    - name: Debug env variables
+      run: |
+        echo "GIT_USER: ${{ secrets.GITHUB_ACTOR }}"
+        echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+
     - name: Deploy to GitHub Pages
       env:
         GIT_USER: ${{ secrets.GITHUB_ACTOR }}
