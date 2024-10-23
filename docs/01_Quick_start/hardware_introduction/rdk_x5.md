@@ -11,7 +11,7 @@ sidebar_position: 2
 RDK X5提供了网口、USB、摄像头、LCD、HDMI、CANFD、40PIN等功能接口，方便用户进行图像多媒体、深度学习算法等应用的开发和测试。开发板接口布局如下：
 
 
-![RDK_X5_interface](../../../static/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.png)
+![RDK_X5_interface](../../../static/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.jpg)
 
 
 | 序号 | 功能 | 序号 | 功能 | 序号 | 功能 |
