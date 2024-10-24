@@ -142,7 +142,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpeg
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
 ```
 
 ### X86平台
@@ -174,7 +174,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpeg
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
 ```
 
 ## 结果分析

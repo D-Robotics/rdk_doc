@@ -133,7 +133,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 # Start the launch file
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpeg
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
 ```
 
 ## Analysis of Results
