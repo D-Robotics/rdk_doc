@@ -77,8 +77,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://d-robotics.github.io/rdk_doc/RDK',
+          //editUrl:            'https://d-robotics.github.io/rdk_doc/RDK',
+          editUrl: 'https://github.com/D-Robotics/rdk_doc/blob/main/docs/'
         },
         // blog: {
         //   showReadingTime: true,
