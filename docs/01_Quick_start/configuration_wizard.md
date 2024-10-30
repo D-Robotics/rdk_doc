@@ -172,7 +172,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 第一步：下载RDK Studio (链接：[下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，下载User Installer与ZIP均可，按照安装步骤依次线下安装。
 
-![QQ20241029-190206.png](C:\0wjf_file\Git\rdk_doc-main\static\img\01_Quick_start\image\configuration_wizard\QQ20241029-190206.png)
+![QQ20241029-190206.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ20241029-190206.png)
 
 第二步：打开Studio之后界面包含四个左侧菜单具体如下：
 
@@ -186,7 +186,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 ​	（5）`烧写`：请见1.2章节系统烧录
 
-![QQ20241029-190206.png](C:\0wjf_file\Git\rdk_doc-main\static\img\01_Quick_start\image\configuration_wizard\RDK_Studio_OzxNIkHGH7.gif)
+![QQ20241029-190206.png](../../static/img/01_Quick_start/image/configuration_wizard/RDK_Studio_OzxNIkHGH7.gif)
 
 第三步：Studio 集成工具的使用
 
@@ -196,7 +196,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 ​	（3）`其他功能`：其他Jupyter等需要安装功能，小伙伴们可以按需安装。
 
-![RDK_Studio_w6lCUNKCb9.gif](C:\0wjf_file\Git\rdk_doc-main\static\img\01_Quick_start\image\configuration_wizard\RDK_Studio_w6lCUNKCb9.gif)
+![RDK_Studio_w6lCUNKCb9.gif](../../static/img/01_Quick_start/image/configuration_wizard/RDK_Studio_w6lCUNKCb9.gif)
 
 </TabItem>
 
