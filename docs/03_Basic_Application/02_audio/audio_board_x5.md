@@ -170,17 +170,17 @@ options:
 - 2通道麦克风录音：
 
 ```
-tinycap ./2chn_test.wav -D 0 -d 0 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
+tinycap ./2chn_test.wav -D 0 -d 1 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
 ```
 
 - 4通道麦克风录音：
 
 ```
-tinycap ./4chn_test.wav -D 0 -d 0 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
+tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
 ```
 
 - 双通道音频播放（不支持直接播放4通道录音）：
 
 ```
-tinyplay ./2chn_test.wav -D 0 -d 1
+tinyplay ./2chn_test.wav -D 0 -d 0
 ```
