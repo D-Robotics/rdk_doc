@@ -162,3 +162,59 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 </TabItem>
 </Tabs>
+
+## 设置RDK Studio
+
+RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设备管理、Demo快速入手、社区论坛快速访问等功能，接下来为大家介绍如何统一管理使用自己的RDX。
+
+第一步：下载RDK Studio (链接：[下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，下载User Installer与ZIP均可，按照安装步骤依次线下安装。
+
+![QQ20241029-190206.png](C:\0wjf_file\Git\rdk_doc-main\static\img\01_Quick_start\image\configuration_wizard\QQ20241029-190206.png)
+
+第二步：打开Studio之后界面包含四个左侧菜单具体如下：
+
+​	（1）`设备管理`：在此处你可以通过右上角的`+RDK设备` 进行添加设备进行管理（此处示范使用局域网IP进行连接）。
+
+​	（2）`示例应用`：在此处你可以直接安装一些简单Demo到你的开发板上。
+
+​	（3）`社区`：此处为大家提供了地瓜机器人社区直达访问，大家无需再开启网页进行查阅。
+
+​	（4）`NodeHub`：此处为大家提供了NodeHub直达访问，提供了丰富封装的示例节点。
+
+​	（5）`烧写`：请见1.2章节系统烧录
+
+![QQ20241029-190206.png](C:\0wjf_file\Git\rdk_doc-main\static\img\01_Quick_start\image\configuration_wizard\RDK_Studio_OzxNIkHGH7.gif)
+
+第三步：Studio 集成工具的使用
+
+​	（1）`终端使用`：点击终端按钮，会自动弹起Windows终端，输入密码即可自动连接
+
+​	（2）`Vscode使用`：点击Vscode图标，即可自动调用本地Vscode Remote插件进行连接（PS：自己本地要有安装Vsocode与插件）
+
+​	（3）`其他功能`：其他Jupyter等需要安装功能，小伙伴们可以按需安装。
+
+![RDK_Studio_w6lCUNKCb9.gif](C:\0wjf_file\Git\rdk_doc-main\static\img\01_Quick_start\image\configuration_wizard\RDK_Studio_w6lCUNKCb9.gif)
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用Linux和Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem>
+
+
+
+<TabItem value="mac" label="Mac">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用Linux和Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem></Tabs>
