@@ -165,6 +165,9 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 ## 设置RDK Studio
 
+<Tabs groupId="rdk-type">
+<TabItem value="windows" label="Windows">
+
 RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设备管理、Demo快速入手、社区论坛快速访问等功能，接下来为大家介绍如何统一管理使用自己的RDX。
 
 第一步：下载RDK Studio (链接：[下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，下载User Installer与ZIP均可，按照安装步骤依次线下安装。
