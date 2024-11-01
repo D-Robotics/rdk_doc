@@ -6,7 +6,7 @@ sidebar_position: 1
 
 认证配件及购买链接请参考[认证配件清单](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory)
 
-详细请参考[D-Robotics RDK套件用户手册的常见问题](../08_FAQ/01_hardware_and_system.md)
+详细请参考[D-Robotics RDK套件用户手册的常见问题](https://developer.d-robotics.cc/rdk_doc/FAQ)
 
 ## 什么是D-Robotics RDK套件？
 
@@ -87,7 +87,7 @@ root@ubuntu:~#
 
 **注意**
 
-- **1.x版本系统无法通过apt命令直接升级到2.x版本系统，需要以烧录镜像的方式重新[安装系统](https://developer.d-robotics.cc/documents_rdk../../../01_Quick_start/install_os.md)。**
+- **1.x版本系统无法通过apt命令直接升级到2.x版本系统，需要以烧录镜像的方式重新[安装系统](https://developer.d-robotics.cc/rdk_doc/install_os)。**
 
 - **2.x版本tros.b仅支持2.x版本系统，1.x版本tros.b仅支持1.x版本系统。**
 

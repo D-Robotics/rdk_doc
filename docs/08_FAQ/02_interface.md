@@ -110,7 +110,7 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font> 
 
-- 请参考[MIPI摄像头](../01_Quick_start/hardware_introduction.md)章节，确认摄像头连接方式
+- 请参考各个板卡对应[MIPI摄像头](../01_Quick_start/hardware_introduction/rdk_x3.md)章节，确认摄像头连接方式
 - 请勿在开发板通电情况下插拔摄像头，否则会因短路而损坏摄像头
 
 <font color='Blue'>【问题】</font> 
@@ -138,4 +138,4 @@ sidebar_position: 2
 
 <font color='Green'>【解答】</font> 
 
-- 支持的分辨率类型，可参考[HDMI接口](../01_Quick_start/hardware_introduction.md)章节
+- 支持的分辨率类型，可参考各个板卡对应[HDMI接口](../01_Quick_start/hardware_introduction/rdk_x3.md)章节
