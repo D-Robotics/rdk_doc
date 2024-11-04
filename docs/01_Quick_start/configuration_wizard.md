@@ -163,6 +163,26 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 </TabItem>
 </Tabs>
 
+## 设置中文输入法
+
+<Tabs groupId="rdk-type">
+<TabItem value="desktop" label="Desktop">
+
+第一步：在桌面端找到EN输入法标志，右键点击首选项
+
+![QQ_1IGglEVRSO.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ_1IGglEVRSO.png)
+
+第二步：点击输入法——>右侧添加——>选择中文
+
+![QQ_MxWDZrZ7Wk.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ_MxWDZrZ7Wk.png)
+
+第三步：选择智能拼音，最后右上角EN就可以右键选择智能拼音
+
+![QQ_rICn3iU1Vc.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ_rICn3iU1Vc.png)
+
+</TabItem>
+</Tabs>
+
 ## 设置RDK Studio
 
 <Tabs groupId="rdk-type">
