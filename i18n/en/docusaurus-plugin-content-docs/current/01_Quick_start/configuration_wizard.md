@@ -159,7 +159,7 @@ Step 3: Restart the machine to apply the latest configuration. Execute `sudo reb
 </TabItem>
 </Tabs>
 
-## 设置中文输入法
+## Set up  Chinese input method
 
 <Tabs groupId="rdk-type">
 <TabItem value="desktop" label="Desktop">
