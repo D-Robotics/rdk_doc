@@ -76,6 +76,20 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 Video: https://www.youtube.com/watch?v=Of4mN0MaoiU&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=14
 
+:::tip
+
+The IP addresses corresponding to different versions of the images are as follows:
+
+| Board Series     | Image Version                  | Ethernet Port IP Address                          |
+| ---------------- | ------------------------------ | ------------------------------------------------- |
+| X3               | Less than or equal to 2.0.0    | 192.168.1.10/24                                   |
+| X3               | Greater than or equal to 2.1.0 | 192.168.127.10/24                                 |
+| X5               | 3.0.0                          | 192.168.127.10/24                                 |
+| **Board Series** | **Image Version**              | **Flash Connection Port (USB Device) IP Address** |
+| X5               | 3.0.0                          | 192.168.128.10/24                                 |
+
+:::
+
 Before using remote login, it is necessary to ensure that the communication between the computer and the development board is normal. If it cannot be pinged, please follow the steps below to confirm:
 
 - Confirm the IP address configuration of the development board and the computer. Generally, the first three segments need to be the same. For example, the development board: `192.168.1.10` and the computer: `192.168.1.100`.
@@ -129,3 +143,17 @@ Users can also use the command line to log in via SSH. The steps are as follows:
 3. Enter the password (sunrise) to complete the login.
 
 ![image-Cmdline-Linux](../../../../../static/img/01_Quick_start/image/remote_login/linux_login_01.gif)
+
+## Setting Up a Local Area Network
+
+To maintain a serial connection for the login steps mentioned earlier and to access the local area network, you can use the following commands:
+
+```bash
+sudo nmcli device wifi rescan # 扫描wifi⽹络
+sudo nmcli device wifi list # 列出找到的wifi
+sudo wifi_connect "SSID" "PASSWD" # 连接指定wifi
+```
+
+After successfully executing these commands, you should see a message starting with `successfully xxx`.
+
+Finally, on the board side, you can use `ifconfig` to obtain the board's IP address. Once you have the IP address, you can disconnect the serial cable and use the SSH login method mentioned earlier to remotely connect.
