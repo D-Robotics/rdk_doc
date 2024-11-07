@@ -68,7 +68,7 @@ sudo srpi-config
   
   支持设置`Server`系统和`console`模式下的 HDMI 显示分辨率。
 
-- **Dsiplay Chose DSI or HDMI**
+- **Display Chose DSI or HDMI**
   
   支持`DSI`和`HDMI`显示显示切换。
   
