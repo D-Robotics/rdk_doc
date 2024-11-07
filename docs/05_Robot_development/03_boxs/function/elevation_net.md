@@ -20,7 +20,8 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 
 | 平台                  | 运行方式     | 示例功能                               |
 | --------------------- | ------------ | -------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动本地回灌，推理渲染结果保存在本地 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动本地回灌，推理渲染结果保存在本地 |
+| RDK X5 | Ubuntu 22.04 (Humble) | · 启动本地回灌，推理渲染结果保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果保存在本地 |
 
 ## 准备工作

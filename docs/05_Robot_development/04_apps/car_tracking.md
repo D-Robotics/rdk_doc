@@ -23,7 +23,8 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 | 平台    | 运行方式      |
 | ------- | ------------ |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)|
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)|
+| RDK X5 | Ubuntu 22.04 (Humble)|
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ## 准备工作
