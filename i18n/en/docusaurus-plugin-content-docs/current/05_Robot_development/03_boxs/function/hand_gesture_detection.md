@@ -11,6 +11,8 @@ The gesture recognition example subscription package includes algorithm messages
 
 The supported gesture recognition categories and their corresponding values in the algorithm message (Attribute member, with type "gesture") are as follows:
 
+1. Static Gesture
+
 | Gesture    | Description   | Value |
 | ---------- | ------------- | ----- |
 | ThumbUp    | Thumbs up     | 2     |
@@ -21,6 +23,14 @@ The supported gesture recognition categories and their corresponding values in t
 | ThumbLeft  | Thumb left    | 12    |
 | ThumbRight | Thumb right   | 13    |
 | Awesome    | "666" gesture | 14    |
+
+2. Dynamic Gesture
+
+| Gesture     | Description     | Value     |
+| ---------- | ---------- | ---------- |
+| PinchMove    | Three fingers kneading and dragging | 15 |
+| PinchRotateAntiClockwise    | Three fingers kneading counterclockwise circle    | 16 |
+| PinchRotateClockwise       | Three fingers kneading clockwise circle   | 17 |
 
 Code repositories:
 
