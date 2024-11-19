@@ -15,8 +15,6 @@ import TabItem from '@theme/TabItem';
 
 代码仓库：(https://github.com/D-Robotics/face_landmarks_detection)
 
-该代码依赖于(https://github.com/D-Robotics/mono2d_body_detection)发布的人脸框检测结果
-
 ## 支持平台
 
 | 平台                    | 运行方式                  | 示例功能                         |
