@@ -113,5 +113,5 @@ ros2 launch face_age_detection body_det_face_age_det.launch.py
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/face_age_detection_result.gif)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/face_age_det_render.png)
 
