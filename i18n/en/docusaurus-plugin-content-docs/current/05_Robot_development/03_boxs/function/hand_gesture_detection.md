@@ -138,6 +138,32 @@ export CAM_TYPE=usb
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 ```
 
+**Using Local Replay Images**
+
+:::warning
+Only `TROS Humble 2.3.1` and later versions support this feature.
+
+`TROS` version release records: [Click to jump](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/01_quick_start/changelog.md), version check method: [Click to jump](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/01_quick_start/install_tros.md).
+:::
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Copy the configuration files needed for the running example from the installation path of tros.b.
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# Configure local replay images
+export CAM_TYPE=fb
+
+# Launch the launch file
+ros2 launch hand_gesture_detection hand_gesture_detection.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
+```
+
+:::info
+The launch script defaults to starting the static gesture recognition. For the `TROS Humble` version, you can specify to start the dynamic gesture recognition using the `is_dynamic_gesture` parameter: `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`.
+:::
+
 ## Analysis of Results
 
 The following information will be displayed in the terminal output:
