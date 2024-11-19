@@ -21,7 +21,7 @@ Model Zoo的github仓在这里：https://github.com/D-Robotics/rdk_model_zoo
 
 ## 环境准备
 
-开发者首先根据所在分支，准备一块对应的RDK 开发板，并前往地瓜机器人官网完成[硬件准备、驱动安装、软件下载、和镜像烧录](https://developer.d-robotics.cc/rdk_doc/Quick_start/install_os)。对于X3和X5的镜像，请选择3.0.0以上的版本。
+开发者首先根据所在分支，准备一块对应的RDK 开发板，并前往地瓜机器人官网完成[硬件准备、驱动安装、软件下载、和镜像烧录](https://developer.d-robotics.cc/rdk_doc/Quick_start/install_os/rdk_x3)。对于X3和X5的镜像，请选择3.0.0以上的版本。
 
 在完成硬件连接和网络配置后，使用MobaXTerm[远程登录开发板](https://developer.d-robotics.cc/rdk_doc/Quick_start/remote_login)。对开发板进行[网络连接](https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth)。
 
