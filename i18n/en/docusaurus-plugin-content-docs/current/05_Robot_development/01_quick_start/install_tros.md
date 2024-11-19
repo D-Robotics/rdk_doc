@@ -75,7 +75,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-Check the current version of tros.b:
+### Check the current version of tros.b
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

@@ -169,7 +169,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 export CAM_TYPE=fb
 
 # 启动launch文件
-ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544
 
 # RDK Ultra平台需要指定回灌图片，例如：
 # ros2 launch mono2d_body_detection mono2d_body_detection.launch.py picture:=./config/target.jpg
