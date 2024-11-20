@@ -165,4 +165,4 @@ sudo wifi_connect "SSID" "PASSWD" # 连接指定wifi
 
 上述命令成功后，会出现`successfully xxx`
 
-最后板卡端使用`ifconifg`便可获得板卡IP地址，便可拔掉串口线，使用前文SSH登录进行远程链接
+最后板卡端使用`ifconfig`便可获得板卡IP地址，便可拔掉串口线，使用前文SSH登录进行远程链接

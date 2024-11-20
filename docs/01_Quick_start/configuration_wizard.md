@@ -112,7 +112,7 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 <TabItem value="server" label="Server">
 
-桌面图形化系统，支持四种登录模式：
+字符终端，支持两种登录模式：
 
 1. 字符终端，自动登录
 2. 字符终端，用户手动登录
