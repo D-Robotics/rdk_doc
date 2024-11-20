@@ -101,11 +101,48 @@ RDK X5提供了网口、USB、摄像头、LCD、HDMI、CANFD、40PIN等功能接
 | --- | ------ | ------- | ------- | ------- |
 |  1  | IMX219  | 800W |    |  |
 |  2  | OV5647  | 500W |    |  |
+|  3  | IMX477  | 1230W |    |  |
 
 摄像头模组通过FPC排线跟开发板连接，注意排线两端蓝面向上插入连接器。
 
 
 安装完成后，用户可以通过i2cdetect命令确认模组I2C地址能否正常检测到。
+
+查询靠近网口的mipi_host0 接口 上 Camera Sensor 的 I2C 设备地址：
+```shell
+echo 353 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio353/direction
+echo 0 > /sys/class/gpio/gpio353/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio353/value
+
+i2cdetect -y -r 6
+```
+
+查询远离网口的mipi_host2 接口 上 Camera Sensor 的 I2C 设备地址：
+```shell
+echo 351 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio351/direction
+echo 0 > /sys/class/gpio/gpio351/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio351/value
+
+i2cdetect -y -r 4
+```
+
+成功探测到Camera Sensor 的 I2C 设别地址时，可以看到如下所示的打印（以在接口 mipi_host2 上探测 IMX219 为例，可以发现 10 地址被打印出来了）：
+```shell
+root@ubuntu:~# i2cdetect -y -r 4
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --    
+```
 
 :::caution
 重要提示：严禁在开发板未断电的情况下插拔摄像头，否则非常容易烧坏摄像头模组。
