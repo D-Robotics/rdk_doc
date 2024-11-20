@@ -65,10 +65,10 @@ ion=ion_cma_size=0x08000000
 可以通过启动信息查看各个ION区域的大小：
 
 ```Shell
-root@ubuntu:~# dmesg | grep ION
-[    0.187961] Reserved ION Carveout(ion-pool) MEM start 0xa4100000, size 0x14000000
-[    0.187989] Reserved ION cma(ion-carveout) reserved MEM start 0xb8100000, size 0x14000000
-[    0.188075] Reserved ION cma(ion-cma) reserved MEM start 0xcc100000, size 0x8000000
+root@ubuntu:~# dmesg | grep "Reserverd ion"
+[    0.207939] Reserverd ion-pool MEM start 0xa4100000, size 0x14000000
+[    0.207964] Reserverd ion-carveout MEM start 0xb8100000, size 0x14000000
+[    0.208068] Reserverd ion-cma MEM start 0xcc100000, size 0x8000000
 ```
 
 ### dtparam
