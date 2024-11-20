@@ -6,6 +6,32 @@ sidebar_position: 6
 
 ## tros-humble
 
+### 版本号：2.3.1 (2024-11-20)
+
+功能变更：
+
+- 依赖的`opencv`版本从3.4.5升级到4.5.4（Ubuntu 22.04使用的最新release版本）。
+
+新增功能：
+
+- [图像发布工具](/docs/05_Robot_development/02_quick_demo/demo_tool.md)支持发布`bgr/rgb`格式消息数据；支持配置发布消息的frame_id。
+- [人体检测和跟踪算法](/docs/05_Robot_development/03_boxs/function/mono2d_body_detection.md)支持配置订阅的消息topic；支持component模式运行；算法前处理支持对输入图片进行缩放后推理；launch启动脚本支持使用压缩图片回灌，并支持配置图片的路径。
+- [板端算法模型推理与部署框架](https://github.com/D-Robotics/hobot_dnn.git)修复多线程推理中推理耗时计算错误的问题；支持在配置文件中配置任务数功能。
+- [图像编解码Node](/docs/05_Robot_development/02_quick_demo/hobot_codec.md)使用订阅到图像消息的frame_id作为输出图像消息的frame_id；支持发布丢帧控制。
+- [手势识别算法](/docs/05_Robot_development/03_boxs/function/hand_gesture_detection.md)支持启动时配置后处理阈值；支持动态手势识别。
+- 新增[人脸年龄检测算法](/docs/05_Robot_development/03_boxs/function/mono_face_age_detection.md)，用于检测人的年龄。
+- 新增[人脸106关键点检测](/docs/05_Robot_development/03_boxs/function/mono_face_landmarks_detection.md)，用于检测人脸106个关键点信息。
+- 新增[感知消息融合Node](https://github.com/D-Robotics/tros_perception_fusion)，用于订阅多个[PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg)类型的topic，经过时间对齐、数据去重后，再融合成一个topic后发布。应用参考[多算法推理](/docs/05_Robot_development/02_quick_demo/ai_predict.md)。
+- 新增[感知消息滤波Node](https://github.com/D-Robotics/tros_lowpass_filter)，采用OneEuroFilter滤波策略对点和框做平滑操作，用于对感知结果中的人体、人脸、人手等检测框和关键点数据进行位置纠正，修复框和点的抖动问题。应用参考[多算法推理](/docs/05_Robot_development/02_quick_demo/ai_predict.md)。
+- 新增[双目辅助功能包](https://github.com/D-Robotics/hobot_stereonet_utils)，用于对双目图像、深度图像进行采集。
+- 新增[多路视频分析](https://github.com/D-Robotics/hobot_rtsp_client.git)算法示例，通过rtsp协议拉取多路h264和h265码流并推理，在WEB端可视化感知结果。
+
+问题修复：
+
+- [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)修复`imx219`模组启动失败的问题.
+- [人手关键点检测算法](/docs/05_Robot_development/03_boxs/function/hand_lmk_detection.md)前处理增加人手框外扩功能，解决算法输出的关键点错误的问题。
+
+
 ### 版本号：2.3.0 (2024-09-19)
 
 新增功能：
