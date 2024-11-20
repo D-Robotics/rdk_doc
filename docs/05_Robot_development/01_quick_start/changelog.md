@@ -20,11 +20,11 @@ sidebar_position: 6
 - [图像编解码Node](/docs/05_Robot_development/02_quick_demo/hobot_codec.md)使用订阅到图像消息的frame_id作为输出图像消息的frame_id；支持发布丢帧控制。
 - [手势识别算法](/docs/05_Robot_development/03_boxs/function/hand_gesture_detection.md)支持启动时配置后处理阈值；支持动态手势识别。
 - 新增[人脸年龄检测算法](/docs/05_Robot_development/03_boxs/function/mono_face_age_detection.md)，用于检测人的年龄。
-- 新增[人脸106关键点检测](/docs/05_Robot_development/03_boxs/function/mono_face_landmarks_detection.md)，用于检测人脸106个关键点信息。
+- 新增[人脸106关键点检测算法](/docs/05_Robot_development/03_boxs/function/mono_face_landmarks_detection.md)，用于检测人脸106个关键点信息。
 - 新增[感知消息融合Node](https://github.com/D-Robotics/tros_perception_fusion)，用于订阅多个[PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg)类型的topic，经过时间对齐、数据去重后，再融合成一个topic后发布。应用参考[多算法推理](/docs/05_Robot_development/02_quick_demo/ai_predict.md)。
 - 新增[感知消息滤波Node](https://github.com/D-Robotics/tros_lowpass_filter)，采用OneEuroFilter滤波策略对点和框做平滑操作，用于对感知结果中的人体、人脸、人手等检测框和关键点数据进行位置纠正，修复框和点的抖动问题。应用参考[多算法推理](/docs/05_Robot_development/02_quick_demo/ai_predict.md)。
 - 新增[双目辅助功能包](https://github.com/D-Robotics/hobot_stereonet_utils)，用于对双目图像、深度图像进行采集。
-- 新增[多路视频分析](https://github.com/D-Robotics/hobot_rtsp_client.git)算法示例，通过rtsp协议拉取多路h264和h265码流并推理，在WEB端可视化感知结果。
+- 新增[多路视频分析](https://github.com/D-Robotics/hobot_rtsp_client.git)算法应用示例，通过rtsp协议拉取多路h264和h265码流并推理，在WEB端可视化感知结果。
 
 问题修复：
 
