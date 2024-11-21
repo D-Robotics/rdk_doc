@@ -68,7 +68,7 @@ source /opt/tros/humble/setup.bash
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
-# 配置MIPI摄像头
+# 配置USB摄像头
 export CAM_TYPE=usb
 
 # 启动launch文件
