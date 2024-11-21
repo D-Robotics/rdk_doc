@@ -26,7 +26,11 @@ sidebar_position: 13
 tros humble 版本
 ```bash
 sudo apt update
+# 卸载原有的包：
 sudo apt-get remove tros-humble-stereonet-model
+# 如果卸载失败，则执行强制删除命令：
+# sudo dpkg --remove --force-all tros-humble-stereonet-model
+# 安装新的包：
 sudo apt install -y tros-humble-hobot-stereonet
 ```
 
