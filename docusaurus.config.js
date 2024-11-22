@@ -162,9 +162,15 @@ const config = {
                 href: 'https://github.com/D-Robotics',
               },
               {
-                label: 'BiLiBiLi',
-                href: 'https://space.bilibili.com/437998606',
-              },
+				  label: 'BiLiBiLi',
+				  href: (() => {
+					if (process.env.DOCUSAURUS_CURRENT_LOCALE === 'en') {
+					  return 'https://www.youtube.com/@D-Robotics';
+					}
+					return 'https://space.bilibili.com/437998606';
+				  })(),
+              }
+				
             ],
           },
         ],
@@ -196,5 +202,6 @@ const config = {
     ],
 
 };
+
 
 export default config;
