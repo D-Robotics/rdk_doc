@@ -13,6 +13,8 @@ import TabItem from '@theme/TabItem';
 
 This section introduces the usage of the model inference function. You can input a local image for inference, and get the rendered image saved locally.
 
+Finally, demonstrate the effects of simultaneous reasoning and fusion for the Human Body Detection, facial keypoint detection, Hand Keypoint Detection, and Gesture Recognition algorithms in the TROS application. The example uses MIPI/USB camera/local replay input and displays the inference rendering results through the WEB interface.
+
 Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-Robotics/hobot_dnn)
 
 ## Supported Platforms
@@ -88,3 +90,46 @@ The log output shows that the algorithm has inferred 6 targets based on the inpu
 The rendered image, render_feedback_0_0.jpeg, is shown below:
 
 ![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)
+
+## Multi-Algorithm Inference
+
+This section introduces the simultaneous inference of multiple algorithms, and the display of algorithm effects on the WEB端 after fusing the inference results.
+
+:::warning
+Only `TROS Humble 2.3.1` and later versions support this feature.
+
+`TROS` version release records: [Click to jump](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/01_quick_start/changelog.md), version check method: [Click to jump](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/01_quick_start/install_tros.md).
+:::
+
+**Publishing Images Using MIPI/USB Camera**
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+# Configuration command for using a USB camera: export CAM_TYPE=usb
+
+# Launch the launch file
+ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py
+```
+
+**Using Local Image Replay**
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+# Copy the configuration files needed for the running example from the installation path of tros.b.
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# Configure local replay image
+export CAM_TYPE=fb
+
+# Launch the launch file
+ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
+```
+
+Enter http://IP:8000 in the browser on your PC to view the image and algorithm rendering effects (IP is the IP address of the RDK):
+
+![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)

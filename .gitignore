@@ -28,3 +28,5 @@ translate_doc.py
 
 yarn.lock
 package-lock.json
+
+.idea

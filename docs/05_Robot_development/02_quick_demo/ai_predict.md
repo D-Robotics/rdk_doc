@@ -13,6 +13,8 @@ import TabItem from '@theme/TabItem';
 
 本章节介绍模型推理功能的使用，输入一张本地图片进行推理，得到渲染后的图片并保存在本地。
 
+最后展示TROS应用算法中的[人体检测](/docs/05_Robot_development/03_boxs/function/mono2d_body_detection.md)、[年龄识别](/docs/05_Robot_development/03_boxs/function/mono_face_age_detection.md)、[人脸关键点检测](/docs/05_Robot_development/03_boxs/function/mono_face_landmarks_detection.md)、[人手关键点检测](/docs/05_Robot_development/03_boxs/function/hand_lmk_detection.md)、[手势识别](/docs/05_Robot_development/03_boxs/function/hand_gesture_detection.md)的算法同时推理和融合后的效果。示例使用MIPI/USB摄像头/本地回灌输入，通过WEB展示推理渲染结果。
+
 代码仓库：[https://github.com/D-Robotics/hobot_dnn](https://github.com/D-Robotics/hobot_dnn)
 
 ## 支持平台
@@ -103,3 +105,54 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 渲染后的图片render_feedback_0_0.jpeg：
 
 ![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)
+
+
+## 多算法推理
+
+本节介绍多个算法同时推理，融合推理结果后在WEB端展示算法效果。
+
+:::warning
+仅`TROS Humble 2.3.1`以及后续版本支持此功能。
+
+`TROS`版本发布记录：[点击跳转](/docs/05_Robot_development/01_quick_start/changelog.md)，版本查看方法：[点击跳转](/docs/05_Robot_development/01_quick_start/install_tros.md)。
+:::
+
+**使用MIPI/USB摄像头发布图片**
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+# 使用USB摄像头的配置命令: export CAM_TYPE=usb
+
+# 启动launch文件
+ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py
+```
+
+**使用本地图片回灌**
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# 配置本地回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
+```
+
+在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+
+![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)

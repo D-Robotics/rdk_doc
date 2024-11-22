@@ -14,6 +14,8 @@ import TabItem from '@theme/TabItem';
 
 算法支持的手势识别类别，以及手势类别在算法msg（Attribute成员，type为"gesture"）中对应的数值如下：
 
+1. 静态手势
+
 | 手势       | 说明       | 数值 |
 | ---------- | ---------- | ---- |
 | ThumbUp    | 竖起大拇指 | 2    |
@@ -24,6 +26,14 @@ import TabItem from '@theme/TabItem';
 | ThumbLeft  | 大拇指向左 | 12   |
 | ThumbRight | 大拇指向右 | 13   |
 | Awesome    | 666手势    | 14   |
+
+2. 动态手势
+
+| 手势       | 说明 | 数值 |
+| ---------- | ---------- | ---------- |
+| PinchMove    | 三指捏合拖动 | 15 |
+| PinchRotateAntiClockwise    | 三指捏合逆时针画圈    | 16 |
+| PinchRotateClockwise       | 三指捏合顺时针画圈   | 17 |
 
 代码仓库：
 
@@ -135,6 +145,34 @@ export CAM_TYPE=usb
 # 启动launch文件
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 ```
+
+**使用本地回灌图片**
+
+:::warning
+仅`TROS Humble 2.3.1`以及后续版本支持此功能。
+
+`TROS`版本发布记录：[点击跳转](/docs/05_Robot_development/01_quick_start/changelog.md)，版本查看方法：[点击跳转](/docs/05_Robot_development/01_quick_start/install_tros.md)。
+:::
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# 配置本地回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch hand_gesture_detection hand_gesture_detection.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
+```
+
+:::info
+launch脚本默认启动静态手势识别，对于`TROS Humble`版本，可以使用`is_dynamic_gesture`参数指定启动动态手势识别：`ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`。
+:::
 
 ## 结果分析
 

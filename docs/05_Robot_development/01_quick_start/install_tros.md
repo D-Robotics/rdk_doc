@@ -90,8 +90,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-查看当前tros.b版本
-
+### 查看当前tros.b版本
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
