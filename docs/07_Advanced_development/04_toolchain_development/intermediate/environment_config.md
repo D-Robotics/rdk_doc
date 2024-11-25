@@ -61,7 +61,7 @@ sidebar_position: 1
   |---------------|------|
   | CPU           | CPU I3以上或者同级别E3/E5的处理器    |
   | 内存          | 16G或以上级别                        |
-  | GPU(可选)     | CUDA11.6、驱动版本Linux:>= 510.39.01*<br/>适配显卡包括但不限于：<br/>1)GeForce RTX 3090<br/>2)GeForce RTX 2080 Ti<br/>3)NVIDIA TITAN V<br/>4)Tesla V100S-PCIE-32GB
+  | GPU(可选)     | CUDA11.6、驱动版本Linux:>= 510.39.01*推荐驱动版本Linux:515.76）<br/>适配显卡包括但不限于：<br/>1)GeForce RTX 3090<br/>2)GeForce RTX 2080 Ti<br/>3)NVIDIA TITAN V<br/>4)Tesla V100S-PCIE-32GB<br/>5)A100
   | 系统          | Ubuntu 20.04         |
 
 更多关于CUDA与显卡的兼容性问题请参考[**NVIDIA官网信息**](https://docs.nvidia.com/deploy/cuda-compatibility/) 。
@@ -73,16 +73,15 @@ sidebar_position: 1
 在阅读此部分内容前，我们希望您的开发机中已经预装好了Docker的基础环境。
 D-Robotics 要求的Docker基础环境信息如下：
 
-- Docker（>=1.12 建议安装18.03.0-ce）, 安装手册 https://docs.docker.com/install/。
-- NVIDIA Docker（2.0.3），安装手册[**NVIDIA/nvidia-docker**](https://github.com/nvidia/nvidia-docker/wiki)。
+- Docker（19.03或更高版本，建议安装19.03版本），详见 [**Docker安装手册**](https://docs.docker.com/install/)。
+- NVIDIA Container Toolkit（1.13.1-1.13.5，建议安装1.13.5），详见[**NVIDIA Container Toolkit 安装手册**](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)。
 
 完成Docker环境安装后，需要将无root权限的用户添加到Docker用户组中。参考如下命令：
 
 ```bash
   sudo groupadd docker
   sudo gpasswd -a ${USER} docker
-  sudo systemctl restart docker  # CentOS7/Ubuntu
-  # re-login
+  sudo service docker restart
 ```
 
 获取本节需要使用的Docker镜像的地址如下：
@@ -139,8 +138,9 @@ D-Robotics 要求的Docker基础环境信息如下：
 
     export dataset_path=/home/users/xxx/data/
 
-    docker run -it --runtime=nvidia -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
-      -e NVIDIA_VISIBLE_DEVICES=all --rm --shm-size="15g" \
+    docker run -it --rm \
+      --gpus all \ # 在启动容器时，添加标记以启用GPU资源的访问
+      --shm-size=15g \ # 修改共享内存大小
       -v "$ai_toolchain_package_path":/open_explorer \
       -v "$dataset_path":/data \
       openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu:"${version}"
@@ -279,16 +279,15 @@ D-Robotics 要求的Docker基础环境信息如下：
 在阅读此部分内容前，我们希望您的开发机中已经预装好了Docker的基础环境。
 X5算法工具链要求的Docker基础环境信息如下：
 
-- Docker（>=1.12 建议安装18.03.0-ce）, 安装手册 https://docs.docker.com/install/。
-- NVIDIA Docker（2.0.3），安装手册[**NVIDIA/nvidia-docker**](https://github.com/nvidia/nvidia-docker/wiki)。
+- Docker（19.03或更高版本，建议安装19.03版本），详见 [**Docker安装手册**](https://docs.docker.com/install/)。
+- NVIDIA Container Toolkit（1.13.1-1.13.5，建议安装1.13.5），详见[**NVIDIA Container Toolkit 安装手册**](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)。
 
 完成Docker环境安装后，需要将无root权限的用户添加到Docker用户组中。参考如下命令：
 
 ```bash
   sudo groupadd docker
   sudo gpasswd -a ${USER} docker
-  sudo systemctl restart docker  # CentOS7/Ubuntu
-  # re-login
+  sudo service docker restart
 ```
 
 获取本节需要使用的Docker镜像的地址如下：
@@ -343,8 +342,9 @@ X5算法工具链要求的Docker基础环境信息如下：
 
     export dataset_path=/home/users/xxx/data/
 
-    docker run -it --runtime=nvidia -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
-      -e NVIDIA_VISIBLE_DEVICES=all --rm --shm-size="15g" \
+    docker run -it --rm \
+      --gpus all \ # 在启动容器时，添加标记以启用GPU资源的访问
+      --shm-size=15g \ # 修改共享内存大小
       -v "$ai_toolchain_package_path":/open_explorer \
       -v "$dataset_path":/data \
       openexplorer/ai_toolchain_ubuntu_20_x5_gpu:"${version}"
@@ -478,16 +478,15 @@ ftp://oemng@42.62.85.52:10021/RDK/rdk-x3-ultra/
 在阅读此部分内容前，我们希望您的开发机中已经预装好了Docker的基础环境。
 D-Robotics 要求的Docker基础环境信息如下：
 
-- Docker（>=1.12 建议安装18.03.0-ce）, 安装手册 https://docs.docker.com/install/。
-- NVIDIA Docker（2.0.3），安装手册[**NVIDIA/nvidia-docker**](https://github.com/nvidia/nvidia-docker/wiki)。
+- Docker（19.03或更高版本，建议安装19.03版本），详见 [**Docker安装手册**](https://docs.docker.com/install/)。
+- NVIDIA Container Toolkit（1.13.1-1.13.5，建议安装1.13.5），详见[**NVIDIA Container Toolkit 安装手册**](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)。
 
 完成Docker环境安装后，需要将无root权限的用户添加到Docker用户组中。参考如下命令：
 
 ```bash
   sudo groupadd docker
   sudo gpasswd -a ${USER} docker
-  sudo systemctl restart docker  # CentOS7/Ubuntu
-  # re-login
+  sudo service docker restart
 ```
 
 获取本节需要使用的Docker镜像的地址如下：
@@ -544,8 +543,9 @@ D-Robotics 要求的Docker基础环境信息如下：
 
     export dataset_path=/home/users/xxx/data/
 
-    docker run -it --runtime=nvidia -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
-      -e NVIDIA_VISIBLE_DEVICES=all --rm --shm-size="15g" \
+    docker run -it --rm \
+      --gpus all \ # 在启动容器时，添加标记以启用GPU资源的访问
+      --shm-size=15g \ # 修改共享内存大小
       -v "$ai_toolchain_package_path":/open_explorer \
       -v "$dataset_path":/data \
       openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu:"${version}"
