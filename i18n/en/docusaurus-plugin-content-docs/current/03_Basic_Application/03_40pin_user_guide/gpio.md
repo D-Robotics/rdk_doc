@@ -408,3 +408,47 @@ def main():
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
+```
+:::
+## Introduction to `hb_gpioinfo` Tool
+The `hb_gpioinfo` tool is a GPIO helper tool adapted for the X5 platform. It is used to view the mapping relationship between `PinName` and `PinNum` on the current development board.
+
+### Components of `hb_gpioinfo`
+The `hb_gpioinfo` tool consists of two parts:  
+1. **Driver**: Parses the `pinmux-gpio.dtsi` file and exports `PinNode` and `PinName` information to the `debugfs` system.  
+2. **Application**: Parses and displays the information in the terminal.  
+
+- **Driver Code Path:** `kernel/drivers/gpio/hobot_gpio_debug.c`
+
+---
+
+### Example Usage of `hb_gpioinfo`
+- **PinName:** Refers to the pin name on the SoC, consistent with the X5 SoC pin names in the schematic.  
+- **PinNode:** Refers to the `PinNode` information in the device tree.  
+- **PinNum:** Refers to the actual GPIO number corresponding to the pin on the X5.
+
+```bash
+root@ubuntu:~# hb_gpioinfo
+gpiochip0 - 8 lines: @platform/31000000.gpio: @GPIOs 498-505
+        [Number]                [Mode]  [Status]  [GpioName]       [PinName]              [PinNode]           [PinNum]
+        line  0:        unnamed input                             AON_GPIO0_PIN0        aon_gpio_0              498
+        line  1:        unnamed input                             AON_GPIO0_PIN1        aon_gpio_1              499
+        line  2:        unnamed input  active-low  GPIO Key Power AON_GPIO0_PIN2        aon_gpio_2              500
+        line  3:        unnamed input              interrupt      AON_GPIO0_PIN3        aon_gpio_3              501
+        line  4:        unnamed input                             AON_GPIO0_PIN4        aon_gpio_4              502
+        line  5:        unnamed input              id             AON_ENV_VDD           aon_gpio_5              503
+        line  6:        unnamed input              id             AON_ENV_CNN0          aon_gpio_6              504
+        line  7:        unnamed input                             AON_ENV_CNN1          aon_gpio_7              505
+gpiochip1 - 31 lines: @platform/35060000.gpio: @GPIOs 466-496
+        [Number]                [Mode]  [Status]  [GpioName]       [PinName]              [PinNode]           [PinNum]
+        line  0:        unnamed input                             HSIO_ENET_MDC         hsio_gpio0_0            466
+        line  1:        unnamed input                             HSIO_ENET_MDIO        hsio_gpio0_1            467
+        line  2:        unnamed input                             HSIO_ENET_TXD_0       hsio_gpio0_2            468
+        line  3:        unnamed input                             HSIO_ENET_TXD_1       hsio_gpio0_3            469
+        line  4:        unnamed input                             HSIO_ENET_TXD_2       hsio_gpio0_4            470
+        line  5:        unnamed input                             HSIO_ENET_TXD_3       hsio_gpio0_5            471
+        line  6:        unnamed input                             HSIO_ENET_TXEN        hsio_gpio0_6            472
+        line  7:        unnamed input                             HSIO_ENET_TX_CLK      hsio_gpio0_7            473
+        line  8:        unnamed input                             HSIO_ENET_RX_CLK      hsio_gpio0_8            474
+        ....
+```

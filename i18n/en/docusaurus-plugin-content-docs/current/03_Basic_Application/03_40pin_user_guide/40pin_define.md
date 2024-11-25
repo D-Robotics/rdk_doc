@@ -17,11 +17,19 @@ sudo srpi-config
 
 ![image-20220511173307239](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220511173307239.png)
 
-The `okay` configuration corresponds to dedicated pins, while the `disabled` configuration corresponds to GPIO mode. The configuration takes effect after restarting.
 
-- Select the desired function using the up and down arrow keys, and press Enter to toggle the function ON or OFF. 
+After selecting `3 Interface Options` -> `I3 Peripheral bus config`, you will enter the following bus configuration interface:
 
-- Select Select and Exit with the left and right keys on the keyboard, and confirm with the enter key
+![I3 Peripheral Bus Config](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
+
+- **`okay`:** Configures the corresponding pin for its dedicated function.  
+- **`disabled`:** Disables the pin's dedicated function, allowing it to be used as a GPIO.  
+- **Note:** Configuration changes take effect **after a restart**.
+
+#### Navigation Instructions
+- Use **Up/Down keys** on the keyboard to select a function item, press **Enter** to toggle the function.  
+- Use **Left/Right keys** on the keyboard to choose between `Select` and `Exit`, press **Enter** to confirm.
+
 
 
 ## 40-Pin Definition{#40pin_define}
@@ -42,3 +50,34 @@ The RDK X3 Module provides the 40-pin GPIOs and their definitions as follows:
 The RDK Ultra provides the 40-pin GPIOs and their definitions as follows:
 :::
 ![image-20230510155124570](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230830194924570.png)
+
+## GPIO Read/Write Operation Example
+
+**Video Reference:** [Watch on Bilibili](https://www.bilibili.com/video/BV1rm4y1E73q/?p=16)
+
+The development board includes various 40PIN pin function test codes in the `/app/40pin_samples/` directory, such as GPIO input/output testing, PWM, I2C, SPI, and UART tests. All test programs are written in Python. Detailed information about each module can be found in other sections of this chapter.
+
+For example, in `/app/40pin_samples/button_led.py`, the program configures pin `37` as input and pin `36` as output. The output state of pin `36` is controlled based on the input state of pin `37`.
+
+### Environment Setup
+Use Dupont wires to connect pin `37` to 3.3V or GND to control its voltage level.
+
+
+
+### Execution Steps
+Run the `button_led.py` program to start the GPIO read/write operation:
+
+```bash
+sunrise@ubuntu:~$ cd /app/40pin_samples/
+sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
+```
+## Expected Output
+By controlling the voltage level of pin `37`, the output level of pin `36` will change accordingly.
+
+```bash
+sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
+Starting demo now! Press CTRL+C to exit
+Outputting 0 to Pin 36
+Outputting 1 to Pin 36
+Outputting 0 to Pin 36
+```

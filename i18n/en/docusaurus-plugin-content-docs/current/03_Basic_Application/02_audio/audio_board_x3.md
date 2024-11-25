@@ -1,19 +1,126 @@
 ---
 sidebar_position: 1
 ---
-# 3.2.1 Audio Adapter Board On RDK X3
+# 3.2.1 RDK X3 Series Audio Board User Guide
 
-Video: https://www.youtube.com/watch?v=Jt7eaEe2QbQ&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=9
+Video: [https://www.bilibili.com/video/BV1rm4y1E73q/?p=10](https://www.bilibili.com/video/BV1rm4y1E73q/?p=10)
 
-The RDK X3 currently supports **WM8960 Audio HAT**. This board are designed to meet the functional requirements of different voice scenarios. The following will provide detailed instructions on how to use this audio board.
+The RDK X3 currently supports two types of audio adapter boards, the **Audio Driver HAT** and the **WM8960 Audio HAT**, designed to meet the functional needs of various voice scenarios. Below is a detailed introduction to the usage of these two audio boards.
 
-:::note Note
+:::note TIP
 
-If you are prompted that the Miniboot version is not the latest after installing the driver, please go to `1 System Options` -> `S7 Update Miniboot` to update Miniboot.
+If after installing the drivers, you get a message that the Miniboot version is not the latest, please go to `1 System Options` -> `S7 Update Miniboot` to update Miniboot.
 
 :::
 
 
+## Audio Driver HAT REV2
+
+### Product Introduction
+
+The Audio Driver HAT REV2 is an audio adapter board produced by Waveshare Electronics, featuring an ES7210+ES8156 dual Codec scheme. It enables circular 4-microphone recording, dual-channel audio playback, and audio signal reacquisition. Below is an image of the adapter board:
+
+![image-audio-driver-hat](../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat.jpg)
+
+For a detailed introduction to the audio sub-board, please refer to [Audio Driver HAT](https://www.waveshare.net/shop/Audio-Driver-HAT.htm).
+
+### Installation Method
+
+1. Connect the adapter board to the RDK X3's 40pin header as shown in the image below:  
+![image-audio-driver-hat-setup](../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
+
+2. Use the command `cat /sys/class/socinfo/som_name` to query the type of development board and set the dip switch status of the audio sub-board according to the return value.
+   - If the return value is 5 or 6, set all three dip switches to the `ON` position.
+   - If the return value is 8, set all three dip switches to the `OFF` position.
+
+3. Use `srpi-config` to configure the audio board  
+   Go to `3 Interface Options` -> `I5 Audio`  
+   Select `Audio Driver HAT V2`:
+   ![image-audio-driver-hat-config00](../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config00.png)  
+
+4. Run the command `sync && reboot` to reboot the development board. If the following device nodes appear under /dev/snd, the adapter board has been successfully installed.
+    ```shell
+    root@ubuntu:/userdata# ls /dev/snd
+    by-path  controlC0  pcmC0D0c  pcmC0D1p  timer
+    ```
+### Uninstallation Method
+1. Use `srpi-config` to configure the audio board  
+   Go to `3 Interface Options` -> `I5 Audio`  
+   Select `UNSET` to uninstall the audio drivers and related configurations.
+
+### Audio Nodes
+On the `RDK X3`, the playback node for this audio board is `pcmC0D0p`, and the recording node is `pcmC0D1c`.
+
+### Recording and Playback Test
+
+Tests use the `tinyalsa` library toolkit: `tinycap` for recording and `tinyplay` for playback.
+
+`tinycap` usage instructions:
+```shell
+tinycap
+Usage: tinycap {file.wav | --} [-D card] [-d device] [-c channels] [-r rate] [-b bits] [-p period_size] [-n n_periods] [-t time_in_seconds]
+
+Use -- for filename to send raw PCM to stdout
+```
+`tinyplay`usage instructions:
+```shell
+tinyplay
+usage: tinyplay file.wav [options]
+options:
+-D | --card   <card number>    The device to receive the audio
+-d | --device <device number>  The card to receive the audio
+-p | --period-size <size>      The size of the PCM's period
+-n | --period-count <count>    The number of PCM periods
+-i | --file-type <file-type >  The type of file to read (raw or wav)
+-c | --channels <count>        The amount of channels per frame
+-r | --rate <rate>             The amount of frames per second
+-b | --bits <bit-count>        The number of bits in one sample
+-M | --mmap                    Use memory mapped IO to play audio
+```
+For more information about the tinyalsa library, please refer to their repository.[仓库地址](https://github.com/tinyalsa/tinyalsa)
+
+
+
+- 2-channel microphone recording:
+
+```
+tinycap ./2chn_test.wav -D 0 -d 1 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
+```
+
+- 4-channel microphone recording:
+
+```
+tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
+```
+
+- Dual-channel audio playback:
+
+```
+tinyplay ./2chn_test.wav -D 0 -d 0
+```
+
+### Audio Reacquisition Test
+
+The audio board uses recording channels 7 & 8 for playback reacquisition, thus requiring the use of an 8-channel recording command for collection.
+
+- Start 8-channel microphone recording
+
+```shell
+tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 512 -n 4 -t 5
+```
+
+- Start dual-channel audio playback
+```
+tinyplay ./2chn_test.wav -D 0 -d 0
+```
+
+After recording, the spectral information of channels 7 & 8 in the `2chn_test`.wav file can be viewed using audio software.
+
+### Notes
+
+Since the older Audio Driver HAT REV1 audio board has been discontinued, RDK X3 will gradually cease maintenance of this hardware. Users are recommended to upgrade to the REV2 version.
+
+For instructions on using the Audio Driver HAT REV1 audio board, refer to the FAQ section.
 ## WM8960 Audio HAT
 
 ### Product Introduction
