@@ -115,23 +115,38 @@ For example, setting the CPU to run at 1GHz:
 governor=userspace
 frequency=1000000
 ```
+## X5 CPU Frequency
+
+For details about `CPU` scheduling methods, please refer to [X5 CPU Frequency Management](frequency_management#cpu频率管理-1). This section focuses on configuring `config.txt`.
+
+---
+
+### arm_boost
+
+When set to `1`, overclocking is enabled, increasing the maximum frequency of the RDK X5 to 1.8GHz. You can check which higher CPU frequencies are enabled after boosting by running:
+
+```bash
+cat /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies
+
+```
+
 
 ## IO Initialization
 
 ### gpio
 
-Supports setting the IO multiplexing, output, input mode, output high/low level, and pull-up/pull-down mode.
+Supports configuring IO functionality, including multiplexing, input/output modes, high/low output levels, and pull-up/pull-down modes.
 
-```bash
+```shell
 gpio:
-ip - Input                             Set to input mode
-op - Output                            Set to output mode
-f0-f3 - Func0-Func3                    Set function multiplexing, f3 functions are all set to IO mode, For other functions, please refer to the register manual.
-dh - Driving high (for outputs)        Drive high level
-dl - Driving low (for outputs)         Drive low level
-pu - Pull up                           Pull up
-pd - Pull down                         Pull down
-pn/np - No pull                        No pull
+ip - Input                             Set as input mode
+op - Output                            Set as output mode
+f0-f3 - Func0-Func3                    Set function multiplexing (f3 sets to IO mode, refer to the register manual for other functions)
+dh - Driving high (for outputs)        Output high level
+dl - Driving low (for outputs)         Output low level
+pu - Pull up                           Enable pull-up
+pd - Pull down                         Enable pull-down
+pn/np - No pull                        No pull-up or pull-down
 ```
 
 
