@@ -295,9 +295,9 @@ root@ubuntu:~# dmesg | grep drm
 [   13.678810] [drm] Initialized vs-drm 1.0.0 20191101 for 3e000000.disp_apb:display-subsystem on minor 0
 ```
 
-当出现`vs-drm 3e000000.disp_apb:display-subsystem: bound 3e060000.mipi_dsi0 (ops dsi_component_ops [vs_drm])`表示显示驱动加载成功。
+`vs-drm 3e000000.disp_apb:display-subsystem: bound 3e060000.mipi_dsi0 (ops dsi_component_ops [vs_drm])`表示mipi_dsi加载成功。
 
-当出现`[drm] Initialized vs-drm 1.0.0 20191101 for 3e000000.disp_apb:display-subsystem on minor 0`表示显示驱动加载成功。
+`[drm] Initialized vs-drm 1.0.0 20191101 for 3e000000.disp_apb:display-subsystem on minor 0`表示显示驱动加载成功。
 
 3，执行`modetest -M vs-drm -c`查看connectors的状态：
 ```
@@ -332,6 +332,16 @@ id      encoder status          name            size (mm)       modes   encoders
 
                 value:
 ```
+
+4，使用`modetest`输出测试图镜像测试命令进行测试
+
+使用`sudo systemctl stop lightdm`关闭lightdm桌面
+
+使用`modetest -M vs-drm -a -s 73@31:800x480 -P 33@31:800x480@NV12`命令进行测试
+
+如果一切顺利，连接的屏幕将会亮起并显示下图的pattern：
+
+![image-20220518111319607](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241125-162524.png)
 
 ## 5.备注
 目前，RDK X5已经支持7款微雪 LCD屏幕，使用方法可以参考 [显示屏使用](../../hardware_development/rdk_x5/display) 章节
