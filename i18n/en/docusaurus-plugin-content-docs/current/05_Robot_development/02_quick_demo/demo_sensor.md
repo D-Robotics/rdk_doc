@@ -528,6 +528,153 @@ Take the F37 as an example to introduce the method of acquiring and previewing i
 	- Make sure you have set up the tros.b environment.
 	- Verify the parameters are correct, for more details refer to the Hobot_Sensors README.md file.
 
+## RealSense Image Capture
+
+### Feature Overview
+
+Stereo cameras are commonly used sensors in robotics, often serving as the "eyes" of the robot. They have diverse applications, including navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo camera models such as RealSense and Orbbec.
+
+Currently, the usage of RealSense and Orbbec stereo cameras on ROS follows the architecture shown below. It requires platform-specific SDK library files. These SDKs provide APIs for camera initialization and configuration. On top of these SDKs, ROS wrappers are implemented, enabling the integration of stereo cameras into ROS.
+
+The general installation process for stereo camera ROS packages involves:
+1. Installing the camera's SDK library files.
+2. Installing the ROS wrapper for the camera.
+
+![Stereo Camera ROS Architecture](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+
+This section explains how to use a RealSense camera on the RDK platform.
+### Supported Platforms
+
+| Platform              | Operating System         |
+| --------------------- | ------------------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5                | Ubuntu 22.04 (Humble)   |
+| RDK Ultra             | Ubuntu 20.04 (Foxy)    |
+
+---
+
+### Preparation
+
+#### RDK Platform
+
+1. Ensure your RealSense camera is functioning properly and connect it to the RDK's USB port using the provided USB cable.
+2. Verify that the RDK is flashed with the Ubuntu 20.04/Ubuntu 22.04 system image.
+3. Confirm that tros.b is successfully installed on the RDK.
+4. Ensure that your PC can access the RDK over the network.
+
+---
+
+### Usage Instructions
+
+To use the RealSense series cameras on the RDK platform, install RealSense SDK 2.0 and the RealSense ROS wrapper using the `apt` command.
+
+Below are the GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper. This guide references these repositories, which also contain more detailed instructions for advanced use cases:
+
+- RealSense SDK 2.0: [GitHub Repository](https://github.com/IntelRealSense/librealsense)
+- RealSense ROS wrapper: [GitHub Repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development)
+
+#### 1. Log in to the RDK via Serial Port or SSH and Verify the ROS Version
+
+<Tabs groupId="tros-distro">
+
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+# Print the ROS version environment variable
+echo $ROS_DISTRO
+   ```
+</TabItem> 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+# Print the ROS version environment variable
+echo $ROS_DISTRO
+   ```
+
+</TabItem>
+</Tabs>
+
+#### 2. Install RealSense SDK 2.0 and RealSense ROS2 Wrapper
+
+```bash
+# Install RealSense SDK 2.0
+sudo apt-get install ros-$ROS_DISTRO-librealsense2* -y 
+# Install RealSense ROS2 wrapper
+sudo apt-get install ros-$ROS_DISTRO-realsense2-* -y
+```
+
+#### 3. Start the RealSense Camera
+
+After installation, you can start the RealSense camera using the following ROS command:
+
+
+```shell
+ros2 launch realsense2_camera rs_launch.py
+```
+
+![realsense-start-up-log](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
+
+You can use the `ros2 topic list` command to view the topics published by the RealSense camera. When started with default parameters, the RealSense camera will only enable the depth and RGB data streams.
+
+
+![realsense-basic-topic](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
+
+
+The RealSense ROS wrapper provides numerous configurable parameters. For example:  
+- Setting `enable_infra1:=true` enables the camera's left IR data stream.  
+- Setting `pointcloud.enable:=true` enables the point cloud data stream.
+
+
+```shell
+ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
+```
+
+![realsense-ir-pointcloud-topic](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
+
+![realsense-image](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
+
+Additionally, RealSense provides several services that can be viewed using the `ros2 service list` command. For example, you can use these services to query the camera's serial number, firmware version, and other information.
+
+
+```shell
+ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
+```
+For more details on topics and service configurations, refer to the RealSense ROS wrapper's [GitHub repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development).
+
+
+
+#### 4. Depth and RGB Alignment
+
+In practical applications, it's often necessary to align the depth map with the color image. RealSense provides corresponding launch methods to achieve this.
+
+
+```shell
+ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true 
+```
+
+![realsense-d2c-topic](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
+
+![realsense-image-align](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
+
+#### 5. Displaying Images and Point Clouds
+
+There are multiple ways to display images and point clouds from the RealSense camera. Refer to [2.2 Data Visualization](./demo_render.md) for details.  
+
+For example, you can use `rviz2` on a PC to display the data. Ensure that the PC can access the RDK over the network. Note that since data is transmitted over the network, this method may cause significant load and result in lag or stuttering.
+
+
+![realsense-rviz2](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
+
+It is recommended to directly read data on the RDK to verify if the output stream is functioning correctly. You can use `ros2 topic echo topic_name` to print the data or write code to subscribe to the relevant topics.
+
+
+![realsense-topic-echo](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
+
+
 ## Dual MIPI camera
 
 ### Introduction

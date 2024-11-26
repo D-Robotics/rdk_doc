@@ -96,6 +96,10 @@ Description: TogetheROS Bot
 
 It can be seen that the current version of tros.b has been upgraded to version 2.0.0.
 
+
+
+
+
 </TabItem>
 <TabItem value="humble" label="Humble">
 
@@ -118,3 +122,51 @@ It can be seen that the current version of tros.b has been upgraded to version 2
 
 </TabItem>
 </Tabs>
+
+## X86 Platform Setup
+
+### Prerequisites:
+- Completed the environment preparation as described in Section 2.1.
+- The system is Ubuntu 20.04 with active internet access.
+
+---
+
+### 1. Set Locale and Enable Universe Repository
+Run the following commands to configure the locale and enable the universe software repository:
+
+```bash
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+### 2. Download GPG Keys and Add Source Lists
+
+Run the following commands to download the required GPG keys and add the appropriate source lists:
+
+```bash
+sudo apt update && sudo apt install curl
+
+sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo tee /etc/apt/sources.list.d/sunrise.list > /dev/null
+
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+### 3. Update Package Sources and Install `tros.b`
+
+Run the commands below to update package sources and install the `tros.b` package:
+
+```bash
+sudo apt update
+sudo apt install tros
+```
+:::caution
+- **If your X86 platform already has `tros.b` version 1.x installed, please use the command `sudo apt remove tros` to uninstall it before installing `tros.b` version 2.x.**  
+- **For details on how to check the version of `tros.b`, refer to the [FAQs](/docs/08_FAQ/03_applications_and_examples.md).**
+
+:::
+

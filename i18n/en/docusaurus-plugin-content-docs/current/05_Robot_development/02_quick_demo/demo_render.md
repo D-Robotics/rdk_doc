@@ -19,9 +19,13 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 
 ### Supported Platforms
 
-| Platform    | System      | Function                       |
-| ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5 |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera human detection and display images and algorithm results through web|
+| Platform             | Operating System              | Example Functionality                  |
+| -------------------- | ----------------------------- | --------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI cameras and display images via Web |
+| RDK X5               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
+| RDK Ultra            | Ubuntu 20.04 (Foxy)           | Start MIPI cameras and display images via Web |
+| X86                  | Ubuntu 20.04 (Foxy)           | Start USB cameras and display images via Web |
+
 
 ### Preparation
 

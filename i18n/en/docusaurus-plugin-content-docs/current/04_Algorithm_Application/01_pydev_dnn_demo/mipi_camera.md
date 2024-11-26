@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
-# 4.1.4 MIPI Camera-based Inference
+# 4.1.5 MIPI Camera-based Inference
 
 ## Object Detection Algorithm - FCOS
 

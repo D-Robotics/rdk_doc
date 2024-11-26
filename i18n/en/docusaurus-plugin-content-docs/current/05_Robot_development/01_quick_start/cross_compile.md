@@ -150,6 +150,195 @@ cd ..
 vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
+## X86 Platform
+
+### System Requirements
+
+- Must use a 64-bit Ubuntu 20.04 system.
+- Optionally, you can use the RDK platform to cross-compile the Docker image. However, both compilation and execution must occur inside the Docker environment.
+
+---
+
+### System Configuration
+
+#### Set Locale
+
+Ensure the environment supports UTF-8:
+
+```bash
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+```
+#### Add APT Repositories
+
+Run the following commands to add the necessary repositories:
+
+```bash
+# Ensure Ubuntu Universe is enabled
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+
+sudo apt update && sudo apt install curl
+
+# Add ROS2 official repository
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Add tros.b official repository
+sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo tee /etc/apt/sources.list.d/sunrise.list > /dev/null
+```
+#### Install ROS Toolkits
+
+Run the following commands to install ROS-related tools:
+
+```bash
+sudo apt update && sudo apt install -y \
+  libbullet-dev \
+  python3-pip \
+  python3-pytest-cov \
+  ros-dev-tools
+```
+### Get tros.b Source Code
+
+Use the following commands to retrieve the tros.b source code:
+
+```bash
+git config --global credential.helper store
+
+mkdir -p ~/cc_ws/tros_ws/src
+cd ~/cc_ws/tros_ws/
+
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop
+vcs-import src < ./robot_dev_config/ros2_release.repos
+```
+### Install Dependencies
+
+Install the required packages for source code compilation.
+
+```shell
+# install some pip packages needed for testing
+python3 -m pip install -U \
+  argcomplete \
+  flake8-blind-except \
+  flake8-builtins \
+  flake8-class-newline \
+  flake8-comprehensions \
+  flake8-deprecated \
+  flake8-docstrings \
+  flake8-import-order \
+  flake8-quotes \
+  pytest-repeat \
+  pytest-rerunfailures \
+  pytest
+
+# install Fast-RTPS dependencies
+sudo apt install --no-install-recommends -y \
+  libasio-dev \
+  libtinyxml2-dev
+
+# install Cyclone DDS dependencies
+sudo apt install --no-install-recommends -y \
+  libcunit1-dev
+
+# install tros.b basic models
+sudo apt install --no-install-recommends -y \
+  hobot-models-basic
+
+# install other packages dependencies
+sudo apt install --no-install-recommends -y \
+  qt5-qmake \
+  libpyside2-dev \
+  libshiboken2-dev \
+  pyqt5-dev \
+  python3-pyqt5 \
+  python3-pyqt5.qtsvg \
+  python3-pyside2.qtsvg \
+  python3-sip-dev \
+  shiboken2 \
+  libyaml-dev \
+  qtbase5-dev \
+  libzstd-dev \
+  libeigen3-dev \
+  libxml2-utils \
+  libtinyxml-dev \
+  libssl-dev \
+  python3-numpy \
+  libconsole-bridge-dev \
+  pydocstyle \
+  libqt5core5a \
+  libqt5gui5 \
+  libgtest-dev \
+  cppcheck \
+  tango-icon-theme \
+  libqt5opengl5 \
+  libqt5widgets5 \
+  python3-lark \
+  libspdlog-dev \
+  google-mock \
+  clang-format \
+  python3-flake8 \
+  libbenchmark-dev \
+  python3-pygraphviz \
+  python3-pydot \
+  python3-psutil \
+  libfreetype6-dev \
+  libx11-dev \
+  libxaw7-dev \
+  libxrandr-dev \
+  libgl1-mesa-dev \
+  libglu1-mesa-dev \
+  python3-pytest-mock \
+  python3-mypy \
+  default-jdk \
+  libcunit1-dev \
+  libopencv-dev \
+  python3-ifcfg \
+  python3-matplotlib \
+  graphviz \
+  uncrustify \
+  python3-lxml \
+  libcppunit-dev \
+  libcurl4-openssl-dev \
+  python3-mock \
+  python3-nose \
+  libsqlite3-dev \
+  pyflakes3 \
+  clang-tidy \
+  python3-lttng \
+  liblog4cxx-dev \
+  python3-babeltrace \
+  python3-pycodestyle \
+  libassimp-dev \
+  libboost-dev \
+  libboost-python-dev \
+  python3-opencv \
+  libboost-python1.71.0
+```
+### Compilation
+
+Use the following command to compile the source code:
+
+```bash
+# Compile using build.sh
+bash ./robot_dev_config/build.sh -p X86
+```
+After successful compilation, a message will indicate the total number of packages compiled successfully.
+
+
+### Install tros.b
+
+Copy the compiled `install` directory to `/opt` and rename it to `tros` to match the directory structure of the deb installation.
+
+
+
+
 ## FAQ
 
 Q1: How to determine if VCS successfully pulled the code?

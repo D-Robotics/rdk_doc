@@ -1,12 +1,71 @@
 ---
 sidebar_position: 6
 ---
-
 # 5.1.6 Version Release Notes
 
 ## tros-humble
 
-### Version: 2.2.0
+### Version: 2.3.1 (2024-11-20)
+
+#### Functional Changes:
+- Upgraded the dependency `opencv` from version 3.4.5 to 4.5.4 (latest release for Ubuntu 22.04).
+
+#### New Features:
+- [Image Publishing Tool](/docs/05_Robot_development/02_quick_demo/demo_tool.md) now supports publishing `bgr/rgb` formatted message data and allows configuration of the frame_id for published messages.
+- [Body Detection and Tracking Algorithm](/docs/05_Robot_development/03_boxs/function/mono2d_body_detection.md):
+  - Supports configurable subscribed message topics.
+  - Enables component mode operation.
+  - Allows image scaling in preprocessing before inference.
+  - Launch script supports compressed image playback and configurable image paths.
+- [On-Board Algorithm Model Inference and Deployment Framework](https://github.com/D-Robotics/hobot_dnn.git):
+  - Fixed incorrect inference time calculation in multi-threaded scenarios.
+  - Added support for configuring task counts in the configuration file.
+- [Image Encoding/Decoding Node](/docs/05_Robot_development/02_quick_demo/hobot_codec.md):
+  - Uses the frame_id of subscribed image messages for output image messages.
+  - Supports frame-drop control for publishing.
+- [Hand Gesture Recognition Algorithm](/docs/05_Robot_development/03_boxs/function/hand_gesture_detection.md):
+  - Supports configuration of post-processing thresholds at startup.
+  - Enables dynamic gesture recognition.
+- Added [Facial Age Detection Algorithm](/docs/05_Robot_development/03_boxs/function/mono_face_age_detection.md) for detecting age.
+- Added [Face 106 Keypoints Detection Algorithm](/docs/05_Robot_development/03_boxs/function/mono_face_landmarks_detection.md) to detect 106 key points on the face.
+- Introduced [Perception Message Fusion Node](https://github.com/D-Robotics/tros_perception_fusion):
+  - Subscribes to multiple [PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg) topics.
+  - Aligns timestamps, de-duplicates data, and fuses them into a single published topic.
+  - See [Multi-Algorithm Inference](/docs/05_Robot_development/02_quick_demo/ai_predict.md) for application examples.
+- Introduced [Perception Message Filtering Node](https://github.com/D-Robotics/tros_lowpass_filter):
+  - Applies the OneEuroFilter for smoothing points and bounding boxes.
+  - Corrects position jitter in detection results for bodies, faces, and hands.
+  - See [Multi-Algorithm Inference](/docs/05_Robot_development/02_quick_demo/ai_predict.md) for application examples.
+- Added [Stereo Assistance Package](https://github.com/D-Robotics/hobot_stereonet_utils) for capturing stereo images and depth maps.
+- Introduced [Multi-Stream Video Analysis](/docs/05_Robot_development/04_apps/video_boxs.md) application:
+  - Pulls multiple `h264` and `h265` RTSP streams.
+  - Performs inference and visualizes perception results on a web interface.
+
+#### Bug Fixes:
+- [MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md): Fixed the issue where the `imx219` module failed to start.
+- [Hand Keypoint Detection Algorithm](/docs/05_Robot_development/03_boxs/function/hand_lmk_detection.md):
+  - Added bounding box expansion in preprocessing to resolve incorrect keypoint outputs.
+
+---
+
+### Version: 2.3.0 (2024-09-19)
+
+#### New Features:
+- Added support for the `RDK X5` platform.
+- Data collection now supports [Stereo MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md).
+- Added the following algorithms to the repository:
+  - `yolov8` and `yolov10` for [object detection](/docs/05_Robot_development/03_boxs/detection/yolo.md).
+  - `yolov8-seg` for [image segmentation](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md).
+  - [YOLO-World Algorithm](/docs/05_Robot_development/03_boxs/function/hobot_yolo_world.md) for open-vocabulary input detection.
+  - [Optical Flow Estimation Algorithm](/docs/05_Robot_development/03_boxs/function/mono_pwcnet.md).
+  - [Segment Everything Algorithm](/docs/05_Robot_development/03_boxs/function/mono_mobilesam.md) for indiscriminate segmentation.
+  - [Text-Image Feature Retrieval Algorithm](/docs/05_Robot_development/03_boxs/function/hobot_clip.md).
+  - [Stereo Depth Estimation Algorithm](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md) for vision-based depth estimation.
+
+---
+
+### Version: 2.2.0 (2024-04-11)
+
 
 Functionality changes:
 - Based on TROS Foxy 2.1.3 version, adapted to Ubuntu 22.04 system and ROS2 Humble.
