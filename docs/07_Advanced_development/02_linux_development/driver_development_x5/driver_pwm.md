@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 8
 ---
 
 # PWM 驱动调试指南
