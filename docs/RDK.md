@@ -76,6 +76,9 @@ sidebar_position: 0
 
 ### RDK X5
 
+<font color="red">注意事项：</font>
+- 更新系统后，请使用 rdk-miniboot-update 命令更新nand固件至最新版本
+
 #### 版本号：3.1.0
 
 新增功能：
@@ -89,13 +92,13 @@ sidebar_position: 0
 
 <font color="red">注意事项：</font>
 
-旧版本使用`apt update && apt upgrade`升级到该版本时，需要先卸载`tros-humble-stereonet-model`，再安装`tros-humble-hobot-stereonet`包。
-
+- 旧版本使用`apt update && apt upgrade`升级到该版本时，需要先卸载`tros-humble-stereonet-model`，再安装`tros-humble-hobot-stereonet`包。
 ```shell
 sudo apt-get remove tros-humble-stereonet-model
 sudo dpkg --remove --force-all tros-humble-stereonet-model
 sudo apt install -y tros-humble-hobot-stereonet
 ```
+
 
 #### 版本号：3.0.1
 
