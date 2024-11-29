@@ -74,14 +74,55 @@ sidebar_position: 0
 
 ## 版本发布记录
 
-### 版本号：3.0.0
+### RDK X5
+
+#### 版本号：3.1.0
+
+新增功能：
+- 增加按键休眠和唤醒功能;
+- 开放 40Pin 第二功能；
+
+优化改进：
+- 修复BUG；
+- 修正can 频率 异常；
+- 支持更多sensor和分辨率；
+
+<font color="red">注意事项：</font>
+
+旧版本使用`apt update && apt upgrade`升级到该版本时，需要先卸载`tros-humble-stereonet-model`，再安装`tros-humble-hobot-stereonet`包。
+
+```shell
+sudo apt-get remove tros-humble-stereonet-model
+sudo dpkg --remove --force-all tros-humble-stereonet-model
+sudo apt install -y tros-humble-hobot-stereonet
+```
+
+#### 版本号：3.0.1
+
+新增功能：
+- 提供Server版本固件；
+- 支持7款 微雪 MIPI DSI LCD 屏幕的桌面显示和触控;
+- 支持非root用户执行示例程序；
+
+优化改进：
+
+- 修复BUG；
+- 支持更多sensor和分辨率；
+- 优化高分辨率显示稳定性；
+
+#### 版本号：3.0.0
+
+首次发布的RDK X5固件，基于Ubuntu 22.04，提供丰富的多媒体示例，算法示例，支持多种应用场景的机器人应用开发。
+
+### RDK X3
+
+#### 版本号：3.0.0
 
 新增功能：
 
 - 支持 ubuntu 22.04
-- 支持新套件 RDK X5
 
-### 版本号：2.1.0
+#### 版本号：2.1.0
 
 新增功能：
 
@@ -111,7 +152,7 @@ sidebar_position: 0
 
 - 支持 chromium 浏览器，用户可以使用 `sudo apt install chromium` 安装使用。
 
-### 版本号：2.0.0
+#### 版本号：2.0.0
 
 这次发布带来了许多令人期待的功能和改进，旨在提供更好的开发体验和更广泛的应用场景支持。以下是本次版本发布的主要亮点：
 
