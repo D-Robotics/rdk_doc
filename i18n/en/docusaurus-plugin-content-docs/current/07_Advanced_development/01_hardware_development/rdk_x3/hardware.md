@@ -1,22 +1,27 @@
 ---
 sidebar_position: 1
 ---
-# Hardware Information
+# Hardware Documentation
 
-This section provides the product manual and design documentation for RDK X3 (Sunrise X3 Pie), helping developers to fully understand the product and provide guidance for hardware design work.
+This section provides the product manuals and design documents for the RDK X3 (Sunrise X3), helping developers to understand the product comprehensively and providing guidance for hardware design work.
 
 ## Product Manual
 
-**Specifications**: Introduces product specifications, features, dimensions, and models, etc.
+**Specification Sheets**: Introduces the product specifications, features, dimensions, and model information.
 
-- [RDK X3 Product Brief](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_Product_Brief.pdf)
+- [RDK X3 1.0 Product Brief](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_1.0_Product_Brief.pdf)
+- [RDK X3 2.0 Product Brief](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_Product_Brief.pdf)
 
-## Design Documentation
+## Design Documents
 
-This section mainly provides design documentation such as hardware schematics and mechanical dimension drawings, facilitating developers to use peripheral interfaces.
+This section primarily provides hardware schematics, mechanical drawings, and other design documentation, facilitating developers in using the peripheral interfaces.
 
 **Schematics**
-- [RDK X3 Schematics](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_IO_Schematics.pdf)
+- [RDK X3 1.0 Schematics](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_IO_Schematics.pdf)
+- [RDK X3 2.0 Schematics](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_IO_Schematics.pdf)
 
-**Mechanical Dimension Drawings**
-- [RDK X3 Mechanical Dimension Drawings](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.stp)
+**Mechanical Drawings**
+- [RDK X3 1.0 3D Mechanical Dimensions (STEP)](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models_1.0.STEP)
+- [RDK X3 2.0 3D Mechanical Dimensions (STEP)](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP)
+- [RDK X3 1.0 2D Mechanical Dimensions](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_1.0.pdf)
+- [RDK X3 2.0 2D Mechanical Dimensions](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf)

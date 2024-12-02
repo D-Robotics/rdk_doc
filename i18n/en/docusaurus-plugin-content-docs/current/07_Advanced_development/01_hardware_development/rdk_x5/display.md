@@ -2,32 +2,34 @@
 sidebar_position: 4
 ---
 
-# 显示屏使用
+# Display Usage
 
-RDK X5提供一路MIPI DSI接口，一路HDMI接口，display只能选择其中的一路，默认是HDMI。
+RDK X5 provides one MIPI DSI interface and one HDMI interface. You can only choose one of them for display, with HDMI set as the default output.
 
-可以通过以下指令切换HDMI输出，和MIPI DSI输出。
+You can switch between HDMI and MIPI DSI output using the following commands.
 
-切换成MIPI DSI
+## Switch to MIPI DSI Output
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-切换成HMDI
+Switch to HDMI Output
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf
 
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
-
-
+You can also select the output method through `raspi-config`. For more details, refer to the [Display Choose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
 ## HDMI
 
-RDK X5支持的最大分辨率为1080P60，系统默认分辨率为720P60。
+The maximum supported resolution for RDK X5 is 1080P60, with the default resolution set to 720P60.
 
-默认分辨率可以通过修改`/etc/X11/xorg.conf.d/1-resolution.conf`文件来实现：
+You can modify the default resolution by editing the `/etc/X11/xorg.conf.d/1-resolution.conf` file:
+```bash
+# Command to edit the resolution configuration
+sudo nano /etc/X11/xorg.conf.d/1-resolution.conf
 
 ```bash
 Section "Screen"
@@ -41,45 +43,47 @@ Section "Screen"
     EndSubSection
 EndSection
 ```
-- 对接最大分辨率小于1280x720的屏幕，可以根据实际情况，调整`Modes`，可以解决出不了图的问题。
-- 对接2K，4K屏幕，建议将`Modes`设置为`1920x1080`，这受限于RDK X5 的视频转换芯片的性能。
+- For displays with a maximum resolution lower than 1280x720, you can adjust the `Modes` setting based on the actual resolution to resolve display issues.
+
+- For 2K and 4K displays, it is recommended to set the `Modes` to `1920x1080`, as this is limited by the performance of RDK X5's video conversion chip.
 
 ## MIPI DSI
 
-RDK X5提供一路MIPI DSI接口，支持多种LCD屏幕的接入。
+RDK X5 provides a MIPI DSI interface, supporting the connection of various LCD screens.
 
-### 支持列表
+### Supported List
 
-| 供应商 | 型号 | 描述 | 购买链接 | 使用指南 |
-| --------- | -------- | --------------- | --------- | --------- |
-| 微雪 | 2.8inch DSI LCD | 2.8寸IPS全贴合电容触控屏小屏幕480×640像素 DSI通信  | [购买链接](https://www.waveshare.net/shop/2.8inch-DSI-LCD.htm)  |  [2.8inch DSI LCD](display#28inch-dsi-lcd)  |
-| 微雪 | 3.4inch DSI LCD (C) | 3.4寸DSI圆形电容触控屏 800×800像素 IPS显示面板 十点触控  | [购买链接](https://www.waveshare.net/shop/3.4inch-DSI-LCD-C.htm)  |  [3.4inch DSI LCD](display#34inch-dsi-lcd)  |
-| 微雪 | 4.3inch DSI LCD | 树莓派4.3寸电容触控屏 800×480 IPS广视角 MIPI DSI接口  | [购买链接](https://www.waveshare.net/shop/4.3inch-DSI-LCD.htm)  |  [4.3inch DSI LCD](display#43inch-dsi-lcd)  |
-| 微雪 | 7inch DSI LCD (C) | 7寸IPS电容触控屏1024×600像素 DSI通信  | [购买链接](https://www.waveshare.net/shop/7inch-DSI-LCD-C.htm)  |  [7inchC DSI LCD](display#7inchc-dsi-lcd)  |
-| 微雪 | 7.9inch DSI LCD | 7.9寸IPS电容触控屏超长屏幕400×1280像素 DSI通信  | [购买链接](https://www.waveshare.net/shop/7.9inch-DSI-LCD.htm)  |  [7.9inch DSI LCD](display#79inch-dsi-lcd)  |
-| 微雪 | 8inch DSI LCD (C) | 树莓派系列显示屏 8寸IPS电容触控屏 1280×800像素 DSI通信  | [购买链接](https://www.waveshare.net/shop/8inch-DSI-LCD-C.htm)  |  [8inch DSI LCD](display#8inch-dsi-lcd)  |
-| 微雪 | 10.1inch DSI LCD (C) | 树莓派 dsi接口显示屏 10.1寸IPS电容触控屏 1280×800像素 DSI通信  | [购买链接](https://www.waveshare.net/shop/10.1inch-DSI-LCD-C.htm)  |  [10.1inch DSI LCD](display#101inch-dsi-lcd)  |
+| Supplier | Model | Description | Purchase Link | User Guide |
+| -------- | ----- | ----------- | ------------- | ---------- |
+| Waveshare | 2.8inch DSI LCD | 2.8-inch IPS full bonding capacitive touch screen, 480×640 pixels, DSI interface | [Buy here](https://www.waveshare.net/shop/2.8inch-DSI-LCD.htm) | [2.8inch DSI LCD Guide](display#28inch-dsi-lcd) |
+| Waveshare | 3.4inch DSI LCD (C) | 3.4-inch circular capacitive touch screen, 800×800 pixels, IPS panel, 10-point touch | [Buy here](https://www.waveshare.net/shop/3.4inch-DSI-LCD-C.htm) | [3.4inch DSI LCD Guide](display#34inch-dsi-lcd) |
+| Waveshare | 4.3inch DSI LCD | 4.3-inch capacitive touch screen, 800×480 pixels, IPS wide-angle, MIPI DSI interface | [Buy here](https://www.waveshare.net/shop/4.3inch-DSI-LCD.htm) | [4.3inch DSI LCD Guide](display#43inch-dsi-lcd) |
+| Waveshare | 7inch DSI LCD (C) | 7-inch IPS capacitive touch screen, 1024×600 pixels, DSI interface | [Buy here](https://www.waveshare.net/shop/7inch-DSI-LCD-C.htm) | [7inchC DSI LCD Guide](display#7inchc-dsi-lcd) |
+| Waveshare | 7.9inch DSI LCD | 7.9-inch IPS capacitive touch screen, 400×1280 pixels, DSI interface | [Buy here](https://www.waveshare.net/shop/7.9inch-DSI-LCD.htm) | [7.9inch DSI LCD Guide](display#79inch-dsi-lcd) |
+| Waveshare | 8inch DSI LCD (C) | 8-inch IPS capacitive touch screen, 1280×800 pixels, DSI interface | [Buy here](https://www.waveshare.net/shop/8inch-DSI-LCD-C.htm) | [8inch DSI LCD Guide](display#8inch-dsi-lcd) |
+| Waveshare | 10.1inch DSI LCD (C) | 10.1-inch IPS capacitive touch screen, 1280×800 pixels, DSI interface | [Buy here](https://www.waveshare.net/shop/10.1inch-DSI-LCD-C.htm) | [10.1inch DSI LCD Guide](display#101inch-dsi-lcd) |
 
 ### 2.8inch DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection method is shown in the image below:
 
 ![screenshot-20241014-161007](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-161007.png)
 
-用DSI-Cable-12cm线材，将2.8inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use a DSI-Cable-12cm cable to connect the 2.8inch DSI LCD to the 22PIN DSI1 interface on the RDK X5 mainboard.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the default output for the RDK X5 system is HDMI, you need to switch to MIPI DSI display mode using the following command:
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also choose the output method via `srpi-config`. Please refer to the [Display Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file, add the following code at the end of the config.txt, save, exit, and reboot the system.
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-2_8_inch
@@ -87,186 +91,190 @@ dtoverlay=dsi-waveshare-panel-overlay-2_8_inch
 
 ### 3.4inch DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection is shown in the diagram below:
 
 ![screenshot-20241014-173409](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173409.png)
 
-用DSI-Cable-12cm线材，将3.4inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use the DSI-Cable-12cm to connect the 3.4inch DSI LCD to the 22PIN DSI1 interface of the X5 RDK mainboard.
 
-通过4PIN顶针连通5V供电，包括5V和GND。
+Connect the 4PIN header for 5V power supply, including 5V and GND.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the RDK X5 system defaults to HDMI output, you need to switch to MIPI DSI display mode using the following command.
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also choose the output method through `srpi-config`. Please refer to the [Display Choose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file, add the following lines at the end of the file, save, exit, and reboot the system.
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-3_4_inch
 ```
-
-#### 效果演示
+#### Effect Demonstration
 
 ![screenshot-20241014-173446](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173446.png)
 
 ### 4.3inch DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection is shown in the diagram below:
 
 ![screenshot-20241014-144324](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144324.png)
 
-用DSI-Cable-12cm线材，将4.3inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use a DSI-Cable-12cm cable to connect the 4.3inch DSI LCD to the 22PIN DSI1 interface of the X5 RDK mainboard.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the RDK X5 system defaults to HDMI output, you need to switch to MIPI DSI display mode using the command.
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also choose the output mode through `raspi-config`. Refer to the [Display Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section for details.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file, add the following code at the end of the config.txt file, save, exit, and reboot the system.
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-4_3_inch
 ```
-
-#### 效果演示
+#### Effect Demonstration
 
 ![screenshot-20241014-144429](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144429.png)
 
 ### 7inchC DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection is as shown in the following images:
 
 ![screenshot-20241014-154448](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-154448.png)
 ![screenshot-20241014-155331](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155331.png)
 
-用DSI-Cable-12cm线材，将7inchC DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use a 12cm DSI cable to connect the 7inchC DSI LCD to the 22PIN DSI1 interface of the X5 RDK mainboard.
 
-并通过4PIN杜邦线连接5V供电和I2C5通信。
+Connect the 5V power supply and I2C5 communication via a 4PIN DuPont cable.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the RDK X5 system defaults to HDMI output, you need to switch to MIPI DSI output mode using the following command.
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also choose the output mode through `raspi-config`. For more details, refer to the [Display Choose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file, add the following code at the end of the file, save, exit, and reboot the system:
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-7_0_inchC
 ```
 
-#### 效果演示
+#### Effect Demo
 
 ![screenshot-20241014-155439](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155439.png)
 
 ### 7.9inch DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection is shown in the figure below:
 
 ![screenshot-20241014-165628](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165628.png)
 
-用DSI-Cable-12cm线材，将7.9inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use a DSI-Cable-12cm cable to connect the 7.9inch DSI LCD to the 22PIN DSI1 interface on the X5 RDK mainboard.
 
-使用5V/3A的 type-C 接口电源为屏幕供电。
+Use a 5V/3A type-C power supply to power the screen.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the RDK X5 system defaults to HDMI output, you need to switch to MIPI DSI display mode using commands.
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also select the output method through `srpi-config`. For more details, refer to the [Display Choose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file, add the following code at the end of the `config.txt` file, then save, exit, and reboot the system.
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-7_9_inch
 ```
 
-#### 效果演示
+#### Effect Demo
 
 ![screenshot-20241014-165707](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165707.png)
 
 ### 8inch DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection is as shown in the figure below:
 
 ![screenshot-20241014-151754](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-151754.png)
 
-用DSI-Cable-12cm线材，将8inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use a 12cm DSI cable to connect the 8inch DSI LCD to the 22PIN DSI1 interface on the X5 RDK motherboard.
 
-使用5V/3A的 type-C 接口电源为屏幕供电。
+Provide 5V/3A power to the screen using a type-C power supply.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the RDK X5 system defaults to HDMI output, you need to switch to MIPI DSI display mode using a command.
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also choose the output mode through `raspi-config`. Please refer to the [Display Choose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file, add the following code at the end of the `config.txt` file, save, exit, and reboot the system.
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-8_0_inch
 ```
 
-#### 效果演示
+#### Effect Demonstration
 
 ![screenshot-20241014-152537](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-152537.png)
 
 ### 10.1inch DSI LCD
 
-#### 硬件连接
+#### Hardware Connection
 
-屏幕连接方式如下图所示：
+The screen connection is as shown in the figure below:
 
 ![screenshot-20241014-174402](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174402.png)
 
-用DSI-Cable-12cm线材，将10.1inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
+Use the DSI-Cable-12cm cable to connect the 10.1-inch DSI LCD to the 22PIN DSI1 interface on the X5 RDK mainboard.
 
-使用5V/3A的 type-C 接口电源为屏幕供电。
+Provide power to the screen using a 5V/3A type-C power supply.
 
-#### 软件配置
+#### Software Configuration
 
-1，由于RDK X5 系统默认采用HDMI输出，需要通过命令切换到MIPI DSI显示方式。
+1. Since the RDK X5 system defaults to HDMI output, you need to switch to MIPI DSI display mode via the command.
+
 ```bash
 mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable
 mv /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_hdmi_ignore.conf
 ```
-也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
+You can also select the output mode using `raspi-config`. For more details, refer to the [Display Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) section.
 
-2，打开`/boot/config.txt`文件，在config.txt最后加入以下代码，保存，退出，重启系统
+2. Open the `/boot/config.txt` file and add the following code at the end of the file. Save, exit, and reboot the system.
 
 ```bash
 dtoverlay=dsi-waveshare-panel-overlay-10_1_inch
 ```
 
-#### 效果演示
+#### Effect Demonstration
 
 ![screenshot-20241014-174925](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174925.png)
 

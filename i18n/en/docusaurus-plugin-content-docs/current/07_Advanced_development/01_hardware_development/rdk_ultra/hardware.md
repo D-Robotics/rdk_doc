@@ -2,28 +2,28 @@
 sidebar_position: 1
 ---
 
-# 硬件资料yingjianzil
+# Hardware Documentation
 
-本章节提供RDK Ultra开发套件的实物清单、技术手册、硬件设计指导等资料，帮助开发者全面了解产品，并为硬件设计工作提供指导。
+This section provides the physical inventory, technical manuals, and hardware design guidance for the RDK Ultra development kit to help developers understand the product comprehensively and provide guidance for hardware design work.
 
-## 产品清单
+## Product Inventory
 
-RDK Ultra开发套件包含了开发板和常用的外设配件，以达到开箱即用的使用体验，开发套件的物品清单如下：
-- RDK Ultra开发板 x1
-- 电源适配器 x1
-- IMX219摄像头模组 x1
-- 摄像头模组支架 x1
-- 快速操作指南 x1
+The RDK Ultra development kit includes the development board and commonly used peripheral accessories, providing a plug-and-play experience. The inventory of the development kit is as follows:
+- RDK Ultra Development Board x1
+- Power Adapter x1
+- IMX219 Camera Module x1
+- Camera Module Mounting Bracket x1
+- Quick Start Guide x1
 
-## 产品手册
+## Product Manual
 
-**规格书**：介绍产品规格、特色、尺寸及型号等内容
+**Specification Sheets**: Introduces the product specifications, features, dimensions, and model information.
 
-- [RDK Ultra Module规格书](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf)
-- [RDK Ultra开发套件规格书](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf)
+- [RDK Ultra Module Product Brief](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf)
+- [RDK Ultra Development Kit Product Brief](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf)
 
-## 设计资料
+## Design Documents
 
-主要包含原理图、PCB、3d模型、BOM list、gerber等资料内容，下载链接如下：
+This section primarily contains reference design materials such as schematics, PCB layouts, 3D models, BOM list, gerber files, etc. The download links are as follows:
 
-- [RDK Ultra参考设计资料](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design)
+- [RDK Ultra Reference Design Materials](https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design)

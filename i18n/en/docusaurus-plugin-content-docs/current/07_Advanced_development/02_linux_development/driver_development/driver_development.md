@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# 6.2 Driver Development Guide
+# 7.2.2 Driver Development Guide
 
 RDK X3 system software is based on the Linux operating system, with a kernel version of 4.14.x. The system provides a basic set of C and C++ libraries, hardware module interface libraries, and a C++ algorithm application framework as the runtime environment for applications.
 

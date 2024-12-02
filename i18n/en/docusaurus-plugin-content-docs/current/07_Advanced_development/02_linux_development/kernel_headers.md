@@ -1,7 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
-# 7.2.4 Kernel Header Files
+# 7.2.5 Kernel Header Files
 
 If you need to compile kernel modules or similar code on a development board, you need to install the Linux kernel header files. These header files contain various constant definitions, macro definitions, function interface definitions, and data structure definitions of the Linux kernel. They are essential dependencies for compiling kernel module code.
 

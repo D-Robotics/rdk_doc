@@ -2,59 +2,54 @@
 sidebar_position: 3
 ---
 
-# 系统烧录
+# System Flashing
 
 :::tip
-
-系统镜像下载与烧录的完整步骤，请[**点击查看该章节**](../../../01_Quick_start/install_os.md)。
-
-
+For a complete guide on downloading and flashing the system image, please [**click here to view the full chapter**](../../../01_Quick_start/install_os.md).
 :::
 
+When flashing the Ubuntu system on the RDK Ultra development kit, you need to use the D-Robotics `hbupdate` flashing tool. The tool is available for both Windows and Linux versions, named `hbupdate_win64` and `hbupdate_linux`, respectively. The tool can be downloaded from the following link: [hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/).
 
+### Tool Usage Notes:
+- Unzip the tool's archive, ensuring the extraction path does **not** contain any **spaces, Chinese characters, or special symbols**.
+- The tool communicates with the RDK Ultra via Ethernet. To ensure fast flashing, **make sure the PC has a gigabit Ethernet port and is directly connected** to the development kit.
+- Set the PC's network configuration to **static IP mode**, as follows:
+  - IP: 192.168.1.195
+  - Netmask: 255.255.255.0
+  - Gateway: 192.168.1.1
 
-RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
+## Flashing Procedure {#flash_system}
 
-工具使用注意事项如下：
-- 解压工具压缩包，注意解压路径中不要包含**空格、中文、特殊字符**等内容。
-- 工具通过网口跟RDK Ultra通讯，为保证烧录速度，请确保**PC支持千兆网口，并采用直连方式**。
-- PC端网络需要提前配置为**静态IP方式**，具体如下：
-  - IP：192.168.1.195
-  - netmask：255.255.255.0
-  - gateway：192.168.1.1
+1) Connect the RDK Ultra to your PC using an Ethernet cable and ensure that the network is reachable by pinging the device.
 
-## 烧录步骤{#flash_system}
+2) Short the `FC_REC` and `GND` pins of the Functional Control Interface (Interface 10).
 
-1）通过网线将RDK Ultra和PC机直连，并确保网络可以ping通。
-
-2）将功能控制接口（接口10）的`FC_REC`和`GND`信号短接。
-
-3）运行`hbupdate`主程序，打开下载工具并选择开发板型号为`RDK_ULTRA`，必选项。
+3) Run the `hbupdate` main program, open the flashing tool, and select the development board model as `RDK_ULTRA` (this is a required option).
 
 ![image-flash-system1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system1.jpg)
 
-4）点击`Browse`按钮选择将要烧录的镜像文件，必选项。
+4) Click the `Browse` button to select the image file you want to flash (this is a required option).
 
 ![image-flash-system2](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system2.jpg)
 
-5）点击`Start`按钮开始刷机，根据提示信息确认操作无误后，点击`OK`按钮：
+5) Click the `Start` button to begin flashing. Confirm the operation based on the prompts, and then click the `OK` button:
 
 ![image-flash-system3](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-system-download3.jpg)
 
-6）当工具显示如下打印时，说明进入烧写过程，该过程耗时依赖于网络传输速度，请耐心等待。
+6) When the tool shows the following printout, it indicates that the flashing process has started. The duration depends on the network transfer speed, so please be patient.
 
 ![image-flash-system4](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system4.jpg)
 
-7）等待工具升级完成，并检查升级结果。
+7) Wait for the tool to complete the flashing process and check the flashing result.
 
-- 镜像烧录成功时，工具提示如下：
+- If the flashing is successful, the tool will display the following message:
 
 ![image-flash-system6](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system6.png)
 
-- 工具提示如下错误时，请确认步骤1~3是否操作正确。
+- If the following error message appears, please double-check steps 1-3 to ensure the procedure was followed correctly:
 
 ![image-flash-system7](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system7.png)
 
-- 工具提示如下错误时，说明网络传输速度过慢，建议更换性能更好的PC后重新升级。
-![image-flash-system8](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system8.jpg)
+- If the following error message appears, it indicates that the network transfer speed is too slow. We recommend switching to a more powerful PC and retrying the upgrade:
 
+![image-flash-system8](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system8.jpg)

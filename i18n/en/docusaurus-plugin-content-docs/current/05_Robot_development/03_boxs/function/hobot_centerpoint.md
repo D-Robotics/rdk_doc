@@ -1,70 +1,73 @@
 ---
 sidebar_position: 9
 ---
-# 激光雷达目标检测算法
+# LiDAR Object Detection Algorithm
 
-## 功能介绍
+## Feature Description
 
-激光雷达目标检测算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`CenterPoint`算法模型。
+The LiDAR object detection algorithm is based on the `CenterPoint` model, which is trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset using [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html).
 
-算法输入为32线激光雷达点云数据，输出信息包括目标的3D检测框、置信度、类别。支持的目标检测类型包括car、truck、bus、barrier、motorcycle、pedestrian共六大类别。
+The algorithm takes in 32-line LiDAR point cloud data as input and outputs information including the 3D bounding boxes of detected objects, confidence scores, and object categories. The supported object detection categories include car, truck, bus, barrier, motorcycle, and pedestrian, making up a total of six categories.
 
-此示例使用本地激光雷达点云文件作为输入，利用BPU进行算法推理，发布包含点云数据、目标检测框和朝向的渲染图片消息，在PC端浏览器上渲染显示算法结果。
+In this example, local LiDAR point cloud files are used as input. The algorithm runs on a BPU (Brain Processing Unit) for inference and publishes the rendered images containing point cloud data, detection boxes, and orientation to a PC browser via WebSocket. The algorithm results are rendered and displayed in the browser.
 
-代码仓库： (https://github.com/D-Robotics/hobot_centerpoint)
+Code repository: [GitHub - hobot_centerpoint](https://github.com/D-Robotics/hobot_centerpoint)
 
-## 支持平台
+## Supported Platforms
 
-| 平台      | 运行方式     | 示例功能                                |
-| --------- | ------------ | --------------------------------------- |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 使用本地回灌，并通过web展示推理渲染结果 |
+| Platform      | Operating Mode               | Example Feature                                      |
+| ------------- | ---------------------------- | ---------------------------------------------------- |
+| RDK Ultra     | Ubuntu 20.04 (Foxy)           | Use local point cloud data and render inference results via web |
 
-## 准备工作
+## Prerequisites
 
-### RDK平台
+### RDK Platform
 
-1. RDK已烧录好Ubuntu 20.04系统镜像。
+1. The RDK platform has Ubuntu 20.04 system image pre-installed.
 
-2. RDK已成功安装TogetheROS.Bot。
+2. TogetheROS.Bot is successfully installed on the RDK platform.
 
-3. 确认PC机能够通过网络访问RDK。
+3. Ensure that the PC can access the RDK platform via the network.
 
-## 使用介绍
+## Usage Introduction
 
-### RDK平台
+### RDK Platform
 
-### 使用本地点云文件回灌
+### Using Local Point Cloud File for Inference
 
-激光雷达物体检测算法示例使用激光雷达点云文件回灌，经过推理后将算法结果渲染后的图片msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
+The LiDAR object detection algorithm example uses a local LiDAR point cloud file for inference. After the inference, the results are rendered and published as an image message containing the algorithm's output (detection boxes, confidence scores, and orientations). These results are displayed on a PC browser using a WebSocket package.
 
-准备激光雷达点云文件：
+**Preparing the LiDAR Point Cloud File:**
+
 
 ```shell
-# 板端下载回灌的点云文件
+# Download LiDAR Point Cloud File for Local Inference
 wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
-# 解压缩
+# Extract the Data
 mkdir config
 tar -zxvf hobot_centerpoint_data.tar.gz -C config
-# 解压完成后数据在config/hobot_centerpoint_data路径下
+# After extraction, the data will be located at config/hobot_centerpoint_data
 ```
 
-启动算法示例：
+Start Algorithm Example:
+
 
 ```shell
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 
-# 启动websocket服务
+# Start the websocket service
 ros2 launch websocket websocket_service.launch.py
 
-# 启动launch文件
+# Launch the CenterPoint algorithm
 ros2 launch hobot_centerpoint hobot_centerpoint_websocket.launch.py lidar_pre_path:=config/hobot_centerpoint_data
 ```
 
-## 结果分析
+## Result Analysis
 
-启动算法示例后在运行终端输出如下信息：
+After starting the algorithm example, the following information will be output in the terminal:
+
 
 ```text
 [INFO] [launch]: Default logging verbosity is set to INFO
@@ -99,8 +102,9 @@ ros2 launch hobot_centerpoint hobot_centerpoint_websocket.launch.py lidar_pre_pa
 [hobot_centerpoint-1] [WARN] [0948485764.502788849] [CenterPoint_Node]: input fps: 2.37, out fps: 2.37, infer time ms: 27, post process time ms: 55
 ```
 
-输出log显示，发布算法推理结果的topic为`/hobot_centerpoint`, 获取的回灌点云文件为81个。算法经过推理，后处理(包含推理结果的渲染和发布)，帧率约为2.4fps。
+The output log shows that the topic for publishing the algorithm inference results is `/hobot_centerpoint`, and the point cloud file used for inference contains 81 frames. After inference and post-processing (including rendering and publishing the results), the frame rate is approximately 2.4 fps.
 
-在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+To view the images and algorithm rendering results, open a web browser on the PC and enter the following URL (replace `IP` with the IP address of the RDK):http://IP:8000
+
 
 ![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg)

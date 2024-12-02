@@ -2,91 +2,90 @@
 sidebar_position: 2
 ---
 
-# 接口说明
+# Interface Documentation
 
-RDK Ultra开发套件提供了以太网口、USB、HDMI、MIPI CSI、40PIN等多种外围接口，方便用户对RDK Ultra开发套件进行功能体验、开发测试等工作，接口布局如下：
+The RDK Ultra development kit provides various peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and 40-pin connectors, making it easy for users to experience functionalities and conduct development and testing. The interface layout is as follows:
 
 ![image-carrier-board1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface1.jpg)
-![image-carrier-board2](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg) 
+![image-carrier-board2](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg)
 
-| 序号 | 接口功能        | 序号 | 接口功能                | 序号 | 接口功能               |
-| ---- | --------------- | ---- | ----------------------- | ---- | ---------------------- |
-| 1    | 电源接口        | 7    | 40pin header                     | 13   | CAM3接口，24PIN，4lane     |
-| 2    | HDMI显示接口        | 8    | PWM风扇接口                    | 14   | CAM1接口，24PIN，4lane       |
-| 3    | 4组USB3.0接口   | 9    | rtc电池接口                        | 15   | 无线网卡接口，PCIe M.2-E    |
-| 4    | 千兆以太网口     | 10   |  功能控制接口                      | 16   | SSD硬盘接口，PCIe M.2-M     |
-| 5    | 调试接口         | 11   | CAM2接口，15PIN，2lane            | 17   | SSD硬盘接口，PCIe M.2-M        |
-| 6    | 状态指示灯       | 12   | CAM0接口，15PIN，2lane             |  |  |
+| No.  | Interface Function     | No.  | Interface Function       | No.  | Interface Function       |
+| ---- | ---------------------- | ---- | ------------------------ | ---- | ------------------------ |
+| 1    | Power Interface         | 7    | 40pin Header             | 13   | CAM3 Interface, 24PIN, 4-lane  |
+| 2    | HDMI Display Interface  | 8    | PWM Fan Interface        | 14   | CAM1 Interface, 24PIN, 4-lane |
+| 3    | 4 x USB 3.0 Interfaces  | 9    | RTC Battery Interface    | 15   | Wi-Fi Card Interface, PCIe M.2-E |
+| 4    | Gigabit Ethernet        | 10   | Functional Control Interface | 16   | SSD Interface, PCIe M.2-M  |
+| 5    | Debug Interface         | 11   | CAM2 Interface, 15PIN, 2-lane | 17   | SSD Interface, PCIe M.2-M  |
+| 6    | Status Indicator        | 12   | CAM0 Interface, 15PIN, 2-lane |     |                          |
 
-## 电源接口
+## Power Interface
 
-RDK Ultra开发板通过DC接口供电，推荐使用套件中自带的电源适配器，或者使用至少**12V/5A**的电源适配器供电。接入电源后，如红色电源指示灯点亮（接口6），说明设备供电正常。
+The RDK Ultra development board is powered via the DC interface. It is recommended to use the power adapter included in the kit or a power adapter with at least **12V/5A** output. Once the power is connected, if the red power indicator light (Interface 6) turns on, the device is powered correctly.
 
-## HDMI接口
+## HDMI Interface
 
-RDK Ultra开发板提供一路HDMI显示接口（接口2），最高支持1080P分辨率。开发板上电后会通过HDMI接口输出Ubuntu图形界面，配合特定的示例程序，HDMI接口还支持摄像头、视频流画面的预览显示功能。
+The RDK Ultra development board provides one HDMI display interface (Interface 2), supporting up to 1080P resolution. After the development board powers on, it outputs the Ubuntu graphical interface via the HDMI interface. With specific sample programs, the HDMI interface also supports previewing camera or video stream images.
 
-目前HDMI接口只支持1080p60的显示模式，更多的显示模式会在后续的软件版本中支持。
+Currently, the HDMI interface supports only the 1080p60 display mode. Additional display modes will be supported in future software versions.
 
-## MIPI CSI接口
+## MIPI CSI Interfaces
 
-RDK Ultra开发板提供`CAM 0~3`四组摄像头接口，可以满足4路MIPI Camera模组的同时接入，使用注意事项如下：
+The RDK Ultra development board provides four camera interfaces, `CAM 0~3`, allowing for simultaneous connection of up to four MIPI camera modules. The following considerations apply:
 
-1. CAM 0/2（接口11/12），采用15pin FPC连接器，支持接入树莓派OV5647、IMX219、IMX477等Camera模组。
-2. CAM 1/3（接口13/14），采用24pin FPC连接器，支持接入F37、GC4663、IMX415等Camera模组。
+1. CAM 0/2 (Interfaces 11/12) use a 15-pin FPC connector and support connecting camera modules such as Raspberry Pi OV5647, IMX219, IMX477, etc.
+2. CAM 1/3 (Interfaces 13/14) use a 24-pin FPC connector and support connecting camera modules such as F37, GC4663, IMX415, etc.
 
-摄像头模组的规格参数如下：
+The specifications for the camera modules are as follows:
 
-| 序号 | Sensor | 分辨率 | FOV              | I2C 设备地址 |
-| ---- | ------ | ------ | ---------------- | ------------ |
-| 1    | GC4663 | 400W   | H:104 V:70 D:113 | 0x29         |
-| 2    | JXF37  | 200W   | H:62  V:37 D:68  | 0x40         |
-| 3    | IMX219 | 800W   | H:62  V:37 D:68  | 0x10         |
-| 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
-| 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
+| No.  | Sensor  | Resolution | FOV                | I2C Device Address |
+| ---- | ------- | ---------- | ------------------ | ------------------ |
+| 1    | GC4663  | 400W       | H:104 V:70 D:113   | 0x29               |
+| 2    | JXF37   | 200W       | H:62 V:37 D:68     | 0x40               |
+| 3    | IMX219  | 800W       | H:62 V:37 D:68     | 0x10               |
+| 4    | IMX477  | 1200W      | H:62 V:37 D:68     | 0x1a               |
+| 5    | OV5647  | 500W       | H:62 V:37 D:68     | 0x36               |
 
-Camera模组的购买方式可参考社区配件页，[购买链接](https://developer.d-robotics.cc/accessory)。
+Camera modules can be purchased from the community accessories page: [Purchase Link](https://developer.d-robotics.cc/accessory).
 
-:::caution 注意
-重要提示：严禁在开发板未断电的情况下插拔摄像头，否则非常容易烧坏摄像头模组。
+:::caution 
+Important Note: Never plug or unplug the camera modules while the development board is powered on, as this can easily damage the camera modules.
 :::
 
-## USB接口
+## USB Interfaces
 
-RDK Ultra开发板提供了四路USB3.0标准接口（接口3），可以满足4路USB外设同时接入使用。需要注意的是，RDK Ultra的USB接口只支持Host模式。
+The RDK Ultra development board provides four USB 3.0 standard interfaces (Interface 3), allowing up to four USB peripherals to be connected simultaneously. Note that the USB interfaces only support Host mode.
 
-## 调试接口{#debug_uart}
+## Debug Interface {#debug_uart}
 
-RDK Ultra开发板提供了一路调试接口（接口5），硬件上通过`CH340`芯片将核心模组调试串口转换为USB接口，用户可使用该接口进行各种调试工作。电脑串口工具的参数需按如下方式配置：
+The RDK Ultra development board provides a debug interface (Interface 5), where the core module's debug serial port is converted to a USB interface via the `CH340` chip. This interface can be used for various debugging tasks. The serial parameters on your computer's terminal tool should be configured as follows:
 
-- 波特率（Baud rate）：921600
-- 数据位（Data bits）：8
-- 奇偶校验（Parity）：None
-- 停止位（Stop bits）：1
-- 流控（Flow Control）：无
+- Baud rate: 921600
+- Data bits: 8
+- Parity: None
+- Stop bits: 1
+- Flow control: None
 
-通常情况下，用户第一次使用该接口时需要在电脑上安装CH340驱动，用户可搜索`CH340串口驱动`关键字进行下载、安装。
+In most cases, the first time you use this interface, you will need to install the `CH340` driver on your computer. You can search for "CH340 serial driver" to download and install it.
 
-## 功能控制接口
+## Functional Control Interface
 
-RDK Ultra开发板提供了一组功能控制接口（接口10），可实现对核心模组功能模式的控制，管脚功能定义如下：
+The RDK Ultra development board provides a functional control interface (Interface 10) that allows users to control the functional modes of the core module. The pin functions are as follows:
 
-| 管脚号 | 管脚名称 | 功能描述                       | 使用方式                            |
-| ------ | -------- | ------------------------------ | ----------------------------------- |
-| 1      | WAKE_UP  | 用于唤醒开发板                 | 使用跳线帽跟GND短接                      |
-| 2      | GND      | 地信号                        | GND                                     |
-| 3      | FC_REC   | 强制开发板进入recovery模式      | 使用跳线帽跟GND短接                     |
-| 4      | GND      | 地信号                        |  GND                                    |
-| 5      | SYS_RST  | 用于复位系统                   | 使用跳线帽跟GND短接后断开，系统复位        |
-| 6      | GND      | 地信号                        | GND                                      |
-| 7      | PWR_EN   | 供电使能信号                   | 使用跳线帽跟GND短接，关闭核心板供电        |
-| 8      | GND      | GDN                          | GND                                 |
+| Pin No. | Pin Name | Description                         | Usage                           |
+| ------- | -------- | ----------------------------------- | ------------------------------- |
+| 1       | WAKE_UP  | Used to wake up the development board | Shorted to GND with a jumper cap |
+| 2       | GND      | Ground signal                        | GND                             |
+| 3       | FC_REC   | Forces the development board into recovery mode | Shorted to GND with a jumper cap |
+| 4       | GND      | Ground signal                        | GND                             |
+| 5       | SYS_RST  | Resets the system                    | Shorted to GND and then released |
+| 6       | GND      | Ground signal                        | GND                             |
+| 7       | PWR_EN   | Power enable signal                  | Shorted to GND with a jumper cap to disable power |
+| 8       | GND      | Ground signal                        | GND                             |
 
+![image-carrier-board-control-pin1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface-control.jpg)
 
-![image-carrier-board-control-pin1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface-control.jpg)  
+## 40pin Header Interface
 
-## 40pin header接口
-
-RDK Ultra开发板提供一组40pin header接口（接口7），支持GPIO、UART、I2C、SPI、I2S等多种接口，详细管脚定义、复用关系如下：
+The RDK Ultra development board provides a 40-pin header interface (Interface 7) that supports GPIO, UART, I2C, SPI, I2S, and other interfaces. The detailed pin definitions and multiplexing relationships are shown below:
 
 ![image-40pin-header](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-interface-40pin.jpg)

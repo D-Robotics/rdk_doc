@@ -1,7 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
-# 7.2.5 Applying Real-Time Kernel
+# 7.2.6 Applying Real-Time Kernel
 
 This chapter aims to describe how to enable real-time kernel (Preempt-RT kernel) on `RDK X3` and `RDK X3 Module`, and provide the corresponding commands for users to use. Real-time kernel is an operating system kernel that can provide more precise and reliable response time, and is commonly used in applications with high time sensitivity requirements, such as robot control and industrial automation. The following are the related commands for enabling and disabling real-time kernel, as well as some common use cases and testing methods.
 
