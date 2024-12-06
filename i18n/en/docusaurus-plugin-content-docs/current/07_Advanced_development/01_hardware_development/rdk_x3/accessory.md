@@ -47,7 +47,8 @@ The Certified Accessories List refers to third-party accessories that are offici
 
 ### Interface Boards
 
-| Type | Supplier | Model | Description | Purchase Link |
-| --- | --------- | -------- | --------------- | --------- |
-| Audio Adapter Board | Weishi | WM8960 Audio HAT | Dual-channel recording and playback, compatible with RDK X3 2.0, RDK X3 Module | [Buy Now](https://www.waveshare.net/shop/WM8960-Audio-HAT.htm)  |
 
+| Type           | Supplier   | Model               | Description                                                  | Purchase Link                                                                 |
+|----------------|------------|---------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Audio HAT      | Waveshare  | Audio Driver HAT     | Supports circular 4MIC recording, dual-channel playback, audio loopback | [Purchase Link](https://www.waveshare.net/shop/Audio-Driver-HAT.htm)        |
+| Audio HAT      | Waveshare  | WM8960 Audio HAT     | Supports dual-channel recording and playback, suitable for RDK X3 2.0, RDK X3 Module | [Purchase Link](https://www.waveshare.net/shop/WM8960-Audio-HAT.htm)        |
