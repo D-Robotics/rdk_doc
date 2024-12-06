@@ -284,9 +284,9 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 ```shell
 #关闭sunrise用户所有进程
 sudo pkill -u sunrise
-#sunrise用户改名为test
+#sunrise用户改名为usertest
 sudo usermod -l usertest sunrise
-#用户的家目录改为/home/test
+#用户的家目录改为/home/usertest
 sudo usermod -d /home/usertest -m sunrise
 #修改用户密码
 sudo passwd usertest
