@@ -274,3 +274,35 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 </TabItem>
 
 </Tabs>
+
+## 用户管理
+
+**修改用户名**
+
+以新用户名为usertest为例
+
+```shell
+#关闭sunrise用户所有进程
+sudo pkill -u sunrise
+#sunrise用户改名为test
+sudo usermod -l usertest sunrise
+#用户的家目录改为/home/test
+sudo usermod -d /home/usertest -m sunrise
+#修改用户密码
+sudo passwd usertest
+```
+
+最后将`/etc/lightdm/lightdm.conf.d/22-hobot-autologin.conf`文件中的 `autologin-user=sunrise` 改为`autologin-user=usertest`，更新自动登录的用户名称
+
+**增加新用户**
+
+以新增用户为usertest为例
+
+```shell
+sudo useradd -U -m -d /home/usertest -k /etc/skel/ -s /bin/bash -G disk,kmem,dialout,sudo,audio,video,render,i2c,lightdm,vpu,gdm,weston-launch,graphics,jpu,ipu,vps,misc,gpio usertest
+sudo passwd usertest
+sudo cp -aRf /etc/skel/. /home/usertest
+sudo chown -R usertest:usertest /home/usertest
+```
+
+也可以参考修改用户名，将新增用户设为自动登录用户
