@@ -54,12 +54,10 @@ const config = {
         label: 'EN',
         // direction: 'ltr',
         // path: 'i18n/en/',
-
       },
       'zh-Hans': {
         label: 'CN',
         // path: '/docs/intro/',
-
       },
     },
   },
@@ -73,7 +71,6 @@ const config = {
 
           //add by xgs for delete first page
           routeBasePath: '/', // Serve the docs at the site's root
-
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -129,7 +126,6 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-
         ],
       },
       footer: {
@@ -151,7 +147,6 @@ const config = {
                 label: '古月居',
                 href: 'https://www.guyuehome.com/',
               },
-
             ],
           },
           {
