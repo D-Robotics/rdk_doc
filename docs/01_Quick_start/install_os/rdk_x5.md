@@ -53,13 +53,19 @@ RDK套件目前提供Ubuntu 22.04系统镜像，可支持Desktop桌面图形化�
 
 ### 镜像下载 {#img_download}
 
-
 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入3.0.0版本系统下载页。
 
 
 下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64.img`
 
 **版本说明：**
+:::caution
+
+- 3.1.0版本： 3.1.0镜像，针对balenaEtcher最新版烧录会出现烧录失败问题，目前解决方案为：
+1.使用balenaEtcher 1.18.11的版本，烧录正常，验证过程会报错，但是可以正常进入系统
+2.官方十分建议使用rufus烧录软件进行镜像安装，相对较为稳定
+
+:::
 
 - 3.0版本：基于RDK Linux开源代码包制作，支持RDK X5派、X3模组等全系列硬件
 

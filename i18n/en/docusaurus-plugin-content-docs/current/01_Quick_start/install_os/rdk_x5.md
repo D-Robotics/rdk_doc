@@ -55,6 +55,13 @@ Click [**Download Image**](https://archive.d-robotics.cc/downloads/os_images) to
 After downloading, extract the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`.
 
 **Version Description:**
+:::caution
+
+- Version 3.1.0: For the 3.1.0 image, there is an issue where the latest version of balenaEtcher may fail during the flashing process. The current solutions are:
+1. Use balenaEtcher version 1.18.11. Flashing will proceed normally, though the verification process may report an error, but the system will still boot up correctly.
+2. It is strongly recommended by the official team to use the Rufus flashing tool for image installation, as it is relatively more stable.
+
+:::
 
 - **3.0 Version**: Based on the RDK Linux open-source package, it supports the entire hardware series, including the RDK X5 Pi and X3 modules.
 
