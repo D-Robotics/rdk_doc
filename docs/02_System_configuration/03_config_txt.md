@@ -81,6 +81,20 @@ RDK X3 支持： uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2
 
 RDK X5 支持： uart1, uart2, uart3, uart6，spi1, spi2, i2c0, i2c1, i2c5, i2c4, i2c5, dw_i2s1
 
+:::info 注意
+
+RDK X5需要注意管脚的复用关系，当一行的所有接口都为dsiable时，引脚为gpio功能脚
+
+  | 功能1 | 功能2 | 
+  | ---- | ---- |
+  | uart3 | i2c5 |
+  | i2c0 | pwm2 |
+  | spi2 | pwm0 |
+  | spi2 | pwm1 |
+  | i2c1 | pwm3 |
+
+:::
+
 例如关闭串口3：
 
 ```
