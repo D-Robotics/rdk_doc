@@ -10,7 +10,7 @@ Before using the RDK X5 development board, the following preparations are requir
 
 ### **Power Supply**
 
-The RDK X5 development board is powered via a USB Type C interface. Use a power adapter that supports **5V/3A** to power the board.
+The RDK X5 development board is powered via a USB Type C interface. Use a power adapter that supports **5V/5A** to power the board.
 
 :::caution
 Do not use a computer USB port to power the board. Insufficient power may cause **abnormal shutdowns or repeated reboots**.  
