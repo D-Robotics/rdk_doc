@@ -24,7 +24,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
 <details>
   <summary>RDK X5在使用该demo的时候会要求选择摄像头的配置，具体可以点击查看</summary>
 
-  在终端中运行之后，会出现“please chouse sensor config,xxxx”的要求。
+  在终端中运行之后，会出现“please choose sensor config,xxxx”的要求。
 
   ![screenshot-20241217-115245](../../../static/img/03_Basic_Application/01_Image/image/mipi_camera/screenshot-20241217-115245.png)
   
