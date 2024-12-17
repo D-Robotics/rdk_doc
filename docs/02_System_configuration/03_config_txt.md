@@ -187,7 +187,7 @@ frequency=1200000
 gpio:
 ip - Input                             设置为输入模式
 op - Output                            设置为输出模式
-f0-f3 - Func0-Func3                    设置功能复用，f3功能都是设置为io模式，其他功能请查阅寄存器手册
+f0-f3 - Func0-Func3                    设置功能复用，X3 f3功能都是设置为io模式，X3的其他功能和X5的所有功能请查看40PIN 管脚定义,或查阅相关寄存器文档
 dh - Driving high (for outputs)        输出高电平
 dl - Driving low (for outputs)         输出低电平
 pu - Pull up                           推挽上拉
