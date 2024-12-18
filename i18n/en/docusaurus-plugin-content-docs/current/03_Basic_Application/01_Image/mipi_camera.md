@@ -9,7 +9,7 @@ The development board is installed with the "mipi_camera.py" program to test the
 
 ## Environment Preparation
 
-  - Connect the MIPI camera module to the development board's MIPI CSI interface. For specific connection methods, please refer to the [MIPI Camera Connection Tutorial](../../01_Quick_start/hardware_introduction.md) chapter.
+  - Connect the MIPI camera module to the development board's MIPI CSI interface. For specific connection methods, please refer to the [MIPI Camera Connection Tutorial](https://d-robotics.github.io/rdk_doc/en/hardware_introduction) chapter.
   - Connect the development board to the monitor via an HDMI cable.
 
 ## Running the Program

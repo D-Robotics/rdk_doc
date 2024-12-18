@@ -109,7 +109,7 @@ When connecting a remote control joystick to the development board, the `/dev/in
 
 <font color='Green'>【Answer】</font>
 
-- Please refer to the [MIPI camera](../01_Quick_start/hardware_introduction.md) section to confirm the camera's connection method.
+- Please refer to the [MIPI camera](https://d-robotics.github.io/rdk_doc/en/hardware_introduction) section to confirm the camera's connection method.
 - Do not plug or unplug the camera while the development board is powered on, as it may damage the camera due to short circuit.
 
 <font color='Blue'>【Question】</font>
@@ -137,4 +137,4 @@ When connecting a remote control joystick to the development board, the `/dev/in
 
 <font color='Green'>【Answer】</font>
 
-- Supported resolution types can be found in the [HDMI interface](../01_Quick_start/hardware_introduction.md) section.
+- Supported resolution types can be found in the [HDMI interface](https://d-robotics.github.io/rdk_doc/en/hardware_introduction) section.
