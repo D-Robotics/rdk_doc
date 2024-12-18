@@ -303,7 +303,7 @@ Video: https://www.youtube.com/watch?v=Ov8mL8P_yUY&list=PLSxjn4YS2IuFUWcLGj2_uuC
 
 ### Initialization
 
-The Bluetooth function on the development board is not enabled by default. You need to execute the `/usr/bin/startbt6212.sh` script to initialize it. The script completes the following tasks:
+The Bluetooth function of the development board X3 is not enabled by default, while X5 has it enabled. You need to execute the `/usr/bin/startbt6212.sh` script to initialize it. The script completes the following tasks:
 
 - Reset the Bluetooth
 - Create the `messagebus` user and group, which are required for the operation of the `dbus-daemon` program
