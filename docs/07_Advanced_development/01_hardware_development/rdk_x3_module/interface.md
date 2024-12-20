@@ -144,7 +144,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 默认情况下，RDK X3 Module核心模组固件、载板电平配置为3.3V，如需要切换IO电平时，需要按如下步骤进行：
 
 1. 下载支持1.8V电平配置的启动固件，[固件下载地址](https://archive.d-robotics.cc/downloads/miniboot)。
-2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](../../../01_Quick_start/install_os.md)。
+2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](/rdk_doc/install_os)。
 3. 设备断电，使用跳线帽将`vref`、`1.8V`信号短接后重新上电。
 :::
 
