@@ -19,7 +19,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 
 | Platform | System | Function               |
 | -------- | ---------------- | ------------------------------ |
-| RDK X3   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech, and play them out |
+| RDK X3, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech, and play them out |
 
 **Note: Only supports RDK X3, RDK X3 Module is not supported yet.**
 
