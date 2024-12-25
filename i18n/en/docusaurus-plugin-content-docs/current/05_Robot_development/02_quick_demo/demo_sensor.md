@@ -1085,3 +1085,261 @@ If there is an abnormality in the startup of the hobot_sensor node, you can trou
 1. Check hardware connections.
 2. Check if the tros.b environment is set.
 3. Check if the parameters are correct. For specific details, please refer to the Hobot_Sensors README.md file.
+
+## Orbbec camera
+
+### Introduction
+
+Stereo cameras are commonly used sensors in robot development, often serving as the "eyes" of robots. Applications of stereo cameras in robots cover various aspects, such as navigation and obstacle avoidance, target recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo cameras on the market, including the RealSense, Orbbec, ZED, and other series.
+
+Currently, the use of RealSense and Orbbec stereo cameras on ROS follows the architecture described below. Firstly, SDK library files compiled for different hardware platforms are required. The camera SDK provides APIs for camera startup and settings. Based on this, ROS wrapping is performed to enable ROS to call the camera.
+
+Therefore, the general installation process for the stereo camera ROS package is: first install the camera's SDK library files, then install the camera's ROS wrapper package.
+
+![stereo-camera-ros-arch](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+
+This section introduces the usage of Orbbec cameras on the RDK platform.
+
+### Supported Platforms
+
+| Platform | Operating Mode |
+| -------- | -------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5 | Ubuntu 22.04 (Humble) |
+| RDK Ultra | Ubuntu 20.04 (Foxy) |
+
+### Preparations
+
+#### RDK Platform
+
+1. Ensure that the Orbbec camera is functioning properly and connect the USB cable to the <font color="red"><b>USB3.0</b></font> slot of the RDK (currently, USB2.0 may have issues with startup).
+2. The RDK has Ubuntu 20.04/Ubuntu 22.04 system images burned onto it.
+3. The RDK has successfully installed tros.b.
+4. Confirm that the PC can access the RDK via the network.
+
+### Usage
+
+Currently, Orbbec cameras do not support direct installation of SDK library files and ROS wrapper packages using apt commands. Instead, source code must be downloaded and compiled before they can be run on the RDK platform.
+
+Here are the GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper. This tutorial is also based on these repositories, and users can refer to the more detailed tutorials in these repositories.
+
+- Orbbec SDK: https://github.com/orbbec/OrbbecSDK
+- Orbbec ROS2 wrapper: https://github.com/orbbec/OrbbecSDK_ROS2
+
+#### 1. Log in to the RDK via serial port or SSH and confirm the ROS version.
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+# Print the ROS version environment variable
+echo $ROS_DISTRO
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```shell
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+# Print the ROS version environment variable
+echo $ROS_DISTRO
+```
+
+</TabItem>
+</Tabs>
+
+#### 2. Download the Orbbec ROS2 wrapper source code for compilation.
+
+```shell
+# First, create a ros workspace
+mkdir -p tros_ws/src
+cd tros_ws/src
+
+# Download the Orbbec ROS2 wrapper source code to the tros_ws/src directory
+git clone https://github.com/orbbec/OrbbecSDK_ROS2.git
+```
+
+Note that the OrbbecSDK_ROS2 repository already contains the SDK library files for the Orbbec camera, located in the `OrbbecSDK_ROS2/orbbec_camera/SDK` directory. The `arm64` version is required for compilation on the RDK platform.
+
+After downloading the source code, the next step is to compile it. However, compiling this program requires at least 4GB of memory, and the RDK platform may encounter memory insufficiency issues, leading to compilation failures.
+
+There are two solutions:
+
+1. Set up swap space to serve as temporary memory.
+2. Use cross-compilation, compiling on a PC and running on the RDK.
+
+The advantage of Solution 1 is simplicity and direct compilation on the RDK platform, but the disadvantage is slower compilation speed due to limited RDK platform performance. For example, compilation on the RDK X3 platform takes about 30 minutes. The advantage of Solution 2 is faster compilation speed, but the disadvantage is the complexity of setting up the cross-compilation environment. This tutorial introduces the implementation of Solution 1, and Solution 2 can be referenced in the tutorial: [Cross-compilation Environment Deployment](https://developer.d-robotics.cc/forumDetail/112555549341653662).
+
+Below is how to set up swap space:
+
+```shell
+# Create a 4GB swap file in the /swapfile directory
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+# For security reasons, set the permissions of the swap file to allow only the root user to read and write
+sudo chmod 600 /swapfile
+# Use the mkswap command to format the file as swap space
+sudo mkswap /swapfile
+# Use the swapon command to enable the swap file
+sudo swapon /swapfile
+```
+
+![swapfile](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png)
+
+After setting up the swap space, you can use `swapon --show`, `free -h`, or `htop` commands to check the current swap usage. For example, using the `htop` command:
+
+![htop-swap](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png)
+
+This setting is only temporary and will be lost after a power cycle. If you want the swap space to be used after a system reboot, you can either re-execute `sudo swapon /swapfile` or add it to the `/etc/fstab` file.
+
+```shell
+# Open /etc/fstab using vim
+sudo vim /etc/fstab
+# Add the following line, save and exit
+/swapfile none swap sw 0 0
+# Execute sync to flush the cache and ensure all data is correctly written to disk
+sync
+```
+
+![etc-fstab](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png)
+
+To delete the swap space, you can execute the following commands.
+
+```shell
+# Use the swapoff command to disable the swap file
+sudo swapoff /swapfile
+# Delete the swap file
+sudo rm -rf /swapfile
+# If the swap file entry was added in /etc/fstab, remove it
+sudo vim /etc/fstab
+# Delete the following line
+/swapfile none swap sw 0 0
+```
+
+After setting up the swap space, you can proceed with the compilation.
+
+```shell
+# Return to the ros workspace
+cd tros_ws
+# Execute colcon to build, which may take a while, please be patient
+colcon build
+```
+
+Compilation results on the RDK X3 platform:
+
+![orbbec-ros-colcon-build](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png)
+
+#### 3. Start the Orbbec camera.
+
+After compilation, the Orbbec camera can be started through ROS commands. OrbbecSDK_ROS2 has launch files for all Orbbec cameras, including the Astra series, Dabai series, and Gemini series. Simply use the corresponding launch file to start. This tutorial takes the Gemini2 camera as an example.
+
+```shell
+cd tros_ws
+source ./install/setup.bash
+ros2 launch orbbec_camera gemini2.launch.py
+```
+
+![orbbec-start-up-log](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png)
+
+You can use `ros2 topic list` to view the topics published by Gemini2. With default parameters, starting the Gemini2 camera will enable the camera's depth data stream, RGB data stream, IR data stream, and point cloud data stream.
+
+![orbbec-topic-echo](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png)
+
+The Orbbec ROS2 wrapper offers numerous configurable parameters. For instance, setting `enable_point_cloud:=false` and `enable_colored_point_cloud:=false` will disable the camera's point cloud data streams.
+
+Moreover, the Orbbec camera activates several services, which can be viewed using `ros2 service list`. These services allow for querying the camera's SDK version, adjusting or querying exposure time and gain, enabling or disabling the laser, among other functionalities. For example:
+
+```shell
+# Query SDK Version
+ros2 service call /camera/get_sdk_version orbbec_camera_msgs/srv/GetString '{}'
+# Disable Color Camera Auto Exposure
+ros2 service call /camera/set_color_auto_exposure std_srvs/srv/SetBool '{data: false}'
+# Enable Laser
+ros2 service call /camera/set_laser_enable std_srvs/srv/SetBool '{data: true}'
+```
+
+For more detailed settings regarding topics and services, please refer to the Orbbec ROS2 wrapper's GitHub repository.
+
+#### 4. Depth and RGB Alignment
+
+In practical applications, it is often necessary to align the depth map of a stereo camera with its color image. Orbbec provides a corresponding launch configuration for this purpose.
+
+```shell
+cd tros_ws
+source ./install/setup.bash
+ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
+```
+
+![orbbec-image-align](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-image-align.png)
+
+#### 5. Displaying Images and Point Clouds
+
+There are multiple methods to display Orbbec's images and point clouds. For reference, see [2.2 Data Visualization](./demo_render.md). For instance, you can use `rviz2` on a PC to display the data, but note that this requires the PC to access the RDK via the network, which can be demanding and may lead to lag.
+
+![orbbec-rviz2](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
+
+It is recommended to read the data directly on the RDK to verify the data flow. You can use `ros2 topic echo topic_name` to print data or write code to subscribe to the corresponding topics.
+
+![orbbec-topic-echo.png](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
+
+## ZED camera
+
+### Introduction
+
+Stereo cameras are commonly used sensors in robot development, often serving as the "eyes" of robots. Their applications in robotics span various aspects, including navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo cameras on the market, such as RealSense, Orbbec, and ZED series cameras.
+
+Code Repository: [https://github.com/D-Robotics/hobot_zed_cam](https://github.com/D-Robotics/hobot_zed_cam)
+
+This section introduces how to use the ZED camera on the RDK platform.
+
+### Supported Platforms
+
+| Platform | Operating System |
+| -------- | ---------------- |
+| RDK X5   | Ubuntu 22.04 (Humble) |
+
+### Preparation
+
+#### RDK Platform
+
+1. Ensure that the ZED camera is functioning properly and connect it to the RDK via a USB cable.
+2. The RDK should have Ubuntu 22.04 system image flashed onto it.
+3. The RDK should have `tros.b` installed successfully.
+4. Ensure that the PC can access the RDK via the network.
+
+### Usage
+
+1. Log in to the RDK via SSH and start the ZED camera using the following commands:
+
+```shell
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Launch the ZED camera to publish stereo image data
+ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
+```
+
+2. If the program outputs information similar to the following, it indicates that the node has been successfully launched:
+
+```shell
+[anypub_stereo_imgs-1] [INFO] [0946684888.710715101] [pub_stereo_imgs_nv12_node]: => connected to camera sn: 38085162[/dev/video0]
+[anypub_stereo_imgs-1] [INFO] [0946684888.779280740] [pub_stereo_imgs_nv12_node]: => calibration file found. Loading...
+[anypub_stereo_imgs-1] [INFO] [0946684888.831008271] [pub_stereo_imgs_nv12_node]: => camera Matrix L:
+[anypub_stereo_imgs-1] [514.5878861678406, 0, 665.3764572143555, 0;
+[anypub_stereo_imgs-1]  0, 514.5878861678406, 320.3872646755642, 0;
+[anypub_stereo_imgs-1]  0, 0, 1, 0]
+[anypub_stereo_imgs-1] [INFO] [0946684888.831235937] [pub_stereo_imgs_nv12_node]: => camera Matrix R:
+[anypub_stereo_imgs-1] [514.5878861678406, 0, 665.3764572143555, 61695.48427422668;
+[anypub_stereo_imgs-1]  0, 514.5878861678406, 320.3872646755642, 0;
+[anypub_stereo_imgs-1]  0, 0, 1, 0]
+[anypub_stereo_imgs-1] [INFO] [0946684888.831287187] [pub_stereo_imgs_nv12_node]: => rectified fx: 514.587886, fy: 514.587886, cx: 665.376457, cy: 320.387265, base_line: 0.119893
+[anypub_stereo_imgs-1] [INFO] [0946684888.831357562] [pub_stereo_imgs_nv12_node]: => camera_fx:=514.587886 camera_fy:=514.587886 camera_cx:=665.376457 camera_cy:=320.387265 base_line:=0.119893
+[anypub_stereo_imgs-1] [INFO] [0946684888.851400416] [pub_stereo_imgs_nv12_node]: => raw img size: [1280, 720]
+[anypub_stereo_imgs-1] [INFO] [0946684888.883419384] [pub_stereo_imgs_nv12_node]: => rectify img size: [1280, 640]
+```
+
+3. Open a web browser on the PC (`Chrome/Firefox/Edge`), enter `IP:8000` (where IP is the IP address of the RDK), and click on the web display in the top left corner to view the real-time ZED camera feed.
+
+![ZED Camera Real-Time Feed](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)

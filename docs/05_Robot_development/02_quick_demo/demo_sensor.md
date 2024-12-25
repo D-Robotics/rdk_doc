@@ -960,7 +960,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 ### 功能介绍
 
-双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec等系列相机。
+双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec、ZED等系列相机。
 
 目前RealSense和Orbbec的双目相机在ROS上的使用是按照如下架构实现的，首先需要不同硬件平台上编译的SDK库文件，相机的SDK提供了相机启动、相机设置等API接口，在此基础上，再进行ROS封装，即可实现ROS调用相机。
 
@@ -982,7 +982,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 #### RDK平台
 
-1. 确认手中RealSense相机工作正常，将提供USB数据线接入RDK的USB插槽
+1. 确认手中RealSense相机工作正常，将USB数据线接入RDK的USB插槽
 2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
 3. RDK已成功安装tros.b
 4. 确认PC机能够通过网络访问RDK
@@ -1086,11 +1086,11 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 ![realsense-topic-echo](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
 
-## Orbbec相机图像采集
+## 奥比中光(Orbbec)相机图像采集
 
 ### 功能介绍
 
-双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec等系列相机。
+双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec、ZED等系列相机。
 
 目前RealSense和Orbbec的双目相机在ROS上的使用是按照如下架构实现的，首先需要不同硬件平台上编译的SDK库文件，相机的SDK提供了相机启动、相机设置等API接口，在此基础上，再进行ROS封装，即可实现ROS调用相机。
 
@@ -1112,7 +1112,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### RDK平台
 
-1. 确认手中Orbbec相机工作正常，将提供USB数据线接入RDK的<font color="red"><b>USB3.0</b></font>插槽（目前发现USB2.0可能存在无法启动的问题）
+1. 确认手中Orbbec相机工作正常，将USB数据线接入RDK的<font color="red"><b>USB3.0</b></font>插槽（目前发现USB2.0可能存在无法启动的问题）
 2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
 3. RDK已成功安装tros.b
 4. 确认PC机能够通过网络访问RDK
@@ -1284,3 +1284,63 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 ![orbbec-topic-echo.png](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
 
+
+## ZED相机图像采集
+
+### 功能介绍
+
+双目相机是机器人开发常用的传感器，经常扮演着机器人“眼睛”的角色。双目相机在机器人上的应用涵盖了多个方面，例如导航避障、目标识别、三维重建、人机交互等。RDK平台也支持市面上常见的双目相机，例如RealSense、Orbbec、ZED等系列相机。
+
+代码仓库：[https://github.com/D-Robotics/hobot_zed_cam](https://github.com/D-Robotics/hobot_zed_cam)
+
+本节介绍ZED相机在RDK平台上的使用方法。
+
+### 支持平台
+
+| 平台    | 运行方式     |
+| ------- | ------------ |
+| RDK X5 | Ubuntu 22.04 (Humble) |
+
+### 准备工作
+
+#### RDK平台
+
+1. 确认手中ZED相机工作正常，将USB数据线接入RDK的USB插槽
+2. RDK已烧录好Ubuntu 22.04系统镜像
+3. RDK已成功安装tros.b
+4. 确认PC机能够通过网络访问RDK
+
+### 使用方式
+
+1. 通过SSH登录RDK，并通过下述命令启动ZED相机
+
+```shell
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
+# 启动ZED相机，发布双目图像数据
+ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
+```
+
+2. 如程序输出如下信息，说明节点已成功启动
+
+```shell
+[anypub_stereo_imgs-1] [INFO] [0946684888.710715101] [pub_stereo_imgs_nv12_node]: => connected to camera sn: 38085162[/dev/video0]
+[anypub_stereo_imgs-1] [INFO] [0946684888.779280740] [pub_stereo_imgs_nv12_node]: => calibration file found. Loading...
+[anypub_stereo_imgs-1] [INFO] [0946684888.831008271] [pub_stereo_imgs_nv12_node]: => camera Matrix L:
+[anypub_stereo_imgs-1] [514.5878861678406, 0, 665.3764572143555, 0;
+[anypub_stereo_imgs-1]  0, 514.5878861678406, 320.3872646755642, 0;
+[anypub_stereo_imgs-1]  0, 0, 1, 0]
+[anypub_stereo_imgs-1] [INFO] [0946684888.831235937] [pub_stereo_imgs_nv12_node]: => camera Matrix R:
+[anypub_stereo_imgs-1] [514.5878861678406, 0, 665.3764572143555, 61695.48427422668;
+[anypub_stereo_imgs-1]  0, 514.5878861678406, 320.3872646755642, 0;
+[anypub_stereo_imgs-1]  0, 0, 1, 0]
+[anypub_stereo_imgs-1] [INFO] [0946684888.831287187] [pub_stereo_imgs_nv12_node]: => rectified fx: 514.587886, fy: 514.587886, cx: 665.376457, cy: 320.387265, base_line: 0.119893
+[anypub_stereo_imgs-1] [INFO] [0946684888.831357562] [pub_stereo_imgs_nv12_node]: => camera_fx:=514.587886 camera_fy:=514.587886 camera_cx:=665.376457 camera_cy:=320.387265 base_line:=0.119893
+[anypub_stereo_imgs-1] [INFO] [0946684888.851400416] [pub_stereo_imgs_nv12_node]: => raw img size: [1280, 720]
+[anypub_stereo_imgs-1] [INFO] [0946684888.883419384] [pub_stereo_imgs_nv12_node]: => rectify img size: [1280, 640]
+```
+
+3. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看ZED相机实时画面。
+
+![ZED相机实时画面](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)
