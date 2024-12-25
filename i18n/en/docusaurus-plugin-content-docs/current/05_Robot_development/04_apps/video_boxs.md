@@ -69,7 +69,7 @@ export ROS_DOMAIN_ID=101
 
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
-ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'
+ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
 ```
 
 </TabItem>
@@ -89,7 +89,7 @@ export ROS_DOMAIN_ID=103
 
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
-ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'
+ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
 ```
 
 </TabItem>
