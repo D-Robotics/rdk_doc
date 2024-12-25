@@ -1106,7 +1106,6 @@ This section introduces the usage of Orbbec cameras on the RDK platform.
 | -------- | -------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5 | Ubuntu 22.04 (Humble) |
-| RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### Preparations
 
