@@ -279,6 +279,48 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=7
 ![image-X3-PI-Camera](../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
 
 安装完成后，用户可以通过i2cdetect命令确认模组I2C地址能否正常检测到。
+
+首先，确认当前板卡的id号
+```shell
+cat /sys/class/socinfo/som_name
+```
+
+然后根据id号在`/etc/board_config.json`中找到对应的i2c和reset gpio
+```shell
+cat /etc/board_config.json
+```
+
+X3 PI V2.1的id是8，i2c接口是1，reset gpio是19
+```shell
+"board_8": {
+    "board_id": "8",
+    "camera_num": 2,
+    "cameras": [
+      {
+        "reset": "19:low",
+        "i2c_bus": 1,
+        "mipi_host": 0
+      },
+      {
+        "reset": "19:low",
+        "i2c_bus": 1,
+        "mipi_host": 2
+      }
+    ]
+  },
+```
+
+查询sensor的指令就是
+```shell
+echo 19 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio19/direction
+echo 0 > /sys/class/gpio/gpio19/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio19/value
+
+i2cdetect -y -r 1
+```
+
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
@@ -299,6 +341,54 @@ RDK X3 Module载板提供CAM 0/1/2三组MIPI CSI接口，可以满足3路Camera�
 | 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
 
 上述Camera模组的购买方式可参考[购买链接](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)。
+
+安装完成后，用户可以通过i2cdetect命令确认模组I2C地址能否正常检测到。
+
+首先，确认当前板卡的id号
+```shell
+cat /sys/class/socinfo/som_name
+```
+
+然后根据id号在`/etc/board_config.json`中找到对应的i2c和reset gpio
+```shell
+cat /etc/board_config.json
+```
+
+X3 CM的id是b，sensor接口有三个，分别是i2c3，reset 114， i2c1，reset 115，i2c0，reset 116。
+```shell
+"board_b": {
+    "board_id": "b",
+    "camera_num": 3,
+    "cameras": [
+      {
+        "reset": "114:low",
+        "i2c_bus": 3,
+        "mipi_host": 0
+      },
+      {
+        "reset": "114:low",
+        "i2c_bus": 1,
+        "mipi_host": 1
+      },
+      {
+        "reset": "114:low",
+        "i2c_bus": 0,
+        "mipi_host": 2
+      }
+    ]
+  }
+```
+
+查询mipi_host 0 的指令就是
+```shell
+echo 114 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio114/direction
+echo 0 > /sys/class/gpio/gpio114/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio114/value
+
+i2cdetect -y -r 3
+```
 
 </TabItem>
 
