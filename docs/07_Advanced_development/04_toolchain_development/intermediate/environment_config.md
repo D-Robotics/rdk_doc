@@ -218,6 +218,12 @@ D-Robotics 要求的Docker基础环境信息如下：
 ## RDK-X5
 ### <span id="ai_toolchain_package"/>交付物使用说明
 
+:::tip
+
+本章节仅演示算法工具链使用方法。最新版本的工具链安装包及离线文档，可通过访问[**《地瓜X5算法工具链版本发布》**](https://developer.d-robotics.cc/forumDetail/251934919646096384)获取。
+
+:::
+
 在进行算法工具链使用环境部署前，请下载D-Robotics 提供的 **嵌入式应用开发Sample交付包** 到Linux开发机环境中。
 
 下载嵌入式应用开发Sample交付包：
