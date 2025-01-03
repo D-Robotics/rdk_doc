@@ -224,7 +224,7 @@ gpio=6=op,dl
 
 ```
 gpio=6=f3
-gpio=6=op,dl,pu
+gpio=6=op,dh,pu
 ```
 
 ## 温度控制
