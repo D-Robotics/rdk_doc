@@ -130,7 +130,12 @@ Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.2.0版本
+可以看到当前tros.b版本已升级为2.2.0版本。
+
+:::caution 注意
+- 查询显示的版本号`Version`是实际安装的`tros.b`的版本，本示例以`2.2.0`版本举例说明。
+- `tros.b`的发布版本信息详见[版本发布记录](./changelog)。
+:::
 
 </TabItem>
 </Tabs>
