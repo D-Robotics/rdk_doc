@@ -15,7 +15,7 @@ This example mainly implements the following functions:
 
 ### How to Run
 
-Please refer to [USB Camera AI Inference](/first_application/usb_camera) for instructions on how to quickly run this example.
+Please refer to [USB Camera AI Inference](https://d-robotics.github.io/rdk_doc/en/Basic_Application/Image/usb_camera/) for instructions on how to quickly run this example.
 
 ### Code Analysis
 - Import algorithm inference module `hobot_dnn`, video output module `hobot_vio`, `numpy`, `opencv`, `colorsys`, etc.
