@@ -6,6 +6,24 @@ sidebar_position: 6
 
 ## tros-humble
 
+### 版本号：2.3.2 (2025-1-15)
+
+功能变更：
+
+- [双目深度估计算法](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md)更新双目模型，优化深度估计效果。
+- [多路视频分析](/docs/05_Robot_development/04_apps/video_boxs.md)算法应用示例，优化示例处理流程以及WEB端可视化效果。
+- [双目辅助功能包](https://github.com/D-Robotics/hobot_stereonet_utils)删除部分不能启动的launch文件。
+
+新增功能：
+
+- 新增[ZED相机图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)，用于启动zed相机获取双目图像，用于双目深度估计算法输入。
+- 新增[DOSOD算法](/docs/05_Robot_development/03_boxs/function/hobot_dosod.md)，新增地瓜自研开放性词汇检测DOSOD端侧部署功能包。
+
+问题修复：
+- 修复[yolov8-seg图像分割](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md)算法后处理中由于box越界导致的crash问题。
+- [图像编解码](/docs/05_Robot_development/02_quick_demo/hobot_codec.md)修复帧率统计错误的问题。
+- [双目MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)修复i2c detection的问题，增加lpwm开关的配置。
+
 ### 版本号：2.3.1 (2024-11-20)
 
 功能变更：
@@ -51,7 +69,7 @@ sidebar_position: 6
 功能变更：
 
 - 基于TROS Foxy 2.1.3版本，适配Ubuntu 22.04系统和ROS2 Humble。
-- TROS的安装路径由**`/opt/tros`**变更为**`/opt/tros/humble`**，和ROS2的安装路径层级和命名保持一致。
+- TROS的安装路径由`/opt/tros`变更为`/opt/tros/humble`，和ROS2的安装路径层级和命名保持一致。
 - 不再提供`tros-ros-base`安装包（包含rclcpp、rclpy、ros2cli等ROS2基础功能包），使用标准的ROS2发行包，安装TROS Humble时自动安装依赖的ROS2 Humble。
 - 使用ROS2 fastdds的零拷贝通信功能，涉及到数据采集、图像编解码、算法示例等使用到图像数据的模块。
 - 零拷贝通信使用的QoS的Reliability由`RMW_QOS_POLICY_RELIABILITY_RELIABLE`（rclcpp::QoS()）变更为`RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT`（rclcpp::SensorDataQoS()），避免使用零拷贝时潜在的稳定性风险。
