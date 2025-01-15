@@ -23,7 +23,7 @@ Code repository:  (https://github.com/D-Robotics/audio_control.git)
 
 | Platform | System | Function                    |
 | -------- | -------------- | ----------------------------------- |
-| RDK X3   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start smart voice module, parse voice information, and control the car in Gazebo |
+| RDK X3, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start smart voice module, parse voice information, and control the car in Gazebo |
 
 **Note: Only RDK X3 is supported, RDK X3 Module is not supported.**
 

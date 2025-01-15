@@ -20,7 +20,7 @@ Example of voice-controlled car movement: [Voice-controlled car movement](../../
 
 | Platform | System | Function                    |
 | -------- | ------------ | ---------------------------------- |
-| RDK X3   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the audio module algorithm and display the results in the terminal |
+| RDK X3, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the audio module algorithm and display the results in the terminal |
 
 **Note: Only supports RDK X3.**
 
