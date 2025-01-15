@@ -79,6 +79,28 @@ sidebar_position: 0
 <font color="red">注意事项：</font>
 - 更新系统后，请使用 rdk-miniboot-update 命令更新nand固件至最新版本
 
+####  双目算法升级 & 版本号：3.1.1
+
+**核心功能亮点：**
+
+- **系统备份** 全新 rdk-backup 工具，一键备份当前系统，轻松生成可烧录镜像。[rdk-backup介绍](Appendix/rdk-command-manual/cmd_rdk-backup)。
+- **配置管理** 支持使用 config.txt 配置 40pin 引脚在 U-Boot 阶段的初始化状态，提升系统启动稳定性。
+- **触摸屏增强** 新增双击和长按操作，长按模拟右键，屏幕控制更加灵活。
+- **设备树覆盖支持** 增加 1_wire 设备树覆盖（dtoverlay）示例，为定制硬件连接提供更多选择。
+- **双目算法升级**  StereoNet 深度算法升级，显著提升深度效果；新增 ZED 相机支持，实现双目图像采集，搭配 StereoNet 轻松构建智能视觉系统。
+- **全新应用方案：智能视频盒子** hobot_rtsp_client：支持 RTSP 拉流、解码、智能推理，并通过 Web 界面展示推理结果，快速集成边缘 AI 解决方案。
+- **开放词汇检测方案：DOSOD** hobot_dosod：基于地瓜自研的开放性词汇检测算法，提供端侧部署方案，让语音交互更灵活。
+
+**问题修复与优化：**
+
+- 模型导入修复：解决 efficientnasnet_m_300x300_nv12.bin 模型导入异常问题。
+- 兼容性提升：优化 SD 卡协议支持，提升兼容性。
+- 显示修复：修复竖屏显示导致的黑屏问题。
+- 后处理优化：dnn_node 修复 YOLOv8-seg 后处理 box 越界崩溃问题。
+- 帧率统计修复：hobot_codec 修复帧率计算错误。
+- 无效文件清理：hobot_stereonet_utils 删除无法启动的 launch 文件。
+- MIPI 摄像头修复：解决多路 I2C 检测问题，增加 LPWM 开关配置。
+
 #### 版本号：3.1.0
 
 新增功能：
