@@ -83,7 +83,7 @@ sidebar_position: 0
 
 **核心功能亮点：**
 
-- **系统备份** 全新 rdk-backup 工具，一键备份当前系统，轻松生成可烧录镜像。[rdk-backup介绍](Appendix/rdk-command-manual/cmd_rdk-backup)。
+- **系统备份** 全新 rdk-backup 工具，一键备份当前系统，轻松生成可烧录镜像。[rdk-backup介绍](./Appendix/rdk-command-manual/cmd_rdk-backup)。
 - **配置管理** 支持使用 config.txt 配置 40pin 引脚在 U-Boot 阶段的初始化状态，提升系统启动稳定性。
 - **触摸屏增强** 新增双击和长按操作，长按模拟右键，屏幕控制更加灵活。
 - **设备树覆盖支持** 增加 1_wire 设备树覆盖（dtoverlay）示例，为定制硬件连接提供更多选择。
