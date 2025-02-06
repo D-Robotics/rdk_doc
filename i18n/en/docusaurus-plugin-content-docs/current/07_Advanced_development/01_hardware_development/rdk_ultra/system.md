@@ -8,7 +8,7 @@ sidebar_position: 3
 For a complete guide on downloading and flashing the system image, please [**click here to view the full chapter**](../../../01_Quick_start/install_os.md).
 :::
 
-When flashing the Ubuntu system on the RDK Ultra development kit, you need to use the D-Robotics `hbupdate` flashing tool. The tool is available for both Windows and Linux versions, named `hbupdate_win64` and `hbupdate_linux`, respectively. The tool can be downloaded from the following link: [hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/).
+When flashing the Ubuntu system on the RDK Ultra development kit, you need to use the D-Robotics `hbupdate` flashing tool. The tool is available for both Windows and Linux versions, named `hbupdate_win64` and `hbupdate_linux`, respectively. The tool can be downloaded from the following link: [hbupdate](https://archive.d-robotics.cc/downloads/en/hbupdate/).
 
 ### Tool Usage Notes:
 - Unzip the tool's archive, ensuring the extraction path does **not** contain any **spaces, Chinese characters, or special symbols**.

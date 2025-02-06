@@ -65,7 +65,7 @@ After downloading, extract the Ubuntu system image file, such as `ubuntu-preinst
 
 ### System Flashing
 
-When flashing the Ubuntu system on the RDK Ultra development kit, use the D-Robotics `hbupdate` flashing tool. The tool supports both Windows and Linux versions, named `hbupdate_win64` and `hbupdate_linux`, respectively. Download the tool from [hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/).
+When flashing the Ubuntu system on the RDK Ultra development kit, use the D-Robotics `hbupdate` flashing tool. The tool supports both Windows and Linux versions, named `hbupdate_win64` and `hbupdate_linux`, respectively. Download the tool from [hbupdate](https://archive.d-robotics.cc/downloads/en/hbupdate/).
 
 :::tip Notes
 

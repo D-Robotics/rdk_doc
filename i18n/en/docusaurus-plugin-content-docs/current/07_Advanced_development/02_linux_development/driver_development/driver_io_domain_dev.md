@@ -10,7 +10,7 @@ The IO-Domain is used to configure the voltage domain of certain modules in X3J3
 
 ## Pin Query
 
-The pin multiplexing and configuration of IO pins can be found in the "PL-2500-3-X3 PIN SW Reg-V1.2.xls" and "RM-2500-5-X3M Register Reference Manual-GPIO&PIN-V1.1.pdf" in the [datasheets](http://archive.d-robotics.cc/downloads/datasheets/) section.
+The pin multiplexing and configuration of IO pins can be found in the "PL-2500-3-X3 PIN SW Reg-V1.2.xls" and "RM-2500-5-X3M Register Reference Manual-GPIO&PIN-V1.1.pdf" in the [datasheets](https://archive.d-robotics.cc/downloads/en/datasheets/) section.
 
 In the "PL-2500-3-X3 PIN SW Reg-V1.2.xls", you can intuitively query the power-on default status, multiplexing, drive strength, pull-up/down, and Schmitt trigger configurations of the pins.
 

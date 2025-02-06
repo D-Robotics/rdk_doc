@@ -116,7 +116,7 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
+Click [**Download image**](https://archive.d-robotics.cc/downloads/en/os_images/rdk_x3/) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
 ![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
@@ -171,7 +171,7 @@ The RDK X3 Module supports booting the system from two modes: eMMC and SD card:
 - **Using SD card**: If you want to burn the system to an SD card (not booting from eMMC mode), follow the same steps as RDK X3 for burning the system.
 - **Using eMMC**: You need to use the D-Robotics `hbupdate` tool. (**This method is mainly described below**)
 
-The `hbupdate` tool supports two versions: Windows and Linux, which start with `hbupdate_win64` and `hbupdate_linux` respectively. The tool download link is: [hbupdate](http://archive.d-robotics.cc/downloads/hbupdate/).
+The `hbupdate` tool supports two versions: Windows and Linux, which start with `hbupdate_win64` and `hbupdate_linux` respectively. The tool download link is: [hbupdate](https://archive.d-robotics.cc/downloads/en/hbupdate/).
 
 :::tip Note
 

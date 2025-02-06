@@ -9,14 +9,14 @@ This section provides the product manuals and design documents for the RDK X3 (S
 
 **Specification Sheets**: Introduces the product specifications, features, dimensions, and model information.
 
-- [RDK X3 Product Brief](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_Product_Brief.pdf)
+- [RDK X3 Product Brief](https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_Product_Brief.pdf)
 
 ## Design Documents
 
 This section primarily provides hardware schematics, mechanical drawings, and other design documentation, facilitating developers in using the peripheral interfaces.
 
 **Schematics**
-- [RDK X3  Schematics](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_IO_Schematics.pdf)
+- [RDK X3  Schematics](https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_IO_Schematics.pdf)
 
 **RDK_X3_3D_Step_Models**
-- [RDK X3  3D Mechanical Dimensions (STEP)](https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.stp)
+- [RDK X3  3D Mechanical Dimensions (STEP)](https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_3D_Step_Models.stp)

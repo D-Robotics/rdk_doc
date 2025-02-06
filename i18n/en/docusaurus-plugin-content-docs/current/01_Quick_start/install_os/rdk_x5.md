@@ -50,7 +50,7 @@ The **RDK X5 Module** comes with a pre-installed test system image. To ensure th
 
 ### Image Download {#img_download}
 
-Click [**Download Image**](https://archive.d-robotics.cc/downloads/os_images) to open the version selection page. Navigate to the version directory and go to the system download page for version 3.0.0.
+Click [**Download Image**](https://archive.d-robotics.cc/downloads/en/os_images/rdk_x5/) to open the version selection page. Navigate to the version directory and go to the system download page for version 3.0.0.
 
 After downloading, extract the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`.
 
