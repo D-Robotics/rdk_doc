@@ -17,6 +17,12 @@ RDK X5 provides various functional interfaces, including Ethernet, USB, camera, 
 | 10  | HDMI Display Interface         | 11  | Multi-standard Headphone Jack | 12 | Onboard Wi-Fi Antenna     |
 | 13  | TF Card Interface (Bottom)     | 14  | LCD Display Interface (MIPI DSI) |     |                          |
 
+:::caution
+When the RTC is powered by a battery, the voltage and discharge current requirements for the battery are: 2~3.3V and >2.5uA.
+After the device is powered on, if the PMIC detects that the RTC voltage is low and reaches the charging voltage, it will automatically charge the RTC. The battery requirements are: the maximum chargeable voltage must be ≥3.3V, and the maximum allowable charging current must be >1mA.
+Additionally, an RTC that is not being charged must not be used for power supply.
+:::
+
 ---
 
 ## Power Interface
