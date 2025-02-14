@@ -7,6 +7,8 @@ sidebar_position: 7
 ## SPI硬件支持
 
 X5共支持7路SPI控制器，其中6路(spi0-spi5)位于LSIO子系统，1路(spi6)位于DSP子系统。 所有SPI控制器均支持主/从模式。
+RDK X5 上留出来的引脚主要是在 40pin 中，分别是**SPI1**和**SPI2**，可以参考RDK X5 [40pin介绍](/rdk_doc/Basic_Application/03_40pin_user_guide/40pin_define#40pin_define)
+其他的 SPI 口并不在 40pin 上。
 
 ## Linux SPI驱动框架介绍
 
@@ -140,9 +142,9 @@ SPI内部回环测试仅SPI Master支持，其原理是SPI硬件IP的tx fifo将�
    RX | 67 C6 69 73 51 FF 4A EC 29 CD __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 ```
 
-SPI 外部回环测试
+### SPI 外部回环测试
 
-SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连接进行的测试。 以SPI2作为Slave，SPI4作为Master为例： 修改SPI2 DTS以支持Slave功能：
+SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连接进行的测试。 我们基于 RDK X5 的硬件以SPI2作为Slave，SPI1作为Master（使用双片选中的SPI1.1）为例： 修改SPI2 DTS以支持Slave功能：
 
 ```c
 &spi2 {
@@ -156,49 +158,80 @@ SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连
 		spi-max-frequency = <32000000>;
 		reg = <0>;
 	};
-}
+};
 ```
 
-修改SPI4 DTS以支持Master功能：
+修改SPI1 DTS以支持Master功能：（SPI1具有两个片选，所以这里我们定义了两个设备子节点，系统正常启动之后，体现在文件系统中，就会有两个设备，/dev/spi1.0 和 /dev/spi1.1）
 
 ```c
-&spi4 {
+&spi1 {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_spi4>;
+	pinctrl-0 = <&pinctrl_spi1 &pinctrl_spi1_ssn1>;
 
 	spidev@0 {
 		compatible = "dr,x5-spidev";
 		spi-max-frequency = <32000000>;
 		reg = <0>;
 	};
-}
+
+	spidev@1 {
+		compatible = "dr,x5-spidev";
+		spi-max-frequency = <32000000>;
+		reg = <1>;
+	};
+};
 ```
 
-测试命令及结果参考如下(以SPI2为Slave，SPI4为Master)：
+测试命令及结果参考如下(以SPI2为Slave，SPI1.1为Master)：
 
 ```c
-# ./spidev_tc -D /dev/spidev2.0 -v -s 1000000 -m 2 -e 10 -t 1&
-	bits per word: 8
-	max speed: 1000000 Hz (1000 KHz)
-	userspace spi write test, len=10 times=1
-	test, times=0
-	TX | 67 C6 69 73 51 FF 4A EC 29 CD __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 
-# ./spidev_tc -D /dev/spidev4.0 -v -s 1000000 -m 1 -e 10 -t 1&
-	spi mode: 0x0
-	bits per word: 8
-	max speed: 1000000 Hz (1000 KHz)
-	userspace spi read test, len=10 times=1
-	test, times=0
-	RX | 67 C6 69 73 51 FF 4A EC 29 CD __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
+1、打开一个终端，操作 SPI 从设备：
 
-[2]+  Done                       ./spidev_tc -D /dev/spidev2.0 -v -s 1000000 -m 1 -e 10 -t 1
-[1]+  Done                       ./spidev_tc -D /dev/spidev4.0 -v -s 1000000 -m 2 -e 10 -t 1
+root@ubuntu:~# /app/multimedia_samples/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev2.0 -e 1 -v -S 64 -I 1
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 kHz)
+Userspace spi read test, test_len=64 iterations=1
+
+（说明：上述命令执行之后，程序会一直等待，直到接收到从 SPI Master 发送的数据。）
+
+
+
+2、打开另一个终端，操作 SPI 主设备：
+root@ubuntu:~# /app/multimedia_samples/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev1.1 -e 2 -v -S 64 -I 1
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 kHz)
+Userspace spi write test, test_len=64 iterations=1
+TX | 67 C6 69 73 51 FF 4A EC 29 CD BA AB F2 FB E3 46 7C C2 54 F8 1B E8 E7 8D 76 5A 2E 63 33 9F C9 9A  |g.isQ.J.)......F|.T.....vZ.c3...|
+TX | 66 32 0D B7 31 58 A3 5A 25 5D 05 17 58 E9 5E D4 AB B2 CD C6 9B B4 54 11 0E 82 74 41 21 3D DC 87  |f2..1X.Z%]..X.^.......T...tA!=..|
+Test times: 0
+root@ubuntu:~#
+
+（说明：上述命令执行之后，SPI主设备就直接发送数据出去了）
+
+
+
+3、这个时候可以观察到 SPI 从设备的终端会显示接收到的数据，整体状态形如下述结果：
+
+root@ubuntu:~# /app/multimedia_samples/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev2.0 -e 1 -v -S 64 -I 1
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 kHz)
+Userspace spi read test, test_len=64 iterations=1
+RX | 67 C6 69 73 51 FF 4A EC 29 CD BA AB F2 FB E3 46 7C C2 54 F8 1B E8 E7 8D 76 5A 2E 63 33 9F C9 9A  |g.isQ.J.)......F|.T.....vZ.c3...|
+RX | 66 32 0D B7 31 58 A3 5A 25 5D 05 17 58 E9 5E D4 AB B2 CD C6 9B B4 54 11 0E 82 74 41 21 3D DC 87  |f2..1X.Z%]..X.^.......T...tA!=..|
+rate: tx 0.1kbps, rx 0.1kbps
+Test times: 0
+root@ubuntu:~#
+
+
 ```
 
 :::info 备注  
-在进行外部回环测试时，需要先执行SPI Slave程序，再执行SPI Master程序。假如先执行SPI Master程序，后执行SPI Slave程序，可能会由于Master与Slave不同步导致SPI接收数据出现丢失。同理，spidev_tc的-t参数最好只指定一次，如果想进行多次测试，可以写脚本多次执行测试程序，来保证Master与Slave之间的同步。
+在进行外部回环测试时，需要先执行SPI Slave程序，再执行SPI Master程序。假如先执行SPI Master程序，后执行SPI Slave程序，可能会由于Master与Slave不同步导致SPI接收数据出现丢失。如果想进行多次测试，可以写脚本多次执行测试程序，来保证Master与Slave之间的同步。
 :::
 
 ## 附录
@@ -206,6 +239,20 @@ SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连
 **附录1 测试用例源码：spidev_tc.c**
 
 ```c
+// Copyright (c) 2024，D-Robotics.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 /*
  * SPI testing utility (using spidev driver)
  *
@@ -224,6 +271,7 @@ SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <getopt.h>
 #include <fcntl.h>
 #include <time.h>
@@ -237,7 +285,11 @@ SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连
 
 static void pabort(const char *s)
 {
-	perror(s);
+	if (errno != 0)
+		perror(s);
+	else
+		printf("%s\n", s);
+
 	abort();
 }
 
@@ -250,18 +302,11 @@ static uint32_t speed = 500000;
 static uint16_t delay;
 static int verbose;
 static int transfer_size;
-static int iterations;
+static int iterations = -1;
 static int interval = 5; /* interval in seconds for showing transfer rate */
-static int rw_mode = 0;	//1: read, 2: write, 3: write and read
-static int rw_len = 4;
-static int rw_times = 5;
-static int frameid_flag = 0;
-static int crc_flag = 0;
-static int heart_flag = 0;
-static uint32_t tx_frameid = 0, rx_frameid = 0;
-static uint32_t heart_interval = 5;	// 5s
+static int ext_mode = 0; //1: read, 2: write, 3: write and read(loopback)
 
-uint8_t default_tx[] = {
+static uint8_t default_tx[] = {
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
 	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
@@ -270,66 +315,11 @@ uint8_t default_tx[] = {
 	0xF0, 0x0D,
 };
 
-uint8_t heart_pack[] = {
-	0xAA, 0x55, 0xAA, 0x55,
-	0xAA, 0x55, 0xAA, 0x55,
-	0xAA, 0x55, 0xAA, 0x55,
-	0xAA, 0x55, 0xAA, 0x55,
-};
-
-uint8_t default_rx[ARRAY_SIZE(default_tx)] = {0, };
-char *input_tx;
-
-/** CRC table for the CRC-16. The poly is 0x8005 (x^16 + x^15 + x^2 + 1) */
-static uint16_t const crc16_table[256] = {
-	0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
-	0xC601, 0x06C0, 0x0780, 0xC741, 0x0500, 0xC5C1, 0xC481, 0x0440,
-	0xCC01, 0x0CC0, 0x0D80, 0xCD41, 0x0F00, 0xCFC1, 0xCE81, 0x0E40,
-	0x0A00, 0xCAC1, 0xCB81, 0x0B40, 0xC901, 0x09C0, 0x0880, 0xC841,
-	0xD801, 0x18C0, 0x1980, 0xD941, 0x1B00, 0xDBC1, 0xDA81, 0x1A40,
-	0x1E00, 0xDEC1, 0xDF81, 0x1F40, 0xDD01, 0x1DC0, 0x1C80, 0xDC41,
-	0x1400, 0xD4C1, 0xD581, 0x1540, 0xD701, 0x17C0, 0x1680, 0xD641,
-	0xD201, 0x12C0, 0x1380, 0xD341, 0x1100, 0xD1C1, 0xD081, 0x1040,
-	0xF001, 0x30C0, 0x3180, 0xF141, 0x3300, 0xF3C1, 0xF281, 0x3240,
-	0x3600, 0xF6C1, 0xF781, 0x3740, 0xF501, 0x35C0, 0x3480, 0xF441,
-	0x3C00, 0xFCC1, 0xFD81, 0x3D40, 0xFF01, 0x3FC0, 0x3E80, 0xFE41,
-	0xFA01, 0x3AC0, 0x3B80, 0xFB41, 0x3900, 0xF9C1, 0xF881, 0x3840,
-	0x2800, 0xE8C1, 0xE981, 0x2940, 0xEB01, 0x2BC0, 0x2A80, 0xEA41,
-	0xEE01, 0x2EC0, 0x2F80, 0xEF41, 0x2D00, 0xEDC1, 0xEC81, 0x2C40,
-	0xE401, 0x24C0, 0x2580, 0xE541, 0x2700, 0xE7C1, 0xE681, 0x2640,
-	0x2200, 0xE2C1, 0xE381, 0x2340, 0xE101, 0x21C0, 0x2080, 0xE041,
-	0xA001, 0x60C0, 0x6180, 0xA141, 0x6300, 0xA3C1, 0xA281, 0x6240,
-	0x6600, 0xA6C1, 0xA781, 0x6740, 0xA501, 0x65C0, 0x6480, 0xA441,
-	0x6C00, 0xACC1, 0xAD81, 0x6D40, 0xAF01, 0x6FC0, 0x6E80, 0xAE41,
-	0xAA01, 0x6AC0, 0x6B80, 0xAB41, 0x6900, 0xA9C1, 0xA881, 0x6840,
-	0x7800, 0xB8C1, 0xB981, 0x7940, 0xBB01, 0x7BC0, 0x7A80, 0xBA41,
-	0xBE01, 0x7EC0, 0x7F80, 0xBF41, 0x7D00, 0xBDC1, 0xBC81, 0x7C40,
-	0xB401, 0x74C0, 0x7580, 0xB541, 0x7700, 0xB7C1, 0xB681, 0x7640,
-	0x7200, 0xB2C1, 0xB381, 0x7340, 0xB101, 0x71C0, 0x7080, 0xB041,
-	0x5000, 0x90C1, 0x9181, 0x5140, 0x9301, 0x53C0, 0x5280, 0x9241,
-	0x9601, 0x56C0, 0x5780, 0x9741, 0x5500, 0x95C1, 0x9481, 0x5440,
-	0x9C01, 0x5CC0, 0x5D80, 0x9D41, 0x5F00, 0x9FC1, 0x9E81, 0x5E40,
-	0x5A00, 0x9AC1, 0x9B81, 0x5B40, 0x9901, 0x59C0, 0x5880, 0x9841,
-	0x8801, 0x48C0, 0x4980, 0x8941, 0x4B00, 0x8BC1, 0x8A81, 0x4A40,
-	0x4E00, 0x8EC1, 0x8F81, 0x4F40, 0x8D01, 0x4DC0, 0x4C80, 0x8C41,
-	0x4400, 0x84C1, 0x8581, 0x4540, 0x8701, 0x47C0, 0x4680, 0x8641,
-	0x8201, 0x42C0, 0x4380, 0x8341, 0x4100, 0x81C1, 0x8081, 0x4040
-};
-
-static inline uint16_t crc16_byte(uint16_t crc, const uint8_t data)
-{
-	return (crc >> 8) ^ crc16_table[(crc ^ data) & 0xff];
-}
-
-static uint16_t crc16(uint16_t crc, uint8_t const *buffer, size_t len)
-{
-	while (len--)
-		crc = crc16_byte(crc, *buffer++);
-	return crc;
-}
+static uint8_t default_rx[ARRAY_SIZE(default_tx)] = {0, };
+static char *input_tx;
 
 static void hex_dump(const void *src, size_t length, size_t line_size,
-		     char *prefix)
+		char *prefix)
 {
 	int i = 0;
 	const unsigned char *address = src;
@@ -344,38 +334,16 @@ static void hex_dump(const void *src, size_t length, size_t line_size,
 				while (i++ % line_size)
 					printf("__ ");
 			}
-			printf(" | ");  /* right close */
+			printf(" |");
 			while (line < address) {
 				c = *line++;
-				printf("%c", (c < 33 || c == 255) ? 0x2E : c);
+				printf("%c", (c < 32 || c > 126) ? '.' : c);
 			}
-			printf("\n");
+			printf("|\n");
 			if (length > 0)
 				printf("%s | ", prefix);
 		}
 	}
-}
-
-static void hex_dump2(const void *src, size_t length, size_t line_size,
-		  char *prefix)
-{
-     int i = 0;
-     const unsigned char *address = src;
-
-     printf("%s | ", prefix);
-     while (length-- > 0) {
-	     printf("%02X ", *address++);
-	     if (!(++i % line_size) || (length == 0 && i % line_size)) {
-		     if (length == 0) {
-			     while (i++ % line_size)
-				     printf("__ ");
-		     }
-		     printf("\n");
-		     if (length > 0)
-			     printf("%s | ", prefix);
-	     }
-     }
-     printf("\n");
 }
 
 /*
@@ -419,14 +387,11 @@ static void transfer(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
 		.bits_per_word = bits,
 	};
 
-	struct timespec currentTime;
-	struct timespec currentTime1;
-
 	if (mode & SPI_TX_QUAD)
 		tr.tx_nbits = 4;
 	else if (mode & SPI_TX_DUAL)
 		tr.tx_nbits = 2;
-	if (mode & SPI_RX_QUAD)
+	else if (mode & SPI_RX_QUAD)
 		tr.rx_nbits = 4;
 	else if (mode & SPI_RX_DUAL)
 		tr.rx_nbits = 2;
@@ -437,19 +402,11 @@ static void transfer(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
 			tr.tx_buf = 0;
 	}
 
-	clock_gettime(CLOCK_REALTIME, &currentTime);
-	long milliseconds = currentTime.tv_nsec / 1000000;
-	printf("before trans time: %ld ms\n", milliseconds);
 	ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
 	if (ret < 1)
 		pabort("can't send spi message");
-	clock_gettime(CLOCK_REALTIME, &currentTime1);
-	long milliseconds1 = currentTime1.tv_nsec / 1000000;
-	printf("after trans time: %ld ms\n", milliseconds1);
 
-	printf("diff: %ld ms\n", (milliseconds1 - milliseconds));
-
-	if (verbose)
+	if (verbose && ext_mode >> 1)
 		hex_dump(tx, len, 32, "TX");
 
 	if (output_file) {
@@ -464,152 +421,35 @@ static void transfer(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
 		close(out_fd);
 	}
 
-	if (verbose)
+	if (verbose && ext_mode&0x01)
 		hex_dump(rx, len, 32, "RX");
-}
-
-static void transfer2(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
-{
-	int ret;
-	int out_fd;
-	struct spi_ioc_transfer tr = {
-		.tx_buf = (unsigned long)tx,
-		.rx_buf = (unsigned long)rx,
-		.len = len,
-		.delay_usecs = delay,
-		.speed_hz = speed,
-		.bits_per_word = bits,
-	};
-
-	if (mode & SPI_TX_QUAD)
-		tr.tx_nbits = 4;
-	else if (mode & SPI_TX_DUAL)
-		tr.tx_nbits = 2;
-	if (mode & SPI_RX_QUAD)
-		tr.rx_nbits = 4;
-	else if (mode & SPI_RX_DUAL)
-		tr.rx_nbits = 2;
-	if (!(mode & SPI_LOOP)) {
-		if (mode & (SPI_TX_QUAD | SPI_TX_DUAL))
-			tr.rx_buf = 0;
-		else if (mode & (SPI_RX_QUAD | SPI_RX_DUAL))
-			tr.tx_buf = 0;
-	}
-
-	if (verbose && rw_mode >> 1)
-		hex_dump2(tx, len, 32, "TX");
-
-	ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
-	if (ret < 1) {
-		//pabort("can't send spi message");
-		printf("can't send spi message");
-	} else {
-		if (output_file) {
-			out_fd = open(output_file, O_WRONLY | O_CREAT | O_TRUNC, 0666);
-			if (out_fd < 0)
-				pabort("could not open output file");
-
-			ret = write(out_fd, rx, len);
-			if (ret != len)
-				pabort("not all bytes written to output file");
-
-			close(out_fd);
-		}
-
-		if (verbose && rw_mode&0x01)
-			hex_dump2(rx, len, 32, "RX");
-	}
-	if (strcmp(tx, rx) != 0) {
-		printf("SPI transfer failed\n");
-		exit(-1);
-	}
-
-}
-
-static void transfer3(int fd, uint8_t const *tx, uint8_t const *rx, size_t len)
-{
-	int ret;
-	uint8_t const *p = rx;
-	struct spi_ioc_transfer tr = {
-		.tx_buf = (unsigned long)tx,
-		.rx_buf = (unsigned long)rx,
-		.len = len,
-		.delay_usecs = delay,
-		.speed_hz = speed,
-		.bits_per_word = bits,
-	};
-
-	if (mode & SPI_TX_QUAD)
-		tr.tx_nbits = 4;
-	else if (mode & SPI_TX_DUAL)
-		tr.tx_nbits = 2;
-	if (mode & SPI_RX_QUAD)
-		tr.rx_nbits = 4;
-	else if (mode & SPI_RX_DUAL)
-		tr.rx_nbits = 2;
-	if (!(mode & SPI_LOOP)) {
-		if (mode & (SPI_TX_QUAD | SPI_TX_DUAL))
-			tr.rx_buf = 0;
-		else if (mode & (SPI_RX_QUAD | SPI_RX_DUAL))
-			tr.tx_buf = 0;
-	}
-
-	hex_dump2(tx, len, 32, "TX");
-
-	ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
-	if (ret < 1) {
-		printf("can't send spi message");
-	} else {
-		hex_dump2(rx, len, 32, "RX");
-
-		if (frameid_flag) {
-			uint32_t *pframeid = (uint32_t *)p;
-			rx_frameid = *pframeid;
-			p += sizeof(uint32_t);
-
-			printf("device = %s, crc_val = %d", device, rx_frameid);
-		}
-
-		if (crc_flag) {
-			uint16_t crc_val_check = crc16(0, p, sizeof(heart_pack));
-			p += sizeof(heart_pack);
-			uint16_t *pcrc_val = (uint16_t *)p;
-
-			printf("device = %s, crc_val = %d, crc_val_check = %d", device, *pcrc_val, crc_val_check);
-		}
-	}
 }
 
 static void print_usage(const char *prog)
 {
-	printf("Usage: %s [-DsbdiolHOLC3vpNR24SImetfch1]\n", prog);
+	printf("Usage: %s [-DsbdlHOLC3vpNR24SIeh]\n", prog);
 	puts("  -D --device   device to use (default /dev/spidev1.1)\n"
-	     "  -s --speed    max speed (Hz)\n"
-	     "  -d --delay    delay (usec)\n"
-	     "  -b --bpw      bits per word\n"
-	     "  -i --input    input data from a file (e.g. \"test.bin\")\n"
-	     "  -o --output   output data to a file (e.g. \"results.bin\")\n"
-	     "  -l --loop     loopback\n"
-	     "  -H --cpha     clock phase\n"
-	     "  -O --cpol     clock polarity\n"
-	     "  -L --lsb      least significant bit first\n"
-	     "  -C --cs-high  chip select active high\n"
-	     "  -3 --3wire    SI/SO signals shared\n"
-	     "  -v --verbose  Verbose (show tx buffer)\n"
-	     "  -p            Send data (e.g. \"1234\\xde\\xad\")\n"
-	     "  -N --no-cs    no chip select\n"
-	     "  -R --ready    slave pulls low to pause\n"
-	     "  -2 --dual     dual transfer\n"
-	     "  -4 --quad     quad transfer\n"
-	     "  -S --size     transfer size\n"
-	     "  -I --iter     iterations\n"
-	     "  -m --rw-mode  1 read, 2 write, 3 write and read\n"
-	     "  -e --rw-len   read or write len\n"
-	     "  -t --rw-times read or write times\n"
-		 "  -f --frame-id support frame id\n"
-		 "  -c --crc support crc\n"
-		 "  -h --heart pack for test\n"
-		 "  -1 --heart pack interval(default: 5s)\n");
+			"  -s --speed    max speed (Hz)\n"
+			"  -d --delay    delay (usec)\n"
+			"  -b --bpw      bits per word\n"
+			"  -i --input    input data from a file (e.g. \"test.bin\")\n"
+			"  -o --output   output data to a file (e.g. \"results.bin\")\n"
+			"  -l --loop     loopback\n"
+			"  -H --cpha     clock phase\n"
+			"  -O --cpol     clock polarity\n"
+			"  -L --lsb      least significant bit first\n"
+			"  -C --cs-high  chip select active high\n"
+			"  -3 --3wire    SI/SO signals shared\n"
+			"  -v --verbose  Verbose (show tx buffer)\n"
+			"  -p            Send data (e.g. \"1234\\xde\\xad\")\n"
+			"  -N --no-cs    no chip select\n"
+			"  -R --ready    slave pulls low to pause\n"
+			"  -2 --dual     dual transfer\n"
+			"  -4 --quad     quad transfer\n"
+			"  -S --size     transfer size\n"
+			"  -I --iter     iterations\n"
+			"  -e --exmode   Specify the test ext_mode, 1: read, 2: write, 3: write and read\n"
+			"  -h --help     Display this help message\n");
 	exit(1);
 }
 
@@ -636,22 +476,14 @@ static void parse_opts(int argc, char *argv[])
 			{ "quad",    0, 0, '4' },
 			{ "size",    1, 0, 'S' },
 			{ "iter",    1, 0, 'I' },
-			{ "rw-mode",    1, 0, 'm' },
-			{ "rw-len",    1, 0, 'e' },
-			{ "rw-times",    1, 0, 't' },
-			{ "frame-id",	0, 0, 'f' },
-			{ "crc", 0, 0, 'c' },
-			{ "heart", 0, 0, 'h' },
-			{ "interval", 0, 0, '1' },
+			{ "exmode",  1, 0, 'e' },
+			{ "help",    0, 0, 'h' },
 			{ NULL, 0, 0, 0 },
 		};
 		int c;
 
-		c = getopt_long(argc, argv, "D:s:d:b:i:o:lHOLC3NR24p:vS:I:m:e:t:fch1:",
+		c = getopt_long(argc, argv, "D:s:d:b:i:o:lHOLC3NR24p:vS:I:e:h",
 				lopts, NULL);
-		//printf("optind: %d\n", optind);
-		//printf("optarg: %s\n", optarg);
-		//printf("option: %c\n", c);
 
 		if (c == -1)
 			break;
@@ -717,30 +549,14 @@ static void parse_opts(int argc, char *argv[])
 		case 'I':
 			iterations = atoi(optarg);
 			break;
-		case 'm':
-			rw_mode = atoi(optarg);
-			break;
 		case 'e':
-			rw_len = atoi(optarg);
-			break;
-		case 't':
-			rw_times = atoi(optarg);
-			break;
-		case 'f':
-			frameid_flag = 1;
-			break;
-		case 'c':
-			crc_flag = 1;
+			ext_mode = atoi(optarg);
 			break;
 		case 'h':
-			heart_flag = 1;
-			break;
-		case '1':
-			heart_interval = atoi(optarg);
+			print_usage(argv[0]);
 			break;
 		default:
 			print_usage(argv[0]);
-			break;
 		}
 	}
 	if (mode & SPI_LOOP) {
@@ -855,63 +671,25 @@ static void transfer_buf(int fd, int len)
 	free(tx);
 }
 
-static void transfer_read_write(int fd)
+static void transfer_read_write(int fd, int len)
 {
 	uint8_t *tx;
 	uint8_t *rx;
-	int i, j;
-	int len, times;
+	int i = 0, j = 0;
 	char str[64] = {0};
+	struct timespec last_stat;
+	struct timespec current;
 
-	len = rw_len > 0 ? rw_len : 4;
-	times = rw_times > 0 ? rw_times : 4;
-	if (rw_mode == 2)
+	if (ext_mode == 2)
 		sprintf(str, "write");
-	else if (rw_mode == 3)
+	else if (ext_mode == 3)
 		sprintf(str, "read and write");
 	else {
-		rw_mode = 1;
+		ext_mode = 1;
 		sprintf(str, "read");
 	}
 
-	printf("userspace spi %s test, len=%d times=%d\n", str, len, times);
-
-	tx = malloc(len + 4);
-	if (!tx)
-		pabort("can't allocate tx buffer");
-	rx = malloc(len + 4);
-	if (!rx)
-		pabort("can't allocate rx buffer");
-
-	for (j = 0; j < rw_times; j++) {
-		memset(tx, 0, len);
-		memset(rx, 0, len);
-
-		if (rw_mode >> 1) {
-			for (i = 0; i < len; i++)
-				tx[i] = random();
-		} else {
-			for (i = 0; i < len; i++)
-				tx[i] = i;
-		}
-		printf("test, times=%d\n", j);
-		transfer2(fd, tx, rx, len);
-		//sleep(2);
-	}
-}
-
-static void transfer_heart_pack(int fd)
-{
-	uint8_t *p;
-	uint8_t *tx;
-	uint8_t *rx;
-	int len;
-
-	len = sizeof(heart_pack);
-	if (frameid_flag)
-		len += sizeof(uint32_t);
-	if (crc_flag)
-		len += sizeof(uint16_t);
+	printf("Userspace spi %s test, test_len=%d iterations=%d\n", str, len, iterations);
 
 	tx = malloc(len);
 	if (!tx)
@@ -920,43 +698,52 @@ static void transfer_heart_pack(int fd)
 	if (!rx)
 		pabort("can't allocate rx buffer");
 
-	while (1) {
-		memset(tx, 0 ,len);
+	clock_gettime(CLOCK_MONOTONIC, &last_stat);
+	while (iterations == -1 || j < iterations) {
+		memset(tx, 0 , len);
 		memset(rx, 0, len);
 
-		p = tx;
-		if (frameid_flag) {
-			uint32_t *pframeid = (uint32_t *)p;
-			*pframeid = tx_frameid;
-			tx_frameid++;
-			p += sizeof(uint32_t);
-
-			printf("device = %s, crc_val = %d", device, *pframeid);
+		if (ext_mode >> 1) {
+			for (i = 0; i < len; i++)
+				tx[i] = random();
+		} else {
+			for (i = 0; i < len; i++)
+				tx[i] = i << 2;
 		}
 
-		memcpy(p, heart_pack, sizeof(heart_pack));
-		p += sizeof(heart_pack);
+		transfer(fd, tx, rx, len);
 
-		if (crc_flag) {
-			uint16_t crc_val = crc16(0, heart_pack, sizeof(heart_pack));
-			uint16_t *pcrc_val = (uint16_t *)p;
-			*pcrc_val = crc_val;
+		_write_count += len;
+		_read_count += len;
 
-			printf("device = %s, crc_val = %d", device, crc_val);
+		clock_gettime(CLOCK_MONOTONIC, &current);
+		if (verbose && current.tv_sec - last_stat.tv_sec > interval) {
+			show_transfer_rate();
+			last_stat = current;
 		}
 
-		transfer3(fd, tx, rx, len);
-
-		sleep(heart_interval);
+		if (ext_mode == 3) {
+			printf("Test times: %d Data verification %s\n", j, memcmp(tx, rx, len) == 0 ? "Successful" : "Failed");
+		} else {
+			printf("Test times: %d\n", j);
+		}
+		j++;
 	}
+
+	free(rx);
+	free(tx);
 }
 
 int main(int argc, char *argv[])
 {
 	int ret = 0;
 	int fd;
+	uint32_t request;
 
 	parse_opts(argc, argv);
+
+	if (input_tx && input_file)
+		pabort("only one of -p and --input may be selected");
 
 	fd = open(device, O_RDWR);
 	if (fd < 0)
@@ -965,13 +752,23 @@ int main(int argc, char *argv[])
 	/*
 	 * spi mode
 	 */
+	/* WR is make a request to assign 'mode' */
+	request = mode;
 	ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
 	if (ret == -1)
 		pabort("can't set spi mode");
 
+	/* RD is read what mode the device actually is in */
 	ret = ioctl(fd, SPI_IOC_RD_MODE32, &mode);
 	if (ret == -1)
 		pabort("can't get spi mode");
+	/* Drivers can reject some mode bits without returning an error.
+	 * Read the current value to identify what mode it is in, and if it
+	 * differs from the requested mode, warn the user.
+	 */
+	if (request != mode)
+		printf("WARNING device does not support requested mode 0x%x\n",
+			request);
 
 	/*
 	 * bits per word
@@ -996,17 +793,16 @@ int main(int argc, char *argv[])
 		pabort("can't get max speed hz");
 
 	printf("spi mode: 0x%x\n", mode);
-	printf("bits per word: %d\n", bits);
-	printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
-
-	if (input_tx && input_file)
-		pabort("only one of -p and --input may be selected");
+	printf("bits per word: %u\n", bits);
+	printf("max speed: %u Hz (%u kHz)\n", speed, speed/1000);
 
 	if (input_tx)
 		transfer_escaped_string(fd, input_tx);
-	else if (input_file)
+	else if (input_file) {
 		transfer_file(fd, input_file);
-	else if (transfer_size) {
+	} else if (ext_mode && transfer_size) {
+		transfer_read_write(fd, transfer_size);
+	} else if (transfer_size) {
 		struct timespec last_stat;
 
 		clock_gettime(CLOCK_MONOTONIC, &last_stat);
@@ -1023,11 +819,7 @@ int main(int argc, char *argv[])
 			}
 		}
 		printf("total: tx %.1fKB, rx %.1fKB\n",
-		       _write_count/1024.0, _read_count/1024.0);
-	} else if (rw_mode) {
-		transfer_read_write(fd);
-	} else if (heart_flag) {
-		transfer_heart_pack(fd);
+				_write_count/1024.0, _read_count/1024.0);
 	} else
 		transfer(fd, default_tx, default_rx, sizeof(default_tx));
 
@@ -1068,3 +860,16 @@ ${OUT_DIR}/%.o: %.c
 clean :
 	rm -rf $(OBJS) $(OBJECT)
 ```
+
+
+## 常见问题
+Q：引脚都连接好了，执行了程序，但还是没有看到期望的结果，是怎么回事？
+
+A：可以拿出示波器或者其他信号测量的设备，连接想测量的引脚，进行测量。\
+比如上述的外部回环测试，我们确认接线正确之后，测量片选和时钟信号。参考如下：
+
+![image-spidriver_spi-pin-connect](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_spi-pin-connect.png)
+![image-spidriver_snn_clk_loop_1](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_1.png)
+![image-spidriver_snn_clk_loop_100](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_100.png)
+
+
