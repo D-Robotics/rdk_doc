@@ -59,7 +59,7 @@ Before running the program, you need to download the model file and extract it, 
 
 ```bash
 # Download the model file
-wget http://archive.d-robotics.cc/tros/llm-model/llm_model.tar.gz
+wget http://archive.d-robotics.cc/llm-model/llm_model.tar.gz
 
 # Extract
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
