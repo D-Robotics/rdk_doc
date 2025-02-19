@@ -6,22 +6,22 @@ sidebar_position: 6
 ## Hardware Design
 
 - **Description:** Documentation and design resources related to hardware to help you understand the components and interfaces of the product.
-- **Download link:** [Hardware](http://archive.d-robotics.cc/downloads/hardware)
+- **Download link:** [Hardware](https://archive.d-robotics.cc/downloads/en/hardware/)
 
 ## Flashing Tool (hbupdate)
 
 - **Description:** hbupdate is a tool used to flash the RDK development board's operating system image and minimal boot image.
-- **Download link:** [hbupdate](http://archive.d-robotics.cc/downloads/hbupdate)
+- **Download link:** [hbupdate](https://archive.d-robotics.cc/downloads/en/hbupdate/)
 
 ## Operating System Images
 
 - **Description:** This includes Ubuntu operating system image files for RDK. You can choose the version that suits your needs for download.
-- **Download link:** [OS Images](http://archive.d-robotics.cc/downloads/os_images)
+- **Download link:** [OS Images](https://archive.d-robotics.cc/downloads/en/os_images)
 
 ## Minimal Boot Image (MiniBoot)
 
 - **Description:** MiniBoot is a lightweight bootloader used to boot the operating system.
-- **Download link:** [MiniBoot](http://archive.d-robotics.cc/downloads/miniboot)
+- **Download link:** [MiniBoot](https://archive.d-robotics.cc/downloads/en/miniboot/)
 
 
 ## Quality Certification

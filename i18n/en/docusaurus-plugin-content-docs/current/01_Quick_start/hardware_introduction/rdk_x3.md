@@ -589,7 +589,7 @@ It is important to note that **this interface cannot be left unconnected, otherw
 :::caution When switching levels, please follow the steps below strictly.
 By default, the firmware of the core module of RDK X3 Module and the level configuration of the carrier board are set to 3.3V. If you need to switch the IO level, please follow the steps below:
 
-1. Download the boot firmware that supports the 1.8V level configuration from the [firmware download address](http://archive.d-robotics.cc/downloads/miniboot).
+1. Download the boot firmware that supports the 1.8V level configuration from the [firmware download address](https://archive.d-robotics.cc/downloads/en/miniboot/).
 2. Use the official programming tool `hbupdate` to update the boot firmware of the core board. For detailed instructions, please refer to [Image Flash](./install_os).
 3. Power off the device, short connect the `vref` and `1.8V` signals using a jumper cap, and then power on again.
 :::
