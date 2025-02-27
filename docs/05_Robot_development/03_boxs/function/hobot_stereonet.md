@@ -29,7 +29,17 @@ sidebar_position: 13
 
 ### 功能安装和更新
 
-- 在运行双目深度算法之前，需要确保`tros-humble-mipi-cam`功能包在2.3.6版本之上、`tros-humble-hobot-stereonet`
+- 在运行双目深度算法之前，需要确保系统版本在`3.1.1`版本之上，查询系统版本的命令如下：
+
+```bash
+cat /etc/version
+```
+
+![os_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/os_version.png)
+
+- 如果系统版本不符合要求，请参考文档`1.2`章节进行镜像烧录
+
+- 此外，还需要确保`tros-humble-mipi-cam`功能包在2.3.6版本之上、`tros-humble-hobot-stereonet`
   功能包在2.3.3版本之上，查询功能包版本的命令如下：
 
 ```bash
@@ -39,7 +49,7 @@ apt list | grep tros-humble-hobot-stereonet
 
 ![stereonet_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_version.png)
 
-- 如果版本不符合要求，需要更新一下，在RDK系统的终端中运行如下指令，即可更新：
+- 如果功能包版本不符合要求，需要进行升级，在RDK系统的终端中运行如下指令，即可更新：
 
 ```bash
 apt update
@@ -61,7 +71,11 @@ sudo apt install -y tros-humble-hobot-stereonet
 
 ### 启动双目图像发布、算法推理和图像可视化
 
-双目深度算法支持多款相机，mipi相机和usb相机都可以支持，启动命令有一些区别，具体启动命令如下
+双目深度算法支持多款相机，mipi相机和usb相机都可以支持，启动命令有一些区别，具体启动命令如下：
+
+<span style={{ color: 'red' }}> 注意：通过ssh连接RDK X5请用`root`用户登录，或者切换到`root`用户，不然某些命令执行可能权限不够 </span>
+
+![os_user](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
 
 #### (1) 搭配RDK X5官方双目摄像头启动
 
@@ -90,7 +104,7 @@ source /opt/tros/humble/setup.bash
 
 # 启动双目模型launch文件，其包含了算法和双目相机节点的启动
 ros2 launch hobot_stereonet stereonet_model_web_visual_v2.launch.py \
-need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True \
+need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 ```
 
@@ -102,7 +116,7 @@ source /opt/tros/humble/setup.bash
 
 # 启动双目模型launch文件，其包含了算法和双目相机节点的启动
 ros2 launch hobot_stereonet stereonet_model_web_visual_v2.launch.py \
-need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True \
+need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
 save_image_all:=True save_freq:=4
 ```
