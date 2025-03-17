@@ -25,7 +25,7 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
 1. 使用`srpi-config`配置音频板  
 进入`3 Interface Options`->`I5 Audio`  
 选择`Audio Driver HAT V2`：
-![image-audio-codec-select-hat-v2.png](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hat-v2.png)  
+![image-audio-codec-select-hat-v2-rdkx5.png](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hat-v2-rdkx5.png)
 
 2. 根据提示执行`reboot`命令，或者运行命令`sync && reboot`重启开发板，`cat /proc/asound/cards`出现除了`duplexaudio`的声卡，说明转接板安装成功。
 ```shell
@@ -100,7 +100,7 @@ tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
 tinyplay ./2chn_test.wav -D 0 -d 0
 ```
 
-### 音频回采测试
+- ### 音频回采测试
 
 该音频板的播放回采信号，使用了录音通道7&8，因此需要使用8通道录音命令进行采集。
 
