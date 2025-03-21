@@ -72,8 +72,8 @@ The development board supports multiple USB interface extensions to accommodate 
 
 | Interface Type     | Interface No. | Quantity | Description                                                     |
 | ------------------ | ------------- | -------- | --------------------------------------------------------------- |
-| USB 3.0 Type C     | No. 3         | 1 port   | USB Device mode for ADB, Fastboot, system flashing, etc.        |
-| USB 3.0 Type A     | No. 7         | 4 ports  | USB Host mode for connecting USB 3.0 peripherals                |
+| USB 2.0 Type C     | No. 3         | 1 port   | USB Device mode for ADB, Fastboot, system flashing, etc.        |
+| USB 3.0 Type A     | No. 7         | 4 ports  | USB Host mode for connecting USB 3.0 peripherals，expand 4 USB ports through HUB. |
 
 ### Connecting USB Flash Drives
 
@@ -109,13 +109,13 @@ Important: Do not connect or disconnect the camera while the board is powered on
 
 ## LCD Display Interface
 
-The RDK X5 provides an LCD display interface (MIPI DSI, No. 14) that supports LCD screens. This interface uses a 15-pin FPC connector and is compatible with several Raspberry Pi LCD displays.
+The RDK X5 provides an LCD display interface (MIPI DSI, No. 14) that supports LCD screens. This interface is 22-pin,can use DSI-Cable-12cm to compatible with several Raspberry Pi LCD displays.
 
 ---
 
 ## Micro SD Interface
 
-The development board includes a Micro SD card interface (No. 13). It is recommended to use a card with at least 8GB of storage to meet the installation requirements of Ubuntu and related packages.
+The development board includes a Micro SD card interface (No. 13). It is recommended to use a card with at least 16GB of storage to meet the installation requirements of Ubuntu and related packages.
 
 :::caution
 Do not hot-swap the TF card during use, as it may cause system abnormalities or file system corruption.
