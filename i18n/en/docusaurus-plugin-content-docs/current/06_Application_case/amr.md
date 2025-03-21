@@ -192,8 +192,9 @@ colcon build
 #### 3.5.1 Preparation before sensor calibration
 ##### 1. Calibration environment preparation (calibration tool is kalibr, here we provide dokcer containing kalibr and other calibration scripts)
 ###### i. Download Docker files(Baidu Netdisk)
-Link: http://pan.baidu.com/s/1yN5aj3quDJU182rYI0AK8A?pwd=31un 
-Extracted code：31un
+Link: https://pan.baidu.com/s/1oXegKORgWi8Kzf4kdQXL2g?pwd=ur2z 
+
+Extracted code：ur2z
 ###### ii. Create environment
 ```shell
 #Load Docker
