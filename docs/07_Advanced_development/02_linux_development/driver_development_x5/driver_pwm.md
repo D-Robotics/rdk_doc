@@ -79,19 +79,46 @@ x5.dtsi中的节点主要声明SoC共有特性，和具体电路板无关，一�
 };
 ```
 
-### DTS中pwm和pwmchip对应关系
+### DTS中pwm和pwmchip对应关系查询方法
 
 尽管pwm和lpwm都属于pwmchip，但PWM/LPWM下含的设备数量不一致，所以无法通过aliases固定序号，因此在板端操作pwm时，需要cat pwmchip下的device/uevent，查看pwm地址是否与目标pwm地址是否一致。以pwm0为例，在板端使用以下命令查看pwmchip的uevent
 
 ```
-cat /sys/class/pwm/pwmchip0/device/uevent
+root@ubuntu:~# cat /sys/class/pwm/pwmchip0/device/uevent
 DRIVER=drobot-pwm
 OF_NAME=pwm
 OF_FULLNAME=/soc/a55_apb0/pwm@34140000
 OF_COMPATIBLE_0=d-robotics,pwm
 OF_COMPATIBLE_N=1
+OF_ALIAS_0=pwm0
 MODALIAS=of:NpwmT(null)Cd-robotics,pwm
 ```
+
+### 40pin中pwm对应关系表
+| 40pin引脚序号 | pwm引脚序号 | pwmchip序号 | srpi-config 中 pwm 序号 | 该引脚在设备树中的配置标签 | 该引脚默认功能 |
+| ------- | ---------- | ----------- | ----------------------- | ----------------------- | -------------- |
+| 29脚 | pwm0 | pwm0 | pwm0 | pinctrl_pwm0_0 | SPI2_SCLK |
+| 31脚 | pwm1 | pwm0 | pwm0 | pinctrl_pwm0_1 | SPI2_SSN |
+| 37脚 | pwm2 | pwm1 | pwm1 | pinctrl_pwm1_0 | SPI2_MISO |
+| 18脚 | pwm3 | pwm1 | pwm1 | pinctrl_pwm1_1 | SPI2_MOSI |
+| 28脚 | pwm4 | pwm2 | pwm2 | pinctrl_pwm2_0 | SCL0 |
+| 27脚 | pwm5 | pwm2 | pwm2 | pinctrl_pwm2_1 | SDA0 |
+| 32脚 | pwm6 | pwm3 | pwm3 | pinctrl_pwm3_0 | SCL1 |
+| 33脚 | pwm7 | pwm3 | pwm3 | pinctrl_pwm3_1 | SDA1 |
+
+
+
+除了上述手动查表的方法来确认对应关系以外，我们还可以直接通过 `hb_gpioinfo  | grep pwm` 命令，直接查询到已经使用了的 pwm 相关引脚。其中 403、404、356 等等是该引脚的 gpio 编号，和 40pin 的序号不是一个概念。
+```
+root@ubuntu:~# hb_gpioinfo  | grep pwm
+        line 24:        unnamed input                             LSIO_SPI3_SCLK        403      pinctrl_lpwm1_0
+        line 25:        unnamed input                             LSIO_SPI3_SSN         404      pinctrl_lpwm1_1
+        line  9:        unnamed input                             LSIO_I2C1_SCL         356      pinctrl_pwm3_0
+        line 10:        unnamed input                             LSIO_I2C1_SDA         357      pinctrl_pwm3_1
+root@ubuntu:~#
+```
+
+
 
 ## 测试
 
