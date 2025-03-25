@@ -24,6 +24,7 @@ Applications: YOLOv8-Seg is capable of recognizing objects and performing precis
 | Platform | System | Function                     |
 | -------- | ------------ | ---------------------------------------- |
 | RDK X5 | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK S100 | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
 
 ## Preparation
 

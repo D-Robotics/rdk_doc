@@ -29,6 +29,7 @@ import TabItem from '@theme/TabItem';
 | RDK X5 | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
+| RDK S100 | Ubuntu 22.04 (Humble) |
 
 :::caution
 X86平台不支持将H.264、H.265视频解码为NV12格式，因此H.264、H.265视频发布功能无法在X86平台展示。

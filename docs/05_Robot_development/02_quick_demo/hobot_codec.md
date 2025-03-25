@@ -23,6 +23,7 @@ import TabItem from '@theme/TabItem';
 | RDK X5 | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 | X86     | Ubuntu 20.04 (Foxy) | 使用图像发布工具发布YUV图像，然后进行图像编码，最后通过Web展示 |
+| RDK S100 | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 
 ***RDK Ultra不支持H.264视频编码格式。***
 

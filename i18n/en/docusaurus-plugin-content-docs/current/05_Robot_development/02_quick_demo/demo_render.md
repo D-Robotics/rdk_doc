@@ -25,6 +25,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 | RDK X5               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
 | RDK Ultra            | Ubuntu 20.04 (Foxy)           | Start MIPI cameras and display images via Web |
 | X86                  | Ubuntu 20.04 (Foxy)           | Start USB cameras and display images via Web |
+| RDK S100               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
 
 
 ### Preparation
@@ -222,7 +223,9 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 | Platform | System | Sample Function                                        |
 | -------- | -------------- | ------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
+| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
+| RDK X5  | Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
+| RDK S100  | Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
 
 ### Preparation
 
@@ -610,7 +613,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization)
 
 | Platform | System | Function                                     |
 | -------- | -------------- | -------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5      |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK X3, RDK X3 Module |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK X5   |  Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK S100   |  Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
 
 ### Preparation
 

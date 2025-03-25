@@ -5,6 +5,13 @@ sidebar_position: 6
 
 ## tros-humble
 
+### Version: 2.3.3 (2025-3-25)
+
+#### New Features:
+- Added support for the `RDK S100` platform.
+
+---
+
 ### Version: 2.3.1 (2024-11-20)
 
 #### Functional Changes:

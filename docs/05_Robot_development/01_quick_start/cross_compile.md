@@ -130,6 +130,9 @@ bash ./robot_dev_config/build.sh -p Rdkultra
 
 ## 使用build.sh编译X5版本tros.b
 bash ./robot_dev_config/build.sh -p X5
+
+## 使用build.sh编译S100版本tros.b
+bash ./robot_dev_config/build.sh -p S100
 ```
 
 编译成功后会提示总计N packages编译通过。

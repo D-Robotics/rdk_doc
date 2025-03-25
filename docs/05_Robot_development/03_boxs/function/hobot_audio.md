@@ -124,7 +124,7 @@ import TabItem from '@theme/TabItem';
 ```json
 {
     "cmd_word": [
-        "D-Robotics 你好",
+        "地瓜你好",
         "向前走",
         "向后退",
         "向左转",

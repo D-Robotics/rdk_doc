@@ -24,6 +24,7 @@ import TabItem from '@theme/TabItem';
 | RDK X5 | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
+| RDK S100 | Ubuntu 22.04 (Humble) |
 
 ### 准备工作
 

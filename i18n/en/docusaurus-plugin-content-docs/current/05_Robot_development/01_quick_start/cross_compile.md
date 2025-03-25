@@ -123,6 +123,12 @@ All of these operations are performed inside the docker on the development machi
 ```shell
 ## Compile tros.b version X3 using build.sh
 bash ./robot_dev_config/build.sh -p X3
+
+## Compile tros.b version X5 using build.sh
+bash ./robot_dev_config/build.sh -p X5
+
+## Compile tros.b version S100 using build.sh
+bash ./robot_dev_config/build.sh -p S100
 ```
 
 After successful compilation, a message will prompt: N packages compiled and passed.
