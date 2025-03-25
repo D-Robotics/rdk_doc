@@ -29,7 +29,7 @@ sidebar_position: 13
 
 ### 功能安装和更新
 
-- 在运行双目深度算法之前，需要确保系统版本在`3.1.1`版本之上，查询系统版本的命令如下：
+- 在运行双目深度算法之前，需要确保系统镜像版本在`3.1.1`版本之上，查询系统版本的命令如下：
 
 ```bash
 cat /etc/version
@@ -39,8 +39,8 @@ cat /etc/version
 
 - 如果系统版本不符合要求，请参考文档`1.2`章节进行镜像烧录
 
-- 此外，还需要确保`tros-humble-mipi-cam`功能包在2.3.6版本之上、`tros-humble-hobot-stereonet`
-  功能包在2.3.3版本之上，查询功能包版本的命令如下：
+- 此外，还需要确保`tros-humble-mipi-cam`功能包在2.3.7版本（及以上）、`tros-humble-hobot-stereonet`
+  功能包在2.3.4版本（及以上），查询功能包版本的命令如下：
 
 ```bash
 apt list | grep tros-humble-mipi-cam
@@ -108,18 +108,9 @@ need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 ```
 
-- 如果用户想保存深度估计结果，可以添加如下参数实现，`save_image_all`打开保存开关，`save_freq`控制保存频率，图像将保存在`stereonet_images`目录：
+- 出现如下日志表示双目算法启动成功，`fx/fy/cx/cy/base_line`是相机内参，如果深度图正常，但估计出来的距离有偏差，可能是相机内参存在问题：
 
-```bash
-# 配置tros.b humble环境
-source /opt/tros/humble/setup.bash
-
-# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
-ros2 launch hobot_stereonet stereonet_model_web_visual_v2.launch.py \
-need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
-height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_freq:=4
-```
+![stereonet_run_success](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success.png)
 
 - 通过网页端查看深度图，在浏览器输入 http://ip:8000 (图中RDK X5 ip是192.168.1.100)：
 
@@ -130,13 +121,30 @@ save_image_all:=True save_freq:=4
 
 ![stereonet_rviz](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
 
+- 如果用户想保存深度估计结果，可以添加如下参数实现，`save_image_all`打开保存开关，`save_freq`控制保存频率，`save_dir`控制保存的目录（如果目录不存在会自动创建），`save_total`控制保存的总数。程序运行将会保存**相机内参、左右图、视差图、深度图、可视化图**：
+
+```bash
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.launch.py \
+need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
+height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+save_image_all:=True save_freq:=4 save_dir:=./stereonet_result save_total:=10
+```
+
+![stereonet_save](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save.png)
+
+![stereonet_save_files](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
+
 #### (2) 本地图片离线回灌
 
 - 如果想利用本地图片评估算法效果，可以使用下列命令指定算法运行模式、图像数据地址以及相机内参，同时要保证图像数据经过去畸变、极线对齐。图片的格式如下图所示，第一张左目图像的命名为left000000.png，第二张左目图像的命名为left000001.png，以此类推。对应的第一张右目图像的命名为right000000.png，第二张右目图像的命名为right000001.png，以此类推。算法按序号遍历图像，直至图像全部计算完毕：
 
 ![stereonet_rdk](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
 
-- 算法离线运行方式如下，通过ssh连接RDK X5，执行以下命令，离线运行的结果将会保存在`stereonet_images`目录中：
+- 算法离线运行方式如下，通过ssh连接RDK X5，执行以下命令：
 
 ```shell
 # 配置tros.b humble环境
@@ -162,7 +170,7 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 save_image_all:=True
 | camera_cy        | -        | 相机内参       |
 | base_line        | -        | 基线距离       |
 
-- 算法运行成功后，同样可以通过网页端和rviz显示实时渲染数据，参考上文
+- 算法运行成功后，同样可以通过网页端和rviz显示实时渲染数据，参考上文，离线运行的结果将会保存在`离线数据目录下的result子目录中`，同样会保存**相机内参、左右图、视差图、深度图、可视化图**
 
 #### (3) 另外可以通过 component 的方式启动节点
 
