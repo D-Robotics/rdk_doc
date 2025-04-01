@@ -16,8 +16,8 @@ sidebar_position: 13
 
 ## 支持平台
 
-| 平台     | 运行方式                  | 示例功能                      |
-|--------|-----------------------|---------------------------|
+| 平台   | 运行方式              | 示例功能                                      |
+| ------ | --------------------- | --------------------------------------------- |
 | RDK X5 | Ubuntu 22.04 (Humble) | · 启动双目相机、推理出深度结果，并在Web端显示 |
 
 ## 物料清单
@@ -69,6 +69,10 @@ sudo apt-get remove tros-humble-stereonet-model
 sudo apt install -y tros-humble-hobot-stereonet
 ```
 
+### 双目算法的版本
+
+目前双目算法更新到V3版本，相比于之前的版本推理耗时更低
+
 ### 启动双目图像发布、算法推理和图像可视化
 
 双目深度算法支持多款相机，mipi相机和usb相机都可以支持，启动命令有一些区别，具体启动命令如下：
@@ -103,7 +107,7 @@ i2cdetect -r -y 6
 source /opt/tros/humble/setup.bash
 
 # 启动双目模型launch文件，其包含了算法和双目相机节点的启动
-ros2 launch hobot_stereonet stereonet_model_web_visual_v2.launch.py \
+ros2 launch hobot_stereonet stereonet_model_web_visual_v3.launch.py \
 need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 ```
@@ -128,7 +132,7 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 source /opt/tros/humble/setup.bash
 
 # 启动双目模型launch文件，其包含了算法和双目相机节点的启动
-ros2 launch hobot_stereonet stereonet_model_web_visual_v2.launch.py \
+ros2 launch hobot_stereonet stereonet_model_web_visual_v3.launch.py \
 need_rectify:=False mipi_image_width:=640 mipi_image_height:=352 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
 save_image_all:=True save_freq:=4 save_dir:=./stereonet_result save_total:=10
@@ -152,70 +156,58 @@ source /opt/tros/humble/setup.bash
 
 # 启动双目模型launch文件，注意相机参数的设置，需要手动输入矫正后参数
 ros2 launch hobot_stereonet stereonet_model_web_visual.launch.py \
-need_rectify:=False use_local_image:=True local_image_path:=离线数据目录 \
-stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/x5baseplus_alldata_woIsaac.bin postprocess:=v2 \
-camera_fx:=505.044342 camera_fy:=505.044342 camera_cx:=605.167053 camera_cy:=378.247009 base_line:=0.069046 \
+stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereoV2.1.bin postprocess:=v3 \
+use_local_image:=True local_image_path:=./stereonet_result \
+need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 save_image_all:=True
 ```
 
 参数含义如下：
 
-| 名称               | 参数值      | 说明         |
-|------------------|----------|------------|
-| use_local_image  | 默认 False | 是否启用图片回灌模式 |
-| local_image_path | -        | 回灌图像的地址目录  |
-| camera_fx        | -        | 相机内参       |
-| camera_fy        | -        | 相机内参       |
-| camera_cx        | -        | 相机内参       |
-| camera_cy        | -        | 相机内参       |
-| base_line        | -        | 基线距离       |
+| 名称             | 参数值                                 | 说明                 |
+| ---------------- | -------------------------------------- | -------------------- |
+| use_local_image  | 设置为True                             | 是否启用图片回灌模式 |
+| local_image_path | 设置为离线数据目录                     | 回灌图像的地址目录   |
+| camera_fx        | 设置为相机矫正后内参fx                 | 相机内参             |
+| camera_fy        | 设置为相机矫正后内参fy                 | 相机内参             |
+| camera_cx        | 设置为相机矫正后内参cx                 | 相机内参             |
+| camera_cy        | 设置为相机矫正后内参cy                 | 相机内参             |
+| base_line        | 设置为相机矫正后基线                   | 基线距离             |
+| height_min       | 一般设置为-10.0m                       | 点云最小高度         |
+| height_max       | 一般设置为+10.0m                       | 点云最大高度         |
+| pc_max_depth     | 一般设置为+5.0m                        | 点云最大深度         |
+| save_image_all   | 如果只是web看一下结果，可以设置为False | 是否保存结果         |
 
 - 算法运行成功后，同样可以通过网页端和rviz显示实时渲染数据，参考上文，离线运行的结果将会保存在`离线数据目录下的result子目录中`，同样会保存**相机内参、左右图、视差图、深度图、可视化图**
-
-#### (3) 另外可以通过 component 的方式启动节点
-
-```shell 
-# 配置tros.b humble环境
-source /opt/tros/humble/setup.bash
-
-# 终端1 启动双目模型launch文件
-ros2 launch hobot_stereonet stereonet_model_component.launch.py \
-stereo_image_topic:=/image_combine_raw stereo_combine_mode:=1 need_rectify:=True \
-height_min:=0.1 height_max:=1.0 KMean:=10 stdv:=0.01 leaf_size:=0.05
-
-# 终端2 启动mipi双目相机launch文件
-ros2 launch mipi_cam mipi_cam_dual_channel.launch.py \
-mipi_image_width:=1280 mipi_image_height:=640
-```
 
 ## 接口说明
 
 ### 订阅话题
 
-| 名称                 | 消息类型                    | 说明                          |
-|--------------------|-------------------------|-----------------------------|
+| 名称               | 消息类型                | 说明                                                   |
+| ------------------ | ----------------------- | ------------------------------------------------------ |
 | /image_combine_raw | sensor_msgs::msg::Image | 双目相机节点发布的左右目拼接图像话题，用于模型推理深度 |
 
 ### 发布话题
 
-| 名称                                   | 消息类型                          | 说明                   |
-|--------------------------------------|-------------------------------|----------------------|
-| /StereoNetNode/stereonet_pointcloud2 | sensor_msgs::msg::PointCloud2 | 发布的点云深度话题            |
+| 名称                                 | 消息类型                      | 说明                                     |
+| ------------------------------------ | ----------------------------- | ---------------------------------------- |
+| /StereoNetNode/stereonet_pointcloud2 | sensor_msgs::msg::PointCloud2 | 发布的点云深度话题                       |
 | /StereoNetNode/stereonet_depth       | sensor_msgs::msg::Image       | 发布的深度图像，像素值为深度，单位为毫米 |
-| /StereoNetNode/stereonet_visual      | sensor_msgs::msg::Image       | 发布的比较直观的可视化渲染图像      |
+| /StereoNetNode/stereonet_visual      | sensor_msgs::msg::Image       | 发布的比较直观的可视化渲染图像           |
 
 ### 参数
 
-| 名称                  | 参数值                   | 说明                                             |
-|---------------------|-----------------------|------------------------------------------------|
-| stereo_image_topic  | 默认 /image_combine_raw | 订阅双目图像消息的话题名                                   |
-| need_rectify        | 默认 True               | 是否对双目数据做基线对齐和去畸变，相机内外参在config/stereo.yaml文件内指定 |
+| 名称                | 参数值                  | 说明                                                                                       |
+| ------------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
+| stereo_image_topic  | 默认 /image_combine_raw | 订阅双目图像消息的话题名                                                                   |
+| need_rectify        | 默认 True               | 是否对双目数据做基线对齐和去畸变，相机内外参在config/stereo.yaml文件内指定                 |
 | stereo_combine_mode | 默认 1                  | 左右目图像往往拼接在一张图上再发布出去，1为上下拼接，0为左右拼接，指示双目算法如何拆分图像 |
-| height_min          | 默认 -0.2               | 过滤掉相机垂直方向上高度小于height_min的点，单位为米                |
-| height_max          | 默认 999.9              | 过滤掉相机垂直方向上高度大于height_max的点，单位为米                |
-| KMean               | 默认 10                 | 过滤稀疏离群点时每个点的临近点的数目，统计每个点与周围最近10个点的距离           |
-| stdv                | 默认 0.01               | 过滤稀疏离群点时判断是否为离群点的阈值，将标准差的倍数设置为0.01             |
-| leaf_size           | 默认 0.05               | 设置点云的单位密度，表示半径0.05米的三维球内只有一个点                  |
+| height_min          | 默认 -0.2               | 过滤掉相机垂直方向上高度小于height_min的点，单位为米                                       |
+| height_max          | 默认 999.9              | 过滤掉相机垂直方向上高度大于height_max的点，单位为米                                       |
+| KMean               | 默认 10                 | 过滤稀疏离群点时每个点的临近点的数目，统计每个点与周围最近10个点的距离                     |
+| stdv                | 默认 0.01               | 过滤稀疏离群点时判断是否为离群点的阈值，将标准差的倍数设置为0.01                           |
+| leaf_size           | 默认 0.05               | 设置点云的单位密度，表示半径0.05米的三维球内只有一个点                                     |
 
 ## 算法耗时
 
@@ -230,5 +222,5 @@ stereo_image_topic:=/image_combine_raw stereo_combine_mode:=1 need_rectify:=True
 
 ## 注意事项
 
-1. 模型的输入尺寸为宽：1280，高640，相机发布的图像分辨率应为1280x640
+1. 模型的输入尺寸为宽：640，高352，相机发布的图像分辨率应为640x352
 2. 如果双目相机发布图像的格式为NV12，那么双目图像的拼接方式必须为上下拼接
