@@ -45,7 +45,7 @@ sidebar_position: 4
     root@ubuntu:~# perf script > out.perf
     ```
 
-3. 在PC或者RDK上 `git clone https://github.com/brendangregg/FlameGraph.git)，进入flamegraph目录，把第2步生成的out.perf拷贝到flamegraph目录内。使用flamegraph工具包内的stackcollapse-perf.pl 对out.perf 反折叠生成out.folded
+3. 在PC或者RDK上 `git clone https://github.com/brendangregg/FlameGraph.git`，进入flamegraph目录，把第2步生成的out.perf拷贝到flamegraph目录内。使用flamegraph工具包内的stackcollapse-perf.pl 对out.perf 反折叠生成out.folded
 
     ```shell
     ./stackcollapse-perf.pl out.perf > out.folded
