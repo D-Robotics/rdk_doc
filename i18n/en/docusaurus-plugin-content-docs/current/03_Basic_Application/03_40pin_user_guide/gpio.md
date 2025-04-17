@@ -307,7 +307,7 @@ if __name__=='__main__':
 
 ```
 
-- Set GPIO to input mode, capture rising and falling edge events on the pin, test code `button_event.py`, detect falling edge of pin 38, and control the output of pin 36:
+- Set GPIO to input mode, capture rising and falling edge events on the pin, test code `button_event.py`, detect falling edge of pin 38, and control the output of pin 31:
 
 ```python
 #!/usr/bin/env python3
@@ -316,9 +316,9 @@ import RPi.GPIO as GPIO
 import time
 
 # Define the GPIO channels:
-# Pin 36 as output to light up an LED
+# Pin 31 as output to light up an LED
 # Pin 38 as input for a button
-led_pin = 36  # BOARD coding 36
+led_pin = 31  # BOARD coding 31
 but_pin = 38  # BOARD coding 38
 
 # Disable warning messages
