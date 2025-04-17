@@ -40,7 +40,7 @@ cat /etc/version
 - 如果系统版本不符合要求，请参考文档`1.2`章节进行镜像烧录
 
 - 此外，还需要确保`tros-humble-mipi-cam`功能包在2.3.7版本（及以上）、`tros-humble-hobot-stereonet`
-  功能包在2.3.4版本（及以上），查询功能包版本的命令如下：
+  功能包在2.4.0版本（及以上），查询功能包版本的命令如下：
 
 ```bash
 apt list | grep tros-humble-mipi-cam
@@ -156,7 +156,7 @@ source /opt/tros/humble/setup.bash
 
 # 启动双目模型launch文件，注意相机参数的设置，需要手动输入矫正后参数
 ros2 launch hobot_stereonet stereonet_model_web_visual.launch.py \
-stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereoV2.1.bin postprocess:=v3 \
+stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereoV2.2.bin postprocess:=v3 \
 use_local_image:=True local_image_path:=./stereonet_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 save_image_all:=True
@@ -179,6 +179,31 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 save_image_all:=True
 | save_image_all   | 如果只是web看一下结果，可以设置为False | 是否保存结果         |
 
 - 算法运行成功后，同样可以通过网页端和rviz显示实时渲染数据，参考上文，离线运行的结果将会保存在`离线数据目录下的result子目录中`，同样会保存**相机内参、左右图、视差图、深度图、可视化图**
+
+#### (3) 搭配ZED双目摄像头启动
+
+- ZED双目摄像头如图所示：
+
+![zed_cam](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
+
+- ZED的启动依赖于`hobot_zed_cam`功能包，确认功能包已经安装，版本在2.3.1及以上，通过ssh连接RDK X5，执行以下命令：
+
+```shell
+apt list | grep tros-humble-hobot-zed-cam
+```
+
+![zed_cam_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam_version.png)
+
+- 将ZED相机通过USB连接RDK X5，然后启动双目算法，通过ssh连接RDK X5，执行以下命令：
+
+```shell
+ros2 launch hobot_zed_cam test_stereo_zed_rectify.launch.py \
+resolution:=720p dst_width:=640 dst_height:=352 \
+stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereoV2.2.bin postprocess:=v3 \
+render_type:=1 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 
+```
+
+- 通过网页端查看深度图，在浏览器输入 http://ip:8000 ，更多可视化相关的内容请参考前文
 
 ## 接口说明
 
