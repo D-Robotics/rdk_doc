@@ -186,7 +186,7 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 save_image_all:=True
 
 ![zed_cam](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
 
-- ZED的启动依赖于`hobot_zed_cam`功能包，确认功能包已经安装，版本在2.3.1及以上，通过ssh连接RDK X5，执行以下命令：
+- ZED的启动依赖于`hobot_zed_cam`功能包，确认功能包已经安装，版本在2.3.3及以上，通过ssh连接RDK X5，执行以下命令：
 
 ```shell
 apt list | grep tros-humble-hobot-zed-cam
@@ -194,13 +194,22 @@ apt list | grep tros-humble-hobot-zed-cam
 
 ![zed_cam_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam_version.png)
 
+- 如果版本较久，请执行如下命令进行更新：
+
+```shell
+apt update
+apt upgrade
+```
+
 - 将ZED相机通过USB连接RDK X5，然后启动双目算法，通过ssh连接RDK X5，执行以下命令：
+
+**注意：运行ZED相机RDK X5板子一定要联网，因为ZED需要联网下载标定文件**
 
 ```shell
 ros2 launch hobot_zed_cam test_stereo_zed_rectify.launch.py \
 resolution:=720p dst_width:=640 dst_height:=352 \
-stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereoV2.2.bin postprocess:=v3 \
-render_type:=1 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 
+stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/x5baseplus_alldata_woIsaac.bin postprocess:=v2 \
+render_type:=1 render_need_filter:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 
 ```
 
 - 通过网页端查看深度图，在浏览器输入 http://ip:8000 ，更多可视化相关的内容请参考前文
