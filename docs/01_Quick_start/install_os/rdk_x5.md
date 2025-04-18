@@ -4,7 +4,10 @@ sidebar_position: 2
 
 # 1.2.2 RDK X5
 
-
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
 在使用RDK X5开发板前，需要做下述准备工作。
 
@@ -12,7 +15,18 @@ sidebar_position: 2
 
 ### **供电**
 
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
+
 RDK X5开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电。
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+RDK X5 Module通过载板上USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电。
+
+</TabItem>
+</Tabs>
 
 :::caution
 
@@ -25,66 +39,110 @@ RDK X5开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电�
 
 ### **存储** 
 
-RDK X5开发板采用Micro SD存储卡作为系统启动介质，推荐至少8GB容量的存储卡，以便满足Ubuntu系统、应用功能软件对存储空间的需求。
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
+
+RDK X5开发板采用Micro SD存储卡作为系统启动介质，推荐至少16GB容量的存储卡，以便满足Ubuntu系统、应用功能软件对存储空间的需求。
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+RDK X5 Module 核心板自带emmc，载版上有sd卡插槽，支持eMMC和SD卡两种模式启动系统。
+
+优先从eMMC启动，可以通过srpi-config配置启动模式，详情参考[srpi-config Advanced Options Boot Order](../../System_configuration/srpi-config#advanced-options)
+
+使用Micro SD存储卡作为系统启动介质时，推荐至少16GB容量的存储卡，以便满足Ubuntu系统、应用功能软件对存储空间的需求。
+
+</TabItem>
+</Tabs>
 
 
 ### **显示** 
 
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
 
 RDK X5开发板支持HDMI显示接口，通过HDMI线缆连接开发板和显示器，支持图形化桌面显示。
 
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
 
+RDK X5 Module开发板支持HDMI显示接口，通过HDMI线缆连接开发板和显示器，支持图形化桌面显示。
+
+</TabItem>
+</Tabs>
 
 ### **网络连接**
 
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
 
 RDK X5开发板支持以太网、Wi-Fi两种网络接口，用户可通过任意接口实现网络连接功能。
 
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+RDK X5 Module开发板支持以太网、Wi-Fi两种网络接口，用户可通过任意接口实现网络连接功能。
+
+</TabItem>
+</Tabs>
 
 ## 系统烧录
 
+RDK套件目前提供Ubuntu 22.04系统镜像，有desktop，server两个版本可供选择；
 
-RDK套件目前提供Ubuntu 22.04系统镜像，可支持Desktop桌面图形化交互。
+desktop：带有桌面的Ubuntu系统，可以外接屏幕、鼠标操作；
+
+server：无桌面的Ubuntu系统，可以通过串口、网络远程连接操作。
+
+### 镜像下载 {#img_download}
+
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
+
+点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images/rdk_x5)，进入版本选择页面，选择最新版本目录，进入系统下载页。
+
+下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64.img`
+
+:::caution
+
+1.使用balenaEtcher 验证过程可能会报错，但是可以正常进入系统；
+
+2.官方十分建议使用rufus烧录软件进行镜像安装，相对较为稳定；
+
+:::
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
 
 :::info 注意
 
 **RDK X5 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成最新版本系统镜像的烧写</font>。
 :::
 
-### 镜像下载 {#img_download}
-
-点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，进入版本选择页面，选择对应版本目录，进入3.0.0版本系统下载页。
-
+点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images/rdk_x5)，进入版本选择页面，选择最新版本目录，进入系统下载页。
 
 下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64.img`
 
-**版本说明：**
 :::caution
 
-- 3.1.0版本： 3.1.0镜像，针对balenaEtcher最新版烧录会出现烧录失败问题，目前解决方案为：
-1.使用balenaEtcher 1.18.11的版本，烧录正常，验证过程会报错，但是可以正常进入系统
-2.官方十分建议使用rufus烧录软件进行镜像安装，相对较为稳定
+1.使用balenaEtcher 验证过程可能会报错，但是可以正常进入系统；
+
+2.官方十分建议使用rufus烧录软件进行镜像安装，相对较为稳定；
+
+3.RDK X5 Module 只能使用3.2.0 及其后续版本的系统；
 
 :::
 
-- 3.0版本：基于RDK Linux开源代码包制作，支持RDK X5派、X3模组等全系列硬件
-
-
-:::tip
-
-- desktop：带有桌面的Ubuntu系统，可以外接屏幕、鼠标操作
-- server：无桌面的Ubuntu系统，可以通过串口、网络远程连接操作
-:::
-
-
+</TabItem>
+</Tabs>
 
 ### 系统烧录
-
 
 :::tip
 
 在烧录Ubuntu系统镜像前，需要做如下准备：
-- 准备至少8GB容量的Micro SD卡
+- 准备至少16GB容量的Micro SD卡
 - SD 读卡器
 - 下载镜像烧录工具balenaEtcher（可[点击此处下载](https://www.balena.io/etcher/)）
 :::
@@ -102,6 +160,32 @@ balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作�
 
     ![image-X3-Update-balena4](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
 
+### 在板烧录
+
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
+
+SD卡插入开发板，usb2.0 type c接到PC端，长按Sleep按键（位于耳机接口旁），开发板上电，等待5s，开发板进入烧录模式。
+
+PC可以发现映射成U盘的SD卡，然后依照系统烧录一节，完成系统烧录。
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+SD卡插入开发板，usb2.0 type c接到PC端，长按Sleep按键（接口23），开发板上电，等待5s，开发板进入烧录模式。
+
+PC可以发现映射成U盘的SD卡；
+
+SD卡不插入开发板，核心板自带的emmc会被映射成U盘；
+
+然后依照系统烧录一节，完成系统烧录。
+
+</TabItem>
+</Tabs>
+
+![img-2025-1451](../../../static/img/01_Quick_start/image/install_os/img-2025-1451.png)
+
+![img-2025-1451](../../../static/img/01_Quick_start/image/install_os/img-2025-1452.png)
 
 ### 启动系统
 
