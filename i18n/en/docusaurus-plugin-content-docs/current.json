@@ -43,7 +43,7 @@
     "message": "3.4 Multimedia Applications",
     "description": "The label for category 3.4 多媒体应用 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.3.4.3 多媒体接口使用说明": {   
+  "sidebar.tutorialSidebar.category.3.4.3 多媒体接口使用说明": {
     "message": "3.4.3 Multimedia Interface Usage Instructions",
     "description": "The label for category 3.4.3 多媒体接口使用说明 in sidebar tutorialSidebar"
   },
@@ -103,7 +103,6 @@
     "message": "5.3. Boxs Algorithm Repository",
     "description": "The label for category 5.3. Boxs算法仓库 in sidebar tutorialSidebar"
   },
-
   "sidebar.tutorialSidebar.category.3.1 目标检测": {
     "message": "3.1 Object Detection",
     "description": "The label for category 3.1 目标检测 in sidebar tutorialSidebar"
@@ -166,7 +165,7 @@
   },
   "sidebar.tutorialSidebar.category.7.1.4 RDK X5硬件说明": {
     "message": "7.1.4 RDK X5 Hardware Description",
-    "description": "7.1.4 RDK X5 Hardware Description"
+    "description": "The label for category 7.1.4 RDK X5硬件说明 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.7.2. Linux开发指南": {
     "message": "7.2. Linux Development Guide",
@@ -176,18 +175,17 @@
     "message": "Linux Development Guide",
     "description": "The generated-index page description for category 7.2. Linux开发指南 in sidebar tutorialSidebar"
   },
-  
   "sidebar.tutorialSidebar.category.7.2.2 RDK X3 驱动开发指南": {
     "message": "7.2.2 RDK X3 Driver Development Guide",
-    "description": "The label for category 7.2.2 驱动开发指南 in sidebar tutorialSidebar"
+    "description": "The label for category 7.2.2 RDK X3 驱动开发指南 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.7.2.3 RDK X5驱动开发指南": {
     "message": "7.2.3 RDK X5 Driver Development Guide",
-    "description": "The label for category 7.2.2 驱动开发指南 in sidebar tutorialSidebar"
+    "description": "The label for category 7.2.3 RDK X5驱动开发指南 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.7.2.4 硬件单元测试": {
     "message": "7.2.4 Hardware Unit Testing",
-    "description": "The label for category 7.2.3 硬件单元测试 in sidebar tutorialSidebar"
+    "description": "The label for category 7.2.4 硬件单元测试 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.7.3 多媒体开发指南": {
     "message": "7.3 Multimedia Development Guide",
@@ -207,11 +205,11 @@
   },
   "sidebar.tutorialSidebar.category.7.4.2 进阶指南": {
     "message": "7.4.2 Advanced Guide",
-    "description": "The label for category 7.4.3 进阶指南 in sidebar tutorialSidebar"
+    "description": "The label for category 7.4.2 进阶指南 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.7.4.3 高阶指南": {
     "message": "7.4.3 Expert Guide",
-    "description": "The label for category 7.4.4 高阶指南 in sidebar tutorialSidebar"
+    "description": "The label for category 7.4.3 高阶指南 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.8. 常见问题": {
     "message": "8. FAQs",
@@ -261,14 +259,20 @@
     "message": "5.3.2 Image Classfication",
     "description": "The label for category 5.3.2 图像分类 in sidebar tutorialSidebar"
   },
-
   "sidebar.tutorialSidebar.category.5.3.3 图像分割": {
     "message": "5.3.3 Image Segmentation",
-    "description": "The label for category 5.3.3 Semantic Segmentation in the sidebar tutorialSidebar"
+    "description": "The label for category 5.3.3 图像分割 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5.3.4 应用算法": {
     "message": "5.3.4 Application Algorithms",
-    "description": "The label for category 5.3.4 Application Algorithms in the sidebar tutorialSidebar"
+    "description": "The label for category 5.3.4 应用算法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2.1 RDK X3 && RDK X3 Module": {
+    "message": "3.2.1 RDK X3 && RDK X3 Module",
+    "description": "The label for category 3.2.1 RDK X3 && RDK X3 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2.2 RDK X5": {
+    "message": "3.2.2 RDK X5",
+    "description": "The label for category 3.2.2 RDK X5 in sidebar tutorialSidebar"
   }
 }
-  

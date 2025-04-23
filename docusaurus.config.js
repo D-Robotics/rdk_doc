@@ -11,12 +11,11 @@ const config = {
   title: 'RDK DOC',
   // tagline: 'Dinosaurs are cool',
   favicon: 'img/logo.png',
-
   // Set the production url of your site here
   url: 'https://developer.d-robotics.cc',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/rdk_doc',
+  baseUrl: '/rdk_doc/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -35,15 +34,6 @@ const config = {
     {src: 'https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e',  async: true}
   ],
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
-
-  // i18n: {
-  //   defaultLocale: 'en',
-  //   locales: ['en'],
-  // },
-
   
   // add by xgs for translate
   i18n: {
@@ -52,12 +42,9 @@ const config = {
     localeConfigs: {
       en: {
         label: 'EN',
-        // direction: 'ltr',
-        // path: 'i18n/en/',
       },
       'zh-Hans': {
         label: 'CN',
-        // path: '/docs/intro/',
       },
     },
   },
@@ -67,27 +54,30 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-
-          //add by xgs for delete first page
-          routeBasePath: '/', // Serve the docs at the site's root
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          //editUrl:            'https://d-robotics.github.io/rdk_doc/RDK',
-          editUrl: 'https://github.com/D-Robotics/rdk_doc/blob/main/'
+        docs: { 
+          routeBasePath: '/', // 修改默认文档路径
+          sidebarPath: './sidebars.js', 
+          showLastUpdateTime: true 
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://d-robotics.github.io/rdk_doc/RDK',
-        // },
-        theme: {
-          customCss: './src/css/custom.css',
-        },
+        blog: { showReadingTime: true },
+        pages: { exclude: ['/imager/**', '**/dl/**'] },
+        theme: { customCss: './src/css/custom.css' },
+        sitemap: { lastmod: 'date' },
       }),
+
+    ],
+  ],
+  // add by xgs for S100_doc 2025 年 4 月 21 日 16:34:51
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs_s',
+        path: 'docs_s',
+        routeBasePath: 'rdk_s',
+        sidebarPath: './sidebars.js',
+        showLastUpdateTime: true,
+      },
     ],
   ],
 
@@ -99,17 +89,32 @@ const config = {
       navbar: {
         title: 'D-Robotics',
         logo: {
-          alt: 'My Site Logo',
+          alt: '地瓜机器人社区 logo',
           src: 'img/logo.png',
+          href: 'https://d-robotics.cc/', // 修改为文档根路径
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'RDK',
+            label: 'RDK X3 / X5',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          // add by xgs for S100_doc 2025 年 4 月 21 日 16:34:51 新增S100_doc npm install 去新增插件
+          // {
+          //   to: '/docs_s/',  // 与routeBasePath保持一致
+          //   label: 'RDK S Series',
+          //   position: 'left',
+          //   // activeBaseRegex: '/docs_s/',
+          // },
+          {
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            docsPluginId: 'docs_s',
+            position: 'left',
+            label: 'RDK S100',
+          },          
+
           {
             href: 'https://developer.d-robotics.cc/',
             label: 'Community',
@@ -131,15 +136,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'RDK_DOC',
-          //       to: '/docs/RDK',
-          //     },
-          //   ],
-          // },
+
           {
             title: '友情链接',
             items: [
@@ -187,7 +184,7 @@ const config = {
           language: ["en", "zh"],
           highlightSearchTermsOnTargetPage: true,
           explicitSearchResultPath: true,
-          docsRouteBasePath: '/'
+          // docsRouteBasePath: '/'
           // For Docs using Chinese, The `language` is recommended to set to:
           // ```
           // language: ["en", "zh"],

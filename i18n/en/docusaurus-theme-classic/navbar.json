@@ -18,5 +18,13 @@
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"
+  },
+  "item.label.RDK X3 / X5": {
+    "message": "RDK X3 / X5",
+    "description": "Navbar item with label RDK X3 / X5"
+  },
+  "item.label.RDK S100": {
+    "message": "RDK S100",
+    "description": "Navbar item with label RDK S100"
   }
 }
