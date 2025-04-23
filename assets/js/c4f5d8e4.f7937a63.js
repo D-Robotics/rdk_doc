@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrdk_doc=self.webpackChunkrdk_doc||[]).push([[2634],{30192:(c,e,n)=>{n.r(e),n.d(e,{default:()=>s});var r=n(96540),u=n(56347),o=n(44586);const s=function(){const c=(0,u.W6)(),{i18n:e}=(0,o.A)();return console.log(e.currentLocale),(0,r.useEffect)((()=>{"zh-Hans"===e.currentLocale?c.push("/rdk_doc/RDK"):c.push("/rdk_doc/en/RDK")}),[c]),null}}}]);
