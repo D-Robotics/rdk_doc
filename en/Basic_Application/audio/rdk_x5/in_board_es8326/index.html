@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.4.0">
 <title data-rh="true">板载 Earphone 音频口 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/en/Basic_Application/audio/rdk_x5/in_board_es8326"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="板载 Earphone 音频口 | RDK DOC"><meta data-rh="true" name="description" content="产品简介"><meta data-rh="true" property="og:description" content="产品简介"><link data-rh="true" rel="icon" href="/rdk_doc/en/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/en/Basic_Application/audio/rdk_x5/in_board_es8326"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/Basic_Application/audio/rdk_x5/in_board_es8326" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/Basic_Application/audio/rdk_x5/in_board_es8326" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/Basic_Application/audio/rdk_x5/in_board_es8326" hreflang="x-default"><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/en/assets/css/styles.c60d9ce6.css">
-<script src="/rdk_doc/en/assets/js/runtime~main.63bf304c.js" defer="defer"></script>
+<script src="/rdk_doc/en/assets/js/runtime~main.8921ea6c.js" defer="defer"></script>
 <script src="/rdk_doc/en/assets/js/main.66ae2552.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -13,12 +13,12 @@
 <p>自带 3.5mm 音频口，可以搭配 4 段式耳机或者符合接口的其他设备使用。</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="安装方法">安装方法<a class="hash-link" aria-label="Direct link to 安装方法" title="Direct link to 安装方法" href="/rdk_doc/en/Basic_Application/audio/rdk_x5/in_board_es8326#安装方法">​</a></h2>
 <p>接 上3.5mm 耳机孔，这里要注意，耳机也需要是 4 段式的，3 段是的接口一般没有 MIC(microphone)。</p>
-<p><img decoding="async" loading="lazy" alt="image-audio-earphone" src="/rdk_doc/en/assets/images/image-audio-earphone-58efa3f1ce1eb6a1c535dc0e8f399ded.png" width="360" height="270" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="image-audio-earphone" src="/rdk_doc/en/assets/images/image-audio-earphone-331304865ab5cb15e768895de6f907bb.png" width="360" height="270" class="img_ev3q"></p>
 <p>耳机孔需要完全对接上，正确示范如下图：</p>
-<p><img decoding="async" loading="lazy" alt="image-audio-earphone-correct" src="/rdk_doc/en/assets/images/image-audio-earphone-correct-1220172ab17a4d301910026f131b1690.png" width="360" height="270" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="image-audio-earphone-correct" src="/rdk_doc/en/assets/images/image-audio-earphone-correct-3d4c870337757ceeee9902919adbfb08.png" width="360" height="270" class="img_ev3q"></p>
 <p>如下是错误的示范：</p>
-<p><img decoding="async" loading="lazy" alt="image-audio-earphone-error-connection1" src="/rdk_doc/en/assets/images/image-audio-earphone-error-connection1-79d48ff909fe3bf93ea901545d6dfcaf.png" width="360" height="270" class="img_ev3q">
-<img decoding="async" loading="lazy" alt="image-audio-earphone-error-connection2" src="/rdk_doc/en/assets/images/image-audio-earphone-error-connection2-20699d2e8cb585caf0ac0539fcb70074.png" width="360" height="270" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="image-audio-earphone-error-connection1" src="/rdk_doc/en/assets/images/image-audio-earphone-error-connection1-2d7ebc0457707d6252620864bbd5af52.png" width="360" height="270" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="image-audio-earphone-error-connection2" src="/rdk_doc/en/assets/images/image-audio-earphone-error-connection2-9368853041205d6a412afeac4ead1b64.png" width="360" height="270" class="img_ev3q"></p>
 <p>上图中的错误示范可以看到，耳机都有金属接口漏出来，这样导致设备连接不完整，即使程序能正常运行，<br>
 <!-- -->也无法听到声音或者录制声音。</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="运行">运行<a class="hash-link" aria-label="Direct link to 运行" title="Direct link to 运行" href="/rdk_doc/en/Basic_Application/audio/rdk_x5/in_board_es8326#运行">​</a></h2>
