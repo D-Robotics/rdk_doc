@@ -33,10 +33,10 @@ SLAM建图案例：[4.1 SLAM建图](../../apps/slam)
 | 平台                  | 运行方式     |
 | --------------------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
-**注意**：SuperPoint优化只支持RDK X3, RDK X3 Module, RDK X5平台。
+**注意**：SuperPoint优化只支持RDK X3, RDK X3 Module, RDK X5, RDK X5 Module平台。
 
 ## 准备工作
 
