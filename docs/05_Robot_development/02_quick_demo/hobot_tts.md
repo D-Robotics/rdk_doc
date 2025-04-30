@@ -51,6 +51,8 @@ import TabItem from '@theme/TabItem';
 
     ```bash
     # 配置tros.b环境
+    sudo apt update
+    sudo apt install tros-humble-hobot-tts
     source /opt/tros/humble/setup.bash
     ```
 

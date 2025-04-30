@@ -51,6 +51,8 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 
     ```bash
     # Configure the tros.b environment
+    sudo apt update
+    sudo apt install tros-humble-hobot-tts
     source /opt/tros/humble/setup.bash
     ```
 

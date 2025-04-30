@@ -124,7 +124,7 @@ import TabItem from '@theme/TabItem';
 ```json
 {
     "cmd_word": [
-        "D-Robotics 你好",
+        "地瓜你好",
         "向前走",
         "向后退",
         "向左转",
@@ -255,7 +255,7 @@ alsa_device_init. hwparams(0x557d6e4fa0), swparams(0x557d6e5210)
 
 以上log显示，音频设备初始化成功，并且打开了音频设备，可正常采集音频。
 
-当人依次在麦克风旁边说出“D-Robotics 你好”、“向前走”、“向左转”、“向右转”、“向后退”命令词，语音算法sdk经过智能处理后输出识别结果，log显示如下：
+当人依次在麦克风旁边说出“地瓜你好”、“向前走”、“向左转”、“向右转”、“向后退”命令词，语音算法sdk经过智能处理后输出识别结果，log显示如下：
 
 ```text
 recv hrsc sdk event wakeup success, wkp count is 1
