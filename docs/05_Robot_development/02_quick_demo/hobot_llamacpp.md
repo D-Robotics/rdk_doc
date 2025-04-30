@@ -43,7 +43,7 @@ wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/Qwen2.5-
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/rdkx5/vit_model_int16_v2.bin
 ```
 
-使用命令`srpi-config`修改ION memory大小为2.5GB，设置方法参考RDK用户手册配置工具`srpi-config`使用指南[Performance Options](https://developer.d-robotics.cc/documents_rdk/configuration/srpi-config#performance-options)章节。
+使用命令`srpi-config`修改ION memory大小为2.5GB，设置方法参考RDK用户手册配置工具`srpi-config`使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
 
 重启后设置CPU最高频率为1.5GHz，以及调度模式为`performance`，命令如下：
 
