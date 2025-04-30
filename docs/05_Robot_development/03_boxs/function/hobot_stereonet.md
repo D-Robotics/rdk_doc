@@ -51,7 +51,7 @@ cat /etc/version
 
 - 如果系统版本不符合要求，请参考文档`1.2`章节进行镜像烧录
 
-- 此外，还需要确保`tros-humble-hobot-stereonet`功能包在2.4.1版本，查询功能包版本的命令如下：
+- 此外，还需要确保`tros-humble-hobot-stereonet`功能包在2.4.2版本，查询功能包版本的命令如下：
 
 ```bash
 apt list | grep tros-humble-hobot-stereonet/
@@ -235,7 +235,7 @@ stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/x5basep
 use_local_image:=True local_image_path:=./online_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_dir:=./offline_result image_sleep:=500
+save_image_all:=True save_dir:=./offline_result
 ```
 
 </TabItem>
@@ -251,7 +251,7 @@ stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereo
 use_local_image:=True local_image_path:=./online_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_dir:=./offline_result image_sleep:=500
+save_image_all:=True save_dir:=./offline_result
 ```
 
 </TabItem>
@@ -267,7 +267,7 @@ stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/V22_dis
 use_local_image:=True local_image_path:=./online_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_dir:=./offline_result image_sleep:=500
+save_image_all:=True save_dir:=./offline_result
 ```
 
 </TabItem>

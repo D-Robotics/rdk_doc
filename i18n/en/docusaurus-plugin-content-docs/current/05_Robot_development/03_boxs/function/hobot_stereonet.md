@@ -49,7 +49,7 @@ cat /etc/version
 
 - If the system version does not meet the requirement, refer to section `1.2` for instructions on flashing the image.
 
-- Additionally, ensure that the `tros-humble-hobot-stereonet` package is at version 2.4.1. Use the following command to check the package version:
+- Additionally, ensure that the `tros-humble-hobot-stereonet` package is at version 2.4.2. Use the following command to check the package version:
 
 ```bash
 apt list | grep tros-humble-hobot-stereonet/
@@ -233,7 +233,7 @@ stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/x5basep
 use_local_image:=True local_image_path:=./online_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_dir:=./offline_result image_sleep:=500
+save_image_all:=True save_dir:=./offline_result
 ```
 
 </TabItem>
@@ -249,7 +249,7 @@ stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereo
 use_local_image:=True local_image_path:=./online_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_dir:=./offline_result image_sleep:=500
+save_image_all:=True save_dir:=./offline_result
 ```
 
 </TabItem>
@@ -265,7 +265,7 @@ stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/V22_dis
 use_local_image:=True local_image_path:=./online_result \
 need_rectify:=False camera_fx:=216.696533 camera_fy:=216.696533 camera_cx:=335.313477 camera_cy:=182.961578 base_line:=0.070943 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
-save_image_all:=True save_dir:=./offline_result image_sleep:=500
+save_image_all:=True save_dir:=./offline_result
 ```
 
 </TabItem>
