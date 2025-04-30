@@ -19,16 +19,16 @@ import TabItem from '@theme/TabItem';
 
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK X5, RDK X5 Module (4GB内存) | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
+| RDK X5 (4GB内存) | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
 
-**注意：仅支持RDK X5，RDK X5 Module 4GB内存版本。**
+**注意：仅支持RDK X5 4GB内存版本。**
 
 ## 准备工作
 
 ### RDK平台
 
 1. RDK为4GB内存版本
-2. RDK已烧录好/Ubuntu 22.04系统镜像。
+2. RDK已烧录好Ubuntu 22.04系统镜像。
 3. RDK已成功安装TogetheROS.Bot。
 4. 安装ASR模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2`。
 
