@@ -8,11 +8,12 @@ sidebar_position: 6
 
 ### 版本号：2.3.3 (2025-4-30)
 
-功能变更：
-
 新增功能：
 
-问题修复：
+- 支持`RDK X5 Module`平台。
+- 新增基于`sensevoice_cpp`的[ASR开源方案](/docs/05_Robot_development/03_boxs/function/sensevoice_ros2.md)，支持命令词和ASR数据的推送。
+- [双目深度估计算法](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md)优化后处理耗时，新增V2.3版本模型。
+- 新增基于`llama.cpp`的端侧[视觉语言模型](/docs/05_Robot_development/02_quick_demo/hobot_llamacpp.md)算法示例。
 
 ### 版本号：2.3.2 (2025-1-15)
 
