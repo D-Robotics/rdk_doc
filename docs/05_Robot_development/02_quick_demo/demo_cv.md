@@ -308,6 +308,7 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取图片，进行抠图 |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | 读取图片，进行抠图 |
 
 ### 准备工作
 
@@ -385,7 +386,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 | 平台    | 运行方式      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK Ultra| Ubuntu 20.04 (Foxy)  |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -669,3 +670,66 @@ cpu占用为单核百分比，耗时统计单位为ms
 | -----------| ------------- | ----------- | --------------|
 |    19ms    |      42.5     |      56     |       100     |
 
+## color
+
+### 功能介绍
+
+实现图像的nv12,gbr24之间的转换。
+
+代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
+
+### 支持平台
+
+| 平台    | 运行方式      | 示例功能                       |
+| ------- | ------------- | ------------------------------ |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,gbr24之间的转换 |
+
+### 准备工作
+
+#### RDK平台
+
+1. RDK已烧录好Ubuntu 22.04系统镜像。
+
+2. RDK已成功安装TogetheROS.Bot。
+
+### 使用介绍
+
+#### RDK平台
+
+
+<Tabs groupId="tros-distro">
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# 从tros.b的安装路径中拷贝出运行示例需要的模型和配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
+
+# 启动launch文件
+ros2 launch hobot_cv hobot_cv_conversion.launch.py
+```
+
+### 结果分析
+
+```text
+[INFO] [launch]: All log files can be found below /root/.ros/log/2025-03-25-14-50-55-535138-ubuntu-4139
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [test_conersion-1]: process started with pid [4140]
+[test_conersion-1] [INFO] [1742885455.683144151] [hobot_cv]: bgr24_to_nv12 opencv time cost: 4 ms
+[test_conersion-1] [INFO] [1742885455.685469463] [hobot_cv]: nv12_to_bgr24 neon 1 time cost: 2 ms
+[test_conersion-1] [INFO] [1742885455.836798125] [hobot_cv]: nv12_to_bgr24 neon 2 time cost: 2 ms
+[test_conersion-1] [INFO] [1742885455.992973665] [hobot_cv]: bgr24_to_nv12 neon 1 time cost: 1 ms
+[test_conersion-1] [INFO] [1742885455.997803043] [hobot_cv]: nv12_to_bgr24 opencv time cost: 4 ms
+[test_conersion-1] [INFO] [1742885456.156813423] [hobot_cv]: bgr24_to_nv12 neon 2 time cost: 1 ms
+[test_conersion-1] [INFO] [1742885456.161413872] [hobot_cv]: nv12_to_bgr24 opencv time cost: 4 ms
+[INFO] [test_conersion-1]: process has finished cleanly [pid 4140]
+```

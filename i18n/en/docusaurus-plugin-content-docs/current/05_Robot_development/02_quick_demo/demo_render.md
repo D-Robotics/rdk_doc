@@ -25,6 +25,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 | RDK X5               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
 | RDK Ultra            | Ubuntu 20.04 (Foxy)           | Start MIPI cameras and display images via Web |
 | X86                  | Ubuntu 20.04 (Foxy)           | Start USB cameras and display images via Web |
+| RDK S100               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
 
 
 ### Preparation

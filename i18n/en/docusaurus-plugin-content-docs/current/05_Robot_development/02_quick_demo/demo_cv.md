@@ -296,6 +296,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 | Platform    | System      | Function                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Read an image and crop it  |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble)  | Read an image and crop it  |
 
 ### Preparation
 
@@ -369,7 +370,8 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 
 | Platform  | System | Function              |
 | --------- | -------------- | ----------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Read image and resize |
+| RDK X3, RDK X3 Module |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Read image and resize |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble)  | Read image and resize |
 
 ### Preparation
 
@@ -639,3 +641,67 @@ With an input image of 1920x1080, we obtain output images with resolutions of 96
 |    19ms    |     42.5     |      56     |       100     |
 
 CPU usage as a percentage (single-core), and time statistics in ms.
+
+## Color
+
+### Introduction
+
+Color Space Conversion between NV12 and BGR24.
+
+Code repository:  (https://github.com/D-Robotics/hobot_cv)
+
+### Platform Support
+
+| Platform  | System | Function              |
+| --------- | -------------- | ----------------------------- |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble)  | Read image and resize |
+
+### Preparation
+
+#### RDK
+
+1. The RDK has been burned with the  Ubuntu 22.04 system image provided by D-Robotics.
+
+2. TogetheROS.Bot has been successfully installed on the RDK.
+
+### Usage
+
+#### RDK
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# Copy the required models and configuration files from the TogetheROS installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
+
+# Launch the file 
+ros2 launch hobot_cv hobot_cv_conversion.launch.py
+```
+
+### Result Analysis
+
+#### RDK
+
+```shell
+[INFO] [launch]: All log files can be found below /root/.ros/log/2025-03-25-14-50-55-535138-ubuntu-4139
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [test_conersion-1]: process started with pid [4140]
+[test_conersion-1] [INFO] [1742885455.683144151] [hobot_cv]: bgr24_to_nv12 opencv time cost: 4 ms
+[test_conersion-1] [INFO] [1742885455.685469463] [hobot_cv]: nv12_to_bgr24 neon 1 time cost: 2 ms
+[test_conersion-1] [INFO] [1742885455.836798125] [hobot_cv]: nv12_to_bgr24 neon 2 time cost: 2 ms
+[test_conersion-1] [INFO] [1742885455.992973665] [hobot_cv]: bgr24_to_nv12 neon 1 time cost: 1 ms
+[test_conersion-1] [INFO] [1742885455.997803043] [hobot_cv]: nv12_to_bgr24 opencv time cost: 4 ms
+[test_conersion-1] [INFO] [1742885456.156813423] [hobot_cv]: bgr24_to_nv12 neon 2 time cost: 1 ms
+[test_conersion-1] [INFO] [1742885456.161413872] [hobot_cv]: nv12_to_bgr24 opencv time cost: 4 ms
+[INFO] [test_conersion-1]: process has finished cleanly [pid 4140]
+```
