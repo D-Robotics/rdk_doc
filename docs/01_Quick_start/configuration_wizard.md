@@ -25,10 +25,10 @@ import TabItem from '@theme/TabItem';
 使用菜单栏右上角的Wi-Fi管理工具连接Wi-Fi，如下图所示，点击需要连接的Wi-Fi名，然后在弹出的对话框中输入Wi-Fi密码。
 
 
-![image-20231127111045649](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127111045649.png)
+![image-20231127111045649](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160653.jpg)
 
 
-![image-20231127111253803](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127111253803.png)
+![image-20231127111253803](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160732.jpg)
 
 </TabItem>
 
@@ -52,11 +52,11 @@ import TabItem from '@theme/TabItem';
 
 通过菜单栏找到`RDK Configuration` 项，点击打开。
 
-![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112029088.png)
+![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
 
 选择 Interface Options -> SSH 项，根据提示选择使能或者关闭 `SSH` 服务。
 
-![image-20231127115151834](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127115151834.png)
+![image-20231127115151834](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160740.jpg)
 
 </TabItem>
 
@@ -64,7 +64,7 @@ import TabItem from '@theme/TabItem';
 
 执行 `sudo srpi-config`命令进入配置菜单。选择 Interface Options -> SSH 项，根据提示选择使能或者关闭 `SSH` 服务。
 
-![image-20231127115009424](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127115009424.png)
+![image-20231127115009424](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
 
 </TabItem>
 
@@ -79,11 +79,11 @@ SSH的使用请查看 [远程登录 - SSH登录](./remote_login#ssh)。
 
 通过菜单栏找到`RDK Configuration` 项，点击打开。
 
-![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112029088.png)
+![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
 
 选择 Interface Options -> VNC 项，根据提示选择使能或者关闭`VNC` 服务。选择使能 `VNC` 时需要设置登录密码，密码必须是一个8位长度的由字符组成的字符串。
 
-![image-20231127112202713](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112202713.png)
+![image-20231127112202713](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160744.jpg)
 
 </TabItem>
 </Tabs>
@@ -170,15 +170,15 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 第一步：在桌面端找到EN输入法标志，右键点击首选项
 
-![QQ_1IGglEVRSO.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ_1IGglEVRSO.png)
+![QQ_1IGglEVRSO.png](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160754.jpg)
 
 第二步：点击输入法——>右侧添加——>选择中文
 
-![QQ_MxWDZrZ7Wk.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ_MxWDZrZ7Wk.png)
+![QQ_MxWDZrZ7Wk.png](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160757.jpg)
 
 第三步：选择智能拼音，最后右上角EN就可以右键选择智能拼音
 
-![QQ_rICn3iU1Vc.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ_rICn3iU1Vc.png)
+![QQ_rICn3iU1Vc.png](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160805.jpg)
 
 </TabItem>
 </Tabs>
