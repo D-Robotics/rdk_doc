@@ -23,9 +23,9 @@ import TabItem from '@theme/TabItem';
 
 Use the Wi-Fi management tool in the top-right corner of the menu bar to connect to Wi-Fi. As shown in the following figure, click on the Wi-Fi name you need to connect to, and then enter the Wi-Fi password in the pop-up dialog box.
 
-![image-20231127111045649](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127111045649.png)
+![image-20231127111045649](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160653.jpg)
 
-![image-20231127111253803](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127111253803.png)
+![image-20231127111253803](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160732.jpg)
 
 </TabItem>
 
@@ -48,11 +48,11 @@ The SSH login service is enabled by default in the current system version. Users
 <TabItem value="desktop" label="Desktop">
 Find the `RDK Configuration` option through the menu bar and click to open it.
 
-![image-20231127112029088](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112029088.png)
+![image-20231127112029088](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
 
 Select Interface Options -> SSH, and follow the prompts to enable or disable the `SSH` service.
 
-![image-20231127115151834](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127115151834.png)
+![image-20231127115151834](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160740.jpg)
 
 </TabItem>
 
@@ -60,7 +60,7 @@ Select Interface Options -> SSH, and follow the prompts to enable or disable the
 
 Execute the `sudo srpi-config` command to enter the configuration menu. Select Interface Options -> SSH, and follow the prompts to enable or disable the `SSH` service.
 
-![image-20231127115009424](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127115009424.png)
+![image-20231127115009424](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
 
 </TabItem>
 
@@ -75,11 +75,11 @@ Please refer to [Remote Login - SSH Login](./remote_login#ssh) for how to use SS
 
 Find the `RDK Configuration` option through the menu bar and click to open it.
 
-![image-20231127112029088](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112029088.png)
+![image-20231127112029088](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
 
 Select Interface Options -> VNC, and follow the prompts to enable or disable the `VNC` service. When enabling `VNC`, you need to set a login password, which must be an 8-character string composed of numbers and characters.
 
-![image-20231127112202713](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112202713.png)
+![image-20231127112202713](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160744.jpg)
 
 </TabItem>
 </Tabs>
@@ -166,15 +166,15 @@ Step 3: Restart the machine to apply the latest configuration. Execute `sudo reb
 
 First step: Locate the EN input method icon on the desktop, right-click and select Preferences.
 
-![QQ_1IGglEVRSO.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/QQ_1IGglEVRSO.png)
+![QQ_1IGglEVRSO.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160754.jpg)
 
 Step two: Click on 'Input Sources' -> 'Add on the right' -> Select 'Chinese'.
 
-![QQ_MxWDZrZ7Wk.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/QQ_MxWDZrZ7Wk.png)
+![QQ_MxWDZrZ7Wk.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160757.jpg)
 
 Step three: Select "Intelligent Pinyin" and then you can right-click on the EN in the top right corner to choose "Intelligent Pinyin".
 
-![QQ_rICn3iU1Vc.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/QQ_rICn3iU1Vc.png)
+![QQ_rICn3iU1Vc.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160805.jpg)
 
 </TabItem>
 </Tabs>
