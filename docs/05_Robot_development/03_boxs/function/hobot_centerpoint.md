@@ -101,7 +101,7 @@ ros2 launch hobot_centerpoint hobot_centerpoint_websocket.launch.py lidar_pre_pa
 source /opt/tros/humble/setup.bash
 
 if [ -L qat ]; then rm qat; fi
-ln -s `ros2 pkg prefix hobot_centerpoint`/lib/qat/ qat
+ln -s `ros2 pkg prefix hobot_centerpoint`/lib/hobot_centerpoint/qat/ qat
 ln -s ~/centerpoint_data centerpoint_data
 
 # 启动launch文件
