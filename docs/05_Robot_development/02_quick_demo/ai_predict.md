@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
 | X86     | Ubuntu 20.04 (Foxy) |
 
 :::caution
-RDK Ultra模型推理功能体验参考[Boxs算法仓库](/docs/05_Robot_development/03_boxs/detection/yolo.md)。
+RDK S100和RDK Ultra平台的模型推理功能体验参考[Boxs算法仓库](/docs/05_Robot_development/03_boxs/detection/yolo.md)。
 :::
 
 
