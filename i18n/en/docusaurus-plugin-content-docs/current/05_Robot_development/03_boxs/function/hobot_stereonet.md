@@ -315,6 +315,10 @@ ping www.baidu.com
 <TabItem value="V2.0" label="V2.0">
 
 ```shell
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Start the stereo model launch file, which includes the algorithm and stereo camera node
 ros2 launch hobot_zed_cam test_stereo_zed_rectify.launch.py \
 resolution:=720p dst_width:=640 dst_height:=352 \
 stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/x5baseplus_alldata_woIsaac.bin postprocess:=v2 \
@@ -325,6 +329,10 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 <TabItem value="V2.2" label="V2.2">
 
 ```shell
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Start the stereo model launch file, which includes the algorithm and stereo camera node
 ros2 launch hobot_zed_cam test_stereo_zed_rectify.launch.py \
 resolution:=720p dst_width:=640 dst_height:=352 \
 stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/DStereoV2.2.bin postprocess:=v2.2 \
@@ -335,10 +343,28 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 <TabItem value="V2.3" label="V2.3">
 
 ```shell
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Start the stereo model launch file, which includes the algorithm and stereo camera node
 ros2 launch hobot_zed_cam test_stereo_zed_rectify.launch.py \
 resolution:=720p dst_width:=640 dst_height:=352 \
 stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/V22_disp96.bin postprocess:=v2.3 \
 height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 
+```
+
+</TabItem>
+<TabItem value="S100" label="S100">
+
+```shell
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Start the stereo model launch file, which includes the algorithm and stereo camera node
+ros2 launch hobot_zed_cam test_stereo_zed_rectify.launch.py \
+resolution:=720p dst_width:=640 dst_height:=352 \
+stereonet_model_file_path:=/opt/tros/humble/share/hobot_stereonet/config/ds2.hbm postprocess:=v2 \
+height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 ```
 
 </TabItem>
