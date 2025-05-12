@@ -19,9 +19,8 @@ import TabItem from '@theme/TabItem';
 
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK X5 (4GB内存) | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
-
-**注意：仅支持RDK X5 4GB内存版本。**
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
+| RDK S100 | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
 
 ## 准备工作
 
@@ -61,6 +60,9 @@ by-path  controlC1  pcmC1D0c  pcmC1D0p  timer
 source /opt/tros/humble/setup.bash
 ```
 
+<Tabs groupId="tros-distro">
+<TabItem value="x5" label="RDK X5">
+
 **使用MIPI摄像头发布图片**
 
 ```shell
@@ -87,6 +89,41 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
+
+</TabItem>
+
+<TabItem value="s100" label="RDK S100">
+
+**使用MIPI摄像头发布图片**
+
+```shell
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=hw:1,0
+```
+
+**使用USB摄像头发布图片**
+
+```shell
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+# 配置USB摄像头
+export CAM_TYPE=usb
+ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=hw:1,0
+```
+
+**使用本地回灌图片**
+
+```shell
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+# 配置本地回灌图片
+export CAM_TYPE=fb
+ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=hw:1,0
+```
+
+</TabItem>
+
+</Tabs>
 
 程序启动后，可通过语音提示与设备交互。具体使用方法：通过"你好"唤醒设备, 然后给设备说明任务。如"请描述这种图片"。设备收到任务后, 会回复"好的", 此时请等待设备推理完成并开始输出文字。
 
