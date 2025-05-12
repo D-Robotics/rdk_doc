@@ -19,9 +19,9 @@ This example uses a stereo camera as the image data input source, leverages the 
 
 ## Supported Platforms
 
-| Platform                    | Operating Mode                    | Supported Features                      |
-|---------------------------|---------------------------------|---------------------------------------|
-| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)           | · Start stereo camera, infer depth results, and display on Web interface |
+| Platform                                                                                         | Operating Mode                   | Supported Features                                                       |
+|--------------------------------------------------------------------------------------------------|----------------------------------|--------------------------------------------------------------------------|
+| RDK X5, RDK X5 Module, The RDK S100 currently only supports starting with the ZED stereo camera. | Ubuntu 22.04 (Humble)            | · Start stereo camera, infer depth results, and display on Web interface |
 
 ## Preparation
 
