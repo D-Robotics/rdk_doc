@@ -149,9 +149,9 @@ Users can also use the command line to log in via SSH. The steps are as follows:
 To maintain a serial connection for the login steps mentioned earlier and to access the local area network, you can use the following commands:
 
 ```bash
-sudo nmcli device wifi rescan # 扫描wifi⽹络
-sudo nmcli device wifi list # 列出找到的wifi
-sudo wifi_connect "SSID" "PASSWD" # 连接指定wifi
+sudo nmcli device wifi rescan 
+sudo nmcli device wifi list 
+sudo wifi_connect "SSID" "PASSWD" 
 ```
 
 After successfully executing these commands, you should see a message starting with `successfully xxx`.

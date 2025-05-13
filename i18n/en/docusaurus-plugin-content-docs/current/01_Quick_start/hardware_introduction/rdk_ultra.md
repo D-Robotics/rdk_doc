@@ -98,7 +98,7 @@ Specifications of supported camera modules:
 | 4    | IMX477  | 12 MP      | H:62  V:37 D:68  | 0x1a               |
 | 5    | OV5647  | 5 MP       | H:62  V:37 D:68  | 0x36               |
 
-For purchasing camera modules, refer to the community accessories page: [购买链接](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
+For purchasing camera modules, refer to the community accessories page: [Purchase link](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
 
 :::caution
 Important: Do not connect or disconnect the camera while the board is powered on, as this may damage the camera module.
