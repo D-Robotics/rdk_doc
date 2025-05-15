@@ -35,7 +35,6 @@ sidebar_position: 4
     ```bash
     cat /proc/asound/cards
     ```
-    *
     **示例输出 (假设USB声卡先注册，板载声卡后注册)：**
     ```text
      0 [RC08          ]: USB-Audio - ROCWARE RC08
@@ -56,12 +55,10 @@ sidebar_position: 4
         amixer -c 1 controls 
         # 或者使用硬件设备名: amixer -D hw:1 controls
         ```
-        *
     * **获取或设置特定声卡上控件的值 (例如，获取板载声卡序号1上名为 'ADC PGA Gain' 的第一个控件的值)：**
         ```bash
         amixer -c 1 sget 'ADC PGA Gain',0
         ```
-        *
         要设置值，可以使用 `sset` 代替 `sget`，例如：`amixer -c 1 sset 'ADC PGA Gain',0 80%`。
 
 通过以上方法，您可以准确地识别并控制连接到RDK板卡上的不同音频设备。
@@ -80,7 +77,6 @@ sidebar_position: 4
         ```bash
         ls /dev/snd/
         ```
-        *
         **示例输出 (假设 `controlC0`, `pcmC0D0c`, `pcmC0D0p`, `pcmC0D1c`, `pcmC0D1p` 是音频子板的节点，而 `pcmC1D0c`, `pcmC1D0p` 是新接入的USB声卡的节点)：**
         ```text
         by-path  controlC0  pcmC0D0c  pcmC0D0p  pcmC0D1c  pcmC0D1p  pcmC1D0c  pcmC1D0p  timer
@@ -129,7 +125,6 @@ sidebar_position: 4
 
     # ... (文件其他内容) ...
     ```
-    *
     **重要说明：**
     * `device=hw:X,Y` 中的 `X` 是声卡序号 (Card Number)，`Y` 是PCM设备序号 (Device Number)。您需要根据 `cat /proc/asound/cards` (查看声卡X) 和 `aplay -l` / `arecord -l` (查看设备Y) 的输出来确定USB声卡实际的 `X` 和 `Y` 值。
     * 上述示例中的 `mmap=false tsched=0 fragments=2 fragment_size=960 rate=48000 channels=2 rewind_safeguard=960` 等参数是针对特定音频子板优化的，对于USB声卡，您可能不需要这么多参数，或者可以先尝试只用 `device=hw:X,Y`。如果遇到声音卡顿或爆音，再尝试调整这些参数。

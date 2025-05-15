@@ -12,7 +12,6 @@ sidebar_position: 6
     ```bash
     sudo apt update && sudo apt upgrade
     ```
-    *
     在提问时，也请使用 `rdkos_info`、`apt list --installed | grep tros`、`apt show <tros_package_name>` 等命令提供您的系统和软件包版本信息。
 2.  **尝试定位问题出现的ROS节点：**
     * 参考对应功能包的launch启动文件，将其中的日志级别（log level）参数修改为 `debug`（例如，在Node的arguments中添加 `['--ros-args', '--log-level', 'DEBUG']`）。
@@ -51,7 +50,6 @@ sidebar_position: 6
         # 或者通过pip安装：
         # pip3 install -U colcon-common-extensions empy
         ```
-        *
 * **注意：** 任何在x86平台直接编译（而非交叉编译）的ROS功能包都不能直接在ARM架构的RDK板卡上运行，反之亦然。需要确保程序是为目标平台的架构编译的。
 
 ### Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？
@@ -90,7 +88,6 @@ sidebar_position: 6
         cd <your_ros_workspace_root>
         rosdep install --from-paths src --ignore-src -r -y
         ```
-        *
     * 社区通常无法对 индивидуальные 编译环境的依赖问题提供一对一支持。
 
 ### Q6: 在RDK板卡上尝试安装标准ROS2时报错，怎么办？
@@ -100,7 +97,6 @@ sidebar_position: 6
         ```bash
         wget http://fishros.com/install -O fishros && bash fishros
         ```
-        *
 2.  **从源码安装（如果工具安装失败）：**
     * 如果一键安装工具也失败，您可以尝试从“小鱼”的GitHub仓库克隆其安装脚本的源码，并手动执行Python安装脚本。这有时能提供更详细的错误输出或允许您进行一些自定义修改。
         ```bash
@@ -108,7 +104,6 @@ sidebar_position: 6
         cd install
         sudo python3 install.py
         ```
-        *
 3.  **检查网络和软件源：** 确保板卡网络连接正常，并且能够访问ROS官方的软件源（`packages.ros.org`）以及Ubuntu的官方软件源。
 4.  **查看错误日志：** 仔细阅读安装过程中出现的任何错误信息，它们通常会指出问题的具体原因（如依赖冲突、下载失败、编译错误等）。
 
@@ -180,7 +175,6 @@ sidebar_position: 6
         cat /proc/asound/cards
         ls /dev/snd/
         ```
-        *
         `cat /proc/asound/cards` 会列出声卡及其序号（如card 0, card 1）。`ls /dev/snd/` 会显示PCM设备节点（如 `pcmC0D0c` 表示card 0, device 0, capture）。
 
 2.  **配置TROS语音节点的麦克风设备号：**
@@ -241,7 +235,6 @@ sidebar_position: 6
         export RMW_FASTRTPS_USE_QOS_FROM_XML=1
         export ROS_DISABLE_LOANED_MESSAGES=0
         ```
-        *
 * **通用参考：**
     * 地平线官方文档中关于TROS通信优化或特定Demo（如图像传输Demo）的章节，通常会包含零拷贝的配置指南。
         例如：[RDK文档 - ROS通信 - 零拷贝配置](https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_demo/demo_communication) (请确认链接的最新有效性)。
@@ -259,7 +252,6 @@ sidebar_position: 6
             sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
             export LANG=en_US.UTF-8
             ```
-            *
         2.  **添加ROS2 GPG密钥并添加源：**
             ```bash
             sudo apt install software-properties-common
@@ -268,12 +260,10 @@ sidebar_position: 6
             sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
             echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
             ```
-            *
         3.  **更新APT缓存：**
             ```bash
             sudo apt update
             ```
-            *
     * 之后您就可以通过 `sudo apt install ros-humble-desktop` (安装桌面完整版) 或 `ros-humble-<package_name>` (安装特定包) 来安装标准ROS2 Humble的软件包了。
 
 * **国内镜像源：**
