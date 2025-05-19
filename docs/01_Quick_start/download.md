@@ -176,12 +176,48 @@ sidebar_position: 6
 ## 认证资料
 
 ### 认证资料总仓： [Certification](https://archive.d-robotics.cc/downloads/certification/)
+<table>
+  <thead>
+    <tr>
+      <th>产品名称</th>
+      <th>CE RED</th>
+      <th>CE EMC</th>
+      <th>FCC</th>
+      <th>MIC</th>
+      <th>SRRC</th>
+      <th>KCC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RDK X5</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/CE-RED210115.pdf">CE RED</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/CE-EMC210115.pdf">CE EMC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/D-ROBOTICS%202BGUG-RDKX5K%20FCC%20Grant%20-%20DSS.PDF">FCC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/D-ROBOTICS%20211-241225%20MIC%20Radio%20Certificate.pdf">MIC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">SRRC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">KCC</a></td>
+    </tr>
+    <tr>
+      <td>RDK X3</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/CE/C03-2402T78337E-RF%20C2%20RED%20210115.pdf">CE RED</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/CE/C02-2402T78337E-RF%20C2%20EMC%20210115.pdf">CE EMC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/FCC/D-ROBOTICS%202BGUG-RDKX3K%20FCC%20Grant%20-%20DTS.PDF">FCC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf">MIC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">SRRC</a></td>
+      <td style={{ textAlign: 'center' }}>/</td>
+    </tr>
+    <tr>
+      <td>RDK X3 Module</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C03-%202402T78342E-RF%20C2%20RED%20210115.pdf">CE RED</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C02-%202402T78342E-RF%20C2%20EMC%20210115.pdf">CE EMC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/FCC/D-ROBOTICS%202BGUG-RDKX3M%20FCC%20Grant%20-%20DTS.PDF">FCC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">MIC</a></td>
+      <td style={{ textAlign: 'center' }}>/</td>
+    </tr>
+  </tbody>
+</table>
 
-| 产品名称 | CE RED | CE EMC | FCC | MIC | SRRC | KCC |
-| --- | --- | --- | --- | --- | --- | --- |
-| RDK X5 | [CE RED](../../static/certification/CE-RED210115.pdf) | [CE EMC](../../static/certification/CE-EMC210115.pdf) | [FCC](../../static/certification/D-ROBOTICS%202BGUG-RDKX5K%20FCC%20Grant%20-%20DSS.PDF) | [MIC](../../static/certification/D-ROBOTICS%20211-241225%20MIC%20Radio%20Certificate.pdf) | / | [KCC](../../static/certification/KCC.pdf) |
-| RDK X3 | [CE RED](https://archive.d-robotics.cc/downloads/certification/RDK_X3/CE/C03-2402T78337E-RF%20C2%20RED%20210115.pdf) | [CE EMC](https://archive.d-robotics.cc/downloads/certification/RDK_X3/CE/C02-2402T78337E-RF%20C2%20EMC%20210115.pdf) | [FCC](https://archive.d-robotics.cc/downloads/certification/RDK_X3/FCC/D-ROBOTICS%202BGUG-RDKX3K%20FCC%20Grant%20-%20DTS.PDF) | [MIC](https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf) | [SRRC](https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf) |  / |
-| RDK X3 Module | [CE RED](https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C03-%202402T78342E-RF%20C2%20RED%20210115.pdf) | [CE EMC](https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C02-%202402T78342E-RF%20C2%20EMC%20210115.pdf) | [FCC](https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/FCC/D-ROBOTICS%202BGUG-RDKX3M%20FCC%20Grant%20-%20DTS.PDF) | [MIC](https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf) | [SRRC](https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/SRRC/SRRC_Approval_RDK_X3_MD.pdf) | / |
 
 ## 附:
 * RDK X3 1.0版本资料
