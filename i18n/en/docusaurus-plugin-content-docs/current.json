@@ -4,8 +4,8 @@
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.1.快速开始": {
-    "message": "1.Quick Start",
-    "description": "The label for category 1.快速开始 in sidebar tutorialSidebar"
+    "message": "1. Quick Start",
+    "description": "The label for category 1. 快速开始 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.快速开始.link.generated-index.description": {
     "message": "RDK system installation and quick start",
@@ -20,8 +20,8 @@
     "description": "The generated-index page description for category 2. 系统配置 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.3 基础应用开发": {
-    "message": "3 Basic Application Development",
-    "description": "The label for category 3 基础应用开发 in sidebar tutorialSidebar"
+    "message": "3. Basic Application Development",
+    "description": "The label for category 3. 基础应用开发 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.3 基础应用开发.link.generated-index.description": {
     "message": "Basic applications including image input, audio input, and interface development",
