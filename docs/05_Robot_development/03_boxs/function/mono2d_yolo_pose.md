@@ -134,4 +134,4 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪ID，人体关键点）渲染效果（IP为RDK/X86设备的IP地址）：
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/yolo_pose_render.jpeg)
+![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/yolo_pose_render.png)
