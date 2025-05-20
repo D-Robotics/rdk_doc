@@ -35,7 +35,7 @@
     "message": "3.2 Voice Acquisition and Applications",
     "description": "The label for category 3.2 语音采集与应用 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.3.3 40-pin GPIO管脚应用": {
+  "sidebar.tutorialSidebar.category.3.3 40PIN管脚应用": {
     "message": "3.3 40-pin GPIO Pin Application",
     "description": "The label for category 3.3 40-pin GPIO管脚应用 in sidebar tutorialSidebar"
   },
