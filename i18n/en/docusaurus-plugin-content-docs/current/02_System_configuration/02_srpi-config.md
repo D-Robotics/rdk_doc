@@ -21,9 +21,9 @@ sudo srpi-config
 
 If you are using a desktop system, you can find the `RDK Configuration` application in the menu for configuration. It will also open a configuration terminal similar to the image above.
 
-![image-20231123102024074](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123102024074.png)
+![image-20231123102024074](../../../../../static/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
-![image-20231123172041480](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123172041480.png)
+![image-20231123172041480](../../../../../static/img/02_System_configuration/image/srpi-config/20250507-160809.jpg)
 
 ## System Options
 
