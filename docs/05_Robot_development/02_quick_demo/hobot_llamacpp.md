@@ -42,16 +42,12 @@ sudo apt install tros-humble-hobot-llamacpp
 
 运行程序前，需要下载模型文件到运行路径，命令如下：
 
-```bash
-# 下载模型文件
-wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
-```
-
 <Tabs groupId="tros-distro">
 <TabItem value="x5" label="RDK X5">
 
 ```bash
-wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/rdkx5/vit_model_int16_v2.bin
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_v2.bin
 ```
 
 </TabItem>
@@ -59,6 +55,7 @@ wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/rdkx5/vi
 <TabItem value="s100" label="RDK S100">
 
 ```bash
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks100/vit_model_int16.hbm
 ```
 
@@ -86,16 +83,12 @@ sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu7/cpufreq/scaling_gov
 
 #### 单图推理体验
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-```
-
 <Tabs groupId="tros-distro">
 <TabItem value="x5" label="RDK X5">
 
 ```bash
+source /opt/tros/humble/setup.bash
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16_v2.bin
 ```
 
@@ -104,6 +97,8 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 <TabItem value="s100" label="RDK S100">
 
 ```bash
+source /opt/tros/humble/setup.bash
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16.hbm
 ```
 
