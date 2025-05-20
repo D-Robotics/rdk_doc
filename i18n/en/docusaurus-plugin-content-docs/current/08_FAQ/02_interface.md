@@ -4,11 +4,11 @@ sidebar_position: 2
 
 # 8.2 Interface Class
 
-### 40PIN Interface
+### 40-pin GPIO Interface
 
 <font color='Blue'>[Question]</font> 
 
-- Does the development board support VDD_5V as a power input in the 40PIN interface?
+- Does the development board support VDD_5V as a power input in the 40-pin GPIO interface?
 
 <font color='Green'>[Answer]</font> 
 
@@ -16,7 +16,7 @@ sidebar_position: 2
 
 <font color='Blue'>[Question]</font> 
 
-- Does the development board support the C/C++ interface functionality in the 40PIN interface?
+- Does the development board support the C/C++ interface functionality in the 40-pin GPIO interface?
 
 <font color='Green'>[Answer]</font>
 

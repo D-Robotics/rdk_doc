@@ -70,6 +70,8 @@ Please refer to [Remote Login - SSH Login](./remote_login#ssh) for how to use SS
 
 ## Enable VNC Service
 
+The VNC service is only available on the Desktop software.
+
 <Tabs groupId="rdk-type">
 <TabItem value="desktop" label="Desktop">
 
@@ -91,7 +93,7 @@ Please refer to [Remote Login - VNC Login](./remote_login#vnc-login) for how to 
 <Tabs groupId="rdk-type">
 <TabItem value="desktop" label="Desktop">
 
-For the desktop graphical system, there are four login modes available:
+The desktop graphical system supports four login modes:
 
 1. Start the graphical interface and automatically log in.
 2. Start the graphical interface and require manual login by the user.
@@ -108,7 +110,7 @@ It will take effect after restarting.
 
 <TabItem value="server" label="Server">
 
-Server system, supporting four login modes:
+The server system supports two login modes:
 
 1. Character Terminal, Automatic Login
 2. Character Terminal, User Manual Login
@@ -120,20 +122,20 @@ It will take effect after restarting.
 </TabItem>
 </Tabs>
 
-## Set up Chinese Environment
+## Set up Chinese Environment (Optional)
 
 <Tabs groupId="rdk-type">
 <TabItem value="desktop" label="Desktop">
 
 Open `RDK Configuration` through the menu bar. Select Localisation Options -> Locale to enter the following configuration.
 
-Step 1: Select the language environment(s) you need (multiple choices), generally choose `en_US.UTF-8 UTF-8` and `zh_CN.UTF-8 UTF-8`. Press Enter to confirm and proceed to the next step.
+Step 1: Select the language environment(s) you need (multiple choice). Generally, you should choose `en_US.UTF-8 UTF-8` and `zh_CN.UTF-8 UTF-8`. Press Enter to confirm and proceed to the next step.
 
 ![image-20231127113356503](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
 
-Step 2: Select the default language environment, choose `zh_CN.UTF-8 UTF-8` for Chinese environment. Press Enter and wait for a while to complete the configuration.
+Step 2: Select the default language environment. Choose `zh_CN.UTF-8 UTF-8` for Chinese environment. Press Enter and wait for a while to complete the configuration.
 
-Step 3: Restart the machine to apply the latest configuration. `sudo reboot`
+Step 3: Restart the machine to apply the latest configuration using `sudo reboot`.
 
 :::tip
 
@@ -159,7 +161,7 @@ Step 3: Restart the machine to apply the latest configuration. Execute `sudo reb
 </TabItem>
 </Tabs>
 
-## Set up  Chinese input method
+## Set up  Chinese input method (Optional)
 
 <Tabs groupId="rdk-type">
 <TabItem value="desktop" label="Desktop">

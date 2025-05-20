@@ -14,7 +14,8 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-RDK X3 provides interfaces such as Ethernet port, USB, camera, LCD, HDMI, 40PIN, etc., which facilitate the development and testing of image multimedia and deep learning algorithms. The interface layout of the development board is as follows:
+RDK X3 provides interfaces such as Ethernet port, USB, camera, LCD, HDMI, 40-pin GPIO, etc., which facilitate the development and testing of multimedia processing and deep learning algorithms. The interface layout of the development board is as follows:
+
 ![image-20220802160110194](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-20220802160110194.jpg)
 
 
@@ -22,14 +23,14 @@ RDK X3 provides interfaces such as Ethernet port, USB, camera, LCD, HDMI, 40PIN,
 | --- | -------- | --- | -------- | --- | -------- |
 | 1 | USB Type C power interface | 2 | MIPI CSI camera interface | 3 | Debug serial port |
 | 4 | Micro USB 2.0 interface | 5 | Two USB 2.0 Type A interfaces | 6 | USB 3.0 Type A interface |
-| 7 | Gigabit Ethernet port | 8 | 40PIN interface | 9 | HDMI interface |
+| 7 | Gigabit Ethernet port | 8 | 40-pin GPIO | 9 | HDMI interface |
 | 10 | Power and status LED indicators | 11 | Wi-Fi antenna interface | 12 | TF card interface (bottom) |
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-The official carrier board of RDK X3 Module provides various peripheral interfaces such as Ethernet port, USB, HDMI, MIPI CSI, MIPI DSI, 40PIN, etc., which facilitate the functional verification and development testing of RDK X3 Module. The interface layout is as follows:
+The official carrier board of RDK X3 Module provides various peripheral interfaces such as Ethernet port, USB, HDMI, MIPI CSI, MIPI DSI, 40-pin GPIO, etc., which facilitate the functional verification and development testing of RDK X3 Module. The interface layout is as follows:
 
 ![image-carrier-board1](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board1.jpg) 
 
@@ -46,6 +47,7 @@ The official carrier board of RDK X3 Module provides various peripheral interfac
 
 </Tabs>
 
+---
 
 ## Core Module Interface
 
@@ -72,6 +74,8 @@ Steps for module installation:
 
 
 </Tabs>
+
+---
 
 ## Power interface
 
@@ -100,7 +104,7 @@ Do not use the USB interface of the computer to power the development board, as 
 
 :::
 
-
+---
 
 ## Debug UART{#debug_uart}
 
@@ -115,7 +119,9 @@ The development board provides one debug UART (Interface 3) for serial port logi
 - Stop bits: 1
 - Flow Control: None
 
-When connecting the UART, the DuPont wire needs to be connected to Interface 3 of the development board, and the USB serial adapter needs to be connected to the computer. After the connection is completed, it should look like the following figure:![image-20220612121707048](../../../../../../static/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
+When connecting the UART, the DuPont wire needs to be connected to Interface 3 of the development board, and the USB serial adapter needs to be connected to the computer. After the connection is completed, it should look like the following figure:
+
+![image-20220612121707048](../../../../../../static/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
 
 </TabItem>
@@ -136,6 +142,7 @@ Typically, when users use this interface for the first time, they need to instal
 
 </Tabs>
 
+---
 
 ## Ethernet Port
 
@@ -197,13 +204,15 @@ If the system displays the following printout after inserting the Ethernet cable
 
 </Tabs>
 
+---
+
 ## HDMI Interface {#hdmi_interface}
 
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
 
-The development board provides one HDMI display interface (Interface 9), supporting a maximum resolution of 1080P. The development board outputs the Ubuntu system desktop (Ubuntu Server version displaying logo icons) on the monitor via the HDMI interface. Additionally, the HDMI interface supports real-time display of camera and network stream images.
+The development board provides one HDMI display interface (Interface 9), supporting a maximum resolution of 1080p. The development board outputs the Ubuntu system desktop (Ubuntu Server version displaying logo icons) on the monitor via the HDMI interface. Additionally, the HDMI interface supports real-time display of camera and network stream images.
 
 The currently supported display resolutions for the HDMI interface are as follows:
 
@@ -216,7 +225,7 @@ The currently supported display resolutions for the HDMI interface are as follow
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-The RDK X3 Module carrier board provides one HDMI display interface (Interface 2), supporting a maximum resolution of 1080P. The development board outputs the Ubuntu system desktop (Ubuntu Server version displaying logo icons) on the monitor via the HDMI interface. Additionally, the HDMI interface supports real-time display of camera and network stream images.
+The RDK X3 Module carrier board provides one HDMI display interface (Interface 2), supporting a maximum resolution of 1080p. The development board outputs the Ubuntu system desktop (Ubuntu Server version displaying logo icons) on the monitor via the HDMI interface. Additionally, the HDMI interface supports real-time display of camera and network stream images.
 
 The currently supported display resolutions for the HDMI interface are as follows:
 
@@ -229,6 +238,8 @@ The currently supported display resolutions for the HDMI interface are as follow
 
 
 </Tabs>
+
+---
 
 ## USB Interface
 
@@ -243,9 +254,11 @@ Due to the X3 chip providing only one USB interface, the development board imple
 | USB 2.0 Type A    | Interface 5      | 2        | USB Host mode, used for connecting USB 2.0 peripherals      |
 | USB 3.0 Type A    | Interface 6      | 1        | USB Host mode, used for connecting USB 3.0 peripherals      |
 
-USB host and device mode switching is fully implemented by hardware circuits. Users only need to connect devices according to the logic in the table above.
+:::note USB Modes
+The USB host/device mode switch is completely implemented by the hardware circuit. Users only need to connect the devices according to the logic in the above table.
 
-The development board's USB Host and Device functions are mutually exclusive. When a device is connected to the Device interface, the Host interface will automatically become inactive.
+The USB host and device functions on the development board are mutually exclusive. After connecting a device to the device interface, the host interface will be automatically disabled.
+:::
 
 ### Using a USB Flash Drive
 
@@ -276,7 +289,7 @@ The RDK X3 core module only supports one USB3.0 interface. Therefore, the carrie
 | USB3.0 Type A Host    | Interface 3      | 4        | Used for USB peripherals   |
 | Micro USB2.0 Device   | Interface 7      | 1        | Used for adb debugging and fastboot flashing |
 
-:::caution Note
+:::note USB Modes
 The USB host/device mode switch is completely implemented by the hardware circuit. Users only need to connect the devices according to the logic in the above table.
 
 The USB host and device functions on the development board are mutually exclusive. After connecting a device to the device interface, the host interface will be automatically disabled.
@@ -286,6 +299,7 @@ The USB host and device functions on the development board are mutually exclusiv
 
 </Tabs>
 
+---
 
 ## USB Camera
 
@@ -358,6 +372,8 @@ Frames per second: 30.000 (30/1)
 Read buffers: 0
 ```
 
+---
+
 ## MIPI CSI{#mipi_port}
 
 <Tabs groupId="rdk-type">
@@ -376,12 +392,14 @@ The development board provides 1 MIPI CSI interface (Interface 2), which allows 
 | 4   | IMX477 | 1200W      | H:62  V:37 D:68   | 0x1a |
 | 5   | OV5647 | 500W       | H:62  V:37 D:68   | 0x36 |
 
-The camera module is connected to the development board through a FPC cable. Please note that the blue side of the cable should face up when inserting it into the connector.
+The camera module is connected to the development board through an FFC (Flat Flex Cable). Please note that the blue side of the cable should face up when inserting it into the connector.
 
 Taking the JXF37 camera module as an example, after installation, it should look like the following picture:
+
 ![image-X3-PI-Camera](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
 
-After installation, users can use the i2cdetect command to verify if the I2C address of the module can be detected correctly. If it cannot be detected, users need to check if the FPC cable connection is correct. When the I2C address is successfully detected, the log will print as follows:
+After installation, users can use the `i2cdetect` command to verify if the I2C address of the module can be detected correctly. If it cannot be detected, users need to check if the FFC connection is correct. When the I2C address is successfully detected, the log will print as follows:
+
 ```bash
 # First, enable the 24MHz master clock for the sensor
 sunrise@ubuntu:~# sudo bash -c "echo 1 > /sys/class/vps/mipi_host0/param/snrclk_en"
@@ -399,7 +417,7 @@ sunrise@ubuntu:~# sudo i2cdetect -y -r 1
 70: -- -- -- -- -- -- -- --                         
 ```
 
-The purchase method for the above Camera module can be referred to on the [purchase link](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
+Refer to the [purchase link](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md) for more details on purchasing the above camera module.
 
 </TabItem>
 
@@ -407,8 +425,8 @@ The purchase method for the above Camera module can be referred to on the [purch
 
 The RDK X3 Module carrier board provides three sets of MIPI CSI interfaces for CAM 0/1/2, allowing for the simultaneous connection of three camera modules to meet the diverse needs of users. The specific descriptions are as follows:
 
-1. CAM 0/2 (Interfaces 16/17), using 15-pin FPC connectors, can directly connect to various camera modules such as Raspberry Pi's OV5647, IMX219, IMX477, etc.
-2. CAM 1 (Interface 11), using a 24-pin FPC connector, supports various camera modules such as F37, GC4663, IMX415, etc.
+1. CAM 0/2 (Interfaces 16/17), using 15-pin FFC connectors, can directly connect to various camera modules such as Raspberry Pi's OV5647, IMX219, IMX477, etc.
+2. CAM 1 (Interface 11), using a 24-pin FFC connector, supports various camera modules such as F37, GC4663, IMX415, etc.
 
 The basic specifications of the camera modules are as follows:
 
@@ -430,26 +448,29 @@ The purchase links for the above camera modules can be found [here](../../07_Adv
 Important: It is strictly prohibited to plug or unplug the camera while the development board is powered on, as it may damage the camera module.
 :::
 
+---
 
 ## MIPI DSI Interface
 
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-Not applicable.
+This interface is not available.
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-The RDK X3 Module carrier board provides one MIPI DSI interface (Interface 10) that can be used for connecting LCD displays, etc. The interface uses a 15-pin FPC connector and can directly connect to various LCD displays for Raspberry Pi.
+The RDK X3 Module carrier board provides one MIPI DSI interface (Interface 10) that can be used for connecting LCD displays, etc. The interface uses a 15-pin FFC connector and can directly connect to various LCD displays for Raspberry Pi.
 
-For detailed instructions on how to use the MIPI DSI interface, please refer to [MIPI DSI Display Usage](/hardware_development/rdk_x3_module/display).
+For detailed instructions on how to use the MIPI DSI interface, please refer to [MIPI DSI Display Usage](/Advanced_development/hardware_development/rdk_x3_module/display).
 
 </TabItem>
 
 
 </Tabs>
+
+---
 
 ## Micro SD Interface
 
@@ -475,6 +496,8 @@ Hot-plugging the TF storage card is prohibited during the use of the development
 
 :::
 
+---
+
 ## Wi-Fi Antenna Interface
 
 <Tabs groupId="rdk-type">
@@ -485,8 +508,9 @@ Video: https://www.youtube.com/watch?v=daliyPZNoLM&list=PLSxjn4YS2IuFUWcLGj2_uuC
 The development board supports both onboard and external antennas for wireless networking. In most cases, the onboard antenna can meet the user's needs. However, when the development board is installed with a metal casing, an external antenna needs to be connected to Interface 11 to enhance signal strength.
 
 :::tip 
-To convert the onboard antenna to an external antenna, use the following command: sed -i 's/trace/cable/g' /etc/init.d/hobot-wifi. Restart the system for the changes to take effect.
-To revert to the onboard antenna, use the following command: sed -i 's/cable/trace/g' /etc/init.d/hobot-wifi. Restart the system for the changes to take effect.
+To convert the onboard antenna to an external antenna, use the following command: `sed -i 's/trace/cable/g' /etc/init.d/hobot-wifi`. Restart the system for the changes to take effect.
+
+To revert to the onboard antenna, use the following command: `sed -i 's/cable/trace/g' /etc/init.d/hobot-wifi`. Restart the system for the changes to take effect.
 :::
 
 </TabItem>
@@ -501,7 +525,9 @@ The development board supports both on-board and external antenna configurations
 
 </Tabs>
 
-## 40-pin header interface
+---
+
+## 40-pin GPIO header interface
 
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
@@ -514,7 +540,7 @@ The development board has silk screen marking for the 40-pin interface, making i
 
 ![image-X3-PI-40Pin_Index](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
-For the usage of each function of the 40-pin interface, please refer to the [40PIN Function Usage](../../03_Basic_Application/03_40pin_user_guide/40pin_define.md) section.
+For the usage of each function of the 40-pin interface, please refer to the [40-pin GPIO Function Usage](../../03_Basic_Application/03_40pin_user_guide/40pin_define.md) section.
 
 </TabItem>
 
@@ -532,13 +558,14 @@ By default, the RDK X3 Module core module firmware and carrier board voltage con
 
 </Tabs>
 
+---
 
 ## Functional Control Interfaces
 
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-No such interface.
+This interface is not available.
 
 </TabItem>
 
@@ -565,7 +592,7 @@ In addition, for user convenience, the above pin definitions are also reflected 
 
 </Tabs>
 
-
+---
 
 ## IO Level Switching Interface
 
@@ -586,12 +613,12 @@ The interface signals from top to bottom are 3.3V, VREF, 1.8V, as shown in the f
 
 It is important to note that **this interface cannot be left unconnected, otherwise the core module will not be able to start up due to power supply abnormalities**.
 
-:::caution When switching levels, please follow the steps below strictly.
+:::caution When switching levels, please strictly follow the steps below.
 By default, the firmware of the core module of RDK X3 Module and the level configuration of the carrier board are set to 3.3V. If you need to switch the IO level, please follow the steps below:
 
 1. Download the boot firmware that supports the 1.8V level configuration from the [firmware download address](https://archive.d-robotics.cc/downloads/en/miniboot/).
-2. Use the official programming tool `hbupdate` to update the boot firmware of the core board. For detailed instructions, please refer to [Image Flash](./install_os).
-3. Power off the device, short connect the `vref` and `1.8V` signals using a jumper cap, and then power on again.
+2. Use the official programming tool `hbupdate` to update the boot firmware of the core board. For detailed instructions, please refer to [Image Flash](/install_os).
+3. Power off the device, connect the `vref` and `1.8V` signals using a jumper cap, and then power on again.
 :::
 
 </TabItem>

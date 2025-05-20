@@ -67,7 +67,7 @@ Purchase link:
 
 Connection steps:
 
-1. Connect the microphone board to the RDK X3 40PIN GPIO interface. After the connection, it looks like the following image:
+1. Connect the microphone board to the RDK X3 40-pin GPIO GPIO interface. After the connection, it looks like the following image:
 
    ![circle_mic_full](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 

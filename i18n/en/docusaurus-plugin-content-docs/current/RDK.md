@@ -2,24 +2,25 @@
 sidebar_position: 1
 ---
 
-# D-Robotics  RDK Suite
+# D-Robotics RDK Suite
 
-This document is the user manual for the D-Robotics RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. Users are welcome to update and experience, please refer to the [System Burning](./01_Quick_start/install_os.md) section for specific instructions.
+This document is the user manual for the D-Robotics RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. For more information, including getting started with installing the OS on one of these products, please refer to the [System Burning](/install_os) section.
 
-:::info Note
+:::info RDK X3 Note
 
-- All **RDK X3** mentioned in this document use the Ubuntu 22.04 operating system.
+- All **RDK X3** boards mentioned in this document use the Ubuntu 22.04 operating system.
 
-- The **RDK X3 Module** comes with a pre-burned test version system image, to ensure the use of the latest version of the system, it is recommended to refer to this document to complete [the burning of the latest version of the system image](./01_Quick_start/install_os.md).
+- The **RDK X3 Module** comes with a pre-burned test version system image. To ensure the use of the latest version of the system, it is recommended to refer to this document to complete [the burning of the latest version of the system image](/install_os).
 
-To check the system version number, you can use the following command `cat /etc/version`.
+To check the system version number, you can use the following command: `cat /etc/version`.
+
 :::
 
 
 
 ## Overview of D-Robotics RDK Suite
 
-**D-Robotics Developer Kits**, abbreviated as D-Robotics RDK Suite, is a robot development kit built on the D-Robotics intelligent chip, including RDK X3, RDK X3 Module. In combination with the TogetheROS.Bot robot middleware, the D-Robotics RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
+**D-Robotics Developer Kits**, abbreviated as D-Robotics RDK Suite, is a robot development kit built on the D-Robotics intelligent chip, including the RDK X3 and the RDK X3 Module. In combination with the TogetheROS.Bot robot middleware, the D-Robotics RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
 
 This document will provide detailed instructions on how to use the D-Robotics RDK Suite, including setting up the development environment, running example tutorials, developing applications, and customizing system images. Regardless of which hardware you choose to use, the content described in this document will provide you with a consistent user experience.
 
@@ -46,10 +47,10 @@ This section introduces a series of configuration steps and tips to ensure the s
 This section covers the pre-installed function examples in the system, such as GPIO control, audio/video capture, and initial multimedia usage.  
 
 **IV. Algorithm Application Development Guide**  
-This section introduces the usage of simplified algorithm interfaces in both Python and C++, which are easy to use and allow users to get started quickly. These interfaces are built on lower-level inference interfaces and come with basic usage examples.  
+This section introduces the usage of simplified algorithm interfaces in both Python and C++, which are easy to use and allow users to quickly get started. These interfaces are built on lower-level inference interfaces and come with basic usage examples.  
 
-**V. Robot Application Development Guide**  
-This section is aimed at robot manufacturers and ecosystem developers, introducing a robot operating system designed to unleash the intelligent potential of robotic scenarios, enabling efficient and convenient robot development for ecosystem developers and commercial customers, and helping to create competitive intelligent robot products.  
+**V. Robot Application Development Guide**
+This section is aimed at robot manufacturers and ecosystem developers, introducing a robot operating system designed to unlock the intelligent capabilities of robotic applications. It enables efficient, convenient robot development for ecosystem developers and commercial customers, helping them build competitive, intelligent robotic products.
 
 **VI. Application Development Guide**  
 This section includes application development guides for various aspects, such as deep learning line-following cars, AMR development guides, and large model applications.  
