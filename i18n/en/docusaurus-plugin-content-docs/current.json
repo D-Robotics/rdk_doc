@@ -91,16 +91,16 @@
     "message": "Robotics Application Development",
     "description": "The generated-index page description for category 5. 机器人应用开发 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.5.1. 系统安装": {
-    "message": "5.1. System Installation",
+  "sidebar.tutorialSidebar.category.5.1 系统安装": {
+    "message": "5.1 System Installation",
     "description": "The label for category 5.1. 系统安装 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.5.2. 功能体验": {
-    "message": "5.2. Feature Experience",
+  "sidebar.tutorialSidebar.category.5.2 功能体验": {
+    "message": "5.2 Feature Experience",
     "description": "The label for category 5.2. 功能体验 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.5.3. Boxs算法仓库": {
-    "message": "5.3. Boxs Algorithm Repository",
+  "sidebar.tutorialSidebar.category.5.3 Boxs算法仓库": {
+    "message": "5.3 Boxs Algorithm Repository",
     "description": "The label for category 5.3. Boxs算法仓库 in sidebar tutorialSidebar"
   },
 
