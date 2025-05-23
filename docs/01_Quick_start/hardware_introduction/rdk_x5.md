@@ -120,7 +120,7 @@ RDK X5 Module载板提供一组300pin板板连接器，用于核心模组的安�
 
 开发板提供一路调试串口(<font color='Red'>背面</font>接口22)，以实现串口登录、调试功能。电脑串口工具的参数配置如下：
 
-- 波特率（Baud rate）：115200
+- 波特率（Baud rate）：921600
 - 数据位（Data bits）：8
 - 奇偶校验（Parity）：None
 - 停止位（Stop bits）：1
