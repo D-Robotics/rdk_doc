@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
-| RDK X5 | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 | X86     | Ubuntu 20.04 (Foxy) | 使用图像发布工具发布YUV图像，然后进行图像编码，最后通过Web展示 |
 

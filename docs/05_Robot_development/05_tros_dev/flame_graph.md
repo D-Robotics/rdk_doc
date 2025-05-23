@@ -20,7 +20,7 @@ sidebar_position: 4
 
 | 平台    | 运行方式 |
 | ------- | ---------|
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)    |
+| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)    |
 | RDK Ultra| Ubuntu 20.04 (Foxy) |
 
 ## 准备工作

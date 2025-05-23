@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
 | 平台                             | 运行方式     | 示例功能                                        |
 | -------------------------------- | ------------ | ----------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK X5 | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 
 ## 准备工作
@@ -73,8 +73,19 @@ import TabItem from '@theme/TabItem';
 
 手势识别(hand_gesture_detection)package订阅人手关键点检测package发布的人手关键点检测结果，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
 
-**使用MIPI摄像头发布图片**
+### 启动动态手势识别
 
+launch启动脚本默认只启动静态手势识别，可以在运行时使用`is_dynamic_gesture`参数切换为只启动动态手势识别，例如：`ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`。
+
+以下示例默认只启动静态手势识别。
+
+:::warning
+1. `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py`启动命令只支持输出静态或者动态手势识别，如需同时启动静态和动态手势识别，请使用`ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py`启动命令。
+
+2. 动态手势识别功能仅限于`TROS Humble 2.3.1`以及后续版本。TROS版本发布记录：[点击跳转](/docs/05_Robot_development/01_quick_start/changelog.md)，版本查看方法：[点击跳转](/docs/05_Robot_development/01_quick_start/install_tros.md)。
+:::
+
+### 使用MIPI摄像头
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -110,7 +121,7 @@ export CAM_TYPE=mipi
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 ```
 
-**使用USB摄像头发布图片**
+### 使用USB摄像头
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -146,7 +157,7 @@ export CAM_TYPE=usb
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 ```
 
-**使用本地回灌图片**
+### 使用本地图片回灌
 
 :::warning
 仅`TROS Humble 2.3.1`以及后续版本支持此功能。
@@ -163,16 +174,12 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
-# 配置本地回灌图片
+# 配置本地图片回灌
 export CAM_TYPE=fb
 
 # 启动launch文件
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
 ```
-
-:::info
-launch脚本默认启动静态手势识别，对于`TROS Humble`版本，可以使用`is_dynamic_gesture`参数指定启动动态手势识别：`ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`。
-:::
 
 ## 结果分析
 

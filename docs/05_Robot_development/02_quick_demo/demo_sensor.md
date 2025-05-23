@@ -21,7 +21,7 @@ import TabItem from '@theme/TabItem';
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -321,9 +321,9 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
 | 1    | F37    | ![F37](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W像素 | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
 | 2    | GC4663 | ![GC4663](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W像素 | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
-| 3    | IMX219 | ![IMX219](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W像素 | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 3    | IMX219 | ![IMX219](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W像素 | RDK X3, RDK X3 Module, RDK Ultra, RDK X5, RDK X5 Module | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
 | 4    | IMX477 | ![IMX477](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 200W像素 | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
-| 5    | OV5647 | ![OV5647](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W像素 | RDK X3, RDK X3 Module, RDK X5 | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 5    | OV5647 | ![OV5647](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -547,7 +547,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 类型 | 型号 | 规格 | 支持平台 |
 | ------ | ------ | ------ | ------ |
-| 摄像头| SC230ai | 200W | RDK X5 |
+| 摄像头| SC230ai | 200W | RDK X5, RDK X5 Module |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -555,13 +555,13 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 平台   | 运行方式      |
 | ------ | ------------- |
-| RDK X5 | Ubuntu 22.04 (Humble)  |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
 
 ### 准备工作
 
 #### RDK平台
 
-1. 确认摄像头正确接入RDK，例如 SC230ai 双目摄像头的接入RDK X5方式如下图：
+1. 确认摄像头正确接入RDK，例如 SC230ai 双目摄像头的接入RDK X5, RDK X5 Module方式如下图：
 
     ![image-X5-PI-DualCamera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
 
@@ -975,7 +975,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
@@ -1105,7 +1105,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 
 ### 准备工作
 
@@ -1298,7 +1298,7 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 | 平台    | 运行方式     |
 | ------- | ------------ |
-| RDK X5 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 
 ### 准备工作
 
