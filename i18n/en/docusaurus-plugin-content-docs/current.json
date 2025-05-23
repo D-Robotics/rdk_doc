@@ -12,11 +12,11 @@
     "description": "The generated-index page description for category 1. 快速开始 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.1 硬件简介": {
-    "message": "1.1 hardware_introduction",
+    "message": "1.1 Hardware Introduction",
     "description": "The label for category 1.1 硬件简介 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.2 系统烧录": {
-    "message": "1.2 install_os",
+    "message": "1.2 Install Operating System",
     "description": "The label for category 1.2 系统烧录 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.RDK X3/X5（Python）": {
