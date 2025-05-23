@@ -14,12 +14,10 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
 ## 安装方法
 
 - ### 硬件部署
-1. 按照下图方式，将转接板接入RDK X3的40pin header。  
+1. 按照下图方式，将转接板接入RDK X5的40pin header。  
 ![image-audio-driver-hat-setup](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
 
-2. 使用命令`cat /sys/class/socinfo/som_name`，查询开发板类型，并根据返回值设置音频子板的拨码开关状态。
-   - 返回值为5或者6时，3个拨码开关全部拨到`ON`位置。
-   - 返回值为8时，3个拨码开关全部拨到`OFF`位置。
+2. 3个拨码开关全部拨到`OFF`位置。
 
 - ### 软件配置
 1. 使用`srpi-config`配置音频板  

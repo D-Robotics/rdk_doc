@@ -32,6 +32,23 @@ This document will provide detailed instructions on how to use the D-Robotics RD
 
 ![image-20230522171439846](../../../../static/img/image-rdk-serials_en.jpg)
 
+### Operating Temperature and Thermal Recommendations
+
+#### Operating Temperature Range
+
+- Recommended ambient temperature: **-20°C to 60°C**  
+    Ensure the device operates within this temperature range to maintain stability and reliability.
+
+#### Chip Thermal Characteristics
+
+- Maximum chip junction temperature: **105°C**
+- When the chip junction temperature exceeds **95°C**, the system will automatically initiate frequency reduction to lower the temperature, which may affect performance.
+
+#### Thermal Design Recommendations
+
+- **Development and Testing Phase**: It is recommended to use heat sinks, the RDK Case, and cooling fans for additional thermal management.
+- **Productization Phase**: Conduct thorough thermal design evaluation and optimization based on the overall system thermal environment. Ensure the chip operates within a reasonable temperature range under all usage scenarios to avoid performance degradation or system instability due to overheating.
+
 
 ## Documentation Usage Guide
 
