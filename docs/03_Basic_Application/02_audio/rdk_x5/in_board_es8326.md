@@ -29,40 +29,58 @@ sidebar_position: 2
 
 检查声卡是否存在，检查设备编号。
 
-通过如下命令确认声卡是否注册
+通过 `cat /proc/asound/cards` 命令确认声卡是否注册
+
 ```shell
  0 [duplexaudio    ]: simple-card - duplex-audio
                       duplex-audio
 ```
 
-通过如下命令确认逻辑设备
+通过 `cat /proc/asound/devices` 命令确认逻辑设备
+
 ```shell
 root@ubuntu:~# cat /proc/asound/devices
   2: [ 0- 0]: digital audio playback
   3: [ 0- 0]: digital audio capture
   4: [ 0]   : control
  33:        : timer
-
 ```
-通过如下命令检查用户空间的实际设备文件
+
+通过 `ls /dev/snd/` 命令检查用户空间的实际设备文件
 ```shell
 root@ubuntu:~# ls /dev/snd/
 by-path/   controlC0  pcmC0D0c   pcmC0D0p   timer    
 ```
 
-通过上述查询，可以确认，声卡0对应的是板载声卡；设备也是存在的, 且设备号为 `0-0` , 实际我们操作的设备应该是`pcmC0D0p 和 pcmC0D0c`。
+通过上述查询，可以确认，声卡0对应的是板载声卡；设备也是存在的, 且设备号为 `0-0` , 实际我们操作的设备应该是 `pcmC0D0p` 和 `pcmC0D0c`。
 
 - ### 录音
 
+运行以下命令：
+
 ```
-# arecord -Dhw:0,0 -c 2 -r 48000 -f S24_LE -t wav -d 10 /userdata/record1.wav
+arecord -Dhw:0,0 -c 2 -r 48000 -f S24_LE -t wav -d 10 /userdata/record1.wav
+```
+
+输出如下，此时应正常录制音频文件：
+
+```
 Recording WAVE '/userdata/record1.wav' : Signed 24 bit Little Endian, Rate 48000 Hz, Stereo
 ```
+
 观察到屏幕输出正常的录制log，等待大概10s（-d 10 中的10代表10秒），录制结束，就可以通过如下命令来播放刚刚的录音了。
 
 - ### 播放
+
+运行以下命令：
+
 ```
-# aplay -D hw:0,0 /userdata/record1.wav
+aplay -D hw:0,0 /userdata/record1.wav
+```
+
+输出如下，此时应正常播放音频文件：
+
+```
 Playing WAVE '/userdata/record1.wav' : Signed 24 bit Little Endian, Rate 48000 Hz, Stereo
 ```
 正常情况下，可以在耳机中听到刚刚录制的声音。
