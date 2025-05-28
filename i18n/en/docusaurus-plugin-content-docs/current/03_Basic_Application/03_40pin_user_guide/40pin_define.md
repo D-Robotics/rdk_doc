@@ -55,7 +55,7 @@ The RDK Ultra provides the 40-pin GPIOs and their definitions as follows:
 
 **Video Reference:** [Watch on Bilibili](https://www.bilibili.com/video/BV1rm4y1E73q/?p=16)
 
-The development board includes various 40PIN pin function test codes in the `/app/40pin_samples/` directory, such as GPIO input/output testing, PWM, I2C, SPI, and UART tests. All test programs are written in Python. Detailed information about each module can be found in other sections of this chapter.
+The development board includes various 40-pin GPIO pin function test codes in the `/app/40pin_samples/` directory, such as GPIO input/output testing, PWM, I2C, SPI, and UART tests. All test programs are written in Python. Detailed information about each module can be found in other sections of this chapter.
 
 For example, in `/app/40pin_samples/button_led.py`, the program configures pin `37` as input and pin `36` as output. The output state of pin `36` is controlled based on the input state of pin `37`.
 
