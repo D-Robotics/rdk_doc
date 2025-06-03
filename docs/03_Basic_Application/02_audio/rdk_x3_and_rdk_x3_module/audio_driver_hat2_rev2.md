@@ -90,15 +90,15 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
   - `-n 4`：缓冲区数量
   - `-t 5`：录音时长5秒
 
-    ```shell
-    tinycap ./2chn_test.wav -D 0 -d 1 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
-    ```
+  ```shell
+  tinycap ./2chn_test.wav -D 0 -d 1 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
 
 - **4通道麦克风录音**
 
-    ```shell
-    tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
-    ```
+  ```shell
+  tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
 
 ### 3. 播放操作
 
@@ -107,9 +107,9 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
   - `-D 0`：声卡编号
   - `-d 0`：播放设备编号（以上操作查看）
 
-    ```shell
-    tinyplay ./2chn_test.wav -D 0 -d 0
-    ```
+  ```shell
+  tinyplay ./2chn_test.wav -D 0 -d 0
+  ```
 
 ### 4. 音频回采测试
 
@@ -118,15 +118,15 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
 - **8通道麦克风录音（含回采）**  
   该音频板的回采信号映射在录音通道7和8。需使用8通道录音命令：
 
-    ```shell
-    tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 512 -n 4 -t 5
-    ```
+  ```shell
+  tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
 
 - **同时启动双通道音频播放**
 
-    ```shell
-    tinyplay ./2chn_test.wav -D 0 -d 0
-    ```
+  ```shell
+  tinyplay ./2chn_test.wav -D 0 -d 0
+  ```
 
 - **分析回采信号**  
   录制完成后，可使用如Audacity等音频分析软件，打开`8chn_test.wav`，查看第7、8通道的波形或频谱，验证回采功能是否正常。
