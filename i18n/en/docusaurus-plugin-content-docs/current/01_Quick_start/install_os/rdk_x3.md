@@ -19,7 +19,7 @@ Before using the RDK X3 development board, the following preparations need to be
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-The RDK X3 development board is powered by a USB Type C interface. It requires a power adapter that supports **5V/3A** to power the board. It is recommended to use the recommended power adapter model in the [Basic Accessories List](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md) section.
+The RDK X3 development board is powered by a USB Type C interface. It requires a power adapter that supports **5V/3A** to power the board. It is recommended to use a power adapter from the [Basic Accessories List](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md) section.
 
 </TabItem>
 
@@ -92,8 +92,7 @@ The RDK X3 Module supports two types of network interfaces: Ethernet and Wi-Fi (
 
 ## System burning
 
-The RDK suite currently provides the Ubuntu 20.04/22.04 system image, which supports desktop graphical interaction.
-
+The RDK suite currently provides the Ubuntu 20.04/22.04 system images, which support desktop graphical interaction.
 
 ### Image download 
 
@@ -120,7 +119,7 @@ Click [**Download image**](https://archive.d-robotics.cc/downloads/en/os_images/
 
 ![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
-After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`
+After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`.
 
 **Version description:**
 
@@ -145,8 +144,8 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 
 :::tip
 
-Before burning the Ubuntu system image, please make the following preparations:
-- Prepare a Micro SD card with a capacity of at least 8GB
+Before burning the Ubuntu system image, please prepare the following:
+- Micro SD card with a capacity of at least 8GB
 - SD card reader
 - Download the image burning tool balenaEtcher (available for download [here](https://www.balena.io/etcher/))
 :::
@@ -181,67 +180,91 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
 
 1. For PCs using the Windows system, before using the flashing tool, you need to confirm whether the fastboot driver program has been installed. Please follow the steps below to check:
 
-   (1) Ground the `Boot` pin of the RDK X3 carrier board using a jumper cap. Refer to the figure below for the pin position.    
+   1. Ground the `Boot` pin of the RDK X3 carrier board using a jumper cap. Refer to the figure below for the pin position.
+
+   <figure class="text--center">
    ![image-carrier-board-bootstrap](../../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-bootstrap.png)  
+   </figure>
 
-   (2) Connect the Micro USB interface of the carrier board to the computer via a USB cable. Refer to the figure below for the interface position.  
+   2. Connect the Micro USB interface of the carrier board to the computer via a USB cable. Refer to the figure below for the interface position.
+
+   <figure class="text--center">
    ![image-carrier-board-microusb](../../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-microusb.png)  
+   </figure>
 
-   (3) Power on the device and observe the port status of the computer device manager. If the `USB download gadget` unknown device appears, you need to update the device driver; otherwise, you can skip the following steps.  
+   3. Power on the device and observe the port status of the computer device manager. If the `USB download gadget` unknown device appears, you need to update the device driver; otherwise, you can skip the following steps.  
+
+   <figure class="text--center">
    ![image-usb-driver1](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
+   </figure>
 
-   (4) Download and extract the driver package `android_hobot.zip`. The download link is [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
+   4. Download and extract the driver package `android_hobot.zip`. The download link is [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
 
-   (5) Go to the extracted directory and run `5-runasadmin_register-CA-cer.cmd` as an administrator to complete the registration of the driver program.
+   5. Go to the extracted directory and run `5-runasadmin_register-CA-cer.cmd` as an administrator to complete the registration of the driver program.
 
-   (6) Double-click the `USB download gadget` unknown device, select the driver package extraction directory, and then click Next.   
+   6. Double-click the `USB download gadget` unknown device, select the driver package extraction directory, and then click Next.
+
+   <figure class="text--center">
    ![image-usb-driver2](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver2.png)
+   </figure>
 
-   (7) After the driver installation is complete, the device manager will display the fastboot device `Android Device`.   
+   7. After the driver installation is complete, the device manager will display the fastboot device `Android Device`.
+
+   <figure class="text--center">
    ![image-usb-driver3](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver3.png)
-
+   </figure>
    
 
 2. After confirming that the PC device manager displays the fastboot device `Android Device`, run `hbupdate.exe` to open the burning tool, and follow the steps below to burn the system:
 
+   <figure class="text--center">
    ![image-flash-system1](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system1.png)
+   </figure>
 
-   (1) Select the development board model, which is a required field.
+   1. Select the development board model, which is a required field.
 
-   - RDK_X3_2GB: RDK X3 (Sunrise X3), 2GB RAM version, only supports burning the minimal system image
+      - RDK_X3_2GB: RDK X3 (Sunrise X3), 2GB RAM version, only supports burning the minimal system image
 
-   - RDK_X3_4GB: RDK X3 (Sunrise X3), 4GB RAM version, only supports burning the minimal system image
+      - RDK_X3_4GB: RDK X3 (Sunrise X3), 4GB RAM version, only supports burning the minimal system image
 
-   - RDK_X3_MD_2GB: RDK X3 Module, 2GB RAM version
-   - RDK_X3_MD_4GB: RDK X3 Module, 4GB RAM version
-
+      - RDK_X3_MD_2GB: RDK X3 Module, 2GB RAM version
+      - RDK_X3_MD_4GB: RDK X3 Module, 4GB RAM version
+   
+   <figure class="text--center">
    ![image-flash-system2](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system2.png)
+   </figure>
 
-   (2) Click the `Browse` button to select the image file to be burned, this is a required option.
+   2.  Click the `Browse` button to select the image file to be burned, this is a required option.
 
+   <figure class="text--center">
    ![image-flash-system3](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system3.png)
+   </figure>
 
-   (3) Click the `Start` button to start the flashing process, and follow the popup prompts to continue:
+   3. Click the `Start` button to start the flashing process, and follow the popup prompts to continue:
 
+   <figure class="text--center">
    ![image-flash-system4](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system4.png)
+   </figure>
 
-   - When burning the image, it is necessary to connect the `BOOT` pin to the ground using a jumper cap. The pin position can be referred to in the [Function Control Interface](/hardware_development/rdk_x3_module/interface#function-control-interface).
+      - When burning the image, it is necessary to connect the `BOOT` pin to the ground using a jumper cap. The pin position can be referred to in the [Functional Control Interface](/Quick_start/hardware_introduction/rdk_x3#functional-control-interfaces).
 
-   - Connect the Micro USB interface to the computer, and the computer device manager will recognize the `Android Device` as described in the previous section for installing USB download drivers.
+      - Connect the Micro USB interface to the computer, and the computer device manager will recognize the `Android Device` as described in the previous section for installing USB download drivers.
 
-   - After the burning is completed, disconnect the power supply, disconnect the connection cable from the computer, and remove the BOOT jumper cap, then re-power on.
+      - After the burning is completed, disconnect the power supply, disconnect the connection cable from the computer, and remove the BOOT jumper cap, then re-power on.
 
-   - If the startup is normal, the `ACT LED` on the hardware will enter the state of `two fast flashes followed by one slow flash`.
+      - If the startup is normal, the `ACT LED` on the hardware will enter the state of two fast flashes followed by one slow flash.
 
-   (4) Check the upgrade results
+   4. Check the upgrade results
 
-   - When the image burning is successful, the tool will prompt as follows:
+      - When the image burning is successful, the tool will prompt as follows:
 
-   ![image-flash-system6](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
+      ![image-flash-system6](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
 
-   - When the image burning fails, the tool will prompt as follows, and at this time, you need to check if the `Android Device` device exists in the PC device manager.
+      - When the image burning fails, the tool will prompt as follows, and at this time, you need to check if the `Android Device` device exists in the PC device manager.
 
+   <figure class="text--center">
    ![image-flash-system7](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system7.png)
+   </figure>
 
 </TabItem>
 
@@ -257,7 +280,7 @@ If the burning process is interrupted, please follow the above steps to restart.
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-First, keep the development board powered off, then insert the prepared memory card into the Micro SD card slot of the development board, and connect the development board to a monitor using an HDMI cable. Finally, power on the development board.The default environment configuration will be performed when the system starts up for the first time. The entire process takes about 45 seconds, and after the configuration is completed, the Ubuntu system desktop will be displayed on the monitor.
+First, keep the development board powered off, then insert the prepared memory card into the Micro SD card slot of the development board, and connect the development board to a monitor using an HDMI cable. Finally, power on the development board. The default environment configuration will be performed when the system starts up for the first time. The entire process takes about 45 seconds, and after the configuration is completed, the Ubuntu system desktop will be displayed on the monitor.
 
 :::tip Explanation of Development Board Indicator Lights
 
@@ -318,7 +341,7 @@ After the Ubuntu Desktop version system is fully booted, the system desktop will
 
 Here are some common issues when using the development board for the first time:
 
-- **<font color='Blue'>Power on failure</font>**: Please ensure that the recommended power adapter is used for [power supply](#power_supply); please also ensure that the Micro SD card or eMMC of the development board has been flashed with the Ubuntu system image.
+- **<font color='Blue'>Power on failure</font>**: Please ensure that the recommended power adapter is used for the [power supply](#power_supply); please also ensure that the Micro SD card or eMMC of the development board has been flashed with the Ubuntu system image.
 - **<font color='Blue'>No response from USB Host interface</font>**: Please make sure that no data cable is connected to the Micro USB interface of the development board.
 - **<font color='Blue'>Hot-plugging storage card during usage</font>**: The development board does not support hot-plugging of Micro SD storage cards. If an accidental operation occurs, please restart the development board.
 
@@ -342,6 +365,6 @@ For more problem-solving, please refer to the [Frequently Asked Questions](../..
 
 :::info Note
 
-The **RDK X3 Module** comes with a pre-installed test version of the system image. To ensure the use of the latest version of the system, <font color='Red'>it is recommended to refer to this document to complete the burning of the latest version of the system image</font>.
+The **RDK X3 Module** comes with a pre-installed test version of the system image. To ensure the use of the latest version of the system, <font color='Red'>it is recommended to refer to the current document to complete the burning of the latest version of the system image</font>.
 :::
 

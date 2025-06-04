@@ -9,12 +9,12 @@ The development board is installed with the program `test_mobilenetv1.py` for te
 
 
 ## Execution Method
-Execute the program `test_mobilenetv1.py`
+Execute the program `test_mobilenetv1.py` as follows:
 
-  ```bash
-  sunrise@ubuntu:~$ cd /app/pydev_demo/01_basic_sample/
-  sunrise@ubuntu:/app/pydev_demo/01_basic_sample$ sudo ./test_mobilenetv1.py
-  ```
+```bash
+sunrise@ubuntu:~$ cd /app/pydev_demo/01_basic_sample/
+sunrise@ubuntu:/app/pydev_demo/01_basic_sample$ sudo ./test_mobilenetv1.py
+```
 
 ## Expected Effect
 Output the predicted result of the image classification algorithm, id and confidence.
