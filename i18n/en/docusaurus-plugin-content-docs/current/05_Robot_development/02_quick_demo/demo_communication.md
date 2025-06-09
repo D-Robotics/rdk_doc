@@ -25,7 +25,7 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
 
 | Platform    | System      | Function                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Show zero-copy performance test results |
+| RDK X3, RDK X3 Module, RDK X5, RDK S100 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Show zero-copy performance test results |
 
 ### Preparation
 

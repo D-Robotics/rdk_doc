@@ -19,9 +19,8 @@ import TabItem from '@theme/TabItem';
 
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK X5 (4GB内存) | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
-
-**注意：仅支持RDK X5 4GB内存版本。**
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
+| RDK S100 | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
 
 ## 准备工作
 
@@ -30,6 +29,12 @@ import TabItem from '@theme/TabItem';
 1. RDK为4GB内存版本
 2. RDK已烧录好Ubuntu 22.04系统镜像。
 3. RDK已成功安装TogetheROS.Bot。
+4. 下载安装功能包
+
+```shell
+sudo apt update
+sudo apt install tros-humble-hobot-llamacpp
+```
 
 ## 使用方式
 
@@ -37,11 +42,26 @@ import TabItem from '@theme/TabItem';
 
 运行程序前，需要下载模型文件到运行路径，命令如下：
 
+<Tabs groupId="tros-distro">
+<TabItem value="x5" label="RDK X5">
+
 ```bash
-# 下载模型文件
-wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
-wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/blob/main/rdkx5/vit_model_int16_v2.bin
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_v2.bin
 ```
+
+</TabItem>
+
+<TabItem value="s100" label="RDK S100">
+
+```bash
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks100/vit_model_int16.hbm
+```
+
+</TabItem>
+
+</Tabs>
 
 使用命令`srpi-config`修改ION memory大小为2.5GB，设置方法参考RDK用户手册配置工具`srpi-config`使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
 
@@ -63,16 +83,28 @@ sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu7/cpufreq/scaling_gov
 
 #### 单图推理体验
 
+<Tabs groupId="tros-distro">
+<TabItem value="x5" label="RDK X5">
+
 ```bash
-# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16_v2.bin
 ```
+
+</TabItem>
+
+<TabItem value="s100" label="RDK S100">
 
 ```bash
+source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-
-ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片."
+ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16.hbm
 ```
+
+</TabItem>
+
+</Tabs>
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
