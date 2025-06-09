@@ -22,7 +22,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
+| RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI摄像头，并通过Web展示图像 |
 | X86     | Ubuntu 20.04 (Foxy) | 启动USB摄像头，并通过Web展示图像 |
 
@@ -290,7 +290,7 @@ TogetheROS.Bot兼容ROS2 foxy/humble版本，为了方便预览图像效果，�
 | 平台    | 运行方式      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
@@ -685,7 +685,7 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 | 平台    | 运行方式      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作

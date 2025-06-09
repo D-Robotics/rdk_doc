@@ -18,12 +18,12 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X5">
 
-RDK X5开发板通过USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电。
+RDK X5开发板通过USB Type C接口供电，需要使用支持**5V/5A**的电源适配器为开发板供电。
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-RDK X5 Module通过载板上USB Type C接口供电，需要使用支持**5V/3A**的电源适配器为开发板供电。
+RDK X5 Module通过载板上USB Type C接口供电，需要使用支持**5V/5A**的电源适配器为开发板供电。
 
 </TabItem>
 </Tabs>

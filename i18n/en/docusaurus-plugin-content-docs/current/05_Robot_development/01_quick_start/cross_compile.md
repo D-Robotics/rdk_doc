@@ -21,7 +21,7 @@ Prerequisites:
 
 #### 1 Load docker image
 
-All the following operations are performed within the Docker environment on the development machine.
+All the following operations are performed on the development machine.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -123,6 +123,12 @@ All of these operations are performed inside the docker on the development machi
 ```shell
 ## Compile tros.b version X3 using build.sh
 bash ./robot_dev_config/build.sh -p X3
+
+## Compile tros.b version X5 using build.sh
+bash ./robot_dev_config/build.sh -p X5
+
+## Compile tros.b version S100 using build.sh
+bash ./robot_dev_config/build.sh -p S100
 ```
 
 After successful compilation, a message will prompt: N packages compiled and passed.

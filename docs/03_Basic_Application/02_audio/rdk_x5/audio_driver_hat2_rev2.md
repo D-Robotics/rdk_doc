@@ -43,9 +43,9 @@ root@ubuntu:~# cat /proc/asound/cards
 
 ## 运行
 
-检查声卡是否存在，检查设备编号。
+### 1. 检查声卡设备
 
-通过如下命令确认声卡是否注册(上述有提到)
+通过 `cat /proc/asound/cards` 命令确认声卡是否注册(上述有提到)
 ```shell
 root@ubuntu:~# cat /proc/asound/cards 
  0 [duplexaudioi2s1]: simple-card - duplex-audio-i2s1
@@ -54,7 +54,7 @@ root@ubuntu:~# cat /proc/asound/cards
                       duplex-audio
 ```
 
-通过如下命令确认逻辑设备
+通过 `cat /proc/asound/devices` 命令确认逻辑设备
 ```shell
 root@ubuntu:~# cat /proc/asound/devices
   2: [ 0- 0]: digital audio playback
@@ -66,7 +66,7 @@ root@ubuntu:~# cat /proc/asound/devices
  33:        : timer
 ```
 
-通过如下命令检查用户空间的实际设备文件
+通过 `ls /dev/snd/` 命令检查用户空间的实际设备文件
 ```shell
 root@ubuntu:~# ls /dev/snd/
 by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
@@ -76,43 +76,64 @@ by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
 板载声卡对应的是1，设备号为`1-0`，这里我们不会用到它。
 
 
-- ### 录音
+- ### 2. 录音操作
 
-- 2通道麦克风录音：
+- **2通道麦克风录音**  
+  使用tinycap录制2通道音频，参数说明如下：
+  - `-D 0`：声卡编号（以上操作查看）
+  - `-d 1`：设备编号（以上操作查看）
+  - `-c 2`：通道数（2通道）
+  - `-b 16`：位宽16bit
+  - `-r 48000`：采样率48kHz
+  - `-p 512`：每帧采样点数
+  - `-n 4`：缓冲区数量
+  - `-t 5`：录音时长5秒
 
-```
-tinycap ./2chn_test.wav -D 0 -d 1 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
-```
+  ```shell
+  tinycap ./2chn_test.wav -D 0 -d 1 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
 
-- 4通道麦克风录音：
+- **4通道麦克风录音**
 
-```
-tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
-```
+  ```shell
+  tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
 
-- ### 播放
+### 3. 播放操作
 
-- 双通道音频播放（不支持播放4通道）：
+- **双通道音频播放（不支持播放4通道）**  
+  使用tinyplay播放录制好的音频文件，常用参数如下：
+  - `-D 0`：声卡编号
+  - `-d 0`：播放设备编号（以上操作查看）
 
-```
-tinyplay ./2chn_test.wav -D 0 -d 0
-```
+  ```shell
+  tinyplay ./2chn_test.wav -D 0 -d 0
+  ```
 
-- ### 音频回采测试
+### 4. 音频回采测试
 
-该音频板的播放回采信号，使用了录音通道7&8，因此需要使用8通道录音命令进行采集。
+音频回采功能可用于采集播放通道的信号，便于后续分析。
 
-- 启动8通道麦克风录音
-```shell
-tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -r 16000 -b 16 -t 3 -p 256
-```
+- **8通道麦克风录音（含回采）**  
+  该音频板的回采信号映射在录音通道7和8。需使用8通道录音命令：
 
-- 启动双通道音频播放
-```
-tinyplay ./2chn_test.wav -D 0 -d 0
-```
+  ```shell
+  tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
 
-录制完成后，可使用音频软件查看`8chn_test.wav`文件中通道 7&8 的频谱信息。
+- **同时启动双通道音频播放**
 
-## 常见问题
-[更多问题可以查看如下链接](../../../08_FAQ/04_multimedia.md#audio-常见问题)
+  ```shell
+  tinyplay ./2chn_test.wav -D 0 -d 0
+  ```
+
+- **分析回采信号**  
+  录制完成后，可使用如Audacity等音频分析软件，打开`8chn_test.wav`，查看第7、8通道的波形或频谱，验证回采功能是否正常。
+
+## 常见问题排查
+
+- 若未检测到声卡，请检查硬件连接和拨码开关设置是否正确。
+- 若录音或播放无声，请确认音频文件格式、通道数与命令参数一致。
+- 若回采通道无信号，请确认已正确使用8通道录音命令。
+
+如遇其他问题，可参考[音频常见问题](../../../08_FAQ/04_multimedia.md#audio-常见问题)获取更多帮助。
