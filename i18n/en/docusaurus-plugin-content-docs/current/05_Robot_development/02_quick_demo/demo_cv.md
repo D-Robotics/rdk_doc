@@ -296,7 +296,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 | Platform    | System      | Function                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Read an image and crop it  |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble)  | Read an image and crop it  |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble)  | Read an image and crop it  |
 
 ### Preparation
 

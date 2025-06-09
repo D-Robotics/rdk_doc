@@ -308,7 +308,7 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取图片，进行抠图 |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | 读取图片，进行抠图 |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | 读取图片，进行抠图 |
 
 ### 准备工作
 
