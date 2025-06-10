@@ -45,7 +45,7 @@ root@ubuntu:~# cat /proc/asound/cards
 ## 运行
 检查声卡是否存在，检查设备编号。
 
-通过如下命令确认声卡是否注册(上述有提到)
+通过 `cat /proc/asound/cards` 命令确认声卡是否注册(上述有提到)
 ```shell
 root@ubuntu:~# cat /proc/asound/cards 
  0 [duplexaudioi2s1]: simple-card - duplex-audio-i2s1
@@ -54,7 +54,7 @@ root@ubuntu:~# cat /proc/asound/cards
                       duplex-audio
 ```
 
-通过如下命令确认逻辑设备
+通过`cat /proc/asound/devices` 命令确认逻辑设备
 ```shell
 root@ubuntu:~# cat /proc/asound/devices
   2: [ 0- 0]: digital audio playback
@@ -66,7 +66,7 @@ root@ubuntu:~# cat /proc/asound/devices
  33:        : timer
 ```
 
-通过如下命令检查用户空间的实际设备文件
+通过 `ls /dev/snd/` 命令检查用户空间的实际设备文件
 ```shell
 root@ubuntu:~# ls /dev/snd/
 by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
@@ -75,68 +75,108 @@ by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
 
 板载声卡对应的是1，设备号为`1-0`，这里我们不会用到它。
 
-该音频板需要配置 Audio 路由才可以执行对应的功能，所以在以下每个场景功能执行之前都有加载特定路由的命令。
+**该音频板需要配置 Audio 路由才可以执行对应的功能，所以在以下每个场景功能执行之前都有加载特定路由的命令。**
 
-- ### 录音
-- 2通道麦克风录音：
+### 1. 录音操作
 
-```
+#### 1.1 录音前的音频路由与增益配置
+
+在录音前，需要正确配置音频输入通路和增益，以保证录音效果。以下命令依次设置左右声道的输入增益、录音音量、输入通路开关等：
+
+```shell
+# 设置左/右通道输入增益
 tinymix -D 0 set 'Left Input Boost Mixer LINPUT1 Volume' 3
 tinymix -D 0 set 'Right Input Boost Mixer RINPUT1 Volume' 3
 
+# 可根据实际情况调整增益（如有啸叫可适当降低）
 tinymix -D 0 set 'Left Input Boost Mixer LINPUT1 Volume' 1
 tinymix -D 0 set 'Right Input Boost Mixer RINPUT1 Volume' 1
 
+# 设置录音音量
 tinymix -D 0 set 'Capture Volume' 40,40
 tinymix -D 0 set 'ADC PCM Capture Volume' 200,200
 
+# 打开输入通路开关
 tinymix -D 0 set 'Left Boost Mixer LINPUT1 Switch' 1
 tinymix -D 0 set 'Right Boost Mixer RINPUT1 Switch' 1
-
 tinymix -D 0 set 'Left Input Mixer Boost Switch' 1
 tinymix -D 0 set 'Right Input Mixer Boost Switch' 1
 
+# 打开录音开关
 tinymix -D 0 set 'Capture Switch' 1,1
+```
+
+#### 1.2 开始录音
+
+使用 `tinycap` 命令进行录音，常用参数说明如下：
+
+- `-D 0`：指定声卡编号（此处为 0，即 WM8960）
+- `-d 0`：指定设备编号
+- `-c 2`：录制双通道（立体声）
+- `-b 16`：采样位宽 16bit
+- `-r 48000`：采样率 48kHz
+- `-p 512`：每周期帧数
+- `-n 4`：周期数
+- `-t 5`：录音时长 5 秒
+
+示例命令：
+
+```shell
 tinycap ./2chn_test.wav -D 0 -d 0 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
 ```
 
-- ### 播放
+录音完成后，会生成 `2chn_test.wav` 文件。
 
-- 双通道喇叭播放
 
-```
-tinymix -D  0 set 'Left Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Right Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Speaker DC Volume' 3
-tinymix -D  0 set 'Speaker AC Volume' 3
-tinymix -D  0 set 'Speaker Playback Volume' 127，127
-tinymix -D  0 set 'Playback Volume' 255，255
-tinymix -D  0 set 'Left Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Right Output Mixer PCM Playback Switch' 1
+### 2. 播放操作
+
+#### 2.1 喇叭播放（双通道）
+
+播放前需配置音频输出通路和音量：
+
+```shell
+# 打开左右声道 PCM 播放开关
+tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
+tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
+
+# 设置喇叭音量
+tinymix -D 0 set 'Speaker DC Volume' 3
+tinymix -D 0 set 'Speaker AC Volume' 3
+tinymix -D 0 set 'Speaker Playback Volume' 127,127
+tinymix -D 0 set 'Playback Volume' 255,255
+
+# 再次确保输出开关已打开
+tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
+tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
+
+# 播放录音文件
 tinyplay ./2chn_test.wav -D 0 -d 0
 ```
 
+#### 2.2 耳机与喇叭同时播放
 
-- 耳机、喇叭同时播放
-```
-tinymix -D  0 set 'Headphone Playback Volume' 80,80
-tinymix -D  0 set 'Playback Volume' 220，220
-tinymix -D  0 set 'Speaker DC Volume' 4
-tinymix -D  0 set 'Left Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Right Output Mixer PCM Playback Switch' 1
+```shell
+tinymix -D 0 set 'Headphone Playback Volume' 80,80
+tinymix -D 0 set 'Playback Volume' 220,220
+tinymix -D 0 set 'Speaker DC Volume' 4
+tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
+tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
 tinyplay ./2chn_test.wav -D 0 -d 0
 ```
 
-- 耳机播放、喇叭不出声
-```
-tinymix -D  0 set 'Headphone Playback Volume' 115,115
-tinymix -D  0 set 'Speaker Playback Volume' 0，0
-tinymix -D  0 set 'Playback Volume' 244，244
-tinymix -D  0 set 'Speaker DC Volume' 4
-tinymix -D  0 set 'Left Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Right Output Mixer PCM Playback Switch' 1
+#### 2.3 仅耳机播放（喇叭静音）
+
+```shell
+tinymix -D 0 set 'Headphone Playback Volume' 115,115
+tinymix -D 0 set 'Speaker Playback Volume' 0,0
+tinymix -D 0 set 'Playback Volume' 244,244
+tinymix -D 0 set 'Speaker DC Volume' 4
+tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
+tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
 tinyplay ./2chn_test.wav -D 0 -d 0
 ```
+
+---
 
 
 ## 常见问题

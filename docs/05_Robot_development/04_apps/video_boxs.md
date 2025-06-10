@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 | 平台                    | 运行方式                  |
 |-----------------------|-----------------------|
 | RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) |
-| RDK X5                | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 
 ## 准备工作
 
@@ -64,7 +64,7 @@ source /opt/tros/humble/setup.bash
 export ROS_DOMAIN_ID=101
 
 # 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
 # 启动launch文件
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
@@ -87,7 +87,7 @@ source /opt/tros/humble/setup.bash
 export ROS_DOMAIN_ID=103
 
 # 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
 # 启动launch文件
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
@@ -110,7 +110,7 @@ source /opt/tros/humble/setup.bash
 export ROS_DOMAIN_ID=105
 
 # 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
 # 启动launch文件
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'
@@ -133,9 +133,9 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai.launch.py hobot_rtsp_url_num:
 ```text
 [hobot_codec_republish-2] [WARN] [1732169402.355433988] [hobot_codec_decoder]: Sub imgRaw fps = -1774563328
 [hobot_codec_republish-2] [WARN] [1732169402.906547961] [hobot_codec_decoder]: sub h264 1920x1080, fps: 24.7706, pub nv12, fps: 9.17431, comm delay [-8.8148]ms, codec delay [171.2000]ms
-[mono2d_body_detection-4] [WARN] [1732169402.906916796] [mono2d_body_det]: SharedMemImgProcess Recved img encoding: nv12, h: 1080, w: 1920, step: 1920, index: 2508, stamp: 1732169402_735947000, data size: 3133440, comm delay [170.9541]ms
+[dnn_node_example-4] [WARN] [1732169402.906916796] [mono2d_body_det]: SharedMemImgProcess Recved img encoding: nv12, h: 1080, w: 1920, step: 1920, index: 2508, stamp: 1732169402_735947000, data size: 3133440, comm delay [170.9541]ms
 [hobot_codec_republish-3] [WARN] [1732169403.274412126] [hobot_codec_encoder]: sub nv12 1920x1088, fps: 10.8055, pub jpeg, fps: 10.8055, comm delay [164.9091]ms, codec delay [7.6364]ms
-[mono2d_body_detection-4] [WARN] [1732169403.321086039] [mono2d_body_det]: input fps: 10.81, out fps: 10.81, infer time ms: 92, post process time ms: 10
+[dnn_node_example-4] [WARN] [1732169403.321086039] [mono2d_body_det]: input fps: 10.81, out fps: 10.81, infer time ms: 92, post process time ms: 10
 [hobot_codec_republish-2] [WARN] [1732169403.946849482] [hobot_codec_decoder]: sub h264 1920x1080, fps: 25, pub nv12, fps: 10.5769, comm delay [-7.0000]ms, codec delay [168.2727]ms
 
 ```
@@ -144,7 +144,7 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai.launch.py hobot_rtsp_url_num:
 
 ```shell
 $ ros2 topic list
-/hobot_mono2d_body_detection
+/hobot_dnn_detection
 /image_decode
 /image_mjpeg
 /parameter_events
@@ -153,7 +153,7 @@ $ ros2 topic list
 
 ```
 
-其中`/rtsp_image_ch_0`是RDK发布的通过RTSP获取IPC视频后发布的视频，`/hobot_mono2d_body_detection`
+其中`/rtsp_image_ch_0`是RDK发布的通过RTSP获取IPC视频后发布的视频，`/hobot_dnn_detection`
 是RDK发布的包含人体检测结果的算法msg，`//image_decode`是RDK接收H264后解码的NV12图片，`/image_mjpeg`是RDK编码后的JPEG图片。
 
 在PC端的浏览器输入http://IP:8000 ，人体人脸检测框，关键点和姿态检测结果在web端展示渲染效果（IP为RDK的IP地址）：

@@ -67,7 +67,7 @@ Purchase link:
 
 Connection steps:
 
-1. Connect the microphone board to the RDK X3 40PIN GPIO interface. After the connection, it looks like the following image:
+1. Connect the microphone board to the RDK X3 40-pin GPIO GPIO interface. After the connection, it looks like the following image:
 
    ![circle_mic_full](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 
@@ -123,7 +123,7 @@ The smart voice function supports ASR recognition after denoising the raw audio.
 ```json
 {
     "cmd_word": [
-        "D-Robotics 你好",
+        "地瓜你好",
         "向前走",
         "向后退",
         "向左转",
@@ -253,7 +253,7 @@ alsa_device_init. hwparams(0x557d6e4fa0), swparams(0x557d6e5210)
 
 The above log shows that the audio device initialization is successful, and the audio device is opened for audio collection.
 
-When a person speaks the Chinese command words "D-Robotics 你好", "向前走", "向左转", "向右转", "向后退" one by one next to the microphone, the speech algorithm SDK outputs the recognition results after intelligent processing, and the log shows the following:
+When a person speaks the Chinese command words "地瓜你好", "向前走", "向左转", "向右转", "向后退" one by one next to the microphone, the speech algorithm SDK outputs the recognition results after intelligent processing, and the log shows the following:
 
 ```text
 recv hrsc sdk event wakeup success, wkp count is 1

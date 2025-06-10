@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 # Interface Description
 
-This chapter introduces the interface functions and usage of the official carrier board for RDK X3 Module. The carrier board provides various peripheral interfaces such as Ethernet port, USB, HDMI, MIPI CSI, MIPI DSI, 40PIN, etc., which facilitate users to perform function verification, development testing, and other tasks on the RDK X3 Module.
+This chapter introduces the interface functions and usage of the official carrier board for RDK X3 Module. The carrier board provides various peripheral interfaces such as Ethernet port, USB, HDMI, MIPI CSI, MIPI DSI, 40-pin GPIO, etc., which facilitate users to perform function verification, development testing, and other tasks on the RDK X3 Module.
 
 The interface layout of the RDK X3 Module carrier board is as follows:
 

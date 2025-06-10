@@ -7,9 +7,9 @@ This chapter is intended to introduce users who need to remotely access the deve
 
 :::tip
 
-Before remote login via network, the development board needs to be connected to the network through wired Ethernet or wireless WiFi and configure the IP address of the development board. For the IP address information under both connection methods, refer to the following descriptions:
+Before remote login via network, the development board needs to be connected to the network via wired Ethernet or wireless WiFi, and the IP address needs to be configured:
 
-- Wired Ethernet: The development board defaults to static IP mode, with an IP address of `192.168.1.10`, subnet mask of `255.255.255.0`, and gateway of `192.168.1.1`.
+- Wired Ethernet: The development board defaults to static IP mode. For the IP address, refer to the [Network Status Confirmation](#network-status-confirmation) section.
 - Wireless WiFi: The development board's IP address is generally assigned by the router and can be viewed in the device command line using the `ifconfig` command for the wlan0 network.
 
 :::
@@ -19,14 +19,16 @@ Before remote login via network, the development board needs to be connected to 
 
 Video: https://www.youtube.com/watch?v=dYV5nw_PDMw&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=16
 
-Before using serial port login, it is necessary to confirm that the serial port cable of the development board is correctly connected to the computer. The connection method can refer to the [Serial Port Debugging](https://d-robotics.github.io/rdk_doc/en/hardware_introduction) chapter. Serial port login requires a PC terminal tool. The commonly used tools are `Putty`, `MobaXterm`, etc. Users can choose according to their own habits. The port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
+Before using serial port login, it is necessary to confirm that the serial port cable of the development board is correctly connected to the computer. Refer to the [Serial Port Debugging](/hardware_introduction) chapter to verify the serial connection.
+
+Serial port login requires a PC terminal tool. The commonly used tools are `PuTTy`, `MobaXterm`, etc. Users can select their terminal tool according to their own preferences, as the port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
 
 - When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:  
 ![image-20220416105939067](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
 - Open the `MobaXterm` tool, click `Session`, and then select `Serial`.
 
-- Configure the port number, for example, `COM3`. The actual serial port number used depends on the serial port number recognized by the PC.
+- Configure the port number, for example, `COM7`. The actual serial port number used depends on the serial port number recognized by the PC.
 
 - Set the serial port configuration parameters as follows:
   
@@ -90,21 +92,15 @@ The IP addresses corresponding to different versions of the images are as follow
 
 :::
 
-Before using remote login, it is necessary to ensure that the communication between the computer and the development board is normal. If it cannot be pinged, please follow the steps below to confirm:
+Before using remote login, it is necessary to confirm that the computer and development board are connected correctly.
 
-- Confirm the IP address configuration of the development board and the computer. Generally, the first three segments need to be the same. For example, the development board: `192.168.1.10` and the computer: `192.168.1.100`.
-- Confirm that the subnet mask and gateway configuration of the development board and the computer are consistent.
-- Confirm whether the network firewall of the computer is turned off.
-
-The wired Ethernet of the development board is set to use the static IP mode by default, and the IP address is `192.168.1.10`. For the case where the development board and the computer are directly connected to the network, only need to configure the computer as a static IP to ensure that it is in the same network segment as the development board. Taking the WIN10 system as an example, the method to modify the static IP of the computer is as follows:
-
-- Find the corresponding Ethernet device in the network connection and double-click to open it.
-- Double-click to open the Internet Protocol Version 4 option.
-- Enter the corresponding network parameters in the red box in the figure below and click OK.
+Configure the IP address of the computer to be on the same subnet as the development board. For example, the development board: `192.168.1.10` and the computer: `192.168.1.100`. Assigning an IP address depends on the Operating System of the computer. Taking the WIN10 system as an example, the method to modify the static IP of the computer is as follows:
 
 ![image-20220416110242445](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
 
 If you want to configure the wired network of the development board to obtain IP dynamically via DHCP mode, please refer to the [Wired Network](../02_System_configuration/01_network_blueteeth.md) chapter for configuration.
+
+To confirm that the connection is working, execute `ping 192.168.1.10` from the computer (change the command to the IP address of the development board). If the `ping` command receives responses, then the connection is working; otherwise, check the network configurations are correct, and that the network firewall of the computer is turned off.
 
 ## VNC Login
 
@@ -113,7 +109,8 @@ Video: https://www.youtube.com/watch?v=whwi7O2XBKs&list=PLSxjn4YS2IuFUWcLGj2_uuC
 This section is for users using the Ubuntu Desktop system version, and it explains how to use "VNC Viewer" to achieve remote desktop login. "VNC Viewer" is a graphical desktop sharing software that allows you to remotely log in and control the desktop of the device on your computer. With this software, you can preview the system desktop of the development board on your computer screen and use your computer's mouse and keyboard for remote operation. By using VNC Viewer, you can achieve the same effect as local operation on the development board. You can download VNC Viewer from the following link: [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/).
 
 **Connect to the Development Board**  
-Currently, VNC supports two connection methods: direct connection and cloud connection. Users can choose according to their own needs. This article recommends using the direct connection method. The connection steps are as follows:- Enter the IP address of the input device, for example: 192.168.1.10  
+Currently, VNC supports two connection methods: direct connection and cloud connection. Users can choose according to their own needs. This article recommends using the direct connection method. The connection steps are as follows:- Enter the IP address of the input device, for example: 192.168.127.10
+
 ![image-20220610160658103](../../../../../static/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
 
 - After entering the IP address, press Enter, a prompt for an unencrypted connection will appear, click `Continue`  
@@ -126,7 +123,7 @@ Currently, VNC supports two connection methods: direct connection and cloud conn
 In addition to VNC login for remote desktop, you can also connect to the development board via SSH. The following steps describe how to create SSH connections using terminal software and terminal command line methods.
 
 ### Terminal Software
-Commonly used terminal tools include `Putty`, `MobaXterm`, etc. Users can choose according to their own preferences. The configuration process for different tools is similar. The following example shows how to create a new SSH connection using `MobaXterm`:
+Commonly used terminal tools include `PuTTy`, `MobaXterm`, etc. Users can choose according to their own preferences. The configuration process for different tools is similar. The following example shows how to create a new SSH connection using `MobaXterm`:
 
 1. Open the `MobaXterm` tool, click on `Session`, then select `SSH`.
 2. Enter the development board IP address, for example: `192.168.1.10`.
@@ -149,11 +146,11 @@ Users can also use the command line to log in via SSH. The steps are as follows:
 To maintain a serial connection for the login steps mentioned earlier and to access the local area network, you can use the following commands:
 
 ```bash
-sudo nmcli device wifi rescan # 扫描wifi⽹络
-sudo nmcli device wifi list # 列出找到的wifi
-sudo wifi_connect "SSID" "PASSWD" # 连接指定wifi
+sudo nmcli device wifi rescan
+sudo nmcli device wifi list
+sudo wifi_connect "SSID" "PASSWD"
 ```
 
 After successfully executing these commands, you should see a message starting with `successfully xxx`.
 
-Finally, on the board side, you can use `ifconfig` to obtain the board's IP address. Once you have the IP address, you can disconnect the serial cable and use the SSH login method mentioned earlier to remotely connect.
+Finally, on the board side, you can use `ifconfig` to obtain the board's IP address. Once you have the IP address, you can disconnect the serial cable and use the [SSH login method](#ssh) to remotely connect with the IP address you just obtained.

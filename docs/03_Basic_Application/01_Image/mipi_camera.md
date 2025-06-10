@@ -21,20 +21,6 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
   sunrise@ubuntu:/app/pydev_demo/03_mipi_camera_sample$ sudo python3 ./mipi_camera.py 
   ```
 
-<details>
-  <summary>RDK X5在使用该demo的时候会要求选择摄像头的配置，具体可以点击查看</summary>
-
-  在终端中运行之后，会出现“please choose sensor config,xxxx”的要求。
-
-  ![screenshot-20241217-115245](../../../static/img/03_Basic_Application/01_Image/image/mipi_camera/screenshot-20241217-115245.png)
-  
-  在运行的时候选择RKD X5支持的配置，上图中选择0或者1都可以。
-
-  启动过程可以参考如下视频：
-  ![gif-20241217-115536](../../../static/img/03_Basic_Application/01_Image/image/mipi_camera/20241217-115536.gif)
-
-</details>
-
 ## 预期效果
 程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：  
 ![image-20220503221020331](../../../static/img/03_Basic_Application/01_Image/image/mipi_camera/image-20220511181747071.png)

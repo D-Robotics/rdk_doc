@@ -20,8 +20,8 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module, | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5 | Ubuntu 22.04 (Humble) |
-| RDK Ultra | Ubuntu 22.04 |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ## 准备工作
 

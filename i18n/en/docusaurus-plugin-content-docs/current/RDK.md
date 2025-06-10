@@ -2,113 +2,230 @@
 sidebar_position: 1
 ---
 
-# D-Robotics  RDK Suite
+# D-Robotics RDK Suite
 
-This document is the user manual for the D-Robotics RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. Users are welcome to update and experience, please refer to the [System Burning](./01_Quick_start/install_os.md) section for specific instructions.
+This document is the user manual for the D-Robotics RDK Suite. It provides developers with usage instructions and development guidance for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module (Sunrise X3 Module), RDK X5, and RDK Ultra. The content covers hardware design, system customization, application development, algorithm toolchains, and more. For details on how to use the suite, please refer to the [System Burning](/install_os) section.
 
-:::info Note
+:::info RDK X3 Note
 
-- All **RDK X3** mentioned in this document use the Ubuntu 22.04 operating system.
+- In this document, **RDK X3** refers to the 2.0 and 3.0 system versions. For users who still need the **Sunrise X3 Pi 1.0 system**, please refer to the following links:<br/>
+    [Sunrise X3 Pi User Manual](https://developer.d-robotics.cc/api/v1/fileData/documents_pi/index.html)<br/>
+    [Sunrise X3 Pi Ubuntu Images](https://archive.d-robotics.cc/downloads/os_images/), select images under the 1.x.x directory<br/>
+    [Sunrise X3 Pi Resource Package](https://developer.d-robotics.cc/api/v1/static/fileData/X3%E6%B4%BE%E8%B5%84%E6%96%99%E5%8C%85_20220711175326.zip)<br/>
 
-- The **RDK X3 Module** comes with a pre-burned test version system image, to ensure the use of the latest version of the system, it is recommended to refer to this document to complete [the burning of the latest version of the system image](./01_Quick_start/install_os.md).
+- **RDK X3 Module** comes with a pre-flashed test system image. To ensure you are using the latest system version, it is recommended to refer to this document to complete [the burning of the latest version of the system image](/install_os).
 
-To check the system version number, you can use the following command `cat /etc/version`.
+To check your system version, use the command `cat /etc/version`. For version 2.1.0 and above, you can use the `rdkos_info` command for detailed version information.
+
 :::
-
-
 
 ## Overview of D-Robotics RDK Suite
 
-**D-Robotics Developer Kits**, abbreviated as D-Robotics RDK Suite, is a robot development kit built on the D-Robotics intelligent chip, including RDK X3, RDK X3 Module. In combination with the TogetheROS.Bot robot middleware, the D-Robotics RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
+**D-Robotics Developer Kits** (RDK Suite) are developer kits based on D-Robotics intelligent chips, including RDK X3 (Sunrise X3 Pi), RDK X3 Module (Sunrise X3 Module), RDK X5, and RDK Ultra.
 
-This document will provide detailed instructions on how to use the D-Robotics RDK Suite, including setting up the development environment, running example tutorials, developing applications, and customizing system images. Regardless of which hardware you choose to use, the content described in this document will provide you with a consistent user experience.
+With the TogetheROS.Bot robot middleware, the RDK Suite helps developers quickly build robot prototypes for evaluation and validation.
+
+This document details how to use the RDK Suite, including setting up the development environment, running sample tutorials, developing applications, and customizing system images. Regardless of the hardware you choose, the content here will provide a consistent user experience.
 
 ## Product Introduction
 
-**RDK X3 (Sunrise X3)** is a full-featured development board with 5Tops edge inference power. It provides developers with flexible hardware expansion and connection options by supporting a variety of sensors and expansion components.
+**RDK X3 (Sunrise X3 Pi)** is a full-featured development board with 5Tops edge inference performance. It offers flexible hardware expansion and connectivity options with a variety of sensors and extension components.
 
-**RDK X3 Module (Sunrise X3 Module)** is a compact core module that maintains the same specifications as RDK X3 and is compatible with the Raspberry Pi CM4 module in terms of size and interface. By combining with the expansion board, it can provide efficient computing and communication capabilities for various application scenarios.
+**RDK X3 Module (Sunrise X3 Module)** is a compact core module with the same specifications as RDK X3. Its size and interfaces are compatible with the Raspberry Pi CM4 module. With an expansion board, it provides efficient computing and communication capabilities for various applications.
 
-![image-20230522171439846](../../../../static/img/image-rdk-serials_en.jpg)
+**RDK X5** is a full-featured development board with 10Tops edge inference performance and an 8-core ARM A55 processor. It supports 2 MIPI Camera inputs and 4 USB3.0 ports, offering flexible hardware expansion and connectivity options.
 
+**RDK Ultra** is a high-performance development kit with 96Tops edge inference performance and an 8-core ARM A55 processor. It supports 4 MIPI Camera inputs, 4 USB3.0 ports, and 3 PCIe3.0 interfaces, meeting the needs of various scenarios.
 
-## Documentation Usage Guide
+![image-rdk-serials](../../../../static/img/image-rdk-serials.jpg)
 
-The following is an introduction to the overall content division of the user manual, helping users quickly understand the structure and content of the document for better use in development and learning.
+### Operating Temperature and Cooling Recommendations
 
-**I. Quick Start**  
-This section provides an introduction to system installation and hardware interface usage, helping users quickly get started with the development board.  
+#### Operating Temperature Range
 
-**II. System Configuration**  
-This section introduces a series of configuration steps and tips to ensure the system works properly and meets specific needs, guiding users through system configuration, including system upgrades, network, and Bluetooth settings.  
+- Recommended ambient temperature: **-20°C to 60°C**  
+    Ensure the device operates within this range for stability and reliability.
 
-**III. Basic Application Development**  
-This section covers the pre-installed function examples in the system, such as GPIO control, audio/video capture, and initial multimedia usage.  
+#### Chip Thermal Characteristics
 
-**IV. Algorithm Application Development Guide**  
-This section introduces the usage of simplified algorithm interfaces in both Python and C++, which are easy to use and allow users to get started quickly. These interfaces are built on lower-level inference interfaces and come with basic usage examples.  
+- Maximum chip junction temperature: **105°C**
+- When the chip junction temperature exceeds **95°C**, the system will automatically throttle to reduce temperature, which may affect performance.
 
-**V. Robot Application Development Guide**  
-This section is aimed at robot manufacturers and ecosystem developers, introducing a robot operating system designed to unleash the intelligent potential of robotic scenarios, enabling efficient and convenient robot development for ecosystem developers and commercial customers, and helping to create competitive intelligent robot products.  
+#### Cooling Design Recommendations
 
-**VI. Application Development Guide**  
-This section includes application development guides for various aspects, such as deep learning line-following cars, AMR development guides, and large model applications.  
+- **Development and Testing:** It is recommended to use heatsinks, RDK Case, and cooling fans for additional heat dissipation.
+- **Productization:** Perform thorough thermal design evaluation and optimization based on the overall system environment to ensure the chip operates within a reasonable temperature range and avoid performance degradation or system issues due to overheating.
 
-**VII. Advanced Development Guide**  
-This section provides a comprehensive introduction to hardware development, system development, multimedia application development, and algorithm development guides. It covers the development processes of hardware design, system configuration and compilation, multimedia usage and debugging, and algorithm training and quantization for deployment. The interfaces are rich in functionality, capable of meeting complex and flexible functional requirements.  
+## Document Usage Guide
 
-**VIII. Frequently Asked Questions**  
-This section addresses common issues and questions that users may encounter while using the developer kit. It provides solutions and tips to help users resolve common problems and proceed smoothly with their development work.
+Below is an overview of the manual's structure to help users quickly understand and utilize the documentation for development and learning.
 
-## Version Release History
+**1. Quick Start**  
+Introduction to system installation and hardware interface usage to help users get started with the development board.
 
-### Version: 3.0.0
+**2. System Configuration**  
+Covers configuration steps and tips to ensure the system works properly and meets specific needs, including system upgrades, network, and Bluetooth configuration.
 
-New Features:
+**3. Basic Application Development**  
+Introduces pre-installed functional examples such as IO pin control, audio/video capture, and basic multimedia usage.
 
-- Improved srpi-config system configuration tool, supporting Wi-Fi connections, enabling/disabling SSH and VNC, enabling/disabling peripheral buses on the 40-pin connector, language localization configuration, CPU overclocking, ION memory size configuration, and more.
-- Support for /boot/config.txt system configuration file, supporting options such as dtoverlay, CPU overclocking, and IO boot state configuration.
-- Added yolov5s v6/v7 model examples.
+**4. Algorithm Application Development**  
+Describes how to use simple algorithm interfaces in Python and C++, providing easy-to-use APIs and basic usage examples.
 
-Enhancements:
+**5. Robot Application Development**  
+Introduces the robot operating system for robot manufacturers and ecosystem developers, enabling efficient and convenient robot development for competitive intelligent robot products.
 
-- Support for outputting boot logs and entering the user command-line interface on HDMI displays to facilitate user use.
-- Support for more HDMI display resolutions, greatly enhancing compatibility.
-- Optimized pre-installed software lists for Desktop and server versions, removing redundant items and adding necessary software, such as VLC.
-- Optimized layout of the Desktop menu bar, simplifying options.
-- Bluetooth functionality is enabled by default.
-- Added C++ interface for post-processing, improving post-processing efficiency.
-- Automatically mount USB flash drives using udisk2, solving the problem of not being able to access NTFS file systems after automatic mounting.
-- Support for retaining VNC password file.
-- VNC service is not automatically started by default to reduce system resource consumption. Users can enable it through the srpi-config tool.
-- RDK X3 v2.1 and RDK Module development board's CPU can run at a maximum frequency of 1.5GHz in normal mode and 1.8GHz after overclocking.
+**6. Application Development Guide**  
+Includes guides for deep learning line-following cars, AMR development, large model applications, and more.
 
-Bug Fixes: 
-- Remove redundant kernel logs for Wi-Fi drivers.
-- Modify apt source domain to sunrise.D-Robotics.cc.
+**7. Advanced Development**  
+Covers hardware development, system development, multimedia application development, and algorithm development, including hardware design, system configuration and compilation, multimedia usage and debugging, algorithm training, and quantization.
+
+**8. FAQ**  
+Answers common questions and issues users may encounter when using the developer kits, providing solutions and tips.
+
+**9. Appendix**  
+Provides commonly used commands in RDK OS, including RDK-specific commands for querying key system information.
+
+## Release Notes
+
+### RDK X5
+
+<font color="red">Note:</font>
+- After updating the system, use the rdk-miniboot-update command to update the NAND firmware to the latest version.
+
+#### TROS Algorithm Upgrade & Version: 3.2.3
+
+System updates:
+
+- **Desktop Display Optimization:** Ubuntu desktop now supports 3D GPU acceleration for smoother visuals.
+- **Audio Sub-board Support:** Added support for Waveshare WM8960 Audio HAT and Huaner carrier board for faster voice solution integration.
+- **WiFi Driver Upgrade:** Improved connection stability in weak signal environments and optimized auto-reconnect during sleep/wake.
+- **Sensor Acquisition Framework Expansion:** Integrated V4L2 framework, supporting imx477, ov5647, imx219 sensors, with more to come.
+- **Network & Remote Optimization:** Default to iptables legacy mode, improved VNC display smoothness, and lag-free remote desktop.
+- **Interface Enhancement:** Improved CAN interface stability, resolved high-speed data loss, srpi-config tool adds Uart7 support.
+- **Storage Compatibility:** Enhanced SD card compatibility, supporting more card models.
+
+Application updates:
+
+- **Voice Capability Enhancement:** Added ASR voice recognition for more efficient voice algorithm development.
+- **Stereo Depth Algorithm Upgrade:** Improved depth estimation algorithm for better speed and accuracy.
+- **Multimodal Example Integration:** Built-in large model multimodal examples for quick custom application development.
+
+#### Stereo Algorithm Upgrade & Version: 3.1.1
+
+**Key Features:**
+
+- **System Backup:** New rdk-backup tool for one-click system backup and image generation. [rdk-backup introduction](./Appendix/rdk-command-manual/cmd_rdk-backup).
+- **Configuration Management:** Use config.txt to configure 40-pin pins during U-Boot initialization for improved system stability.
+- **Touchscreen Enhancement:** Added double-tap and long-press (right-click) support for more flexible screen control.
+- **Device Tree Overlay Support:** Added 1_wire device tree overlay (dtoverlay) example for custom hardware connections.
+- **Stereo Algorithm Upgrade:** StereoNet depth algorithm improved; added ZED camera support for stereo image capture and smart vision systems.
+- **New Application: Smart Video Box:** hobot_rtsp_client supports RTSP streaming, decoding, AI inference, and web-based result display for quick edge AI integration.
+- **Open Vocabulary Detection: DOSOD:** hobot_dosod provides an on-device open vocabulary detection algorithm for flexible voice interaction.
+
+**Bug Fixes and Optimizations:**
+
+- Model import fix: Resolved efficientnasnet_m_300x300_nv12.bin import issue.
+- Compatibility: Improved SD card protocol support.
+- Display fix: Fixed black screen issue on portrait displays.
+- Post-processing: dnn_node fixed YOLOv8-seg box overflow crash.
+- Frame rate statistics: hobot_codec fixed frame rate calculation error.
+- File cleanup: hobot_stereonet_utils removed unusable launch files.
+- MIPI camera fix: Resolved multi-channel I2C detection and added LPWM switch configuration.
+
+#### Version: 3.1.0
+
+New features:
+- Added button sleep and wake-up functionality.
+- Enabled 40Pin secondary functions.
+
+Improvements:
+- Bug fixes.
+- Corrected CAN frequency issues.
+- Support for more sensors and resolutions.
+
+<font color="red">Note:</font>
+
+- When upgrading from an older version using `apt update && apt upgrade`, uninstall `tros-humble-stereonet-model` first, then install `tros-humble-hobot-stereonet`.
+```shell
+sudo apt-get remove tros-humble-stereonet-model
+sudo dpkg --remove --force-all tros-humble-stereonet-model
+sudo apt install -y tros-humble-hobot-stereonet
+```
+
+#### Version: 3.0.1
+
+New features:
+- Provided Server version firmware.
+- Supported 7 Waveshare MIPI DSI LCD screens for desktop display and touch.
+- Allowed non-root users to run sample programs.
+
+Improvements:
+- Bug fixes.
+- Support for more sensors and resolutions.
+- Improved high-resolution display stability.
+
+#### Version: 3.0.0
+
+First release of RDK X5 firmware, based on Ubuntu 22.04, with rich multimedia and algorithm samples, supporting various robot application scenarios.
+
+### RDK X3
+
+#### Version: 3.0.0
+
+New features:
+
+- Ubuntu 22.04 support.
+
+#### Version: 2.1.0
+
+New features:
+
+- Improved srpi-config tool for Wi-Fi, SSH/VNC toggling, 40pin peripheral bus, localization, CPU overclocking, and ION memory size.
+- Supported /boot/config.txt for dtoverlay, CPU overclocking, and IO boot state configuration.
+- Added yolov5s v6/v7 model samples.
+
+Improvements:
+
+- HDMI display for boot logs and user command line.
+- More HDMI resolutions for better compatibility.
+- Optimized pre-installed software for Desktop and Server versions, removed redundancies, added essentials like VLC.
+- Simplified Desktop menu layout.
+- Bluetooth enabled by default.
+- Added C++ interface for post-processing to improve efficiency.
+- Used udisk2 for auto-mounting USB drives, fixed NTFS access issues.
+- Allowed users to retain VNC password files.
+- VNC service disabled by default to save resources; can be enabled via srpi-config.
+- RDK X3 v2.1 and RDK Module boards run at up to 1.5GHz (normal) and 1.8GHz (overclocked).
+
+Bug fixes:
+
+- Removed redundant Wi-Fi kernel logs.
+- Changed apt source domain to archive.d-robotics.cc.
 
 Other updates:
 
-- Support for the Chromium browser, users can install and use it with `sudo apt install chromium`.
+- Chromium browser support, install with `sudo apt install chromium`.
 
-### Version: 2.0.0
+#### Version: 2.0.0
 
-This release brings many anticipated features and improvements, aiming to provide a better development experience and broader application support. Here are the main highlights of this version release:
+This release brings many anticipated features and improvements for a better development experience and broader application support. Highlights:
 
-Open-source:
+Open Source:
 
-- We have fully open-sourced the source code of the operating system, including the source code of system core modules and functional modules. Developers can freely view and modify the source code, providing greater flexibility for customization and optimization.
-- Detailed code documentation and comments will be provided to developers to help them better understand and use the source code.
-- We welcome developers to participate in code contribution and discussions through the open-source community, together driving the improvement and optimization of the operating system. The source code is maintained on [D-Robotics](https://github.com/D-Robotics).
+- Full OS source code released, including core and functional modules. Developers can freely view and modify the code for customization and optimization.
+- Detailed code documentation and comments provided.
+- Community contributions and discussions are welcome; source code is maintained on [D-Robotics](https://github.com/D-Robotics).
 
-Support for RDK X3 Module:
+RDK X3 Module Support:
 
-- We introduce a brand new core board development kit, the RDK X3 Module.
-- The RDK X3 Module has a smaller size and is compatible with the Raspberry Pi CM4 interface.
-- Developers can choose compatible third-party carrier boards according to their needs to expand the functionality and application scenarios of the core board.
+- Introduced the new core board developer kit, RDK X3 Module.
+- RDK X3 Module is smaller and compatible with Raspberry Pi CM4 interface.
+- Developers can choose third-party carrier boards to expand functionality and application scenarios.
 
 Other updates:
 
-- We have optimized existing functions, fixed known issues and vulnerabilities, improving the stability and performance of the operating system.
-- Revised the documentation and help documents, providing more comprehensive and accurate technical information and guidelines.
-- We provide lower-level APIs to facilitate developers for secondary development and integration, enabling them to customize software more flexibly.
+- Optimized existing features, fixed known issues and vulnerabilities, improved OS stability and performance.
+- Revised documentation for more comprehensive and accurate technical information.
+- Provided lower-level APIs for secondary development and integration, enabling flexible software customization.

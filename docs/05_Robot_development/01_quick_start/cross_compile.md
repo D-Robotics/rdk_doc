@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 
 #### 1 使用docker文件
 
-该部分操作均在开发机的docker内完成。
+该部分操作均在开发机内完成。
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -130,6 +130,9 @@ bash ./robot_dev_config/build.sh -p Rdkultra
 
 ## 使用build.sh编译X5版本tros.b
 bash ./robot_dev_config/build.sh -p X5
+
+## 使用build.sh编译S100版本tros.b
+bash ./robot_dev_config/build.sh -p S100
 ```
 
 编译成功后会提示总计N packages编译通过。
