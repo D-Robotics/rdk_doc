@@ -113,7 +113,7 @@ Solution Validates: avg error less than 1.000000e-13 on all three arrays
 
 测试结果中的 `Copy`，`Scale`，`Add`，`Triad` 四项即带宽结果，该四项数据的测试原理如下图所示：
 
-![DDR_test_principle](./_static/_images/8-ddr_bandwidth/DDR_test_principle.png)
+![DDR_test_principle](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/DDR_test_principle.png)
 
 - **Copy (复制)：** 它先访问一个内存单元读出其中的值，再将值写入到另一个内存单元。
   - 测试描述：在 Copy 测试中，系统将一个数组的内容复制到另一个数组，这是内存带宽的最基本测试，主要考察的是系统在执行内存到内存的简单数据复制时的性能。

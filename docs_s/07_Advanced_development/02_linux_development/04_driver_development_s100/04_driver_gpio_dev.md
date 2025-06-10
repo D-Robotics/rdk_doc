@@ -6,7 +6,7 @@ sidebar_position: 4
 
 S100 Acore芯片内中共有3个sys有gpio设备，分别是peri, cam和video，每个设备最多有32个gpio引脚，并且每个gpio引脚都支持中断。
 
-![gpio_devs](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/gpio_devs.png)
+![gpio_devs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/gpio_devs.png)
 
 ## 驱动代码
 
@@ -18,7 +18,7 @@ kernel/drivers/gpio/gpio-dwapb.c # gpio驱动源文件
 
 GPIO_DWAPB
 
-![image-GPIO_MENUCONFIG](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/GPIO_MENUCONFIG.png)
+![image-GPIO_MENUCONFIG](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/GPIO_MENUCONFIG.png)
 
 ### 内核DTS配置
 

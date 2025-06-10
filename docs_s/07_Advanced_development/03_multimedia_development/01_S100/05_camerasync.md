@@ -45,7 +45,7 @@ LPWM工作原理：LPWM 受PPS触发源trigger，其作为Trigger Bus的Target�
 
 收到PPS信号传输给cam-trig的过程如下图所示，PPS trigger会连接到LPWM模块，触发LPWM输出，LPWM的输出连接到camera：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_01.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_01.png)
 
 关于同步源PPS的功能说明，更多可参考: [PPS说明](../../02_linux_development/04_driver_development_s100/12_driver_timesync.md#PPS)
 
@@ -64,7 +64,7 @@ LPWM工作原理：LPWM 受PPS触发源trigger，其作为Trigger Bus的Target�
 
 对于单S100的Camera接入场景，其一般连接方式如下：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_02.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_02.png)
 
 其中：
 
@@ -82,7 +82,7 @@ LPWM工作原理：LPWM 受PPS触发源trigger，其作为Trigger Bus的Target�
 
 在有Lidar使用的场景中，有连接方案有如下:
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_03.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_03.png)
 
 其中:
 
@@ -110,7 +110,7 @@ LPWM工作原理：LPWM 受PPS触发源trigger，其作为Trigger Bus的Target�
 
 其期望的时间对齐目标有如下:
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_04.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_04.png)
 
 在PPS整秒开始: LPWM输出并曝光(若offset设为0)、Lidar开始扫描(若start为0)。
 
@@ -140,11 +140,11 @@ Sensor曝光输出一般有Master模式(主动曝光输出，按配置，只要�
 
 以下为AR0820模组的Slave模式说明：以下以AR0820为例说明。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_05.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_05.png)
 
 同样的slave模式，还有多种同步方式，其中常用的为shutter sync: 该模式在trigger后固定时间出图(可保证FS时间戳对齐)，且下不会丢失trigger信号(即在出图过程中来了trigger信号，不会被忽略)。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_06.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_06.png)
 
 配置有如下:
 
@@ -235,7 +235,7 @@ FSYNC选择: 根据模组实际硬件连接，选用正常的GPIO作为FSYNC使�
 
 - Camera在经offset正确配置后，可在整百ms(每3帧)同步输出，与Lidar数据对齐。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_07.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/cam_sync/05_camera_sync_07.png)
 
 ### Camera配置
 

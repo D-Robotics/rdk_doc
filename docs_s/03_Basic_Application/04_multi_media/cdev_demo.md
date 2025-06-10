@@ -12,7 +12,7 @@ sidebar_position: 2
 
 示例流程框图：（待更新）
 
-<!-- ![image-vio_to_display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg) -->
+<!-- ![image-vio_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg) -->
 
 - **环境准备：**
 
@@ -74,7 +74,7 @@ sidebar_position: 2
 
 示例流程框图：（待更新）
 
-<!-- ![image-vio_to_encoder](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png) -->
+<!-- ![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png) -->
 
 - **环境准备：**
 
@@ -138,7 +138,7 @@ sidebar_position: 2
 
 示例流程框图：（待更新）
 
-![image-decoder_to_display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.png)
+![image-decoder_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.png)
 
 - **环境准备：**
 
@@ -179,7 +179,7 @@ sidebar_position: 2
 
 示例流程框图：（待更新）
 
-![rtsp2display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
+![rtsp2display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
 
 - **环境准备：**
 

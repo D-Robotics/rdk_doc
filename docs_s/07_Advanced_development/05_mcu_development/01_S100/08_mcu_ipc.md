@@ -276,7 +276,7 @@ Acore向MCU发送数据时触发mcu的中断，在中断的callback中将数据�
 - mcu存在一个常驻线程，不断的在去读队列中的数据是否为空，若不为空，则校验并解析数据，识别出cmd命令并运行
 - freertos的cmd的应用类似于uboot的cmd的命令，通过此方式用户可以很方便的定制化自己的应用，在此场景中，运行的cmd将adc的值读出，再通过ipc返回给Acore
 
-![Acore与MCU之间透传Can数据架构图](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/mcu-runcmd.jpg)
+![Acore与MCU之间透传Can数据架构图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu-runcmd.jpg)
 
 ### 应用程序接口
 

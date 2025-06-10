@@ -21,7 +21,7 @@ sidebar_position: 5
 
 性能测试示意图：
 
-![WiFi_usage_diagram](_static/_images/5-wifi_performance/WiFi_usage_diagram.png)
+![WiFi_usage_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/WiFi_usage_diagram.png)
 
 在进行 Wi-Fi 性能测试前，请确保完成以下准备：
 1. **启用板端 Wi-Fi 功能：** 确保开发板已开启 Wi-Fi并连接到路由器。

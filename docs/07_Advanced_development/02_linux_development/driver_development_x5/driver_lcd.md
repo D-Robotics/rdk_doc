@@ -341,7 +341,7 @@ id      encoder status          name            size (mm)       modes   encoders
 
 如果一切顺利，连接的屏幕将会亮起并显示下图的pattern：
 
-![image-20220518111319607](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241125-162524.png)
+![image-20220518111319607](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241125-162524.png)
 
 ## 5.备注
 目前，RDK X5已经支持7款微雪 LCD屏幕，使用方法可以参考 [显示屏使用](../../hardware_development/rdk_x5/display) 章节

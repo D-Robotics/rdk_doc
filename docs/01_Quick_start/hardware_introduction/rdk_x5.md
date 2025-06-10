@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 RDK X5提供了网口、USB、摄像头、LCD、HDMI、CANFD、40PIN等功能接口，方便用户进行图像多媒体、深度学习算法等应用的开发和测试。开发板接口布局如下：
 
 
-![RDK_X5_interface](../../../static/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.jpg)
+![RDK_X5_interface](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.jpg)
 
 
 | 序号 | 功能 | 序号 | 功能 | 序号 | 功能 |
@@ -33,7 +33,7 @@ RDK X5提供了网口、USB、摄像头、LCD、HDMI、CANFD、40PIN等功能接
 
 RDK X5 Module Carrier Board，作为 X5 模组的配套底板，提供了丰富的配置和接口，包括 USB3.0、以太网、HDMI、MIPI CSI、MIPI DSI、40pin header 等，方便用户对模组的功能验证和开发。 
 
-![img-20250416-161040](../../../static/img/01_Quick_start/image/hardware_interface/img-20250416-161040.png)
+![img-20250416-161040](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250416-161040.png)
 
 | 序号 | 功能 | 序号 | 功能 | 序号 | 功能 |
 | -------- | ---------------------------- | -------- | ----------------------- | ----------------------- | ----------------------- |
@@ -67,7 +67,7 @@ RTC在给电池供电的时候，对电池的电压和放电电流要求为：2~
 
 RDK X5 Module载板提供一组300pin板板连接器，用于核心模组的安装。安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
 
-![img-20250418-111059](../../../static/img/01_Quick_start/image/hardware_interface/img-20250418-111059.png)
+![img-20250418-111059](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250418-111059.png)
 
 模组安装方法如下：
 

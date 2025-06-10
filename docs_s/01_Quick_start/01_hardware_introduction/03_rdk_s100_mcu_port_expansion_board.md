@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 1.1.3 MCU 接口扩展板
 
-![image-rdk_100_mcu_port_expansion_board](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk_100_mcu_port_expansion_board.png)
+![image-rdk_100_mcu_port_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mcu_port_expansion_board.png)
 
 地瓜机器人 RDK S100 MCU 接口扩展板是 RDK S100 开发者套件的一个扩展件。将 RDK S100 的 MCU Domain 的主要接口引出，便于用户接入外设进行测试和开发。
 
@@ -38,7 +38,7 @@ sidebar_position: 4
 
 ## 接口描述
 
-![image-rdk_100_cam_expansionboard](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk_100_mcu_port_expansion_board_interface.png)
+![image-rdk_100_cam_expansionboard](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mcu_port_expansion_board_interface.png)
 
 | **序号** | **功能**                                            |
 | -------- | --------------------------------------------------- |

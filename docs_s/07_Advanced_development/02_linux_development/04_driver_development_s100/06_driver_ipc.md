@@ -13,12 +13,12 @@ IPC（Inter-Processor Communication）模块是用于多核之间的通信，支
 Acore与MCU之间的核间通信，Acore侧主要使用IPCFHAL，MCU侧使用IPCF，其中IPCFHAL是基于IPCF封装了一层接口，用于用户态与内核态的数据传递。
 
 
-![IPCF软硬件组件框图](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/linux-ipc.jpg)
+![IPCF软硬件组件框图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/linux-ipc.jpg)
 
 
 ## IPC典型使用场景
 
-![IPC典型使用场景图](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/imageipcscen.png)
+![IPC典型使用场景图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imageipcscen.png)
 
 
 IPC典型应用场景有OTA模块、诊断模块、规控、CANHAL等。
@@ -139,7 +139,7 @@ ipc_instance6: ipc_instance6 {
 
 IPC Sample实现Acore与MCU之间的IPC收发通信，展示IPC多实例多通道多线程的使用示例。
 
-![Acore与MCU之间的IPC收发通信](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/sampleframeware.png)
+![Acore与MCU之间的IPC收发通信](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/sampleframeware.png)
 
 Sample软件架构图中Acore使用libipcfhal的接口进行数据收发，底层基于ipcf的驱动，MCU直接使用ipcf的接口进行收发。其中由于Acore侧有多套IPC接口，便于区分，分别描述为IPCFHAL、RPMSG、IPCF，MCU侧只有一套IPC接口，因此IPCF在MCU侧文档统一描述为IPC。
 
@@ -148,7 +148,7 @@ Sample软件架构图中Acore使用libipcfhal的接口进行数据收发，底�
 Sample的共享内存数据流和中断信号流
 
 
-![共享内存数据流和中断信号流](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/sampledataflow.png)
+![共享内存数据流和中断信号流](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/sampledataflow.png)
 
 Sample中Acore与MCU通过共享内存传输数据，通过mailbox中断通知双方。
 
@@ -192,10 +192,10 @@ Ipcbox_sample
 ### API流程说明
 
 Acore与MCU(IRQ方式)之间API Sample运行流程图
-![Acore与MCU(IRQ方式)之间API Sample运行流程图](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/sampleirqapi.png)
+![Acore与MCU(IRQ方式)之间API Sample运行流程图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/sampleirqapi.png)
 
 Acore与MCU(POLL方式)之间API Sample运行流程图
-![Acore与MCU(POLL方式)之间API Sample运行流程图](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/samplepollapi.png)
+![Acore与MCU(POLL方式)之间API Sample运行流程图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/samplepollapi.png)
 
 ### 通路配置
 可以增加Json文件中的通道数量config_num，并增加通道信息，本Sample未支持增加通道的功能，若需要增加通道，需要修改Acore和MCU两侧配置文件。
@@ -306,7 +306,7 @@ E8 91 71 F9 FF FF 00 00 E8 91 71 F9 FF FF 00 00
 3. 运行/app/Ipcbox_sample/out/libipcf_hal_sample
 4. 出现tx_data and rx_data are identical.打印则测试通过
 
-![Acore发送数据到MCU](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/mcu-ipc2uart.PNG)
+![Acore发送数据到MCU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/mcu-ipc2uart.PNG)
 
 ### Python应用
 
@@ -405,15 +405,15 @@ Acore与MCU IPC通信使用MCU MDMA将数据在DDR与MCU SRAM之间搬运，MCU�
 
 ### MCU发送数据到Acore
 
-![MCU发送数据到Acore](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/imager52a78.png)
+![MCU发送数据到Acore](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imager52a78.png)
 
 ### Acore发送数据到MCU
 
-![Acore发送数据到MCU](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/imagea78r52.png)
+![Acore发送数据到MCU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imagea78r52.png)
 
 ### IPCFHAL接口使用序列
 
-![Acore发送数据到MCU](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/imageipcfhalapi.png)
+![Acore发送数据到MCU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imageipcfhalapi.png)
 
 IPCFHAL在Acore与MCU通信时，MCU侧用户使用IPCF接口。
 

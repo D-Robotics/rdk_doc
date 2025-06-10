@@ -868,8 +868,8 @@ Q：引脚都连接好了，执行了程序，但还是没有看到期望的结�
 A：可以拿出示波器或者其他信号测量的设备，连接想测量的引脚，进行测量。\
 比如上述的外部回环测试，我们确认接线正确之后，测量片选和时钟信号。参考如下：
 
-![image-spidriver_spi-pin-connect](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_spi-pin-connect.png)
-![image-spidriver_snn_clk_loop_1](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_1.png)
-![image-spidriver_snn_clk_loop_100](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_100.png)
+![image-spidriver_spi-pin-connect](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_spi-pin-connect.png)
+![image-spidriver_snn_clk_loop_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_1.png)
+![image-spidriver_snn_clk_loop_100](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_100.png)
 
 

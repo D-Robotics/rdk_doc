@@ -64,11 +64,11 @@ cd rdk_model_zoo
 ```
 jupyter lab --allow-root --ip 10.112.148.68
 ```
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/jupyter_start.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/jupyter_start.png)
 
 使用命令后，会出现以上日志，按住Ctrl，鼠标左键点击上图所示的链接，即可进入Jupyter Lab（如下图所示），双击demos后，即可选择模型体验RDK Model Zoo。
 
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
 
 ## 模块介绍
 
@@ -85,10 +85,10 @@ RDK 系列 Model Zoo总体分为如下模块（这部分以RDK X5为例，请根
 
 在Jupyter Lab中选择一个模型的notebook进入后，开发者会进入到类似如下的界面：
 
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/basic_usage.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage.png)
 
 这里以yolo world模型为例，用户只需要点击上图中的双三角按钮，即可运行全部cell。鼠标拖动到下方，即可看到结果展示：
 
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/basic_usage_res.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage_res.png)
 
 开发者也可以选择逐cell运行，此时只需要按下Shift + Enter，即可完成当前cell运行，并跳转至下一个cell。

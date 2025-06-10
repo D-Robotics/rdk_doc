@@ -52,7 +52,7 @@ CAN-FD协议采用了改进的循环冗余校验(CRC)和填充位计数器(SBC)�
 为简化帧结构，CAN-FD协议取消了远程帧的支持。这意味着在CAN-FD网络中，通信是通过数据帧进行的，不再需要远程帧的控制和请求。
 
 ## 接口说明
-![img-20241009-1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-1.png)
+![img-20241009-1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-1.png)
 - RDK X5 提供了 CAN 通信接口，并配备了一个 120 欧姆终端电阻开关，当需要启用终端电阻时，只需闭合该开关即可。
 - 端子接口型号：SH1.0 1X3P
 
@@ -187,7 +187,7 @@ ip link set up can0
   ```bash
 ip -details link show can0
   ```
-![img-20241009-2](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-2.png)
+![img-20241009-2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-2.png)
 
 继续输入接收指令(后台接收，不能阻塞串口，后续还需要输入发送指令)：
   ```bash
@@ -198,7 +198,7 @@ candump can0 -L &
 cansend can0 123#1122334455667788
   ```
 测试结果：
-![img-20241009-3](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-3.png)
+![img-20241009-3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-3.png)
 
 ### CANFD回环测试
 
@@ -217,7 +217,7 @@ cansend can0 123##300112233445566778899aabbccddeeff
 
 ### 双设备通信测试
 **硬件连接**
-![img-20241009-4](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-4.png)
+![img-20241009-4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-4.png)
 - GND接GND L接L H接H 
 
 **测试指令**

@@ -8,11 +8,11 @@ sidebar_position: 2
 ## 1.  样例介绍
 
 ### 1.1 外观效果
-![](../../static/img/06_Application_case/amr/appearance.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/appearance.png)
 
 ### 1.2 功能框架
 
-![](../../static/img/06_Application_case/amr/amr_framework.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/amr_framework.jpg)
 
 ## 2. 样例组装
 
@@ -38,43 +38,43 @@ sidebar_position: 2
 #### 2.2.1 底盘上装安装
 原生底盘无法安装摄像头以及存放各种线缆，所以需要另外的上装接入底盘，只需将上装底部的两个孔位对齐底盘安装滑轨上的零件，锁紧螺丝即可
 
-![](../../static/img/06_Application_case/amr/upper_shell.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/upper_shell.jpg)
 
 #### 2.2.2 RDK X5接线
 所有传感器以及底盘都直接接入RDK X5，需要注意双目摄像头使用的是两根同面的22pin排线，请按照下图所示方向安装
 
-![](../../static/img/06_Application_case/amr/RDK-X5_connection.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/RDK-X5_connection.jpg)
 
 #### 2.2.3 盖板安装
 盖板为3D打印件（图纸见文末附件），主要用于安装RDK X5并且收纳其余线缆。黄框位置四个安装孔用于安装RDK X5，安装位置在上盖板的背面。红框位置的安装孔对齐底盘安装滑轨上的零件，锁紧螺丝即可。
 
-![](../../static/img/06_Application_case/amr/cover_board.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/cover_board.jpg)
 
 #### 2.2.4 激光雷达模块接入
 先将激光雷达安装至载板上，螺丝从载板背面安装，然后将接线穿过载板上的孔洞（右图中黄框所示）连接电源管理器。电源管理器安装在载板背面，螺丝从载板正面安装（如左图红框所示），安装完成后接入网线以及12V电源，网线与电源线穿过上装的孔洞（右图中红框所示）。
 
-![](../../static/img/06_Application_case/amr/lidar.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/lidar.jpg)
 
 #### 2.2.5 摄像头安装
 
 #####   1. tof摄像头安装
 首先将tof摄像头、3D打印件、钣金支架连接在一起，注意3D打印件凹槽朝下。连接完成后将整体塞入上装上方凹槽，电源线与信号线从上装内部孔洞穿过（图3黄框）。钣金件的螺丝孔位（图1红框）与上装内部螺丝孔位（图3红框）对齐，锁紧螺丝即可。
 
-![](../../static/img/06_Application_case/amr/tof_cam.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/tof_cam.jpg)
 
 #####   2. 双目摄像头安装
 先将双目摄像头与3D打印件连接，然后接入底盘尾部的钣金支架即可
 
-![](../../static/img/06_Application_case/amr/mipi_cam.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/mipi_cam.jpg)
 
 #### 2.2.6 电源说明
 底盘上提供12V的电源。12V提供给雷达，tof摄像头以及变压器，变压器输出5V提供给RDK X5
 
-![](../../static/img/06_Application_case/amr/power.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/power.jpg)
 
 #### 2.2.7 其他部件安装
 
-![](../../static/img/06_Application_case/amr/other.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/other.jpg)
 
 ## 3. 运行环境准备
 :::info 注意
@@ -206,7 +206,7 @@ export DISPLAY=:0
 ##### 2. 准备标定板并配置参数
 棋盘格或aprilgrid均可（aprilgrid文件见附件）。棋盘格尺寸方格边长>=10cm为宜，且为避免标定时棋盘格角点提取/连线出错问题，棋盘格行列应不同。aprilgrid标定板数据采集时比较方便，操作简单，但对图像质量的要求较高，则目前阶段还是建议使用棋盘格。标定板外尺寸> 1m。
 
-![](../../static/img/06_Application_case/amr/cal_board.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/cal_board.jpg)
 
 ```shell
 #设置aprilgrid.yaml文件
@@ -300,7 +300,7 @@ rosrun kalibr kalibr_calibrate_cameras --bag cam.bag --topic /image --model pinh
 
 #####     4. 标定完成后内容如下（distortion_coeffs：畸变系数     intrinsics：内参）
 
-![](../../static/img/06_Application_case/amr/mipi_int.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/mipi_int.jpg)
 
 
 #### 3.5.4 IMU参数标定（用于imu与rgb_cam的外参标定）
@@ -340,7 +340,7 @@ vim /root/catkin_ws/src/imu_utils/launch/oal.launch
 roslaunch imu_utils oal.lauch
 ```
 
-![](../../static/img/06_Application_case/amr/imu_output.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_output.jpg)
 
 ######      v.播放imu的bag数据
 ```shell
@@ -348,7 +348,7 @@ rosbag play imu.bag
 ```
 
 ######    vi. 修改IMU的参数配置文件
-![](../../static/img/06_Application_case/amr/cal_product.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/cal_product.jpg)
 
 ```shell
 # 将上文生成的 BMI088_imu_param.yaml文件重新复制一份，作为备份，后续需要使用，执行如下命令：
@@ -358,7 +358,7 @@ vim imu.yaml
 ```
 
 配置文件打开后，如下图所示：
-![](../../static/img/06_Application_case/amr/imu_config.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_config.jpg)
 
 将原始的 BMI088_imu_param.yaml 文件内容重写，修改为如下格式：
 ```yaml
@@ -412,7 +412,7 @@ rosbag record /image_combine_raw /imu_data
 rosrun kalibr kalibr_calibrate_imu_camera --bag cam_imu.bag --target april.yaml --cam cam.yaml --imu imu.yaml
 ```
 
-![](../../static/img/06_Application_case/amr/imu_cam_cal.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_cam_cal.jpg)
 
 标定结束后，查看标定结果(当dJ收敛,降低到0.1以下时,表示标定准确)
 ```shell
@@ -420,7 +420,7 @@ rosrun kalibr kalibr_calibrate_imu_camera --bag cam_imu.bag --target april.yaml 
 vim storage-results-imucam.txt
 ```
 外参结果如下：
-![](../../static/img/06_Application_case/amr/imu_cam_trans.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_cam_trans.jpg)
 
 #### 3.5.6 其他
 #####    1. rgb_cam-tof_cam变换由模组给出，tof_cam-bask_link变换由设备装配图纸给出。
@@ -529,13 +529,13 @@ ros2 run ct_lio ct_lio_eskf
 ```
 
 启动之后需静置3~4秒，让imu初始化成功，随后可移动机器人进行建图，建立完成后关闭程序。运行完成后如下图所示：
-![](../../static/img/06_Application_case/amr/buld_map_output.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/buld_map_output.jpg)
 在mapping.yaml文件中指定的路径会生成以下产物
-![](../../static/img/06_Application_case/amr/build_map_product.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/build_map_product.jpg)
 
 使用pcl_viewer工具查看点云地图：
 
-![](../../static/img/06_Application_case/amr/pcl_viewer.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/pcl_viewer.jpg)
 
 建图效果视频：
 Video: https://www.bilibili.com/video/BV1T4tKeoEsH
@@ -547,10 +547,10 @@ source ~/amr_ws/install/setup.bash
 ros2 run ct_lio ct_lio_eskf
 ```
 启动后，当显示帧序号一直为1，说明还未重定位成功
-![](../../static/img/06_Application_case/amr/reloc_fail.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/reloc_fail.jpg)
 当帧序号大于1，说明重定位成功，可开启rviz2查看路径
-![](../../static/img/06_Application_case/amr/reloc_success.png)
-![](../../static/img/06_Application_case/amr/path.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/reloc_success.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/path.png)
 
 ### 4.3 三维点云地图转二维栅格地图
 该功能包为开源功能包，为ros1的功能包，请在已安装ros1的环境下使用，使用方法如下：
@@ -580,7 +580,7 @@ source /opt/ros/noetic/setup.bash
 rosrun map_server map_saver
 ```
 执行后会在当前路径下生成map.pgm和map.yaml文件，这两个文件可用于nav2，使用时需更换hobot_nav2的maps文件夹中的文件，一般路径为/opt/tros/humble/share/hobot_nav2/maps，点云地图以及栅格地图效果如下：
-![](../../static/img/06_Application_case/amr/map.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)
 
 ### 4.4 定点位置导航
 ####   1. 启动tof摄像头，激光雷达，底盘，imu
@@ -694,7 +694,7 @@ ros2 launch <path_of_launch_file>
 ```
 
 ####  3. 同一局域网下的PC打开浏览器，在网址处输入：板子ip:8000，即可查看识别效果
-![](../../static/img/06_Application_case/amr/yolov8seg_web.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/yolov8seg_web.jpg)
 
 ## 5. 代码介绍
 ### 5.1 tofSLAM
@@ -702,7 +702,7 @@ ros2 launch <path_of_launch_file>
 https://github.com/wunuo1/TofSLAM_ros2
 
 #### 5.1.2 工程框架逻辑：
-![](../../static/img/06_Application_case/amr/tofslam_framework.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/tofslam_framework.jpg)
 
 #### 5.1.3 详细说明：
 #####  1. ESKF（Error State Kalman Filter）
@@ -711,18 +711,18 @@ https://github.com/wunuo1/TofSLAM_ros2
 *状态量*：p、R、v、bg、ba、g
 
 *预测模型*：IMU
-![](../../static/img/06_Application_case/amr/imu_model.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_model.png)
 
 *观测（更新）模型 1*：底盘轮速&底盘imu通过EKF计算的位姿——松耦合（R、p更新）
 
 *观测（更新）模型 2*：点云ICP计算得到的位姿——松耦合（R、p更新）
-![](../../static/img/06_Application_case/amr/model2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/model2.png)
 #####   2. IMU静态初始化
 imu初始化保持静态，根据加速度计估计出重力方向、陀螺仪零偏、加速度计零偏，设置初始位姿为原点，初始速度为0
 
 #####  3. 地图格式：哈系体素地图
 用一个哈系列表来保存体素地图，每个体素（0.1×0.1×0.1）里面保存若干个点，点与点之间保持一定距离（0.05）。
-![](../../static/img/06_Application_case/amr/voxel.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/voxel.png)
 
 #####  4. 点云ICP
 ###### 1. 关键点提取：对每一帧的点云采用gridsample的方法进行降采样，提取关键点。
@@ -731,20 +731,20 @@ imu初始化保持静态，根据加速度计估计出重力方向、陀螺仪�
     1. 寻找最近邻：通过voxelmap，在相邻的voxel中寻找距离最近的N个点qi作为邻居点。
     2. 计算邻居点的法向n、协方差矩阵和平滑度权重a
     3. 计算关键点到邻居点所在平面的距离，满足距离小于阈值的点对，加入icp优化。
-![](../../static/img/06_Application_case/amr/point_icp.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/point_icp.jpg)
 
 #####  5. CT_ICP算法（CT-ICP: Real-time Elastic LiDAR Odometry with Loop Closure）
 ######    1. 前端位姿估计
 CTICP算法前端部分整体框架对于每一帧使用了两个pose来描述：
-![](../../static/img/06_Application_case/amr/ct_icp_pose.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/ct_icp_pose.jpg)
 不需要再提前对每一帧点云单独去运动畸变了，而是直接在优化过程中去畸变，该算法对于高速运动更鲁棒。
 
 优化方程：
-![](../../static/img/06_Application_case/amr/equation.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/equation.jpg)
 
 ######    2. 后端回环优化
 每次取Nmap帧scan拼成点云，把每个点插入到一个2D高程网格中。再由2D高程网格生成2D高程图，每个像素对应Z轴最大的点。对2D高程图进行特征提取，提取的特征与2D高程网格一起随着关键帧保存在内存中。当每次提取完高程图特征后都与内存中的特征进行匹配；对匹配成功的高程图对先用Ransac估计一次2D变换矩阵，根据内点个数来验证匹配可信度；再用2D变换矩阵作为初值，对2D高程网格中的点云进行ICP，最终为成功匹配的关键帧添加一条边，使用g2o进行姿态图优化。（该方法只适用于平面运动）
-![](../../static/img/06_Application_case/amr/loop_optimization.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/loop_optimization.jpg)
 
 ### 5.2 双目深度
 #### 5.2.1 代码仓库:
@@ -752,14 +752,14 @@ https://github.com/D-Robotics/hobot_stereonet.git
 
 #### 5.2.2 工程逻辑框架:
 
-![](../../static/img/06_Application_case/amr/stereonet_framework.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/stereonet_framework.jpg)
 
 #### 5.2.3 详细说明：
 #####  1. 双目深度感知原理：
-![](../../static/img/06_Application_case/amr/perception_principle.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/perception_principle.jpg)
 
 #####  2. 双目立体匹配算法步骤:
-![](../../static/img/06_Application_case/amr/stereonet_step.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/stereonet_step.jpg)
 
 #####  3. 模型介绍
 
@@ -769,14 +769,14 @@ https://github.com/D-Robotics/hobot_stereonet.git
     4. Refinement：GRU。采用GRU模块带来边缘细节的性能提升。
     5. Spatial Upsampling：使用Conv代替Unfold操作进行张量的切分，通过加权组合来生成完整分辨率的视差图
 
-![](../../static/img/06_Application_case/amr/stereonet_model.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/stereonet_model.jpg)
 
 ### 5.3 目标检测与分割
 #### 5.3.1 代码仓库:
 https://github.com/D-Robotics/hobot_dnn/tree/
 
 #### 5.3.2 工程逻辑框架:
-![](../../static/img/06_Application_case/amr/detection_framework.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/detection_framework.jpg)
 
 #### 5.3.3 详细说明：
   1. 使用模型为官版yolov8-seg，源码仓库链接https://github.com/ultralytics/ultralytics
@@ -788,7 +788,7 @@ https://github.com/D-Robotics/hobot_dnn/tree/
 https://github.com/wunuo1/pose_setter.git
 
 #### 5.4.2 工程逻辑框架:
-![](../../static/img/06_Application_case/amr/pose_setter.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/pose_setter.jpg)
 
 #### 5.4.3 详细说明：
   1. 程序在启动进行AprilTag检测，检测成功后，会缓存十帧的变换并取平均值。以此得到rgb到AprilTag的变换，读取建图时记录的map到AprilTag的变换，计算出rgb到map的变换。而前期的标定过程中，已经可以计算出rgb到robot的变换，所以可以得到robot到map的变换，以此发布机器人在map坐标系下的初始位置。

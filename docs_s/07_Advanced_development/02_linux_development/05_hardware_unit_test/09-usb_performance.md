@@ -149,7 +149,7 @@ root@ubuntu:~# dd if=/mnt/usb/myfile of=/dev/null bs=4K count=256K
 
 **1.** 将 RDK_S100 开发板的 usb2.0 口连接至 PC 的 USB2.0 ，如图：
 
-![S100_USB2.0](_static/_images/9-usb_performance/S100_USB2.0.png)
+![S100_USB2.0](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/S100_USB2.0.png)
 
 **2.** 将 usb2.0 虚拟为网口，命令如下：
 
@@ -188,7 +188,7 @@ usb-gadget start succeed.
 
 在电脑上可以查看网络配置页面，可以看到如下图所示的 `Remote RNIS Compatible Device` 网卡。
 
-![RNIS_Device](./_static/_images/9-usb_performance/RNIS_Device.png)
+![RNIS_Device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/RNIS_Device.png)
 
 **3.** 使用以下命令来配置 usb0 网络接口的 IP 地址，使其与 PC 端远程网卡的 IP 地址网段一致。
 
@@ -198,7 +198,7 @@ ifconfig usb0 192.168.5.10
 
 PC 端远程网卡 ip 配置如图：
 
-![NETWORK_CONFIG](_static/_images/9-usb_performance/NETWORK_CONFIG.png)
+![NETWORK_CONFIG](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/NETWORK_CONFIG.png)
 
 ## 测试方法
 

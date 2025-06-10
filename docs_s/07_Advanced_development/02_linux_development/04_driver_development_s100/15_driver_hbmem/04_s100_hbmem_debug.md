@@ -15,7 +15,7 @@ cat /sys/kernel/debug/ion/heaps/all_heap_info
 
 其中ION_HEAP_TYPE_CARVEOUT（HB_MEM_USAGE_PRIV_HEAP_RESERVED）、ION_HEAP_TYPE_CMA_RESERVED（HB_MEM_USAGE_PRIV_HEAP_2_RESERVED）和 ION_HEAP_TYPE_DMA（HB_MEM_USAGE_PRIV_HEAP_DMA）heap的预留情况也可以查看启动日志，如下所示，第一行代表ION_HEAP_TYPE_CARVEOUT的起始地址和大小，第二行代表ION_HEAP_TYPE_CMA_RESERVED的起始地址和大小，第三行代表ION_HEAP_TYPE_DMA的起始地址和大小：
 
-![](../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/hbmem/03_ion_region_kernel_print.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/hbmem/03_ion_region_kernel_print.png)
 
 ## 如何直接读写内存
 

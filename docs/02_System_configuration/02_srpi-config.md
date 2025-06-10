@@ -18,21 +18,21 @@ sudo srpi-config
 
 > sudo 是提权管理命令，这里必须输入，这样就可以 root 权限来进行配置管理，默认的 sunrise 账号不具备系统文件修改权限。
 
-![image-20231123101913960](../../static/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
+![image-20231123101913960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
 
-![image-20231123101913960](../../static/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
+![image-20231123101913960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
 
 如果您使用的是桌面系统，那么您可以在菜单中找到`RDK Configuration`应用来进行配置。同样会打开如上图一样的配置终端。
 
-![image-20231123102024074](../../static/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
+![image-20231123102024074](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
-![image-20231123172041480](../../static/img/02_System_configuration/image/srpi-config/20250507-160809.jpg)
+![image-20231123172041480](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160809.jpg)
 
 ## System Options
 
 系统选项菜单，允许对 Wi-F i网络、用户密码、主机名、系统登录模式、浏览器选择等各个部分进行配置更改，以及一些系统级别的更改。
 
-![image-20231123102447793](../../static/img/02_System_configuration/image/srpi-config/image-20231123102447793.png)
+![image-20231123102447793](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123102447793.png)
 
 - **Wireless LAN**
   
@@ -62,7 +62,7 @@ sudo srpi-config
 
 显示选项菜单。
 
-![image-20240113163313195](../../static/img/02_System_configuration/image/srpi-config/image-20240113163313195.png)
+![image-20240113163313195](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240113163313195.png)
 
 - **FB Console Resolution**
   
@@ -76,13 +76,13 @@ sudo srpi-config
   仅 RDK X5 支持切换显示屏
   :::
   
-  ![image-20240113163313195](../../static/img/02_System_configuration/image/srpi-config//image-20240819160611000.png)
+  ![image-20240113163313195](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)
 
 ## Interface Options
 
 接口选项菜单，有以下选项可启用/禁用：SSH、VNC、SPI、I2C、I2S、Serial 等功能。
 
-![image-20231123103322961](../../static/img/02_System_configuration/image/srpi-config/image-20240819162241000.png)
+![image-20231123103322961](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819162241000.png)
 
 - **SSH**
   
@@ -108,7 +108,7 @@ sudo srpi-config
   | spi2 | pwm0 |
   | spi2 | pwm1 |
   | i2c1 | pwm3 |
-  ![image-20231123103758686](../../static/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
+  ![image-20231123103758686](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
 
 - **Configure Wi-Fi antenna**
   切换Wi-Fi天线模式，支持设置使用板载还是外置天线。
@@ -117,19 +117,19 @@ sudo srpi-config
 
 - **Audio**
  安装和卸载音频转接板
- 可能支持的音频转接板包括Audio Driver HAT V1 Audio Driver HAT V2 、WM8960 Audio HAT，不同的硬件能支持的音频转接板也有差别 ![image-20231123103758686](../../static/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
+ 可能支持的音频转接板包括Audio Driver HAT V1 Audio Driver HAT V2 、WM8960 Audio HAT，不同的硬件能支持的音频转接板也有差别 ![image-20231123103758686](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
 
 ## Performance Options
 
 性能选项，包括超频、CPU运行模式和定频设置、调整ION内存大小等功能。
 
-![image-20231123104234000](../../static/img/02_System_configuration/image/srpi-config/image-20231123104234000.png)
+![image-20231123104234000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123104234000.png)
 
 - **CPU frequency**
   
   可以使用此工具对的 RDK 的 CPU 进行超频，一般不建议开启，如果做好充分散热工作可以尝试修改此选项。
   
-  ![image-20231123104553727](../../static/img/02_System_configuration/image/srpi-config/image-20231123104553727.png)
+  ![image-20231123104553727](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123104553727.png)
 
 - **ION memory**
   
@@ -141,7 +141,7 @@ sudo srpi-config
 
 本地化选项，为您提供以下选项供您选择：本地语言、时区、键盘布局。
 
-![image-20231123105018338](../../static/img/02_System_configuration/image/srpi-config/image-20231123105018338.png)
+![image-20231123105018338](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123105018338.png)
 
 - **Locale**
   
@@ -159,7 +159,7 @@ sudo srpi-config
 
 高级选项，可以对磁盘扩展、网络代理等选项进行设置。
 
-![image-20231123105616627](../../static/img/02_System_configuration/image/srpi-config/image-20231123105616627.png)
+![image-20231123105616627](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123105616627.png)
 
 - **Expand Filesystem**
   
@@ -185,10 +185,10 @@ sudo srpi-config
 
 选择此选项会显示以下信息：
 
-![image-20231123110127905](../../static/img/02_System_configuration/image/srpi-config/image-20231123110127905.png)
+![image-20231123110127905](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110127905.png)
 
 ## Finish 按钮
 
-![image-20231123110246286](../../static/img/02_System_configuration/image/srpi-config/image-20231123110246286.png)
+![image-20231123110246286](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110246286.png)
 
 完成更改后选中 `Finish` 按钮。系统将询问您是否要重新启动。首次使用时，最好重新启动。

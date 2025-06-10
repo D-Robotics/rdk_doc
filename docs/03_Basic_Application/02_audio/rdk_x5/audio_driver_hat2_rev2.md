@@ -7,7 +7,7 @@ sidebar_position: 3
 ## 产品简介
 Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES7210+ES8156双Codec方案，可实现环形4麦克风录音、双通道音频播放、音频信号回采等功能。转接板外观如下图：
 
-![image-audio-driver-hat](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat.jpg)
+![image-audio-driver-hat](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat.jpg)
 
 关于音频子板的详细介绍，请参考[Audio Driver HAT](https://www.waveshare.net/shop/Audio-Driver-HAT.htm)。
 
@@ -15,7 +15,7 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
 
 - ### 硬件部署
 1. 按照下图方式，将转接板接入RDK X5的40pin header。  
-![image-audio-driver-hat-setup](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
+![image-audio-driver-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
 
 2. 3个拨码开关全部拨到`OFF`位置。
 
@@ -23,7 +23,7 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
 1. 使用`srpi-config`配置音频板  
 进入`3 Interface Options`->`I5 Audio`  
 选择`Audio Driver HAT V2`：
-![image-audio-codec-select-hat-v2-rdkx5.png](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hat-v2-rdkx5.png)
+![image-audio-codec-select-hat-v2-rdkx5.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hat-v2-rdkx5.png)
 
 2. 根据提示执行`reboot`命令，或者运行命令`sync && reboot`重启开发板，`cat /proc/asound/cards`出现除了`duplexaudio`的声卡，说明转接板安装成功。
 ```shell

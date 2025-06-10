@@ -26,7 +26,7 @@ PCI Express (PCIe) 模块是一种多通道 I/O 互连，提供低引脚数、�
 
 ## S100X支持如下几种PCIe总线拓扑
 
-![S100X_PCIE_Topology](../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/pcie/topology.png)
+![S100X_PCIE_Topology](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/pcie/topology.png)
 
 1. **拓扑1**：双S100X直连，一个S100X作为RC，另一个S100X作为EP
 

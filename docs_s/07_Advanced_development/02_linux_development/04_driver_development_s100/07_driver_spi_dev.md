@@ -10,7 +10,7 @@ S100 Acore支持2路SPI，且SPI0，SPI1只能做SPI Master。
 
 ## 软件构架
 
-![image-spi_software](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/image-spi_software.png)
+![image-spi_software](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/image-spi_software.png)
 
 
 如上图为SPI软件架构图，从下到上依次可以分为硬件IP层，内核层和用户空间层，下面依次对各层进行介绍。

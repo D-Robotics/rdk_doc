@@ -8,7 +8,7 @@ sidebar_position: 6
 
 **OTA** ：（ Over-the-Air Technology，空中下载技术）是指通过无线网络实现远程软件升级的技术。最早由安卓系统引入到手机设备中， OTA 技术大幅简化了传统软件升级过程，无需通过计算机连接设备，用户可直接在设备上下载并安装更新。这一技术极大地方便了用户，提高了设备维护的效率。
 
-![ota_intro](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_intro.png)
+![ota_intro](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_intro.png)
 
 - 在 OTA 的广义应用中，可以划分为云端和设备端两个主要组成部分。云端部分负责处理设备的升级请求，包括执行升级校验、下发升级包以及收集升级结果等任务。而设备端则主要依赖云端下发的升级包，完成系统软件（ FOTA， Firmware Over-the-Air）或应用程序（ SOTA， Software Over-the-Air）的更新与升级。
 - 本文旨在提供底层设备端 OTA 的用户手册，详细阐述 OTA 在底层系统软件和应用程序升级中的机制及其实现方法，同时提供相关的开发指导。需要特别指出的是，通过 OTA 升级的系统软件与应用程序，主要是指更新存储在外部存储器（如 eMMC ）中的数据。
@@ -48,11 +48,11 @@ RDK默认不开启OTA功能，如需开启请按如下流程操作：
         ```
 2. 将build_params目录下的`ubuntu-22.04_desktop_rdk-s100_beta.conf`和`ubuntu-22.04_desktop_rdk-s100_release.conf`中的中的PARTITION_FILE配置为OTA版本（PARTITION_FILE="s100-ota-gpt.json）；
 
-    ![ota_conf](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_conf.png)
+    ![ota_conf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_conf.png)
 
 3. 将source/bootloader/device/rdk/s100目录下的`board_s100_debug.mk`和`board_s100_release.mk`文件中的`RDK_OTA`变量配置为开启（export RDK_OTA="yes"）
 
-    ![ota_board_conf](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_board_conf.png)
+    ![ota_board_conf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_board_conf.png)
 4. 编译
    - 制作新的miniboot的deb包
         ```bash
@@ -449,15 +449,15 @@ OTA 升级包中包含一个名为 data.json 的配置文件。该文件在编�
 
 - 准备阶段：
 
-![ota_tool_sequence_step1](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step1.png)
+![ota_tool_sequence_step1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step1.png)
 
 - 升级阶段：
 
-![ota_tool_sequence_step2](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step2.png)
+![ota_tool_sequence_step2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step2.png)
 
 - 验证阶段：
 
-![ota_tool_sequence_step3](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step3.png)
+![ota_tool_sequence_step3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step3.png)
 
 ### OTA 状态机
 
@@ -477,7 +477,7 @@ typedef enum otahl_update_result {
 } otahl_update_result_e;
 ```
 
-![ota_package_state](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_package_state.png)
+![ota_package_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_package_state.png)
 
 #### OTA升级流程的状态
 状态存储在veeprom，以下是流程说明：
@@ -490,7 +490,7 @@ typedef enum ota_update_flag {
 } ota_update_flag_e;
 ```
 
-![ota_upgrade_state](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_upgrade_state.png)
+![ota_upgrade_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_upgrade_state.png)
 
 #### misc （AB状态机）
 1. 区域分配
@@ -561,7 +561,7 @@ typedef enum ota_update_flag {
 
 3. 状态机说明
 
-    ![ab_state](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ab_state.png)
+    ![ab_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ab_state.png)
 - 状态1：默认状态，AB slot都可以启动。b的优先级高于a，默认从b启动。
 
 - 状态2：升级状态（烧写状态），a slot不可启动且boot success为0。
@@ -621,7 +621,7 @@ OTA升级的状态机存储在此区域，以下是OTA中对此区域的应用�
 
 ### 启动状态切换
 下图说明正常启动时A/B slot是如何切换的（有没有OTA都是这个流程）
-    ![boot_slot_select](../../../static/img/07_Advanced_development/02_linux_development/image/ota/boot_slot_select.png)
+    ![boot_slot_select](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/boot_slot_select.png)
 
 - 启动时，ROM boot count自动累加(该标记在aon域，下电时复位)
 
@@ -634,7 +634,7 @@ OTA升级的状态机存储在此区域，以下是OTA中对此区域的应用�
 
 ### 重启验证与回滚
 S100参考实现中，OTA升级完重启之后起到内核会触发systemd的OTA服务来执行重启检查，来完成完整的OTA流程（实际上是执行ota_tool -b）
-    ![ota_boot_check_state](../../../static/img/07_Advanced_development/02_linux_development/image/ota/ota_boot_check_state.png)
+    ![ota_boot_check_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_boot_check_state.png)
 
 ### 分区烧写方式
     OTA以分区为单位来进行升级，每个要升级的分区都有自己的镜像，升级时主要是将该镜像写入到外部存储器对应的分区上。在镜像类型上又分为全镜像与差分镜像两种形式。
@@ -687,7 +687,7 @@ S100参考实现中，OTA升级完重启之后起到内核会触发systemd的OTA
 
 10. 调用otaClearFlags清除升级标记，结束升级。
 
-    ![otaservice](../../../static/img/07_Advanced_development/02_linux_development/image/ota/otaservice.png)
+    ![otaservice](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otaservice.png)
 
 ## OTA 升级端介绍
 
@@ -827,7 +827,7 @@ err:
 
 5. 若升级结果 otaGetResult 为 OTA_UPGRADE_SUCCESS ，则认为升级成功，调用 otaSetPartition 设置 AB slot 到对向 slot ，然后重启 SoC
 
-    ![otatool-ota_update_all_img](../../../static/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_update_all_img.png)
+    ![otatool-ota_update_all_img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_update_all_img.png)
 
 升级流程结束重启后，应启动 ota_tool -b 对升级结果进行检查校验，并进行后续操作。
 
@@ -898,7 +898,7 @@ exit:
 
 7. 调用 otaPartitionSync 进行 AB 分区、 BAK 分区同步
 
-    ![otatool-ota_boot_check](../../../static/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_boot_check.png)
+    ![otatool-ota_boot_check](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_boot_check.png)
 
 
 ## OTA API介绍

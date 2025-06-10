@@ -25,7 +25,7 @@ CONFIG_SERIAL_HOBOT_UART
 
 SERIAL_HOBOT_UART_CONSOLE
 
-![image-20220324112539182](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324112539182.png)
+![image-20220324112539182](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/image-20220324112539182.png)
 
 ### DTS设备节点配置
 
@@ -67,7 +67,7 @@ uart0: serial@0xA5000000 {
 
 硬件上把uart3的TX和RX进行连接。
 
-![image-20220324122032808](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324122032808.png)
+![image-20220324122032808](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220324122032808.png)
 
 编译uart_duplex.c 代码，具体代码如附录A
 

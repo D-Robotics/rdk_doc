@@ -150,15 +150,15 @@ server：无桌面的Ubuntu系统，可以通过串口、网络远程连接操�
 balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作工具，制作SD启动卡流程如下：
 1. 打开balenaEtcher工具，点击`Flash frome file`按钮，选择解压出来的`ubuntu-preinstalled-desktop-arm64.img`文件作为烧录镜像 
 
-    ![image-X3-Update-balena1](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-X3-Update-balena1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
 
 2. 点击`Select target`按钮，选择对应的Micro SD存储卡作为目标存储设备  
 
-    ![image-X3-Update-balena3](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-X3-Update-balena3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
 
 3. 点击`Flash`按钮开始烧录，待工具提示`Flash Complete`时，表示镜像烧录完成，可以关闭balenaEtcher并取出存储卡
 
-    ![image-X3-Update-balena4](../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-X3-Update-balena4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
 
 ### 在板烧录
 
@@ -183,9 +183,9 @@ SD卡不插入开发板，核心板自带的emmc会被映射成U盘；
 </TabItem>
 </Tabs>
 
-![img-2025-1451](../../../static/img/01_Quick_start/image/install_os/img-2025-1451.png)
+![img-2025-1451](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1451.png)
 
-![img-2025-1451](../../../static/img/01_Quick_start/image/install_os/img-2025-1452.png)
+![img-2025-1451](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1452.png)
 
 ### 启动系统
 
@@ -212,7 +212,7 @@ SD卡不插入开发板，核心板自带的emmc会被映射成U盘；
 
 Ubuntu Desktop 版本系统启动完成后，会通过 HDMI 接口在显示器上输出系统桌面，如下图：
 
-![image-desktop_display.jpg](../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
+![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 ## **常见问题**  
 

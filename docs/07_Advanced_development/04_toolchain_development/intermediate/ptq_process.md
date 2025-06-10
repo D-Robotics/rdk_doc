@@ -11,7 +11,7 @@ sidebar_position: 2
 
 配合D-Robotics 算法工具链的模型完整开发过程，需要经过 **浮点模型准备**、 **模型验证**、 **模型转换**、 **性能评估** 和 **精度评估** 共五个重要阶段，如下图:
 
-![model_conversion_flowchart](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_conversion_flowchart.png)
+![model_conversion_flowchart](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_conversion_flowchart.png)
 
 
 **浮点模型准备** 本阶段用来确保原始浮点模型的格式为D-Robotics 模型转换工具支持的格式，原始浮点模型来自于您通过TensorFlow/PyTorch等DL框架训练得到可用模型。具体的浮点模型要求与建议，请阅读[**浮点模型准备**](#model_preparation)章节内容。
@@ -212,7 +212,7 @@ hb_mapper checker 参数解释：
 
 - 以下在 **RDK X3** 上运行的Caffe模型出现了Reshape + Pow + Reshape 的结构, 从 **RDK X3** 的算子约束列表中我们可以看到, Reshape 算子目前为在CPU上运行的算子, 而Pow的shape也是非4维的，不符合X3 BPU算子约束条件。
 
-![model_reshape](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape.png)
+![model_reshape](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape.png)
 
 
 因此模型最终检查结果也会出现分段情况, 如下:
@@ -244,7 +244,7 @@ hb_mapper checker 参数解释：
 
 - 以下在 **RDK Ultra** 上运行的ONNX模型出现了Mul + Add + Mul的结构，从 **RDK Ultra** 的算子约束列表中我们可以看到，Mul和Add算子在五维上是支持BPU运行的，但前提要符合Ultra BPU算子约束条件，不然就会回退到CPU计算。
 
-![model_reshape](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape_ONNX.png)
+![model_reshape](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape_ONNX.png)
 
 因此模型最终检查结果也会出现分段情况，如下:
 
@@ -843,7 +843,7 @@ D-Robotics 针对此种情况提供的解决方案是：
 
 经过以上两种方式处理后，模型转换阶段产出的 ``***.bin`` 异构模型的输入部分将变成如下图状态。
 
-![input_data_process](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/input_data_process.png)
+![input_data_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/input_data_process.png)
 
 上图中的数据排布就只有NCHW和NHWC两种数据排布格式，N代表数量、C代表channel、H代表高度、W代表宽度，
 两种不同的排布体现的是不同的内存访问特性。在TensorFlow模型NHWC较常用，Caffe中就都使用NCHW，
@@ -889,7 +889,7 @@ D-Robotics 处理器不会限制使用的数据排布，但是有两条要求：
 
 **模型优化编译** 完成了模型解析、模型优化、模型校准与量化、模型编译几个重要阶段，其内部工作过程如下图所示。
 
-![model_optimization](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_optimization.png)
+![model_optimization](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_optimization.png)
 
 :::info 备注
 
@@ -1087,7 +1087,7 @@ Missing keys: 'caffe_model', 'prototxt'
 ```
 通过浏览器打开 ``mobilenetv1_224x224_nv12.html`` 主页面，其内容如下图：
 
-![hb_mapper_perf_2](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hb_mapper_perf_2.png)
+![hb_mapper_perf_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hb_mapper_perf_2.png)
 
 分析结果主要由Model Performance Summary、Details和BIN Model Structure三个部分组成。
 Model Performance Summary是bin模型的整体性能评估结果，其中各项指标为:
@@ -1121,7 +1121,7 @@ Details是每个模型BPU子图的具体信息，在 ``mobilenetv1_224x224_nv12.
 :::
 Layer Details提供具体算子级别的分析，在模型调试分析阶段可以作为参考，例如：如果是某些BPU算子导致模型性能低，通过分析结果帮助您定位到具体的算子。
 
-![layer_details](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/layer_details.png)
+![layer_details](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/layer_details.png)
 
 :::caution 注意
   ``hb_perf`` 工具分析的结果可以帮助您了解bin模型的子图结构，以及模型中的BPU计算部分的静态分析指标；需要特别注意分析结果中不含CPU部分的计算评估，如果需要CPU计算的性能情况，请在开发板上实测模型性能。
@@ -1381,7 +1381,7 @@ Perf result:
 
   - 对于下图这种没有与输入输出节点相连的模型，则需要使用hb_model_modifier工具判断相连节点是否支持删除后按照顺序逐个进行删除。
 
-    ![nodes_connected](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/nodes_connected.png)
+    ![nodes_connected](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/nodes_connected.png)
 
     先使用hb_perf工具获取模型结构图片，然后使用以下两条命令可以自上而下移除Quantize节点,
     对于Dequantize节点自下而上逐个删除即可，每一步可删除节点的名称可以通过 ``hb_model_modifier x.bin`` 进行查看。
@@ -1552,7 +1552,7 @@ def your_custom_data_prepare_sample(image_file):
 
 整体精度问题解决流程示意如下图：
 
-![accuracy_problem](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_problem.png)
+![accuracy_problem](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_problem.png)
 
 ##### 精度有明显损失（4%以上）
 
@@ -1671,7 +1671,7 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
 
 整体流程如下图所示：
 
-![accuracy_debug_process](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_debug_process.png)
+![accuracy_debug_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_debug_process.png)
 
 - **校准模型与数据的保存**
 
@@ -1706,7 +1706,7 @@ pipeline是指您完成数据预处理、模型转换、模型推理、后处理
   **普通节点** 的类型包括：Conv、Mul、Add等。
 :::
 
-![debug_node](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/debug_node.png)
+![debug_node](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/debug_node.png)
 
 calibration_data的文件夹结构如下：
 
@@ -1977,11 +1977,11 @@ API函数使用方法：
 
 average_mode = False时：
 
-![average_mode_false_1](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_1.png)
+![average_mode_false_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_1.png)
 
 average_mode = True时：
 
-![average_mode_true_1](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_1.png)
+![average_mode_true_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_1.png)
 
 :::caution 注意
 
@@ -2034,11 +2034,11 @@ API使用方法：
 
 average_mode=False时：
 
-![new_average_mode_false_1](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_1.png)
+![new_average_mode_false_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_1.png)
 
 average_mode=True时：
 
-![new_average_mode_true_1](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_1.png)
+![new_average_mode_true_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_1.png)
 
 **2.解除模型部分节点量化后累积误差测试**
 
@@ -2075,11 +2075,11 @@ API使用方法：
 
 average_mode = False时：
 
-![average_mode_false_2](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_2.png)
+![average_mode_false_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_2.png)
 
 average_mode = True时：
 
-![average_mode_true_2](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_2.png)
+![average_mode_true_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_2.png)
 
 - 指定多个节点不量化
 
@@ -2119,11 +2119,11 @@ API使用方法：
 
 average_mode = False时：
 
-![new_average_mode_false_2](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_2.png)
+![new_average_mode_false_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_2.png)
 
 average_mode = True时：
 
-![new_average_mode_true_2](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_2.png)
+![new_average_mode_true_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_2.png)
 
 **测试技巧**：
 
@@ -2191,7 +2191,7 @@ API使用方法：
 
 - quantize_node = ['weight', 'activation']：权重和激活分别量化。
 
-![weight_activation_quantized](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/weight_activation_quantized.png)
+![weight_activation_quantized](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/weight_activation_quantized.png)
 
 - **plot_distribution**
 
@@ -2254,15 +2254,15 @@ API使用方法：
 
 node_output：
 
-![node_output](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/node_output.png)
+![node_output](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/node_output.png)
 
 weight：
 
-![weight](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/weight.png)
+![weight](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/weight.png)
 
 activation：
 
-![activation](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/activation.png)
+![activation](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/activation.png)
 
 :::caution 注意
 
@@ -2312,15 +2312,15 @@ activation：
 
 权重校准节点：
 
-![weight_calibration_node](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/weight_calibration_node.png)
+![weight_calibration_node](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/weight_calibration_node.png)
 
 激活校准节点：
 
-![activate_calibration_node](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/activate_calibration_node.png)
+![activate_calibration_node](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/activate_calibration_node.png)
 
 输出结果如下图所示：
 
-![box_plot](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/box_plot.png)
+![box_plot](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/box_plot.png)
 
 图中：
 
@@ -2389,7 +2389,7 @@ API使用方法：
 
 runall流程：
 
-![runall](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/runall.png)
+![runall](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/runall.png)
 
 当所有参数保持默认时，工具会依次执行以下功能：
 
@@ -2609,7 +2609,7 @@ deleted nodes: spconvretinanethead0_conv109_fwd_chw_HzDequantize
 :::
 由于删除特定节点后会对模型的输入情况有影响, 因此工具只对模型输入后只有一条通路的情况适用, 若如下图中所示, 同一输入对应了多个节点的情况尚不支持。
 
-![hb_model_modifier](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hb_model_modifier.png)
+![hb_model_modifier](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hb_model_modifier.png)
 
 - 使用方式
 

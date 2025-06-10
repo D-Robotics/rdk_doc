@@ -15,7 +15,7 @@ VP（Video Pool）视频缓冲池提供大块物理内存及管理功能，负�
 
 ### 绑定关系
 
-![image-20220329183230983](../../../static/img/07_Advanced_development/03_multimedia_development/system_control/system_control_bind_relationship.png)
+![image-20220329183230983](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/system_control/system_control_bind_relationship.png)
 
 注：通过HB_SYS_Bind接口可以在模块间建立绑定关系，绑定后数据源处理完成的数据会自动发送给数据端。
 

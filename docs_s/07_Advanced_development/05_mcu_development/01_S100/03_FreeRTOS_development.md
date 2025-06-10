@@ -378,14 +378,14 @@ Scons跟Makefile类似，每个文件夹由Sconscript编译文件（类似于Mak
    
    如增加mcu/Service/Log文件夹，只需增加相应的位置即可。变量False表示控制构建过程中不会将源文件复制到编译输出目录。
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/scons_add_context.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/scons_add_context.png)
 
 2. 在添加编译的模块下，添加SConscript文件，SConscript文件可以从任意已经编译的模块文件夹下获取
 
 ## MCU FreeRtos系统简介
 MCU这边有几个系统关键功能，如下图所示：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/freertos_system.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/freertos_system.png)
 
 上图可以看到各个功能所在任务的相对优先级及同一个任务中的调用顺序，客户集成请保持各功能的相对优先级、所在core及同一个任务中的调用顺序。各个功能的说明及注意事项如下：
 
@@ -418,7 +418,7 @@ FreeRTOS的主流的启动方式有两种：第一种，在main函数中将硬�
 ### FreeRtos系统任务创建
 任务创建位于/mcu/Target/Target-hobot-lite-freertos-mcu1/target/FreeRtosOsHal/Task_Hal.c中，举例如下：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/task_init.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/task_init.png)
 
 xxx_Startup任务，为启动初始化相关的函数，只执行一次。
 FreeRtos_OsTask_SysCore_BSW_xms和FreeRtos_OsTask_SysCore_ASW_xms为周期性任务，会根据xms的不同产生周期性的调度。同时周期性任务内部会有工作处理，细节见本章上一节"MCU FreeRtos系统简介"章节。
@@ -495,12 +495,12 @@ RDK-S100采用的是heap_4.c方案，该方案结合最佳匹配算法和合并�
 ### MCU1区域调整
 修改/mcu/Build/FreeRtos_mcu1/Linker/gcc/S100.ld文件中相应位置，大小暂不支持修改
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/mcu_log_address.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/mcu_log_address.png)
 
 ### Acore区域调整
 修改/source/hobot-drivers/kernel-dts/drobot-s100-soc.dtsi文件中相应位置，与MCU1修改保持一致
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/acore_log_address.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/acore_log_address.png)
 
 ## MCU与Acore共享内存区域预留
 该共享内存区域空间开辟在MCU0所在空间，但MCU0和MCU1同属于MCU SRAM域，因此MCU1也可以使用相应地址

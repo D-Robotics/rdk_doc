@@ -229,7 +229,7 @@ CoreMark 1.0 : 84290.380360 / GCC11.3.1 20220712  -O3 -funroll-all-loops -static
 
 以下标准需要在系统无工作任务时且多次取平均值测试得到， CoreMark 标准评分公式为 :
 
-![coremark_formula](_static/_images/7-cpu_performance/coremark_formula.png)
+![coremark_formula](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/coremark_formula.png)
 
 - `CoreMark Iterations/Sec`：表示每秒执行的 CoreMark 基准测试迭代次数，通常反映处理器的性能。越高的迭代次数意味着更强的计算能力。
 - `CPU Clock (MHz)`：处理器的时钟频率，单位是 MHz（兆赫兹）。它反映了处理器运行的速度，时钟频率越高，理论上处理器每秒可以执行的操作越多。

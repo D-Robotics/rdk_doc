@@ -29,7 +29,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
 
 - 当串口USB转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.d-robotics.cc/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：  
 
-![image-20220416105939067](../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
+![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
 
 - 打开`MobaXterm`工具，点击`Session`，然后选择`Serial`
@@ -47,7 +47,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
   | 流控（Flow Control） | 无                                   |
   
 - 点击`OK`，输入用户名：`root`、密码：`root`登录设备  
-![image-Uart-Login](../../static/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
+![image-Uart-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
 
 此时，可使用`ifconfig`命令查询开发板IP地址，其中eth0、wlan0分别代表有线、无线网络：
 ```bash
@@ -109,7 +109,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=3
 - 找到Internet协议版本4选项并双击打开
 - 在下图红框位置填入对应的网络参数，点击确定
 
-![image-20220416110242445](../../static/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
+![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
 
 如需将开发板有线网络配置为动态获取DHCP模式，可参考[有线网络](../02_System_configuration/01_network_blueteeth.md)章节进行配置。
 
@@ -123,13 +123,13 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 目前VNC支持直接、云端两种连接方式，用户可以根据自身情况选择。本文推荐使用直接连接方式，连接步骤如下：
 
 - 输入设备ip地址，例如：192.168.127.10  
-![image-20220610160658103](../../static/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
+![image-20220610160658103](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
 
 - 输入IP地址后回车，弹出链接未加密的提示，点击 `Continue`  
-![image-20220610160715916](../../static/img/01_Quick_start/image/remote_login/image-20220610160715916.png)
+![image-20220610160715916](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160715916.png)
 
 - 输入密码 `sunrise`，勾选 `Remember password`, 点击 `OK`连接  
-![image-20220610160928136](../../static/img/01_Quick_start/image/remote_login/image-20220610160928136.png)
+![image-20220610160928136](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160928136.png)
 
 ## SSH登录{#ssh}
 除了VNC登录远程桌面外，还可以通过SSH连接登录开发板。下面分别介绍终端软件、终端命令行两种方法的创建步骤。
@@ -142,7 +142,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 3. 选中`specify username`，输入`sunrise`
 4. 点击OK后，输入用户名（sunrise）、密码（sunrise）即可完成登录
 
-![image-Network-Login](../../static/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
+![image-Network-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
 
 ### 电脑命令行 
 用户也可通过命令行方式进行SSH登录，步骤如下：
@@ -151,7 +151,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 2. 弹出连接确认提示，输入YES
 3. 输入密码（sunrise）即可完成登录
 
-![image-Cmdline-Linux](../../static/img/01_Quick_start/image/remote_login/linux_login_01.gif)
+![image-Cmdline-Linux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/linux_login_01.gif)
 
 ## 局域网构造
 

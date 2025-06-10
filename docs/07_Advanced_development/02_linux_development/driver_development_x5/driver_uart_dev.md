@@ -26,7 +26,7 @@ SERIAL_8250_DW
 
 SERIAL_8250_DWLIB
 
-![image-20220324112539182](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/image-20220324112539182.png)
+![image-20220324112539182](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/image-20220324112539182.png)
 
 ### DTS设备节点配置
 

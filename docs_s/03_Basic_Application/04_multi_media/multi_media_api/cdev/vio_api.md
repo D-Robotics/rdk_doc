@@ -270,4 +270,4 @@ sidebar_position: 1
 ## host编号选择
 camera对应的host编号如下图所示
 
-![20250220-114529.png](../20250220-114529.png)
+![20250220-114529.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/20250220-114529.png)

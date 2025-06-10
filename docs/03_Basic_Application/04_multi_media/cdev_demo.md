@@ -11,7 +11,7 @@ sidebar_position: 2
 本示例`vio2display`示例实现了`MIPI`摄像头图像采集功能，并通过`HDMI`接口输出，用户可通过显示器预览画面。
 
 示例流程框图如下：
-![image-vio_to_display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg)
+![image-vio_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg)
 
  - **环境准备：**
    - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
@@ -65,7 +65,7 @@ sidebar_position: 2
 ## 摄像头图像本地保存 (RDK X3)
 
 本示例`vio_capture`示例实现了`MIPI`摄像头图像采集，并将`RAW`和`YUV`两种格式的图像本地保存的功能。示例流程框图如下：
-![image-capture](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
+![image-capture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
  - **环境准备：**
    - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
@@ -110,7 +110,7 @@ sidebar_position: 2
 ## 摄像头图像本地保存 (RDK X5)
 
 本示例`vio_capture`示例实现了`MIPI`摄像头图像采集，并将`RAW`和`YUV`两种格式的图像本地保存的功能。示例流程框图如下：
-![image-capture](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
+![image-capture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
  - **环境准备：**
 
@@ -163,7 +163,7 @@ sidebar_position: 2
 ## 摄像头图像本地保存 (RDK Ultra)
 
 本示例`vio_capture`示例实现了`MIPI`摄像头图像采集，并提供`RAW`和`YUV`两种格式的图像本地保存的功能（两者互斥）。示例流程框图如下：
-![image-capture](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.png)
+![image-capture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.png)
 
  - **环境准备：**
    - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
@@ -216,7 +216,7 @@ sidebar_position: 2
 ## 摄像头图像采集并编码
 
 本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存，用户可通过显示器预览画面。示例流程框图如下：
-![image-vio_to_encoder](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png)
+![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png)
 
  - **环境准备：**
    - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
@@ -271,7 +271,7 @@ sidebar_position: 2
 ## 摄像头图像采集并编码 (RDK X5)
 
 本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存，用户可通过显示器预览画面。示例流程框图如下：
-![image-vio_to_encoder](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.jpg)
+![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.jpg)
 
  - **环境准备：**
 
@@ -316,7 +316,7 @@ sidebar_position: 2
 ## 视频文件解码并显示
 
 本示例`decoder2display`实现了视频文件解码，并通过`HDMI`接口输出的工，用户可通过显示器预览画面。示例流程框图如下：
-![image-decoder_to_display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.png)
+![image-decoder_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.png)
 
 - **环境准备：**
   - 通过HDMI线缆连接开发板和显示器
@@ -352,7 +352,7 @@ sidebar_position: 2
 ## RTSP拉流解码
 
 本示例`rtsp2display`实现了拉取`rtsp`码流、解码，并通过`HDMI`输出视频图像的功能，用户可通过显示器预览画面。示例流程框图如下：
-![rtsp2display](../../../static/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
+![rtsp2display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
 
 - **环境准备：**
   - 通过HDMI线缆连接开发板和显示器

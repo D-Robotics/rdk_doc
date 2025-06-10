@@ -61,7 +61,7 @@ RDK Ultra 目前提供Ubuntu 20.04系统镜像，可支持Desktop桌面图形化
 
 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images)，选择rdk_ultra目录，选择对应版本，进入文件下载页。以下载1.0.0版本的系统镜像为例：
 
-![image-20230510143353330](../../../static/img/01_Quick_start/image/install_os/20231010120539.png)
+![image-20230510143353330](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/20231010120539.png)
 
 下载完成后，解压出Ubuntu系统镜像文件，如`ubuntu-preinstalled-desktop-arm64-rdkultra.img`
 
@@ -94,37 +94,37 @@ RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`�
 
 2. 将功能控制接口（接口10）的`FC_REC`和`GND`信号短接。
 
-![image-ultra-fc-rec](../../../static/img/01_Quick_start/image/install_os/image-ultra-fc-rec.jpg)
+![image-ultra-fc-rec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-ultra-fc-rec.jpg)
 
 
 3. 运行`hbupdate`主程序，打开下载工具并选择开发板型号为`RDK_ULTRA`，必选项。
 
-![image-flash-system1](../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system1.jpg)
+![image-flash-system1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system1.jpg)
 
 4. 点击`Browse`按钮选择将要烧录的镜像文件，必选项。
 
-![image-flash-system2](../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system2.jpg)
+![image-flash-system2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system2.jpg)
 
 5. 点击`Start`按钮开始刷机，根据提示信息确认操作无误后，点击`OK`按钮：
 
-![image-flash-system3](../../../static/img/01_Quick_start/image/install_os/image-system-download3.jpg)
+![image-flash-system3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-system-download3.jpg)
 
 6. 当工具显示如下打印时，说明进入烧写过程，该过程耗时依赖于网络传输速度，请耐心等待。
 
-![image-flash-system4](../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system4.jpg)
+![image-flash-system4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system4.jpg)
 
 7. 等待工具烧录完成，并检查烧录结果：
 
 - 镜像烧录成功时，工具提示如下：
 
-![image-flash-system6](../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system6.png)
+![image-flash-system6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system6.png)
 
 - 工具提示如下错误时，请确认步骤1~3是否操作正确。
 
-![image-flash-system7](../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system7.png)
+![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system7.png)
 
 - 工具提示如下错误时，说明网络传输速度过慢，建议更换性能更好的PC后重新升级。
-  ![image-flash-system8](../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system8.jpg)
+  ![image-flash-system8](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system8.jpg)
 
 
 
@@ -151,7 +151,7 @@ RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`�
 
 Ubuntu Desktop版本系统启动完成后，会通过HDMI接口在显示器上输出系统桌面，如下图：
 
-![image-desktop_display.jpg](../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
+![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 ## **常见问题**  
 

@@ -8,8 +8,8 @@ sidebar_position: 3
 
 RDK Ultra开发套件提供了以太网口、USB、HDMI、MIPI CSI、40PIN等多种外围接口，方便用户对RDK Ultra开发套件进行功能体验、开发测试等工作，接口布局如下：
 
-![image-carrier-board1](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface1.jpg)
-![image-carrier-board2](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface2.jpg) 
+![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface1.jpg)
+![image-carrier-board2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg) 
 
 | 序号 | 接口功能      | 序号 | 接口功能               | 序号 | 接口功能                 |
 | ---- | ------------- | ---- | ---------------------- | ---- | ------------------------ |
@@ -29,7 +29,7 @@ RDK Ultra开发套件提供了以太网口、USB、HDMI、MIPI CSI、40PIN等多
 
 RDK Ultra Module核心板硬件接口兼容 Jetson Orin 系列开发板，方便用户快速集成和产品化落地。
 
-![rdk_ultra_module](../../../static/img/01_Quick_start/image/hardware_interface/rdk_ultra_module.png)
+![rdk_ultra_module](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/rdk_ultra_module.png)
 
 
 
@@ -165,7 +165,7 @@ Camera模组的购买方式可参考社区配件页，[购买链接](../../07_Ad
 
 RDK Ultra开发板提供一组40pin header接口（接口7），支持GPIO、UART、I2C、SPI、I2S等多种接口，详细管脚定义、复用关系如下：
 
-![image-40pin-header](../../../static/img/01_Quick_start/image/hardware_interface/image-interface-40pin.jpg)
+![image-40pin-header](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-interface-40pin.jpg)
 
 
 
@@ -188,7 +188,7 @@ RDK Ultra开发板提供了一组功能控制接口（接口10），可实现对
 | 8      | GND      | GDN                        | GND                                 |
 
 
-![image-carrier-board-control-pin1](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface-control.jpg)  
+![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface-control.jpg)  
 
 
 

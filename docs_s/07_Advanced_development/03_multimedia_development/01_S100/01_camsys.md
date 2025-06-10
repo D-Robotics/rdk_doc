@@ -30,7 +30,7 @@ MIPI、CIM）、ISP、PYM、GDC、YNR、STITCH模块。
 
 ### camsys硬件框图
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/b266496271990c1606e5f68485cf3e9d.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/b266496271990c1606e5f68485cf3e9d.png)
 
 ### 子模块
 
@@ -55,7 +55,7 @@ ISP的功能包括对原始图像进行各类算法处理、图像特性统计�
 - 每个ISP硬件模块IP最大支持12路sensor的接入能力；
 - ISP处理最大分辨率为4096 * 2160
 - ISP处理pipeline如下图：
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/isp_pipeline.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/isp_pipeline.png)
 - MCFE:
 Multi-Context Front End，用于ISP多路调度控制与buffer管理，one by
 one进行Multi-camera图像处理。
@@ -84,7 +84,7 @@ YNR为yuv域的降噪模块Digital Noise Reduction，YNR支持2DNR与3DNR模式
 
 PYM（Pyramid）作为一个硬件加速模块，对输入的图像按照金字塔图层的方式处理，并输出到DDR。
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image.png)
 
 - S100上共有3个PYM模块，分别为PYM0 PYM1 PYM4；
 - SRC层：代表源图像层；
@@ -134,24 +134,24 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 * Pan
 
 	水平方向 （-1280, +1280）通过给定的像素数，偏移变换网格。如下所示：
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-1.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-1.png)
 
 * Tile
 
 	垂直方向 （-720, +720）通过给定的像素数，偏移变换网格。如下所示：
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-2.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-2.png)
 
 * Zoom
 
 	按提供的因子 （0, +∞）缩放变换输出，（0, 1）表示值大于 0 且小于 1。如下所示：
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-3.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-3.png)
 
 ###### Affine
 * 功能描述
 
 	提供线性的变换
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-4.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-4.png)
 
 * 成员说明
 	| 成员 | 含义                                   |
@@ -174,7 +174,7 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 
 	此转换提供等实体（全景panoramic）校正，并将结果显示为平面上的投影。
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-6.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-6.png)
 
 * 成员说明
 	| 成员 | 含义                                   |
@@ -187,13 +187,13 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 	| double angle(rotation)      | 图像旋转的角度 0/90/180/270 |
 
 	strength x调试效果，在X轴的转换强度，取值（0, +∞）。如下所示：
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-7.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-7.png)
 
 	strength y调试效果，在Y轴的转换强度，取值（0, +∞）。如下所示：
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-8.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-8.png)
 
 	Rotation调试效果，取值（-180, 180）。如下所示：
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-9.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-9.png)
 
 	:::info 注意！
 
@@ -206,7 +206,7 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 
 	此转换提供等实体（全景panoramic）校正，并将结果显示为平面上的投影。
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-10.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-10.png)
 
 * 成员说明
 	| 成员 | 含义                                   |
@@ -219,11 +219,11 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 
 	strength 调试效果，转换的强度（0，+∞）。如下所示：
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-11.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-11.png)
 
 	rotation 调试效果，取值范围（-180,+180）。如下所示
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-12.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-12.png)
 
 
 	:::info 注意！
@@ -237,7 +237,7 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 
 	等距变换包含许多参数，这些参数允许它为投影提供一系列不同的目标平面。这使用户可以更自由地选择要变换的鱼眼帧的所需区域。
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-13.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-13.png)
 
 * 成员说明
 	| 成员 | 含义                                   |
@@ -256,27 +256,27 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 
 	elevation 调试效果：
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-14.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-14.png)
 
 	azimuth 调试效果：
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-15.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-15.png)
 
 	rotation 调试效果：
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-16.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-16.png)
 
 	cylindricity x调试效果：
 
 	描述目标投影沿X轴的球形程度。该值的范围为0到1，其中1为球形。如果该值设置为1，圆柱度Y值设置为0，则投影将沿X轴形成圆柱。如下所示：
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-17.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-17.png)
 
 	cylindricity y调试效果：
 
 	描述目标投影沿Y轴的球形程度。该值的范围为0到1，其中1为球形。如果该值设置为1，圆柱度X值设置为0，则投影将沿Y轴形成一个圆柱体。如下所示：
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-18.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-18.png)
 
 	:::info 注意！
 
@@ -294,11 +294,11 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 
 	采用custom变换后，输入图像中的每个多边形都会变换为正方形。换句话说，任何形状的任何四个邻近输入点在转换后都是正方形，如下图所示。但是，多边形的形状和位置在变换后会发生变化。
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-19.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-19.png)
 
 	它们用于创建任何提供的转换都无法描述的转换。为了纠正任意失真，必须向GDC工具提供一个特殊的校准文件config0.txt。如下图
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-20.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-20.png)
 
 * 成员说明
 	| 成员 | 含义                                   |
@@ -322,23 +322,23 @@ GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备j
 		5.标定点必须是大于等于0的int或float类型、相邻两行的标定点不能重复。
 			eg.下图是截取的其中的一部分数据图片，第五行到第九行就是标定点在源图的坐标值，格式是Y: X。以下图为例，一共有1081x1921个标定点。
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-25.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-25.png)
 
 		6.由于标定点必须是等距离的，这意味着输出图片的分辨率取决于标定点的点数。
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-22.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-22.png)
 
 	eg. 输出图片的Width = 100， Height计算为340，计算过程如下：100/height = (96-1)/(324-1)
 		下图是更简单的3x3坐标点转换的示例图
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-23.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-23.png)
 
 
 
 ###### Keystone+dewarping
 * 功能描述
 
-	![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-26.png)
+	![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-26.png)
 
 * 成员说明
 	| 成员 | 含义                                   |
@@ -631,11 +631,11 @@ custom模式
 	```
 	输入图片加变换网格如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-27.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-27.png)
 
 	输出图片如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-28.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-28.png)
 
 
 ###### Equisolid
@@ -691,11 +691,11 @@ custom模式
 	```
 	输入图片加变换网格如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-29.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-29.png)
 
 	输出图片如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-30.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-30.png)
 
 
 ###### Equisolid(cylinder)
@@ -750,11 +750,11 @@ custom模式
 	```
 	输入图片加变换网格如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-31.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-31.png)
 
 	输出图片如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-32.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-32.png)
 
 ###### Equidistant
 配置文件内容如下：
@@ -815,11 +815,11 @@ custom模式
 
 	输入图片加变换网格如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-33.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-33.png)
 
 	输出图片如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-34.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-34.png)
 
 ###### Custom
 输入1280x720，输出560x258。配置文件内容如下:
@@ -873,11 +873,11 @@ custom模式
 
 	输入图片加变换网格如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-35.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-35.png)
 
 	输出图片如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-36.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-36.png)
 
 
 ###### Keystone+dewarping
@@ -941,11 +941,11 @@ custom模式
 
 	输入图片加变换网格如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-37.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-37.png)
 
 	输出图片如下
 
-![alt text](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-38.png)
+![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-38.png)
 
 
 #### GDC bin 相关API参考
@@ -1137,7 +1137,7 @@ LUT表，硬件读取DDR中的alpha权重值并进行融合src0。
 
 **硬件拼接示意图**
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch0.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch0.png)
 通过使用图片上的两个源ROI进行不同blend mode的拼接，最终输出对应的ROI结果
 
 **拼接方案介绍**
@@ -1146,13 +1146,13 @@ LUT表，硬件读取DDR中的alpha权重值并进行融合src0。
 blend算法，使用不同的配置字参数划分出不同的ROI划分区域灵活的配置生成多种不同的拼接方案，并且运用LUT表处理拼接的过渡区域优化效果，在自动驾驶以及ADAS的APA场景下，可以将四路摄像头已经被畸变矫正过后的IPM图像数据拼接成一路360环视图，用于停车位的检测，方便用户查看车位线周边情况进行停车。
 
 **典型场景**
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch1.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch1.png)
 在APA场景，四路环视泊车，GDC从DDR中获取4张回灌图片和参考点(CFG
 BIN)通过畸变矫正输出4张IPM图，然后通过STITCH硬件拼接模块使用预先定义好的配置字拼接方案参数(CPG
 PARAM)进行硬件拼接输出鸟瞰图。
 
 **摆放位置**
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch2.png)
 1. 四张IPM图通过copy模式放到指定输出地址的指定位置
 2. 没有重合的区域可以使用直接拷贝模式
 3. ROI重合区域使用Alpha Blend模式进行融合拼接
@@ -1170,7 +1170,7 @@ LUT:ROI-0 + ROI-1 + ROI-2 + ROI-3 + ROI-4 + ROI-5 + ROI-6 + ROI-7
 **坐标点参数举例**
 
 硬件拼接的ROI的划分与相机的安装位置有直接关系，目前可以通过convert-tool工具生成，下图为各ROI划分区域坐标点显示示例。
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch3.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch3.png)
  | ROI   |范围            | SRC0          | 起点     | 大小      | SRC1          | 起点      | 大小      | 目标起点  | 模式        |
  | ----- |----------------| --------------| ---------| ----------| --------------| ----------| ----------| ----------| ------------|
  | 0     |左视全图        | 左视(frame0)  | (0,0)    | -256,512  | /             | /         | /         | (0,40)    | 直接拷贝    |
@@ -1188,7 +1188,7 @@ LUT:ROI-0 + ROI-1 + ROI-2 + ROI-3 + ROI-4 + ROI-5 + ROI-6 + ROI-7
 
 RDK-S100 接入camera 后，进入后级模块处理，其数据流通路如下图所示：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/47ab7cc928ceb5b8e03de23bb95d057b.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/47ab7cc928ceb5b8e03de23bb95d057b.png)
 
 -   MIPI RX: 3路 CDPHY，每路为 DPHY 最大 4.5Gbps/lane x 4lane 或 CPHY 最大
     3.5Gbps/trio x 3trio，每路支持4VC，理论最多支持 12 路接入 。
@@ -1947,13 +1947,13 @@ hbn_txser_detach_from_vin需要与hbn_txser_attach_to_vin成对使用。
 多个vnode组成一条vflow（类似于一条pipeline）。Camera和VIN通过attach接口绑定起来。
 用户只需要调用HBN接口完成模块的初始化和绑定，vflow建立并启动后，用户无须关心数据帧的传递，SDK内部会将数据帧由上游传递到下游。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/28afb7cb9d1a5de6c889657a0e548e82.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/28afb7cb9d1a5de6c889657a0e548e82.jpg)
 
 一个vflow由一个或多个vnode组成，一个vnode有一个输入通道，一个或多个输出通道。
 
 接口调用示例：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/492ed46bde119b791326f621b9f5b064.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/492ed46bde119b791326f621b9f5b064.png)
 
 ### API参考
 
@@ -3769,31 +3769,31 @@ API和对应的拼接LUT表文件实现对GDC输出图像的拼接，得到鸟�
 
 后视图原图及经过gdc处理后的输出：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch0.png)
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch1.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch0.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch1.png)
 
 前视图原图及经过gdc处理后的输出
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch2.png)
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch3.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch3.png)
 
 左视图原图及经过gdc处理后的输出
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch4.png)
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch5.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch4.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch5.png)
 
 右视图原图及经过gdc处理后的输出
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch6.png)
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch7.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch6.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch7.png)
 
 最终stitch拼接输出图像：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch8.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch8.png)
 
 对应stitch的ROI区域划分：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch9.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch9.png)
 
   |ROI   |范围                    | SRC0     | 起点       | 大小        | SRC1     | 起点       | 大小        | 目标起点    | 模式           | 方向    |
   |----- |------------------------| ---------| -----------| ------------| ---------| -----------| ------------| ------------| ---------------| --------|

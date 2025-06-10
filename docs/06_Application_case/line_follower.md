@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ```
 
 ## 功能介绍
-![](../../static/img/06_Application_case/line_follower/demo.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/demo.png)
 
 巡线任务，即机器人小车能够自主跟着一条引导线向前运行，引导线往左，小车也跟着往左转，引导线往右，小车跟着往右转。该任务是轮式机器人中比较基础的任务，实现方式也有多种，比如：
 
@@ -63,17 +63,17 @@ import TabItem from '@theme/TabItem';
 
 ### D-Robotics RDK平台
 
-![](../../static/img/06_Application_case/line_follower/framework.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/framework.png)
 
 小车本体这里选用OriginBot套件，该小车本体具有两个主动轮，一个从动轮，通过两个主动轮差速进行旋转控制。其中MCU模块主要用于小车的电机运动控制通过串口与主控D-Robotics RDK进行通信。OriginBot网址：[www.originbot.org](https://www.originbot.org/)
 
-![](../../static/img/06_Application_case/line_follower/car.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/car.png)
 
 整套系统如上图所示，D-Robotics RDK通过摄像头获取小车前方环境数据，图像数据通过训练好的CNN模型进行推理得到引导线的坐标值，然后依据一定的控制策略计算小车的运动方式，通过UART向小车下发运动控制指令实现整个系统的闭环控制。
 
 PC用于进行数据标注以及训练，为了提高效率这里采用D-Robotics RDK将图片通过以太网发送至PC端进行标注的方式。
 
-![](../../static/img/06_Application_case/line_follower/roadmap.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/roadmap.png)
 
 整个软件工程包括5个主要环节分别是：
 
@@ -89,7 +89,7 @@ PC用于进行数据标注以及训练，为了提高效率这里采用D-Robotic
 
 模型训练离不开数据的采集和标注，这里利用tros.b中hobot_sensor提供的MIPI摄像头图像采集功能和跨设备通信能力，在PC上搭建一个简单的数据采集和标注系统。整个数据采集标注系统工作流程如下：sensor提供的MIPI摄像头图像采集功能和跨设备通信能力，在PC上搭建一个简单的数据采集和标注系统。整个数据采集标注系统工作流程如下：
 
-![](../../static/img/06_Application_case/line_follower/annotation.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/annotation.png)
 
 D-Robotics RDK上启动mipi_cam，选用的摄像头模组为F37，输出图像格式为BGR8，分辨率为960x544，消息通信方式为非零拷贝方式
 
@@ -152,13 +152,13 @@ ros2 run line_follower_model annotation
 
 根据以上数据方式采集和标注方式，采集一定数量的数据，建议至少100张，用于后续模型训练。当环境或者场地变化时也可采集对应的图片一起训练提高模型的适应性。
 
-![](../../static/img/06_Application_case/line_follower/annotation.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/annotation.gif)
 
 #### 模型选择
 
 综合考虑模型成熟度、训练模型对CPU/GPU的硬件要求，这里选择ResNet网络作为backbone。残差神经网络（ResNet）是由微软研究院的何恺明、张祥雨、任少卿、孙剑等人提出，在2015 年的ILSVRC（ImageNet Large Scale Visual Recognition Challenge）中取得了冠军。ResNet巧妙地利用了shortcut连接，解决了深度网络中模型退化的问题，是当前应用最为广泛的CNN特征提取网络之一。[ResNet18](https://huggingface.co/microsoft/resnet-18)结构如下：
 
-![](../../static/img/06_Application_case/line_follower/model.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/model.png)
 
 在D-Robotics RDK上ResNet18推理性能高达232FPS，ResNet50推理性能也超过100FPS，高帧率保证了数据处理的实时性，是后续提高车速以及实现更复杂应用的必要条件。这里先使用ResNet18网络结构，后期遇到瓶颈考虑更深的ResNet50网络结构。为了满足输出引导线坐标值x，y这里需要修改ResNet18网络FC输出为2，即直接输出引导线的x，y坐标值。ResNet18输入分辨率为224x224。
 训练框架选用最近比较火热的pytorch，这里安装CPU版本pytorch，若硬件上有GPU卡可选用GPU版本pytorch。安装命令如下：
@@ -207,7 +207,7 @@ ros2 run line_follower_model training
 
 #### 模型转换
 
-![](../../static/img/06_Application_case/line_follower/model_convert.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/model_convert.png)
 
 pytorch训练得到的浮点模型如果直接运行在D-Robotics RDK上效率会很低，为了提高运行效率，发挥BPU的5T算力，这里需要进行浮点模型转定点模型操作。
 
@@ -271,7 +271,7 @@ pytorch训练得到的浮点模型如果直接运行在D-Robotics RDK上效率�
 
    结果如下：
 
-   ![](../../static/img/06_Application_case/line_follower/02.gif)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/02.gif)
 
    模型编译,该步骤将生成定点模型文件。
 
@@ -283,7 +283,7 @@ pytorch训练得到的浮点模型如果直接运行在D-Robotics RDK上效率�
 
    结果如下：
 
-   ![](../../static/img/06_Application_case/line_follower/03.gif)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/03.gif)
 
 #### 端侧部署
 
@@ -370,4 +370,4 @@ ros2 run originbot_base originbot_base
 
 小车已经开始了巡线运动。
 
-![](../../static/img/06_Application_case/line_follower/tracking_car.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/tracking_car.gif)

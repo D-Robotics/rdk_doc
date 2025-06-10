@@ -140,16 +140,16 @@ index 504b21b..8d72794 100644
 
 **2.** 根据下面的 RDK_S100 实物图并找到 uart2 对应并将拨码开关往右拨到 连接 uart2 的位置：
 
-![Actual_device_diagram](_static/_images/3-uart_stress/Actual_device_diagram.png)
+![Actual_device_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Actual_device_diagram.png)
 
 **3.** 查看 RDK_S100 原理图并找到 uart2 对应的引脚与连接器位置，如图：
 
-![Schematic_diagram](_static/_images/3-uart_stress/Schematic_diagram.png)
+![Schematic_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Schematic_diagram.png)
 
 
 并将双母头杜邦线将 uart2_tx 与 uart2_rx 相连。
 
-![Connection_diagram](_static/_images/3-uart_stress/Connection_diagram.png)
+![Connection_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Connection_diagram.png)
 
 **4.** 确认在 /app/multimedia_samples/chip_base_test/03_uart_test 路径下存在 `uartstress.sh`、`uart_test.c`、`uart_test` 三个文件。
 

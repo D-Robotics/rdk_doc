@@ -7,7 +7,7 @@ sidebar_position: 2
 ## 产品简介
 WM8960 Audio HAT是由微雪电子生产的一款音频转接板，采用WM8960 Codec方案，可实现双通道麦克风录音、音频播放功能，转接板外观如下图：
 
-![image-audio-wm8960](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
+![image-audio-wm8960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
 
 关于音频转接板的详细介绍，请参考[WM8960音频转接板](https://www.waveshare.net/wiki/WM8960_Audio_HAT)。
 
@@ -16,14 +16,14 @@ WM8960 Audio HAT是由微雪电子生产的一款音频转接板，采用WM8960 
 - ### 硬件部署
 
 1. 按照下图方式，将转接板接入RDK X3的40pin header  
-![image-wm8960-audio-hat-setup](../../../../static/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
+![image-wm8960-audio-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
 
 - ### 软件配置
 
 2. 使用`srpi-config`配置音频板  
 进入`3 Interface Options`->`I5 Audio`  
 选择`WM8960 Audio HAT`：
-![image-audio-driver-hat-config00](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config01.png)  
+![image-audio-driver-hat-config00](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config01.png)  
 
 
 3. 运行命令`sync && reboot`重启开发板，如`ls /dev/snd`下出现如下设备节点，说明转接板安装成功

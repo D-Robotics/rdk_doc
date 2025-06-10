@@ -18,10 +18,10 @@ IO管脚的复用和配置，以及上电默认状态、复用、驱动能力、
 
 - 打开表格，选择  `PIN Mux List` 的数据表。
 - 第B列是PinName，找到`LSIO_UART3_RXD`所在的行，第F列表示默认function，为`LSIO_GPIO0_PIN10`，即功能为GPIO，GPIO名为`LSIO_GPIO0_PIN10`。第I, K, M, O列表示每种function对应的功能，如下图所示：
-![image-LSIO_UART3_RXD_func](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_func.png)
+![image-LSIO_UART3_RXD_func](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_func.png)
 
 - 配置PIN功能：选择`LSIO PIN Control Register`数据表，如下图所示：
-![image-LSIO_UART3_RXD_mux](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_mux.png)
+![image-LSIO_UART3_RXD_mux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_mux.png)
     - 数据表的第一行记录了寄存器的基地址，也就是`0x34180000`；
     - 数据表的第A列记录了各个寄存器的偏移；
     - 数据表的第G列描述了寄存器的功能；
@@ -29,21 +29,21 @@ IO管脚的复用和配置，以及上电默认状态、复用、驱动能力、
     - 找到以上配置项后，就可以设置对应PIN的function，Function[x]代表了如果想要配置为该功能，需要在寄存器内的对应偏移写入对应的[x]。例如在寄存器`0x34180084`的`bit20-21`置为`0x0`，表示`LSIO_UART3_RXD`引脚被配置为`uart3 rx`功能，也就是`Function 0`；配置为`0x1`，表示`LSIO_UART3_RXD`引脚被配置为`i2c5 scl`功能，也就是`Function 1`；配置为`0x2`，表示`LSIO_UART3_RXD`引脚被配置为`GPIO`功能，也就是`Function 2`；
 
 - 配置PIN属性：选择`LSIO PIN Control Register`数据表，如下图所示：
-![image-LSIO_UART3_RXD_IO_ctr_no_ms](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_no_ms.png)
+![image-LSIO_UART3_RXD_IO_ctr_no_ms](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_no_ms.png)
     - 数据表的第一行记录了寄存器的基地址，也就是`0x34180000`；
     - 数据表的第A列记录了各个寄存器的偏移；
     - 数据表的第G列描述了寄存器的功能；
     - 在数据表G列找到“`lsio_uart3_rxd pull up enable`”所在的行，可以看到`LSIO_UART3_RXD`的PU/PD/施密特开关/PIN驱动力的寄存器偏移为`0x3C`，完整地址可由基地址 + 偏移得到：`0x34180000 + 0x3C = 0x3418003C`;
     - PIN的驱动力具体数值请参考`Description for GPlO App`.数据表的驱动力表格;
     - PIN的电源域请搜索`mode select`并在G列确认当前寄存器控制的PIN包含了`LSIO_UART3_RXD`，可以看到控制PIN电源域的寄存器偏移为`0x38`，完整地址可由`基地址 + 偏移`得到：`0x34180000 + 0x38 = 0x34180038`如下图所示：
-    ![image-LSIO_UART3_RXD_IO_ctr_ms](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_ms.png)
+    ![image-LSIO_UART3_RXD_IO_ctr_ms](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_ms.png)
 
 - 配置寄存器时，建议先把该值先读出来，然后只修改所需寄存器比特后再写回。
 
 **GPIO控制和数据寄存器：**
 
 - 在表格的`DW_apb_gpio8_mem_map_v1.0`和`DW_apb_gpio32_mem_map_v1.0`数据表，描述了引脚对应的GPIO方向寄存器和数值寄存器，如下图（`DW_apb_gpio32_mem_map_v1.0`）所示：
-![image-LSIO_UART3_RXD_gpio_reg](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_gpio_reg.png)
+![image-LSIO_UART3_RXD_gpio_reg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_gpio_reg.png)
 
 - 例如引脚`LSIO_UART3_RXD`对应的GPIO为`LSIO_GPIO0_PIN10`，如上图所示，`LSIO_GPIO0`的控制器的基地址为`0x34120000`，那么数值寄存器地址就是`0x34120000`，方向寄存器地址就是`0x34120004`。`LSIO_UART3_RXD`引脚在这两个寄存器中对应的bit偏移为GPIO的序号。引脚`LSIO_UART3_RXD`所对应的GPIO为`LSIO_GPIO0_PIN10`，那么bit偏移就是10。
 
@@ -57,7 +57,7 @@ kernel/drivers/gpio/gpio-dwapb.c # gpio驱动源文件
 
 GPIO_DWAPB
 
-![image-GPIO_MENUCONFIG](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/GPIO_MENUCONFIG.png)
+![image-GPIO_MENUCONFIG](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/GPIO_MENUCONFIG.png)
 
 ### 内核DTS配置
 

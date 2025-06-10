@@ -101,7 +101,7 @@ RDK S100上，multistrap的配置文件默认分为3部分：
 指定使用的配置文件的命令：`sudo ./make_ubuntu_samplefs.sh build <config_file_name>`，例如新增的配置文件为：`new-desktop.conf`，则命令就是：`sudo ./make_ubuntu_samplefs.sh build new-desktop.conf`，`new-desktop.conf`文件需要放到`samplefs/configs`文件夹内。
 
 脚本构建流程图如下：
-![samplefs_flowchart](../../static/img/07_Advanced_development/06_rdk_gen/samplefs_flowchart.png)
+![samplefs_flowchart](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/06_rdk_gen/samplefs_flowchart.png)
 
 #### 裁剪/自定义根文件系统的方法
 :::info 提示
@@ -173,7 +173,7 @@ hobot-camera/
 ```
 ### 构建流程说明
 详细流程请参考`mk_debs.sh`脚本实现，以下是一个简略的流程图：
-![mk_debs_flowchart](../../static/img/07_Advanced_development/06_rdk_gen/mk_debs_flowchart.png)
+![mk_debs_flowchart](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/06_rdk_gen/mk_debs_flowchart.png)
 
 ### 自定义deb包流程说明
 1. 在`source/`文件夹下，新建对应包的包名（dpkg内的package name）命名的文件夹，这里以"new_package"为例；

@@ -21,11 +21,11 @@ import TabItem from '@theme/TabItem';
 sudo srpi-config
 ```
 
-![image-20220511173307239](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220511173307239.png)
+![image-20220511173307239](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220511173307239.png)
 
 选择 `3 Interface Options` -> `I3 Peripheral bus config` 进到如下总线配置界面
 
-![image-20240817195940261](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
+![image-20240817195940261](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
 
 `okay`配置对应管脚为专用功能，`disabled` 关闭该管脚的专用功能，可以用作 GPIO ，配置 **重启** 后生效。
 
@@ -39,28 +39,28 @@ sudo srpi-config
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-![image-20220828203147852](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203147852.png)
+![image-20220828203147852](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203147852.png)
 
 开发板40PIN接口位置提供了丝印网表，方便用户对照操作，PIN1、PIN40位置如下：
-![image-20220828203207798](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203207798.png)
+![image-20220828203207798](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203207798.png)
 
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
-![image-20230510155124570](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230510155124570.png)
+![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-20230510155124570.png)
 
 </TabItem>
 
 <TabItem value="ultra" label="RDK Ultra">
 
-![image-20230510155124570](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230830194924570.png)
+![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230830194924570.png)
 
 </TabItem>
 
 <TabItem value="rdkx5" label="RDK X5">
 
-![image-20241217-202319](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20241217-202319.png)
+![image-20241217-202319](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20241217-202319.png)
 
 </TabItem>
 

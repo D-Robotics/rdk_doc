@@ -19,7 +19,7 @@ FreeRtos_mcu1
 ```
 
 ## 编译流程介绍
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/MCU_build_system/build_freertos.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/MCU_build_system/build_freertos.png)
 
 ## 编译中的重点文件关系介绍
 build_freertos.py是编译的整体入口，但是实际调度到scons时，能够对scons编译环境/流程产生影响的方式有以下几个：

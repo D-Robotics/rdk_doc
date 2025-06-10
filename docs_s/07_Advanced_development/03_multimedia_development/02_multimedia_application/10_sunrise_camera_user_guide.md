@@ -22,7 +22,7 @@ sunrise camera 是官方开发的应用程序，方便用户对 Camera、 VIO、
 
 整体连接方式见下图：
 
-![hardware_connection_diagram](_static/_images/sunrise_camera_user_guide/hardware_connection_diagram.png)
+![hardware_connection_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/hardware_connection_diagram.png)
 
 ###  网络连接要求
 
@@ -94,11 +94,11 @@ journalctl -u sunrise_camera.service -f --output=cat
 
 sunrise camera 正常启动后，通过 chrome 浏览器在地址栏输入 IP 地址（开发板默认 IP 为 192.168.1.10 ）可以登录用户控制主界面，  例如： http://192.168.1.10
 
-![login_method](_static/_images/sunrise_camera_user_guide/login_method.png)
+![login_method](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/login_method.png)
 
 登录成功后的界面显示如下：
 
-![home_page](_static/_images/sunrise_camera_user_guide/home_page.png)
+![home_page](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/home_page.png)
 
 界面菜单详细说明如下：
 
@@ -117,7 +117,7 @@ sunrise camera 正常启动后，通过 chrome 浏览器在地址栏输入 IP �
 2. sunrise camera 支持通过 Web 端在线修改应用方案、选择 camera sensor 型号、设置解码、编码参数及选择算法模型等
 
 #### 智能摄像机配置方式
-![camera_page](_static/_images/sunrise_camera_user_guide/camera_page.png)
+![camera_page](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/camera_page.png)
 
 具体修改步骤如下：
 
@@ -135,7 +135,7 @@ sunrise camera 正常启动后，通过 chrome 浏览器在地址栏输入 IP �
 
 
 #### 智能分析盒配置方式
-![box_page](_static/_images/sunrise_camera_user_guide/box_page.png)
+![box_page](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/box_page.png)
 
 具体修改步骤如下：
 
@@ -153,7 +153,7 @@ sunrise camera 正常启动后，通过 chrome 浏览器在地址栏输入 IP �
 
 智能摄像机方案实现了 Camera sensor 图像的采集、处理、编码、 rtsp 推流及智能计算等功能，可以帮助用户快速体验多媒体图像和算法效果，方案功能框图如下：
 
-![camera_solution](_static/_images/sunrise_camera_user_guide/camera_solution.png)
+![camera_solution](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/camera_solution.png)
 
 智能摄像机方案提供了以下功能：
 
@@ -187,7 +187,7 @@ sunrise camera 正常启动后，通过 chrome 浏览器在地址栏输入 IP �
 
 智能盒子方案实现了单路、四路 1080p 视频解码、拼接、编码、 rtsp 推流及智能计算等功能，用户可通过 Web 端、 HDMI 或者拉流方式预览效果。方案功能框图如下：
 
-![box_solution](_static/_images/sunrise_camera_user_guide/box_solution.png)
+![box_solution](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/box_solution.png)
 
 智能分析盒方案提供了以下功能：
 
@@ -243,7 +243,7 @@ sunrise camera 程序运行时会同步推送 rtsp 视频码流，用户可以�
 
 在 `打开媒体` 对话框中填入 url 地址，点击 `播放` 按钮即可开始播放，如下图：
 
-![vlc_play_method](_static/_images/sunrise_camera_user_guide/vlc_play_method.png)
+![vlc_play_method](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_play_method.png)
 
 rtsp 的码流网络 URL 链接，可以在 web 的设备信息上查看，默认支持的码流链接为： rtsp://192.168.1.10/stream_chn0.h264
 
@@ -253,12 +253,12 @@ rtsp 的码流网络 URL 链接，可以在 web 的设备信息上查看，默�
 
 2 、 vlc buffer_size 设置， vlc 接收 buffer 修改：默认是 250000 ，建议改到 1200000 。
 
-![vlc_rtsp_buffer_size](_static/_images/sunrise_camera_user_guide/vlc_rtsp_buffer_size.png)
+![vlc_rtsp_buffer_size](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_rtsp_buffer_size.png)
 
 3 、使用 http 模式，可以有效解决播放丢帧导致的花屏。
 
-![vlc_http_mode](_static/_images/sunrise_camera_user_guide/vlc_http_mode.png)
+![vlc_http_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_http_mode.png)
 
 4 、高级设置里面禁用时钟同步
 
-![vlc_disable_clock_sync](_static/_images/sunrise_camera_user_guide/vlc_disable_clock_sync.png)
+![vlc_disable_clock_sync](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_disable_clock_sync.png)

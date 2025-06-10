@@ -12,7 +12,7 @@ sidebar_position: 9
 
 X3支持的编码规格如下：
 
-![image-20220329224946556](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329224946556.png)
+![image-20220329224946556](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329224946556.png)
 
 H264/H265协议编码性能如下：
 
@@ -61,7 +61,7 @@ QPMAP是为一帧图像中的每一个块指定QP值，其中H264块大小为16x
 
 CBR、VBR、AVBR可以使能QPMAP，则每个块区域的实际值由以下公式得到：
 
-![image-20220329234019920](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329234019920.png)
+![image-20220329234019920](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329234019920.png)
 
 其中MQP为ROI map中的值，RQP为编码器内部码率控制得到的值，ROIAvaQP为ROI map中QP的平均值。
 
@@ -81,7 +81,7 @@ GOP结构表可定义一组周期性的GOP结构，该GOP结构将用于整个�
 
 #### GOP预置结构
 
-![VENC_GOP_structure](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_structure.png)
+![VENC_GOP_structure](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_structure.png)
 
 下表所示为预置的8种GOP结构
 
@@ -101,53 +101,53 @@ GOP结构表可定义一组周期性的GOP结构，该GOP结构将用于整个�
 - GOP Preset1
   - 只有I帧，没有相互参考帧
   - 低延时
-  ![VENC_GOP_preset1](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset1.png)
+  ![VENC_GOP_preset1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset1.png)
   
 - GOP Preset2
   - 只有I帧和P帧
   - P帧参考两个前向参考帧
   - 低延时
-  ![VENC_GOP_preset2](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset2.png)
+  ![VENC_GOP_preset2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset2.png)
   
 - GOP Preset3
   - 只有I帧和B帧
   - B帧参考两个前向参考帧
   - 低延时
-  ![VENC_GOP_preset3](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset3.png)
+  ![VENC_GOP_preset3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset3.png)
   
 - GOP Preset4
   - 有I帧、P帧和B帧
   - P帧参考两个前向参考帧
   - B帧参考一个前向参考帧和一个后向参考帧
-  ![VENC_GOP_preset4](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset4.png)
+  ![VENC_GOP_preset4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset4.png)
   
 - GOP Preset5
   - 有I帧、P帧和B帧
   - P帧参考两个前向参考帧
   - B帧参考一个前向参考帧和一个后向参考帧，后向参考帧可为P帧或B帧
-  ![VENC_GOP_preset5](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset5.png)
+  ![VENC_GOP_preset5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset5.png)
   
 - GOP Preset 6
   - 只有I帧和P帧；
   - P帧参考两个前向参考帧；
   - 低延时；
-  ![VENC_GOP_preset6](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset6.png)
+  ![VENC_GOP_preset6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset6.png)
   
 - GOP Preset 7
   - 只有I帧和B帧；
   - B帧参考两个前向参考帧；
   - 低延时；
-  ![VENC_GOP_preset7](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset7.png)
+  ![VENC_GOP_preset7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset7.png)
   
 - GOP Preset 8
   - 只有I帧和B帧；
   - B帧参考一个前向参考帧和一个后向参考帧；
-  ![VENC_GOP_preset8](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset8.png)
+  ![VENC_GOP_preset8](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset8.png)
 
 #### GOP和I帧周期关系
 如下图所示为GOP结构和I帧周期的关系。
 
-![VENC_GOP_i-frame](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_i-frame.png)
+![VENC_GOP_i-frame](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_i-frame.png)
 
 ### ROI
 
@@ -155,17 +155,17 @@ ROI编码的实现和QPMAP类似，需要用户按照光栅扫描的方向为每
 
 ROI编码可以和CBR和AVBR一起工作，当不使能CBR或AVBR时，每个块区域的实际QP值就为ROI map中指定的值，当使能CBR或AVBR时，则每个块区域的实际值由以下公式得到
 
-![image-20220405152959958](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405152959958.png)
+![image-20220405152959958](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405152959958.png)
 
 其中MQP为ROI map中的值，RQP为编码器内部码率控制得到的值，ROIAvaQP为ROI map中QP的平均值。
-![VENC_H265_ROI_map](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_h265_roi_map.png)
+![VENC_H265_ROI_map](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_h265_roi_map.png)
 
 ### Intra Refresh
 Intra Refresh模式通过在非I帧内部周期性的插入帧内编码的MB/CTU来提高容错性。它能够为解码器提供更多的修复点来避免时域错误造成的图像损坏。用户可以指定MB/CTU的连续行数、列数或者步长来强制编码器插入帧内编码单元，用户还可指定帧内编码单元的大小由编码器内部决定哪一块需要帧内编码。
 
 ### 长期参考帧
 用户可指定长期参考帧的周期和参考长期参考帧的周期，如下图所示。
-![VENC_long_reference_frame](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_long_reference_frame.png)
+![VENC_long_reference_frame](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_long_reference_frame.png)
 
 ### Smart background encoding
 在视频监控场景中，很多时候背景是固定的。因此希望编码器在检测到背景区域时采用忽略模式或使用更少的码流来编码该区域。实际场景中由于camera图像存在噪点导致背景区域检测不太容易，很多时候需要ISP检测到背景区域时再通知编码器，这种方案会消耗额外的带宽和系统计算资源。
@@ -174,10 +174,10 @@ H264和H265编码提供集成在codec内部的智能背景编码模式，该模�
 
 对于背景区域的判断，用户可以设置最大的像素差值（推荐值8）和平均像素差值（推荐值1）。用户还可调整Lambda参数来影响编码中的模式选择，当检测到背景区域时，编码器内部会为每个块增加对应的Lambda值，使能编码器内部偏向于采用忽略模式来编码该块单元。对于Lambda控制，用户可设置lambdaQP（推荐值32）和deltaQP（推荐值3），最终的Lambda值按以下公式计算得到。
 
-![image-20220405153105331](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405153105331.png)
+![image-20220405153105331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405153105331.png)
 
 其中QP_TO_LAMBDA_TABLE为lambda转换表，该表也会被用于非背景区域的lambda转换。
-![VENC_smart_bg_encoding](../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_smart_bg_encoding.png)
+![VENC_smart_bg_encoding](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_smart_bg_encoding.png)
 
 需要注意的是当ROI编码使能时，Smart background encoding不会工作。该模式实际能节省的带宽与设定的码率和I帧间隔有很大关系，当码率和I帧间隔变大时，节省的码率越多。此外该模式下可以设置图像质量较好的帧作为长期参考帧来提高背景图像的质量和节省码率。
 ### 帧skip设置

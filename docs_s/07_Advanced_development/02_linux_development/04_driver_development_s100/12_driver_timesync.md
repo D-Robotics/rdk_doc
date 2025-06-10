@@ -470,7 +470,7 @@ TimeSync\_PPS\_Index： 配置使用哪个PPS进行时间同步，可以使用�
 
 ### S100 PPS 介绍
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/image43.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/image43.png)
 
 如上图所示，S100上的PPS可以分为PPS Source和PPS Target。PPS Source产生PPS，经过中间的Trigger Bus送到PPS Target，PPS Target利用送来的PPS产生snapshot或者LPWM波形。
 
@@ -523,7 +523,7 @@ fixed mode: 固定的pps模式，它的周期固定，且占空比也固定为46
 
 若在fixed mode下有整秒时刻输出PPS的需求，需要注意ETH的整秒时刻在下降沿出现，而LPWM被ETH上升沿同步。因此需要参考下图，调整LPWM的offset。以camera一秒30帧举例，PPS上升沿在537ms，下降沿在1s整秒处，要求在整秒位置出图的话，offset=463对33.333取余数=29.671ms。
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/image44.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/image44.png)
 
 ### Acore Eth PPS的输出配置方法
 
@@ -567,7 +567,7 @@ Acore的单时间域方案。
 
 ##### 时间源接入Acore的单时间域方案
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/image45.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/image45.png)
 
 上图时间同步流程总结如下：
 

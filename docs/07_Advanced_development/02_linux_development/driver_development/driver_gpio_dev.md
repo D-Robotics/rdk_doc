@@ -25,7 +25,7 @@ IO管脚的复用和配置可以在 [datasheets](https://archive.d-robotics.cc/d
 
 - 在`GPIO`列找到 `GPIO[120]`，这一项对应的信息即是管脚 `120`的上电默认状态、复用、驱动能力、上下拉、施密特触发配置。如下图所示。
 
-![image-20220529112804426](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/function_register_cn.png)
+![image-20220529112804426](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/function_register_cn.png)
 
 - 找到以上配置项后，基地址加上偏移的值即该管家的复用控制寄存器，例如`GPIO120`的复用寄存器为 `0xA6004000 + 0x1E0 = 0xA600410E0`。
 - 配置功能复用寄存器时，建议先把该值先读出来，然后设置想要设置的对应bit后再写回。例如配置`GPIO120`为`GPIO`模式，则只设置 `0xA600410E0` 寄存器的低两位为`0x3`，保持其他启动强度、上下拉、斯密特触发配置不变，除非你明确知道你需要对它们也做修改。
@@ -36,7 +36,7 @@ IO管脚的复用和配置可以在 [datasheets](https://archive.d-robotics.cc/d
 - 控制、数据寄存器的基地址在每页表格的第一行会显示，为`BASE_ADDR:0xA600_3000 `，查询到的偏移地址加上本基地址就是对应的完整寄存器地址。
 - 旭日X3M芯片总共有`120`个可用的管脚，分成7个bank，每个bank最多16个管脚，控制和数据寄存器以一个bank为一个控制单元。例如`GPIO120`的bank为`120除以16后取整为7`，在bank中的管脚编号为`120对16取余数为8`。由此我们就可以找到对应的寄存器地址为如下图所示。`GPIO120`的寄存器即以下图中寄存器`GPIO7_xxx`中对应的`bit8`（从bit0开始计算）。
 
-![image-20220529115057783](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/gpio_control_and_data_register_cn.png)
+![image-20220529115057783](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/gpio_control_and_data_register_cn.png)
 
 ### GPIO帮助工具
 
@@ -44,7 +44,7 @@ IO管脚的复用和配置可以在 [datasheets](https://archive.d-robotics.cc/d
 
 工具的界面如下图所示，用户可以控制输入 `GPIO编号` 或者 `GPIO管脚 `来查询管脚的各种寄存器地址，并且生成gpio功能的帮助命令，命令说明请查看 [GPIO用户空间使用说明](#user-space)了解详情。
 
-![image-20220529120102028](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220529120102028.png)
+![image-20220529120102028](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220529120102028.png)
 
 ## 驱动代码
 
@@ -56,7 +56,7 @@ drivers/gpio/gpio-hobot-x3.c # gpio驱动源文件
 
 CONFIG_GPIO_HOBOT_X3
 
-![image-20220321232551078](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220321232551078.png)
+![image-20220321232551078](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220321232551078.png)
 
 ### 内核DTS配置
 

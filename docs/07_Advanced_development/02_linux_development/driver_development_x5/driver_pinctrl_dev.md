@@ -26,7 +26,7 @@ kernel/drivers/pinctrl/hobot/common.h # Pinctrl 驱动代码头文件
 
 CONFIG_PINCTRL_SINGLE
 
-![image-pinctrl-kernel-menuconfig](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/pinctrl-kernel-menuconfig.png)
+![image-pinctrl-kernel-menuconfig](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/pinctrl-kernel-menuconfig.png)
 
 ### Pinctrl的DTS配置
 

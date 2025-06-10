@@ -12,7 +12,7 @@ RDK-S100 camera 框架，如何快速的新增 camera 配置，并点亮 camera�
 该部分内容以 RDK-S100 开发板 + imx219 camera
 模组为例，进行配置讲解，其他硬件平台或者 camera 模组以实际情况为准。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_01.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_01.png)
 
 ## 准备工作
 
@@ -31,7 +31,7 @@ RDK-S100 开发板 camera 相关硬件资源如下：
 
 硬件连接示意图：
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_02.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_02.png)
 
 
 ## 添加新 sensor 点亮步骤
@@ -47,7 +47,7 @@ dts，camera 驱动库及相关配置文件即可，系统库一般无需改动�
 video_gpio节点中有配置，这样在开机启动时，系统才会将对应的 pin 设置为
 gpio，用户程序方可以操作 pin。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_03.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_03.png)
 
 vcon 是 RDK-S100 camera 用于管理 sensor 硬件相关的 dts 节点，如果 sensor
 需要对应的时序才能正常启动，则需要在该节点中配置对应的
@@ -105,7 +105,7 @@ echo 502 > /sys/class/gpio/unexport
 
 使用 i2cdetect 检测 sensor i2c地址。如果检测到正确的地址，如下图所示，则表示 dts 配置正确，否则需要检查dts 配置。
 
-| ![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_04.png) | ![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_05.png) |
+| ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_04.png) | ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_05.png) |
 |--------------------------------------|--------------------------------------|
 
 
@@ -398,7 +398,7 @@ cd /app/utils/tuning_tool/scripts
 打开 hbplayer，并设置网络地址（PC需要与板子可以ping通），点 apply 设置生效，并点
 connect 则可以看到实时视频流。实时预览操作示意如图所示。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
 
 ## 错误码
 
@@ -423,13 +423,13 @@ connect 则可以看到实时视频流。实时预览操作示意如图所示。
 
 启动方式如图所示。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_07.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_07.png)
 
 脚本会自动识别板子ip, 默认检查eth1网卡ip地址。若需要修改为启动eth0
 网卡，修改脚本eth_id=eth0。修改位置如图所示。
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_08.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_08.png)
 
 修改通信地址示意图
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_09.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_09.png)

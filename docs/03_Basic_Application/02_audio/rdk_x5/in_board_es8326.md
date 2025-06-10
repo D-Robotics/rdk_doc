@@ -11,16 +11,16 @@ sidebar_position: 2
 
 接 上3.5mm 耳机孔，这里要注意，耳机也需要是 4 段式的，3 段是的接口一般没有 MIC(microphone)。
 
-![image-audio-earphone](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone.png)
+![image-audio-earphone](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone.png)
 
 耳机孔需要完全对接上，正确示范如下图：
 
-![image-audio-earphone-correct](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone-correct.png)
+![image-audio-earphone-correct](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone-correct.png)
 
 如下是错误的示范：
 
-![image-audio-earphone-error-connection1](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection1.png)
-![image-audio-earphone-error-connection2](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection2.png)
+![image-audio-earphone-error-connection1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection1.png)
+![image-audio-earphone-error-connection2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection2.png)
 
 上图中的错误示范可以看到，耳机都有金属接口漏出来，这样导致设备连接不完整，即使程序能正常运行，\
 也无法听到声音或者录制声音。

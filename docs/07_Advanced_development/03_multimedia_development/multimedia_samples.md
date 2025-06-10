@@ -10,7 +10,7 @@ sidebar_position: 2
 
 下图所示为X3M的视频数据通路框图，其中的专业名词解释请查看 [多媒体开发概述-术语约定](./overview#terminology)。
 
-![image-20220517184132422](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517184132422.png)
+![image-20220517184132422](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517184132422.png)
 
 `get_sif_data` 完成 `sensor` 、`MIPI CSI` 和 `SIF` 模块的初始化，实现从`SIF`模块获取视频帧数据的功能，支持从`SIF`模块获取`Raw`、`YUV`两种格式的图像。
 
@@ -215,13 +215,13 @@ quit
 
 按照如下图所示步骤配置选项，其中`file config`里面关注`pic_type`、`raw_type`、 `pix_length` 、`width`和`height`的配置，F37 配置为（PIC_RAW、MIPI_RAW、RAW_BIT_10， 1920，1080），IMX415配置为（PIC_RAW、MIPI_RAW、RAW_BIT_12， 3840，2160）
 
-![image-20220517211101610](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517211101610.png)
+![image-20220517211101610](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517211101610.png)
 
 - 浏览YUV图
 
 按照如下图所示步骤配置选项，其中`file config`里面关注`pic_type`、`yuv_type`、`width`和`height`的配置，F37 配置为（PIC_YUV、YUV_NV12， 1920，1080），IMX415配置为（YUV_NV12， 3840，2160）
 
-![image-20220517212105959](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517212105959.png)
+![image-20220517212105959](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517212105959.png)
 
 ## get_isp_data 使用说明{#get_isp_data}
 
@@ -229,7 +229,7 @@ quit
 
 下图所示为X3M的视频数据通路框图，其中的专业名词解释请查看 [多媒体开发概述-术语约定](./overview#terminology)。
 
-![image-20220517184132422](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517184132422.png)
+![image-20220517184132422](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517184132422.png)
 
 `get_isp_data` 完成 `sensor` 、`MIPI CSI`  `SIF` 和 `ISP` 模块的初始化，实现从`ISP`模块获取视频帧数据的功能，支持从`ISP`模块获取`YUV`格式的图像。
 
@@ -433,7 +433,7 @@ quit
 
 按照如下图所示步骤配置选项，其中`file config`里面关注`pic_type`、`yuv_type`、`width`和`height`的配置，F37 配置为（PIC_YUV、YUV_NV12， 1920，1080），IMX415配置为（YUV_NV12， 3840，2160）
 
-![image-20220517212105959](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517212105959.png)
+![image-20220517212105959](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517212105959.png)
 
 ## sample_isp 使用说明{#sample_isp}
 
@@ -665,7 +665,7 @@ $ ls
 
 `sample_vps_zoom` 程序使用 `vps` 的硬件模块 `ipu` 和 `pym` 对 `YUV` 图像中的部分区域做多倍放大处理，对处理后的 `YUV`图像编码成 `H264` 视频流，可以直接使用 `MPC-BE` 等工具进行预览，类似电子云台中的`zoom` 功能。整个程序的 `Pipeline` 如下图所示：
 
-![Pipeline](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/vps_zoom_pipeline.png)
+![Pipeline](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/vps_zoom_pipeline.png)
 
 如 `Pipeline` 所示，程序通过 `vps0` 读取 `YUV` 图像，`vps0 chn1` 和 `vps1` 绑定，通过 `ipu` 和 `pym` 做 `crop` 及放大后，将数据送给 `venc` 的 `chn1` 做 `H264` 编码，形成 `zoom` 放大的效果，同时 `vps0 chn2` 和 `venc chn0` 绑定做 `H264` 编码， `vps0 chn3` 和 `venc chn2` 绑定做 `H264` 编码。
 
@@ -709,7 +709,7 @@ $ ls
 
 `YUV` 图片通过回灌方式，利用 `ipu`, `pym`, `venc` 模块编码成平滑放大的zoom `H264` 码流。效果如下所示。
 
-![vps_1_chn_5_venc_0.h264_20230523_143448](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/vps_1_chn_5_venc_0.h264_20230523_143448.gif)
+![vps_1_chn_5_venc_0.h264_20230523_143448](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/vps_1_chn_5_venc_0.h264_20230523_143448.gif)
 
 ## sample_osd 使用说明{#sample_osd}
 
@@ -754,7 +754,7 @@ $ ls
 
 通过 `osd` 叠加后 `vps` 通道输出的的 `YUV` 图像如下图所示：
 
-![Osd](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517151700.png)
+![Osd](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/image-20220517151700.png)
 
 ## sample video codec 使用说明{#sample_video_codec}
 
@@ -974,7 +974,7 @@ framesize:3110400
 
 程序通过把`1920_1080yuv8.yuv`读到内存，并通过接口把数据送到`VOT`模块的`bt1120`接口,然后通过`hdmi`转换芯片输出`hdmi`效果到显示设备如下图
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220520-163716.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220520-163716.jpg)
 
 ## sample_lcd 使用说明{#sample_lcd}
 
@@ -1033,7 +1033,7 @@ framesize:1382400
 
 程序通过把`720x1280.yuv`读到内存，并通过接口把数据送到`VOT`模块的`midi-dsi`接口,然后显示到`lcd`屏幕设备如下图
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220520-161120.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220520-161120.jpg)
 
 ## sample_usb_cam_4k60 使用说明{#sample_usb_cam_4k60}
 
@@ -1043,7 +1043,7 @@ framesize:1382400
 
 软件框图如下所示：
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/4k_60_usb_pipeline.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/4k_60_usb_pipeline.png)
 
 ### 功能使用
 
@@ -1216,11 +1216,11 @@ control request (entity_id 00 req 81 cs 02)
 
 通过Potplayer播放器选择UVC Camera，分辨率选择H264 3840x2160P 60,打开设备就可以播放UVC视频流，打开视频流后x3侧的打印如下图:
 
-![20220523-173933](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220523-173933.png)
+![20220523-173933](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220523-173933.png)
 
 potplayer跑起来后的截图如下：
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220527131109.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220527131109.png)
 
 ### 程序开发
 
@@ -1310,7 +1310,7 @@ potplayer跑起来后的截图如下：
 
 程序启动流程图如下：
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/4k60usbcam.drawio.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/4k60usbcam.drawio.png)
 
 #### 编译
 
@@ -1337,14 +1337,14 @@ $ make install # 把产出物安装到 out 目录下
 
 以IMX415的camera_imx415.cpp为例说明关键代码，需要添加MIPI_SENSOR_INFO_S、MIPI_ATTR_S、VIN_DEV_ATTR_S、VIN_PIPE_ATTR_S、VIN_DIS_ATTR_S、VIN_LDC_ATTR_S的新sensor结构体变量：
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112411.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112411.jpg)
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112559.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112559.png)
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112809.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112809.png)
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112844.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-112844.png)
 
 同时需要在inc/camera/camera.h把增加的新sensor的变量extern出来如下图imx415示例
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-113456.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/multimedia_samples/20220525-113456.png)

@@ -19,7 +19,7 @@ sidebar_position: 1
 MCU0是板子启动的开始，也是重中之重。因为MCU0负责启动Acore、MCU1以及电源管理等功能。Acore所运行的linux操作系统是客户开发功能的重要载体，而MCU1运行的FreeRTOS操作系统为客户的实时任务进行保驾护航。
 MCU1通过linux的remoteproc框架实现，在Acore的sysfs通过向MCU0发送通知，从而控制MCU1的启动和关闭。同时在RDK-S100的休眠模式下，也是通知Acore通知MCU0从而操作MCU1，实现低功耗休眠功能。
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_frame.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_frame.png)
 
 ## 开发环境
 交叉编译是指在主机上开发和构建软件，然后把构建的软件部署到开发板上运行。主机一般拥有比开发板更高的性能和更多的内存，可以高效完成代码的构建，可以安装更多的开发工具。
@@ -61,7 +61,7 @@ mv 工具链地址/gcc-arm-none-eabi-10.3-2021.10/ 新代码/Build/ToolChain/Gcc
 
 ## 编译成功标志
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/build_success.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/build_success.png)
 
 ### 编译输出目录
 
@@ -85,14 +85,14 @@ MCU1的启动/关闭是由Acore经过remoteproc框架传递信息给mcu0进而�
 ### MCU1启动原理与步骤
 #### MCU1启动原理
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_start.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_start.png)
 
 #### MCU1启动步骤
 下述启动流程以debug版本为例，release版本与其类似，只是少一些log打印。
 
 1. 经过上述编译流程，编译debug版本会在S100_MCU_SIP_V2.0文件夹下产生S100_MCU_DEBUG.elf文件（release版本类似），该文件为mcu1的firmware文件，因此需要将该文件推送到板端的/lib/firmware目录。举例子如下：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/push_elf.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/push_elf.png)
 
 2. 板端启动流程
 ```c
@@ -103,17 +103,17 @@ echo start > state
 正常启动后，串口log打印下图所示
 Acore侧串口打印
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/Acore_start_log.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/Acore_start_log.png)
 
 MCU侧串口打印
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_start_log.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_start_log.png)
 
 ### MCU1关闭原理与步骤
 
 #### MCU1关闭原理
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_stop.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_stop.png)
 
 #### MCU1关闭步骤
 下述关闭流程以debug版本为例，release版本与其类似，只是少一些log打印。
@@ -125,22 +125,22 @@ echo stop > state
 正常关闭后，串口log打印下图所示
 Acore侧串口打印
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/Acore_stop_log.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/Acore_stop_log.png)
 
 MCU侧串口打印
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_stop_log.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_stop_log.png)
 
 :::caution
 stop mcu1之后，如果需要再次启动mcu1，必须等待系统进入wfi模式之后，才能再次start mcu1，见下图所示。原因解释：避免系统还没有进入wfi模式时，start mcu1会重新加载firmware至 mcu sram位置导致之前位置代码被覆盖，导致系统运行跑飞挂死
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_enter_wfi.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_enter_wfi.png)
 :::
 
 ## MCU0/MCU1模块划分
 MCU整个系统含有ICU、RTC、IPC、port、CAN等模块，但是为了用户开发的方便，对于功能进行了划分，划分细节如下图所示。
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_functions.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_functions.png)
 
 ## MCU在sysfs上debug功能介绍
 
@@ -153,28 +153,28 @@ MCU目前在sysfs上支持查看系统状态alive，系统存活时间taskcounte
 
 系统状态alive，图示：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/alive_state.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/alive_state.png)
 
 系统存活时间taskcounter，图示：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/taskcounter_state.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/taskcounter_state.png)
 
 mcu版本mcu_version，图示：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_version.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_version.png)
 
 sbl版本sbl_version，图示：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/sbl_version.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/sbl_version.png)
 
 MCU串口log获取，图示：
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log.png)
 
 ## MCU串口使用
 如果RDK-S100含有连接方式如下，mcu串口和Acore串口共用一个串口，自行查看：设备管理器 -》端口-》MCU-COM-波特率921600
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_COM1.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_COM1.jpg)
 
 ## MCU0烧录流程
 ### 手动烧录
@@ -193,7 +193,7 @@ fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
 #### 空片烧录或烧挂重新烧录
 1. 通过编译RDKS100-acore获取RDKS100镜像包，结构如下所示
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
 
 2. 烧录第一步：进入dfu模式，按照下图拨key即可(烧录完，记得拨回去！！！)
 
@@ -202,7 +202,7 @@ b. 电源开关：向下拨动，给板子上电
 c. 烧录开关：向上拨动，给板子烧录
 d. 上述操作完成后，按图片中按键1，同时2处的灯变为红色
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
 
 3. 烧录第二步：在你解压的镜像文件夹下执行下面的指令，即dfu下载进入uboot(sec版本)
 ```c
@@ -229,18 +229,18 @@ fastboot.exe flash 0x0 out/product/img_packages/disk/ufs_disk.simg
 ### 自动烧录
 1. 能够正常进入Uboot，下载模式选择“uboot”
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot.png)
 
 2. 不能正常进入UBoot，下载模式选择“usb”
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb.png)
 
 ## MCU1 Undefined/Abort 异常处理原理
 
 正常情况下系统在进入undefined/abort异常时，最终会进入死循环状态。只有重新执行上下电流程才能再次正常运行。RDK-S100由于不能对mcu1单独进行上下电，所以需要进行系统流程的修改，以实现上述的预期。
 具体原理：当Undefined/Abort异常产生时，也会最终进入死循环状态。通过Acore的sysfs对mcu1进行软件下电，也即通知mcu1进入wfi模式，等下次再次start时，mcu1将重新软件启动，从而实现预期。
 
-![](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_exception.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_exception.png)
 
 以Undefined异常为例子，当Undefined异常产生时，uart串口输出log “EL1_Undefined_Handler”，并进入最终进入S100_Exception_Handler处理函数，并根据exception_on变量进入死循环状态。当Acore通过remoteproc框架stop mcu1后，核间中断修改exception_on变量，进而关闭tick周期性中断，并进入WFI模式（STANDBY模式）：
 ```c

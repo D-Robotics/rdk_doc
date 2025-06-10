@@ -28,7 +28,7 @@ sidebar_position: 4
 
 - 当串口 USB 转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.d-robotics.cc/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：
 
-![image-20220416105939067](../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
+![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
 - 打开`MobaXterm`工具，点击`Session`，然后选择`Serial`
 
@@ -45,7 +45,7 @@ sidebar_position: 4
   | 流控（Flow Control） | 无     |
 
 - 点击`OK`，输入用户名：`root`、密码：`root`登录设备
-  ![image-Uart-Login](../../static/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
+  ![image-Uart-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
 
 此时，可使用`ifconfig -a`命令查询开发板 IP 地址，其中 eth0/eth1、wlan0 分别代表有线、无线网络：
 
@@ -101,7 +101,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 - 找到 Internet 协议版本 4 选项并双击打开
 - 在下图红框位置填入对应的网络参数，点击确定
 
-![image-20220416110242445](../../static/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
+![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
 
 如需将开发板有线网络配置为动态获取 DHCP 模式，可参考[有线网络](../02_System_configuration/01_network_bluetooth.md)章节进行配置。
 
@@ -117,7 +117,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 3. 选中`specify username`，输入`sunrise`
 4. 点击 OK 后，输入用户名（sunrise）、密码（sunrise）即可完成登录
 
-![image-Network-Login](../../static/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
+![image-Network-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
 
 ### 电脑命令行
 
@@ -127,4 +127,4 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 2. 弹出连接确认提示，输入 YES
 3. 输入密码（sunrise）即可完成登录
 
-![image-Cmdline-Linux](../../static/img/01_Quick_start/image/remote_login/linux_login_01.gif)
+![image-Cmdline-Linux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/linux_login_01.gif)

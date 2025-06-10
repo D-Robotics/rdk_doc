@@ -94,7 +94,7 @@ RDK S100 开发套件可借助 PC 端工具 D-Navigation 来完成 Ubuntu 系统
 
 1. 准备 RDKS100 镜像包，结构如下所示
 
-![](../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
 
 2. 开发板上电
 
@@ -111,7 +111,7 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
 - 选择与 RDK S100 连接的串口，波特率 921600
 - 点击开始升级(升级过程中，如有'Need manual reset'提示，请重新上电)
 
-![image-S100-download](../../../static/img/01_Quick_start/image/install_os/image-S100-download.png)
+![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download.png)
 
 4. 待升级完成后重新上电
 
@@ -119,7 +119,7 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
 
 1. 准备 RDKS100 镜像包，结构如下所示
 
-![](../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
 
 2. 将设备切换到 dfu 模式下，按下图操作
 
@@ -130,7 +130,7 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
 - 烧录开关：向上拨动，给板子烧录
 - 上述操作完成后，按图片中按键 1，同时 2 处的灯变为红色，红灯亮起，表示进入 dfu 模式
 
-![](../../../static/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
 
 3. 打开地瓜芯片工具 D-Navigation，完成如下操作
 
@@ -139,7 +139,7 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
 - 点击浏览选择固件所在 product 文件夹
 - 设备断电重启，点击开始升级，等待升级完成
 
-![image-S100-download](../../../static/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg)
+![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg)
 
 4. 升级完成后，关闭电源，将烧录开关向下拨动后(从 dfu 模式退出)，重新上电。
 
@@ -159,7 +159,7 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
 
 Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在显示器上输出系统桌面，如下图：
 
-![image-desktop_display.jpg](../../../static/img/01_Quick_start/image/install_os/image-desktop_display_s100.jpg)
+![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display_s100.jpg)
 
 ## **常见问题**
 

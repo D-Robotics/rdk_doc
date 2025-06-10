@@ -68,7 +68,7 @@ cls id: 340, Confidence: 0.9915, class_name: zebra
     resized_data = cv2.resize(img_file, des_dim, interpolation=cv2.INTER_AREA)
     ```
 
-    ![zebra_cls](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/zebra_cls.jpg)
+    ![zebra_cls](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/zebra_cls.jpg)
 
     然后通过`bgr2nv12_opencv`函数把bgr格式的图像转换成符合模型输入的`NV12`格式：
 
@@ -119,10 +119,10 @@ sudo python3 ./test_yolov3.py
 ```
 
 运行成功后，会输出目标检测结果，并且输出渲染结果到`result.jpg`文件中，如下图：
-![image-20220624105321684](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105321684.png)
+![image-20220624105321684](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105321684.png)
 
 **RDK X5** 上该sample效果会有所提升，渲染结果文件名称改为`output_image.jpg`，效果如下：
-![image-06_yolov3_sample](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/06_yolov3_sample.png)
+![image-06_yolov3_sample](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/06_yolov3_sample.png)
 
 
 
@@ -144,10 +144,10 @@ sudo python3 ./test_yolov5.py
 ```
 
 运行成功后，会输出目标检测结果，并且输出渲染结果到`result.jpg`文件中，如下图：
-![image-20220624105432872](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105432872.png)
+![image-20220624105432872](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105432872.png)
 
 **RDK X5** 上该sample效果会有所提升，渲染结果文件名称同样改为了`output_image.jpg`，效果如下：
-![image-07_yolov5_sample](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/07_yolov5_sample.png)
+![image-07_yolov5_sample](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/07_yolov5_sample.png)
 
 
 
@@ -170,4 +170,4 @@ sudo python3 ./test_mobilenet_unet.py
 ```
 
 运行成功后，会输出图像的分割结果，并且输出分割效果图到``segment_result.png``文件中，如下图：
-![image-20220624105144784](../../../static/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105144784.png)
+![image-20220624105144784](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/image-20220624105144784.png)

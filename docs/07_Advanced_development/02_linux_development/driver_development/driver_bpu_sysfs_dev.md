@@ -10,13 +10,13 @@ sidebar_position: 9
 /sys/devices/system/bpu
 ```
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/15b0a3742a6721d475db1a6e21b1809e.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/15b0a3742a6721d475db1a6e21b1809e.png)
 
 各个文件节点可以使用“cat”命令获取信息，“echo”命令设置。具体内容如下：
 
 -   bpu\*：目录，bpu0，bpu1分别对应bpu的两个核，每个目录内的节点设置如下：
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/550eb60c5eb1a66ca126be088c08d9b5.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/550eb60c5eb1a66ca126be088c08d9b5.png)
 
 - burst_len：读写文件，该Core核心对应的burst_len
 
@@ -66,15 +66,15 @@ sidebar_position: 9
 
 - queue：只读文件，获取驱动当前可设置的FunctionCall数量；
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/4edf614de291d4c7005d01be0cc10041.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/4edf614de291d4c7005d01be0cc10041.png)
 
 -   ratio：只读文件，获取该Core核心的使用率信息；
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/2724e46795d0798ea433eb990be22149.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/2724e46795d0798ea433eb990be22149.png)
 
 -   fc_time：获取该Core上处理过的fc任务信息，对应每一个任务有如下子项：
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/6cad811f2afb4fa4984ad3c44ae0f5aa.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/6cad811f2afb4fa4984ad3c44ae0f5aa.png)
 
 - index：该任务位于BPU硬件FIFO中的位置
 - id：用户设置的中断id
@@ -87,7 +87,7 @@ sidebar_position: 9
 - core_num：只读文件，BPU中核心Core的数量
 - group：只读文件，运行在BPU上的任务组信息。通过“cat group”可得：
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/f90196d698265775d78717a9ab9967ce.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/f90196d698265775d78717a9ab9967ce.png)
 
 
 
@@ -97,7 +97,7 @@ sidebar_position: 9
 -   ratio：只读文件，当前BPU的使用率
 -   users：只读文件，当前使用BPU的用户信息，用户会被归类为通过BPU框架设置任务的用户和指定各个Core设置任务的用户。通过“cat users”可得：
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/b898a1588bd4a94e332a5dbd9bd8f46a.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/b898a1588bd4a94e332a5dbd9bd8f46a.png)
 
 -   user：用户进程号
 -   ratio：该用户对应Core上的占用率

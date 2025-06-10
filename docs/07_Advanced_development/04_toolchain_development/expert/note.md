@@ -71,7 +71,7 @@ print(float_model)
 
 Eager 模型下量化训练的整体流程如下图所示：
 
-![qat](../../../../static/img/07_Advanced_development/04_toolchain_development/expert/qat.svg)
+![qat](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/qat.svg)
 
 #### 构建浮点模型{#build-float-model}
 

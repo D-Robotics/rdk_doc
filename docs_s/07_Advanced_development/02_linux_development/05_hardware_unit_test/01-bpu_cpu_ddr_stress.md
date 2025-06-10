@@ -236,7 +236,7 @@ bpu status information---->
 
 执行 `htop` 命令查看 `CPU` 的占用率
 
-	![Htop](./_static/_images/1-bpu_cpu_ddr_stress/Htop.png)
+	![Htop](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Htop.png)
 
 其中每一行显示了一个 CPU 核心的状态，格式为：
 

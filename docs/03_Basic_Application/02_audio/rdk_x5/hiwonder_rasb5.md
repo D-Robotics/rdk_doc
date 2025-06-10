@@ -16,7 +16,7 @@ sidebar_position: 5
 1. 使用`srpi-config`配置音频板  
 进入`3 Interface Options`->`I5 Audio`  
 选择`Hiwonder Audio Driver HAT`：
-![image-audio-codec-select-hiwonder-hat-rdkx5.png](../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hiwonder-hat-rdkx5.png)
+![image-audio-codec-select-hiwonder-hat-rdkx5.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hiwonder-hat-rdkx5.png)
 
 2. 根据提示执行`reboot`命令，或者运行命令`sync && reboot`重启开发板，`cat /proc/asound/cards`出现了`duplexaudioi2s1`的声卡，说明转接板安装成功。
 

@@ -26,7 +26,7 @@ inlcude/linux/i2c-hobot.h # I2C驱动代码头文件
 
 CONFIG_I2C_HOBOT
 
-![image-20220321230754098](../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220321230754098.png)
+![image-20220321230754098](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220321230754098.png)
 
 ### 内核DTS节点配置
 

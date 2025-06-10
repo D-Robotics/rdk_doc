@@ -87,7 +87,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=12
 Station模式下，开发板作为客户端，接入路由器无线热点进行联网。
 
 - 对于使用Ubuntu Desktop版本系统的用户，可点击桌面右上角Wi-Fi图标，选择对应热点并输入密码以完成网络配置，如下图：  
-![image-wifi-config](../../static/img/02_System_configuration/image/network/image-wifi-config.jpeg)
+![image-wifi-config](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-wifi-config.jpeg)
 
 
 
@@ -223,7 +223,7 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
     ```
 
 6. 连接开发板热点，例如 `sunrise`   
-![image-20220601203025803](../../static/img/02_System_configuration/image/network/image-20220601203025803.png)  
+![image-20220601203025803](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-20220601203025803.png)  
 
 7. 如需切换回`Station`模式，可按如下方式进行：
 
@@ -339,7 +339,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9
 
 脚本执行成功后的log如下：
 
-![image-20220601172145987](../../static/img/02_System_configuration/image/hardware_interface/image-20220601172145987.png)
+![image-20220601172145987](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172145987.png)
 
 此外，用户可以使用命令查询蓝牙进程是否正常，命令如下：
 
@@ -354,25 +354,25 @@ ps ax | grep "/usr/bin/dbus-daemon\|/usr/lib/bluetooth/bluetoothd"
 
 执行`sudo bluetoothctl`进入交互模式下的蓝牙配置界面，出现了类似下图的设备信息表示蓝牙被识别到了，然后用`show`来查看蓝牙信息，留意蓝牙的`powered`和`discoverable`状态。
 
-![image-20220601172604051](../../static/img/02_System_configuration/image/hardware_interface/image-20220601172604051.png)
+![image-20220601172604051](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172604051.png)
 
 执行 `power on` 使能蓝牙，如下图所示：
 
-![image-20220601172501882](../../static/img/02_System_configuration/image/hardware_interface/image-20220601172501882.png)
+![image-20220601172501882](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172501882.png)
 
 为了能够使蓝牙被附近的设备发现，需要执行`discoverable on`使能蓝牙并打开蓝牙可发现属性，如下图所示：
 
-![image-20220601172648853](../../static/img/02_System_configuration/image/hardware_interface/image-20220601172648853.png)
+![image-20220601172648853](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172648853.png)
 
 此时使用手机或者电脑扫描蓝牙就可以发现 `ubuntu` 这个名称的蓝牙设备：
 
-![image-20220601175322650](../../static/img/02_System_configuration/image/hardware_interface/image-20220601175322650.png)
+![image-20220601175322650](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601175322650.png)
 
 接下来测试蓝牙的主动扫描功能，在`bluetoothctl`的交互界面输入`scan on`即可打开主动扫描，它会周期性地打印附近的设备，可以看到已经发现了我的手机设备，`scan off`关闭扫描功能并汇总打印扫描到的蓝牙设备：
 
-![image-20220601154131158](../../static/img/02_System_configuration/image/hardware_interface/image-20220601154131158.png)
+![image-20220601154131158](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154131158.png)
 
-![image-20220601154253947](../../static/img/02_System_configuration/image/hardware_interface/image-20220601154253947.png)
+![image-20220601154253947](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154253947.png)
 
 然后就是和其他蓝牙的配对：
 
@@ -380,6 +380,6 @@ ps ax | grep "/usr/bin/dbus-daemon\|/usr/lib/bluetooth/bluetoothd"
 
 - 配对成功后可以使用`trust [targetMAC]`来让下次自动连接
 
-![image-20220601154414717](../../static/img/02_System_configuration/image/hardware_interface/image-20220601154414717.png)
+![image-20220601154414717](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154414717.png)
 
 经过以上操作后，蓝牙的扫描、配对的基本功能就完成了，如需使用更多功能，可查阅 `BlueZ`的官方帮助说明。

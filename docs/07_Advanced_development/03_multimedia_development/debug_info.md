@@ -8,7 +8,7 @@ sidebar_position: 11
 
 在VIN中，camera相关的控制全部在用户态完成，而mipi/ISP的控制则在驱动中完成，通过将用户态相关的配置传递给驱动，由驱动使用，对硬件进行设置，各个相关的设备节点如下：
 
-![image-20220327233823654](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/drive_and_multimedia.png)
+![image-20220327233823654](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/drive_and_multimedia.png)
 
 - **mipi_host0\~4:** mipi host配置节点，主要完成mipi\_host的初始化。
 - **mipi\_dphy:** dphy相关节点。
@@ -37,7 +37,7 @@ HOST到对应的状态，能够接受sensor的MIPI数据输入；
 
 ISP的功能相对来说是最复杂的，它需要和sensor交互/需要加载对应的算法库/需要加载对应的效果库，在配置代码中：
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/7c497fc6373c2c0a35f2248f7fc16280.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/7c497fc6373c2c0a35f2248f7fc16280.png)
 
 - **ispAlgoState:**  这个标签表示使用3A算法，将会使用lib_algo.so库的算法；
 
@@ -53,7 +53,7 @@ ISP的功能相对来说是最复杂的，它需要和sensor交互/需要加载�
 cat /sys/devices/platform/soc/a4001000.sif/cfg_info
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/354af0a4710e0c5a631ab6a96bf932c6.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/354af0a4710e0c5a631ab6a96bf932c6.png)
 
 ### ISP调试信息
 
@@ -65,7 +65,7 @@ cat /sys/devices/platform/soc/b3000000.isp/isp_status
 
 
 
->   ![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/a6cabe90c204d0510e417106b32b3622.png)
+>   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/a6cabe90c204d0510e417106b32b3622.png)
 
 ### IPU调试信息
 
@@ -83,7 +83,7 @@ cat /sys/devices/platform/soc/a4040000.ipu/info/pipelinex_info # x 取值0-7
 cat /sys/devices/platform/soc/a4040000.ipu/info/pipeline0_info
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/5c314a3ac1028e4de8293548efb65704.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/5c314a3ac1028e4de8293548efb65704.png)
 
 说明：
 
@@ -106,7 +106,7 @@ cat /sys/devices/platform/soc/a4042000.pym/info/pipelinex_info # x取值0-7
 cat /sys/devices/platform/soc/a4042000.pym/info/pipeline0_info
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/81aec6c1b63287146ec1a11be9780b71.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/81aec6c1b63287146ec1a11be9780b71.png)
 
 ### IAR调试信息
 
@@ -116,7 +116,7 @@ cat /sys/devices/platform/soc/a4042000.pym/info/pipeline0_info
 cat /sys/kernel/debug/iar
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/c437b118301b57610a49246d39de9213.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/c437b118301b57610a49246d39de9213.png)
 
 ## VPU调试信息
 
@@ -128,9 +128,9 @@ cat /sys/kernel/debug/iar
 cat /sys/kernel/debug/vpu/venc
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/01ef41acb92787b58fe84a0a5241b7dc.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/01ef41acb92787b58fe84a0a5241b7dc.png)
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/c5df92bf5f46a0575c1f049867871ffe.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/c5df92bf5f46a0575c1f049867871ffe.png)
 
 ### VDEC调试信息
 
@@ -140,7 +140,7 @@ cat /sys/kernel/debug/vpu/venc
 cat /sys/kernel/debug/vpu/vdec
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/7f297a9c2dfd3b25a308f898b97f89c2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/7f297a9c2dfd3b25a308f898b97f89c2.png)
 
 ## JPU调试信息
 
@@ -152,7 +152,7 @@ cat /sys/kernel/debug/vpu/vdec
 cat /sys/kernel/debug/jpu/jenc
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/1944f201c81a20991a2623a464ac749c.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/1944f201c81a20991a2623a464ac749c.png)
 
 ### JDEC调试信息
 
@@ -162,7 +162,7 @@ cat /sys/kernel/debug/jpu/jenc
 cat /sys/kernel/debug/jpu/jdec
 ```
 
-![](../../../static/img/07_Advanced_development/03_multimedia_development/debug_info/64fdce46047c2462decae977fd2d2288.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/debug_info/64fdce46047c2462decae977fd2d2288.png)
 
 ## 媒体模块日志查看
 

@@ -18,11 +18,11 @@ sidebar_position: 6
 
   `VPS`的通道，一路通道代表`VPS`的一路输出。输出的通道主要分为普通图像通道和金字塔图像通道，普通通道输出缩放裁剪或旋转后的单层数据，金字塔通道输出多层金字塔缩放数据。
 ### 功能描述
-![Func Description](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description.png)
+![Func Description](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description.png)
 
 `VPS`可以通过调用 [系统控制](./system_control) 提供的绑定接口与其他模块绑定，输入可以与`VIN`、`VDEC`模块绑定，`VPS`输出可以与`VOT`、`VENC`模块绑定，前者为`VPS`的输入源，后者为`VPS`的接收者，也可以与另一个`VPS`绑定实现更多的通道；支持处理用户回灌的图像数据。用户可以通过`VPS`接口对`Group`进行管理，每个`Group`仅可以与一个输入源绑定，每个`Channel`可以与不同的模块绑定。 `VPS`与`VIN`绑定场景下，需要调用`HB_SYS_SetVINVPSMode` 来配置`VIN`与`VPS`之间在线或离线的不同模式。
 
-![Func Description Topology](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description_topology.png)
+![Func Description Topology](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description_topology.png)
 
 `VPS`硬件由一个`IPU`，一个`PYM`，两个`GDC`组成。共有7路输出`Channel`（chn0~chn6），chn0~chn4可以实现`downscale`，chn5可以实现`upscale`，chn0~chn5均可实现裁剪（ROI）、旋转、矫正、帧率控制，chn6为金字塔online Channel。虚框为硬件复用，其中`OSD`灰色块为CPU叠加，其余三个米色块为硬件叠加。
 - Upscale功能：
@@ -1041,56 +1041,56 @@ int HB_VPS_CloseChnFd(void);
 ### VPS接口调用流程
 VPS初始化接口主要分为Group的初始化和Channel的初始化，Group的接口可视为全局配置，Group属性对整个VPS输出均生效，Channel的接口是用作对多个输出通道分别配置，配置的属性仅对当前channel有效；初始化时需要先配置Group属性，然后再分别配置每个channel属性。
 
-![image-20220329204239415](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/image-20220329204239415.png)
+![image-20220329204239415](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/image-20220329204239415.png)
 
 ### VPS场景使用说明
 VPS内部主要由一个IPU、一个PYM、两个GDC共四个模块组成，根据接口的调用顺序将不同的模块动态绑定在一起，可以单独一个模块运行，也可以多个模块组合运行，不同的链接关系对应的接口调用流程如下：
 
-![VPS IPU](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu.png)
+![VPS IPU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu.png)
 
 如果仅用IPU一个模块，在创建Group之后只调用HB_VPS_SetChnAttr，如果需要IPU输出多个通道，那么需要多次调用该接口。
 
-![VPS GDC](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc.png)
+![VPS GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc.png)
 
 如果仅使用GDC一个模块，在创建Group之后调用HB_VPS_SetGrpGdc/Rotate接口。
 
-![VPS PYM](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_pym.png)
+![VPS PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_pym.png)
 
 如果仅使用PYM一个模块，在创建Group之后调用HB_VPS_SetPymChnAttr接口。
 
-![VPS IPU_PYM](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_pym.png)
+![VPS IPU_PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_pym.png)
 
 IPU作为第一个模块，PYM作为第二个模块，需要创建Group之后先调用HB_VPS_SetChnAttr，然后调用HB_VPS_SetPymChnAttr。
 
-![VPS GDC_IPU](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu.png)
+![VPS GDC_IPU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu.png)
 
 GDC放在IPU之前，先调用HB_VPS_SetGrpGdc/Rotate，再调用HB_VPS_SetChnAttr。
 
-![VPS GDC_PYM](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_pym.png)
+![VPS GDC_PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_pym.png)
 
 GDC放在PYM之前，先调用HB_VPS_SetGrpGdc/Rotate，再调用HB_VPS_SetPymChnAttr。
 
-![VPS IPU_GDC](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc.png)
+![VPS IPU_GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc.png)
 
 IPU放在GDC之前，先调用HB_VPS_SetChnAttr，再调用HB_VPS_SetChnGdc/Rotate。
 
-![VPS IPU_GDC_PYM](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym.png)
+![VPS IPU_GDC_PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym.png)
 
 先IPU然后GDC再PYM的话，需要先调用HB_VPS_SetChnAttr，再调用HB_VPS_SetChnGdc/Rotate，最后调用HB_VPS_SetPymChnAttr。
 
-![VPS IPU_GDC+PYM](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc+pym.png)
+![VPS IPU_GDC+PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc+pym.png)
 
 如果需要IPU输出的多个通道分别接GDC和PYM，那么需要先调用HB_VPS_SetChnAttr(chnA)、HB_VPS_SetChnAttr(chnB)，然后HB_VPS_SetChnGdc/Rotate(chnA)，然后HB_VPS_SetPymChnAttr(chnB)。
 
-![VPS IPU_GDC_PYM+GDC](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym+gdc.png)
+![VPS IPU_GDC_PYM+GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym+gdc.png)
 
 HB_VPS_SetChnAttr(chnA)、HB_VPS_SetChnAttr(chnB)，然后HB_VPS_SetChnGdc/Rotate(chnA)，然后HB_VPS_SetChnGdc/Rotate(chnB)，最后HB_VPS_SetPymChnAttr(chnB)。
 
-![VPS IPU+GDC+PYM+GDC](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu+gdc+pym+gdc.png)
+![VPS IPU+GDC+PYM+GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu+gdc+pym+gdc.png)
 
 HB_VPS_SetChnAttr(chnA)、HB_VPS_SetChnAttr(chnB)、HB_VPS_SetChnAttr(chnC)，然后HB_VPS_SetChnGdc/Rotate(chnA) ， HB_VPS_SetPymChnAttr(chnB)，HB_VPS_SetChnGdc/Rotate(chnC)。
 
-![VPS IPU_GDC_PYM_GDC](../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu_gdc_pym.png)
+![VPS IPU_GDC_PYM_GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu_gdc_pym.png)
 
 如果需要VPS中四个模块串一起跑，需要HB_VPS_SetGrpGdc、HB_VPS_SetChnAttr(chnA)，HB_VPS_SetChnRotate(chnA)、HB_VPS_SetPymChnAttr(chnA)。
 

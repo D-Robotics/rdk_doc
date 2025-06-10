@@ -10,7 +10,7 @@ RDK S100 在 40PIN 支持 UART2，没有使能，物理管脚号 8 和 10，IO �
 
 40pin 上需要波动拨码开关来选择使用 UART2 还是 I2C5, 具体细节可以查看下图：
 
-![image-rdk_100_funcreuse_40pin](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk_100_funcreuse_40pin.png)
+![image-rdk_100_funcreuse_40pin](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_funcreuse_40pin.png)
 
 波动拨码开关之后还需要修改设备树文件，修改路径及方式如下：
 
@@ -48,7 +48,7 @@ uart2: uart@394C0000 {
 
 把 TXD 和 RXD 通过跳线帽直接硬件上连接在一起：
 
-![image-20220512101820743](../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-rdk_s100_uart.png)
+![image-20220512101820743](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-rdk_s100_uart.png)
 
 ### 测试过程
 

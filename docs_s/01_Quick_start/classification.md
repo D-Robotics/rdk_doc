@@ -27,7 +27,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=17
 cls id: 340 Confidence: 0.991851
 ```
 
-![zebra_cls](../../static/img/01_Quick_start/image/classification/zebra_cls.jpg)
+![zebra_cls](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/zebra_cls.jpg)
 
 
 

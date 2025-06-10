@@ -14,7 +14,7 @@ Kernel 版本包含标准驱动库的基础上，系统 BSP。
 
 软件框图如下所示：
 
-![software_framwork](_static/_images/sunrise_camera_develop_guide/software_framework.png)
+![software_framwork](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/software_framework.png)
 
 ### 微核设计
 
@@ -95,7 +95,7 @@ log  sunrise_camera  www
 1. 模块插件静态插拔控制
 2. 模块 CMD 指令中转
 
-![event_bus](_static/_images/sunrise_camera_develop_guide/event_bus.png)
+![event_bus](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/event_bus.png)
 
 示例：
 
@@ -103,7 +103,7 @@ camera 子模块中定义了 SDK_CMD_CAMERA_GET_CHIP_TYPE 命令，调用 camera
 
 整个过程如下图所示：
 
-![event_bus_flow](_static/_images/sunrise_camera_develop_guide/event_bus_flow.png)
+![event_bus_flow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/event_bus_flow.png)
 
 #### 模块代码结构
 
@@ -128,7 +128,7 @@ camera 子模块中定义了 SDK_CMD_CAMERA_GET_CHIP_TYPE 命令，调用 camera
 
 示例：
 
-![cmd_register](_static/_images/sunrise_camera_develop_guide/cmd_register.png)
+![cmd_register](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/cmd_register.png)
 
 **sdk_cmd_register**
 
@@ -215,7 +215,7 @@ vp_wrap 实现多媒体模块的接口封装；
 
  bpu_wrap 模块实现算法推理接口和后处理方法的封装。
 
-![platform_module](_static/_images/sunrise_camera_develop_guide/platform_module.png)
+![platform_module](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/platform_module.png)
 
 #### 功能描述
 
@@ -236,7 +236,7 @@ typedef struct vpp_ops {
 
 启动一个应用方案（以启动 vpp_camera 为例）的流程如下：
 
-![vpp_camera_flow](_static/_images/sunrise_camera_develop_guide/vpp_camera_flow.png)
+![vpp_camera_flow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vpp_camera_flow.png)
 
 其他子模块的初始化、启动流程都可以参考本流程图。
 
@@ -288,7 +288,7 @@ typedef struct vpp_ops {
 
 #### 执行流程
 
-![main_flow](_static/_images/sunrise_camera_develop_guide/main_flow.png)
+![main_flow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/main_flow.png)
 
 ### WebServer
 
@@ -309,7 +309,7 @@ typedef struct vpp_ops {
 
 模块运行时序如下：
 
-![bpu_flow](_static/_images/sunrise_camera_develop_guide/bpu_flow.png)
+![bpu_flow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/bpu_flow.png)
 
 ### 添加一个新模型流程
 

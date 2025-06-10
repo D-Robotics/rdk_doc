@@ -66,7 +66,7 @@ RDK X5提供一路MIPI DSI接口，支持多种LCD屏幕的接入。
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-161007](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-161007.png)
+![screenshot-20241014-161007](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-161007.png)
 
 用DSI-Cable-12cm线材，将2.8inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -91,7 +91,7 @@ dtoverlay=dsi-waveshare-panel-overlay-2_8_inch
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-173409](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173409.png)
+![screenshot-20241014-173409](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173409.png)
 
 用DSI-Cable-12cm线材，将3.4inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -114,7 +114,7 @@ dtoverlay=dsi-waveshare-panel-overlay-3_4_inch
 
 #### 效果演示
 
-![screenshot-20241014-173446](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173446.png)
+![screenshot-20241014-173446](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173446.png)
 
 ### 4.3inch DSI LCD
 
@@ -122,7 +122,7 @@ dtoverlay=dsi-waveshare-panel-overlay-3_4_inch
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-144324](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144324.png)
+![screenshot-20241014-144324](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144324.png)
 
 用DSI-Cable-12cm线材，将4.3inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -143,7 +143,7 @@ dtoverlay=dsi-waveshare-panel-overlay-4_3_inch
 
 #### 效果演示
 
-![screenshot-20241014-144429](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144429.png)
+![screenshot-20241014-144429](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144429.png)
 
 ### 7inchC DSI LCD
 
@@ -151,8 +151,8 @@ dtoverlay=dsi-waveshare-panel-overlay-4_3_inch
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-154448](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-154448.png)
-![screenshot-20241014-155331](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155331.png)
+![screenshot-20241014-154448](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-154448.png)
+![screenshot-20241014-155331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155331.png)
 
 用DSI-Cable-12cm线材，将7inchC DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -175,7 +175,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_0_inchC
 
 #### 效果演示
 
-![screenshot-20241014-155439](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155439.png)
+![screenshot-20241014-155439](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155439.png)
 
 ### 7.9inch DSI LCD
 
@@ -183,7 +183,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_0_inchC
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-165628](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165628.png)
+![screenshot-20241014-165628](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165628.png)
 
 用DSI-Cable-12cm线材，将7.9inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -206,7 +206,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_9_inch
 
 #### 效果演示
 
-![screenshot-20241014-165707](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165707.png)
+![screenshot-20241014-165707](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165707.png)
 
 ### 8inch DSI LCD
 
@@ -214,7 +214,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_9_inch
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-151754](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-151754.png)
+![screenshot-20241014-151754](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-151754.png)
 
 用DSI-Cable-12cm线材，将8inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -237,7 +237,7 @@ dtoverlay=dsi-waveshare-panel-overlay-8_0_inch
 
 #### 效果演示
 
-![screenshot-20241014-152537](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-152537.png)
+![screenshot-20241014-152537](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-152537.png)
 
 ### 10.1inch DSI LCD
 
@@ -245,7 +245,7 @@ dtoverlay=dsi-waveshare-panel-overlay-8_0_inch
 
 屏幕连接方式如下图所示：
 
-![screenshot-20241014-174402](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174402.png)
+![screenshot-20241014-174402](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174402.png)
 
 用DSI-Cable-12cm线材，将10.1inch DSI LCD连接到X5 rdk主板的22PIN DSI1接口。
 
@@ -268,7 +268,7 @@ dtoverlay=dsi-waveshare-panel-overlay-10_1_inch
 
 #### 效果演示
 
-![screenshot-20241014-174925](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174925.png)
+![screenshot-20241014-174925](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174925.png)
 
 
 

@@ -29,7 +29,7 @@ S100 Can转发方案的核心流程如下：
 - CANHAL模块获取来自MCU侧的IPC数据，按照指定的传输协议解析数据，并支持业务软件通过API获取原始Can帧。
 
 
-![Acore与MCU之间透传Can数据架构图](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can.png)
+![Acore与MCU之间透传Can数据架构图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can.png)
 
 数据流如上图所示：
 - 外设数据通过CAN的PHY和控制器器件被MCU域CAN驱动接收后，CAN驱动将数据上报并缓存在hobot CANIF模块。

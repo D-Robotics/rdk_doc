@@ -75,7 +75,7 @@ GPIO.setwarnings(False)
 
 上述描述细节可以查看下图：
 
-![image-rdk_100_funcreuse_40pin](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk_100_funcreuse_40pin.png)
+![image-rdk_100_funcreuse_40pin](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_funcreuse_40pin.png)
 
 管脚定义请参考 [管脚配置与定义](./01_40pin_define.md#40pin_define)
 

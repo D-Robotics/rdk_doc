@@ -2,7 +2,7 @@
 
 Hbmem模块主要实现的功能包括 **内存分配**、**内存共享**、**内存队列管理** 和 **内存池**，专门用于对 **系统预留内存** 进行管理。
 
-![](../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/hbmem/01_func_overview.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/hbmem/01_func_overview.png)
 
 ## 内存分配
 
@@ -26,7 +26,7 @@ Hbmem模块主要实现的功能包括 **内存分配**、**内存共享**、**�
 
 **需要注意的是，因为内存队列为一个环形队列，所以要当队列满了之后，再往队列中写入事件，就会将之前的第一个事件给覆盖。此外，该队列只支持单进程内操作。**
 
-![](../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/hbmem/01_memory_queue.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/hbmem/01_memory_queue.png)
 
 ## 内存池
 

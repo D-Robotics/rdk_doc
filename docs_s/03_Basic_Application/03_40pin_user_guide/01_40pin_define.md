@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 RDKS100 有 40-pin，方便用户进行外围扩展，其中数字 IO 采用 3.3V 电平设计。接口定义如下：
 
-![image-rdk_100_mainboard_40pin](../../../static/img/01_Quick_start/image/hardware_interface/image-rdk_100_mainboard_40pin.jpg)
+![image-rdk_100_mainboard_40pin](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mainboard_40pin.jpg)
 
 ## GPIO 读写操作示例
 

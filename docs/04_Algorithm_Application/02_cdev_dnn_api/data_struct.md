@@ -457,7 +457,7 @@ DSP核枚举。
 系统内存与缓存同步参数。CPU与内存之间有一个缓存区，导致缓存中内容与内存中内容会出现不同步的情况，为了每次都能够拿到最新的数据，
 我们需要在CPU读前、写后进行数据更新。CPU读前，将内存中数据更新到缓存中。CPU写后，将缓存中数据更新到内存中。
 
-![hbSysMemFlushFlag](../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/hbSysMemFlushFlag.png)
+![hbSysMemFlushFlag](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/hbSysMemFlushFlag.png)
 
 
 + 成员

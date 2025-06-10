@@ -8,7 +8,7 @@ hbmem api使用说明，包括com buffer、graphic buffer、graphic buffer group
 
 本sample基于libhbmem API实现，调用libhbmem提供的API，实现不同buffer类型的内存申请和进程间共享。
 
-![hbmem_sample_block_diagram](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_sample_block_diagram.png)
+![hbmem_sample_block_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_sample_block_diagram.png)
 
 ## 代码位置及目录结构
 
@@ -36,19 +36,19 @@ _S100/hbmem/hbmem_sample_call_sequence.png)
 
 com buffer、graph buffer、graphic buffer group 分配流程图
 
-![hbmem_alloc_buf](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_alloc_buf.png)
+![hbmem_alloc_buf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_alloc_buf.png)
 
 queue使用流程图
 
-![hbmem_queue](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_queue.png)
+![hbmem_queue](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_queue.png)
 
 pool使用流程图
 
-![hbmem_pool](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_pool.png)
+![hbmem_pool](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_pool.png)
 
 share pool 使用流程图
 
-![hbmem_share_pool](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_share_pool.png)
+![hbmem_share_pool](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_share_pool.png)
 
 ## 编译
 

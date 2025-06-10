@@ -12,13 +12,13 @@ DSI）。通过IDU从内存中读取图像数据进行处理，在IDE内部支�
 DSI和MIPI CSI2 Device两种方式输出，MIPI DSI和MIPI CSI2
 Device两个控制器共用一个MIPI D-PHY
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/display/3a04cee3e78794a86060831ada036a2b.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/display/3a04cee3e78794a86060831ada036a2b.png)
 
 ## IDU架构图
 
 S100 有两个功能完全相同的IDU（Image Display Unit）硬件模块
 
-![](../../../../static/img/07_Advanced_development/03_multimedia_development/02_S100/display/78d95d4a8683535bee0965957165a802.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/display/78d95d4a8683535bee0965957165a802.png)
 
 ## IDU支持的功能
 

@@ -25,10 +25,10 @@ import TabItem from '@theme/TabItem';
 使用菜单栏右上角的Wi-Fi管理工具连接Wi-Fi，如下图所示，点击需要连接的Wi-Fi名，然后在弹出的对话框中输入Wi-Fi密码。
 
 
-![image-20231127111045649](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160653.jpg)
+![image-20231127111045649](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160653.jpg)
 
 
-![image-20231127111253803](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160732.jpg)
+![image-20231127111253803](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160732.jpg)
 
 </TabItem>
 
@@ -38,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
 执行 `sudo srpi-config` 命令，选择 System Options -> Wireless LAN ，根据提示依次输入Wi-Fi名（`SSID`） 和 密码（`passwd`）。
 
-![image-20231127112139204](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112139204.png)
+![image-20231127112139204](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127112139204.png)
 
 </TabItem>
 </Tabs>
@@ -52,11 +52,11 @@ import TabItem from '@theme/TabItem';
 
 通过菜单栏找到`RDK Configuration` 项，点击打开。
 
-![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
+![image-20231127112029088](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
 选择 Interface Options -> SSH 项，根据提示选择使能或者关闭 `SSH` 服务。
 
-![image-20231127115151834](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160740.jpg)
+![image-20231127115151834](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160740.jpg)
 
 </TabItem>
 
@@ -64,7 +64,7 @@ import TabItem from '@theme/TabItem';
 
 执行 `sudo srpi-config`命令进入配置菜单。选择 Interface Options -> SSH 项，根据提示选择使能或者关闭 `SSH` 服务。
 
-![image-20231127115009424](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
+![image-20231127115009424](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
 </TabItem>
 
@@ -79,11 +79,11 @@ SSH的使用请查看 [远程登录 - SSH登录](./remote_login#ssh)。
 
 通过菜单栏找到`RDK Configuration` 项，点击打开。
 
-![image-20231127112029088](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
+![image-20231127112029088](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
 选择 Interface Options -> VNC 项，根据提示选择使能或者关闭`VNC` 服务。选择使能 `VNC` 时需要设置登录密码，密码必须是一个8位长度的由字符组成的字符串。
 
-![image-20231127112202713](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160744.jpg)
+![image-20231127112202713](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160744.jpg)
 
 </TabItem>
 </Tabs>
@@ -104,7 +104,7 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 通过菜单栏找到`RDK Configuration` 项，点击打开。选择 System Options -> Boot / Auto Login 项进入如下配置项。根据需求选择对应项。
 
-![image-20231127112703844](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112703844.png)
+![image-20231127112703844](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127112703844.png)
 
 重启后生效。
 
@@ -133,7 +133,7 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 第一步：选择选择需要用到的语言环境（多选），一般选中 `en_US.UTF-8 UTF-8` 和 `zh_CN.UTF-8 UTF-8`两项即可。回车确认进入下一步。
 
-![image-20231127113356503](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
+![image-20231127113356503](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
 
 第二步：选择默认的语言环境，中文环境选择 `zh_CN.UTF-8 UTF-8` 即可。回车确认后需要等待一会完成配置。
 
@@ -154,7 +154,7 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 第一步：选择选择需要用到的语言环境（多选），一般选中 `en_US.UTF-8 UTF-8` 和 `zh_CN.UTF-8 UTF-8`两项即可。回车确认进入下一步。
 
-![image-20231127113356503](../../static/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
+![image-20231127113356503](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
 
 第二步：选择默认的语言环境，中文环境选择 `zh_CN.UTF-8 UTF-8` 即可。回车确认后需要等待一会完成配置。
 
@@ -170,15 +170,15 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 
 第一步：在桌面端找到EN输入法标志，右键点击首选项
 
-![QQ_1IGglEVRSO.png](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160754.jpg)
+![QQ_1IGglEVRSO.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160754.jpg)
 
 第二步：点击输入法——>右侧添加——>选择中文
 
-![QQ_MxWDZrZ7Wk.png](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160757.jpg)
+![QQ_MxWDZrZ7Wk.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160757.jpg)
 
 第三步：选择智能拼音，最后右上角EN就可以右键选择智能拼音
 
-![QQ_rICn3iU1Vc.png](../../static/img/01_Quick_start/image/configuration_wizard/20250507-160805.jpg)
+![QQ_rICn3iU1Vc.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160805.jpg)
 
 </TabItem>
 </Tabs>
@@ -192,7 +192,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 第一步：下载RDK Studio (链接：[下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，下载User Installer与ZIP均可，按照安装步骤依次线下安装。
 
-![QQ20241029-190206.png](../../static/img/01_Quick_start/image/configuration_wizard/QQ20241029-190206.png)
+![QQ20241029-190206.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/QQ20241029-190206.png)
 
 第二步：打开Studio之后界面包含四个左侧菜单具体如下：
 
@@ -208,7 +208,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 ​	（5）`烧写`：请见1.2章节系统烧录
 
-![QQ20241029-190206.png](../../static/img/01_Quick_start/image/configuration_wizard/RDK_Studio_OzxNIkHGH7.gif)
+![QQ20241029-190206.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/RDK_Studio_OzxNIkHGH7.gif)
 
 第三步：Studio 集成工具的使用
 
@@ -218,7 +218,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 ​	（3）`其他功能`：其他Jupyter等需要安装功能，小伙伴们可以按需安装。
 
-![RDK_Studio_w6lCUNKCb9.gif](../../static/img/01_Quick_start/image/configuration_wizard/RDK_Studio_w6lCUNKCb9.gif)
+![RDK_Studio_w6lCUNKCb9.gif](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/RDK_Studio_w6lCUNKCb9.gif)
 
 
 :::tip
@@ -239,7 +239,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 找到板卡的以太网（PS：将板卡与电脑的连接线拔插多次即可知道哪个是开发板的以太网）——>右键选择属性，按照下图方式填写。
 
-![r03XYBKpQH.png](../../static/img/01_Quick_start/image/configuration_wizard/r03XYBKpQH.png)
+![r03XYBKpQH.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/r03XYBKpQH.png)
 
 第三步：闪连的操作
 
@@ -247,7 +247,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 注意：由于连接WIFI需要时间，可能在设备添加完成时，显示未发现WIFI，稍等片刻刷新卡片即可
 
-![shanlian.gif](../../static/img/01_Quick_start/image/configuration_wizard/shanlian.gif)
+![shanlian.gif](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/shanlian.gif)
 
 </TabItem>
 

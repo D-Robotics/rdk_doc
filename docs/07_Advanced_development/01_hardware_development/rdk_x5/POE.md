@@ -18,7 +18,7 @@ PoE系统由供电设备（Power sourcing equipment， PSE）、受电设备 （
 
 RDK X5支持通过PoE系统供电，但是其本身并非完整的PSE设备或PD设备。RDK X5在其中扮演的角色为：PD设备的前端、PD设备的后端负载。如下图所示。
 
-![img-20241009-1](../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/whiteboard_exported_image.png)
+![img-20241009-1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/whiteboard_exported_image.png)
 
 RDK X5板载的RJ45座内置变压器，可以输出AC交流电源，接口位于以太网连接器旁边的4PIN针脚。
 

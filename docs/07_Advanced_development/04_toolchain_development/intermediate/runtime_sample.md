@@ -502,7 +502,7 @@ sidebar_position: 4
 
 下表提供了典型深度神经网络模型在X3处理器上的性能、精度指标。
 
-![model_accuracy](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_accuracy.png)
+![model_accuracy](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_accuracy.png)
 
 :::caution 注意
 
@@ -1583,7 +1583,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 在开发板上运行 ``hrt_model_exec`` 、 ``hrt_model_exec -h`` 或 ``hrt_model_exec --help`` 获取工具的使用参数详情。
 如下图中所示：
 
-![hrt_model_exec_help](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help.png)
+![hrt_model_exec_help](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help.png)
 
   | **编号** | **参数**                         | **类型** | **说明**                                             |
   |-----------|-------------|------|------------|
@@ -1636,7 +1636,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 ```
   hrt_model_exec model_info --model_file=xxx.bin --model_name=xx
 ```
-![model_info](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_info.png)
+![model_info](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_info.png)
 
 
 ##### ``输入参数补充说明``
@@ -1674,7 +1674,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 ```
   hrt_model_exec infer --model_file=xxx.bin,xxx.bin --model_name=xx --input_file=xxx.jpg
 ```
-![infer](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/infer.png)
+![infer](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/infer.png)
 
 
 - 可选参数
@@ -1715,7 +1715,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 使能分类后处理。子命令为 ``infer`` 时配合使用，目前只支持在PTQ分类模型的后处理时使用，变量为 ``true`` 时打印分类结果。
 参见下图：
 
-![enable_cls_post_process](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process.png)
+![enable_cls_post_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process.png)
 
 
 - ``roi_infer``
@@ -1779,7 +1779,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
 ```
   hrt_model_exec perf --model_file=xxx.bin,xxx.bin --model_name=xx
 ```
-![perf](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/perf.png)
+![perf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/perf.png)
 
 - 可选参数
 
@@ -1870,7 +1870,7 @@ profile日志文件产生目录。
 直接运行 ``hrt_bin_dump`` 获取工具使用详情。
 参见下图：
 
-![hrt_bin_dump_help](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help.png)
+![hrt_bin_dump_help](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help.png)
 
 :::tip 小技巧
   工具也可以通过 ``-v`` 或者 ``--version`` 命令，查看工具的 ``dnn`` 预测库版本号。
@@ -1887,11 +1887,11 @@ profile日志文件产生目录。
 ```
 运行日志参见以下截图：
 
-![run_log](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/run_log.png)
+![run_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/run_log.png)
 
 在路径 **outputs/** 文件夹下可以查看输出，参见以下截图：
 
-![output](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/output.png)
+![output](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/output.png)
 
 
 
@@ -2799,70 +2799,70 @@ bev模型的workflow_latency.json配置文件建议修改成如下形式：
 
 - **分类**
 
-![classification](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/classification.JPEG)
+![classification](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/classification.JPEG)
 
 - **2d检测**
 
-![detection2d](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/detection2d.jpg)
+![detection2d](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/detection2d.jpg)
 
 - **3d检测**
 
-![detection3d](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/detection3d.png)
+![detection3d](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/detection3d.png)
 
 - **分割**
 
-![seg](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/seg.png)
+![seg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/seg.png)
 
 - **关键点**
 
-![keypoint](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/keypoint.jpg)
+![keypoint](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/keypoint.jpg)
 
 - **车道线**
 
-![land_pred](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/land_pred.png)
+![land_pred](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/land_pred.png)
 
 - **光流**
 
-![opticalflow](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/opticalflow.png)
+![opticalflow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/opticalflow.png)
 
 - **雷达**
 
-![lidar](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/lidar.png)
+![lidar](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/lidar.png)
 
 - **雷达多任务**
 
-![lidar_det](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/lidar_det.png)
+![lidar_det](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/lidar_det.png)
 
-![lidar_seg](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/lidar_seg.png)
+![lidar_seg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/lidar_seg.png)
 
 - **bev**
 
-![bev_cam_front_left](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_front_left.png)
+![bev_cam_front_left](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_front_left.png)
 
-![bev_cam_front](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_front.png)
+![bev_cam_front](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_front.png)
 
-![bev_cam_front_right](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_front_right.png)
+![bev_cam_front_right](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_front_right.png)
 
-![bev_cam_back_left](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_back_left.png)
+![bev_cam_back_left](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_back_left.png)
 
-![bev_cam_back](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_back.png)
+![bev_cam_back](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_back.png)
 
-![bev_cam_back_right](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_back_right.png)
+![bev_cam_back_right](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_cam_back_right.png)
 
-![bev_ego](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_ego.png)
+![bev_ego](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_ego.png)
 
-![bev_seg](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/bev_seg.png)
+![bev_seg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/bev_seg.png)
 
 
 - **轨迹预测**
 
-![1_6191](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/1_6191.png)
+![1_6191](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/1_6191.png)
 
 - **深度估计**
 
-![stereonet_disparity](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/stereonet_disparity.png)
+![stereonet_disparity](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/stereonet_disparity.png)
 
-![stereonet_depth](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/stereonet_depth.png)
+![stereonet_depth](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/stereonet_depth.png)
 
 
 **注意：** 轨迹预测可视化时如果需要可视化minidata以外的图片，需要额外配置道路信息、轨迹信息文件到 **minidata/argoverse1/visualization** 中，生成配置文件可使用 **densetnt_process.py** 预处理脚本，将 **--is-gen-visual-config** 参数设为 **true**。
@@ -4139,7 +4139,7 @@ QAT模型的精度计算脚本在 **qat/tools/python_tools/accuracy_tools** 目�
 在开发板上运行 ``hrt_model_exec`` 、 ``hrt_model_exec -h`` 或 ``hrt_model_exec --help`` 获取工具的使用参数详情。
 如下图中所示：
 
-![hrt_model_exec_help](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help_x5.png)
+![hrt_model_exec_help](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help_x5.png)
 
   | **编号** | **参数**                         | **类型** | **说明**                                             |
   |-----------|-------------|------|------------|
@@ -4192,7 +4192,7 @@ QAT模型的精度计算脚本在 **qat/tools/python_tools/accuracy_tools** 目�
 ```
   hrt_model_exec model_info --model_file=xxx.bin --model_name=xx
 ```
-![model_info](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_info_x5.png)
+![model_info](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_info_x5.png)
 
 
 ##### ``输入参数补充说明``
@@ -4243,7 +4243,7 @@ QAT模型的精度计算脚本在 **qat/tools/python_tools/accuracy_tools** 目�
 **注意：** 多帧输入之间用英文逗号隔离，roi之间使用分号隔离。
 
 
-![infer](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/perf_x5.png)
+![infer](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/perf_x5.png)
 
 
 - 可选参数
@@ -4285,7 +4285,7 @@ QAT模型的精度计算脚本在 **qat/tools/python_tools/accuracy_tools** 目�
 使能分类后处理。子命令为 ``infer`` 时配合使用，目前只支持在PTQ分类模型的后处理时使用，变量为 ``true`` 时打印分类结果。
 参见下图：
 
-![enable_cls_post_process](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process_x5.png)
+![enable_cls_post_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process_x5.png)
 
 
 - ``roi_infer``
@@ -4362,7 +4362,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
 ```
 **注意：** 多帧输入之间用英文逗号隔离，roi之间使用分号隔离。
 
-![perf](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/perf_x5.png)
+![perf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/perf_x5.png)
 
 - 可选参数
 
@@ -4532,7 +4532,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 直接运行 ``hrt_bin_dump`` 获取工具使用详情。
 参见下图：
 
-![hrt_bin_dump_help](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help_x5.png)
+![hrt_bin_dump_help](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help_x5.png)
 
 **小技巧：**
   工具也可以通过 ``-v`` 或者 ``--version`` 命令，查看工具的 ``dnn`` 预测库版本号。
@@ -4549,11 +4549,11 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 ```
 运行日志参见以下截图：
 
-![run_log](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/run_log_x5.png)
+![run_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/run_log_x5.png)
 
 在路径 **outputs/** 文件夹下可以查看输出，参见以下截图：
 
-![output](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/output_x5.png)
+![output](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/output_x5.png)
 
 
 ## RDK Ultra
@@ -6096,7 +6096,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 在开发板上运行 ``hrt_model_exec`` 、 ``hrt_model_exec -h`` 或 ``hrt_model_exec --help`` 获取工具的使用参数详情。
 如下图中所示：
 
-![hrt_model_exec_help](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help.png)
+![hrt_model_exec_help](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_model_exec_help.png)
 
   | **编号** | **参数**                         | **类型** | **说明**                                             |
   |-----------|-------------|------|------------|
@@ -6149,7 +6149,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 ```
   hrt_model_exec model_info --model_file=xxx.bin --model_name=xx
 ```
-![model_info](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_info.png)
+![model_info](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_info.png)
 
 
 ##### ``输入参数补充说明``
@@ -6187,7 +6187,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 ```
   hrt_model_exec infer --model_file=xxx.bin,xxx.bin --model_name=xx --input_file=xxx.jpg
 ```
-![infer](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/infer.png)
+![infer](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/infer.png)
 
 
 - 可选参数
@@ -6228,7 +6228,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 使能分类后处理。子命令为 ``infer`` 时配合使用，目前只支持在PTQ分类模型的后处理时使用，变量为 ``true`` 时打印分类结果。
 参见下图：
 
-![enable_cls_post_process](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process.png)
+![enable_cls_post_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/enable_cls_post_process.png)
 
 
 - ``roi_infer``
@@ -6292,7 +6292,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
 ```
   hrt_model_exec perf --model_file=xxx.bin,xxx.bin --model_name=xx
 ```
-![perf](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/perf.png)
+![perf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/perf.png)
 
 - 可选参数
 
@@ -6383,7 +6383,7 @@ profile日志文件产生目录。
 直接运行 ``hrt_bin_dump`` 获取工具使用详情。
 参见下图：
 
-![hrt_bin_dump_help](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help.png)
+![hrt_bin_dump_help](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hrt_bin_dump_help.png)
 
 :::tip 小技巧
   工具也可以通过 ``-v`` 或者 ``--version`` 命令，查看工具的 ``dnn`` 预测库版本号。
@@ -6400,8 +6400,8 @@ profile日志文件产生目录。
 ```
 运行日志参见以下截图：
 
-![run_log](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/run_log.png)
+![run_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/run_log.png)
 
 在路径 **outputs/** 文件夹下可以查看输出，参见以下截图：
 
-![output](../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/output.png)
+![output](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/output.png)

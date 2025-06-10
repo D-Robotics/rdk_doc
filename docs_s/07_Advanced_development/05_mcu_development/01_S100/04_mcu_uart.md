@@ -34,7 +34,7 @@ S100 MCU芯片共有3路uart，即uart4~uart6。其中uart4作为调试控制台
 - Hardware: UART硬件。
 
 
-![MCU 软件架构图](../../../../static/img/07_Advanced_development/05_mcu_development/01_S100/mcu_uart.png)
+![MCU 软件架构图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_uart.png)
 
 
 

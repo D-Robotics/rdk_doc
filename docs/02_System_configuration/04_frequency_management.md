@@ -22,7 +22,7 @@ sidebar_position: 4
 
 可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
 
-![image-20220714113732289](../../static/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
+![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
 #### 设置温度点
 
@@ -125,7 +125,7 @@ sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
 
 可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
 
-![image-20220714113732289](../../static/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
+![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
 ## X5
 
@@ -292,4 +292,4 @@ echo 0 >/sys/devices/system/cpu/cpufreq/boost
 
 可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
 
-![image-20240829171934000](../../static/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)
+![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)

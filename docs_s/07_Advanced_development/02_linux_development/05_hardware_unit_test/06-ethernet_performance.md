@@ -22,7 +22,7 @@ sidebar_position: 6
 ## 准备工作
 
 
- ![Ethernet_usage_diagram.png](./_static/_images/6-ethernet_performance/Ethernet_usage_diagram.png)
+ ![Ethernet_usage_diagram.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Ethernet_usage_diagram.png)
 
 1. **选择连接方式：** `开发板`- `电脑`直连或者`开发板` - `开发板` 直连。
 2. **确定服务器和客户端：** 开发板做客户端和服务端都可以，对端设备可以是个人电脑（PC），也可以是另一块开发板。

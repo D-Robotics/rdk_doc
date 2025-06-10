@@ -391,19 +391,19 @@ echo -n "file pcm_lib.c +p" > /sys/kernel/debug/dynamic_debug/control
 
 实物如下图所示，其中红圈为es7210，黄圈为es8156，绿圈为4mic。
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/audio1.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/audio1.png)
 
 ### 音频子板与开发板连接
 
 连接方式如下图：
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/audio2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/audio2.png)
 
 **注意事项**：40pin上的PCM pin脚与PCIE的WIFI模组复用，硬件上提供了拨码开关实现pin脚功能切换。
 
 拨码开关切换pin脚功能说明如下图：
 
-![](../../../../static/img/07_Advanced_development/02_linux_development/driver_development_s100/audio3.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/audio3.png)
 
 
 
