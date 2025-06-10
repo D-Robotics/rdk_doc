@@ -43,7 +43,7 @@ The RDK X5 development board supports both Ethernet and Wi-Fi for network connec
 The RDK kit currently provides an Ubuntu 22.04 system image, supporting graphical interaction with the Desktop version.
 
 :::info Note
-The **RDK X5 Module** comes with a pre-installed test system image. To ensure the use of the latest version, <font color='Red'>it is recommended to follow this guide to flash the latest system image</font>.
+The **RDK X5 Module** comes with a pre-installed test system image. To ensure the use of the latest version, <font color='Red'>it is recommended to follow the guide on the current page to flash the latest system image</font>.
 :::
 
 ---

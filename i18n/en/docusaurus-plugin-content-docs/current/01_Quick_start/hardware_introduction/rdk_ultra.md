@@ -4,14 +4,14 @@ sidebar_position: 3
 
 # 1.1.3 RDK Ultra
 
-RDK Ultra development kit provides various peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and 40PIN, enabling users to experience features, develop, and test the RDK Ultra kit. The interface layout is as follows:
+RDK Ultra development kit provides various peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and 40-pin GPIO, enabling users to experience features, develop, and test the RDK Ultra kit. The interface layout is as follows:
 
 ![image-carrier-board1](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface1.jpg)
 ![image-carrier-board2](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface2.jpg)
 
 | No.  | Interface Function       | No.  | Interface Function        | No.  | Interface Function          |
 | ---- | ------------------------ | ---- | ------------------------- | ---- | --------------------------- |
-| 1    | Power Interface          | 7    | 40PIN Header              | 13   | CAM3 Interface, 24PIN, 4lane |
+| 1    | Power Interface          | 7    | 40-pin GPIO Header        | 13   | CAM3 Interface, 24PIN, 4lane |
 | 2    | HDMI Display Interface   | 8    | PWM Fan Interface         | 14   | CAM1 Interface, 24PIN, 4lane |
 | 3    | 4 USB3.0 Ports           | 9    | RTC Battery Interface     | 15   | Wireless Network Interface, PCIe M.2-E |
 | 4    | Gigabit Ethernet Port    | 10   | Function Control Interface | 16   | SSD Interface, PCIe M.2-M    |
@@ -30,7 +30,7 @@ The RDK Ultra Module core board hardware interfaces are compatible with Jetson O
 
 ## Power Interface
 
-The RDK Ultra development board is powered via a DC interface. It is recommended to use the power adapter included in the kit or a power adapter with at least **12V/5A** output. After connecting the power supply, the red power indicator light (No. 6) will turn on, indicating normal power supply.
+The RDK Ultra development board is powered via a DC interface. It is recommended to use the power adapter included in the kit or a power adapter with at least **12V/5A** output. After connecting the power supply, the red power indicator light (Interface 6) will turn on, indicating normal power supply.
 
 :::caution
 Do not use a computer USB port to power the board. Insufficient power may cause **abnormal shutdown or repeated reboots**.
@@ -40,7 +40,7 @@ Do not use a computer USB port to power the board. Insufficient power may cause 
 
 ## Debug Serial Port {#debug_uart}
 
-The RDK Ultra development board provides a debug interface (No. 5), which uses the `CH340` chip to convert the core module's debug serial port into a USB interface. This interface can be used for various debugging tasks. Configure your serial tool with the following parameters:
+The RDK Ultra development board provides a debug interface (Interface 5), which uses the `CH340` chip to convert the core module's debug serial port into a USB interface. This interface can be used for various debugging tasks. Configure your serial tool with the following parameters:
 
 - **Baud rate**: 921600  
 - **Data bits**: 8  
@@ -48,20 +48,20 @@ The RDK Ultra development board provides a debug interface (No. 5), which uses t
 - **Stop bits**: 1  
 - **Flow control**: None  
 
-For first-time use, install the CH340 driver on your computer. Search for `CH340串口驱动` to download and install it.
+For first-time use, install the CH340 driver on your computer. Search for `CH340 serial port driver` to download and install it.
 
 ---
 
 ## Ethernet Port
 
-The development board provides a Gigabit Ethernet port (No. 4) supporting 1000BASE-T and 100BASE-T standards. By default, the static IP address is `192.168.1.10`.  
+The development board provides a Gigabit Ethernet port (Interface 4) supporting 1000BASE-T and 100BASE-T standards. By default, the static IP address is `192.168.1.10`.  
 To verify the board's IP address, log in via the serial port and use the `ifconfig` command to check the configuration of the `eth0` interface.
 
 ---
 
 ## HDMI Interface {#hdmi_interface}
 
-The RDK Ultra development board provides an HDMI display interface (No. 2) supporting a maximum resolution of 1080P. After powering on the board, the Ubuntu graphical interface will output via the HDMI interface. This interface also supports previewing camera or video stream images with specific demo programs.
+The RDK Ultra development board provides an HDMI display port (Interface 2) supporting a maximum resolution of 1080P. After powering on the board, the Ubuntu graphical interface will output via the HDMI interface. This interface also supports previewing camera or video stream images with specific demo programs.
 
 Currently, the HDMI interface supports only the 1080p60 display mode. Additional modes will be supported in future software updates.
 
@@ -69,7 +69,7 @@ Currently, the HDMI interface supports only the 1080p60 display mode. Additional
 
 ## USB Interface
 
-The RDK Ultra development board provides four USB3.0 standard ports (No. 3), allowing up to four USB peripherals to be used simultaneously. Note that the USB ports of RDK Ultra support only Host mode.
+The RDK Ultra development board provides four USB3.0 standard ports (Interface 3), allowing up to four USB peripherals to be used simultaneously. Note that the USB ports of RDK Ultra support only Host mode.
 
 ---
 
@@ -85,8 +85,8 @@ The USB Type A ports of the development board support USB cameras. When a USB ca
 
 The RDK Ultra development board provides four camera interfaces (`CAM 0~3`) to support simultaneous connections for four MIPI camera modules. The usage notes are as follows:
 
-1. **CAM 0/2** (Interfaces 11/12): Use 15PIN FPC connectors, compatible with Raspberry Pi OV5647, IMX219, IMX477, and other camera modules.  
-2. **CAM 1/3** (Interfaces 13/14): Use 24PIN FPC connectors, compatible with F37, GC4663, IMX415, and other camera modules.
+1. **CAM 0/2** (Interfaces 11/12): Use 15PIN FFC connectors, compatible with Raspberry Pi OV5647, IMX219, IMX477, and other camera modules.  
+2. **CAM 1/3** (Interfaces 13/14): Use 24PIN FFC connectors, compatible with F37, GC4663, IMX415, and other camera modules.
 
 Specifications of supported camera modules:
 
@@ -98,7 +98,7 @@ Specifications of supported camera modules:
 | 4    | IMX477  | 12 MP      | H:62  V:37 D:68  | 0x1a               |
 | 5    | OV5647  | 5 MP       | H:62  V:37 D:68  | 0x36               |
 
-For purchasing camera modules, refer to the community accessories page: [Purchase link](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
+For purchasing camera modules, refer to the [accessories page](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md).
 
 :::caution
 Important: Do not connect or disconnect the camera while the board is powered on, as this may damage the camera module.
@@ -108,13 +108,13 @@ Important: Do not connect or disconnect the camera while the board is powered on
 
 ## Wi-Fi Antenna Interface
 
-The development board comes with a pre-installed wireless network card module and antenna (No. 15).
+The development board comes with a pre-installed wireless network card module and antenna (Interface 15).
 
 ---
 
-## 40PIN Header Interface
+## 40-pin GPIO Header Interface
 
-The RDK Ultra development board provides a 40PIN header interface (No. 7) supporting GPIO, UART, I2C, SPI, I2S, and other interfaces. The detailed pin definitions and multiplexing relations are as follows:
+The RDK Ultra development board provides a 40-pin GPIO header interface (Interface 7) supporting GPIO, UART, I2C, SPI, I2S, and other interfaces. The detailed pin definitions and multiplexing relations are as follows:
 
 ![image-40pin-header](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-interface-40pin.jpg)
 
@@ -122,7 +122,7 @@ The RDK Ultra development board provides a 40PIN header interface (No. 7) suppor
 
 ## Function Control Interface
 
-The RDK Ultra development board provides a function control interface (No. 10) to control the functional modes of the core module. The pin definitions are as follows:
+The RDK Ultra development board provides a function control interface (Interface 10) to control the functional modes of the core module. The pin definitions are as follows:
 
 | Pin No. | Pin Name | Function Description          | Usage Method                           |
 | ------- | -------- | ---------------------------- | -------------------------------------- |

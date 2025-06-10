@@ -4,18 +4,19 @@ sidebar_position: 1
 
 # D-Robotics RDK Suite
 
-This document is the user manual for the D-Robotics RDK Suite. It provides developers with usage instructions and development guidance for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module (Sunrise X3 Module), RDK X5, and RDK Ultra. The content covers hardware design, system customization, application development, algorithm toolchains, and more. For details on how to use the suite, please refer to the **System Flashing** section.
+This document is the user manual for the D-Robotics RDK Suite. It provides developers with usage instructions and development guidance for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module (Sunrise X3 Module), RDK X5, and RDK Ultra. The content covers hardware design, system customization, application development, algorithm toolchains, and more. For details on how to use the suite, please refer to the [System Burning](/install_os) section.
 
-:::info Note
+:::info RDK X3 Note
 
-- In this document, **RDK X3** refers to systems running Ubuntu 3.0 & 2.0. For users who still need the **Sunrise X3 Pi 1.0 system**, please refer to the following links:<br/>
+- In this document, **RDK X3** refers to the 2.0 and 3.0 system versions. For users who still need the **Sunrise X3 Pi 1.0 system**, please refer to the following links:<br/>
     [Sunrise X3 Pi User Manual](https://developer.d-robotics.cc/api/v1/fileData/documents_pi/index.html)<br/>
     [Sunrise X3 Pi Ubuntu Images](https://archive.d-robotics.cc/downloads/os_images/), select images under the 1.x.x directory<br/>
     [Sunrise X3 Pi Resource Package](https://developer.d-robotics.cc/api/v1/static/fileData/X3%E6%B4%BE%E8%B5%84%E6%96%99%E5%8C%85_20220711175326.zip)<br/>
 
-- **RDK X3 Module** comes with a pre-flashed test system image. To ensure you are using the latest system version, it is recommended to follow the **System Flashing** section in this document.
+- **RDK X3 Module** comes with a pre-flashed test system image. To ensure you are using the latest system version, it is recommended to refer to this document to complete [the burning of the latest version of the system image](/install_os).
 
 To check your system version, use the command `cat /etc/version`. For version 2.1.0 and above, you can use the `rdkos_info` command for detailed version information.
+
 :::
 
 ## Overview of D-Robotics RDK Suite

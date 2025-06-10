@@ -4,12 +4,12 @@ sidebar_position: 2
 
 # 8.2 Interfaces, Peripherals, and Drivers
 
-### 40PIN Interface
+### 40-pin GPIO Interface
 
 #### Q1: Does the development board support using VDD_5V from the 40PIN header as a power input?
 **A:** Supported on development board versions V1.2 and above. You can usually confirm the version by checking the silkscreen information on the PCB. Please operate with caution and ensure your board version supports this feature—incorrect power supply may cause hardware damage.
 
-#### Q2: Can I control the 40PIN GPIO interface using C/C++?
+#### Q2: Can I control the 40-pin GPIO interface using C/C++?
 **A:** Yes, it is supported. Refer to relevant articles and code samples in the Horizon Developer Community, such as:
 * [Sunrise X3Pi WiringPi](https://developer.d-robotics.cc/forumDetail/109609560406362634) (a C/C++ GPIO library adapted for RDK X3)
 * Check the official documentation for your RDK model for chapters on GPIO development, which usually provide low-level operation methods or recommended libraries.
