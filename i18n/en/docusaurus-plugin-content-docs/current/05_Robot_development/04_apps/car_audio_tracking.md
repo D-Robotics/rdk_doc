@@ -15,7 +15,7 @@ The voice tracking control car movement function controls the robot to rotate to
 
 The process is as follows:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
 
 This app uses a virtual car in Gazebo simulation environment on the PC as an example, and the published control instructions can also be directly used to control a physical robot.
 
@@ -23,11 +23,11 @@ The DOA angle information of the sound source localization output by the intelli
 
 Linear microphone array:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
 
 Circular microphone array:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
 
 Code repository:  (https://github.com/D-Robotics/audio_tracking.git)
 
@@ -132,7 +132,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful startup, the car in the simulation environment will appear as follows:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/gazebo.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
 
 Startup program for the RDK:
 
@@ -299,6 +299,6 @@ angular:
 
 The PC simulation environment controls the movement of the car based on voice tracking. The effect is shown as follows:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif)
 
 In the image above, the simulated car on the left rotates according to the angle of the sound source, and the log outputted by the program is on the right. The log contains the DOA angle information.

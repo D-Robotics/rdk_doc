@@ -10,16 +10,16 @@ Comes with a built-in 3.5mm audio jack, compatible with 4-pole headsets or other
 
 Connect a 3.5mm headset to the audio jack. Note that the headset must be 4-pole; 3-pole connectors usually do not have a MIC (microphone).
 
-![image-audio-earphone](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone.png)
+![image-audio-earphone](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone.png)
 
 Ensure the headset is fully inserted, as shown below:
 
-![image-audio-earphone-correct](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone-correct.png)
+![image-audio-earphone-correct](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone-correct.png)
 
 Incorrect connection examples:
 
-![image-audio-earphone-error-connection1](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection1.png)
-![image-audio-earphone-error-connection2](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection2.png)
+![image-audio-earphone-error-connection1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection1.png)
+![image-audio-earphone-error-connection2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-earphone-error-connection2.png)
 
 In the incorrect examples above, part of the metal connector is exposed, resulting in an incomplete connection. Even if the program runs normally, you may not be able to hear or record sound.
 

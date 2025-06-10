@@ -22,7 +22,7 @@ The Video Input Module (VIN) handles video data reception via the MIPI Rx interf
 
 VIN is divided into four software components as shown below:
 
-![image-20220329195124946](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_input/image-20220329195124946.png)
+![image-20220329195124946](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_input/image-20220329195124946.png)
 
 ### Video Input Device
 

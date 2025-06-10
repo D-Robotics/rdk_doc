@@ -24,7 +24,7 @@ Before using serial port login, it is necessary to confirm that the serial port 
 Serial port login requires a PC terminal tool. The commonly used tools are `PuTTy`, `MobaXterm`, etc. Users can select their terminal tool according to their own preferences, as the port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
 
 - When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:  
-![image-20220416105939067](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
+![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
 - Open the `MobaXterm` tool, click `Session`, and then select `Serial`.
 
@@ -41,7 +41,7 @@ Serial port login requires a PC terminal tool. The commonly used tools are `PuTT
   | Flow Control          | None           |
   
 - Click `OK`, enter the username: `root`, password: `root` to log in to the device  
-![image-Uart-Login](../../../../../static/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
+![image-Uart-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
 
 At this point, you can use the `ifconfig` command to query the IP address of the development board, where eth0 and wlan0 represent the wired and wireless networks respectively:
 ```bash
@@ -96,7 +96,7 @@ Before using remote login, it is necessary to confirm that the computer and deve
 
 Configure the IP address of the computer to be on the same subnet as the development board. For example, the development board: `192.168.1.10` and the computer: `192.168.1.100`. Assigning an IP address depends on the Operating System of the computer. Taking the WIN10 system as an example, the method to modify the static IP of the computer is as follows:
 
-![image-20220416110242445](../../../../../static/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
+![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
 
 If you want to configure the wired network of the development board to obtain IP dynamically via DHCP mode, please refer to the [Wired Network](../02_System_configuration/01_network_blueteeth.md) chapter for configuration.
 
@@ -111,13 +111,13 @@ This section is for users using the Ubuntu Desktop system version, and it explai
 **Connect to the Development Board**  
 Currently, VNC supports two connection methods: direct connection and cloud connection. Users can choose according to their own needs. This article recommends using the direct connection method. The connection steps are as follows:- Enter the IP address of the input device, for example: 192.168.127.10
 
-![image-20220610160658103](../../../../../static/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
+![image-20220610160658103](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
 
 - After entering the IP address, press Enter, a prompt for an unencrypted connection will appear, click `Continue`  
-![image-20220610160715916](../../../../../static/img/01_Quick_start/image/remote_login/image-20220610160715916.png)
+![image-20220610160715916](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160715916.png)
 
 - Enter the password `sunrise`, check `Remember password`, and click `OK` to connect  
-![image-20220610160928136](../../../../../static/img/01_Quick_start/image/remote_login/image-20220610160928136.png)
+![image-20220610160928136](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160928136.png)
 
 ## SSH Login {#ssh}
 In addition to VNC login for remote desktop, you can also connect to the development board via SSH. The following steps describe how to create SSH connections using terminal software and terminal command line methods.
@@ -130,7 +130,7 @@ Commonly used terminal tools include `PuTTy`, `MobaXterm`, etc. Users can choose
 3. Select `specify username`, enter `sunrise`.
 4. After clicking OK, enter the username (sunrise) and password (sunrise) to complete the login.
 
-![image-Network-Login](../../../../../static/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
+![image-Network-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
 
 ### Command Line on PC
 Users can also use the command line to log in via SSH. The steps are as follows:
@@ -139,7 +139,7 @@ Users can also use the command line to log in via SSH. The steps are as follows:
 2. A connection confirmation prompt will appear, enter YES.
 3. Enter the password (sunrise) to complete the login.
 
-![image-Cmdline-Linux](../../../../../static/img/01_Quick_start/image/remote_login/linux_login_01.gif)
+![image-Cmdline-Linux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/linux_login_01.gif)
 
 ## Setting Up a Local Area Network
 

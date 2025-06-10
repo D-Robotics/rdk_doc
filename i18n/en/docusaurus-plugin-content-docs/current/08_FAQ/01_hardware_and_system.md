@@ -62,14 +62,14 @@ For certified accessories and purchase links, please refer to the [Certified Acc
 ### Q5: How to correctly connect the RDK X3 debug serial cable?
 **A:** One end of the RDK X3 debug serial cable (usually a white XH connector or corresponding pin header) connects to the DEBUG serial port on the RDK X3 board. The connector usually has a foolproof design (such as a notch or specific pin order), making it hard to connect incorrectly. The other end connects to a USB-to-serial module (e.g., CH340, CP210x), which then connects to your PC via USB.
 Connection diagram:
-![RDK X3 Serial Connection Diagram](../../../../../static/img/08_FAQ/image/hardware_and_system/connect.png)
+![RDK X3 Serial Connection Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/connect.png)
 **Key point:** Ensure the serial module's TX connects to RDK's RX, RX to RDK's TX, and GND to GND.
 
 ### Q6: How to connect F37 and GC4663 MIPI cameras to RDK X3? How to verify the connection?
 **A:** F37 and GC4663 MIPI camera modules usually connect via a 24-pin FPC (flexible flat cable).
 **Connection note:** The FPC cable usually has a blue stiffener on both ends. Make sure the **blue side faces up** (or towards the connector latch, depending on the connector type) when inserting into the board and camera module, and lock the latch.
 F37 camera connection diagram:
-![F37 Camera to RDK X3 Diagram](../../../../../static/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
+![F37 Camera to RDK X3 Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
 **After connecting:**
 1.  Ensure the camera is properly connected and the board is powered on.
@@ -80,7 +80,7 @@ F37 camera connection diagram:
     ```
     If successful, you should see the camera feed and possible AI results via HDMI or other output.
     Example HDMI output (detecting `teddy bear`, `cup`, and `vase`):
-    ![MIPI Camera AI Output Example](../../../../../static/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
+    ![MIPI Camera AI Output Example](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
 
 3.  **Check I2C communication with `i2cdetect`:**
     MIPI cameras use I2C for configuration. Use `i2cdetect` to scan devices on the relevant I2C bus (often `i2c-1` or `i2c-2` on RDK X3; check hardware manual or device tree).
@@ -113,8 +113,8 @@ F37 camera connection diagram:
 **A:** These issues are usually related to power supply, boot media (SD card/eMMC), or hardware connections.
 * **Insufficient or unstable power:**
     * **Symptoms:** System reboots during U-Boot or early kernel boot without clear error logs; green LED abnormal (e.g., not blinking or always on); HDMI black screen.
-        ![U-Boot reboot due to power issue](../../../../../static/img/08_FAQ/image/system/image-20230914173433676.png)
-        ![Kernel reboot due to power issue](../../../../../static/img/08_FAQ/image/system/image-20230914174123619.png)
+        ![U-Boot reboot due to power issue](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20230914173433676.png)
+        ![Kernel reboot due to power issue](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20230914174123619.png)
     * **Troubleshooting:**
         * Use a power adapter that meets board requirements (RDK X3: at least 5V/2A, recommended 5V/3A or higher with QC/PD support).
         * **Do not** power the board from a PC USB port.
@@ -123,9 +123,9 @@ F37 camera connection diagram:
 
 * **Boot media issues (Micro SD/eMMC):**
     * **Symptoms:** Serial log shows filesystem mount failure, missing partitions, MMC/SD init errors or timeouts.
-        ![SD card image format error](../../../../../static/img/08_FAQ/image/system/image-20221124194527634.png)
-        ![SD card physical/contact error 1](../../../../../static/img/08_FAQ/image/system/image-20221124194636213.png)
-        ![SD card physical/contact error 2](../../../../../static/img/08_FAQ/image/system/image-20221124194721750.png)
+        ![SD card image format error](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194527634.png)
+        ![SD card physical/contact error 1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194636213.png)
+        ![SD card physical/contact error 2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194721750.png)
     * **Troubleshooting:**
         * Ensure the SD card image is correctly and fully flashed.
         * Try reflashing the system image.

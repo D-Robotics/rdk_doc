@@ -26,7 +26,7 @@ kernel/drivers/pinctrl/hobot/common.h  # Pinctrl driver header file
 
 To enable Pinctrl, ensure the `CONFIG_PINCTRL_SINGLE` option is selected in the kernel configuration.
 
-![Pinctrl Kernel Menuconfig](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/pinctrl-kernel-menuconfig.png)
+![Pinctrl Kernel Menuconfig](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/pinctrl-kernel-menuconfig.png)
 
 ### Pinctrl DTS Configuration
 

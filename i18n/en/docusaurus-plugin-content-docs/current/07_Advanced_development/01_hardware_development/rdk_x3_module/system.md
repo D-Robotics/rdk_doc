@@ -54,23 +54,23 @@ The following precautions should be taken when using the tool:
 For a PC using the Windows operating system, before using the flashing tool, it is necessary to confirm if the fastboot driver has been installed. Please follow the steps below for confirmation:
 
 1. Use a jumper cap to ground the `Boot` pin on the RDK X3 carrier board. Refer to the figure below for the pin position.    
-   ![image-carrier-board-bootstrap](./image/rdk_x3_module/image-carrier-board-bootstrap.png)  
+   ![image-carrier-board-bootstrap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png)  
 2. Connect the Micro USB interface on the carrier board to the PC using a USB cable. Refer to the figure below for the interface position.  
-   ![image-carrier-board-microusb](./image/rdk_x3_module/image-carrier-board-microusb.png)  
+   ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)  
 3. Power on the device and observe the port status in the computer's Device Manager. If there is an unknown device named `USB download gadget`, the driver needs to be updated. Otherwise, you can skip the following steps.  
-   ![image-usb-driver1](./image/rdk_x3_module/image-usb-driver1.png)  
+   ![image-usb-driver1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png)  
 4. Download and unzip the driver package `android_hobot.zip` from the following link: [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
 5. Go to the extracted directory and run `5-runasadmin_register-CA-cer.cmd` as an administrator to complete the driver program registration.
 6. Double-click the unknown device named `USB download gadget` and select the directory where the driver package is extracted. Then click Next.   
-   ![image-usb-driver2](./image/rdk_x3_module/image-usb-driver2.png)
+   ![image-usb-driver2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png)
 7. After the driver installation is completed, the Device Manager will display the fastboot device `Android Device`.   
-   ![image-usb-driver3](./image/rdk_x3_module/image-usb-driver3.png)
+   ![image-usb-driver3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
 
 ## Flashing the System {#flash_system}
 
 After confirming that the PC Device Manager displays the fastboot device `Android Device`, run `hbupdate.exe` to open the flashing tool, and follow the steps below to flash the system:
 
-![image-flash-system1](./image/rdk_x3_module/image-flash-system1.png)
+![image-flash-system1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system1.png)
 
 1. Select the development board model, which is a required option.
 
@@ -82,15 +82,15 @@ After confirming that the PC Device Manager displays the fastboot device `Androi
 
 - RDK_X3_MD_4GB: RDK X3 Module, 4GB memory version.
 
-![image-flash-system2](./image/rdk_x3_module/image-flash-system2.png)
+![image-flash-system2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system2.png)
 
 2. Click the `Browse` button to select the image file to be flashed, which is a required option.
 
-![image-flash-system3](./image/rdk_x3_module/image-flash-system3.png)
+![image-flash-system3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system3.png)
 
 3. Click the `Start` button to start flashing. Follow the pop-up prompts to begin flashing:
 
-![image-flash-system4](./image/rdk_x3_module/image-flash-system4.png)
+![image-flash-system4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system4.png)
 
 - When flashing the image, ground the `BOOT` pin using a jumper cap. Refer to [Function Control Interface](../rdk_x3_module/interface#function_control_interface) for the pin position.
 
@@ -102,8 +102,8 @@ After confirming that the PC Device Manager displays the fastboot device `Androi
 
 - When the image burning is successful, the tool prompt is as follows:
 
-![image-flash-system6](./image/rdk_x3_module/image-flash-system6.png)
+![image-flash-system6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system6.png)
 
 - When the image burning fails, the tool prompt is as follows, at this time it is necessary to confirm whether the PC Device Manager has 'Android Device' device.
 
-![image-flash-system7](./image/rdk_x3_module/image-flash-system7.png)
+![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)

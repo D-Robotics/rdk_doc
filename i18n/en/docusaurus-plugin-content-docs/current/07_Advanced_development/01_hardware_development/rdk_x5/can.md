@@ -50,7 +50,7 @@ The need for higher performance in CAN networks led to the development of CAN FD
   CAN FD simplifies the frame structure by removing support for remote frames, making communication fully data-frame based.
 
 ## Interface Description
-![img-20241009-1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-1.png)
+![img-20241009-1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-1.png)
 - The RDK X5 provides a CAN communication interface, equipped with a 120-ohm terminal resistor switch. To enable the terminal resistor, simply close the switch.
 - The terminal interface is of type SH1.0 1X3P.
 
@@ -190,7 +190,7 @@ ip link set up can0
   ```bash
 ip -details link show can0
   ```
-![img-20241009-2](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-2.png)
+![img-20241009-2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-2.png)
 
 To check the configuration details of the `can0` interface, you can use the following command:
 
@@ -203,7 +203,7 @@ To send a test message and verify that data is immediately received, use the fol
 cansend can0 123#1122334455667788
   ```
 Test Results
-![img-20241009-3](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-3.png)
+![img-20241009-3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-3.png)
 
 ### CANFD Loopback Test
 
@@ -225,7 +225,7 @@ cansend can0 123##300112233445566778899aabbccddeeff
 ### Dual Device Communication Test
 
 **Hardware Connection**  
-![img-20241009-4](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-4.png)  
+![img-20241009-4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/img-20241009-4.png)  
 - GND to GND, L to L, H to H.
 
 **Test Instructions**  

@@ -87,15 +87,15 @@ Before flashing the Ubuntu system image, prepare the following:
 
 1. Open the balenaEtcher tool, click the `Flash from file` button, and select the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the flashing image.
 
-    ![image-X3-Update-balena1](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-X3-Update-balena1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
 
 2. Click the `Select target` button and choose the Micro SD card as the target storage device.
 
-    ![image-X3-Update-balena3](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-X3-Update-balena3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
 
 3. Click the `Flash` button to start flashing. Once the tool displays `Flash Complete`, the flashing process is complete. You can close balenaEtcher and remove the SD card.
 
-    ![image-X3-Update-balena4](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-X3-Update-balena4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
 
 ---
 
@@ -115,7 +115,7 @@ If the board does not display anything for an extended period after powering on 
 
 Once the Ubuntu Desktop system boots, the system desktop will be displayed via the HDMI interface, as shown below:
 
-![image-desktop_display.jpg](../../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
+![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 ---
 

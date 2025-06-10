@@ -792,7 +792,7 @@ class horizon_plugin_pytorch.nn.Correlation(kernel_size: int = 1, max_displaceme
 
 Perform multiplicative patch comparisons between two feature maps.
 
-![qat_correlation](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/qat_correlation.png)
+![qat_correlation](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/qat_correlation.png)
 
 **parameters**
 

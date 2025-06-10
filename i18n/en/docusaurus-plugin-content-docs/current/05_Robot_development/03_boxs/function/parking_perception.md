@@ -228,14 +228,14 @@ After the package is initialized, the following information will be displayed in
 
 The result of inference reading a local image offline in the example will be rendered on the image. On the PC-side browser, you can view the image and algorithm rendering effect by entering http://IP:8000 (IP is the IP address of the RDK), and open the settings in the upper right corner of the interface.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png)
 
 Select the "Full Image Segmentation" option to display the rendering effect.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/operation_2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_2.png)
 
 From the visualization result, we can see that the parking area and driving area in the outdoor scene are effectively segmented, distinguishing the parking lane from the driving lane, and the object detection task also locates the vehicles in the distance.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png)
 
 When "dump_render_img" is set to "1", the rendering effect will be saved in the "result" directory at the current path.

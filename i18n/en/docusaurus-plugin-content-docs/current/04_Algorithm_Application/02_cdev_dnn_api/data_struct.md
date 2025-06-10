@@ -452,7 +452,7 @@ typedef enum {
 
 This enumeration defines system memory and cache synchronization flags. There exists a cache between the CPU and memory, which can cause data discrepancies. To ensure that the most up-to-date data is always retrieved, we need to synchronize data between the cache and memory before and after CPU reads or writes. Before a CPU read, data from memory is updated into the cache. After a CPU write, data from the cache is updated back into memory.
 
-![hbSysMemFlushFlag](../../../../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/hbSysMemFlushFlag.png)
+![hbSysMemFlushFlag](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/hbSysMemFlushFlag.png)
 
 + Members
 

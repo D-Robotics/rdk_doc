@@ -60,7 +60,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 The running effect is shown in the following image:
 
-![hello world](/../static/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png "hello world")
+![hello world](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png)
 
 As you can see, the left terminal acts as the publisher, continuously sending "Hello, world! N", and the right terminal acts as the subscriber, continuously receiving "Hello, world! N".
 

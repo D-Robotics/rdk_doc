@@ -23,7 +23,7 @@ modprobe g_mass_storage file=/dev/loop0 removable=1
 1. The PC will prompt for the new disk device, format it as FAT32.
 2. Open `CrystalDiskMark` on the PC, select the X3 device that was just mounted, click `All` to start the test. If there's a prompt for insufficient space, adjust the test file size accordingly.
 3. After the test is finished, the first two items `SEQ1M*` represent the sequential read/write speed, and the following two items `RND4K*` represent the random read/write speed of 4k small files.
-   ![10_usb_benchmark](../../../../../../../static/img/07_Advanced_development/02_linux_development/hardware_unit_test/10_usb_benchmark.png)  
+   ![10_usb_benchmark](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/hardware_unit_test/10_usb_benchmark.png)  
 
 
   **The speed shown in the image is for reference only**

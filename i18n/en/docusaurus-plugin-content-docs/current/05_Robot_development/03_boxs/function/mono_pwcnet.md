@@ -19,7 +19,7 @@ Code Repository: (https://github.com/D-Robotics/mono_pwcnet)
 
 Application Scenarios: Optical flow prediction is a technique used to determine the pattern of pixel movement on the surface of objects in image sequences, and it can be applied in fields such as autonomous driving, motion analysis, and object tracking.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg)
 
 ## Supported Platforms
 
@@ -163,4 +163,4 @@ The following information is outputted in the terminal:
 
 On the PC browser, enter http://IP:8000 and then click on the 'Full Image Segmentation' to view the rendering effect of the image and algorithm.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv//pwcnet.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif)

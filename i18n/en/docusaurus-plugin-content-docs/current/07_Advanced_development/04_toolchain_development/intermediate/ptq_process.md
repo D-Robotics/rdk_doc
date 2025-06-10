@@ -11,7 +11,7 @@ This chapter will repeatedly use these two model terms. To avoid misunderstandin
 
 The complete development process of the model with the Heterogeneous Line algorithm toolchain requires five important stages: **Floating-point Model Preparation**, **Model Verification**, **Model Conversion**, **Performance Evaluation**, and **Accuracy Evaluation**, as shown in the following diagram:
 
-![model_conversion_flowchart](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_conversion_flowchart.png)
+![model_conversion_flowchart](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_conversion_flowchart.png)
 
 
 **Floating-point Model Preparation** This stage is used to ensure that the format of the original floating-point model is supported by the Heterogeneous Line model conversion tool. The original floating-point model is obtained from the available model trained by DL frameworks such as TensorFlow/PyTorch. For specific floating-point model requirements and recommendations, please refer to the [**Floating-point Model Preparation**](#model_preparation) section.
@@ -205,7 +205,7 @@ Ideally, all operators in the model's network structure should run on the BPU, w
 
 - The Caffe model running on "RDK X3" has a structure of Reshape + Pow + Reshape. According to the operator constraint list on "RDK X3", we can see that the Reshape operator is currently running on the CPU, and the shape of Pow is also non-4D, which does not meet the constraints of the X3 BPU operator.
 
-![model_reshape](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape.png)
+![model_reshape](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape.png)
 
 Therefore, the final checking result of the model will also show segmentation, as follows:
 
@@ -237,7 +237,7 @@ fc_output/op                          CPU  --        Mul
 
 - The ONNX model running on "RDK Ultra" has a structure of Mul + Add + Mul. According to the operator constraint list on "RDK Ultra", we can see that Mul and Add operators are supported on five dimensions for BPU execution, but they need to meet the constraints of the Ultra BPU operators; otherwise, they will fall back to CPU computation.
 
-![model_reshape](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape_ONNX.png)
+![model_reshape](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_reshape_ONNX.png)
 
 Therefore, the final checking result of the model will also show segmentation, as follows:
 
@@ -800,7 +800,7 @@ D-Robotics provides the following solutions for this situation:
 
 After processing through the above two methods, the input part of the heterogeneous model `***.bin` generated during the model conversion stage will look like the following:
 
-![input_data_process](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/input_data_process.png)
+![input_data_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/input_data_process.png)
 
 The data layouts shown in the above figure include NCHW and NHWC, where N represents the number, C represents the channel, H represents the height, and W represents the width. The two different layouts reflect different memory access characteristics. NHWC is more commonly used in TensorFlow models, while NCHW is used in Caffe. The D-Robotics processor does not restrict the use of data layouts, but there are two requirements: first, `input_layout_train` must be consistent with the data layout of the original model; second, prepare the data with the data layout consistent with `input_layout_rt` on the processor, as the correct data layout is the basis for successful data parsing.
 
@@ -836,7 +836,7 @@ The first row in the table represents the types supported by `input_type_rt`, an
 
 The **model optimization compilation** completes several important stages, including model parsing, model optimization, model calibration and quantization, and model compilation. The internal workflow is shown in the following diagram:
 
-![model_optimization](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/model_optimization.png)
+![model_optimization](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_optimization.png)
 
 :::info Note
 
@@ -1019,7 +1019,7 @@ Here is an example of the evaluation results for the MobileNetv1 model:
 
 Open the `mobilenetv1_224x224_nv12.html` main page in a browser. Its content is as shown in the following figure:
 
-![hb_mapper_perf_2](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hb_mapper_perf_2.png)
+![hb_mapper_perf_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hb_mapper_perf_2.png)
 
 The analysis results mainly consist of three parts: Model Performance Summary, Details, and BIN Model Structure.
 Model Performance Summary provides an overall performance evaluation of the bin model, with the following metrics:
@@ -1053,7 +1053,7 @@ For more information on configuring the `debug` parameter, please refer to the s
 
 Layer Details provide analysis at the specific operator level and can be used as a reference in the model debugging and analysis stage. For example, if certain BPU operators are causing low model performance, the analysis results can help you locate the specific operator.
 
-Please translate the following content into English, maintaining the original format and content: ![layer_details](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/layer_details.png)
+Please translate the following content into English, maintaining the original format and content: ![layer_details](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/layer_details.png)
 
 :::caution Note
 The results obtained from the "hb_perf" tool can help you understand the subgraph structure of the bin model and the static analysis metrics of the BPU calculation part in the model. It is important to note that the analysis results do not include the performance evaluation of the CPU part. If you need to evaluate the performance of CPU calculation, please test the model performance on the development board.
@@ -1301,7 +1301,7 @@ If the operator does not have the BPU support capability, you need to perform co
 
   - For models like the one in the picture below that are not connected to input and output nodes, the hb_model_modifier tool needs to be used to determine if the connected nodes support deletion. The nodes can then be deleted one by one in order.
 
-    ![nodes_connected](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/nodes_connected.png)
+    ![nodes_connected](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/nodes_connected.png)
 
     First, use the hb_perf tool to get the model structure image, and then use the following two commands to remove the Quantize nodes from top to bottom. For the Dequantize nodes, they can be deleted one by one from bottom to top. The name of the node that can be deleted at each step can be checked using ``hb_model_modifier x.bin``.
 
@@ -1462,7 +1462,7 @@ Based on the previous precision analysis, if you determine that the model's quan
 
 The overall process for addressing precision issues is illustrated below:
 
-![accuracy_problem](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_problem.png)
+![accuracy_problem](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_problem.png)
 
 **Significant Loss (Greater than 4%)**
 
@@ -1574,7 +1574,7 @@ For the current version of the accuracy debug tool: For the **RDK Ultra** corres
 
 The overall process is shown in the following diagram:
 
-![accuracy_debug_process](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_debug_process.png)
+![accuracy_debug_process](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/accuracy_debug_process.png)
 
 **Saving Calibration Models and Data**
 
@@ -1608,7 +1608,7 @@ To enable the accuracy debug feature, the `debug_mode="dump_calibration_data"` n
   The types of **ordinary nodes** include Conv, Mul, Add, etc.
 :::
 
-![debug_node](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/debug_node.png)
+![debug_node](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/debug_node.png)
 
 The folder structure of the calibration_data is as follows:
 
@@ -1873,11 +1873,11 @@ Command line usage:
 
 When `average_mode = False`:
 
-![average_mode_false_1](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_1.png)
+![average_mode_false_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_1.png)
 
 When `average_mode = True`:
 
-![average_mode_true_1](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_1.png)
+![average_mode_true_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_1.png)
 
 :::caution Caution
 
@@ -1926,11 +1926,11 @@ hmct-debugger plot-acc-error calibrated_model.onnx calibration_data -q [['Conv_2
 
 When average_mode=False:
 
-![new_average_mode_false_1](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_1.png)
+![new_average_mode_false_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_1.png)
 
 When average_mode=True:
 
-![new_average_mode_true_1](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_1.png)
+![new_average_mode_true_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_1.png)
 
 **2. Accumulated error test after dequantizing partial nodes in the model**
 
@@ -1965,11 +1965,11 @@ Command line usage:
 
 When average_mode = False:
 
-![average_mode_false_2](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_2.png)
+![average_mode_false_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_false_2.png)
 
 When average_mode = True:
 
-![average_mode_true_2](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_2.png)
+![average_mode_true_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/average_mode_true_2.png)
 
 - Specifying multiple nodes as non-quantized
 
@@ -2009,9 +2009,9 @@ and obtain the cumulative error curve.
 
 When average_mode = False:
 
-![new_average_mode_false_2](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_2.png)When `average_mode = True`:
+![new_average_mode_false_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_false_2.png)When `average_mode = True`:
 
-![new_average_mode_true_2](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_2.png)
+![new_average_mode_true_2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/new_average_mode_true_2.png)
 
 **Testing Technique**:
 
@@ -2078,7 +2078,7 @@ Command-line usage:
 
 - quantize_node = ['weight', 'activation']: quantize weights and activations separately.
 
-![weight_activation_quantized](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/weight_activation_quantized.png)
+![weight_activation_quantized](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/weight_activation_quantized.png)
 
 - **plot_distribution**
 
@@ -2141,15 +2141,15 @@ Command Line Usage:
 
 node_output：
 
-![node_output](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/node_output.png)
+![node_output](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/node_output.png)
 
 weight：
 
-![weight](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/weight.png)
+![weight](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/weight.png)
 
 activation：
 
-![activation](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/activation.png)
+![activation](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/activation.png)
 
 :::caution Note
 
@@ -2197,15 +2197,15 @@ The axis parameter defaults to None. If the node is a weight calibration node, t
 
 Weight calibration node:
 
-![weight_calibration_node](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/weight_calibration_node.png)
+![weight_calibration_node](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/weight_calibration_node.png)
 
 Activation calibration node:
 
-![activate_calibration_node](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/activate_calibration_node.png)
+![activate_calibration_node](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/activate_calibration_node.png)
 
 The output result is shown in the following figure:
 
-![box_plot](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/box_plot.png)
+![box_plot](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/box_plot.png)
 
 
 Here's how the chart is structured:
@@ -2265,7 +2265,7 @@ hmct-debugger runall calibrated_model.onnx calibration_data
 
 The `runall` workflow:
 
-![Runall Workflow](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/runall.png)
+![Runall Workflow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/runall.png)
 
 When all parameters are set to defaults, the tool performs the following steps:
 
@@ -2475,7 +2475,7 @@ The information of the deleted nodes is stored in the BIN model, and can be view
 :::
 Since deleting specific nodes will affect the input of the model, the tool is only suitable for cases where there is only one path after the model input, as shown in the figure below.
 
-![hb_model_modifier](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/intermediate/hb_model_modifier.png)
+![hb_model_modifier](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/hb_model_modifier.png)
 
 - Usage
 

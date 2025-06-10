@@ -6,8 +6,8 @@ sidebar_position: 3
 
 RDK Ultra development kit provides various peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and 40-pin GPIO, enabling users to experience features, develop, and test the RDK Ultra kit. The interface layout is as follows:
 
-![image-carrier-board1](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface1.jpg)
-![image-carrier-board2](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface2.jpg)
+![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface1.jpg)
+![image-carrier-board2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg)
 
 | No.  | Interface Function       | No.  | Interface Function        | No.  | Interface Function          |
 | ---- | ------------------------ | ---- | ------------------------- | ---- | --------------------------- |
@@ -24,7 +24,7 @@ RDK Ultra development kit provides various peripheral interfaces, including Ethe
 
 The RDK Ultra Module core board hardware interfaces are compatible with Jetson Orin series development boards, facilitating rapid integration and product deployment.
 
-![rdk_ultra_module](../../../../../../static/img/01_Quick_start/image/hardware_interface/rdk_ultra_module.png)
+![rdk_ultra_module](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/rdk_ultra_module.png)
 
 ---
 
@@ -116,7 +116,7 @@ The development board comes with a pre-installed wireless network card module an
 
 The RDK Ultra development board provides a 40-pin GPIO header interface (Interface 7) supporting GPIO, UART, I2C, SPI, I2S, and other interfaces. The detailed pin definitions and multiplexing relations are as follows:
 
-![image-40pin-header](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-interface-40pin.jpg)
+![image-40pin-header](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-interface-40pin.jpg)
 
 ---
 
@@ -135,4 +135,4 @@ The RDK Ultra development board provides a function control interface (Interface
 | 7       | PWR_EN   | Power enable signal          | Short circuit to GND to disable power supply |
 | 8       | GND      | Ground Signal                | GND                                    |
 
-![image-carrier-board-control-pin1](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-rdk-ultra-interface-control.jpg)
+![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface-control.jpg)

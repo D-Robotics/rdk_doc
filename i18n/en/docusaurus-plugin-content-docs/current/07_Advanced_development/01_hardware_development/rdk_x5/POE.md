@@ -18,7 +18,7 @@ Currently, the most common PoE protocols are IEEE 802.3af and IEEE 802.3at, whic
 
 The RDK X5 supports power supply via a PoE system but is not a complete PSE or PD device. The RDK X5 acts as the **frontend of the PD device** and the **backend load of the PD device**, as shown in the diagram below.
 
-![PoE Interface Diagram](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/whiteboard_exported_image_en.png)
+![PoE Interface Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/whiteboard_exported_image_en.png)
 
 The RJ45 connector on the RDK X5 has an integrated transformer that outputs AC power. This connector is located next to the Ethernet port, with a 4-pin header for AC power output.
 

@@ -70,7 +70,7 @@ class ConvBNReLU(nn.Sequential):
 
 The overall flow of quantization-aware training in Eager mode is shown in the following figure:
 
-![qat](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/qat.svg)
+![qat](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/qat.svg)
 
 #### Build Float Model
 

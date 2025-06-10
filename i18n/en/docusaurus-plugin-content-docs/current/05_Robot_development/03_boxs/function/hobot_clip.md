@@ -164,6 +164,6 @@ The following information will be displayed in the terminal:
 
 Use Google Chrome or Edge and enter http://IP:8080 to view the image retrieval results (where IP is the device's IP address).
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png)
 
 Result Analysis: You can sequentially see the retrieval results based on the similarity between the query text and images. Among them, only the CLIP.png image is provided for this example, while the other images are from the user's actual configuration. Therefore, it is expected that only the first image in the visualization result will be the same as in the example.

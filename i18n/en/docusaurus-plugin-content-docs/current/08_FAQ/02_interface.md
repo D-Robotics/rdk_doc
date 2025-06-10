@@ -31,7 +31,7 @@ sidebar_position: 2
         * **Parity:** None
         * **Flow control:** None
     * **COM Port:** Make sure you select the correct port as recognized by your PC after connecting the USB-to-serial module.
-    ![Serial terminal configuration example](../../../../../static/img/08_FAQ/image/interface/image-20221124200013163.png)
+    ![Serial terminal configuration example](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/interface/image-20221124200013163.png)
 4.  **USB-to-Serial Driver:** Ensure the driver for the USB-to-serial module is correctly installed on your PC.
 5.  **Try Other Modules or USB Ports:** Rule out hardware issues with the module or USB port.
 
@@ -72,7 +72,7 @@ sidebar_position: 2
         1.  Double-check the username (e.g., `sunrise`, `root`, `hobot`, depending on your system image/config).
         2.  Double-check the password (case-sensitive).
         3.  Try the default account and password (if not changed).
-    ![SSH authentication failure example](../../../../../static/img/08_FAQ/image/interface/image-20221124201544978.png)
+    ![SSH authentication failure example](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/interface/image-20221124201544978.png)
 
 #### Q6: Wi-Fi connection is unstable or slow. What should I do?
 **A:**

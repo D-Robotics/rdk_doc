@@ -258,7 +258,7 @@ The operator adjusts the input according to the following steps:
 2. Normalizes the RGB image using provided `mean` and `std`.
 3. Quantizes the RGB image using the given `q_scale`.
 
-![yuv1](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/yuv1.svg)
+![yuv1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/yuv1.svg)
 
 :::caution Caution
 **Note**: This operator is designed specifically for deployment and should not be used during training.
@@ -365,11 +365,11 @@ output         output            output                                         
 
 In some scenarios, users may need to split a model, which was trained as a whole, into multiple segments for deployment on the board. For example, in a two-stage detection model like the one shown in the figure below, if DPP needs to be executed on the CPU and its output (roi) is used as the input for RoiAlign, users need to split the model into Stage1 and Stage2 and compile them separately. During runtime, the fixed-point data output by the backbone is directly used as the input for RoiAlign.
 
-![segmented_deploy](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/segmented_deploy.svg)
+![segmented_deploy](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/segmented_deploy.svg)
 
 ### Method
 
-![segmented_deploy_method](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/segmented_deploy_method.svg)
+![segmented_deploy_method](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/segmented_deploy_method.svg)
 
 1. Model Modification: As shown in the figure above, on the basis of a model that can be quantization-aware trained (QAT) normally, users need to insert a `QuantStub` after the segmentation point before `prepare_qat`. Note that if `horizon_plugin_pytorch.quantization.QuantStub` is used, `scale` must be set to None.
 
@@ -388,11 +388,11 @@ The purpose of absorbing `BN` is to reduce the computational cost of the model. 
 
 The calculation process of absorption is as follows:
 
-![fuse_bn](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/fuse_bn.jpg)
+![fuse_bn](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/fuse_bn.jpg)
 
 By absorbing `BN`, `Conv2d + BN2d` can be simplified to `Conv2d`.
 
-![absorb_bn](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/absorb_bn.svg)
+![absorb_bn](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/absorb_bn.svg)
 
 ### Fusion of Add and ReLU(6)
 
@@ -418,11 +418,11 @@ The purpose of absorbing BN is to reduce model computation. Since BN is a linear
 
 The absorption process looks like this:
 
-![fuse_bn](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/fuse_bn.jpg)
+![fuse_bn](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/fuse_bn.jpg)
 
 By absorbing BN, a `Conv2d + BN2d` sequence can be simplified to just `Conv2d`.
 
-![absorb_bn](../../../../../../../static/img/07_Advanced_development/04_toolchain_development/expert/absorb_bn.svg)
+![absorb_bn](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/expert/absorb_bn.svg)
 
 ### Fusing Add, ReLU(6)
 

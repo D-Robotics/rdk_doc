@@ -109,5 +109,5 @@ The output log shows that the program is running successfully, with an algorithm
 
 Enter http://IP:8000 in the browser on the PC to view the images and algorithm rendering effects (IP is the IP address of the RDK):
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/face_landmarks_det_render.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/face_landmarks_det_render.png)
 

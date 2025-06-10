@@ -11,7 +11,7 @@ The video encoding module implements hardware encoding protocols such as H.264/H
 
 The encoding specifications supported by X3 are as follows:
 
-![image-20220329224946556](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329224946556.png)
+![image-20220329224946556](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329224946556.png)
 
 H.264/H.265 protocol encoding performance is as follows:
 
@@ -59,7 +59,7 @@ The encoder supports three levels of rate control internally, which are frame le
 
 CBR, VBR, and AVBR can enable QPMAP, and the actual value for each block region is obtained by the following formula:
 
-![image-20220329234019920](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329234019920.png)
+![image-20220329234019920](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220329234019920.png)
 
 MQP is the value in the ROI map, RQP is the value obtained by the internal bitrate control of the encoder, and ROIAvaQP is the average QP value in the ROI map.
 
@@ -79,7 +79,7 @@ The GOP structure table can define a set of periodic GOP structures that will be
 
 #### GOP Predefined Structures
 
-![VENC_GOP_structure](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_structure.png)
+![VENC_GOP_structure](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_structure.png)
 
 
 The following table provides 8 predefined GOP structures.
@@ -98,53 +98,53 @@ The following table provides 8 predefined GOP structures.
 Where: [image available for reference, not shown here]- GOP Preset1
   - Only I frames, no inter-reference frames
   - Low latency
-  ![VENC_GOP_preset1](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset1.png)
+  ![VENC_GOP_preset1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset1.png)
   
 - GOP Preset2
   - Only I frames and P frames
   - P frames reference two forward reference frames
   - Low latency
-  ![VENC_GOP_preset2](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset2.png)
+  ![VENC_GOP_preset2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset2.png)
   
 - GOP Preset3
   - Only I frames and B frames
   - B frames reference two forward reference frames
   - Low latency
-  ![VENC_GOP_preset3](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset3.png)
+  ![VENC_GOP_preset3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset3.png)
   
 - GOP Preset4
   - I frames, P frames, and B frames
   - P frames reference two forward reference frames
   - B frames reference one forward reference frame and one backward reference frame
-  ![VENC_GOP_preset4](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset4.png)
+  ![VENC_GOP_preset4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset4.png)
   
 - GOP Preset5
   - I frames, P frames, and B frames
   - P frames reference two forward reference frames
   - B frames reference one forward reference frame and one backward reference frame, where the backward reference frame can be a P frame or a B frame
-  ![VENC_GOP_preset5](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset5.png)
+  ![VENC_GOP_preset5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset5.png)
   
 - GOP Preset 6
   - Only I frames and P frames
   - P frames reference two forward reference frames
   - Low latency
-  ![VENC_GOP_preset6](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset6.png)
+  ![VENC_GOP_preset6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset6.png)
   
 - GOP Preset 7
   - Only I frames and B frames
   - B frames reference two forward reference frames
   - Low latency
-  ![VENC_GOP_preset7](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset7.png)
+  ![VENC_GOP_preset7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset7.png)
   
 - GOP Preset 8
   - Only I frames and B frames
   - B frames reference one forward reference frame and one backward reference frame
-  ![VENC_GOP_preset8](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset8.png)
+  ![VENC_GOP_preset8](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_preset8.png)
 
 #### Relationship between GOP and I frame period
 The following figure shows the relationship between GOP structure and I frame period.
 
-![VENC_GOP_i-frame](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_i-frame.png)
+![VENC_GOP_i-frame](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_gop_i-frame.png)
 
 ### ROI
 
@@ -152,11 +152,11 @@ The implementation of ROI encoding is similar to QPMAP, and users need to set th
 
 ROI encoding can work together with CBR and AVBR. When CBR or AVBR is not enabled, the actual QP value for each block region is the value specified in the ROI map. When CBR or AVBR is enabled, the actual value for each block region is obtained by the following formula:
 
-![image-20220405152959958](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405152959958.png)
+![image-20220405152959958](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405152959958.png)
 
 MQP is the value in the ROI map, RQP is the value obtained by the encoder's internal rate control, and ROIAvaQP is the average QP value in the ROI map.
 
-![VENC_H265_ROI_map](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_h265_roi_map.png)
+![VENC_H265_ROI_map](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_h265_roi_map.png)
 
 ### Intra Refresh
 Intra Refresh mode improves fault tolerance by periodically inserting intra-coded MB/CTUs into non-I frames. It provides more repair points for the decoder to avoid image corruption caused by temporal errors. Users can specify the number of continuous rows, columns, or step size of MB/CTUs to force the encoder to insert intra-coded units. Users can also specify the size of intra-coded units, which will be determined internally by the encoder.
@@ -164,7 +164,7 @@ Intra Refresh mode improves fault tolerance by periodically inserting intra-code
 ### Long-term reference frame
 Users can specify the period of long-term reference frames and the cycle of referring long-term reference frames, as shown in the following figure.
 
-![VENC_long_reference_frame](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_long_reference_frame.png)
+![VENC_long_reference_frame](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_long_reference_frame.png)
 
 ### Smart background encoding
 In video surveillance scenarios, the background is often static. Therefore, it is desired that the encoder can either ignore the background region or use less bitrate to encode it when detecting a background region. In actual scenarios, due to the presence of noise in the camera image, it is not easy to detect the background region. In many cases, the ISP needs to notify the encoder when it detects a background region, which consumes additional bandwidth and system computing resources.
@@ -173,11 +173,11 @@ H264 and H265 encoding provide integrated smart background encoding modes inside
 
 For background region judgment, users can set the maximum pixel difference value (recommended value 8) and the average pixel difference value (recommended value 1). Users can also adjust the Lambda parameter to influence the mode selection in encoding. When a background region is detected, the encoder internally increases the corresponding Lambda value for each block unit, making the encoder more likely to use ignore mode to encode the block unit. For Lambda control, users can set lambdaQP (recommended value 32) and deltaQP (recommended value 3), and the final Lambda value is calculated according to the following formula:
 
-![image-20220405153105331](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405153105331.png)
+![image-20220405153105331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/image-20220405153105331.png)
 
 QP_TO_LAMBDA_TABLE is the Lambda conversion table, which is also used for Lambda conversion in non-background regions.
 
-![VENC_smart_bg_encoding](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_smart_bg_encoding.png)
+![VENC_smart_bg_encoding](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_encode/ss_venc_smart_bg_encoding.png)
 
 It should be noted that Smart background encoding does not work when ROI encoding is enabled. The amount of bandwidth saved by this mode is closely related to the set bitrate and I-frame interval. The larger the bitrate and I-frame interval, the more bandwidth can be saved. In addition, in this mode, frames with better image quality can be set as long-term reference frames to improve the quality of the background image and save bitrate.
 

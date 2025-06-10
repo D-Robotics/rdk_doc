@@ -52,7 +52,7 @@ by-path  controlC1  pcmC1D0c  pcmC1D0p  timer
 
 The audio device name should be "hw:1,0" as shown.
 
-![headset](../../../../../../static/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
+![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
 
 ### Instructions
 

@@ -23,7 +23,7 @@ To avoid chip overheating under heavy load, power management is implemented at t
 
 The current chip operating frequency, temperature, and other status can be viewed using the `sudo hrut_somstatus` command:
 
-![image-20220714113732289](../../../../../static/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
+![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
 ### Configuring Temperature Thresholds
 
@@ -205,4 +205,4 @@ sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
 
 You can use the `sudo hrut_somstatus` command to check the current chip operating frequency, temperature, and other status:
 
-![image-20220714113732289](../../../../../static/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
+![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)

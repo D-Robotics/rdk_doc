@@ -7,7 +7,7 @@ The RDK X3 Module carrier board provides one MIPI DSI interface, supporting the 
 
 The screen connection is as shown in the following diagram:
 
-![image-mipi-dsi-lcd1](./image/rdk_x3_module/image-mipi-dsi-lcd1.png)
+![image-mipi-dsi-lcd1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-mipi-dsi-lcd1.png)
 
 :::caution Caution
 It is strictly prohibited to plug or unplug the screen when the development board is not powered off, as it may cause short circuits and damage to the screen module.

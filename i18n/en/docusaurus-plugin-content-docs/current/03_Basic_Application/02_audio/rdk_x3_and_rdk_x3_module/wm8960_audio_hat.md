@@ -7,7 +7,7 @@ sidebar_position: 2
 ## Product Overview
 The WM8960 Audio HAT, produced by Waveshare, is an audio adapter board based on the WM8960 Codec. It supports dual-channel microphone recording and audio playback. The appearance of the adapter board is shown below:
 
-![image-audio-wm8960](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
+![image-audio-wm8960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
 
 For detailed information about the audio adapter board, please refer to the [WM8960 Audio HAT](https://www.waveshare.net/wiki/WM8960_Audio_HAT) documentation.
 
@@ -16,14 +16,14 @@ For detailed information about the audio adapter board, please refer to the [WM8
 - ### Hardware Setup
 
 1. Connect the adapter board to the 40-pin header of the RDK X3 as shown below:  
-![image-wm8960-audio-hat-setup](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
+![image-wm8960-audio-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
 
 - ### Software Configuration
 
 2. Use `srpi-config` to configure the audio board.  
 Navigate to `3 Interface Options` -> `I5 Audio`  
 Select `WM8960 Audio HAT`:
-![image-audio-driver-hat-config00](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config01.png)  
+![image-audio-driver-hat-config00](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config01.png)  
 
 3. Run the command `sync && reboot` to restart the development board. If the following device nodes appear under `/dev/snd`, the adapter board has been installed successfully:
     ```shell

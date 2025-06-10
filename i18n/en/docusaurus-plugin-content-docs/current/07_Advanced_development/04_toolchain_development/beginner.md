@@ -244,7 +244,7 @@ After successful execution, the segmentation results of the image will be output
     ......
 ```
 
-![yolov5s-result](../../../../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/yolov5s-result.png)
+![yolov5s-result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/image/beginner/yolov5s-result.png)
 
 For examples of common APIs, please refer to the [**yolov5 Object Detection Algorithm**](../../04_Algorithm_Application/01_pydev_dnn_demo/static_image.md) section.For more API instructions on model inference, please refer to the chapter [**Python Development Guide - Model Inference API Usage Instructions**](../../04_Algorithm_Application/01_pydev_dnn_demo/pydev_dnn_api.md) and [**C/C++ Development Guide - Model Inference API Usage Instructions**](../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md).
 
@@ -252,7 +252,7 @@ For examples of common APIs, please refer to the [**yolov5 Object Detection Algo
 
 The table below provides performance and accuracy metrics of typical deep neural network models on the "RDK X3" development board by Horizon.
 
-![model_accuracy](../../../../../../static/img/07_Advanced_development/04_toolchain_development/image/beginner/model_accuracy.png)
+![model_accuracy](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/04_toolchain_development/intermediate/model_accuracy.png)
 
 **Note:**
 

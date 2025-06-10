@@ -17,10 +17,10 @@ Here is an example of querying the multiplexing, direction control, and data reg
 
 1. Open the table and select the `PIN Mux List` sheet.
 2. Column B contains the `PinName`, where you can find the row for `LSIO_UART3_RXD`. Column F shows the default function as `LSIO_GPIO0_PIN10`, which indicates the function is GPIO and the GPIO name is `LSIO_GPIO0_PIN10`. Columns I, K, M, and O describe the corresponding functions, as shown in the image below:
-   ![image-LSIO_UART3_RXD_func](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_func.png)
+   ![image-LSIO_UART3_RXD_func](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_func.png)
 
 3. To configure the pin function, select the `LSIO PIN Control Register` sheet, as shown below:
-   ![image-LSIO_UART3_RXD_mux](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_mux.png)
+   ![image-LSIO_UART3_RXD_mux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_mux.png)
    - The first row of the table records the base address of the register, which is `0x34180000`.
    - Column A records the offsets of various registers.
    - Column G describes the functions of the registers.
@@ -28,21 +28,21 @@ Here is an example of querying the multiplexing, direction control, and data reg
    - After finding the configuration item, you can set the corresponding PIN function. For example, writing `bit20-21 = 0x0` in register `0x34180084` configures `LSIO_UART3_RXD` as `uart3 rx` (Function 0). Writing `0x1` configures it as `i2c5 scl` (Function 1), and `0x2` configures it as `GPIO` (Function 2).
 
 4. To configure the PIN attributes, select the `LSIO PIN Control Register` sheet as shown below:
-   ![image-LSIO_UART3_RXD_IO_ctr_no_ms](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_no_ms.png)
+   ![image-LSIO_UART3_RXD_IO_ctr_no_ms](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_no_ms.png)
    - The first row records the base address, which is `0x34180000`.
    - Column A records the offsets of various registers.
    - Column G describes the functions of the registers.
    - Find the row for "`lsio_uart3_rxd pull up enable`" in column G, which shows the register offset for PU/PD/Schmitt trigger control as `0x3C`. The complete address is `0x34180000 + 0x3C = 0x3418003C`.
    - PIN drive strength values can be found in the `Description for GPIO App` table in the datasheet.
    - To find the power domain of the PIN, search for `mode select` and confirm that the corresponding register controls the `LSIO_UART3_RXD` pin. The register offset for controlling the power domain is `0x38`, and the complete address is `0x34180000 + 0x38 = 0x34180038`, as shown below:
-     ![image-LSIO_UART3_RXD_IO_ctr_ms](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_ms.png)
+     ![image-LSIO_UART3_RXD_IO_ctr_ms](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_IO_ctr_ms.png)
 
 5. When configuring registers, it is recommended to first read the current value, modify the necessary register bits, and then write it back.
 
 **GPIO Control and Data Registers:**
 
 - The tables `DW_apb_gpio8_mem_map_v1.0` and `DW_apb_gpio32_mem_map_v1.0` describe the GPIO direction registers and value registers for the pins, as shown in the image below (from `DW_apb_gpio32_mem_map_v1.0`):
-  ![image-LSIO_UART3_RXD_gpio_reg](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_gpio_reg.png)
+  ![image-LSIO_UART3_RXD_gpio_reg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/LSIO_UART3_RXD_gpio_reg.png)
 
 - For example, the `LSIO_UART3_RXD` pin corresponds to GPIO `LSIO_GPIO0_PIN10`. In the above image, the base address of the `LSIO_GPIO0` controller is `0x34120000`. Therefore, the data register address is `0x34120000` and the direction register address is `0x34120004`. The bit offset for the pin `LSIO_UART3_RXD` is 10, corresponding to GPIO number `LSIO_GPIO0_PIN10`.
   
@@ -56,7 +56,7 @@ kernel/drivers/gpio/gpio-dwapb.c # gpio驱动源文件
 
 GPIO_DWAPB
 
-![image-GPIO_MENUCONFIG](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/GPIO_MENUCONFIG.png)
+![image-GPIO_MENUCONFIG](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/GPIO_MENUCONFIG.png)
 
 ### Kernel DTS Configuration
 

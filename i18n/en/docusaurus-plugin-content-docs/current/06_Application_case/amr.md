@@ -8,11 +8,11 @@ Autonomous Mobile Robot (AMR) is a type of robot that can autonomously navigate 
 ## 1.  Example Introduction
 
 ### 1.1 Appearance
-![](../../../../../static/img/06_Application_case/amr/appearance.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/appearance.png)
 
 ### 1.2 Functional framework
 
-![](../../../../../static/img/06_Application_case/amr/amr_framework_en.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/amr_framework_en.jpg)
 
 ## 2. Assembly Example
 
@@ -37,43 +37,43 @@ Autonomous Mobile Robot (AMR) is a type of robot that can autonomously navigate 
 #### 2.2.1 Assemble upper shell
 The native chassis cannot install cameras or store various cables, so a separate installation is needed to connect to the chassis. Simply align the two holes at the bottom of the installation with the parts on the chassis mounting rail, and tighten the screws
 
-![](../../../../../static/img/06_Application_case/amr/upper_shell.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/upper_shell.jpg)
 
 #### 2.2.2 Wiring of RDK X5
 All sensors and chassis are directly connected to RDK X5. It should be noted that the binocular camera uses two 22 pin ribbon cables on the same surface. Please install them in the direction shown in the following figure
 
-![](../../../../../static/img/06_Application_case/amr/RDK-X5_connection.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/RDK-X5_connection.jpg)
 
 #### 2.2.3 Assemble cover board
 The cover plate is a 3D printed part (see the attached drawing at the end of the text), mainly used for installing RDK X5 and storing other cables. The four mounting holes in the yellow frame are used to install RDK X5, located on the back of the upper cover plate. Align the installation holes at the red box position with the parts on the chassis mounting rail, and tighten the screws.
 
-![](../../../../../static/img/06_Application_case/amr/cover_board.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/cover_board.jpg)
 
 #### 2.2.4 Lidar access
 First, install the LiDAR onto the carrier board, screw it onto the back of the carrier board, and then connect the wiring through the holes on the overload board (shown in the yellow box on the right) to the power manager. The power manager is installed on the back of the carrier board, and the screws are installed from the front of the carrier board (as shown in the red box on the left). After installation, the network cable and 12V power supply are connected, and the network cable and power cord pass through the holes on the top (as shown in the red box on the right).
 
-![](../../../../../static/img/06_Application_case/amr/lidar.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/lidar.jpg)
 
 #### 2.2.5 Install camera
 
 #####   1. Install TOF camera
 Firstly, connect the TOF camera, 3D printed part, and sheet metal bracket together, paying attention to the groove of the 3D printed part facing downwards. After the connection is completed, insert the entire device into the groove above the upper part, and pass the power and signal wires through the internal holes of the upper part (yellow box in Figure 3). Align the screw holes of the sheet metal parts (red box in Figure 1) with the internal screw holes of the upper assembly (red box in Figure 3), and tighten the screws.
 
-![](../../../../../static/img/06_Application_case/amr/tof_cam.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/tof_cam.jpg)
 
 #####   2. Install Binocular camera
 First, connect the binocular camera to the 3D printed part, and then connect it to the sheet metal bracket at the rear of the chassis
 
-![](../../../../../static/img/06_Application_case/amr/mipi_cam.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/mipi_cam.jpg)
 
 #### 2.2.6 Power supply instructions
 A 12V power supply is provided on the chassis. 12V is provided to the radar, TOF camera, and transformer, and the transformer outputs 5V to the RDK X5
 
-![](../../../../../static/img/06_Application_case/amr/power.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/power.jpg)
 
 #### 2.2.7 Installation of other components
 
-![](../../../../../static/img/06_Application_case/amr/other.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/other.jpg)
 
 ## 3. Preparation of operating environment
 :::info attention
@@ -221,7 +221,7 @@ export DISPLAY=:0
 ##### 2. Prepare calibration board and configure parameters
 Both checkerboard and aprilgrid are acceptable (see attachment for aprilgrid file). The size of the checkerboard should be at least 10cm in length, and to avoid errors in extracting or connecting the corners of the checkerboard during calibration, the rows and columns of the checkerboard should be different. The Aprilgrid calibration board is relatively convenient for data acquisition and easy to operate, but it requires high image quality. Therefore, at this stage, it is still recommended to use a checkerboard. The outer dimensions of the calibration board are greater than 1m.
 
-![](../../../../../static/img/06_Application_case/amr/cal_board.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/cal_board.jpg)
 
 ```shell
 #Set aprilgrid.yaml file
@@ -315,7 +315,7 @@ rosrun kalibr kalibr_calibrate_cameras --bag cam.bag --topic /image --model pinh
 
 #####     4. After calibration is completed, the content is as follows (distortion_comffs: distortion coefficients intrinsic: internal parameters)
 
-![](../../../../../static/img/06_Application_case/amr/mipi_int.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/mipi_int.jpg)
 
 
 #### 3.5.4 IMU parameter calibration (used for external parameter calibration of IMU and RGB CAM)
@@ -355,7 +355,7 @@ vim /root/catkin_ws/src/imu_utils/launch/oal.launch
 roslaunch imu_utils oal.lauch
 ```
 
-![](../../../../../static/img/06_Application_case/amr/imu_output.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_output.jpg)
 
 ######      v.Play IMU's bag data
 ```shell
@@ -363,7 +363,7 @@ rosbag play imu.bag
 ```
 
 ######    vi. Modify the parameter configuration file of IMU
-![](../../../../../static/img/06_Application_case/amr/cal_product.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/cal_product.jpg)
 
 ```shell
 # Copy a new copy of the BMI088_imu_ param. yaml file generated in the previous text as a backup for future use. Execute the following command:
@@ -373,7 +373,7 @@ vim imu.yaml
 ```
 
 After opening the configuration file, as shown in the following figure:
-![](../../../../../static/img/06_Application_case/amr/imu_config.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_config.jpg)
 
 Rewrite the content of the original BMI088_imu_maram.ml file and modify it to the following format:
 ```yaml
@@ -427,7 +427,7 @@ rosbag record /image_combine_raw /imu_data
 rosrun kalibr kalibr_calibrate_imu_camera --bag cam_imu.bag --target april.yaml --cam cam.yaml --imu imu.yaml
 ```
 
-![](../../../../../static/img/06_Application_case/amr/imu_cam_cal.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_cam_cal.jpg)
 
 After calibration, check the calibration results (when dJ converges and drops below 0.1, it indicates accurate calibration)
 ```shell
@@ -435,7 +435,7 @@ After calibration, check the calibration results (when dJ converges and drops be
 vim storage-results-imucam.txt
 ```
 The external reference results are as follows：
-![](../../../../../static/img/06_Application_case/amr/imu_cam_trans.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_cam_trans.jpg)
 
 #### 3.5.6 Other
 #####    1.  The rgb-cam-tof_cam transformation is provided by the module, and the tof_cam-bask-lonk transformation is provided by the equipment assembly drawing.
@@ -544,13 +544,13 @@ ros2 run ct_lio ct_lio_eskf
 ```
 
 After startup, it is necessary to let the IMU initialize successfully for 3-4 seconds. Then, the mobile robot can be used for mapping. After the mapping is completed, the program should be closed. After completion, as shown in the following figure:
-![](../../../../../static/img/06_Application_case/amr/buld_map_output.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/buld_map_output.jpg)
 
 The path specified in the mapping. yaml file will generate the following products
-![](../../../../../static/img/06_Application_case/amr/build_map_product.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/build_map_product.jpg)
 
 Use the pcl_viewer tool to view point cloud maps:
-![](../../../../../static/img/06_Application_case/amr/pcl_viewer.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/pcl_viewer.jpg)
 
 Architectural effect video: https://www.youtube.com/watch?v=TKRYnEfsEoQ&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=20
 
@@ -561,10 +561,10 @@ source ~/amr_ws/install/setup.bash
 ros2 run ct_lio ct_lio_eskf
 ```
 After startup, if the display frame number remains at 1, it means that the relocation has not been successful yet
-![](../../../../../static/img/06_Application_case/amr/reloc_fail.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/reloc_fail.jpg)
 When the frame number is greater than 1, it indicates successful relocation, and rviz2 can be opened to view the path
-![](../../../../../static/img/06_Application_case/amr/reloc_success.png)
-![](../../../../../static/img/06_Application_case/amr/path.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/reloc_success.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/path.png)
 
 ### 4.3 Convert 3D point cloud map to 2D grid map
 This feature pack is an open-source feature pack for ros1. Please use it in an environment where ros1 is already installed. The usage method is as follows:
@@ -594,7 +594,7 @@ source /opt/ros/noetic/setup.bash
 rosrun map_server map_saver
 ```
 After execution, map.pgm and map.yaml files will be generated in the current path. These two files can be used for Nav2, but when using them, the files in the maps folder of hobot_nav2 need to be replaced. The general path is/opt/dros/humble/share/hobot_nav2/maps. The point cloud map and raster map effects are as follows:
-![](../../../../../static/img/06_Application_case/amr/map.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)
 
 ### 4.4 Fixed-point navigation
 ####   1. Activate TOF camera, LiDAR, chassis, IMU
@@ -708,7 +708,7 @@ ros2 launch <path_of_launch_file>
 ```
 
 ####  3. Open a browser on a PC within the same local area network and enter "board ip: 8000" in the website to view the recognition effect
-![](../../../../../static/img/06_Application_case/amr/yolov8seg_web.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/yolov8seg_web.jpg)
 
 ## 5.  Code Introduction
 ### 5.1 tofSLAM
@@ -716,7 +716,7 @@ ros2 launch <path_of_launch_file>
 https://github.com/wunuo1/TofSLAM_ros2
 
 #### 5.1.2 Engineering framework logic:
-![](../../../../../static/img/06_Application_case/amr/tofslam_framework_en.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/tofslam_framework_en.jpg)
 
 #### 5.1.3 detailed description:
 #####  1. ESKF（Error State Kalman Filter）
@@ -725,19 +725,19 @@ The error state Kalman filter is an algorithm for sensor fusion. It is based on 
 *state quantity*：p、R、v、bg、ba、g
 
 *prediction model*：IMU
-![](../../../../../static/img/06_Application_case/amr/imu_model.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/imu_model.png)
 
 *Observation (update) model 1 *: Chassis wheel speed&chassis IMU pose calculated through EKF - loose coupling (R, p update)
 
 *Observation (update) model 2 *: pose obtained from point cloud ICP calculation - loose coupling (R, p update)
-![](../../../../../static/img/06_Application_case/amr/model2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/model2.png)
 #####   2. IMU static initialization
 IMU initialization remains static, estimating the direction of gravity, gyroscope bias, and accelerometer bias based on the accelerometer. Set the initial pose as the origin and the initial velocity as 0
 
 #####  3. Map format: Ha style voxel map
 Use a Ha series table to store voxel maps, with several points stored in each voxel (0.1 × 0.1 × 0.1) and a certain distance (0.05) maintained between each point.
 
-![](../../../../../static/img/06_Application_case/amr/voxel.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/voxel.png)
 
 #####  4.  Point Cloud ICP
 ###### 1.  Key point extraction: Use gridsample method to downsample the point cloud of each frame and extract key points.
@@ -746,20 +746,20 @@ For each key point:
     1. Find nearest neighbors: Using voxelmap, search for the N nearest points qi in adjacent voxels as neighbor points.
     2. Calculate the normal n, covariance matrix, and smoothness weight a of neighboring points
     3. Calculate the distance between key points and the plane where neighboring points are located, and add ICP optimization for point pairs with distances less than the threshold.
-![](../../../../../static/img/06_Application_case/amr/point_icp.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/point_icp.jpg)
 
 #####  5. CT_SCP algorithm（CT-ICP: Real-time Elastic LiDAR Odometry with Loop Closure）
 ######    1. Front end pose estimation
 The overall framework of the front-end part of the CTICP algorithm uses two poses to describe each frame:
-![](../../../../../static/img/06_Application_case/amr/ct_icp_pose.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/ct_icp_pose.jpg)
 There is no need to separately remove motion distortion for each frame of point cloud in advance, but rather to directly remove distortion during the optimization process. This algorithm is more robust for high-speed motion.
 
 Optimization equation:
-![](../../../../../static/img/06_Application_case/amr/equation.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/equation.jpg)
 
 ######    2. Backend Loop Optimization
 Scan Nmap frames each time to form a point cloud, and insert each point into a 2D elevation grid. Then generate a 2D elevation map from the 2D elevation grid, with each pixel corresponding to the point with the largest Z-axis. Extract features from 2D elevation maps, and store the extracted features in memory along with the 2D elevation grid along with keyframes. When the elevation map features are extracted each time and matched with the features in memory; For successfully matched elevation maps, first estimate the 2D transformation matrix using RANSAC, and verify the matching reliability based on the number of inliers; Using the 2D transformation matrix as the initial value, perform ICP on the point cloud in the 2D elevation grid, and finally add an edge to the successfully matched keyframes. Use g2o to optimize the pose map. (This method is only applicable to planar motion)
-![](../../../../../static/img/06_Application_case/amr/loop_optimization.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/loop_optimization.jpg)
 
 ### 5.2 Binocular depth
 #### 5.2.1 Repositories:
@@ -767,14 +767,14 @@ https://github.com/D-Robotics/hobot_stereonet.git
 
 #### 5.2.2 Engineering Logic Framework:
 
-![](../../../../../static/img/06_Application_case/amr/stereonet_framework_en.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/stereonet_framework_en.jpg)
 
 #### 5.2.3 detailed description:
 #####  1. Detailed principle of binocular depth perception:
-![](../../../../../static/img/06_Application_case/amr/perception_principle.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/perception_principle.jpg)
 
 #####  2. Steps of binocular stereo matching algorithm:
-![](../../../../../static/img/06_Application_case/amr/stereonet_step.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/stereonet_step.jpg)
 
 #####  3. Model Introduction
 
@@ -783,14 +783,14 @@ https://github.com/D-Robotics/hobot_stereonet.git
     3. Cost Aggregation: UNet. Aggregate cost volume through UNet to achieve more refined integration of cost volume;
     4. Refinement: GRU. The use of GRU module brings performance improvement in edge details.
     5. Spatial Upsampling: Using Conv instead of Unfold operation for tensor segmentation, generating a full resolution disparity map through weighted combination
-![](../../../../../static/img/06_Application_case/amr/stereonet_model.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/stereonet_model.jpg)
 
 ### 5.3 Object detection and segmentation
 #### 5.3.1 Repositories:
 https://github.com/D-Robotics/hobot_dnn/tree/
 
 #### 5.3.2 Code Engineering Logic Framework:
-![](../../../../../static/img/06_Application_case/amr/detection_framework_en.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/detection_framework_en.jpg)
 
 #### 5.3.3 detailed description:
 1. Use the official version YOLOV8 SEG model, source code repository link https://github.com/ultralytics/ultralytics
@@ -802,7 +802,7 @@ https://github.com/D-Robotics/hobot_dnn/tree/
 https://github.com/wunuo1/pose_setter.git
 
 #### 5.4.2 Engineering Logic Framework:
-![](../../../../../static/img/06_Application_case/amr/pose_setter_en.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/pose_setter_en.jpg)
 
 #### 5.4.3 detailed description:
   1. The program performs AprilTag detection at startup. After successful detection, it will cache ten frames of transformations and take the average value. Obtain the transformation from RGB to AprilTag, read the transformation from map to AprilTag recorded during mapping, and calculate the transformation from RGB to map. In the early calibration process, the transformation from RGB to robot can already be calculated, so the transformation from robot to map can be obtained to publish the initial position of the robot in the map coordinate system.

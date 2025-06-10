@@ -73,7 +73,7 @@ sh ./scripts/xj3-stress.sh
 
 8. Check the running status with top
 
-![image-20220324192755274](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/command-top.png)
+![image-20220324192755274](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/command-top.png)
 
 9. The cpu test log is stored in /userdata/cpu-stress.log, check the current running status
 
@@ -82,7 +82,7 @@ sh ./scripts/xj3-stress.sh
 tail /userdata/cpu-stress.log
 ```
 
-![image-20220324192849234](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324192849234.png)
+![image-20220324192849234](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220324192849234.png)
 
 Note: The program runs continuously for 48 hours by default (as shown in the figure below, the value after the -s parameter is 172800, in seconds)
 
@@ -95,10 +95,10 @@ tail /userdata/bpu-stress.log
 
 11. Check the cpu test result, if the last Status in /userdata/cpu-stress.log shows PASS and there is no "error" or "miscompare" keyword in the log, it indicates a PASS result.
 
-![image-20220324193228651](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324193228651.png)
+![image-20220324193228651](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220324193228651.png)
 
 12. If the last Status in /userdata/cpu-stress.log shows FAIL or if there is an "error" or "miscompare" keyword in the log, it indicates a FAIL result.13. Check the bpu test result. If keywords such as "error" or "system hung" are present in the bpu_stress.log, it means the test has failed.
 
-![image-20220324193250187](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220324193250187.png)
+![image-20220324193250187](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220324193250187.png)
 
 13、check `bpu test result`, if  `error`, `system hung` ,etc, appeared in `bpu_stress.log`, it means the test has failed.

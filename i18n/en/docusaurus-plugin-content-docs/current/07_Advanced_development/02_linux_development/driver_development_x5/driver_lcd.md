@@ -359,7 +359,7 @@ Then use the modetest command to perform the test:`modetest -M vs-drm -a -s 73@3
 
 If everything is successful, the connected screen will light up and display the following pattern:
 
-![image-20220518111319607](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241125-162524.png)
+![image-20220518111319607](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241125-162524.png)
 
 ## 5. Remarks
 

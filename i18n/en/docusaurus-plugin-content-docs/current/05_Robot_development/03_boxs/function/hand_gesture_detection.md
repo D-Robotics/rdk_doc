@@ -205,4 +205,4 @@ The output log shows that the subscribed algorithm message includes hand informa
 
 On the PC side, enter http://IP:8000 in the browser to view the image and the rendering effect of the algorithm (where IP is the IP address of the RDK).
 
-![Gesture Rendering](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)
+![Gesture Rendering](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)

@@ -15,12 +15,12 @@ Note that the `srpi-config` program needs to run in a **full-screen command-line
 sudo srpi-config
 ```
 
-![image-20220511173307239](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220511173307239.png)
+![image-20220511173307239](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220511173307239.png)
 
 
 After selecting `3 Interface Options` -> `I3 Peripheral bus config`, you will enter the following bus configuration interface:
 
-![I3 Peripheral Bus Config](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
+![I3 Peripheral Bus Config](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
 
 - **`okay`:** Configures the corresponding pin for its dedicated function.  
 - **`disabled`:** Disables the pin's dedicated function, allowing it to be used as a GPIO.  
@@ -35,21 +35,21 @@ After selecting `3 Interface Options` -> `I3 Peripheral bus config`, you will en
 ## 40-Pin Definition{#40pin_define}
 
 The development board provides a 40-pin standard interface for convenient peripheral expansion. The digital I/Os use a 3.3V voltage level. The pin definitions for the 40-pin interface are as follows:
-![image-20220828203147852](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203147852.png)
+![image-20220828203147852](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203147852.png)
 
 The development board has silk screen markings on the 40-pin interface to facilitate operation. The locations of PIN1 and PIN40 are as follows:
 
-![image-20220828203207798](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203207798.jpg)
+![image-20220828203207798](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203207798.jpg)
 
 :::info
 The RDK X3 Module provides the 40-pin GPIOs and their definitions as follows:
 :::
-![image-20230510155124570](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230510155124570.png)
+![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-20230510155124570.png)
 
 :::info
 The RDK Ultra provides the 40-pin GPIOs and their definitions as follows:
 :::
-![image-20230510155124570](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230830194924570.png)
+![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230830194924570.png)
 
 ## GPIO Read/Write Operation Example
 

@@ -129,10 +129,10 @@ The log output shows that the topic used for publishing the algorithm inference 
 
 
 Original image:
-![raw](/../static/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
+![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
 
 Rendered image:
-![render_web](/../static/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg)
+![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg)
 
 ### Use Local Images Offline
 
@@ -169,4 +169,4 @@ The output shows the following information:
 
 The log shows that the algorithm performs inference using the input image `config/raw_unet.jpeg`, and the rendered image is stored with the file `render_unet_feedback_0_0.jpeg`. The rendered image looks like this:
 
-![render_feedback](/../static/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg)
+![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg)

@@ -50,7 +50,7 @@ The **RDK Ultra** comes with a pre-installed test system image. To ensure the us
 
 Click [**Download Image**](https://archive.d-robotics.cc/downloads/os_images), select the `rdk_ultra` directory, and choose the appropriate version to go to the file download page. For example, to download version 1.0.0 of the system image:
 
-![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/20231010120539.png)
+![image-20230510143353330](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/20231010120539.png)
 
 After downloading, extract the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64-rdkultra.img`.
 
@@ -82,37 +82,37 @@ When flashing the Ubuntu system on the RDK Ultra development kit, use the D-Robo
 
 2. Short-circuit the `FC_REC` and `GND` signals on the function control interface (Interface 10).
 
-   ![image-ultra-fc-rec](../../../../../../static/img/01_Quick_start/image/install_os/image-ultra-fc-rec.jpg)
+   ![image-ultra-fc-rec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-ultra-fc-rec.jpg)
 
 3. Run the `hbupdate` tool, select the development board model as `RDK_ULTRA` (required).
 
-   ![image-flash-system1](../../../../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system1.jpg)
+   ![image-flash-system1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system1.jpg)
 
 4. Click the `Browse` button to select the system image file to be flashed (required).
 
-   ![image-flash-system2](../../../../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system2.jpg)
+   ![image-flash-system2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system2.jpg)
 
 5. Click the `Start` button to begin flashing. After confirming the prompts, click the `OK` button:
 
-   ![image-flash-system3](../../../../../../static/img/01_Quick_start/image/install_os/image-system-download3.jpg)
+   ![image-flash-system3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-system-download3.jpg)
 
 6. When the tool displays the following log, it indicates that the flashing process has started. The process duration depends on the network transmission speed. Please wait patiently.
 
-   ![image-flash-system4](../../../../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system4.jpg)
+   ![image-flash-system4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system4.jpg)
 
 7. Wait for the tool to complete the flashing process and check the results:
 
 - If successful, the tool will display the following message:
 
-   ![image-flash-system6](../../../../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system6.png)
+   ![image-flash-system6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system6.png)
 
 - If an error occurs, check if steps 1–3 were performed correctly:
 
-   ![image-flash-system7](../../../../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system7.png)
+   ![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system7.png)
 
 - If an error occurs indicating slow network speed, use a higher-performance PC to retry the process:
 
-   ![image-flash-system8](../../../../../../static/img/01_Quick_start/image/install_os/image-rdk-ultra-system8.jpg)
+   ![image-flash-system8](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system8.jpg)
 
 :::caution
 
@@ -129,7 +129,7 @@ During the first boot, the system will perform default environment configuration
 
 Once the Ubuntu Desktop system boots, the system desktop will be displayed via the HDMI interface, as shown below:
 
-![image-desktop_display.jpg](../../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
+![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 ---
 

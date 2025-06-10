@@ -22,7 +22,7 @@ Execute the program with the following command.
 
 ## Expected Result
 After running the program, the monitor will display the camera image and the results of the object detection algorithm (object type, confidence), as shown below:  
-  ![image-20220612110739490](../../../../../../static/img/03_Basic_Application/01_Image/image/usb_camera/image-20220612110739490.png)
+  ![image-20220612110739490](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_Image/image/usb_camera/image-20220612110739490.png)
 
 :::tip
 

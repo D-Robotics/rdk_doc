@@ -107,4 +107,4 @@ The output log shows that the topic for publishing the algorithm inference resul
 To view the images and algorithm rendering results, open a web browser on the PC and enter the following URL (replace `IP` with the IP address of the RDK):http://IP:8000
 
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg)

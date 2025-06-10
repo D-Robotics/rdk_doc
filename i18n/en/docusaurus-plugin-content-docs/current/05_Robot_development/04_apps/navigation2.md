@@ -115,7 +115,7 @@ This section describes how to set up a simulation environment on the PC, how to 
 
    The simulation environment is shown in the following image:
 
-   ![](/../static/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
 
 2. Start the navigation function on the **RDK**.
 
@@ -165,23 +165,23 @@ This section describes how to set up a simulation environment on the PC, how to 
 
    The Rviz2 interface is shown in the following image:
 
-   ![](/../static/img/05_Robot_development/04_apps/image/nav2/rviz.png)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz.png)
 
 4. Set the initial position and orientation of the robot in Rviz2.
 
    After Rviz2 is launched, the robot does not know where it is initially. By default, Nav2 waits for the user to provide an approximate initial position for the robot. Refer to the robot's position in Gazebo and find that position on the map. Set the initial position of the robot by clicking the "2D Pose Estimate" button in Rviz2 and then clicking on the estimated position of the robot on the map. The initial movement direction of the robot can be set by dragging the clicked position forward. The process is shown in the following image:
 
-   ![](/../static/img/05_Robot_development/04_apps/image/nav2/rviz_init.png)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_init.png)
 
    Once the initial position of the robot is set, the coordinate transformation tree will be established and Nav2 will be fully activated and ready. The robot and point cloud can be seen at this time.
 
-   ![](/../static/img/05_Robot_development/04_apps/image/nav2/rviz_start.png)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_start.png)
 
 5. Set the destination in Rviz2.
 
    Click the "Navigation2 Goal" button and select a destination.Here is the translation of the Chinese parts in the content, while preserving the original format and content:
 
-   ![](/../static/img/05_Robot_development/04_apps/image/nav2/rviz_goal.png)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_goal.png)
 
    Now you can see the robot is moving.
 
@@ -189,4 +189,4 @@ This section describes how to set up a simulation environment on the PC, how to 
 
 The navigation effect is shown in the figure below:
 
-![](/../static/img/05_Robot_development/04_apps/image/nav2/rviz_nav2.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_nav2.gif)

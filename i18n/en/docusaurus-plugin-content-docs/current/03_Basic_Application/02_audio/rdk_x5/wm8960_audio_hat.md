@@ -7,7 +7,7 @@ sidebar_position: 4
 ## Product Overview
 The WM8960 Audio HAT is an audio adapter board produced by Waveshare Electronics, featuring the WM8960 Codec. It supports dual-channel microphone recording and audio playback. The board is shown below:
 
-![image-audio-wm8960](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
+![image-audio-wm8960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-wm8960.jpg)
 
 For more details, refer to the [WM8960 Audio HAT Wiki](https://www.waveshare.net/wiki/WM8960_Audio_HAT).
 
@@ -16,14 +16,14 @@ For more details, refer to the [WM8960 Audio HAT Wiki](https://www.waveshare.net
 - ### Hardware Setup
 
 Connect the audio HAT to the 40-pin header of the RDK X5 as shown below:  
-![image-wm8960-audio-hat-rkd-x5-setup-2](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-rkd-x5-setup-2.png)
+![image-wm8960-audio-hat-rkd-x5-setup-2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-rkd-x5-setup-2.png)
 
 - ### Software Configuration
 
 1. Use `srpi-config` to configure the audio board.  
 Go to `3 Interface Options` -> `I5 Audio`  
 Select `WM8960 Audio Driver HAT`:
-![image-audio-codec-select-wm8960-hat-rdkx5](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-wm8960-hat-rdkx5.png)  
+![image-audio-codec-select-wm8960-hat-rdkx5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-codec-select-wm8960-hat-rdkx5.png)  
 
 2. Follow the prompt to reboot, or run `sync && reboot` to restart the board. If `cat /proc/asound/cards` shows a `duplexaudioi2s1` sound card, the installation was successful.
 

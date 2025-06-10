@@ -7,7 +7,7 @@ This chapter introduces the interface functions and usage of the official carrie
 
 The interface layout of the RDK X3 Module carrier board is as follows:
 
-![image-carrier-board1](./image/rdk_x3_module/image-carrier-board1.jpg) 
+![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board1.jpg) 
 
 | No.  | Interface Function             | No.  | Interface Function         | No.  | Interface Function        |
 | ---- | ----------------------------- | ---- | -------------------------- | ---- | ------------------------- |
@@ -22,7 +22,7 @@ The interface layout of the RDK X3 Module carrier board is as follows:
 
 The RDK X3 Module carrier board provides a 200-pin board-to-board connector for the installation of the core module. When installing, it is necessary to confirm the correct direction and alignment to avoid damage to the connectors of the core module and the carrier board.
 
-![image-x3-md-setup](./image/rdk_x3_module/image-x3-md-setup.jpg) 
+![image-x3-md-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-setup.jpg) 
 
 The module installation method is as follows:
 
@@ -126,7 +126,7 @@ The RDK X3 Module board provides a group of control IO interfaces (interface 13)
 
 In addition, for easy reference by users, the above pin definitions are also shown on the board's silk screen.
 
-![image-carrier-board-control-pin1](./image/rdk_x3_module/image-carrier-board-control-pin1.png)
+![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-control-pin1.png)
 
 ## IO level switching interface
 
@@ -134,7 +134,7 @@ The RDK X3 Module board provides IO level switching function to control the 40-p
 
 The interface signals from top to bottom are 3.3V, VREF, 1.8V, as shown in the following figure:
 
-![image-x3-md-vref](./image/rdk_x3_module/image-x3-md-vref.png)
+![image-x3-md-vref](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-vref.png)
 
 It should be noted that **this interface cannot be left floating, otherwise the core module will not be able to power on due to abnormal power supply**.
 
@@ -148,7 +148,7 @@ By default, the firmware of the RDK X3 Module core module and the level configur
 
 The RDK X3 Module carrier board provides a set of 40pin header interfaces (interface 9). The interface signal level is specified by the IO level switching header (interface 14), which supports two modes: 1.8V and 3.3V. The pin definitions are compatible with products such as Raspberry Pi. The detailed pin definitions and multiplexing relationships are as follows:
 
-![image-40pin-header](./image/rdk_x3_module/image-40pin-header.png)
+![image-40pin-header](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-40pin-header.png)
 
 :::caution Note
 By default, the RDK X3 Module core module firmware and carrier board level configuration are set to 3.3V. If you need to switch the IO level, please refer to the [IO level switching header interface](#io-level-switching-interface).

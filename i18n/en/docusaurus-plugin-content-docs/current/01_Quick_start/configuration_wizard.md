@@ -23,9 +23,9 @@ import TabItem from '@theme/TabItem';
 
 Use the Wi-Fi management tool in the top-right corner of the menu bar to connect to Wi-Fi. As shown in the following figure, click on the Wi-Fi name you need to connect to, and then enter the Wi-Fi password in the pop-up dialog box.
 
-![image-20231127111045649](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160653.jpg)
+![image-20231127111045649](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160653.jpg)
 
-![image-20231127111253803](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160732.jpg)
+![image-20231127111253803](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160732.jpg)
 
 </TabItem>
 
@@ -35,7 +35,7 @@ Use the srpi-config tool to connect to Wi-Fi.
 
 Execute the command `sudo srpi-config`, select System Options -> Wireless LAN, and enter the Wi-Fi name (`SSID`) and password (`passwd`) as prompted.
 
-![image-20231127112139204](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112139204.png)
+![image-20231127112139204](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127112139204.png)
 
 </TabItem>
 </Tabs>
@@ -48,11 +48,11 @@ The SSH login service is enabled by default in the current system version. Users
 <TabItem value="desktop" label="Desktop">
 Find the `RDK Configuration` option through the menu bar and click to open it.
 
-![image-20231127112029088](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
+![image-20231127112029088](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
 Select Interface Options -> SSH, and follow the prompts to enable or disable the `SSH` service.
 
-![image-20231127115151834](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160740.jpg)
+![image-20231127115151834](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160740.jpg)
 
 </TabItem>
 
@@ -60,7 +60,7 @@ Select Interface Options -> SSH, and follow the prompts to enable or disable the
 
 Execute the `sudo srpi-config` command to enter the configuration menu. Select Interface Options -> SSH, and follow the prompts to enable or disable the `SSH` service.
 
-![image-20231127115009424](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
+![image-20231127115009424](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
 </TabItem>
 
@@ -77,11 +77,11 @@ The VNC service is only available on the Desktop software.
 
 Find the `RDK Configuration` option through the menu bar and click to open it.
 
-![image-20231127112029088](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160737.jpg)
+![image-20231127112029088](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
 Select Interface Options -> VNC, and follow the prompts to enable or disable the `VNC` service. When enabling `VNC`, you need to set a login password, which must be an 8-character string composed of numbers and characters.
 
-![image-20231127112202713](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160744.jpg)
+![image-20231127112202713](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160744.jpg)
 
 </TabItem>
 </Tabs>
@@ -102,7 +102,7 @@ The desktop graphical system supports four login modes:
 
 Open `RDK Configuration` through the menu bar. Select System Options -> Boot / Auto Login to enter the following configuration options. Select the corresponding options according to your needs.
 
-![image-20231127112703844](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127112703844.png)
+![image-20231127112703844](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127112703844.png)
 
 It will take effect after restarting.
 
@@ -131,7 +131,7 @@ Open `RDK Configuration` through the menu bar. Select Localisation Options -> Lo
 
 Step 1: Select the language environment(s) you need (multiple choice). Generally, you should choose `en_US.UTF-8 UTF-8` and `zh_CN.UTF-8 UTF-8`. Press Enter to confirm and proceed to the next step.
 
-![image-20231127113356503](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
+![image-20231127113356503](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
 
 Step 2: Select the default language environment. Choose `zh_CN.UTF-8 UTF-8` for Chinese environment. Press Enter and wait for a while to complete the configuration.
 
@@ -152,7 +152,7 @@ To enter the configuration menu, execute the command `sudo srpi-config`. Select 
 
 Step 1: Select the desired language environment(s) (multiple selection). Usually, selecting both `en_US.UTF-8 UTF-8` and `zh_CN.UTF-8 UTF-8` is sufficient. Press Enter to confirm and proceed to the next step.
 
-![image-20231127113356503](../../../../../static/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
+![image-20231127113356503](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127113356503.png)
 
 Step 2: Select the default language environment. For the Chinese language environment, select `zh_CN.UTF-8 UTF-8`. Press Enter to confirm and wait for the configuration to complete.
 
@@ -168,15 +168,15 @@ Step 3: Restart the machine to apply the latest configuration. Execute `sudo reb
 
 First step: Locate the EN input method icon on the desktop, right-click and select Preferences.
 
-![QQ_1IGglEVRSO.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160754.jpg)
+![QQ_1IGglEVRSO.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160754.jpg)
 
 Step two: Click on 'Input Sources' -> 'Add on the right' -> Select 'Chinese'.
 
-![QQ_MxWDZrZ7Wk.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160757.jpg)
+![QQ_MxWDZrZ7Wk.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160757.jpg)
 
 Step three: Select "Intelligent Pinyin" and then you can right-click on the EN in the top right corner to choose "Intelligent Pinyin".
 
-![QQ_rICn3iU1Vc.png](../../../../../static/img/01_Quick_start/image/configuration_wizard/20250507-160805.jpg)
+![QQ_rICn3iU1Vc.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/20250507-160805.jpg)
 
 </TabItem>
 </Tabs>

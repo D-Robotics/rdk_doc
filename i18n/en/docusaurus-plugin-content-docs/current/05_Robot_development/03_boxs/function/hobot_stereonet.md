@@ -45,7 +45,7 @@ This example uses a stereo camera as the image data input source, leverages the 
 cat /etc/version
 ```
 
-![os_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/os_version.png)
+![os_version](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_version.png)
 
 - If the system version does not meet the requirement, refer to section `1.2` for instructions on flashing the image.
 
@@ -55,7 +55,7 @@ cat /etc/version
 apt list | grep tros-humble-hobot-stereonet/
 ```
 
-![hobot_stereonet_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_stereonet_version.png)
+![hobot_stereonet_version](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_stereonet_version.png)
 
 - If using the official MIPI stereo camera for RDK X5, ensure that the `tros-humble-mipi-cam` package is at version 2.3.8. Use the following command to check the package version:
 
@@ -63,7 +63,7 @@ apt list | grep tros-humble-hobot-stereonet/
 apt list | grep tros-humble-mipi-cam/
 ```
 
-![mipi_cam_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/mipi_cam_version.png)
+![mipi_cam_version](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/mipi_cam_version.png)
 
 - If using the ZED stereo camera, ensure that the `tros-humble-hobot-zed-cam` package is at version 2.3.3. Use the following command to check the package version:
 
@@ -71,7 +71,7 @@ apt list | grep tros-humble-mipi-cam/
 apt list | grep tros-humble-hobot-zed-cam/
 ```
 
-![zed_cam_version](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam_version.png)
+![zed_cam_version](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam_version.png)
 
 - If the package versions do not meet the requirements, update them by running the following commands in the RDK terminal:
 
@@ -94,7 +94,7 @@ The following versions of the stereo algorithm are currently available:
 
 <span style={{ color: 'red' }}> Note: Please execute the commands in this document using the `root` user. Other users may encounter permission issues leading to unnecessary errors. </span>
 
-![os_user](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
+![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
 
 The stereo depth algorithm supports multiple cameras, including both MIPI and USB cameras. The startup commands differ slightly depending on the camera used. The specific startup commands are as follows:
 
@@ -102,11 +102,11 @@ The stereo depth algorithm supports multiple cameras, including both MIPI and US
 
 - The official MIPI stereo camera for RDK X5 is shown below:
 
-![RDK_Stereo_Cam_230ai](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png)
+![RDK_Stereo_Cam_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png)
 
 - The installation method is shown below. Ensure the wiring is correct to avoid swapping the left and right images, which would cause the stereo algorithm to run incorrectly:
 
-![RDK_X5_230ai](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
+![RDK_X5_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
 
 - Verify that the camera is connected properly. Connect to the RDK X5 via SSH and execute the following commands. If the output matches the image below, the camera is connected correctly:
 
@@ -115,7 +115,7 @@ i2cdetect -r -y 4
 i2cdetect -r -y 6
 ```
 
-![i2cdetect_230ai](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
+![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
 
 - Start the corresponding version of the stereo algorithm using different launch files. Connect to the RDK X5 via SSH and execute the following commands:
 
@@ -176,15 +176,15 @@ Parameter explanations:
 
 - The following log indicates that the stereo algorithm has started successfully. `fx/fy/cx/cy/base_line` are the camera intrinsic parameters. If the depth map is normal but the estimated distance is inaccurate, there may be an issue with the camera intrinsic parameters:
 
-![stereonet_run_success_log](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
+![stereonet_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
 
 - View the depth map on the web interface by entering http://ip:8000 in the browser (the RDK X5 IP in the image is 192.168.1.100):
 
-![web_depth_visual](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
+![web_depth_visual](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
 
 - View the point cloud in rviz2. This requires some basic ROS2 knowledge. Configure the PC and RDK X5 to be in the same network segment and ensure they can ping each other. Subscribe to the relevant topics published by the stereo model node to display the point cloud in rviz2. Note the following configurations in rviz2:
 
-![stereonet_rviz](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
+![stereonet_rviz](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
 
 - If you want to save the depth estimation results, you can add the following parameters to enable saving, control the saving frequency, specify the saving directory (which will be created automatically if it does not exist), and control the total number of saves. The program will save **camera intrinsic parameters, left and right images, disparity map, depth map, and visualization image**:
 
@@ -208,15 +208,15 @@ Parameter explanations:
 | save_dir         | Directory to save images | The directory to save the images. Can be set as needed.             |
 | save_total       | 10             | Save a total of 10 images. Set to -1 for continuous saving. |
 
-![stereonet_save_log](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
+![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
 
-![stereonet_save_files](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
+![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
 #### (2) Offline Replay with Local Images
 
 - If you want to evaluate the algorithm using local images, you can use the following command to specify the algorithm's running mode, image data path, and camera intrinsic parameters. Ensure that the image data has been undistorted and epipolar-aligned. The image format is shown below. The first left-eye image is named left000000.png, the second left-eye image is named left000001.png, and so on. The corresponding first right-eye image is named right000000.png, the second right-eye image is named right000001.png, and so on. The algorithm processes the images in sequence until all images are processed:
 
-![stereonet_rdk](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
+![stereonet_rdk](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
 
 - To run the algorithm offline, connect to the RDK X5 via SSH and execute the following command:
 
@@ -273,7 +273,7 @@ save_image_all:=True save_dir:=./offline_result
 
 <span style={{ color: 'red' }}> Note: The replay images must be epipolar-aligned, and the correct camera parameters must be set. Otherwise, the saved results may be incorrect. </span>
 
-![stereonet_offline_log](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png)
+![stereonet_offline_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png)
 
 Parameter explanations:
 
@@ -301,7 +301,7 @@ Parameter explanations:
 
 - The ZED stereo camera is shown below:
 
-![zed_cam](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
+![zed_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
 
 - Connect the ZED camera to the RDK X5 via USB, then start the stereo algorithm. Connect to the RDK X5 via SSH and execute the following command:
 
@@ -370,7 +370,7 @@ height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
 </TabItem>
 </Tabs>
 
-![stereonet_zed_run_success_log](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png)
+![stereonet_zed_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png)
 
 When connected to the internet, the program will automatically download the calibration files. If the RDK X5 is not connected to the internet, you can manually download the calibration files and upload them to the `/root/zed/settings/` directory on the RDK X5.
 

@@ -37,7 +37,7 @@ This document details how to use the RDK Suite, including setting up the develop
 
 **RDK Ultra** is a high-performance development kit with 96Tops edge inference performance and an 8-core ARM A55 processor. It supports 4 MIPI Camera inputs, 4 USB3.0 ports, and 3 PCIe3.0 interfaces, meeting the needs of various scenarios.
 
-![image-rdk-serials](../../../../static/img/image-rdk-serials.jpg)
+![image-rdk-serials](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/image-rdk-serials.jpg)
 
 ### Operating Temperature and Cooling Recommendations
 

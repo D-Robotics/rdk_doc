@@ -127,7 +127,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 
 2. Open a PC browser (Chrome/Firefox/Edge) and enter  `http://IP:8000` to view the image and algorithm effects. IP refers to the RDK IP address.
 
-   ![websocket](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png "Preview Image")
+   ![websocket](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png)
 
 ### Notes
 
@@ -211,7 +211,7 @@ The following information is displayed in the running terminal:
 ```
 
 The monitor displays the image as follows:
-![hdmi](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/hdmi.png)
+![hdmi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/hdmi.png)
 
 ## RViz2
 
@@ -374,11 +374,11 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
    On the RViz2 interface, first click the "add" button, then select the published image based on the topic, which in this example is named /image_raw. Then click "image":
 
-   ![rviz2-config](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-config.png)
+   ![rviz2-config](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-config.png)
 
    The image result is as follows:
 
-   ![rviz2-result](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png)   
+   ![rviz2-result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png)   
 ### Attention
 
 1. If the PC terminal's `ros2 topic list` does not recognize the camera topic, please check the following:
@@ -548,7 +548,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
    Select the topic `/image_raw/compressed`, and the image is as follows:
 
-   ![](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png)
 
 ### Notes
 
@@ -686,28 +686,28 @@ ros2 bag record -a
 
 3) In a PC browser (chrome/firefox/edge), enter  (https://foxglove.dev/studio) to access the Foxglove website.
 
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png "Foxglove guide 1")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png)
 
    PS: Registration is required for first-time use. You can register using a Google account or a third-party email.
 
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_11.png "Foxglove guide 11")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_11.png)
 
 4) Enter the visualization function interface.
 
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_2.png "Foxglove guide 2")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_2.png)
 
 5) Click to select the local rosbag file.
 
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_3.png "Foxglove guide 3")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_3.png)
 
 6) Open the layout interface. In the top right corner of the layout interface, click on the settings, select the icon, and open the play marker rendering message function.
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_4.png "Foxglove User Guide 4")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_4.png)
    
 7) Click Play
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_5.png "Foxglove User Guide 5")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_5.png)
 
 8) View Data
-   ![foxglove](/../static/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_6.png "Foxglove User Guide 6")
+   ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_6.png)
 
 ### Note
 

@@ -25,7 +25,7 @@ By reading this chapter, users can use the models provided by D-Robotics to crea
 
 For detailed instructions on how to use `hobot_dnn`, please refer to the [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and [API documentation](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in the `hobot_dnn` code. The workflow of using `hobot_dnn` is as follows:
 
-![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg)
 
 Without understanding the workflow of using `hobot_dnn`, users can also follow the steps in this chapter to develop a model inference example using `hobot_dnn`.
 
@@ -322,7 +322,7 @@ After the algorithm inference is completed, the inference results are output thr
 
 The design and flow logic of the Node are shown in the following figure:
 
-![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/node_architecture.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/node_architecture.jpg)
 
 ##### 2.2 Code Explanation
 
@@ -917,7 +917,7 @@ In order to better display the effect of algorithm reasoning and experience perc
 
 The runtime system process diagram is as follows:
 
-![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg)
 
 There are 4 nodes running on RDK, and algorithm reasoning is one of them in this example.
 
@@ -1151,7 +1151,7 @@ The output `/cpp_dnn_demo` topic message indicates that the algorithm detected 5
 
 Enter http://IP:8000 (IP is the IP address of RDK, for example, the IP address used in this example is 10.64.28.88) on the PC's web browser to view real-time images and algorithm inference rendering effects:
 
-![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg)
 
 Each detection box is rendered with the detection box type (such as `body` indicating human body detection box) and the target tracking result. The `fps` field in the lower left corner of the browser indicates the real-time algorithm inference output frame rate.
 
@@ -1376,7 +1376,7 @@ disappeared_targets: []
 
 We can see that the published message contains the bounding box and keypoint detection results of the hand. The bounding box information is consistent with the subscribed message.The Rqt's Node Graph function on the PC side (**the PC needs to be in the same network segment as the RDK**) can visualize the Nodes running on the RDK, the topics published and subscribed by the Nodes, and the graph composed of these topics, as shown in the figure below:
 
-![](/../static/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg)
 
 In the figure, the ellipses represent the Node names, and the rectangles represent the Topic names. It can be seen that the entire graph consists of 3 Nodes and 2 Topics.
 

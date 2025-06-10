@@ -14,7 +14,7 @@ Cross-compilation is a method of developing and building software on a host mach
 
 Setting up a cross-compilation environment is an essential step in the development process. The following diagram illustrates the overall framework of the cross-compilation environment:
 
-![image-20220329140159441](../../../../../../static/img/07_Advanced_development/02_linux_development/image/environment_build/image-20220329140159441.png)
+![image-20220329140159441](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/environment_build/image-20220329140159441.png)
 
 ## RDK OS Development Guide
 

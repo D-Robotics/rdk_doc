@@ -95,4 +95,4 @@ The following information will be output in the terminal:
 
 To view the images and algorithm rendering results, open a web browser on the PC and enter the following URL (replace `IP` with the RDK's IP address):http://IP:8000
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev.jpeg)

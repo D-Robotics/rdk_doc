@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 The function of voice-controlled car movement allows users to control the robot's movement forward, backward, left, and right using chinese voice commands. The process is as shown in the following diagram:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_control/audio_control.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
 
 The app uses a virtual car in the PC Gazebo simulation environment as an example, but the control commands can also be directly used to control a physical robot.
 
@@ -116,7 +116,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful launch, the simulation environment shows the following effect of the car:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_tracking/gazebo.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
 
 RDK startup program:
 
@@ -237,4 +237,4 @@ angular:
 
 The simulation car on the PC follows the instructions of voice control commands to move. The motion effect of the simulated car is as follows:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_audio_control/move.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_control/move.gif)

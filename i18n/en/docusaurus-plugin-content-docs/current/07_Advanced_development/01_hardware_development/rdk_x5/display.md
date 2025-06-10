@@ -69,7 +69,7 @@ RDK X5 provides a MIPI DSI interface, supporting the connection of various LCD s
 
 The screen connection method is shown in the image below:
 
-![screenshot-20241014-161007](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-161007.png)
+![screenshot-20241014-161007](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-161007.png)
 
 Use a DSI-Cable-12cm cable to connect the 2.8inch DSI LCD to the 22PIN DSI1 interface on the RDK X5 mainboard.
 
@@ -95,7 +95,7 @@ dtoverlay=dsi-waveshare-panel-overlay-2_8_inch
 
 The screen connection is shown in the diagram below:
 
-![screenshot-20241014-173409](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173409.png)
+![screenshot-20241014-173409](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173409.png)
 
 Use the DSI-Cable-12cm to connect the 3.4inch DSI LCD to the 22PIN DSI1 interface of the X5 RDK mainboard.
 
@@ -118,7 +118,7 @@ dtoverlay=dsi-waveshare-panel-overlay-3_4_inch
 ```
 #### Effect Demonstration
 
-![screenshot-20241014-173446](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173446.png)
+![screenshot-20241014-173446](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-173446.png)
 
 ### 4.3inch DSI LCD
 
@@ -126,7 +126,7 @@ dtoverlay=dsi-waveshare-panel-overlay-3_4_inch
 
 The screen connection is shown in the diagram below:
 
-![screenshot-20241014-144324](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144324.png)
+![screenshot-20241014-144324](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144324.png)
 
 Use a DSI-Cable-12cm cable to connect the 4.3inch DSI LCD to the 22PIN DSI1 interface of the X5 RDK mainboard.
 
@@ -147,7 +147,7 @@ dtoverlay=dsi-waveshare-panel-overlay-4_3_inch
 ```
 #### Effect Demonstration
 
-![screenshot-20241014-144429](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144429.png)
+![screenshot-20241014-144429](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-144429.png)
 
 ### 7inchC DSI LCD
 
@@ -155,8 +155,8 @@ dtoverlay=dsi-waveshare-panel-overlay-4_3_inch
 
 The screen connection is as shown in the following images:
 
-![screenshot-20241014-154448](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-154448.png)
-![screenshot-20241014-155331](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155331.png)
+![screenshot-20241014-154448](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-154448.png)
+![screenshot-20241014-155331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155331.png)
 
 Use a 12cm DSI cable to connect the 7inchC DSI LCD to the 22PIN DSI1 interface of the X5 RDK mainboard.
 
@@ -180,7 +180,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_0_inchC
 
 #### Effect Demo
 
-![screenshot-20241014-155439](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155439.png)
+![screenshot-20241014-155439](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-155439.png)
 
 ### 7.9inch DSI LCD
 
@@ -188,7 +188,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_0_inchC
 
 The screen connection is shown in the figure below:
 
-![screenshot-20241014-165628](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165628.png)
+![screenshot-20241014-165628](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165628.png)
 
 Use a DSI-Cable-12cm cable to connect the 7.9inch DSI LCD to the 22PIN DSI1 interface on the X5 RDK mainboard.
 
@@ -212,7 +212,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_9_inch
 
 #### Effect Demo
 
-![screenshot-20241014-165707](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165707.png)
+![screenshot-20241014-165707](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-165707.png)
 
 ### 8inch DSI LCD
 
@@ -220,7 +220,7 @@ dtoverlay=dsi-waveshare-panel-overlay-7_9_inch
 
 The screen connection is as shown in the figure below:
 
-![screenshot-20241014-151754](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-151754.png)
+![screenshot-20241014-151754](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-151754.png)
 
 Use a 12cm DSI cable to connect the 8inch DSI LCD to the 22PIN DSI1 interface on the X5 RDK motherboard.
 
@@ -244,7 +244,7 @@ dtoverlay=dsi-waveshare-panel-overlay-8_0_inch
 
 #### Effect Demonstration
 
-![screenshot-20241014-152537](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-152537.png)
+![screenshot-20241014-152537](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-152537.png)
 
 ### 10.1inch DSI LCD
 
@@ -252,7 +252,7 @@ dtoverlay=dsi-waveshare-panel-overlay-8_0_inch
 
 The screen connection is as shown in the figure below:
 
-![screenshot-20241014-174402](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174402.png)
+![screenshot-20241014-174402](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174402.png)
 
 Use the DSI-Cable-12cm cable to connect the 10.1-inch DSI LCD to the 22PIN DSI1 interface on the X5 RDK mainboard.
 
@@ -276,7 +276,7 @@ dtoverlay=dsi-waveshare-panel-overlay-10_1_inch
 
 #### Effect Demonstration
 
-![screenshot-20241014-174925](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174925.png)
+![screenshot-20241014-174925](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20241014-174925.png)
 
 
 

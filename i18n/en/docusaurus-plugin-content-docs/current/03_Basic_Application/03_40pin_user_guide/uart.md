@@ -17,7 +17,7 @@ Connect TXD and RXD in hardware, then run the test program to perform write and 
 
 Connect TXD and RXD together directly on the hardware using a jumper cap.
 
-![image-20220512101820743](../../../../../../static/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220512101820743.png)
+![image-20220512101820743](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220512101820743.png)
 
 ### Test procedure
 

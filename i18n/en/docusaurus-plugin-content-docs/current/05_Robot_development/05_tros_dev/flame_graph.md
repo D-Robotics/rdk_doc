@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 A flame graph is a graphical representation of performance data collected by tools like perf. It provides statistical analysis of the data to identify performance hotspots.
 
-![http-bw](/../static/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png "flame graph")
+![http-bw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png)
 
 Each box in the flame graph represents a function, with the length of the box representing its execution time. Therefore, wider boxes indicate longer execution times.
 
@@ -66,4 +66,4 @@ Steps 1 and 2 are completed on the RDK, while steps 3 and 4 are completed on eit
 
 After following the workflow in the previous section, the recorded function calls within the RDK system are shown in the following image:
 
-![](/../static/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png)

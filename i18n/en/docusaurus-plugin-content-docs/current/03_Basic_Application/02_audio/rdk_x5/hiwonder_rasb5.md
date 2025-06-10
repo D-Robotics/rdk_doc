@@ -16,7 +16,7 @@ Refer to other audio boards for connection. Connect using the 40-pin to 40-pin i
 1. Use `srpi-config` to configure the audio board.  
 Go to `3 Interface Options` -> `I5 Audio`  
 Select `Hiwonder Audio Driver HAT`:
-![image-audio-codec-select-hiwonder-hat-rdkx5.png](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hiwonder-hat-rdkx5.png)
+![image-audio-codec-select-hiwonder-hat-rdkx5.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hiwonder-hat-rdkx5.png)
 
 2. Follow the prompts to execute the `reboot` command, or run `sync && reboot` to restart the board. If `cat /proc/asound/cards` shows the `duplexaudioi2s1` sound card, the carrier board is installed successfully.
 

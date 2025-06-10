@@ -89,7 +89,7 @@ The log output shows that the algorithm has inferred 6 targets based on the inpu
 
 The rendered image, render_feedback_0_0.jpeg, is shown below:
 
-![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)
 
 ## Multi-Algorithm Inference
 
@@ -132,4 +132,4 @@ ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_s
 
 Enter http://IP:8000 in the browser on your PC to view the image and algorithm rendering effects (IP is the IP address of the RDK):
 
-![](/../static/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)

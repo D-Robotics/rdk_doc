@@ -122,7 +122,7 @@ Taking RDK as an example:
     ```
 
 5. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000` (where IP is the RDK IP address). Click on the upper left corner to view the real-time image from the USB camera.
-![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
+![image-usb-camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
 
 ### Usage Method 2 (usb_pixel_format is yuyv2rgb)
 
@@ -238,7 +238,7 @@ Here is an example using the RDK platform:
     ```
 
 6. Open a browser on your PC (chrome/firefox/edge) and enter  `http://IP:8000` (IP is the RDK IP address), click on the top left to display the web side to view the real-time image from the USB camera
-    ![image-usb-camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
+    ![image-usb-camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
     
 ### Notes
 
@@ -305,11 +305,11 @@ To achieve environmental perception capabilities, robots often carry cameras, To
 
 | Index | Name    | Representational Image                     | Parameters     | Reference Link                                                |
 | ----- | ------- | ------------------------------------------ | -------------- | ------------------------------------------------------------- |
-| 1    | F37    | ![F37](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W Pixel | RDK X3, RDK X3 Module | [F37](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
-| 2    | GC4663 | ![GC4663](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W Pixel | RDK X3, RDK X3 Module | [GC4663](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
-| 3    | IMX219 | ![IMX219](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W Pixel | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
-| 4    | IMX477 | ![IMX477](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 200W Pixel | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
-| 5    | OV5647 | ![OV5647](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W Pixel | RDK X3, RDK X3 Module, RDK X5 | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 1    | F37    | ![F37](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W Pixel | RDK X3, RDK X3 Module | [F37](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
+| 2    | GC4663 | ![GC4663](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W Pixel | RDK X3, RDK X3 Module | [GC4663](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
+| 3    | IMX219 | ![IMX219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W Pixel | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 4    | IMX477 | ![IMX477](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 200W Pixel | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
+| 5    | OV5647 | ![OV5647](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W Pixel | RDK X3, RDK X3 Module, RDK X5 | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
 
 Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -325,7 +325,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 1. Confirm that the camera is correctly connected to RDK. For example, the connection between the F37 camera and RDK X3 is shown in the following figure:
 
-    ![image-X3-PI-Camera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X3-PI-Camera.png)
+    ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
 2. RDK is flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics
 
@@ -410,7 +410,7 @@ Take the F37 as an example to introduce the method of acquiring and previewing i
     ```
 
 5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the F37 camera's output.
-    ![web-f37-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-f37-codec.png "Real-time image")
+    ![web-f37-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png)
 
 6. To query the camera's intrinsic parameters on the PC (the specific data may vary depending on the calibrated camera file), use the following command and view the results:
 
@@ -541,7 +541,7 @@ The general installation process for stereo camera ROS packages involves:
 1. Installing the camera's SDK library files.
 2. Installing the ROS wrapper for the camera.
 
-![Stereo Camera ROS Architecture](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+![Stereo Camera ROS Architecture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
 This section explains how to use a RealSense camera on the RDK platform.
 ### Supported Platforms
@@ -617,12 +617,12 @@ After installation, you can start the RealSense camera using the following ROS c
 ros2 launch realsense2_camera rs_launch.py
 ```
 
-![realsense-start-up-log](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
+![realsense-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
 
 You can use the `ros2 topic list` command to view the topics published by the RealSense camera. When started with default parameters, the RealSense camera will only enable the depth and RGB data streams.
 
 
-![realsense-basic-topic](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
+![realsense-basic-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
 
 
 The RealSense ROS wrapper provides numerous configurable parameters. For example:  
@@ -634,9 +634,9 @@ The RealSense ROS wrapper provides numerous configurable parameters. For example
 ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
 ```
 
-![realsense-ir-pointcloud-topic](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
+![realsense-ir-pointcloud-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
 
-![realsense-image](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
+![realsense-image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
 
 Additionally, RealSense provides several services that can be viewed using the `ros2 service list` command. For example, you can use these services to query the camera's serial number, firmware version, and other information.
 
@@ -657,9 +657,9 @@ In practical applications, it's often necessary to align the depth map with the 
 ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true 
 ```
 
-![realsense-d2c-topic](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
+![realsense-d2c-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
 
-![realsense-image-align](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
+![realsense-image-align](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
 
 #### 5. Displaying Images and Point Clouds
 
@@ -668,12 +668,12 @@ There are multiple ways to display images and point clouds from the RealSense ca
 For example, you can use `rviz2` on a PC to display the data. Ensure that the PC can access the RDK over the network. Note that since data is transmitted over the network, this method may cause significant load and result in lag or stuttering.
 
 
-![realsense-rviz2](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
+![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
 It is recommended to directly read data on the RDK to verify if the output stream is functioning correctly. You can use `ros2 topic echo topic_name` to print the data or write code to subscribe to the relevant topics.
 
 
-![realsense-topic-echo](../../../../../../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
+![realsense-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
 
 
 ## Dual MIPI camera
@@ -700,7 +700,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 1. Confirm that the camera is correctly connected to RDK. For example, the connection between the dual camera and RDK X5 is shown in the following figure:
 
-    ![image-X5-PI-DualCamera](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
+    ![image-X5-PI-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
 
 2. RDK is flashed with the  Ubuntu 22.04 system image provided by D-Robotics
 
@@ -775,7 +775,7 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     ```
 
 5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the dual camera's output.
-    ![web-dualcamera-codec](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg "Real-time image")
+    ![web-dualcamera-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg)
 
 ### Caution
 
@@ -814,7 +814,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 1. Make sure the camera is correctly connected to the RDK. The connection for RGBD module to RDK X3 is shown as below:
 
-    ![hobot_rgbd](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
+    ![hobot_rgbd](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
 
     **Note: The RGBD module needs an additional adapter board to connect to RDK X3**.
 2. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
@@ -994,7 +994,7 @@ ros2 topic list
 
     Click the "add" button in the rviz2 interface to add topics published by rgbd_sensor (refer to the rgbd_CP3AM related topics indicated in section 3). To subscribe to point cloud data, modify the "Fixed Frame" option in the Global Options of rviz2 configuration to "depth". Then you can view real-time point cloud information. In the point topic configuration, select "points" as the point type.
 
-    ![hobot_rgbd_sensor](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png "Real-time Image")
+    ![hobot_rgbd_sensor](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png)
 
 5. Query camera intrinsics on a PC.
 
@@ -1097,7 +1097,7 @@ Currently, the use of RealSense and Orbbec stereo cameras on ROS follows the arc
 
 Therefore, the general installation process for the stereo camera ROS package is: first install the camera's SDK library files, then install the camera's ROS wrapper package.
 
-![stereo-camera-ros-arch](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+![stereo-camera-ros-arch](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
 This section introduces the usage of Orbbec cameras on the RDK platform.
 
@@ -1186,11 +1186,11 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 ```
 
-![swapfile](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png)
+![swapfile](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png)
 
 After setting up the swap space, you can use `swapon --show`, `free -h`, or `htop` commands to check the current swap usage. For example, using the `htop` command:
 
-![htop-swap](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png)
+![htop-swap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png)
 
 This setting is only temporary and will be lost after a power cycle. If you want the swap space to be used after a system reboot, you can either re-execute `sudo swapon /swapfile` or add it to the `/etc/fstab` file.
 
@@ -1203,7 +1203,7 @@ sudo vim /etc/fstab
 sync
 ```
 
-![etc-fstab](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png)
+![etc-fstab](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png)
 
 To delete the swap space, you can execute the following commands.
 
@@ -1229,7 +1229,7 @@ colcon build
 
 Compilation results on the RDK X3 platform:
 
-![orbbec-ros-colcon-build](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png)
+![orbbec-ros-colcon-build](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png)
 
 #### 3. Start the Orbbec camera.
 
@@ -1241,11 +1241,11 @@ source ./install/setup.bash
 ros2 launch orbbec_camera gemini2.launch.py
 ```
 
-![orbbec-start-up-log](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png)
+![orbbec-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png)
 
 You can use `ros2 topic list` to view the topics published by Gemini2. With default parameters, starting the Gemini2 camera will enable the camera's depth data stream, RGB data stream, IR data stream, and point cloud data stream.
 
-![orbbec-topic-echo](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png)
+![orbbec-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png)
 
 The Orbbec ROS2 wrapper offers numerous configurable parameters. For instance, setting `enable_point_cloud:=false` and `enable_colored_point_cloud:=false` will disable the camera's point cloud data streams.
 
@@ -1272,17 +1272,17 @@ source ./install/setup.bash
 ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 ```
 
-![orbbec-image-align](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-image-align.png)
+![orbbec-image-align](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-image-align.png)
 
 #### 5. Displaying Images and Point Clouds
 
 There are multiple methods to display Orbbec's images and point clouds. For reference, see [2.2 Data Visualization](./demo_render.md). For instance, you can use `rviz2` on a PC to display the data, but note that this requires the PC to access the RDK via the network, which can be demanding and may lead to lag.
 
-![orbbec-rviz2](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
+![orbbec-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 
 It is recommended to read the data directly on the RDK to verify the data flow. You can use `ros2 topic echo topic_name` to print data or write code to subscribe to the corresponding topics.
 
-![orbbec-topic-echo.png](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
+![orbbec-topic-echo.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
 
 ## ZED camera
 
@@ -1342,4 +1342,4 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 
 3. Open a web browser on the PC (`Chrome/Firefox/Edge`), enter `IP:8000` (where IP is the IP address of the RDK), and click on the web display in the top left corner to view the real-time ZED camera feed.
 
-![ZED Camera Real-Time Feed](/../static/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)
+![ZED Camera Real-Time Feed](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)

@@ -103,7 +103,7 @@ Video: https://www.youtube.com/watch?v=du1EypDtxMY&list=PLSxjn4YS2IuFUWcLGj2_uuC
 
 Click [**Download image**](http://archive.d-robotics.cc/downloads/os_images) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
-![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
 After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`.
 
@@ -117,7 +117,7 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 
 Click [**Download image**](https://archive.d-robotics.cc/downloads/en/os_images/rdk_x3/) to enter the version selection page, select the corresponding version directory, and enter the file download page. Take downloading the 2.0.0 version of the system image as an example:
 
-![image-20230510143353330](../../../../../../static/img/01_Quick_start/image/install_os/image-20230510143353330.png)
+![image-20230510143353330](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20230510143353330.png)
 
 After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstalled-desktop-arm64.img`.
 
@@ -153,15 +153,15 @@ Before burning the Ubuntu system image, please prepare the following:
 balenaEtcher is a PC-side boot disk creation tool that supports multiple platforms such as Windows/Mac/Linux. The process of creating an SD boot card is as follows:
 1. Open the balenaEtcher tool, click the `Flash from file` button, and select the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the burning image.
 
-    ![image-X3-Update-balena1](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-X3-Update-balena1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
 
 2. Click the `Select target` button and select the corresponding Micro SD storage card as the target storage device.
 
-    ![image-X3-Update-balena3](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-X3-Update-balena3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
 
 3. Click the `Flash` button to start burning. When the tool prompts `Flash Complete`, it means the image burning is complete. You can close balenaEtcher and remove the storage card.
 
-    ![image-X3-Update-balena4](../../../../../../static/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-X3-Update-balena4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
 
 </TabItem><TabItem value="x3md" label="RDK X3 Module">
 
@@ -183,19 +183,19 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
    1. Ground the `Boot` pin of the RDK X3 carrier board using a jumper cap. Refer to the figure below for the pin position.
 
    <figure class="text--center">
-   ![image-carrier-board-bootstrap](../../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-bootstrap.png)  
+   ![image-carrier-board-bootstrap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png)  
    </figure>
 
    2. Connect the Micro USB interface of the carrier board to the computer via a USB cable. Refer to the figure below for the interface position.
 
    <figure class="text--center">
-   ![image-carrier-board-microusb](../../../../../../static/img/01_Quick_start/image/install_os/image-carrier-board-microusb.png)  
+   ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)  
    </figure>
 
    3. Power on the device and observe the port status of the computer device manager. If the `USB download gadget` unknown device appears, you need to update the device driver; otherwise, you can skip the following steps.  
 
    <figure class="text--center">
-   ![image-usb-driver1](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver1.png)  
+   ![image-usb-driver1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png)  
    </figure>
 
    4. Download and extract the driver package `android_hobot.zip`. The download link is [android_hobot](http://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip).
@@ -205,20 +205,20 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
    6. Double-click the `USB download gadget` unknown device, select the driver package extraction directory, and then click Next.
 
    <figure class="text--center">
-   ![image-usb-driver2](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver2.png)
+   ![image-usb-driver2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png)
    </figure>
 
    7. After the driver installation is complete, the device manager will display the fastboot device `Android Device`.
 
    <figure class="text--center">
-   ![image-usb-driver3](../../../../../../static/img/01_Quick_start/image/install_os/image-usb-driver3.png)
+   ![image-usb-driver3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
    </figure>
    
 
 2. After confirming that the PC device manager displays the fastboot device `Android Device`, run `hbupdate.exe` to open the burning tool, and follow the steps below to burn the system:
 
    <figure class="text--center">
-   ![image-flash-system1](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system1.png)
+   ![image-flash-system1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system1.png)
    </figure>
 
    1. Select the development board model, which is a required field.
@@ -231,19 +231,19 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
       - RDK_X3_MD_4GB: RDK X3 Module, 4GB RAM version
    
    <figure class="text--center">
-   ![image-flash-system2](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system2.png)
+   ![image-flash-system2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system2.png)
    </figure>
 
    2.  Click the `Browse` button to select the image file to be burned, this is a required option.
 
    <figure class="text--center">
-   ![image-flash-system3](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system3.png)
+   ![image-flash-system3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system3.png)
    </figure>
 
    3. Click the `Start` button to start the flashing process, and follow the popup prompts to continue:
 
    <figure class="text--center">
-   ![image-flash-system4](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system4.png)
+   ![image-flash-system4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system4.png)
    </figure>
 
       - When burning the image, it is necessary to connect the `BOOT` pin to the ground using a jumper cap. The pin position can be referred to in the [Functional Control Interface](/Quick_start/hardware_introduction/rdk_x3#functional-control-interfaces).
@@ -258,12 +258,12 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
 
       - When the image burning is successful, the tool will prompt as follows:
 
-      ![image-flash-system6](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system6.png)
+      ![image-flash-system6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system6.png)
 
       - When the image burning fails, the tool will prompt as follows, and at this time, you need to check if the `Android Device` device exists in the PC device manager.
 
    <figure class="text--center">
-   ![image-flash-system7](../../../../../../static/img/01_Quick_start/image/install_os/image-flash-system7.png)
+   ![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)
    </figure>
 
 </TabItem>
@@ -334,7 +334,7 @@ RDK X3 Module supports two modes of system startup: eMMC mode and SD card mode.
 
 After the Ubuntu Desktop version system is fully booted, the system desktop will be displayed on the monitor via the HDMI interface, as shown in the following figure:
 
-![image-desktop_display.jpg](../../../../../../static/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
+![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display.jpg)
 
 
 ## **Frequently Asked Questions**  

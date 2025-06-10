@@ -17,19 +17,19 @@ sudo srpi-config
 
 > `sudo` is a command for privilege management. It is necessary to enter it here in order to have root privileges for configuration management. The default sunrise account does not have permission to modify system files.
 
-![image-20231123101913960](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
+![image-20231123101913960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123101913960.png)
 
 If you are using a desktop system, you can find the `RDK Configuration` application in the menu for configuration. It will also open a configuration terminal similar to the image above.
 
-![image-20231123102024074](../../../../../static/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
+![image-20231123102024074](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
-![image-20231123172041480](../../../../../static/img/02_System_configuration/image/srpi-config/20250507-160809.jpg)
+![image-20231123172041480](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160809.jpg)
 
 ## System Options
 
 The System Options menu allows you to configure changes to various parts such as Wi-Fi network, user password, hostname, system login mode, browser selection, and some system-level changes.
 
-![image-20231123102447793](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123102447793.png)
+![image-20231123102447793](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123102447793.png)
 
 - **Wireless LAN**
 
@@ -59,7 +59,7 @@ The System Options menu allows you to configure changes to various parts such as
  
  Display options menu.
  
- ![image-20240113163313195](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240113163313195.png)
+ ![image-20240113163313195](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240113163313195.png)
 
 - **FB Console Resolution**
  
@@ -67,7 +67,7 @@ The System Options menu allows you to configure changes to various parts such as
 
 [Only X5 supports]
 
-![image-20240113163313195](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)
+![image-20240113163313195](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)
 
 - **Dsiplay Chose DSI or HDMI**
   
@@ -77,7 +77,7 @@ The System Options menu allows you to configure changes to various parts such as
  
  Interface options menu, with the following options to enable/disable: SSH, VNC, SPI, I2C, I2S, Serial, etc.
  
- ![image-20231123103322961](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819162241000.png)
+ ![image-20231123103322961](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819162241000.png)
  
 - **SSH**
  
@@ -105,7 +105,7 @@ The System Options menu allows you to configure changes to various parts such as
 | spi2 | pwm1 |
 | i2c1 | pwm3 |
   
- ![image-20231123103758686](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
+ ![image-20231123103758686](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
  
 - **Configure Wi-Fi antenna**
   
@@ -118,18 +118,18 @@ The System Options menu allows you to configure changes to various parts such as
   Possible supported audio adapters include Audio Driver HAT V1, Audio Driver HAT V2, and WM8960 Audio HAT. Different hardware may also support different audio adapters
 
 
- ![image-20231123103758686](../../../../../static/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
+ ![image-20231123103758686](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819164716000.png)
 
 ## Performance Options
  
  Performance options, including overclocking, CPU operating mode and frequency settings, adjusting ION memory size, etc.
  
- ![image-20231123104234000](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123104234000.png)
+ ![image-20231123104234000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123104234000.png)
  - **CPU frequency**
 
   Use this tool to overclock the CPU of the RDK. It is generally not recommended to enable this option, but you can try modifying it if sufficient cooling measures are in place.
 
-  ![image-20231123104553727](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123104553727.png)
+  ![image-20231123104553727](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123104553727.png)
 
 - **ION memory**
 
@@ -141,7 +141,7 @@ The System Options menu allows you to configure changes to various parts such as
 
 Localisation options provide the following choices: local language, time zone, and keyboard layout.
 
-![image-20231123105018338](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123105018338.png)
+![image-20231123105018338](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123105018338.png)
 
 - **Locale**
 
@@ -159,7 +159,7 @@ Localisation options provide the following choices: local language, time zone, a
 
 Advanced options allow you to configure disk expansion, network proxy settings, and more.
 
-![image-20231123105616627](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123105616627.png)
+![image-20231123105616627](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123105616627.png)
 
 - **Expand Filesystem**
 
@@ -185,10 +185,10 @@ Information about `srpi-config`
 
 Choosing this option will display the following information:
 
-![image-20231123110127905](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123110127905.png)
+![image-20231123110127905](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110127905.png)
 
 ## Finish button
 
-![image-20231123110246286](../../../../../static/img/02_System_configuration/image/srpi-config/image-20231123110246286.png)
+![image-20231123110246286](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110246286.png)
 
 After making the changes, select the `Finish` button. The system will ask if you want to restart. It is recommended to restart when using it for the first time.

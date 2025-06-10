@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 RDK X3 provides interfaces such as Ethernet port, USB, camera, LCD, HDMI, 40-pin GPIO, etc., which facilitate the development and testing of multimedia processing and deep learning algorithms. The interface layout of the development board is as follows:
 
-![image-20220802160110194](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-20220802160110194.jpg)
+![image-20220802160110194](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-20220802160110194.jpg)
 
 
 | No. | Function | No. | Function | No. | Function |
@@ -32,7 +32,7 @@ RDK X3 provides interfaces such as Ethernet port, USB, camera, LCD, HDMI, 40-pin
 
 The official carrier board of RDK X3 Module provides various peripheral interfaces such as Ethernet port, USB, HDMI, MIPI CSI, MIPI DSI, 40-pin GPIO, etc., which facilitate the functional verification and development testing of RDK X3 Module. The interface layout is as follows:
 
-![image-carrier-board1](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board1.jpg) 
+![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board1.jpg) 
 
 | No. | Interface Function | No. | Interface Function      | No. | Interface Function      |
 | --- | ----------------- | --- | --------------------- | --- | --------------------- |
@@ -62,7 +62,7 @@ Full integration design, no core module.
 
 RDK X3 Module carrier board provides a 200-pin board-to-board connector for installation of the core module. When installing, confirm the correct orientation and positioning to avoid damage to the core module and carrier board connectors.
 
-![image-x3-md-setup](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-x3-md-setup.jpg) 
+![image-x3-md-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-setup.jpg) 
 
 Steps for module installation:
 
@@ -121,7 +121,7 @@ The development board provides one debug UART (Interface 3) for serial port logi
 
 When connecting the UART, the DuPont wire needs to be connected to Interface 3 of the development board, and the USB serial adapter needs to be connected to the computer. After the connection is completed, it should look like the following figure:
 
-![image-20220612121707048](../../../../../../static/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
+![image-20220612121707048](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
 
 </TabItem>
@@ -396,7 +396,7 @@ The camera module is connected to the development board through an FFC (Flat Fle
 
 Taking the JXF37 camera module as an example, after installation, it should look like the following picture:
 
-![image-X3-PI-Camera](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
+![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
 
 After installation, users can use the `i2cdetect` command to verify if the I2C address of the module can be detected correctly. If it cannot be detected, users need to check if the FFC connection is correct. When the I2C address is successfully detected, the log will print as follows:
 
@@ -519,7 +519,7 @@ To revert to the onboard antenna, use the following command: `sed -i 's/cable/tr
 
 The development board supports both on-board and external antenna configurations for wireless networking. In most cases, the on-board antenna can meet the usage requirements. However, when the development board is installed with a metal housing, an external antenna needs to be connected to enhance signal strength.
 
-![rdk_x3_module_wifi](../../../../../../static/img/01_Quick_start/image/hardware_interface/rdk_x3_module_wifi.jpg)
+![rdk_x3_module_wifi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/rdk_x3_module_wifi.jpg)
 
 </TabItem>
 
@@ -534,11 +534,11 @@ The development board supports both on-board and external antenna configurations
 
 The RDK X3 development board provides a 40-pin header interface with IO signals using a 3.3V logic level design. The pin definitions are compatible with products such as Raspberry Pi. The detailed pin definitions and multiplex relationships are as follows:
 
-![image-20220501181722851](../../../../../../static/img/01_Quick_start/image/hardware_interface/rdkx3_40pin_en.png)
+![image-20220501181722851](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/rdkx3_40pin_en.png)
 
 The development board has silk screen marking for the 40-pin interface, making it convenient for users to operate. The positions of PIN1 and PIN40 are as follows:
 
-![image-X3-PI-40Pin_Index](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
+![image-X3-PI-40Pin_Index](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
 For the usage of each function of the 40-pin interface, please refer to the [40-pin GPIO Function Usage](../../03_Basic_Application/03_40pin_user_guide/40pin_define.md) section.
 
@@ -548,7 +548,7 @@ For the usage of each function of the 40-pin interface, please refer to the [40-
 
 The RDK X3 Module carrier board provides a set of 40-pin header interfaces (Interface 9), and the interface voltage level is determined by the IO level switching header (Interface 14), supporting both 1.8V and 3.3V modes. The pin definitions are compatible with products such as Raspberry Pi. The detailed pin definitions and multiplex relationships are as follows:
 
-![image-40pin-header](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-40pin-header.jpg)
+![image-40pin-header](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-40pin-header.jpg)
 
 :::caution Caution
 By default, the RDK X3 Module core module firmware and carrier board voltage configuration are set to 3.3V. If you need to switch the IO level, please refer to the [IO Level Selection Header Interface](#io-level-switching-interface).
@@ -586,7 +586,7 @@ The RDK X3 Module carrier board provides a set of control IO interfaces (Interfa
 
 In addition, for user convenience, the above pin definitions are also reflected on the carrier board silkscreen. 
 
-![image-carrier-board-control-pin1](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-carrier-board-control-pin1.png)
+![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-control-pin1.png)
 
 </TabItem>
 
@@ -609,7 +609,7 @@ The RDK X3 Module carrier board provides the IO level switching function for con
 
 The interface signals from top to bottom are 3.3V, VREF, 1.8V, as shown in the following figure:
 
-![image-x3-md-vref](../../../../../../static/img/01_Quick_start/image/hardware_interface/image-x3-md-vref.png)
+![image-x3-md-vref](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-vref.png)
 
 It is important to note that **this interface cannot be left unconnected, otherwise the core module will not be able to start up due to power supply abnormalities**.
 

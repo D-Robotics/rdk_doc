@@ -12,7 +12,7 @@ The hand keypoint detection example subscribes to images and algorithm messages 
 
 The index of hand keypoints is shown in the following figure:
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg)
 
 Code repository:
 
@@ -146,4 +146,4 @@ The log shows that the program runs successfully and the input and output frame 
 
 On the PC browser, enter http://IP:8000 to view the image and algorithm rendering effect (where IP is the IP address of the RDK):
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg)

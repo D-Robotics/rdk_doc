@@ -158,7 +158,7 @@ The following information is outputted in the terminal:
 
 You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
 
 
 

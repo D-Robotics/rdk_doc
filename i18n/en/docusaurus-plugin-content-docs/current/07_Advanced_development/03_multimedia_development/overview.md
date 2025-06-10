@@ -11,7 +11,7 @@ The multimedia interface provided by D-Robotics includes system control, video i
 
 The main internal processing flow of D-Robotics's multimedia processing is shown in the following figure, which is mainly divided into video input (VIN), video processing (VPS), video encoding (VENC), video decoding (VDEC), video output (VOT), region processing (REGION), AI algorithm inference (BPU), and other modules.
 
-![X3-ss_mm_system_topology](../../../../../../static/img/07_Advanced_development/03_multimedia_development/overview/X3-ss_mm_system_topology-16485465559782.png)
+![X3-ss_mm_system_topology](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/overview/X3-ss_mm_system_topology-16485465559782.png)
 
 ## Terminology Conventions{#terminology}
 

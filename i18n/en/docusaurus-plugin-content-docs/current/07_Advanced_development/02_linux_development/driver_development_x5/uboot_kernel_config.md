@@ -38,11 +38,11 @@ First, enter the `source/bootloader` directory. The directory structure is as fo
 
 After the command is successfully executed, the U-Boot graphical configuration interface will open. You can complete the option configurations in this interactive interface, including removing unnecessary features and enabling the required ones.
 
-![U-Boot Graphical Configuration](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241120-201418.png)
+![U-Boot Graphical Configuration](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241120-201418.png)
 
 After completing the configuration in the `menuconfig` interface, select `Exit` to exit. Follow the prompts to choose either `Yes` or `No` to save the changes to the `.config` file.
 
-![Save Configuration](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
+![Save Configuration](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
 
 After exiting the configuration, the configuration file will be automatically saved. The automatic tasks include:
 
@@ -125,11 +125,11 @@ The `mk_kernel.sh` script provides the following commands to help users configur
 ```
 After executing the command successfully, the Kernel graphical configuration interface will open. You can complete the configuration options in this interactive interface, including removing unnecessary features and enabling the required ones.
 
-![Kernel Configuration Interface](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241120-195703.png)
+![Kernel Configuration Interface](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241120-195703.png)
 
 After completing the configuration in the `menuconfig` interface, select `Exit` to exit. Follow the prompts to choose either `Yes` or `No` to save the changes to the `.config` file.
 
-![Save Configuration](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
+![Save Configuration](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
 
 After exiting the configuration, the configuration file will be automatically saved. The automatic tasks include:
 

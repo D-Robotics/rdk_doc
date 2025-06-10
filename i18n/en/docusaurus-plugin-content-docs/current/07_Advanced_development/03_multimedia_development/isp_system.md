@@ -39,9 +39,9 @@ The Demosaic unit is responsible for reconstructing a full-color image from the 
 
 Digital camera sensor elements can only record the intensity of light falling on them and cannot distinguish between different colors, thus producing only grayscale images. To capture color information, filters must be placed on each pixel sensor, allowing only specific colors of light to pass through. The filters used must be able to reconstruct a full-color image with red, green, and blue (RGB) values for each pixel. The most common type of color filter array is known as the "Bayer array" because the filters are arranged in an RGGB pattern for every 2x2 pixel group.
 
-Half of all pixels are green (G), and one-quarter each are red (R) and blue (B). Green cells in the same row as blue are marked as Gb, and green cells in the same row as red are marked as Gr. The pattern can start with R, Gr, Gb, or B. ![Bayer Pattern](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/5bfd1de8f3d9be1c11337c90cfb3ed96.png)
+Half of all pixels are green (G), and one-quarter each are red (R) and blue (B). Green cells in the same row as blue are marked as Gb, and green cells in the same row as red are marked as Gr. The pattern can start with R, Gr, Gb, or B. ![Bayer Pattern](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/5bfd1de8f3d9be1c11337c90cfb3ed96.png)
 
-This arrangement of the color filter essentially results in undersampled color information. The demosaic unit is responsible for reconstructing a full-color image (with R, G, B information for each pixel) from this incomplete color information. ![Demosaic Algorithm](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/fc1ece44a956c1be254dc257e400c9f2.png)The module consists of many filters, which reconstruct the chroma channel based on the interpolated luma channel. It also takes into account the signal-related sensor noise (based on earlier determined noise profile) to maintain sharpness of edges and smoothness of regions while interpolating missing pixel components. Therefore, the interpolation of missing pixel components includes the noise of the sensor. The built-in sharpening minimizes amplification of high-frequency noise.
+This arrangement of the color filter essentially results in undersampled color information. The demosaic unit is responsible for reconstructing a full-color image (with R, G, B information for each pixel) from this incomplete color information. ![Demosaic Algorithm](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/fc1ece44a956c1be254dc257e400c9f2.png)The module consists of many filters, which reconstruct the chroma channel based on the interpolated luma channel. It also takes into account the signal-related sensor noise (based on earlier determined noise profile) to maintain sharpness of edges and smoothness of regions while interpolating missing pixel components. Therefore, the interpolation of missing pixel components includes the noise of the sensor. The built-in sharpening minimizes amplification of high-frequency noise.
 
 ### Sharpen
 
@@ -50,7 +50,7 @@ Also known as backend sharpening, this module is designed to work in synergy wit
 Dark areas use the configuration registers: luma thresh low and luma slope low;
 
 Bright areas use the configuration registers: luma thresh high and luma slope high.
-The following image shows the effect of these four parameters on the sharpening effect: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/9eaa1e65ba21c013ed572f20193fe614.png)
+The following image shows the effect of these four parameters on the sharpening effect: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/9eaa1e65ba21c013ed572f20193fe614.png)
 
 ### Gamma
 
@@ -58,7 +58,7 @@ This module encodes the output gamma and is typically set to match the BT.709 or
 
 This module applies gamma LUT to each of the three (R, G, B) color channels.
 
-In a typical configuration, the LUT consists of 129 uniformly spaced nodes labeled 0...128, and linear interpolation is applied between these nodes in hardware. ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/2c8942a6ea8766837bedf807ec126d28.png)
+In a typical configuration, the LUT consists of 129 uniformly spaced nodes labeled 0...128, and linear interpolation is applied between these nodes in hardware. ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/2c8942a6ea8766837bedf807ec126d28.png)
 
 Each data value is a 16-bit unsigned integer, so it can be expected that Gamma[0] = 0 and Gamma[128] = 0xFFFF, and the other 127 values define the gamma correction curve.
 
@@ -86,7 +86,7 @@ Furthermore, to further reduce area, the color channels are downsampled before p
 
 In most cases, standard colors may not provide the best image quality. Depending on the application or customer preference, the CCM module can correct and adjust the colors. This module alters the chromatic values of the image to match the chromatic values of a standard color space.
 
-The module applies linear color correction to the input `{R, G, B}` or `{R, G, B, Ir}` pixel values. The coefficient matrix is calculated as follows: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/8d9c2a42362a495faa03dc054781802a.png)
+The module applies linear color correction to the input `{R, G, B}` or `{R, G, B, Ir}` pixel values. The coefficient matrix is calculated as follows: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/8d9c2a42362a495faa03dc054781802a.png)
 
 In1, In2, In3, and In4 are the inputs (corresponding to R, G, B, and Ir, respectively), and A11 to A34 are the configurable matrix coefficients. The coefficients are 13-bit values in the s4.8 fixed-point format, with the MSbit (12 bits) as the sign bit. The MSbit (12 bits) for negative values is set to 1.
 
@@ -118,19 +118,19 @@ The threshold of Temper is used to adjust the strength of the Temper noise filte
 
 Due to uneven optical refraction of the lens, there can be a phenomenon of a bright center and dark surroundings in the image. Mesh shading correction provides further correction for non-linear color distortion and fine-tunes the effects caused by radial shading correction.
 
-This module applies mesh shading correction to the image using a maximum 64x64 grid. The mesh correction has 3 pages (R/G/B) of correction tables and 4 different modes:![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/faa3129f78eedd29839392c093e6e330.png)
+This module applies mesh shading correction to the image using a maximum 64x64 grid. The mesh correction has 3 pages (R/G/B) of correction tables and 4 different modes:![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/faa3129f78eedd29839392c093e6e330.png)
 
 Setting Mesh Alpha Mode = 0<br/>
-![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/a021fb719e5465ec10e9153e421d1100.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/a021fb719e5465ec10e9153e421d1100.png)
 
 Setting Mesh Alpha Mode = 1<br/>
-![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/c0b25e9a65732282d5f19a7635a0ddd2.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/c0b25e9a65732282d5f19a7635a0ddd2.png)
 
 Setting Mesh Alpha Mode = 2<br/>
-![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/082b39c7f8f634a6bf3192b3fc447344.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/082b39c7f8f634a6bf3192b3fc447344.png)
 
 Setting Mesh Alpha Mode = 3<br/>
-![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/7e2b1477f23a6869573ca5b0d18080a8.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/7e2b1477f23a6869573ca5b0d18080a8.png)
 
 ### Radial Shading
 
@@ -140,9 +140,9 @@ The radial shading coefficients are stored in a 32-bit, 4x129 entry LUT, with co
 
 ### Color Space Conversion
 
-This module converts the input `{R, G, B}` pixel values to `{Y, U, V}` values using standard 3x3 matrix multiplication and vector offset. If the conversion is not activated, the ISP outputs pixel in RGB format. ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/349a1fb120a6478e02d6ae647f8b43b5.png)
+This module converts the input `{R, G, B}` pixel values to `{Y, U, V}` values using standard 3x3 matrix multiplication and vector offset. If the conversion is not activated, the ISP outputs pixel in RGB format. ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/349a1fb120a6478e02d6ae647f8b43b5.png)
 
-If needed, the parameters can be modified to provide different conversions. Taking BT.709 as an example, the formula is as follows: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/31ead51a2003c093e39a8660d535adde.png)
+If needed, the parameters can be modified to provide different conversions. Taking BT.709 as an example, the formula is as follows: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/31ead51a2003c093e39a8660d535adde.png)
 
 The corresponding parameters in the calibration for RGB2YUV_CONVERSION are as follows:
 
@@ -158,7 +158,7 @@ The AE automatic exposure statistical information is used to adjust sensor expos
 
 The AF module calculates the statistical sharpness value in the image. Software uses this value/statistical information to adjust the lens for optimal focus in the region of interest (ROI). This module computes edge values for both the region and the entire image.
 
-The ISP provides programmable markers for each statistical module.![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/265bc3c2561f462db3e18c6e76c6dd62.png)
+The ISP provides programmable markers for each statistical module.![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/265bc3c2561f462db3e18c6e76c6dd62.png)
 
 #### AWB Statistical Information
 
@@ -176,11 +176,11 @@ The values Cb_Ref_Min/Max and Cr_Ref_Min/Max limit the maximum and minimum value
 
 Additionally, Cb_Ref_Low/High and Cr_Ref_Low/High can be used to limit a smaller range of R/G and B/G.
 
-![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/82efe11737fca5681b2df8a3af582612.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/82efe11737fca5681b2df8a3af582612.png)
 
 Global statistical information is stored in three registers: AWB RG, AWB BG, and SUM.
 
-Area statistical information:![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/b7004c4bfc0cfea42dfd9c922ad3e52e.png)
+Area statistical information:![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/b7004c4bfc0cfea42dfd9c922ad3e52e.png)
 
 #### AE Statistical Information
 
@@ -194,39 +194,39 @@ Using adjustable histogram bin boundaries, generate a 5-bin normalized histogram
 
 Statistics_Hist[i] provides the globally normalized pixel count for bin i, with the sum normalized to 0xFFFF.
 
-The histogram that does not provide the intermediate bins but can be calculated by software: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/ebea37c8cf8b3d7e3bcc6049715ff0a5.png)
+The histogram that does not provide the intermediate bins but can be calculated by software: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/ebea37c8cf8b3d7e3bcc6049715ff0a5.png)
 
 The internal table containing Histx data provides the normalized values of the histogram for each region, as shown in the table below for mxn regions. The order of the regions is the raster order starting from the top left corner of the image. For each region, the sum of the histogram data is normalized to 0xFFFF.
 
 Supports up to
 
-![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/9a978ee0b05af72629b9ab769ccd65ec.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/9a978ee0b05af72629b9ab769ccd65ec.png)
 
 33x33 blocks.
 
 #### 1024-bin histogram
 
-Construct a global 1024-bin histogram for the entire image. The global histogram can be weighted for regions but is not normalized. ISP Firmware performs the normalization of the statistical data. ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/7715fc9e61a93745eb21ea33691af15e.png)![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/44de7677ae0485a0be2b89fc6ca62eef.png)
+Construct a global 1024-bin histogram for the entire image. The global histogram can be weighted for regions but is not normalized. ISP Firmware performs the normalization of the statistical data. ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/7715fc9e61a93745eb21ea33691af15e.png)![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/44de7677ae0485a0be2b89fc6ca62eef.png)
 
 #### AF statistics
 
 Automatic focus (AF) statistics consist of the region of interest (ROI) or region-based, normalized contrast indicators of the entire image. The CPU uses this contrast measure to determine the position of the lens for optimal focusing.
 
-The sharpness evaluation function of the AF statistics module calculates the contrast in four directions of each pixel, as shown in the following figure: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/af7452605a6fd44cf2f233c04dd50efa.png)
+The sharpness evaluation function of the AF statistics module calculates the contrast in four directions of each pixel, as shown in the following figure: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/af7452605a6fd44cf2f233c04dd50efa.png)
 
-It should be noted that the AF statistics module does not support modifying the coefficients of the sharpness evaluation function. Users can modify the kernel to change the pixel position for sharpness calculation to adapt to different scenes. The sharpness calculation under different kernels of the AF statistics module is shown in the following figure. ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/320db90e9c15074cef59f9abf2a95e7c.png)
+It should be noted that the AF statistics module does not support modifying the coefficients of the sharpness evaluation function. Users can modify the kernel to change the pixel position for sharpness calculation to adapt to different scenes. The sharpness calculation under different kernels of the AF statistics module is shown in the following figure. ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/320db90e9c15074cef59f9abf2a95e7c.png)
 
 For the AF module, the regions can be configured by software. The module calculates the contrast measure for each pixel in the region and accumulates it over the entire region. For each pixel, the contrast is calculated along the four directions. In addition, kernel selection configuration parameters can be used to control the angular direction of the diagonals, as shown in the table above. To improve the response under low light and low-pass imaging conditions, the calculated contrast is in four levels (sum of four contrasts).
 
 These region measure standards are not weighted in the hardware, but the software can apply region-based weights after calculation.
 
-The following figure shows that the best focusing can be achieved when the AF contrast indicator reaches its maximum point: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/eb46356fc26d3b00fc5c41a191b77a69.png)
+The following figure shows that the best focusing can be achieved when the AF contrast indicator reaches its maximum point: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/eb46356fc26d3b00fc5c41a191b77a69.png)
 
 #### AF measure data calculation
 
 The accumulated contrast measure standards for each region are stored in a floating-point format with 16-bit mantissa and 5-bit exponent. In addition to the contrast indicator, we also accumulate the squared image and fourth power image data in that region, as shown in the following figures. The value I2 refers to the sum of squares of the differences between the pixel values in the four directions shown in Figure 1, and I4 refers to the sum of fourth powers of the differences between the pixel values in the four directions in Figure 1. E4 refers to the accumulation of the fourth powers of the pixel differences under four kernels, as shown in Figure 2. The 16-bit mantissa stores the mantissa, and the 5-bit exponent stores the exponent. Register1 and Register2 are combined to form a 64-bit value. Users do not need to calculate it directly but can directly obtain the cv value using HB_ISP_GetMeteringData.
 
-The statistical information accumulated for each region is shown in the following table: ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/92ed8281119113cec44cca19621de865.png)![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/63be20d81aeffdf2e29f10eac189f2e8.png)
+The statistical information accumulated for each region is shown in the following table: ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/92ed8281119113cec44cca19621de865.png)![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/63be20d81aeffdf2e29f10eac189f2e8.png)
 
 The AF region data is stored in the following format:
 
@@ -234,7 +234,7 @@ In addition to the region statistics, AF also accumulates the normalized fourth 
 
 #### Auto Level Statistics
 
-1024-bin statistics data provided by the iridix module. ![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/51b1c86929ebf73752bf1803d437a06c.png)
+1024-bin statistics data provided by the iridix module. ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/51b1c86929ebf73752bf1803d437a06c.png)
 
 
 #### Average Brightness and Variance Statistics
@@ -245,7 +245,7 @@ Statistics information on the average brightness of the YUV domain and the varia
 
 ### Interactive Data
 
-#### Algorithm Library and ISP Firmware Interaction Diagram![](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/3f6586aeb35102bf50fc3a8c45f90c82.png)
+#### Algorithm Library and ISP Firmware Interaction Diagram![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/3f6586aeb35102bf50fc3a8c45f90c82.png)
 
 The contents in MEM are divided into two parts: data provided to the algorithm library and values passed from the algorithm library to the ISP driver. If the AWB in the ISP driver receives values from algorithm configuration, it will update the ISP register space.
 
@@ -5276,28 +5276,28 @@ This structure holds the weights for each area in the exposure metering zones.
 
 The AE (Analog Exposure) area weighting table is determined by both AE_ZONE_WGHT_VER and AE_ZONE_WGHT_HOR. These two look-up tables (LUTs), as shown in the Control Tool screenshot, consist of 32 values each, with a 16-bit precision. The values range from 0 to 15, where 0 indicates no counting for that block, 1 counts once, 2 counts twice, and so on. The value 15 has a special meaning, which counts the block 16 times.
 
-![image-20221118175019755](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118175019755.png)
+![image-20221118175019755](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118175019755.png)
 
 AE_ZONES_WEIGHT, also depicted in the Control Tool, divides the entire image into horz_zones (33) by vore_zones (33) blocks, resulting in a total of 1089 values. The weight for each zone can be calculated using the formula: `(int(ae_zone_wght_ver * ae_zone_wght_hor) / 16) - (int(ae_zone_wght_ver * ae_zone_wght_hor/16 > 1 ? 1 : 0))`. If `ae_zone_wght_ver * ae_zone_wgt_hor` divided by 16 is greater than 1, it returns 1; otherwise, it returns 0.
 
-![image-20221118180830337](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118180830337.png)
+![image-20221118180830337](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118180830337.png)
 
 
 AE_ZONE_WGHT_HOR represents the weight coefficient for rows along the vertical axis. A data point controls a specific number of columns based on the horz_zones, which is calculated as `1 + int((horz_zones - 1) / AE_ZONE_WGHT_HOR's LUT length)`. For example, with a 33x33 grid, a single index in AE_ZONE_WGHT_HOR would control 2 columns (since 1 + int((33 - 1) / 32) = 2). The center index (half the LUT length) of AE_ZONE_WGHT_HOR's LUT controls the middle column(s). As shown in images 1-4, the indices to the left and right of the center point determine the columns they control.
 
-![image-20221118184855810](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118184855810.png)
+![image-20221118184855810](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118184855810.png)
 
 Figure 1
 
-![image-20221118183608168](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118183608168.png)
+![image-20221118183608168](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118183608168.png)
 
 Figure 2
 
-![image-20221118185143974](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118185143974.png)
+![image-20221118185143974](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118185143974.png)
 
 Figure 3
 
-![image-20221118185333583](../../../../../../static/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118185333583.png)
+![image-20221118185333583](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/isp_system/image-20221118185333583.png)
 
 Figure 4
 

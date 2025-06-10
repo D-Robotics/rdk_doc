@@ -14,12 +14,12 @@ import TabItem from '@theme/TabItem';
 The app is used to Intelligent Analysis of IPC video stream input . The app consists of RTSP video stream, body and face
 detection, image coding and decoding, and a web display interface. The workflow is shown in the following diagram:
 
-![](/../static/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg)
 
 In actual customer applications, the display part is completed by the customer's business system. The app consists of
 RTSP video stream, body and face detection, image coding and decoding. The workflow is shown in the following diagram:
 
-![](/../static/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg)
 
 Code Repository:  (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
@@ -158,4 +158,4 @@ from h264 decoded to NV12 image,`/image_mjpeg` is from nv12 coded to jpeg image.
 In the PC's browser, enter `http://IP:8000`, and the body detection frame, keypoints, and pose detection results will be
 displayed in the web interface (IP refers to the IP address of the RDK):
 
-![](/../static/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)

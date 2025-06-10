@@ -22,7 +22,7 @@ Execute the program with the following command:
 
 ## Expected Result
 After the program is executed, the monitor will display the camera image and the results of the object detection algorithm (object type, confidence), as shown below:
- ![image-20220503221020331](../../../../../../static/img/03_Basic_Application/01_Image/image/mipi_camera/image-20220511181747071.png)
+ ![image-20220503221020331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
 
 :::tip
 

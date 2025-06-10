@@ -7,7 +7,7 @@ sidebar_position: 2
 
 RDK X5 provides various functional interfaces, including Ethernet, USB, camera, LCD, HDMI, CAN FD, and 40-pin GPIO, enabling users to develop and test applications such as multimedia processing and deep learning algorithms. The layout of the development board's interfaces is shown below:
 
-![RDK_X5_interface](../../../../../../static/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.jpg)
+![RDK_X5_interface](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/RDK_X5_interface.jpg)
 
 | No. | Function                       | No. | Function                  | No. | Function                  |
 | --- | ------------------------------ | --- | ------------------------- | --- | ------------------------- |

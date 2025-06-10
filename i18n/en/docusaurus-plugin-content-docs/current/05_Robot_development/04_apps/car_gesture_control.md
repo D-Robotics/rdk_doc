@@ -13,16 +13,16 @@ import TabItem from '@theme/TabItem';
 
 The app allows you to control a robot's movements using hand gestures, including left and right rotation and forward and backward translation. The app consists of MIPI image capture, human detection and tracking, hand keypoint detection, gesture recognition, gesture control strategy, image encoding and decoding, and web display. The workflow is shown in the following diagram:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl_workflow.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl_workflow.jpg)
 
 The supported control gestures, their corresponding functionalities, and examples of the gestures are as follows:
 
 | Control Gesture      | Function | Gesture Action Example                                              |
 | -------------------- | ------------- | ------------------------------------------------------------------- |
-| 666 Gesture/Awesome  | Move forward  | ![image-awesome](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-awesome.jpeg)   |
-| yeah/Victory         | Move backward | ![image-victory](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-victory.jpeg)   |
-| Thumb Right          | Turn right    | ![image-thumbright](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbright.jpeg) |
-| Thumb Left           | Turn left     | ![image-thumbleft](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbleft.jpeg) |
+| 666 Gesture/Awesome  | Move forward  | ![image-awesome](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-awesome.jpeg)   |
+| yeah/Victory         | Move backward | ![image-victory](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-victory.jpeg)   |
+| Thumb Right          | Turn right    | ![image-thumbright](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbright.jpeg) |
+| Thumb Left           | Turn left     | ![image-thumbleft](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbleft.jpeg) |
 
 The app is demonstrated using a virtual car in the PC Gazebo simulation environment, but the control commands can also be directly used to control a physical robot.
 
@@ -91,7 +91,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful launch, the car in the simulation environment will look like this:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gazebo.jpeg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
 
 **Publishing Images from the MIPI Camera**
 
@@ -188,4 +188,4 @@ angular:
 
 The car moves according to the gestures in the PC simulation environment, and the simulated car movement is as follows:
 
-![](/../static/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl.gif)

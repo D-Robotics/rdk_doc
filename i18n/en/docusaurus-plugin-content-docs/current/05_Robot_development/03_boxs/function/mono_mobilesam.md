@@ -173,7 +173,7 @@ After the package is initialized, the following information will be displayed in
 
 The result will be rendered on web. On the PC-side browser, you can view the image and algorithm rendering effect by entering http://IP:8000 (IP is the IP address of the RDK), and open the settings in the upper right corner of the interface.
 
-![](/../static/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
 
 ## Advance
 

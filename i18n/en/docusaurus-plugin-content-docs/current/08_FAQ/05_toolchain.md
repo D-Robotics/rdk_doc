@@ -94,8 +94,8 @@ For example, `85` typically means `(x, y, w, h, confidence + num_classes)`. For 
   * Higher versions of YOLOv5 may export ONNX models with decoded detection heads or without separating the three feature maps.
   * RDK BPU deployment usually requires the ONNX model to output raw feature maps, with the three feature maps as separate output nodes.
   * **Example images (top: incorrect, bottom: partially correct but still needs adjustment):**
-    ![YOLOv5 incorrect output head example](../../../../../static/img/08_FAQ/image/AI_toolchain/3.png)
-    ![YOLOv5 incorrect output head example](../../../../../static/img/08_FAQ/image/AI_toolchain/4.jfif)
+    ![YOLOv5 incorrect output head example](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/3.png)
+    ![YOLOv5 incorrect output head example](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/4.jfif)
     *Top: feature maps not separated, includes decoding. Bottom: feature maps separated, but may have unnecessary Sigmoid or missing NHWC conversion.*
 * **Solution:**
   * Modify the YOLOv5 export script (usually `models/yolo.py`) to:
@@ -110,7 +110,7 @@ For example, `85` typically means `(x, y, w, h, confidence + num_classes)`. For 
 * **Possible cause: Output dimensions do not match post-processing.**
   * If your YOLOv5 model outputs 5D tensors (e.g., `[batch, num_anchors, grid_h, grid_w, (x,y,w,h,conf+classes)]` or `[batch, num_anchors*(5+num_classes), grid_h, grid_w]`), the BPU toolchain may misinterpret dimensions, resulting in periodic detection boxes.
   * **Example image:**
-    ![YOLOv5 periodic detection box example](../../../../../static/img/08_FAQ/image/AI_toolchain/5.png)
+    ![YOLOv5 periodic detection box example](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/5.png)
 * **Solution:**
   * When exporting the ONNX model, convert outputs to explicit 4D tensors (e.g., NHWC: `[batch, grid_h, grid_w, num_anchors*(5+num_classes)]`), and ensure post-processing matches this format.
 
@@ -128,7 +128,7 @@ For example, `85` typically means `(x, y, w, h, confidence + num_classes)`. For 
 * **Possible cause: Parameter passing issue in post-processing library (in some system versions).**
   * In RDK OS 3.0.0 and above, `/app/pydev_demo/07_yolov5_sample` may use a CPython-wrapped post-processing library. If key parameters (e.g., class number) are not correctly passed, decoding fails and boxes cluster in the top-left.
   * **Example image:**
-    ![YOLOv5 detection boxes cluster top-left](../../../../../static/img/08_FAQ/image/AI_toolchain/7.png)
+    ![YOLOv5 detection boxes cluster top-left](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/7.png)
 * **Solution:**
   * **Recommended:** Use post-processing from the **RDK Model Zoo** ([https://github.com/D-Robotics/rdk_model_zoo](https://github.com/D-Robotics/rdk_model_zoo)), which is robust and optimized.
   * **If using onboard samples:** Carefully check that all necessary parameters (class number, input resolution, anchors, thresholds, etc.) are correctly configured and passed.
@@ -1239,7 +1239,7 @@ F32ToU8Transformer()
             #  x[i] = x[i].view(bs, self.na, self.no, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
             x[i] = x[i].permute(0, 2, 3, 1).contiguous()
 ```
-![yolov5](../../../../../static/img/08_FAQ/image/multimedia/yolov5.png)
+![yolov5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/multimedia/yolov5.png)
 
 3. After cloning the code, run the script at https://github.com/ultralytics/yolov5/blob/v2.0/models/export.py to convert the .pt files to ONNX.
 
@@ -1258,7 +1258,7 @@ Please note that I have translated the text into English while maintaining the o
 
 Follow the steps 1-5 strictly to verify the model's accuracy, and keep the code and results for each step:
 
-![](../../../../../static/img/08_FAQ/image/multimedia/model_accuracy_check.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/multimedia/model_accuracy_check.png)
 
 **Before starting, ensure you have the correct Docker image or conversion environment version, and record the version information.**
 

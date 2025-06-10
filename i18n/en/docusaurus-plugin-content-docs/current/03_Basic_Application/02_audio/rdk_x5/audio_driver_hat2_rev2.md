@@ -7,7 +7,7 @@ sidebar_position: 3
 ## Product Overview
 The Audio Driver HAT REV2, produced by Waveshare Electronics, is an audio expansion board featuring the ES7210+ES8156 dual Codec solution. It supports 4-channel circular microphone recording, dual-channel audio playback, audio loopback, and more. The board is shown below:
 
-![image-audio-driver-hat](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat.jpg)
+![image-audio-driver-hat](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat.jpg)
 
 For detailed information about the audio sub-board, please refer to the [Audio Driver HAT](https://www.waveshare.net/shop/Audio-Driver-HAT.htm).
 
@@ -15,7 +15,7 @@ For detailed information about the audio sub-board, please refer to the [Audio D
 
 - ### Hardware Setup
 1. Connect the expansion board to the 40-pin header of the RDK X3 as shown below.  
-![image-audio-driver-hat-setup](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
+![image-audio-driver-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
 
 2. Run the command `cat /sys/class/socinfo/som_name` to check the board type, and set the DIP switches on the audio sub-board accordingly:
    - If the returned value is 5 or 6, set all three DIP switches to the `ON` position.
@@ -25,7 +25,7 @@ For detailed information about the audio sub-board, please refer to the [Audio D
 1. Use `srpi-config` to configure the audio board.  
 Go to `3 Interface Options` -> `I5 Audio`  
 Select `Audio Driver HAT V2`:
-![image-audio-codec-select-hat-v2-rdkx5.png](../../../../../../../static/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hat-v2-rdkx5.png)
+![image-audio-codec-select-hat-v2-rdkx5.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-codec-select-hat-v2-rdkx5.png)
 
 2. Follow the prompts to execute the `reboot` command, or run `sync && reboot` to restart the board. If `cat /proc/asound/cards` shows a sound card other than `duplexaudio`, the expansion board is installed successfully.
 ```shell

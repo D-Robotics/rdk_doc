@@ -64,11 +64,11 @@ Then use the following command to enter Jupyter Lab (Note: The IP address is the
 ```
 jupyter lab --allow-root --ip 10.112.148.68
 ```
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/jupyter_start.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/jupyter_start.png)
 
 After using the command, the above log will appear. Hold Ctrl and click the link shown in the figure with the left mouse button to enter Jupyter Lab (as shown in the figure below). Double-click demos to select a model and experience RDK Model Zoo.
 
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
 
 ## Module Introduction
 
@@ -85,10 +85,10 @@ Developers can jump to the corresponding module to experience the deployment of 
 
 In Jupyter Lab, after selecting a model's notebook and entering, developers will arrive at an interface similar to the following:
 
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/basic_usage.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage.png)
 
 Here, taking the YOLO World model as an example, users only need to click the double triangle button in the above figure to run all cells. Drag the mouse to the bottom to see the result display:
 
-![](/../static/img/04_Algorithm_Application/03_model_zoo/image/basic_usage_res.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage_res.png)
 
 Developers can also choose to run cells one by one. In this case, just press Shift + Enter to complete the current cell and move to the next cell.

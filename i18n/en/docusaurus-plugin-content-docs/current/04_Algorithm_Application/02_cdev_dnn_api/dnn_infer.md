@@ -86,7 +86,7 @@ Execute an ROI inference task based on the input parameters. The caller can use 
 
   Model Limitations: During the model conversion, set the compilation parameter input_source to `{'input_name': 'resizer'}` to generate a resizer model. For specific parameter configuration details, refer to the introduction in [PTQ Quantization Principles and Steps for Model Conversion](../../07_Advanced_development/04_toolchain_development/intermediate/ptq_process#model-conversion).
 
-  ![resizer](../../../../../../static/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/resizer.png)
+  ![resizer](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/02_cdev_dnn_api/image/cdev_dnn_api/resizer.png)
 
   Currently, NV12 data with multiple inputs is also supported. The commonly used output sizes (HxW) of the resizer are: 128x128, 128x64, 64x128, 160x96.
 :::

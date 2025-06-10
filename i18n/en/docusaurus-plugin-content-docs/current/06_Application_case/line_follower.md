@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ```
 
 ## Introduction
-![](../../../../../static/img/06_Application_case/line_follower/demo.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/demo.png)
 
 The line following task refers to the ability of a robot car to autonomously follow a guide line and move forward. When the guide line turns left, the car also turns left. When the guide line turns right, the car turns right accordingly. This task is a basic task in wheeled robots and can be implemented in various ways, such as:
 
@@ -64,17 +64,17 @@ Code repository:  (https://github.com/D-Robotics/line_follower)
 
 ### D-Robotics RDK
 
-![](../../../../../static/img/06_Application_case/line_follower/framework.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/framework.png)
 
 The OriginBot kit is selected for the chassis of the car, which has two active wheels and one passive wheel. The rotation control of the car is achieved through the differential speed of the two active wheels. The MCU module is mainly used for the motor control of the car and communicates with the main control board D-Robotics RDK through serial communication. OriginBot website: [www.originbot.org](https://www.originbot.org/)
 
-![](../../../../../static/img/06_Application_case/line_follower/car.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/car.png)
 
 As shown in the above figure, the D-Robotics RDK obtains the environmental data in front of the car through a camera. The image data is processed by a trained CNN model to infer the coordinates of the guiding line. Then, based on a certain control strategy, the motion mode of the car is calculated. The motion control instructions are sent to the car through UART to achieve closed-loop control of the entire system.
 
 The PC is used for data annotation and training. To improve efficiency, the D-Robotics RDK is used to send images to the PC for annotation through Ethernet.
 
-![](../../../../../static/img/06_Application_case/line_follower/roadmap.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/roadmap.png)
 
 The entire software engineering process includes 5 main steps:
 
@@ -90,7 +90,7 @@ The entire software engineering process includes 5 main steps:
 
 Data collection and annotation are essential for model training. Here, we utilize the MIPI camera image acquisition function and inter-device communication capabilities provided by hobot_sensor in tros.b to build a simple data acquisition and annotation system on the PC. The workflow of the data acquisition and annotation system is as follows: the MIPI camera image acquisition function and inter-device communication capabilities provided by sensor in tros.b are used to build a simple data acquisition and annotation system on the PC. The workflow of the data acquisition and annotation system is as follows:
 
-![](../../../../../static/img/06_Application_case/line_follower/annotation.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/annotation.png)
 
 On the D-Robotics RDK, start mipi_cam. The selected camera module is F37, and the output image format is BGR8 with a resolution of 960x544. The communication method is non-zero copy.
 
@@ -151,13 +151,13 @@ ros2 run line_follower_model annotation
 
 Use the right mouse button to click on the center of the black guiding line in the middle of the picture to mark the target point. Press the Enter key, and the program will automatically save the image in the image_dataset folder along with the labeling results. The image is named as xy_[x-coordinate]_[y-coordinate]_[uuid].jpg, where uuid is the unique identifier of the image to avoid duplicate file names.According to the data collection and annotation methods mentioned above, collect a certain amount of data, preferably at least 100 images, for subsequent model training. Corresponding images can also be collected when there are changes in the environment or location, to improve the adaptability of the model.
 
-![](../../../../../static/img/06_Application_case/line_follower/annotation.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/annotation.gif)
 
 #### Model Selection
 
 Taking into account the maturity of the model, the hardware requirements of the CPU/GPU for training the model, ResNet network is chosen as the backbone here. Residual Neural Network (ResNet) was proposed by researchers from Microsoft Research Institute including Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. It won the championship in the 2015 ILSVRC (ImageNet Large Scale Visual Recognition Challenge). ResNet cleverly uses shortcut connections to solve the problem of model degradation in deep networks. It is one of the most widely used CNN feature extraction networks. The structure of [ResNet18](https://huggingface.co/microsoft/resnet-18) is as follows:
 
-![](../../../../../static/img/06_Application_case/line_follower/model.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/model.png)
 
 On the D-Robotics RDK, ResNet18 has a high inference performance of up to 232FPS, and ResNet50 has an inference performance of over 100FPS. The high frame rate ensures the real-time nature of data processing, which is a necessary condition for improving vehicle speed and implementing more complex applications in the future. ResNet18 network structure is used here initially, and a deeper ResNet50 network structure will be considered later if a bottleneck is encountered. In order to satisfy the output of guide line coordinates x and y, the FC output of ResNet18 network needs to be modified to 2 directly outputting the x and y coordinates of the guide line. The input resolution of ResNet18 is 224x224.
 The training framework selected here is the popular PyTorch. The CPU version of PyTorch is installed here, but the GPU version of PyTorch can be used if there is a GPU card on the hardware. The installation command is as follows:
@@ -206,7 +206,7 @@ ros2 run line_follower_model training
 
 #### Model Conversion
 
-![](../../../../../static/img/06_Application_case/line_follower/model_convert.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/model_convert.png)
 
 If the floating-point model obtained by training with PyTorch is run directly on the D-Robotics RDK, the efficiency will be low. In order to improve the running efficiency and use the 5T computing power of BPU, it is necessary to convert the floating-point model to a fixed-point model.
 
@@ -266,7 +266,7 @@ sh 02_preprocess.sh
 
    Results are as follows:
 
-   ![](../../../../../static/img/06_Application_case/line_follower/02.gif)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/02.gif)
 
    Model compilation, this step will generate fixed-point model files.
 
@@ -278,7 +278,7 @@ sh 02_preprocess.sh
 
    Results are as follows:
 
-   ![](../../../../../static/img/06_Application_case/line_follower/03.gif)
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/03.gif)
 
 #### Deployment
 
@@ -365,4 +365,4 @@ ros2 run originbot_base originbot_base
 
 The car has started line following movement.
 
-![](../../../../../static/img/06_Application_case/line_follower/tracking_car.gif)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/line_follower/tracking_car.gif)

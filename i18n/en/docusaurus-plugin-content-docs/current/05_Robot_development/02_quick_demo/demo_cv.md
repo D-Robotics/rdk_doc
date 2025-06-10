@@ -356,7 +356,7 @@ According to the log, the test program has finished processing the local 1920x10
 
 The original image is 1920x1080, and the top left corner of the image is cropped to a 960x540 region. The resulting image is shown below:
 
-![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
 
 ## Resize
 
@@ -438,7 +438,7 @@ The first run requires configuration of the hardware, so it takes more time. If 
 
 The original image (1920x1080) and the resized image (960x540) are shown below:
 
-![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
 
 #### RDK performance comparison
 
@@ -534,9 +534,9 @@ The first run takes longer because the hardware needs to be configured. If there
 
 The original image size is 1920x1080, and the size after rotation is also 1920x1080:
 
-![Original Image](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/test.jpg)
+![Original Image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
 
-![Rotated Image](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
+![Rotated Image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
 
 #### Performance comparison of hobot_cv and OpenCV
 
@@ -627,7 +627,7 @@ Because the first run requires hardware configuration, it takes more time. If th
 
 The original 1920x1080 image and the pyramid-scaled image are as follows:
 
-![](/../static/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
 
 Outputting six base layers, each layer's size is half of the previous layer's size.
 

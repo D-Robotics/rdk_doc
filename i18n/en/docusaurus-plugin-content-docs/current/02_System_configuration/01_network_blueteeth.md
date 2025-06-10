@@ -84,7 +84,7 @@ In Station mode, the development board as a client and accesses the router's wir
 
 - For users of Ubuntu Desktop version, you can click on the Wi-Fi icon in the upper right corner of the desktop, select the corresponding hotspot, and enter the password to complete the network configuration, as shown in the figure below:
 
-![image-wifi-config](../../../../../static/img/02_System_configuration/image/network/image-wifi-config.jpeg)
+![image-wifi-config](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-wifi-config.jpeg)
 
 - For users of Ubuntu Server version, you can complete the wireless network configuration through the command line, following these steps:
 
@@ -226,7 +226,7 @@ By default, the development board's wireless network runs in Station mode. To us
 
 6. Connect to the hotspot on the development board, for example, `sunrise`
 
-    ![image-20220601203025803](../../../../../static/img/02_System_configuration/image/network/image-20220601203025803.png)  
+    ![image-20220601203025803](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-20220601203025803.png)  
 
 7. If you need to switch back to `Station` mode, you can do it as follows:
     ```bash
@@ -315,7 +315,7 @@ The Bluetooth function of the development board X3 is not enabled by default, wh
 
 The log after the successful execution of the script is as follows:
 
-![image-20220601172145987](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601172145987.png)
+![image-20220601172145987](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172145987.png)
 
 In addition, users can use the following command to check if the Bluetooth process is functioning properly:
 
@@ -330,25 +330,25 @@ ps ax | grep "/usr/bin/dbus-daemon\|/usr/lib/bluetooth/bluetoothd"
 
 Execute `sudo bluetoothctl` to enter the interactive mode of Bluetooth configuration. If device information similar to the image below appears, it means that the Bluetooth has been recognized. Then, use `show` to view the Bluetooth information and pay attention to the `powered` and `discoverable` statuses of the Bluetooth.
 
-![image-20220601172604051](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601172604051.png)
+![image-20220601172604051](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172604051.png)
 
 Execute `power on` to enable the Bluetooth, as shown in the image below:
 
-![image-20220601172501882](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601172501882.png)
+![image-20220601172501882](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172501882.png)
 
 In order to make the Bluetooth discoverable to nearby devices, execute `discoverable on` to enable the Bluetooth and open the discoverable attribute of the Bluetooth, as shown in the image below:
 
-![image-20220601172648853](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601172648853.png)
+![image-20220601172648853](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172648853.png)
 
 Now, you can use a mobile phone or computer to scan for the Bluetooth device with the name `ubuntu`, as shown in the image below:
 
-![image-20220601175322650](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601175322650.jpg)
+![image-20220601175322650](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601175322650.jpg)
 
 Next, test the active scanning function of Bluetooth. In the interactive interface of `bluetoothctl`, enter `scan on` to enable active scanning. It will periodically print nearby devices. You can see that my mobile phone device has been discovered. Enter `scan off` to disable the scanning function and summarize the scanned Bluetooth devices.
 
-![image-20220601154131158](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601154131158.png)
+![image-20220601154131158](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154131158.png)
 
-![image-20220601154253947](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601154253947.png)
+![image-20220601154253947](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154253947.png)
 
 Then comes the pairing with other Bluetooth devices:
 
@@ -356,6 +356,6 @@ Then comes the pairing with other Bluetooth devices:
 
 - After successful pairing, you can use `trust [targetMAC]` to automatically connect next time.
 
-![image-20220601154414717](../../../../../static/img/02_System_configuration/image/hardware_interface/image-20220601154414717.png)
+![image-20220601154414717](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154414717.png)
 
 After the above operations, the basic functions of Bluetooth scanning and pairing are completed. For more functions, please refer to the official help documentation of `BlueZ`.

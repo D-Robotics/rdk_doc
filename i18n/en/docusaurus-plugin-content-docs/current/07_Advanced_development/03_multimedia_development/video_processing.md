@@ -21,11 +21,11 @@ sidebar_position: 6
 
 
 ### Function Description
-![Func Description](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description.png)
+![Func Description](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description.png)
 
 The `VPS` can be bound to other modules via the system control interface provided by [System Control](./system_control). It can accept inputs from the `VIN` and `VDEC` modules, and its outputs can be connected to the `VOT`, `VENC`, or another `VPS` module for more channels. Input sources are connected to `VPS`, and receivers are connected from `VPS`. Users can manage groups through the `VPS` interface, with each group allowed to bind to only one input source, and each channel capable of binding to different modules. When connecting `VPS` to `VIN`, the `HB_SYS_SetVINVPSMode` function must be called to configure the online or offline mode between `VIN` and `VPS`.
 
-![Func Description Topology](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description_topology.png)
+![Func Description Topology](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_ch5_func_description_topology.png)
 
 The `VPS` hardware consists of an `IPU`, a `PYM`, and two `GDC`s. It offers seven output channels (chn0 to chn6), with chn0 to chn4 supporting downsampling, chn5 enabling upsampling, and all channels capable of cropping (ROI), rotation, correction, and frame rate control. Chn6 serves as the pyramid online channel. The hardware reuses resources, with the gray block in the OSD being CPU overlay, and the three beige blocks representing hardware overlays.
 
@@ -1066,56 +1066,56 @@ int HB_VPS_CloseChnFd(void);
 ### VPS Interface Call Flow
 The VPS initialization interface mainly consists of Group initialization and Channel initialization. The Group interface can be seen as a global configuration, where Group attributes apply to the entire VPS output. On the other hand, Channel interfaces are used for configuring separate output channels individually, with properties set only for the current channel. When initializing, you need to first configure Group properties, followed by the properties for each individual channel.
 
-![image-20220329204239415](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/image-20220329204239415.png)
+![image-20220329204239415](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/image-20220329204239415.png)
 
 ### VPS Scenario Usage Guide
 The VPS internally consists of four modules: one IPU, one PYM, and two GDCs. These modules are dynamically bound together based on the order of interface calls. It can run individually or in combination with multiple modules. The sequence of interface calls for different connection relationships is as follows:
 
-![VPS IPU](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu.png)
+![VPS IPU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu.png)
 
 If only one module IPU is used, after creating the Group, you need to call HB_VPS_SetChnAttr. If multiple channels need to be output from IPU, then you need to call this interface multiple times.
 
-![VPS GDC](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc.png)
+![VPS GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc.png)
 
 If only the GDC module is used, after creating the Group, you need to call HB_VPS_SetGrpGdc/Rotate interface.
 
-![VPS PYM](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_pym.png)
+![VPS PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_pym.png)
 
 If only the PYM module is used, after creating the Group, you need to call HB_VPS_SetPymChnAttr interface.
 
-![VPS IPU_PYM](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_pym.png)
+![VPS IPU_PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_pym.png)
 
 When IPU is the first module and PYM is the second module, after creating the Group, you need to call HB_VPS_SetChnAttr first and then call HB_VPS_SetPymChnAttr.
 
-![VPS GDC_IPU](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu.png)
+![VPS GDC_IPU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu.png)
 
 When GDC comes before IPU, you need to call HB_VPS_SetGrpGdc/Rotate first and then call HB_VPS_SetChnAttr.
 
-![VPS GDC_PYM](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_pym.png)
+![VPS GDC_PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_pym.png)
 
 When GDC comes before PYM, you need to call HB_VPS_SetGrpGdc/Rotate first and then call HB_VPS_SetPymChnAttr.
 
-![VPS IPU_GDC](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc.png)
+![VPS IPU_GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc.png)
 
 When IPU comes before GDC, you need to call HB_VPS_SetChnAttr first and then call HB_VPS_SetChnGdc/Rotate.
 
-![VPS IPU_GDC_PYM](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym.png)
+![VPS IPU_GDC_PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym.png)
 
 If IPU comes before GDC and then PYM, you need to call HB_VPS_SetChnAttr first, then call HB_VPS_SetChnGdc/Rotate, and finally call HB_VPS_SetPymChnAttr.
 
-![VPS IPU_GDC+PYM](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc+pym.png)
+![VPS IPU_GDC+PYM](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc+pym.png)
 
 If multiple channels output from IPU need to be connected to GDC and PYM separately, then you need to call HB_VPS_SetChnAttr(chnA), HB_VPS_SetChnAttr(chnB), and then HB_VPS_SetChnGdc/Rotate(chnA), and finally HB_VPS_SetPymChnAttr(chnB).
 
-![VPS IPU_GDC_PYM+GDC](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym+gdc.png)
+![VPS IPU_GDC_PYM+GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu_gdc_pym+gdc.png)
 
 You need to call HB_VPS_SetChnAttr(chnA), HB_VPS_SetChnAttr(chnB), then HB_VPS_SetChnGdc/Rotate(chnA), HB_VPS_SetChnGdc/Rotate(chnB), and finally HB_VPS_SetPymChnAttr(chnB).
 
-![VPS IPU+GDC+PYM+GDC](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu+gdc+pym+gdc.png)
+![VPS IPU+GDC+PYM+GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_ipu+gdc+pym+gdc.png)
 
 You need to call HB_VPS_SetChnAttr(chnA), HB_VPS_SetChnAttr(chnB), HB_VPS_SetChnAttr(chnC), then HB_VPS_SetChnGdc/Rotate(chnA), HB_VPS_SetPymChnAttr(chnB), and HB_VPS_SetChnGdc/Rotate(chnC).
 
-![VPS IPU_GDC_PYM_GDC](../../../../../../static/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu_gdc_pym.png)
+![VPS IPU_GDC_PYM_GDC](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/video_processing/ss_vps_gdc_ipu_gdc_pym.png)
 
 If all four modules in VPS need to be run together, you need to call HB_VPS_SetGrpGdc, HB_VPS_SetChnAttr(chnA), HB_VPS_SetChnRotate(chnA), and HB_VPS_SetPymChnAttr(chnA).
 

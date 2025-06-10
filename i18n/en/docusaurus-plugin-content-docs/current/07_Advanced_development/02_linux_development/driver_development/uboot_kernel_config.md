@@ -46,9 +46,9 @@ make ARCH=arm64 xj3_ubuntu_nand_defconfig
 
 Then, you can execute `make ARCH=arm64 menuconfig` to open the graphical configuration interface for configuring Uboot options.
 
-![image-20220518111319607](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111319607.png)After completing the configuration in the menuconfig interface, select "Exit" and choose "Yes" or "No" to save the modifications to the `.config` file according to the prompt.
+![image-20220518111319607](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111319607.png)After completing the configuration in the menuconfig interface, select "Exit" and choose "Yes" or "No" to save the modifications to the `.config` file according to the prompt.
 
-![image-20220518111506018](../../../../../../../static/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
+![image-20220518111506018](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development/image-20220518111506018.png)
 
 After saving the configuration, execute the command `diff .config configs/xj3_ubuntu_nand_defconfig` to compare the differences and confirm whether the modifications meet expectations.
 

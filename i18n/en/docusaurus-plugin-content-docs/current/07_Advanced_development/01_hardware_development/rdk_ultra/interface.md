@@ -6,8 +6,8 @@ sidebar_position: 2
 
 The RDK Ultra development kit provides various peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and 40-pin connectors, making it easy for users to experience functionalities and conduct development and testing. The interface layout is as follows:
 
-![image-carrier-board1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface1.jpg)
-![image-carrier-board2](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg)
+![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface1.jpg)
+![image-carrier-board2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg)
 
 | No.  | Interface Function     | No.  | Interface Function       | No.  | Interface Function       |
 | ---- | ---------------------- | ---- | ------------------------ | ---- | ------------------------ |
@@ -82,10 +82,10 @@ The RDK Ultra development board provides a functional control interface (Interfa
 | 7       | PWR_EN   | Power enable signal                  | Shorted to GND with a jumper cap to disable power |
 | 8       | GND      | Ground signal                        | GND                             |
 
-![image-carrier-board-control-pin1](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface-control.jpg)
+![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface-control.jpg)
 
 ## 40pin Header Interface
 
 The RDK Ultra development board provides a 40-pin header interface (Interface 7) that supports GPIO, UART, I2C, SPI, I2S, and other interfaces. The detailed pin definitions and multiplexing relationships are shown below:
 
-![image-40pin-header](../../../../../../../static/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-interface-40pin.jpg)
+![image-40pin-header](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-interface-40pin.jpg)

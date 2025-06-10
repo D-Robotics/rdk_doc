@@ -116,9 +116,9 @@ This section addresses frequently asked questions about developing and using Tog
     * How to use hardware codecs (`hobot_codec`) for image/video encoding (H.264, H.265, MJPEG) and decoding.
     * How to efficiently transfer image data between ROS2 nodes (possibly using zero-copy).
     * Related sample code and launch files.
-    ![TROS Multimedia Solution Diagram](../../../../../static/img/08_FAQ/image/tros1.png)
-    ![TROS Multimedia Solution Diagram](../../../../../static/img/08_FAQ/image/tros2.png)
-    ![TROS Multimedia Solution Diagram](../../../../../static/img/08_FAQ/image/tros3.png)
+    ![TROS Multimedia Solution Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/tros1.png)
+    ![TROS Multimedia Solution Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/tros2.png)
+    ![TROS Multimedia Solution Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/tros3.png)
 
 ### Q8: After launching a USB or MIPI camera node, the terminal says "[usb_camera_calibration.yaml] does not exist!" Is this normal?
 **A:** This message is **usually normal and does not necessarily mean the camera isn't working**.
