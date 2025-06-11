@@ -95,8 +95,14 @@ sidebar_position: 0
 
 <font color="red">注意事项：</font>
 - 更新系统后，请使用 rdk-miniboot-update 命令更新nand固件至最新版本
+- 官方会定期发布新版镜像，这些镜像包含了最新的功能优化和问题修复。用户既可以通过下载最新镜像进行安装，也可以直接通过在线升级方式获取系统更新。
 
 ####  TROS算法升级 & 版本号：3.2.3
+
+镜像更新
+
+- **20250610** 更新ROS仓库GPG签名密钥；支持[实时内核切换](./Advanced_development/linux_development/realtime_kernel#x5系列板卡)；集成了最新版的iniboot固件，使用rdk-miniboot-update命令烧录nand后，会释放更多内存给系统。
+- **20250604** 修复了配置幻尔载板系统启动失败的问题。
 
 系统层更新
 
