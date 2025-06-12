@@ -35,9 +35,8 @@ This document details how to use the RDK Suite, including setting up the develop
 
 **RDK X5** is a full-featured development board with 10Tops edge inference performance and an 8-core ARM A55 processor. It supports 2 MIPI Camera inputs and 4 USB3.0 ports, offering flexible hardware expansion and connectivity options.
 
-**RDK Ultra** is a high-performance development kit with 96Tops edge inference performance and an 8-core ARM A55 processor. It supports 4 MIPI Camera inputs, 4 USB3.0 ports, and 3 PCIe3.0 interfaces, meeting the needs of various scenarios.
 
-![image-rdk-serials](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/image-rdk-serials.jpg)
+![image-rdk-serials-en](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/image-rdk-serials-en.jpg)
 
 ### Operating Temperature and Cooling Recommendations
 

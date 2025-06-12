@@ -14,7 +14,6 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <th style={{ width: `160px`, textAlign: 'center' }}>Product Category</th>
       <th style={{ width: `140px`, textAlign: 'center' }}>RDK X5</th>
       <th style={{ width: `140px`, textAlign: 'center' }}>RDK X3</th>
-      <th style={{ width: `140px`, textAlign: 'center' }}>RDK Ultra</th>
       <th style={{ width: `300px`, textAlign: 'center' }}>Description</th>
     </tr>
   </thead>
@@ -23,28 +22,24 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}>System Images</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/os_images/rdk_x5/">RDK X5 Images</a></td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/os_images/rdk_x3/">RDK X3 Images</a></td>
-      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/os_images/rdk_ultra/">RDK Ultra Images</a></td>
       <td style={{ textAlign: 'center' }}>System Images &lt; 3.0.0: Ubuntu 20.04 <br /> System Images &gt;=3.0.0: Ubuntu 22.04</td>
     </tr>
     <tr>
       <td style={{ textAlign: 'center' }}>MiniBoot</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/miniboot/rdk_x5/">RDK X5 MiniBoot</a></td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/miniboot/">RDK X3 MiniBoot</a></td>
-      <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>A lightweight bootloader for OS booting, generally not requiring manual installation</td>
     </tr>
     <tr>
       <td style={{ textAlign: 'center' }}>OpenExplore Release</td>
       <td style={{ textAlign: 'center' }}><a href="https://developer.d-robotics.cc/forumDetail/251934919646096384">RDK X5 OpenExplore</a></td>
       <td style={{ textAlign: 'center' }}><a href="https://developer.d-robotics.cc/forumDetail/136488103547258769">RDK X3 OpenExplore</a></td>
-      <td style={{ textAlign: 'center' }}><a href="https://developer.d-robotics.cc/forumDetail/118363912788935318">RDK Ultra OpenExplore</a></td>
       <td style={{ textAlign: 'center' }}>OpenExplore release package with numerous conversion examples and source code, used with OpenExplore Docker on x86 development machines</td>
     </tr>
     <tr>
       <td style={{ textAlign: 'center' }}>Algorithm Toolchain Manual</td>
       <td style={{ textAlign: 'center' }}><a href="https://developer.d-robotics.cc/api/v1/fileData/x5_doc-v126cn/index.html">RDK X5 Manual</a></td>
       <td style={{ textAlign: 'center' }}><a href="https://developer.d-robotics.cc/api/v1/fileData/horizon_xj3_open_explorer_cn_doc/index.html">RDK X3 Manual</a></td>
-      <td style={{ textAlign: 'center' }}><a href="https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/index.html">RDK Ultra Manual</a></td>
       <td style={{ textAlign: 'center' }}>OpenExplore commercial algorithm manual, prioritize community manuals*</td>
     </tr>
   </tbody>
@@ -61,7 +56,6 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <th style={{ width: `10px`, textAlign: 'center' }}>RDK X5 Module</th>
       <th style={{ width: `120px`, textAlign: 'center' }}>RDK X3</th>
       <th style={{ width: `150px`, textAlign: 'center' }}>RDK X3 Module</th>
-      <th style={{ width: `100px`, textAlign: 'center' }}>RDK Ultra</th>
       <th style={{ width: `200px`, textAlign: 'center' }}>Description</th>
     </tr>
   </thead>
@@ -78,7 +72,6 @@ This document summarizes the download resources related to the D-Robotics RDK su
         <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK_X3_Module_Design_Guide.pdf">Design Guide</a><br />
         <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK_X3_Module_PINMUX.xlsx">PINMUX</a>
       </td>
-      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf">RDK Ultra Development Kit Specifications</a><br /><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf">RDK Ultra Module Specifications</a></td>
       <td style={{ textAlign: 'center' }}>Details product specifications, features, dimensions, and models</td>
     </tr>
     <tr>
@@ -88,14 +81,12 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_2.0_IO_Schematics.pdf">RDK X3-2.0 Schematics</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>/</td>
-      <td style={{ textAlign: 'center' }}></td>
     </tr>
     <tr>
       <td style={{ textAlign: 'center' }}>Mechanical Drawings</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">RDK X5 2D Bottom</a><br /><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_top_dxf.dxf">RDK X5 2D Top</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
-      <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>Mechanical drawings showing dimensions of various parts</td>
     </tr>
@@ -105,7 +96,6 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_3D_Step_Models.stp">RDK X3-2.0 3D</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
-      <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>3D representations of mechanical structures</td>
     </tr>
     <tr>
@@ -114,7 +104,6 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/Reference_Design.zip">RDK X3 Module Design</a></td>
-      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design">RDK Ultra Design</a></td>
       <td style={{ textAlign: 'center' }}>Includes schematics, PCB, 3D models, BOM list, gerber files, and other technical resources</td>
     </tr>
   </tbody>
