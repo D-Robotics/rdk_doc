@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">D-Robotics RDK套件 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/RDK"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="D-Robotics RDK套件 | RDK DOC"><meta data-rh="true" name="description" content="本文档为D-Robotics RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考系统烧录章节。"><meta data-rh="true" property="og:description" content="本文档为D-Robotics RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考系统烧录章节。"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/RDK"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/RDK" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/RDK" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/RDK" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"D-Robotics RDK套件","item":"https://developer.d-robotics.cc/rdk_doc/RDK"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.cd83b4b4.css">
-<script src="/rdk_doc/assets/js/runtime~main.1a8fa85e.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.10e12733.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.421866d4.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.2ec95cc8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -75,8 +75,14 @@
 <font color="red">注意事项：</font>
 <ul>
 <li>更新系统后，请使用 rdk-miniboot-update 命令更新nand固件至最新版本</li>
+<li>官方会定期发布新版镜像，这些镜像包含了最新的功能优化和问题修复。用户既可以通过下载最新镜像进行安装，也可以直接通过在线升级方式获取系统更新。</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="tros算法升级--版本号323">TROS算法升级 &amp; 版本号：3.2.3<a href="#tros算法升级--版本号323" class="hash-link" aria-label="TROS算法升级 &amp; 版本号：3.2.3的直接链接" title="TROS算法升级 &amp; 版本号：3.2.3的直接链接">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="tros算法升级--版本号323">TROS算法升级 &amp; 版本号：3.2.3<a href="#tros算法 升级--版本号323" class="hash-link" aria-label="TROS算法升级 &amp; 版本号：3.2.3的直接链接" title="TROS算法升级 &amp; 版本号：3.2.3的直接链接">​</a></h4>
+<p>镜像更新</p>
+<ul>
+<li><strong>20250610</strong> 更新ROS仓库GPG签名密钥；支持<a href="/rdk_doc/Advanced_development/linux_development/realtime_kernel#x5%E7%B3%BB%E5%88%97%E6%9D%BF%E5%8D%A1">实时内核切换</a>；集成了最新版的iniboot固件，使用rdk-miniboot-update命令烧录nand后，会释放更多内存给系统。</li>
+<li><strong>20250604</strong> 修复了配置幻尔载板系统启动失败的问题。</li>
+</ul>
 <p>系统层更新</p>
 <ul>
 <li><strong>桌面显示优化</strong> Ubuntu 桌面支持 3D GPU 加速渲染，视觉体验更流畅。</li>
@@ -97,7 +103,7 @@
 <p><strong>核心功能亮点：</strong></p>
 <ul>
 <li><strong>系统备份</strong> 全新 rdk-backup 工具，一键备份当前系统，轻松生成可烧录镜像。<a href="/rdk_doc/Appendix/rdk-command-manual/cmd_rdk-backup">rdk-backup介绍</a>。</li>
-<li><strong>配置管理</strong> 支持使用 config.txt 配置 40pin 引脚在 U-Boot 阶段的  初始化状态，提升系统启动稳定性。</li>
+<li><strong>配置管理</strong> 支持使用 config.txt 配置 40pin 引脚在 U-Boot 阶段的初始化状态，提升系统启动稳定性。</li>
 <li><strong>触摸屏增强</strong> 新增双击和长按操作，长按模拟右键，屏幕控制更加灵活。</li>
 <li><strong>设备树覆盖支持</strong> 增加 1_wire 设备树覆盖（dtoverlay）示例，为定制硬件连接提供更多选择。</li>
 <li><strong>双目算法升级</strong>  StereoNet 深度算法升级，显著提升深度效果；新增 ZED 相机支持，实现双目图像采集，搭配 StereoNet 轻松构建智能视觉系统。</li>
@@ -135,7 +141,7 @@
 <p>新增功能：</p>
 <ul>
 <li>提供Server版本固件；</li>
-<li>支持7款 微雪 MIPI DSI LCD 屏幕的桌面显示和触控;</li>
+<li>支持7款 微雪 MIPI DSI LCD 屏幕的桌  面显示和触控;</li>
 <li>支持非root用户执行示例程序；</li>
 </ul>
 <p>优化改进：</p>
@@ -164,7 +170,7 @@
 <li>支持在hdmi显示器上输出启动日志和进入用户命令行，方便用户使用。</li>
 <li>支持更多的hdmi显示分辨率，极大的增强了兼容性。</li>
 <li>优化了Desktop和server版本的预装软件清单，删除冗余项，补充必要软件，如添加vlc。</li>
-<li>优化了Desktop菜单栏的布局，精简选项。</li>
+<li>优化 了Desktop菜单栏的布局，精简选项。</li>
 <li>默认开启蓝牙功能。</li>
 <li>增加后处理的C++接口，提高后处理效率。</li>
 <li>使用udisk2自动挂载U盘，解决NTFS文件系统自动挂载后不能访问的问题。</li>
@@ -193,13 +199,13 @@
 <ul>
 <li>我们引入了全新的核心板开发者套件，RDK X3 Module。</li>
 <li>RDK X3 Module拥有更小的尺寸，并兼容树莓派CM4接口。</li>
-<li>开发者可以根据需求选择适配的第三方载板，从而扩展核心板的功能和应用场景。</li>
+<li>开 发者可以根据需求选择适配的第三方载板，从而扩展核心板的功能和应用场景。</li>
 </ul>
 <p>其他更新：</p>
 <ul>
 <li>我们对已有功能进行了优化，修复了已知问题和漏洞，提升了操作系统的稳定性和性能。</li>
 <li>修订了文档和帮助文档，提供更全面、准确的技术资料和指南。</li>
 <li>我们提供了更低层的API，方便开发者进行二次开发和集成，使其能够更加灵活地定制软件。</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-06-12T04:33:03.000Z" itemprop="dateModified">2025年6月12日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Quick_start"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1. 快速开始</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#d-robotics-rdk套件概述" class="table-of-contents__link toc-highlight">D-Robotics RDK套件概述</a></li><li><a href="#产品介绍" class="table-of-contents__link toc-highlight">产品介绍</a><ul><li><a href="#工作温度与散热建议" class="table-of-contents__link toc-highlight">工作温度与散热建议</a></li></ul></li><li><a href="#文档使用指引" class="table-of-contents__link toc-highlight">文档使用指引</a></li><li><a href="#版本发布记录" class="table-of-contents__link toc-highlight">版本发布记录</a><ul><li><a href="#rdk-x5" class="table-of-contents__link toc-highlight">RDK X5</a></li><li><a href="#rdk-x3" class="table-of-contents__link toc-highlight">RDK X3</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-06-12T12:49:30.000Z" itemprop="dateModified">2025年6月12日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Quick_start"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1. 快速开始</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#d-robotics-rdk套件概述" class="table-of-contents__link toc-highlight">D-Robotics RDK套件概述</a></li><li><a href="#产品介绍" class="table-of-contents__link toc-highlight">产品介绍</a><ul><li><a href="#工作温度与散热建议" class="table-of-contents__link toc-highlight">工作温度与散热建议</a></li></ul></li><li><a href="#文档使用指引" class="table-of-contents__link toc-highlight">文档使用指引</a></li><li><a href="#版本发布记录" class="table-of-contents__link toc-highlight">版本发布记录</a><ul><li><a href="#rdk-x5" class="table-of-contents__link toc-highlight">RDK X5</a></li><li><a href="#rdk-x3" class="table-of-contents__link toc-highlight">RDK X3</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
