@@ -1,4 +1,7 @@
 ---
+sidebar_position: 1
+---
+
 # RDK S100 开发工具包
 
 ## 版本：3.2.0
