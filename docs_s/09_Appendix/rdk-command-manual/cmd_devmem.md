@@ -41,4 +41,3 @@ devmem ADDRESS [WIDTH [VALUE]]
 写16位: devmem 0xa6003078 16 0x1234
 写8位: devmem 0xa6003078 8 0x12
 ```
-
