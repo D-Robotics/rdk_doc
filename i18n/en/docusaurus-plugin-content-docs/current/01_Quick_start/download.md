@@ -64,7 +64,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}>Specifications</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_Product_Brief_V1.0.pdf">RDK X5 Specifications</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
-      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_2.0_Product_Brief.pdf">RDK X3-2.0 Specifications</a></td>
+      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_Product_Brief.pdf">RDK X3-2.0 Specifications</a></td>
       <td style={{ textAlign: 'center' }}>
         <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK_X3_Module_Product_Brief.pdf">RDK X3 Module Specifications</a><br />
         <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK_X3_Module_Carrier_Board_Product_Brief.pdf">Carrier Board Specifications</a><br />
@@ -78,7 +78,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}>Schematics</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_IO_CONN_PUBLIC_V1.0.pdf">RDK X5 Schematics</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
-      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_2.0_IO_Schematics.pdf">RDK X3-2.0 Schematics</a></td>
+      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_IO_Schematics.pdf">RDK X3-2.0 Schematics</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>/</td>
     </tr>
@@ -86,7 +86,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td style={{ textAlign: 'center' }}>Mechanical Drawings</td>
       <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">RDK X5 2D Bottom</a><br /><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_top_dxf.dxf">RDK X5 2D Top</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
-      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
+      <td style={{ textAlign: 'center' }}><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td style={{ textAlign: 'center' }}>/</td>
       <td style={{ textAlign: 'center' }}>Mechanical drawings showing dimensions of various parts</td>
     </tr>

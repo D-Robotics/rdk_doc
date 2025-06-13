@@ -7,7 +7,7 @@ Welcome to this project! This document will help you quickly get started with th
 To install the dependencies for this project, execute the following command:
 
 ```shell
-$ npm install
+npm install
 ```
 
 ### II. Online Operation
@@ -16,13 +16,13 @@ $ npm install
 To build only the Chinese manual:
 
 ```shell
-$ npm run start
+npm run start
 ```
 
 To build only the English manual:
 
 ```shell
-$ npm run start  -- --locale en
+npm run start  -- --locale en
 ```
 
 This method does not support switching between Chinese and English documents. It can only build a single language document. If you need to display Chinese and English simultaneously, please refer to the method in Step III.
@@ -33,7 +33,7 @@ This method does not support switching between Chinese and English documents. It
 For compiling and deploying the documents, use the following command:
 
 ```shell
-$ npm run build
+npm run build
 ```
 
 To deploy the documents, use the following command:
@@ -41,11 +41,11 @@ To deploy the documents, use the following command:
 ```shell
 #Direct Deployment
 
-$ npm run serve
+npm run serve
 
 #Deploy with Specified IP Address and Port Number
 
-$ npm run serve -- --host=10.64.29.52 --port=1688 --no-open
+npm run serve -- --host=10.64.62.34 --port=1688 --no-open
 ```
 
 This will start a static file server and provide the following links for access in the browser，The port number should be based on the actual port number:

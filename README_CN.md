@@ -8,10 +8,10 @@
 安装本项目的依赖，请执行以下命令：
 
 ```shell
-$ npm install
+npm install
 
 # 如安装失败
-$ npm install --registry=https://registry.npmmirror.com
+npm install --registry=https://registry.npmmirror.com
 ```
 
 ### 二、在线运行
@@ -19,13 +19,13 @@ $ npm install --registry=https://registry.npmmirror.com
 仅构建中文手册：
 
 ```shell
-$ npm run start
+npm run start
 ```
 
 仅构建英文手册：
 
 ```shell
-$ npm run start  -- --locale en
+npm run start  -- --locale en
 ```
 
 本方式无法实现文档的中英文切换，只能实现单种语言文档的构建，如果需要中英文同步显示，需要参考步骤三的方式。
@@ -36,7 +36,7 @@ $ npm run start  -- --locale en
 文档编译确的编译部署方式，使用以下命令：
 
 ```shell
-$ npm run build
+npm run build
 ```
 
 文档部署方式，使用以下命令：
@@ -44,11 +44,11 @@ $ npm run build
 ```shell
 #直接部署
 
-$ npm run serve
+npm run serve
 
 #指定ip地址和端口号部署
 
-$ npm run serve -- --host=10.64.29.52 --port=1688 --no-open
+npm run serve -- --host=10.64.62.34 --port=1688 --no-open
 
 ```
 
