@@ -1,0 +1,46 @@
+name: Deploy Docusaurus site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 当 main 分支有推送时触发部署
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.19.1'  # 使用 Node.js 18.19.1 版本
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Docusaurus site
+      run: npm run build
+
+    - name: Debug env variables
+      run: |
+        echo "GIT_USER: ${{ secrets.GITHUB_ACTOR }}"
+        echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+        echo "GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}"
+
+        
+    - name: Set up Git config
+      run: |
+        git config --global user.email "xgs11@qq.com"
+        git config --global user.name "xuguosheng110"
+        
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+    - name: Deploy to GitHub Pages
+      run: USE_SSH=true npm run deploy
