@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-FAQ/hardware_and_system" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">8.1 硬件、系统与环境配置 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="8.1 硬件、系统与环境配置 | RDK DOC"><meta data-rh="true" name="description" content="认证配件及购买链接请参考认证配件清单"><meta data-rh="true" property="og:description" content="认证配件及购买链接请参考认证配件清单"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/FAQ/hardware_and_system" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"8. 常见问题","item":"https://developer.d-robotics.cc/rdk_doc/FAQ"},{"@type":"ListItem","position":2,"name":"8.1 硬件、系统与环境配置","item":"https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.cd83b4b4.css">
+<script src="/rdk_doc/assets/js/runtime~main.d25a6b62.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.560dbed8.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/rdk_doc/img/logo.png" alt="地瓜机器人社区 logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/rdk_doc/img/logo.png" alt="地瓜机器人社区 logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">D-Robotics</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rdk_doc/RDK">RDK X3 / X5</a><a class="navbar__item navbar__link" href="/rdk_doc/rdk_s/RDK">RDK S100</a><a href="https://developer.d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>CN</a><ul class="dropdown__menu"><li><a href="/rdk_doc/FAQ/hardware_and_system" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh-Hans">CN</a></li><li><a href="/rdk_doc/en/FAQ/hardware_and_system" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">EN</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rdk_doc/RDK">D-Robotics RDK套件</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Quick_start">1. 快速开始</a><button aria-label="展开侧边栏分类 &#x27;1. 快速开始&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/System_configuration">2. 系统配置</a><button aria-label="展开侧边栏分类 &#x27;2. 系统配置&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Basic_Application">3. 基础应用开发</a><button aria-label="展开侧边栏分类 &#x27;3. 基础应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Basic_Development">4. 算法应用开发</a><button aria-label="展开侧边栏分类 &#x27;4. 算法应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Robot_development">5. 机器人应用开发</a><button aria-label="展开侧边栏分类 &#x27;5. 机器人应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Application_case">6. 应用开发指南</a><button aria-label="展开侧边栏分类 &#x27;6. 应用开发指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Advanced_development">7. 进阶开发</a><button aria-label="展开侧边栏分类 &#x27;7. 进阶开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/rdk_doc/FAQ">8. 常见问题</a><button aria-label="折叠侧边栏分类 &#x27;8. 常见问题&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rdk_doc/FAQ/hardware_and_system">8.1 硬件、系统与环境配置</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/FAQ/interface">8.2 接口、外设与驱动</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/FAQ/applications_and_examples">8.3 应用开发、编译与示例</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/FAQ/multimedia">8.4 多媒体处理与应用</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/FAQ/toolchain">8.5 AI模型、算法与工具链</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/FAQ/tros_ros">8.6 TROS/ROS 开发</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/Appendix">9. 附录</a><button aria-label="展开侧边栏分类 &#x27;9. 附录&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/rdk_doc/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/rdk_doc/FAQ"><span>8. 常见问题</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">8.1 硬件、系统与环境配置</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>8.1 硬件、系统与环境配置</h1></header>
+<p>认证配件及购买链接请参考<a href="https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory" target="_blank" rel="noopener noreferrer">认证配件清单</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q1-什么是d-robotics-rdk套件">Q1: 什么是D-Robotics RDK套件？<a href="#q1-什么是d-robotics-rdk套件" class="hash-link" aria-label="Q1: 什么是D-Robotics RDK套件？的直接链接" title="Q1: 什么是D-Robotics RDK套件？的直接链接">​</a></h3>
+<p><strong>A:</strong> D-Robotics Developer Kits，简称<a href="https://developer.d-robotics.cc/rdk_doc/" target="_blank" rel="noopener noreferrer">D-Robotics RDK套件</a>，是基于D-Robotics智能芯片打造的机器人开发者套件，目前主要包括<strong>RDK X3（旭日X3派）</strong>、<strong>RDK X3 Module（旭日X3模组）</strong>、<strong>RDK X5</strong>、<strong>RDK Ultra</strong>等系列。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q2-如何查看rdk板卡的系统版本号">Q2: 如何查看RDK板卡的系统版本号？<a href="#q2-如何查看rdk板卡的系统版本号" class="hash-link" aria-label="Q2: 如何查看RDK板卡的系统版本号？的直接链接" title="Q2: 如何查看RDK板卡的系统版本号？的直接链接">​</a></h3>
+<p><strong>A:</strong> 登录到RDK板卡的系统后，您可以使用以下命令：</p>
+<ol>
+<li>
+<p><strong>查看系统大版本号：</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cat /etc/version</span><br></span></code></pre></div></div>
+<p>例如，输出可能是 <code>2.0.0</code> 或 <code>x3_ubuntu_v1.1.6</code>。</p>
+</li>
+<li>
+<p><strong>查看已安装的地瓜核心功能包版本：</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">apt list --installed | grep hobot</span><br></span></code></pre></div></div>
+<p>或者使用 <code>rdkos_info</code> 命令（适用于较新的系统版本，如2.1.0及以后）：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rdkos_info</span><br></span></code></pre></div></div>
+<p><strong>示例输出 (RDK OS 2.x 版本，如2.0.0):</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# apt list --installed | grep hobot</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hobot-boot/unknown,now 2.0.0-20230530181103 arm64 [installed]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hobot-bpu-drivers/unknown,now 2.0.0-20230530181103 arm64 [installed]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ... 其他 hobot-* 包</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# cat /etc/version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2.0.0</span><br></span></code></pre></div></div>
+<p><strong>示例输出 (RDK OS 1.x 版本，如1.1.6):</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# apt list --installed | grep hobot</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hobot-arm64-boot/unknown,now 1.1.6 arm64 [installed]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ... 其他 hobot-arm64-* 包</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# cat /etc/version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">x3_ubuntu_v1.1.6</span><br></span></code></pre></div></div>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q3-不同rdk-os系统版本和硬件平台之间有什么对应关系">Q3: 不同RDK OS系统版本和硬件平台之间有什么对应关系？<a href="#q3-不同rdk-os系统版本和硬件平台之间有什么对应关系" class="hash-link" aria-label="Q3: 不同RDK OS系统版本和硬件平台之间有什么对应关系？的直接链接" title="Q3: 不同RDK OS系统版本和硬件平台之间有什么对应关系？的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>RDK OS 2.x 及更新版本系统 (如2.0.0, 2.1.0, 3.0.x)：</strong>
+<ul>
+<li>基于D-Robotics Linux开源代码包制作。</li>
+<li>通常支持对应芯片的RDK系列硬件，例如RDK X3的2.x/3.x系统支持RDK X3、RDK X3 Module。</li>
+</ul>
+</li>
+<li><strong>RDK OS 1.x 版本系统：</strong>
+<ul>
+<li>基于闭源Linux系统制作，属于历史版本。</li>
+<li>主要支持早期的RDK X3硬件。</li>
+</ul>
+</li>
+</ul>
+<p><strong>重要注意事项：</strong></p>
+<ul>
+<li><strong>版本升级：</strong> 1.x版本系统<strong>无法</strong>通过<code>apt</code>命令直接升级到2.x或更新版本的系统。如需升级，必须通过烧录新版本系统镜像的方式重新<a href="https://developer.d-robotics.cc/rdk_doc/install_os" target="_blank" rel="noopener noreferrer">安装操作系统</a>。</li>
+<li><strong>TROS兼容性：</strong> 不同大版本的TROS（如基于Foxy的TROS和基于Humble的TROS）通常与特定的RDK OS大版本绑定。例如，RDK OS 2.x 通常搭载基于ROS2 Foxy的TROS，而RDK OS 3.x 通常搭载基于ROS2 Humble的TROS。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q4-摄像头插拔有什么注意事项">Q4: 摄像头插拔有什么注意事项？<a href="#q4-摄像头插拔有什么注意事项" class="hash-link" aria-label="Q4: 摄像头插拔有什么注意事项？的直接链接" title="Q4: 摄像头插拔有什么注意事项？的直接链接">​</a></h3>
+<p><strong>A:</strong> <strong>严禁在开发板未断电的情况下插拔摄像头，否则非常容易烧坏摄像头模组或主板接口。</strong> 请务必在断开开发板所有电源后，再进行摄像头的连接或移除操作。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q5-rdk-x3-的调试串口线如何正确连接">Q5: RDK X3 的调试串口线如何正确连接?<a href="#q5-rdk-x3-的调试串口线如何正确连接" class="hash-link" aria-label="Q5: RDK X3 的调试串口线如何正确连接?的直接链接" title="Q5: RDK X3 的调试串口线如何正确连接?的直接链接">​</a></h3>
+<p><strong>A:</strong> RDK X3的调试串口线一端（通常是白色XH连接器或对应排针）连接到RDK X3板上的DEBUG串口接口。由于接口通常有防呆设计（如凹槽或特定引脚顺序），正反面一般不易接错。另一端连接到USB转串口模块（如CH340、CP210x等），串口模块再通过USB连接到电脑。
+连接示意图：
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/connect.png" alt="RDK X3串口连接示意图" class="img_ev3q">
+<strong>重点关注：</strong> 确保串口模块的TX连接到RDK的RX，RX连接到RDK的TX，GND连接到GND。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q6-f37和gc4663-mipi摄像头如何连接到rdk-x3-连接后如何验证">Q6: F37和GC4663 MIPI摄像头如何连接到RDK X3? 连接后如何验证？<a href="#q6-f37和gc4663-mipi摄像头如何连接到rdk-x3-连接后如何验证" class="hash-link" aria-label="Q6: F37和GC4663 MIPI摄像头如何连接到RDK X3? 连接后如何验证？的直接链接" title="Q6: F37和GC4663 MIPI摄像头如何连接到RDK X3? 连接后如何验证？的直接链接">​</a></h3>
+<p><strong>A:</strong> F37和GC4663这类MIPI摄像头模组通常通过24pin FPC（柔性扁平电缆）与开发板连接。
+<strong>连接注意：</strong> FPC排线的两端通常有蓝色加强筋，请确保<strong>蓝色加强筋的一面朝上</strong>（或朝向连接器卡扣的扳手面，具体取决于连接器类型）插入到开发板和摄像头模组的连接器中，并锁紧卡扣。
+F37摄像头连接示意图：
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="F37摄像头连接到RDK X3示意图" class="img_ev3q"></p>
+<p><strong>连接后验证：</strong></p>
+<ol>
+<li>
+<p>确保摄像头已正确连接且开发板已上电。</p>
+</li>
+<li>
+<p><strong>运行MIPI摄像头示例程序 (以RDK X3为例)：</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cd /app/ai_inference/03_mipi_camera_sample # 路径可能因系统版本而异</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo python3 mipi_camera.py</span><br></span></code></pre></div></div>
+<p>如果一切正常，您应该能通过HDMI输出或其他指定方式看到摄像头捕捉的画面以及可能的AI算法处理结果。
+示例算法渲染结果HDMI输出（检测到<code>teddy bear</code>、<code>cup</code>和<code>vase</code>）：
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png" alt="MIPI摄像头算法渲染结果示例" class="img_ev3q"></p>
+</li>
+<li>
+<p><strong>通过 <code>i2cdetect</code> 命令检查I2C通信：</strong>
+MIPI摄像头通常通过I2C总线与主控芯片通信以进行配置。您可以使用 <code>i2cdetect</code> 命令来扫描连接到特定I2C总线上的设备。RDK X3上MIPI摄像头常用的I2C总线可能是 <code>i2c-1</code> 或 <code>i2c-2</code> (具体请查阅板卡硬件手册或设备树配置)。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo i2cdetect -y -r 1  # 扫描 i2c-1 总线</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 或 sudo i2cdetect -y -r 2 # 扫描 i2c-2 总线</span><br></span></code></pre></div></div>
+<p><strong>预期输出示例：</strong></p>
+<ul>
+<li><strong>F37 (通常地址为 0x40):</strong>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">00:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">30: -- -- -- -- -- -- -- -- -- -- -- UU -- -- -- --  (UU可能表示内核驱动已占用)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  (0x40为F37地址)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre></div></div>
+</li>
+<li><strong>GC4663 (通常地址为 0x29):</strong>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">00:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- --  (0x29为GC4663地址)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">30: -- -- -- -- -- -- -- -- -- -- -- UU -- -- -- --</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<p>如果<code>i2cdetect</code>能够扫描到摄像头的I2C地址，说明摄像头至少在I2C通信层面被识别了。</p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q7-开发板启动异常上电后无任何显示或反复重启可能是什么原因如何排查">Q7: 开发板启动异常、上电后无任何显示或反复重启，可能是什么原因？如何排查？<a href="#q7-开发板启动异常上电后无任何显示或反复重启可能是什么原因如何排查" class="hash-link" aria-label="Q7: 开发板启动异常、上电后无任何显示或反复重启，可能是什么原因？如何排查？的直接链接" title="Q7: 开发板启动异常、上电后无任何显示或反复重启，可能是什么原因？如何排查？的直接链接">​</a></h3>
+<p><strong>A:</strong> 这类问题通常与供电、启动介质（SD卡/eMMC）或硬件连接有关。</p>
+<ul>
+<li>
+<p><strong>供电不足或不稳定：</strong></p>
+<ul>
+<li><strong>现象：</strong> 系统在U-Boot加载内核时或内核启动初期无明显错误日志就直接重启；绿灯状态异常（如RDK X3绿灯不闪烁或常亮）；HDMI完全黑屏。
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20230914173433676.png" alt="Uboot引导内核时因供电不足重启日志示例" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20230914174123619.png" alt="内核启动数秒后因供电不足重启日志示例" class="img_ev3q"></li>
+<li><strong>排查与解决：</strong>
+<ul>
+<li>确保使用符合开发板要求的电源适配器（RDK X3推荐至少5V/2A，建议使用支持QC/PD的5V/3A或更高规格适配器）。</li>
+<li><strong>禁止</strong>使用PC的USB接口为开发板供电。</li>
+<li>使用质量可靠的USB Type-C供电线。</li>
+<li>参考官方推荐的<a href="https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory" target="_blank" rel="noopener noreferrer">基础配件清单</a>中的电源适配器型号。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>启动介质问题 (Micro SD卡/eMMC)：</strong></p>
+<ul>
+<li><strong>现象：</strong> 串口日志提示无法挂载文件系统、找不到分区、MMC/SD卡初始化错误或超时。
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194527634.png" alt="SD卡镜像格式错误日志示例" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194636213.png" alt="SD卡物理损坏或接触不良日志示例1" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194721750.png" alt="SD卡物理损坏或接触不良日志示例2" class="img_ev3q"></li>
+<li><strong>排查与解决：</strong>
+<ul>
+<li>确认SD卡镜像是否已正确、完整地烧录。</li>
+<li>尝试重新烧录系统镜像。</li>
+<li>更换一张新的、质量可靠的高速Micro SD卡。</li>
+<li>清洁SD卡槽和SD卡金手指。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>串口误触进入U-Boot：</strong></p>
+<ul>
+<li><strong>现象：</strong> 系统启动后停留在U-Boot命令行界面（如 <code>hobot&gt;</code>）。</li>
+<li><strong>排查与解决：</strong> 可能是上电时调试串口有非预期输入。尝试拔掉串 口线后重新给设备上电。如果在U-Boot命令行，可以尝试输入 <code>boot</code> 命令并回车。</li>
+</ul>
+</li>
+<li>
+<p><strong>其他硬件问题或外设冲突：</strong></p>
+<ul>
+<li>如果以上都已排除，移除所有非必要外设（USB设备、扩展板等）再尝试启动。</li>
+<li>极端情况下可能存在板卡本身硬件故障。</li>
+</ul>
+</li>
+<li>
+<p><strong>详细排查指南：</strong> 请参考官方论坛的<a href="https://developer.d-robotics.cc/forumDetail/229678192959702636" target="_blank" rel="noopener noreferrer">板卡无法启动问题定位指南</a>。连接调试串口并记录完整的启动日志对于问题定位至关重要。</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q8-rdk-x3对供电有什么具体要求">Q8: RDK X3对供电有什么具体要求？<a href="#q8-rdk-x3对供电有什么具体要求" class="hash-link" aria-label="Q8: RDK X3对供电有什么具体要求？的直接链接" title="Q8: RDK X3对供电有什么具体要求？的直接链接">​</a></h3>
+<p><strong>A:</strong> RDK X3通过USB Type-C接口供电，并兼容QC (Quick Charge) 和 PD (Power Delivery) 快充协议。</p>
+<ul>
+<li><strong>推荐：</strong> 使用支持QC或PD快充协议的电源适配器。</li>
+<li><strong>最低要求：</strong> 至少搭配 <strong>5V 直流 2A</strong> 的电源适配器。为保证稳定运行，尤其是在连接外设或运行高负载应用时，建议使用 <strong>5V/3A</strong> 或更高规格的适配器。</li>
+<li><strong>警告：</strong> <strong>强烈不建议</strong>使用PC的USB接口为开发板供电，因为其输出电流往往不足，容易导致开发板工作异常（如无法启动、HDMI无输出、绿灯状态异常、系统反复重启等）。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q9-rdk-x3是否有推荐的sd卡品牌或规格">Q9: RDK X3是否有推荐的SD卡品牌或规格？<a href="#q9-rdk-x3是否有推荐的sd卡品牌或规格" class="hash-link" aria-label="Q9: RDK X3是否有推荐的SD卡品牌或规格？的直接链接" title="Q9: RDK X3是否有推荐的SD卡品牌或规格？的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>规格：</strong> 建议使用高速 <strong>C10 (Class 10)</strong> 或更高级别 (例如 UHS Speed Class 1 (U1) 或 UHS Speed Class 3 (U3), Application Performance Class A1 或 A2) 的Micro SD卡。容量建议 <strong>16GB或以上</strong>。</li>
+<li><strong>兼容性：</strong> 一些较老、非品牌或低速的SD卡可能会存在烧录镜像后无法启动、系统运行缓慢或数据读写不稳定的问题。</li>
+<li><strong>推荐品牌 (仅供参考，请以实际测试和官方最新推荐为准)：</strong> 金士顿 (Kingston)、闪迪 (SanDisk)、三星 (Samsung) 等知名品牌的高速Micro SD卡通常具有较好的兼容性和稳定性。<!-- -->
+<ul>
+<li>金士顿示例链接 (来自原始文档): <code>https://item.jd.com/25263496192.html</code></li>
+<li>闪迪示例链接 (来自原始文档): <code>https://item.jd.com/1875992.html#crumb-wrap</code>
+(请注意，链接仅为原始文档提供，具体购买时请仔细甄别产品型号和渠道。)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q10-apt-update-命令执行失败或报错如密钥错误无法更新锁文件被占用如何处理">Q10: <code>apt update</code> 命令执行失败或报错（如密钥错误、无法更新、锁文件被占用）如何处理？<a href="#q10-apt-update-命令执行失败或报错如密钥错误无法更新锁文件被占用如何处理" class="hash-link" aria-label="q10-apt-update-命令执行失败或报错如密钥错误无法更新锁文件被占用如何处理的直接链接" title="q10-apt-update-命令执行失败或报错如密钥错误无法更新锁文件被占用如何处理的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-地瓜源域名变更或gpg密钥问题">(1) 地瓜源域名变 更或GPG密钥问题<a href="#1-地瓜源域名变更或gpg密钥问题" class="hash-link" aria-label="(1) 地瓜源域名变更或GPG密钥问题的直接链接" title="(1) 地瓜源域名变更或GPG密钥问题的直接链接">​</a></h4>
+<ul>
+<li><strong>原因：</strong> 地平线官方的apt软件源域名或GPG签名密钥可能发生过变更。</li>
+<li><strong>报错示例：</strong>
+<ul>
+<li><code>Clearsigned file isn&#x27;t valid, got &#x27;NOSPLIT&#x27;</code></li>
+<li><code>The repository &#x27;...&#x27; is no longer signed.</code></li>
+<li><code>Could not resolve &#x27;archive.sunrisepi.tech&#x27;</code> (或其他旧域名)</li>
+<li><code>The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY ...</code></li>
+</ul>
+</li>
+<li><strong>解决方法：</strong>
+<ol>
+<li><strong>更新域名：</strong> 编辑 <code>/etc/apt/sources.list.d/sunrise.list</code> (或其他地瓜源配置文件)，将其中旧的域名 (如 <code>archive.sunrisepi.tech</code>, <code>sunrise.horizon.cc</code>) 替换为最新的官方域名 (当前通常是 <code>archive.d-robotics.cc</code>)。<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 示例，请将“旧域名”替换为实际在您配置文件中看到的旧域名</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo sed -i &#x27;s/旧域名/archive.d-robotics.cc/g&#x27; /etc/apt/sources.list.d/sunrise.list</span><br></span></code></pre></div></div>
+</li>
+<li><strong>更新GPG密钥：</strong> 下载并安装最新的地瓜源GPG密钥。<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo wget -O /usr/share/keyrings/sunrise.gpg [http://archive.d-robotics.cc/keys/sunrise.gpg](http://archive.d-robotics.cc/keys/sunrise.gpg)</span><br></span></code></pre></div></div>
+</li>
+<li>再次尝试 <code>sudo apt update</code>。</li>
+</ol>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-apt锁文件被占用">(2) apt锁文件被占用<a href="#2-apt锁文件被占用" class="hash-link" aria-label="(2) apt锁文件被占用的直接链接" title="(2) apt锁文件被占用的直接链接">​</a></h4>
+<ul>
+<li><strong>报错示例：</strong>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">E: Could not get lock /var/lib/apt/lists/lock. It is held by process XXXX (apt-get)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">N: Be aware that removing the lock file is not a solution and may break your system.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">E: Unable to lock directory /var/lib/apt/lists/</span><br></span></code></pre></div></div>
+</li>
+<li><strong>原因：</strong> 系统可能正在后台自动运行更新检查或安装任务，或者上一次apt操作未正常结束导致锁文件未被释放。</li>
+<li><strong>解决方法：</strong>
+<ol>
+<li><strong>等待：</strong> 有时后台进程会自动完成，请稍等 片刻再试。</li>
+<li><strong>杀死占用进程：</strong> 如果长时间被占用，可以尝试杀死持有锁的进程（报错信息中通常会提示进程ID，如示例中的 <code>XXXX</code>）：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo kill XXXX</span><br></span></code></pre></div></div>
+</li>
+<li><strong>清理锁文件（谨慎操作）：</strong> 在确认没有apt或dpkg进程正在运行后，可以尝试移除相关的锁文件。<strong>此操作有一定风险，可能破坏您的包管理系统，请务必谨慎。</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/lib/apt/lists/lock</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/cache/apt/archives/lock</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/lib/dpkg/lock</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/lib/dpkg/lock-frontend</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo dpkg --configure -a  # 尝试修复任何未完成的包配置</span><br></span></code></pre></div></div>
+</li>
+<li>再次尝试 <code>sudo apt update</code>。</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q11-如何查看rdk-x3的cpubpu等硬件单元的运行状态">Q11: 如何查看RDK X3的CPU、BPU等硬件单元的运行状态?<a href="#q11-如何查看rdk-x3的cpubpu等硬件单元的运行状态" class="hash-link" aria-label="Q11: 如何查看RDK X3的CPU、BPU等硬件单元的运行状态?的直接链接" title="Q11: 如何查看RDK X3的CPU、BPU等硬件单元的运行状态?的直接链接">​</a></h3>
+<p><strong>A:</strong> 可以使用地平线提供的 <code>hrut_somstatus</code> 工具来查看实时的系统状态，包括CPU各个核心的占用率、BPU（AI计算单元）的使用率、内存使用情况、芯片温度等。
+在板卡终端执行：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo hrut_somstatus</span><br></span></code></pre></div></div>
+<p>该命令通常会以一定的时间间隔持续刷新显示状态信息。按 Ctrl+C 可以退出。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q12-如何为rdk应用设置开机自启动">Q12: 如何为RDK应用设置开机自启动?<a href="#q12-如何为rdk应用设置开机自启动" class="hash-link" aria-label="Q12: 如何为RDK应用设置开机自启动?的直接链接" title="Q12: 如何为RDK应用设置开机自启动?的直接链接">​</a></h3>
+<p><strong>A:</strong> 主要有两种方式：</p>
+<ol>
+<li>
+<p><strong>通过 <code>/etc/rc.local</code> 文件 (传统方式)：</strong>
+编辑该文件 (如果不存在，可能需要手动创建或从模板配置并启用 <code>rc-local.service</code>)，在 <code>exit 0</code> 语句之前加入您要执行的命令。确保脚本具有可执行权限。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">#!/bin/bash -e</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">#</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># rc.local</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">#</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># This script is executed at the end of each multiuser runlevel.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Make sure that the script will &quot;exit 0&quot; on success or any other</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># value on error.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">#</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># In order to enable or disable this script just change the execution</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># bits.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">#</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># By default this script does nothing.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Example: Start your application in the background</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># /usr/bin/python3 /home/sunrise/my_app.py &amp;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Insert what you need before this line</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">exit 0</span><br></span></code></pre></div></div>
+<p>参考：<a href="https://developer.d-robotics.cc/rdk_doc/System_configuration/self_start" target="_blank" rel="noopener noreferrer">RDK文档 - rc.local自启动</a></p>
+</li>
+<li>
+<p><strong>通过 <code>systemd</code> 服务（现代、推荐方式）：</strong>
+创建一个 <code>.service</code> 配置文件（例如 <code>/etc/systemd/system/myapp.service</code>），定义服务的启动命令、依赖关系、运行用户、重启策略等。
+<strong>示例 <code>myapp.service</code> 文件：</strong></p>
+<div class="language-ini codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[Unit]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Description=My Application Service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">After=network.target multi-user.target</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">[Service]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">User=sunrise</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ExecStart=/usr/bin/python3 /home/sunrise/my_app.py</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Restart=on-failure</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># StandardOutput=append:/var/log/myapp_stdout.log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># StandardError=append:/var/log/myapp_stderr.log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">[Install]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">WantedBy=multi-user.target</span><br></span></code></pre></div></div>
+<p>然后使用以下命令启用并启动服务：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl daemon-reload  # 如果新建或修改了service文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl enable myapp.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl start myapp.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 查看服务状态: sudo systemctl status myapp.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 查看服务日志 (如果配置了): journalctl -u myapp.service</span><br></span></code></pre></div></div>
+<p>参考：<a href="https://developer.d-robotics.cc/forumDetail/204825652464181760" target="_blank" rel="noopener noreferrer">RDK社区帖子 - systemd自启动</a></p>
+</li>
+</ol>
+<p><strong>自启动注意事项：</strong></p>
+<ul>
+<li>确保脚本或程序的路径正确，并且具有执行权限。</li>
+<li>处理好依赖项（如网络、特定硬件初始化完成）和环境变量。</li>
+<li>如果应用需要图形界面，确保 <code>DISPLAY</code> 环境变量已正确设置，并且X Server已运行。</li>
+<li>建议将应用的输出重定向到日志文件，以便排查自启动失败的原因。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q13-开发板的默认登录账户和密码是什么">Q13: 开发板的默认登录账户和密码是什么？<a href="#q13-开发板的默认登录账户和密码是什么" class="hash-link" aria-label="Q13: 开发板的默认登录账户和密码是什么？的直接链接" title="Q13: 开发板的默认登录账户和密码是什么？的直接链接">​</a></h3>
+<p><strong>A:</strong> 开发板通常默认支持以下两种账户：</p>
+<ul>
+<li><strong>普通用户：</strong> 用户名 <code>sunrise</code>，密码 <code>sunrise</code></li>
+<li><strong>超级用户 (root)：</strong> 用户名 <code>root</code>，密码 <code>root</code>
+(请注意，具体默认账户和密码可能因您烧录的系统镜像版本和来源略有不同，建议查阅该镜像的发行说明。)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q14-如何在rdk板卡上挂载ntfs文件系统的u盘或硬盘并支持读写">Q14: 如何在RDK板卡上挂载NTFS文件系统的U盘或硬盘并支持读写？<a href="#q14-如何在rdk板卡上挂载ntfs文件系统的u盘或硬盘并支持读写" class="hash-link" aria-label="Q14: 如何在RDK板卡上挂载NTFS文件系统的U盘或硬盘并支持读写？的直接链接" title="Q14: 如何在RDK板卡上挂载NTFS文件系统的U盘或硬盘并支持读写？的直接链接">​</a></h3>
+<p><strong>A:</strong> Ubuntu系统默认对NTFS文件系统的写入支持可能不完整或仅为只读。  为了获得完整的NTFS读写支持，需要安装 <code>ntfs-3g</code> 软件包：</p>
+<ol>
+<li><strong>安装 <code>ntfs-3g</code>：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt -y install ntfs-3g</span><br></span></code></pre></div></div>
+</li>
+<li><strong>挂载NTFS分区：</strong>
+安装完成后，再使用 <code>mount</code> 命令挂载NTFS分区。通常，系统会自动使用 <code>ntfs-3g</code> 驱动进行挂载，从而支持读写。<!-- -->
+<ul>
+<li>首先，创建一个挂载点目录（如果尚未创建）：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo mkdir /mnt/my_ntfs_disk</span><br></span></code></pre></div></div>
+</li>
+<li>然后挂载设备（假设NTFS分区是 <code>/dev/sda1</code>，请根据实际情况替换）：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo mount /dev/sda1 /mnt/my_ntfs_disk</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 或者显式指定类型 (通常不需要，系统会自动识别)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># sudo mount -t ntfs-3g /dev/sda1 /mnt/my_ntfs_disk</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<!-- -->现在，您应该可以在 <code>/mnt/my_ntfs_disk</code> 目录下对NTFS分区进行读写操作了。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q15-rdk开发板是否支持本地安装vs-code如何在pc上使用vs-code远程连接开发板">Q15: RDK开发板是否支持本地安装VS Code？如何在PC上使用VS Code远程连接开发板？<a href="#q15-rdk开发板是否支持本地安装vs-code如何在pc上使用vs-code远程连接开发板" class="hash-link" aria-label="Q15: RDK开发板是否支持本地安装VS Code？如何在PC上使用VS Code远程连接开发板？的直接链接" title="Q15: RDK开发板是否支持本地安装VS Code？如何在PC上使用VS Code远程连接开发板？的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>本地安装VS Code：</strong> RDK开发板作为嵌入式ARM架构设备，通常<strong>不直接支持</strong>在其上本地安装并运行完整版的VS Code桌面应用程序。VS Code官方主要提供x86_64架构的桌面版。</li>
+<li><strong>远程开发 (推荐方式)：</strong>
+强烈推荐在您的PC（Windows, macOS, 或Linux）上安装VS Code，并利用其强大的 <strong>Remote - SSH</strong> 扩展插件来远程连接到RDK开发板。通过这种方式，您可以在PC上享受完整的VS Code体验（包括代码编辑、智能提示、调试器前端等），而实际的代码编译、运行和调试则在RDK板卡上执行。
+<strong>步骤概述：</strong>
+<ol>
+<li>在PC上的VS Code中安装 &quot;Remote - SSH&quot; 扩展。</li>
+<li>确保您的PC和RDK板卡在同一局域网内，并且RDK板卡上的SSH服务已启动且网络可达。</li>
+<li>在VS Code中配置SSH连接到RDK板卡（通常是 <code>ssh 用户名@板卡IP地址</code>）。</li>
+<li>连接成功后，您可以直接在VS Code中打开RDK板卡上的文件夹进行开发。</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q16-rdk开发板如何启用和使用adb-android-debug-bridge-调试功能">Q16: RDK开发板如何启用和使用ADB (Android Debug Bridge) 调试功能？<a href="#q16-rdk开发板如何启用和使用adb-android-debug-bridge-调试功能" class="hash-link" aria-label="Q16: RDK开发板如何启用和使用ADB (Android Debug Bridge) 调试功能？的直接链接" title="Q16: RDK开发板如何启用和使用ADB (Android Debug Bridge) 调试功能？的直接链接">​</a></h3>
+<p><strong>A:</strong> RDK的Ubuntu系统中通常默认已经编译并可能启动了 <code>adbd</code> (ADB守护进程) 服务，但其默认配置和USB接口的功能模式可能需要调整才能用于ADB连接。</p>
+<ol>
+<li><strong>确认<code>adbd</code>服务：</strong> 检查服务是否运行，或是否有启动脚本。</li>
+<li><strong>USB接口模式：</strong> RDK板卡的USB Type-C口或特定的Micro USB口（通常标有OTG或Device功能）可能需要被配置为USB Device模式（而不是Host模式）才能被PC识别为ADB设备。这有时可以通过 <code>srpi-config</code> 工具或修改设备树/内核参数来配置。</li>
+<li><strong>PC端准备：</strong> 在您的电脑上安装ADB工具包（通常作为Android SDK Platform Tools的一部分提供）。</li>
+<li><strong>连接：</strong> 使用USB线将PC与RDK板卡上配置为Device模式的USB口连接。</li>
+<li><strong>验证：</strong> 在PC的命令行/终端中执行 <code>adb devices</code>。如果一切配置正确，您应该能看到列出的RDK设备。</li>
+<li><strong>使用：</strong> 一旦连接成功，您就可以使用 <code>adb shell</code> 访问板卡终端，<code>adb push &lt;本地文件&gt; &lt;板卡路径&gt;</code> 上传文件，<code>adb pull &lt;板卡文件&gt; &lt;本地路径&gt;</code> 下载文件等。</li>
+</ol>
+<p><strong>注意：</strong> 具体的启用步骤可能因RDK型号和系统版本而异。请务必查阅对应板卡和系统版本的官方文档中关于ADB功能配置的详细说明。有时，官方提供的 <code>bootloader</code> 更新教程中也可能包含ADB的配置或使用前提。
+参考 (来自原始文档，可能主要关于bootloader更新，但可间接涉及ADB环境)：<a href="https://developer.d-robotics.cc/forumDetail/88859074455714818" target="_blank" rel="noopener noreferrer">bootloader镜像更新</a> (建议查找更专注于ADB配置的官方文档或社区帖子)。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q17-开发板和电脑之间的文件传输有哪些常用方式">Q17: 开发板和电脑之间的文件传输有哪些常用方式？<a href="#q17-开发板和电脑之间的文件传输有哪些常用方式" class="hash-link" aria-label="Q17: 开发板和电脑之间的文件传输有哪些常用方式？的直接链接" title="Q17: 开发板和电脑之间的文件传输有哪些常用方式？的直接链接">​</a></h3>
+<p><strong>A:</strong> 有多种方式可以在RDK开发板和电脑之间传输文件：</p>
+<ol>
+<li>
+<p><strong>SCP (Secure Copy Protocol) - 基于SSH：</strong></p>
+<ul>
+<li><strong>从电脑拷贝文件到开发板：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 拷贝单个文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">scp /path/to/local_file sunrise@&lt;开发板IP地址&gt;:/path/on/rdk/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 拷贝整个文件夹 (使用 -r 选项)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">scp -r /path/to/local_folder sunrise@&lt;开发板IP地址&gt;:/path/on/rdk/</span><br></span></code></pre></div></div>
+</li>
+<li><strong>从开发板拷贝文件到电脑：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">scp sunrise@&lt;开发板IP地址&gt;:/path/on/rdk/remote_file /path/to/local_destination/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">scp -r sunrise@&lt;开发板IP地址&gt;:/path/on/rdk/remote_folder /path/to/local_destination/</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<p>需要电脑端有SCP客户端（Linux/macOS自带，Windows可用WinSCP、MobaXterm或Git Bash中的scp）。</p>
+</li>
+<li>
+<p><strong>SFTP (SSH File Transfer Protocol) - 基于SSH：</strong>
+许多FTP客户端软件（如FileZilla, WinSCP）支持SFTP协议，可以提供图形化的文件传输界面。连接时选择SFTP协议，并使用SSH的用户名、密码和IP地址。</p>
+</li>
+<li>
+<p><strong>USB存储设备 (U盘/移动硬盘)：</strong></p>
+<ul>
+<li>将U盘等格式化为开发板支持的文件系统（如FAT32, exFAT, 或安装了<code>ntfs-3g</code>后的NTFS）。</li>
+<li>在电脑上存入文件，然后将U盘插入开发板的USB Host口。</li>
+<li>在开发板上挂载U盘 (<code>sudo mount /dev/sda1 /mnt/usb_disk</code> - 设备节点可能变化)，然后进行文件操作。</li>
+</ul>
+</li>
+<li>
+<p><strong>ADB (Android Debug Bridge) - 如果已配置并连接：</strong></p>
+<ul>
+<li><strong>从电脑推送文件到开发板：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">adb push C:\local\path\file.txt /remote/path/on/rdk/</span><br></span></code></pre></div></div>
+</li>
+<li><strong>从开发板拉取文件到电脑：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">adb pull /remote/path/on/rdk/file.txt C:\local\path\</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>网络共享服务 (如Samba, NFS)：</strong>
+可以在开发板上配置Samba或NFS服务，将特定目录共享到局域网，然后在电脑上像访问网络驱动器一样访问这些文件。配置相对复杂一些。</p>
+</li>
+<li>
+<p><strong>Python HTTP服务器 (临时小文件共享)：</strong>
+如果在开发板的某个目录下有想让电脑下载的文件，可以在该目录下快速启动一个HTTP服务器：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 在开发板上，进入要共享的目录</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cd /path/to/share</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">python3 -m http.server 8000</span><br></span></code></pre></div></div>
+<p>然后在电脑的浏览器中访问 <code>http://&lt;开发板IP地址&gt;:8000</code> 即可看到文件列表并下载。</p>
+</li>
+</ol>
+<p>选择哪种方式取决于文件大小、传输频率、网络环境以及个人偏好。对于开发过程中的代码和配置文件同步，SCP/SFTP或VS Code的Remote-SSH内置的文件同步功能通常最为便捷。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q18-rdk-x3不同系统版本的有线网口的ip是什么">Q18: RDK X3不同系统版本的有线网口的IP是什么？<a href="#q18-rdk-x3不同系统版本的有线网口的ip是什么" class="hash-link" aria-label="Q18: RDK X3不同系统版本的有线网口的IP是什么？的直接链接" title="Q18: RDK X3不同系统版本的有线网口的IP是什么？的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li>RDK X3 <strong>2.0.0 (包括2.0.0) 以下</strong>版本的RDK OS系统镜像，有线网口默认IP：<code>192.168.1.10/24</code></li>
+<li>RDK X3 <strong>2.1.0 (包括2.1.0) 以上</strong>版本的RDK OS系统镜像，有线网口默认IP：<code>192.168.127.10/24</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q19-rdk-x5-不同系统版本的网口的ip是什么">Q19: RDK X5 不同系统版本的网口的IP是什么？<a href="#q19-rdk-x5-不同系统版本的网口的ip是什么" class="hash-link" aria-label="Q19: RDK X5 不同系统版本的网口的IP是什么？的直接链接" title="Q19: RDK X5 不同系统版本的网口的IP是什么？的直接链接">​</a></h3>
+<p><strong>A:</strong> (以RDK OS 3.0.0版本为例)</p>
+<ul>
+<li>RDK X5 <strong>3.0.0</strong> 版本的RDK OS系统镜像，有线网口默认IP：<code>192.168.127.10/24</code></li>
+<li>RDK X5 <strong>3.0.0</strong> 版本的RDK OS系统镜像，闪连口（USB Device口），为虚拟USB网卡，默认IP：<code>192.168.128.10/24</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q20-系统执行-apt-upgrade-时桌面环境黑屏怎么办">Q20: 系统执行 <code>apt upgrade</code> 时桌面环境黑屏怎么办？<a href="#q20-系统执行-apt-upgrade-时桌面环境黑屏怎么办" class="hash-link" aria-label="q20-系统执行-apt-upgrade-时桌面环境黑屏怎么办的直接链接" title="q20-系统执行-apt-upgrade-时桌面环境黑屏怎么办的直接链接">​</a></h3>
+<p><strong>A:</strong> 建议通过串口终端或SSH远程登录后，在纯字符界面的终端中执行系统更新命令（如 <code>sudo apt update &amp;&amp; sudo apt upgrade</code>）。直接在图形桌面的终端中更新，有时在升级桌面自身相关的包时可能会导致显示中断或X Server重启，从而造成黑屏现象。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q21-我将x3板卡的hdmi输出接口和电脑的hdmi输入输出接口相连为什么电脑没有出现画面">Q21: 我将X3板卡的HDMI输出接口和电脑的HDMI输入/输出接口相连，为什么电脑没有出现画面？<a href="#q21-我将x3板卡的hdmi输出接口和电脑的hdmi输入输出接口相连为什么电脑没有出现画面" class="hash-link" aria-label="Q21: 我将X3板卡的HDMI输出接口和电脑的HDMI输入/输出接口相连，为什么电脑没有出现画面？的直接链接" title="Q21: 我将X3板卡的HDMI输出接口和电脑的HDMI输入/输出接口相连，为什么电脑没有出现画面？的直接链接">​</a></h3>
+<p><strong>A:</strong> RDK X3板卡的HDMI接口是<strong>输出接口</strong>，用于将板卡的图形界面或视频信号输出到显示设备（如HDMI显示器、电视机）。
+电脑上的HDMI接口通常也都是<strong>输出接口</strong>（用于连接外接显示器）或者在特定情况下（如带有视频采集卡的台式机、部分一体机  或笔记本）可能有HDMI<strong>输入接口</strong>。</p>
+<ul>
+<li>如果将RDK X3的HDMI输出连接到电脑的HDMI输出接口，两者都是输出设备，自然无法显示。</li>
+<li>如果您的电脑确实有HDMI输入接口（例如，显示器模式或采集卡输入），请确保电脑已切换到正确的HDMI输入源，并且该输入接口支持RDK X3输出的分辨率和信号格式。
+对于希望在电脑上看到RDK X3画面的场景，更常见和推荐的做法是：</li>
+<li><strong>VNC远程桌面：</strong> 如果RDK X3烧录的是Desktop版本的系统并开启了VNC服务，您可以通过网络在电脑上使用VNC客户端远程访问其桌面。</li>
+<li><strong>视频推流：</strong> 将RDK X3的摄像头画面或处理结果通过网络推流（如RTSP、WebRTC），然后在电脑上使用播放器或浏览器接收观看。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q22-为什么sd卡插上去能启动但是拔下来后下次就启动不了了">Q22: 为什么SD卡插上去能启动，但是拔下来后下次就启动不了了？<a href="#q22-为什么sd卡插上去能启动但是拔下来后下次就启动不了了" class="hash-link" aria-label="Q22: 为什么SD卡插上去能启动，但是拔下来后下次就启动不了了？的直接链接" title="Q22: 为什么SD卡插上去能启动，但是拔下来后下次就启动不了了？的直接链接">​</a></h3>
+<p><strong>A:</strong> 这取决于您的RDK板卡型号和启动方式：</p>
+<ul>
+<li><strong>对于RDK X3（标准版，通常从SD卡启动）和设置为SD卡启动模式的RDK X3 Module：</strong> 在这种情况下，Micro SD卡是作为操作系统和用户数据的<strong>唯一存储介质</strong>。系统运行时所有文件都存储在SD卡上。因此，SD卡必须<strong>始终插入</strong>板卡才能正常启动和运行。如果拔下SD卡，系统自然无法找到引导文件和操作系统，下次将无法启动。</li>
+<li><strong>对于配置为从eMMC启动模  式的RDK X3 Module：</strong> 这种板卡板载了eMMC存储芯片，操作系统可以烧录并运行在eMMC中。在这种模式下，启动时<strong>不需要</strong>插入SD卡（除非您希望从SD卡临时引导）。如果eMMC中的系统完好，板卡应该能从eMMC正常启动。此时插入的SD卡可以用作额外的外部存储设备，例如挂载到某个目录下存放数据。如果您拔下了作为外部存储的SD卡，并不会影响从eMMC启动的系统。</li>
+</ul>
+<p>请确认您的板卡型号和当前的启动介质设置。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q23-rdk-os的server版能直接升级为desktop版吗">Q23: RDK OS的Server版能直接升级为Desktop版吗？<a href="#q23-rdk-os的server版能直接升级为desktop版吗" class="hash-link" aria-label="Q23: RDK OS的Server版能直接升级为Desktop版吗？的直接链接" title="Q23: RDK OS的Server版能直接升级为Desktop版吗？的直接链接">​</a></h3>
+<p><strong>A:</strong> RDK OS的Server版和Desktop版在预装的软件包上存在显著差异，最主要的是Desktop版包含了图形用户界面（如XFCE桌面环境）及其相关组件，而Server版通常不包含这些，以节省资源。</p>
+<ul>
+<li><strong>理论上：</strong> 您可以通过在Server版系统上手动安装所有Desktop版所需的软件包（如<code>xserver-xorg</code>, <code>xfce4</code>, <code>lightdm</code>等以及它们的依赖）来将其“升级”为一个具有图形界面的系统。</li>
+<li><strong>官方支持与稳定性：</strong> 官方通常<strong>不提供或不推荐</strong>这种手动升级路径，并且不对通过此方式构建的Desktop系统的稳定性和完整性进行保证或测试。手动安装过程复杂，容易遗漏依赖或产生配置冲突。</li>
+<li><strong>推荐做法：</strong> 如果您需要Desktop版的完整功能和最佳体验，强烈建议直接下载并烧录官方发布的<strong>Desktop版本系统镜像</strong>。这是确保系统稳 定性和功能完整的最佳途径。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q24-为什么连接hdmi显示器后没有画面显示或者显示异常">Q24: 为什么连接HDMI显示器后没有画面显示，或者显示异常？<a href="#q24-为什么连接hdmi显示器后没有画面显示或者显示异常" class="hash-link" aria-label="Q24: 为什么连接HDMI显示器后没有画面显示，或者显示异常？的直接链接" title="Q24: 为什么连接HDMI显示器后没有画面显示，或者显示异常？的直接链接">​</a></h3>
+<p><strong>A:</strong> HDMI显示问题可能由多种原因造成：</p>
+<ol>
+<li><strong>显示器兼容性：</strong>
+<ul>
+<li>部分显示器可能与RDK板卡输出的特定分辨率或刷新率不完全兼容。</li>
+<li>RDK OS 2.1.0及以上版本引入了更多的HDMI分辨率支持，但也可能导致与某些旧显示器的兼容性问题。</li>
+<li>通常情况下，标准的1080p (1920x1080) 分辨率的显示器在板卡启动时直接连接，兼容性会比较好。</li>
+</ul>
+</li>
+<li><strong>线缆问题：</strong> 确保使用的HDMI线缆质量良好且连接牢固。尝试更换一条HDMI线。</li>
+<li><strong>RDK系统配置：</strong>
+<ul>
+<li>对于Desktop版本的系统，确保图形界面服务（如LightDM）正常启动。</li>
+<li>对于Server版本的系统，默认情况下HDMI可能只输出启动LOGO或控制台信息，不会有图形桌面。</li>
+<li>在RDK OS 2.1.0及以上版本，如果遇到显示不兼容，可以尝试先通过VNC连接到板卡（如果已开启），然后在系统中手动调整HDMI的输出分辨率。参考：<a href="https://developer.d-robotics.cc/forumDetail/204825652464181769" target="_blank" rel="noopener noreferrer">HDMI显示问题及分辨率调整</a></li>
+</ul>
+</li>
+<li><strong>供电问题：</strong> 虽然不直接，但严重的供电不足可能导致系统无法正常初始化显示子系统。</li>
+<li><strong>硬件问题：</strong> 极少数情况下，可  能是板卡的HDMI接口或显示器本身的硬件故障。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q25-连接的hdmi显示器不被支持如何抓取edid信息以供技术支持分析">Q25: 连接的HDMI显示器不被支持，如何抓取EDID信息以供技术支持分析？<a href="#q25-连接的hdmi显示器不被支持如何抓取edid信息以供技术支持分析" class="hash-link" aria-label="Q25: 连接的HDMI显示器不被支持，如何抓取EDID信息以供技术支持分析？的直接链接" title="Q25: 连接的HDMI显示器不被支持，如何抓取EDID信息以供技术支持分析？的直接链接">​</a></h3>
+<p><strong>A:</strong> 如果您的HDMI显示器无法正常显示或显示异常，技术支持人员可能需要您提供该显示器的EDID (Extended Display Identification Data) 信息来帮助诊断问题或添加兼容性支持。EDID包含了显示器的特性、支持的分辨率和时序等信息。
+获取EDID信息的方法通常有：</p>
+<ol>
+<li><strong>通过Linux命令行工具（如果板卡能部分启动或通过其他方式访问）：</strong>
+<ul>
+<li>可以使用如 <code>read-edid</code> 包中的 <code>get-edid</code> 和 <code>parse-edid</code> 工具。首先需要安装这些工具：<code>sudo apt install read-edid</code>。</li>
+<li>然后尝试读取连接的显示器的EDID。</li>
+</ul>
+</li>
+<li><strong>使用专门的EDID读取硬件/软件：</strong> 有些显示器测试工具或专用的EDID编程器可以直接读取和保存EDID信息。</li>
+<li><strong>在PC上读取：</strong> 如果该显示器连接到一台装有Linux或Windows的PC上可以正常工作，也可以尝试在PC上读取其EDID信息。<!-- -->
+<ul>
+<li>Linux下可以使用 <code>xrandr --props</code> 查看连接显示器的属性，其中可能包含EDID信息，或使用 <code>get-edid | parse-edid</code>。</li>
+<li>Windows下可以使用如MonitorInfoView (NirSoft) 或 Phoenix EDID Designer 等工具。</li>
+</ul>
+</li>
+</ol>
+<p>获取到EDID数据（通常是一个二进制文件或十六进制文本）后，可以将其提供给技术支持。
+具体在地平线RDK平台抓取EDID的方法，请参考官方论坛的指导帖子：<a href="https://developer.d-robotics.cc/forumDetail/235046352323895808" target="_blank" rel="noopener noreferrer">如何提供不支持显示器的EDID信息</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q26-sd卡有时不识别或识别不稳定怎么办">Q26: SD卡有时不识别或识别不稳定怎么办？<a href="#q26-sd卡有时不识别或识别不稳定怎么办" class="hash-link" aria-label="Q26: SD卡有时不识别或识别不稳定怎么办？的直接链接" title="Q26: SD卡有时不识别或识别不稳定怎么办？的直接链接">​</a></h3>
+<p><strong>A:</strong> SD卡不识别或识别不稳定的问题，可以从以下几个方面排查：</p>
+<ol>
+<li><strong>SD卡本身质量：</strong>
+<ul>
+<li>使用劣质、老化或损坏的SD卡是常见原因。请尝试更换一张新的、质量可靠的品牌高速Micro SD卡（如Class 10, U1/U3级别）。</li>
+</ul>
+</li>
+<li><strong>SD卡与卡槽接触：</strong>
+<ul>
+<li>确保SD卡已完全插入卡槽且接触良好。可以尝试取出SD卡，用橡皮擦清洁金手指，并检查卡槽内是否有异物。</li>
+</ul>
+</li>
+<li><strong>SD卡兼容性：</strong>
+<ul>
+<li>虽然RDK X3对SD卡的兼容性在新版系统中已较好，但极少数SD卡仍可能存在兼容性问题。</li>
+<li>对于<strong>旭日X3派</strong>，如果遇到SD卡兼容性问题，官方建议可以尝试手动烧录最新的<strong>miniboot</strong>镜像来改善。此方法也适用于RDK X3。
+参考教程：<a href="https://developer.d-robotics.cc/forumDetail/88859074455714818" target="_blank" rel="noopener noreferrer">SD卡兼容性问题及miniboot更新</a></li>
+</ul>
+</li>
+<li><strong>系统镜像或烧录问题：</strong>
+<ul>
+<li>确保系统镜像文件本身没有损坏，并且烧录过程正确无误。可以尝试重新下载镜像并使用推荐的烧录工具（如balenaEtcher, Rufus）重新烧录。</li>
+</ul>
+</li>
+<li><strong>供电问题：</strong>
+<ul>
+<li>不稳定的供电有时也可能间接影响SD卡的识别和读写稳定性。</li>
+</ul>
+</li>
+<li><strong>板卡硬件问题：</strong>
+<ul>
+<li>极少数情况下，可能是板卡的SD卡控制器或卡槽硬件故障。</li>
+</ul>
+</li>
+</ol>
+<p>如果在串口日志中看到类似 &quot;mmc0: error -110 whilst initialising SD card&quot; 或 &quot;Card did not respond to voltage select&quot; 等信息，通常指向SD卡识别或初始化失败。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q27-系统启动的时候卡在-hobot-u-boot命令行界面怎么办">Q27: 系统启动的时候卡在 <code>hobot&gt;</code> U-Boot命令行界面怎么办？<a href="#q27-系统启动的时候卡在-hobot-u-boot命令行界面怎么办" class="hash-link" aria-label="q27-系统启动的时候卡在-hobot-u-boot命令行界面怎么办的直接链接" title="q27-系统启动的时候卡在-hobot-u-boot命令行界面怎么办的直接链接">​</a></h3>
+<p><strong>A:</strong> 当系统启动时停留在 <code>hobot&gt;</code> 提示符，这表示板卡已进入U-Boot (Universal Boot Loader) 的命令行模式，而没有继续引导加载Linux内核。可能的原因有：</p>
+<ol>
+<li><strong>串口干扰：</strong> 在板卡上电启动的最初几秒内，如果调试串口接收到了某些非预期的字符或电平信号（例如，键盘误触、串口终端软件自动发送的某些控制字符），可能会中断U-Boot的自动引导流程，使其停在命令行。</li>
+<li><strong>引导顺序配置：</strong> U-Boot内部有引导顺序的配置（如先尝试SD卡，再尝试eMMC或网络引导）。如果配置被意外更改，或者首选的引导介质上没有有效的系统，也可能停在命令行。</li>
+<li><strong>引导脚本问题：</strong> U-Boot执行的引导脚本（boot script）如果存在错误或被中断。</li>
+<li><strong>按键中  断：</strong> 某些板卡设计中，如果在启动时按下了特定的按键，也可能进入U-Boot命令行。</li>
+</ol>
+<p><strong>解决方法：</strong></p>
+<ul>
+<li><strong>简单尝试：</strong> 在 <code>hobot&gt;</code> 提示符下，直接输入 <code>boot</code> 命令并按回车。这会尝试执行默认的引导命令，通常能继续引导进入Linux系统。</li>
+<li><strong>检查串口连接：</strong> 确保调试串口连接稳定，没有不必要的信号干扰。可以尝试断开串口线后重新给板卡上电，看是否能正常启动。</li>
+<li><strong>检查启动介质：</strong> 确认SD卡或eMMC中的系统镜像是否完好且可引导。</li>
+<li><strong>复位U-Boot环境变量（谨慎操作）：</strong> 如果怀疑U-Boot环境变量被错误修改，可以尝试恢复到默认设置（具体命令需查阅对应U-Boot版本的文档，如 <code>env default -a; saveenv; reset</code>）。<strong>此操作会清除所有自定义环境变量，请谨慎。</strong></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q28-旭日x3派如何从40pin-gpio给板卡供电rdk-x3呢">Q28: 旭日X3派如何从40pin GPIO给板卡供电？RDK X3呢？<a href="#q28-旭日x3派如何从40pin-gpio给板卡供电rdk-x3呢" class="hash-link" aria-label="Q28: 旭日X3派如何从40pin GPIO给板卡供电？RDK X3呢？的直接链接" title="Q28: 旭日X3派如何从40pin GPIO给板卡供电？RDK X3呢？的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>旭日X3派 (Sunrise X3 Pi)：</strong> 根据官方说明，旭日X3派<strong>不可以</strong>通过40pin GPIO进行供电。其电源设计可能未包含从GPIO获取主电源的路径或保护。</li>
+<li><strong>RDK X3 (标准版/核心板)：</strong> RDK X3（非特指旭日X3派）的某些版本<strong>可以</strong>通过40pin GPIO中的5V引脚进行供电。但即使可以，这通常也不是推荐的主要供电方式，其稳定性和电流承载能力可能不如专用的Type-C电源接口。</li>
+</ul>
+<p><strong>通用强烈建议：</strong>
+官方始终<strong>只建议使用符合规格的电源适配器通过板卡的Type-C（或其他专用电源）接口进行供电</strong>。任何通过非推荐方式（如直接从GPIO引脚、不适配的电源模块等）供电，都可能存在电流不足、电压不稳、缺乏保护电路等风险，由此造成的硬件损坏或系统不稳定，后果通常需要用户自行承担。</p>
+<p>如何区分RDK X3和旭日X3派，请参考本FAQ中相关问题的解答。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q29-镜像烧录失败的常见原因有哪些">Q29: 镜像烧录失败的常见原因有哪些？<a href="#q29-镜像烧录失败的常见原因有哪些" class="hash-link" aria-label="Q29: 镜像烧录失败的常见原因有哪些？的直接链接" title="Q29: 镜像烧录失败的常见原因有哪些？的直接链接">​</a></h3>
+<p><strong>A:</strong> 使用烧录工具（如balenaEtcher, Rufus）向SD卡烧录系统镜像时失败，可能的原因包括：</p>
+<ol>
+<li><strong>镜像文件问题：</strong>
+<ul>
+<li><strong>未完全解压：</strong> 确保您烧录的是从压缩包（如 <code>.zip</code>, <code>.gz</code>, <code>.xz</code>）中<strong>完全解压</strong>出来的 <code>.img</code> 后缀的原始镜像文件，而不是直接烧录压缩包。</li>
+<li><strong>镜像下载不完整或损坏：</strong> 尝试重新下载镜像文件，并校验其MD5/SHA256值（如果官方提供）以确保文件完整性。</li>
+</ul>
+</li>
+<li><strong>SD卡问题：</strong>
+<ul>
+<li><strong>SD卡损坏或质量差：</strong> 尝试更换一张新的、质量可靠的SD卡。</li>
+<li><strong>SD卡写保护：</strong> 确保SD卡的物理写保护开关（如果有）未开启。</li>
+<li><strong>SD卡容量不足：</strong> 确保SD卡容量大于镜像文件解压后的大小。</li>
+</ul>
+</li>
+<li><strong>读卡器问题：</strong>
+<ul>
+<li>读卡器损坏或与SD卡/电脑不兼  容。尝试更换读卡器。</li>
+<li>部分高速SD卡在老旧或质量不佳的读卡器上可能出现问题。</li>
+</ul>
+</li>
+<li><strong>烧录工具或电脑环境问题：</strong>
+<ul>
+<li><strong>烧录软件版本：</strong> 尝试更新或更换其他版本的烧录软件。</li>
+<li><strong>USB接口或驱动：</strong> 尝试更换电脑的USB接口；确保USB驱动正常。</li>
+<li><strong>操作系统权限：</strong> 在Windows下，以管理员权限运行烧录工具。</li>
+<li><strong>杀毒软件或防火墙干扰：</strong> 临时禁用可能干扰磁盘写入操作的安全软件。</li>
+<li><strong>Windows弹出格式化提示：</strong> 在烧录过程中，Windows系统可能会因为无法识别SD卡上的Linux分区而弹出“是否需要格式化”的对话框。<strong>请务必选择“否”或直接关闭该对话框，不要进行格式化操作</strong>，否则会中断烧录。</li>
+</ul>
+</li>
+<li><strong>交叉验证：</strong>
+如果条件允许，尝试在另一台电脑上使用同一个SD卡和读卡器进行烧录，或者在同一台电脑上使用不同的SD卡/读卡器组合，以帮助定位问题环节。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q30-连接不上rdk-x3的vnc远程桌面怎么办">Q30: 连接不上RDK X3的VNC远程桌面怎么办？<a href="#q30-连接不上rdk-x3的vnc远程桌面怎么办" class="hash-link" aria-label="Q30: 连接不上RDK X3的VNC远程桌面怎么办？的直接链接" title="Q30: 连接不上RDK X3的VNC远程桌面怎么办？的直接链接">​</a></h3>
+<p><strong>A:</strong> 如果无法通过VNC客户端连接到RDK X3的远程桌面，请按以下步骤检查：</p>
+<ol>
+<li><strong>确认系统版本与VNC服务状态：</strong>
+<ul>
+<li><strong>Desktop版本镜像：</strong> 确保您为RDK X3烧录的是<strong>Desktop版本</strong>的系统镜像。Server版本的系统默认不包含图形桌面环境和VNC服务。</li>
+<li><strong>VNC服务已开启：</strong>
+<ul>
+<li>对  于RDK OS 2.1.0及以上版本（或由2.0.0升级而来的系统），VNC服务需要在 <code>srpi-config</code> 工具中<strong>手动开启</strong>。请SSH登录到板卡，执行 <code>sudo srpi-config</code>，找到VNC相关选项并启用。</li>
+<li>对于更早期的系统版本，VNC服务可能是默认开启的。</li>
+</ul>
+</li>
+<li><strong>VNC服务是否正常运行：</strong> 可以尝试在板卡上查看VNC服务进程（如 <code>tightvncserver</code>, <code>x11vnc</code> 等，具体服务名可能因系统而异）是否在运行。</li>
+</ul>
+</li>
+<li><strong>网络连接：</strong>
+<ul>
+<li>确保您的电脑和RDK X3板卡在<strong>同一个局域网</strong>内。</li>
+<li>确保您能从电脑 <code>ping</code> 通RDK X3的IP地址。</li>
+<li>检查防火墙设置（电脑端或网络设备），确保没有阻止VNC端口（默认为5900 + DisplayNumber，如5901对应显示:1）。</li>
+</ul>
+</li>
+<li><strong>VNC客户端配置：</strong>
+<ul>
+<li><strong>IP地址和端口：</strong> 在VNC客户端中输入的IP地址应为RDK X3的IP地址。端口号通常是 <code>5900 + N</code>，其中 <code>N</code> 是VNC服务器启动的显示号（Display Number），通常是 <code>1</code> (即端口5901)。部分VNC服务器或客户端可能直接使用IP地址加显示号（如 <code>192.168.1.10:1</code>）。</li>
+<li><strong>密码：</strong> VNC连接通常需要密码。RDK系统默认的VNC密码可能是 <code>sunrise</code> 或您在 <code>srpi-config</code> 中设置的密码。</li>
+</ul>
+</li>
+<li><strong>SSH连接验证：</strong>
+在排查VNC问题前，先确保您可以通过SSH正常连接到RDK X3。如果SSH也无法连接，则应首先解决网络或SSH服务本身的问题。</li>
+<li><strong>资源占用：</strong>
+RDK X3（尤其是不带独立GPU的型号）在运行图形桌面和VNC服务时，CPU和内存资源消耗较大。如果板卡负载过高，VNC服务可能会响应缓慢或连接失败。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q31-使用rdk-x5的-apppydev_demo02_camera_hdmi_output-和-03_yolov5_camera_hdmi_output-示例时没有画面显示只有一个黑色窗口是什么原因">Q31: 使用RDK X5的 <code>/app/pydev_demo/02_camera_hdmi_output</code> 和 <code>03_yolov5_camera_hdmi_output</code> 示例时，没有画面显示，只有一个黑色窗口，是什么原因？<a href="#q31-使用rdk-x5的-apppydev_demo02_camera_hdmi_output-和-03_yolov5_camera_hdmi_output-示例时没有画面显示只有一个黑色窗口是什么原因" class="hash-link" aria-label="q31-使用rdk-x5的-apppydev_demo02_camera_hdmi_output-和-03_yolov5_camera_hdmi_output-示例时没有画面显示只有一个黑色窗口是什么原因的直接链接" title="q31-使用rdk-x5的-apppydev_demo02_camera_hdmi_output-和-03_yolov5_camera_hdmi_output-示例时没有画面显示只有一个黑色窗口是什么原因的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>更新软件包：</strong> 首先，请确保您的RDK X5系统上的所有<code>hobot*</code>开头的软件包都已更新到最新版本。在确保地平线官方APT源配置正确后，执行：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update &amp;&amp; sudo apt upgrade</span><br></span></code></pre></div></div>
+<!-- -->然后重启板卡。</li>
+<li><strong>示例目的理解：</strong> 这两个示例（尤其是 <code>02_camera_hdmi_output</code>）的核心目的是演示如何将摄像头获取的NV12格式图像数据，通过硬件BT1120接口直接从HDMI物理端口输出。这种方式是硬件直出，<strong>并不是在XFCE桌面环境中通过<code>cv2.imshow()</code> 等方式渲染一个窗口来显示画面</strong>。因此，您在桌面上看到的那个黑色或灰色窗口，可能只是一个空的占位窗口或者根本不是图像显示窗口。真正的图像是直接输出到连接的HDMI显示器上的。</li>
+<li><strong>关闭桌面环境 (针对HDMI硬件直出)：</strong> 如果您运行的是Desktop版本的RDK X5系统，并且希望通过这些示例实现HDMI硬件直出预览画面的效果，您<strong>必须先关闭XFCE图形桌面环境</strong>，否则可能会产生冲突或报错，HDMI也不会显示预期的图像。执行以下命令关闭桌面：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl stop lightdm</span><br></span></code></pre></div></div>
+<!-- -->关闭桌面后，您需要通过SSH或串口登录来运行这些示例程序。</li>
+<li><strong>Sensor分辨率选择：</strong> 部分新版本的示例在启动时会提示用户选择Sensor的分辨率（例如输入0-4之间的数字）。请按照程序运行时的提示进行操作。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q32-运行rdk-x5的-apppydev_demo02_camera_hdmi_output-或-03_yolov5_camera_hdmi_output-示例时hdmi输出的图像是倒向的或者不显示yolov5的检测框是什么情况">Q32: 运行RDK X5的 <code>/app/pydev_demo/02_camera_hdmi_output</code> 或 <code>03_yolov5_camera_hdmi_output</code> 示例时，HDMI输出的图像是倒向的，或者不显示YOLOv5的检测框，是什么情况？<a href="#q32-运行rdk-x5的-apppydev_demo02_camera_hdmi_output-或-03_yolov5_camera_hdmi_output-示例时hdmi输出的图像是倒向的或者不显示yolov5的检测框是什么情况" class="hash-link" aria-label="q32-运行rdk-x5的-apppydev_demo02_camera_hdmi_output-或-03_yolov5_camera_hdmi_output-示例时hdmi输出的图像是倒向的或者不显示yolov5的检测框是什么情况的直接链接" title="q32-运行rdk-x5的-apppydev_demo02_camera_hdmi_output-或-03_yolov5_camera_hdmi_output-示例时hdmi输出的图像是倒向的或者不显示yolov5的检测框是什么情况的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>图像倒向/无检测框 (在XFCE桌面环境下运行)：</strong> 如果您是在XFCE图形桌面环境下直接运行这些Python示例，并且通过<code>cv2.imshow()</code>看到了一个窗口，那么这个窗口显示的图像可能确实是倒向的（这取决于OpenCV获取图像的方式和原始Sensor的朝向），并且<strong>不会显示通过HDMI硬件OSD叠加的检测框</strong>。因为<code>cv2.imshow()</code>是在CPU上渲染，而示例中YOLOv5的检测框等信息可能是设计为通过硬件OSD（Overlay Screen Display）直接叠加到HDMI输出信号上的。</li>
+<li><strong>正确的HDMI硬件直出预览方式：</strong>
+<ol>
+<li>如Q31所述，必须先执行 <code>sudo systemctl stop lightdm</code> 关闭图形桌面环境。</li>
+<li>通过SSH或串口登录到RDK X5。</li>
+<li>运行示例程序。此时，摄像头画面以及由硬件OSD叠加的检测框（对于<code>03_yolov5_camera_hdmi_output</code>示例）会直接输出到连接的HDMI显示器上。</li>
+</ol>
+</li>
+</ul>
+<p>简而言之，这些特定示例的预期效果（包括正确的图像朝向和硬件OSD）需要在关闭桌面环境后，通过HDMI物理端口直接观察。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q33-tf卡micro-sd卡接触不良或损坏时可能会在内核日志中看到哪些典型错误信息">Q33: TF卡（Micro SD卡）接触不良或损坏时，可能会在内核日志中看到哪些典型错误信息？<a href="#q33-tf卡micro-sd卡接触不良或损坏时可能会在内核日  志中看到哪些典型错误信息" class="hash-link" aria-label="Q33: TF卡（Micro SD卡）接触不良或损坏时，可能会在内核日志中看到哪些典型错误信息？的直接链接" title="Q33: TF卡（Micro SD卡）接触不良或损坏时，可能会在内核日志中看到哪些典型错误信息？的直接链接">​</a></h3>
+<p><strong>A:</strong> 如果Micro SD卡接触不良、损坏或不兼容，您可能会在系统启动的串口日志或通过<code>dmesg</code>命令查看到的内核日志中观察到类似以下的错误信息，这些信息通常与MMC (MultiMediaCard) 控制器无法正确初始化或与SD卡通信有关：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: card never left busy state</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: error -110 whilst initialising SD card</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc_rescan_try_freq: send_status error -110</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Card did not respond to voltage select! : -110</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: unrecognised CSD structure version x</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: error -22 whilst initialising SD card</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">eMMC or SD Card not detected on mmchost 0  (mmchost X 可能指代不同的MMC控制器)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">MMC Device X not found</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">no mmc device at slot X</span><br></span></code></pre></div></div>
+<p>出现这类日志通常意味着需要检查SD卡是否插好、更换SD卡或检查SD卡槽。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q34-rdk-x5是否支持实时linux内核rt-linux如何获取和使用">Q34: RDK X5是否支持实时Linux内核（RT-Linux）？如何获取和使用？<a href="#q34-rdk-x5是否支持实时linux内核rt-linux如何获取和使用" class="hash-link" aria-label="Q34: RDK X5是否支持实时Linux内核（RT-Linux）？如何获取和使用？的直接链接" title="Q34: RDK X5是否支持实时Linux内核（RT-Linux）？如何获取和使用？的直接链接">​</a></h3>
+<p><strong>A:</strong> 是的，RDK X5支持Preempt-RT（实时抢占）内核，这对于需要低延迟和确定性响应的机器人应用非常重要。</p>
+<ul>
+<li><strong>获取方式：</strong>
+<ol>
+<li><strong>系统镜像：</strong> 通常需要您的RDK X5系统版本支持（例如，官方文档中提到的RDK OS 3.0.1或更新版本）。
+官方镜像下载地址参考：<code>https://archive.d-robotics.cc/downloads/os_images/rdk_x5/</code> (请查找对应系统版本下的Preempt-RT相关资源，例如 <code>rdk_os_3.0.1-2024-10-18/Preempt-RT/</code> 目录，日期仅为示例)。</li>
+<li><strong>Debian包：</strong> 在上述下载路径中，通常会提供预编译好的实时内核 <code>.deb</code> 包。</li>
+<li><strong>内核源码：</strong> 地平线也会在GitHub上提供RDK X5的Preempt-RT内核源码，供开发者自行编译和定制。
+源码仓库参考：<a href="https://github.com/D-Robotics/x5-kernel-rt" target="_blank" rel="noopener noreferrer">D-Robotics x5-kernel-rt on GitHub</a></li>
+</ol>
+</li>
+<li><strong>使用方法：</strong>
+<ol>
+<li>确保您的基础RDK X5系统已正确安装并运行。</li>
+<li>下载对应系统版本的实时内核 <code>.deb</code> 包（通常包含内核镜像和头文件）。</li>
+<li>将 <code>.deb</code> 包传输到RDK X5板卡上。</li>
+<li>使用 <code>sudo dpkg -i &lt;kernel_image.deb&gt; &lt;kernel_headers.deb&gt;</code> 命令安装实时内核。</li>
+<li>安装完成后，需要更新引导加载程序（如U-Boot）的配置，使其在下次启动时加载新的实时内核。具体步骤请严格参照官方文档或安装包中提供的说明。</li>
+<li>重启板卡。</li>
+<li>通过 <code>uname -a</code> 命令验证当前运行的是否为实时内核（通常版本号中会带有 <code>-rt</code> 标识）。</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q35-rdk-x5使用vnc远程桌面时感觉显示卡顿有什么优化或解决方法">Q35: RDK X5使用VNC远程桌面时感觉显示卡顿，有什么优化或解决方法？<a href="#q35-rdk-x5使用vnc远程桌面时感觉显示卡顿有什么优化或解决方法" class="hash-link" aria-label="Q35: RDK X5使用VNC远程桌面时感觉显示卡顿，有什么优化或解决方法？的直接链接" title="Q35: RDK X5使用VNC远程桌面时感觉显示卡顿，有什么优化或解决方法？的直接链接">​</a></h3>
+<p><strong>A:</strong> VNC远程桌面是通过网络传输屏幕数据并在客户端渲染，其流畅度受多种因素影响，尤其是在没有独立GPU辅助渲染的嵌入式设备上。针对RDK X5 VNC卡顿问题，可以尝试以下方法：</p>
+<ol>
+<li><strong>连接HDMI显示器或HDMI欺骗器 (Dummy Plug)：</strong>
+<ul>
+<li>有些嵌入式系统在未检测到物理显示器连接时，可能会限制图形渲染的性能或帧率。尝试连接一个真实的HDMI显示器，或者使用一个HDMI欺骗器（也叫HDMI虚拟显示器、假负载），让系统认为有显示器连接，有时可以改善VNC的性能。这与某些Raspberry Pi设备上的类似现象相似。</li>
+</ul>
+</li>
+<li><strong>使用虚拟显示器软件方案：</strong>
+<ul>
+<li>可以尝试在RDK X5的Linux系统中配置 和使用虚拟显示器软件（如 <code>Xvfb</code> - X Virtual FrameBuffer，或结合 <code>x11vnc</code> 使用）。这样可以创建一个不依赖物理显示器的虚拟屏幕，VNC服务直接从此虚拟屏幕抓取内容。</li>
+<li>有社区用户分享过相关经验，例如此CSDN博客文章（链接仅供参考，请自行判断其适用性和安全性）：<a href="https://blog.csdn.net/weixin_64677511/article/details/142444529" target="_blank" rel="noopener noreferrer">RDK X5 虚拟显示器配置参考</a></li>
+</ul>
+</li>
+<li><strong>优化VNC服务器和客户端设置：</strong>
+<ul>
+<li><strong>色彩深度和质量：</strong> 在VNC服务器端（如果可配置）和客户端，尝试降低色彩深度（如16位色）、关闭或降低图像压缩质量、禁用一些视觉特效，以减少数据传输量和渲染负担。</li>
+<li><strong>网络带宽：</strong> 确保RDK X5与VNC客户端之间的网络连接稳定且带宽充足。有线网络通常比无线网络更稳定。</li>
+</ul>
+</li>
+<li><strong>降低桌面分辨率：</strong> 如果可能，在RDK X5的桌面环境中（或通过VNC连接后）降低屏幕分辨率，可以显著减少需要传输和渲染的数据量。</li>
+<li><strong>关闭不必要的图形应用：</strong> 在VNC会话中，关闭RDK X5桌面上不必要的、占用图形资源的应用程序。</li>
+<li><strong>检查系统负载：</strong> 使用 <code>top</code> 或 <code>htop</code> 命令检查RDK X5的CPU和内存占用情况。如果系统本身负载过高，VNC性能自然会受影响。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q36-板卡在高负载运行时感觉温度过高应该如何处理">Q36: 板卡在高负载运行时感觉温度过高，应该如何处理？<a href="#q36-板卡在高负载运行时感觉温度过高应该如何处理" class="hash-link" aria-label="Q36: 板卡在高负载运行时感觉温度过高，应该如何处理？的直接链接" title="Q36: 板卡在高负载运行时感觉  温度过高，应该如何处理？的直接链接">​</a></h3>
+<p><strong>A:</strong> 板卡温度过高会影响性能稳定性，甚至可能损坏硬件。处理方法如下：</p>
+<ol>
+<li><strong>检查并改善散热方式：</strong>
+<ul>
+<li><strong>被动散热 vs. 主动散热：</strong> 确认板卡当前的散热方案。对于需要长时间高负载运行（如持续AI推理、视频处理）的场景，仅靠小面积的被动散热片可能不足。强烈建议使用<strong>主动散热</strong>方案，例如带有风扇的散热片，或者将板卡安装在有良好空气流通的机箱内。</li>
+<li><strong>散热片安装：</strong> 确保散热片与芯片（CPU/SoC）接触良好，导热硅脂或导热垫片已正确涂抹/放置。</li>
+</ul>
+</li>
+<li><strong>确保空气流通：</strong> 避免将板卡放置在密闭或通风不良的环境中。</li>
+<li><strong>监控温度：</strong>
+<ul>
+<li>使用系统命令（如 <code>cpu_status_monitor</code>，或读取 <code>/sys/class/thermal/thermal_zoneX/temp</code> 文件内容）来实时监控芯片温度。</li>
+<li>了解板卡芯片的安全工作温度范围，避免长时间超出上限。</li>
+</ul>
+</li>
+<li><strong>优化应用负载：</strong>
+<ul>
+<li>如果可能，优化您的应用程序，减少不必要的计算，降低CPU/BPU的持续高负载。</li>
+<li>考虑是否可以通过算法优化、模型轻量化等方式降低功耗和发热。</li>
+</ul>
+</li>
+<li><strong>检查供电：</strong> 虽然不直接导致发热，但不稳定的供电可能导致芯片工作异常，间接影响温度。</li>
+</ol>
+<p><strong>重要提示：</strong> “发热量小不代表温度会低”。即使芯片本身设计功耗不高，如果散热不良，热量积聚仍然会导致表面温度快速升高。良好的散热设计是保证嵌入式系统稳定运行的关键。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q37-如何在conda虚拟环境中获取和使用地平线rdk特定的python包如-hobotgpio-hobot_dnn-等">Q37: 如何在Conda虚拟环境中获取和使用地平线RDK特定的Python包（如 <code>hobot.GPIO</code>, <code>hobot_dnn</code> 等）？<a href="#q37-如何在conda虚拟环境中获取和使用地平线rdk特定的python包如-hobotgpio-hobot_dnn-等" class="hash-link" aria-label="q37-如何在conda虚拟环境中获取和使用地平线rdk特定的python包如-hobotgpio-hobot_dnn-等的直接链接" title="q37-如何在conda虚拟环境中获取和使用地平线rdk特定的python包如-hobotgpio-hobot_dnn-等的直接链接">​</a></h3>
+<p><strong>A:</strong> 地平线官方提供的 <code>hobot.GPIO</code>、<code>hobot_dnn</code> 等Python包通常是为RDK的系统Python环境预编译和优化的，它们可能依赖于系统底层的特定库文件和驱动程序。在Conda等Python虚拟环境中使用这些包可能会遇到一些挑战，因为虚拟环境旨在隔离依赖。</p>
+<p>以下是一些可能的方法和注意事项：</p>
+<ol>
+<li><strong>官方是否提供Conda支持或 <code>.whl</code> 文件：</strong>
+<ul>
+<li>首先，查阅最新的地平线官方文档、开发者社区或GitHub仓库，看官方是否提供了针对Conda环境的安装说明，或者是否直接发布了可以在Conda环境中通过 <code>pip</code> 安装的 <code>.whl</code> 格式的这些包。这是最理想的情况。</li>
+</ul>
+</li>
+<li><strong>尝试在Conda环境中通过 <code>pip</code> 安装系统路径下的包（如果 <code>.whl</code> 不可用）：</strong>
+<ul>
+<li>如果这些包已经安装在RDK的系统Python环境中（例如在 <code>/usr/lib/python3/dist-packages/</code> 或类似路径下），并且您的Conda环境使用的Python版本与系统Python及这些包编译时所用的Python版本兼容，<strong>有时</strong>可以直接在激活Conda环境后，尝试用 <code>pip</code> 指向这些包的路径进行安装，但这通常不被推荐，且成功率不高，因为 <code>pip</code> 主要用于从PyPI或本地<code>.whl</code>/源码包安装  。</li>
+</ul>
+</li>
+<li><strong>修改 <code>PYTHONPATH</code> 或 <code>sys.path</code> (不推荐，易出错)：</strong>
+<ul>
+<li>一种不规范的方法是，在激活Conda环境后，手动将系统Python环境中这些特定包的路径添加到Conda环境的 <code>PYTHONPATH</code> 环境变量中，或者在Python脚本中动态修改 <code>sys.path</code>。</li>
+<li><strong>风险：</strong> 这种方法非常容易导致依赖冲突、版本不匹配以及难以追踪的运行时错误，因为Conda环境的隔离性被破坏了。强烈不推荐用于生产或复杂项目。</li>
+</ul>
+</li>
+<li><strong>使用系统Python环境：</strong>
+<ul>
+<li>如果您的项目对Python环境隔离的要求不是非常严格，或者主要就是围绕这些RDK特定包进行开发，最简单直接的方法可能就是<strong>直接使用RDK系统自带的Python环境</strong>，而不是Conda。这些包在系统环境中通常是配置好的。</li>
+</ul>
+</li>
+<li><strong>容器化方案 (Docker)：</strong>
+<ul>
+<li>如果地平线官方提供了包含这些包和完整依赖的Docker镜像，那么在Docker容器中使用这些功能是更可靠的隔离和部署方案。</li>
+</ul>
+</li>
+<li><strong>从源码编译（如果官方提供源码且允许）：</strong>
+<ul>
+<li>如果这些特定包的源码是开放的，并且有针对ARM架构的编译指南，理论上您可以尝试在您的Conda环境中从源码编译和安装这些包。但这通常需要较高的技术能力和时间投入。</li>
+</ul>
+</li>
+</ol>
+<p><strong>总结：</strong> 优先查找官方对Conda环境的支持。如果官方不支持，直接使用系统Python环境可能是最稳妥的方案。避免通过修改<code>PYTHONPATH</code>等方式强行混合不同环境的包，除非您非常清楚潜在的风险和如何解决冲突。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q38-编译自己开发的linux内核模块ko文件后加载时遇到驱动签名报错或required-key-not-available等问题怎么办">Q38: 编译自己开发的Linux内核模块（<code>.ko</code>文件）后，加载时遇到“驱动签名报错”或“Required key not available”等问题怎么办？<a href="#q38-编译自己开发的linux内核模块ko文件后加载时遇到驱动签名报错或required-key-not-available等问题怎么办" class="hash-link" aria-label="q38-编译自己开发的linux内核模块ko文件后加载时遇到驱动签名报错或required-key-not-available等问题怎么办的直接链接" title="q38-编译自己开发的linux内核模块ko文件后加载时遇到驱动签名报错或required-key-not-available等问题怎么办的直接链接">​</a></h3>
+<p><strong>A:</strong> 较新版本的Linux内核，尤其是在启用了Secure Boot的系统上，或者某些发行版的默认安全策略，会要求加载到内核中的模块（<code>.ko</code>文件）必须具有有效的数字签名。如果您自行编译了一个内核模块但没有对其进行签名，在尝试使用 <code>insmod</code> 或 <code>modprobe</code> 加载时就可能遇到此类错误。</p>
+<p><strong>解决方法通常涉及以下步骤：</strong></p>
+<ol>
+<li>
+<p><strong>生成签名密钥对：</strong>
+您需要一对公钥和私钥用于签名。可以使用 <code>openssl</code> 工具生成。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj &quot;/CN=My Module Signing Key/&quot;</span><br></span></code></pre></div></div>
+<p>这会生成私钥 <code>MOK.priv</code> 和公钥 <code>MOK.der</code>。</p>
+</li>
+<li>
+<p><strong>对内核模块进行签名：</strong>
+Linux内核源码树中通常包含一个签名脚本 <code>scripts/sign-file</code>。您需要使用这个脚本、您的私钥以及刚生成的公钥（或者内核信任的某个公钥）来对编译好的 <code>.ko</code> 文件进行签名。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 假设您在内核源码目录下，并且 MOK.priv 和 MOK.der 在当前目录</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># KBUILD_SIGN_PIN 环境变量可能需要设置，用于自动签名过程中的密码交互（如果密钥有密码）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der /path/to/your/module.ko</span><br></span></code></pre></div></div>
+<p>路径和具体参数可能需要根据您的内核版本和环境进行调整。</p>
+</li>
+<li>
+<p><strong>将签名公钥注册到系统的MOK (Machine Owner Key) 列表中：</strong>
+为了让内核信任您的签名，需要将签名时使用的公钥（<code>MOK.der</code>）导入到系统的MOK列表中。这通常通过 <code>mokutil</code> 工具完成。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo mokutil --import MOK.der</span><br></span></code></pre></div></div>
+<p>执  行此命令后，系统会提示您设置一个临时密码。<strong>请记住这个密码。</strong></p>
+</li>
+<li>
+<p><strong>重启系统并在MOK Manager中确认导入：</strong>
+重启计算机。在启动过程中（通常在UEFI/BIOS之后，操作系统加载之前），系统会进入一个蓝色的MOK Manager界面（Shim）。您需要选择 &quot;Enroll MOK&quot; 或类似选项，然后输入之前设置的临时密码，来确认导入新的公钥。</p>
+</li>
+<li>
+<p><strong>加载已签名的模块：</strong>
+完成以上步骤后，您的内核模块应该已经被有效签名，并且内核会信任这个签名。此时再尝试加载 <code>.ko</code> 文件应该就不会再报签名错误了。</p>
+</li>
+</ol>
+<p><strong>重要提示：</strong></p>
+<ul>
+<li>上述步骤是一个通用流程，具体命令和细节可能因您的Linux发行版、内核版本以及Secure Boot的配置状态而有所不同。</li>
+<li><strong>请务必参考您所使用的Linux发行版和内核版本的官方文档中关于“内核模块签名 (Kernel Module Signing)”的详细指南。</strong></li>
+<li>地平线官方RDK文档中关于“Linux开发”或“驱动开发”的章节，也可能包含针对RDK平台的具体模块签名指导：<a href="https://developer.d-robotics.cc/documents_rdk/linux_development/kernel_headers" target="_blank" rel="noopener noreferrer">RDK文档 - Linux开发 - 内核头文件与模块编译</a> (请查找此文档中关于模块签名的具体章节)。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q39-如何升级rdk-x5的miniboot">Q39: 如何升级RDK X5的MiniBoot？<a href="#q39-如何升级rdk-x5的miniboot" class="hash-link" aria-label="Q39: 如何升级RDK X5的MiniBoot？的直接链接" title="Q39: 如何升级RDK X5的MiniBoot？的直接链接">​</a></h3>
+<p><strong>A:</strong> 在RDK X5上，可以通过 <code>srpi-config</code> 工具来方便地升级MiniBoot（U-Boot的早期引导加载程序部分，负责更底层的硬件初始 化和引导）。</p>
+<p><strong>步骤如下：</strong></p>
+<ol>
+<li><strong>通过SSH或串口登录到RDK X5的系统终端。</strong></li>
+<li><strong>执行 <code>srpi-config</code> 工具：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo srpi-config</span><br></span></code></pre></div></div>
+</li>
+<li><strong>导航到MiniBoot更新选项：</strong>
+在 <code>srpi-config</code> 的菜单中，通常的路径是：<!-- -->
+<ul>
+<li>选择 <code>1 System Options</code> (或类似名称的系统选项)</li>
+<li>然后选择 <code>S7 Update MiniBoot</code> (或类似名称的MiniBoot更新选项，具体编号和名称可能随 <code>srpi-config</code> 版本略有调整)</li>
+</ul>
+</li>
+<li><strong>按照提示进行操作：</strong>
+工具会引导您完成升级过程。这通常需要RDK X5能够连接到互联网，以便下载最新的MiniBoot固件包。</li>
+<li><strong>完成并重启：</strong>
+升级完成后，按照提示退出 <code>srpi-config</code> 并重启RDK X5使新的MiniBoot生效。</li>
+</ol>
+<p><strong>验证升级：</strong>
+您可以在RDK X5重启后的串口启动日志中，查看U-Boot的版本信息。更新后的MiniBoot通常会显示更新的编译日期和版本号。
+例如，更新后的版本信息可能类似 (日期和具体版本号会变化)：
+<code>U-Boot 2022.10+ (Dec 26 2024 - 16:58:41 +0800)</code></p>
+<p><strong>注意：</strong> 升级MiniBoot是一个底层固件操作，请确保在稳定的电源和网络环境下进行，并仔细阅读 <code>srpi-config</code> 工具的提示信息。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办">Q40: 在编译大型项目（如使用gcc/make/cmake/colcon构建ROS2工作空间）或运行内存消耗较大的工具（如<code>hb_mapper</code>模型转换）时，遇到内存不足的错误怎么办？<a href="#q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办" class="hash-link" aria-label="q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办的直接链接" title="q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办的直接链接">​</a></h3>
+<p><strong>A:</strong> 内存不足（Out of Memory, OOM）是嵌入式设备或资源受限的开发机上编译大型项目或运行内存密集型应用时常见的问题。以下是一些解决方法：</p>
+<ol>
+<li>
+<p><strong>增加Swap交换空间：</strong>
+当物理内存(RAM)不足时，系统可以使用硬盘上的一部分空间作为虚拟内存（Swap）。这可以缓解OOM问题，但性能会比物理内存慢很多。</p>
+<ul>
+<li><strong>创建并启用Swap文件（示例为创建4GB Swap，大小可根据需求调整）：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 1. 创建一个指定大小的空文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo fallocate -l 4G /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 2. 设置文件权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo chmod 600 /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 3. 将该文件设置为Swap区域</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo mkswap /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 4. 启用Swap文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo swapon /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 5. (可选) 验证Swap是否已激活</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">swapon --show</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">free -h</span><br></span></code></pre></div></div>
+</li>
+<li><strong>使其开机自动挂载：</strong> 编辑 <code>/etc/fstab</code> 文件，在末尾添加一行：<!-- -->
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/swapfile none swap sw 0 0</span><br></span></code></pre></div></div>
+</li>
+<li><strong>关闭Swap（如果需要）：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo swapoff /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /swapfile # 如果不再需要，可以删除文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 同时记得从 /etc/fstab 中移除对应行</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>减少编译并行度/线程数：</strong>
+编译过程（尤其是C++项目）通常会启动多个并行的编译任务以加快速度，但这也会消耗大量内存。</p>
+<ul>
+<li><strong><code>make</code> 命令：</strong> 使用 <code>-j</code> 参数指定并行任务数。例如，单线程编译：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">make -j1</span><br></span></code></pre></div></div>
+<!-- -->可以尝试 <code>-j2</code>, <code>-jN</code> (N为CPU核心数的一半或更少)。</li>
+<li><strong><code>colcon build</code> (ROS2)：</strong>
+<ul>
+<li>限制并行包编译数量：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">colcon build --parallel-workers 1</span><br></span></code></pre></div></div>
+</li>
+<li>禁用并行包编译，改为串行编译（更慢但内存占用更 低）：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">colcon build --executor sequential</span><br></span></code></pre></div></div>
+</li>
+<li>结合使用：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">colcon build --executor sequential --parallel-workers 1</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li><strong><code>cmake</code>：</strong> CMake本身不直接控制make的并行度，但最终还是通过make执行。可以在调用make时传递 <code>-j</code> 参数。</li>
+<li><strong>设置 <code>MAKEFLAGS</code> 环境变量（临时）：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">export MAKEFLAGS=&quot;-j1&quot; </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 然后执行 colcon build 或其他编译命令</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>针对 <code>hb_mapper</code> (地平线模型转换工具)：</strong></p>
+<ul>
+<li>在模型转换的 <code>yaml</code> 配置文件中，查找是否有类似 <code>compiler_parameters</code> -&gt; <code>jobs: 1</code> 的选项，用以限制模型编译（例如ONNX到BIN模型过程中某些阶段）的并行进程数。具体参数名请查阅最新的算法工具链文档。</li>
+</ul>
+</li>
+<li>
+<p><strong>关闭不必要的后台服务和应用程序：</strong>
+在进行编译或运行内存密集型任务前，关闭其他占用内存的程序（如图形界面、浏览器、其他服务等），以释放更多物理内存。</p>
+</li>
+<li>
+<p><strong>使用更高配置的开发机/服务器进行编译：</strong>
+如果是在x86开发机上为RDK进行交叉编译，而开发机本身内存也有限，可以考虑使用内存配置更高的机器。对于板端编译，如果资源实在不足，交叉编译是更好的选择。</p>
+</li>
+<li>
+<p><strong>分步编译/模块化编译：</strong>
+对于非常大的项目，如果构建系统支持，可以尝试只编译项目的一部分，或者将项目分解为更小的模块独立编译。</p>
+</li>
+</ol>
+<p>选择哪种方法或组合取决于具体的错误信息、可用资源以及对编译时间的要求。增加Swap通常是比较通用的缓解方法。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q41-rdk相关问题进行预排查的通用建议有哪些">Q41: RDK相关问题进行预排查的通用建议有哪些？<a href="#q41-rdk相关问题进行预排查的通用建议有哪些" class="hash-link" aria-label="Q41: RDK相关问题进行预排查的通用建议有哪些？的直接链接" title="Q41: RDK相关问题进行预排查的通用建议有哪些？的直接链接">​</a></h3>
+<p><strong>A:</strong> 在遇到RDK相关问题并寻求帮助前，建议进行以下预排查：</p>
+<ol>
+<li><strong>查阅最新官方手册：</strong> 确保您参考的是官方最新版本的用户手册、开发文档和发行说明。官方文档通常会包含最新的信息和已知问题的解决方案。您可 以从地平线开发者社区获取最新文档：<a href="https://developer.d-robotics.cc/information" target="_blank" rel="noopener noreferrer">https://developer.d-robotics.cc/information</a></li>
+<li><strong>更新系统及相关软件包：</strong> 许多问题可能在较新的软件版本中得到修复。请确保您的RDK板卡上的操作系统以及所有<code>hobot-*</code>、<code>tros-*</code>等关键软件包都已更新到最新稳定版本。通常可以通过以下命令进行更新：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update &amp;&amp; sudo apt upgrade</span><br></span></code></pre></div></div>
+<!-- -->在提问时，请一并提供通过 <code>rdkos_info</code>、<code>apt list --installed | grep hobot</code> 等命令获取的当前系统和软件包版本信息。</li>
+<li><strong>仔细检查硬件连接：</strong> 确保所有硬件连接都牢固可靠，包括电源线、SD卡、调试串口线、摄像头排线、网络线以及其他外设连接。接触不良是许多问题的根源。</li>
+<li><strong>提供完整的问题复现信息：</strong> 当您向社区或技术支持提问时，请尽可能提供以下信息：<!-- -->
+<ul>
+<li><strong>清晰的问题描述：</strong> 遇到了什么问题？期望的结果是什么？实际观察到的现象是什么？</li>
+<li><strong>RDK硬件型号和系统版本：</strong> 例如RDK X5, RDK OS 3.0.1。</li>
+<li><strong>相关的软件包版本。</strong></li>
+<li><strong>详细的复现步骤：</strong> 一步一步说明如何操作才能触发问题。</li>
+<li><strong>完整的错误日志或截图：</strong> 包括串口打印、dmesg信息、  应用程序的报错输出等。</li>
+<li><strong>您已尝试过的解决方法及其结果。</strong>
+提供充分的信息有助于他人更快地理解和定位您的问题。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q42-docker镜像oe包或嵌入式开发samples包下载失败或速度慢怎么办">Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？<a href="#q42-docker镜像oe包或嵌入式开发samples包下载失败或速度慢怎么办" class="hash-link" aria-label="Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？的直接链接" title="Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？的直接链接">​</a></h3>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Docker镜像（例如用于算法工具链、交叉编译环境）：</strong>
+<ul>
+<li><strong>官方来源：</strong> Docker镜像通常首发于Docker Hub。地平线官方也可能在自己的服务器或特定的开发者社区资源帖中提供部分关键镜像的下载链接或拉取方式。</li>
+<li><strong>网络问题：</strong> 如果从Docker Hub拉取速度慢或失败，可能是由于网络限制或国际带宽问题。可以尝试配置Docker使用国内的镜像加速器服务（如阿里云、DaoCloud、网易蜂巢等都提供此类服务）。</li>
+<li><strong>社区资源：</strong> 关注地平线开发者社区的公告或资源下载区，有时会提供针对国内用户的镜像获取方案。例如，此帖曾提供过相关资源：<a href="https://developer.d-robotics.cc/forumDetail/136488103547258769" target="_blank" rel="noopener noreferrer">地平线开发者社区论坛相关帖子</a> (请确认链接及内容的最新有效性)。</li>
+</ul>
+</li>
+<li><strong>OE (OpenEmbedded) 包 / BSP (Board Support Package)：</strong>
+<ul>
+<li>OE编译环境相关的包或完整的BSP（包含内核源码、驱动、文件系统构建脚本等）通常体积较大。如果 官方提供直接下载，请确保您的网络连接稳定且具有足够的带宽。</li>
+<li>这些资源一般会在开发者社区的“资源中心”板块或对应RDK型号的产品文档页提供下载链接。</li>
+</ul>
+</li>
+<li><strong>嵌入式开发Samples包（示例代码）：</strong>
+<ul>
+<li>示例代码包可能作为BSP的一部分提供（例如在BSP解压后的 <code>bsp/samples/</code> 或类似目录下）。</li>
+<li>也可能作为独立的SDK、代码仓库（如GitHub上的 <code>D-Robotics</code> 组织）或压缩包提供。</li>
+<li>请仔细查阅对应RDK型号和版本的官方文档或快速入门指南，以找到获取官方示例代码的正确途径。</li>
+</ul>
+</li>
+<li><strong>通用下载建议：</strong>
+<ul>
+<li><strong>使用下载工具：</strong> 对于较大的文件，建议使用支持断点续传的下载工具。</li>
+<li><strong>检查网络环境：</strong> 如果您在公司或机构网络下，确认是否有防火墙、代理服务器或网络策略限制了大文件的下载或访问特定域名。</li>
+<li><strong>错峰下载：</strong> 尝试在网络负载较低的时段进行下载。</li>
+<li><strong>官方渠道优先：</strong> 始终优先从地平线官方开发者社区、官方文档中提供的链接或官方GitHub仓库获取各类开发资源，以确保文件的正确性、完整性和安全性。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q43-为rdk进行交叉编译的环境应该如何配置">Q43: 为RDK进行交叉编译的环境应该如何配置？<a href="#q43-为rdk进行交叉编译的环境应该如何配置" class="hash-link" aria-label="Q43: 为RDK进行交叉编译的环境应该如何配置？的直接链接" title="Q43: 为RDK进行交叉编译的环境应该如何配置？的直接链接">​</a></h3>
+<p><strong>A:</strong> 为RDK板卡（通常是ARM架构）上的应用程序进行交叉编译，一般需要在x86架构的Linux开发主机（推荐使用Ubuntu LTS版本，如Ubuntu 20.04或22.04）上配置交叉编译工具链和相应的目标系统SDK（Sysroot）。具体配置步骤会因您要编译的程序类型（例如，普通的Linux C/C++程序、ROS/TROS功能包）以及目标RDK的型号和系统版本而有所不同。</p>
+<ol>
+<li>
+<p><strong>编译普通Linux C/C++应用程序：</strong></p>
+<ul>
+<li><strong>获取交叉编译工具链：</strong> 地平线官方会为每个RDK系列（如X3、X5、Ultra）提供相应的交叉编译工具链（例如，包含<code>aarch64-linux-gnu-gcc</code>, <code>aarch64-linux-gnu-g++</code>等工具）。这个工具链可能作为SDK的一部分提供，或者需要从开发者社区单独下载。</li>
+<li><strong>安装与配置工具链：</strong> 按照官方文档的指引，将下载的工具链压缩包解压到您开发主机上的一个合适路径（例如 <code>/opt/toolchains/</code>）。然后，需要将工具链的 <code>bin</code> 目录（包含编译器等可执行文件）添加到您开发主机的 <code>PATH</code> 环境变量中，这样系统才能找到这些交叉编译命令。</li>
+<li><strong>准备Sysroot：</strong> 交叉编译不仅需要编译器，还需要目标板卡系统环境中的库文件（如glibc, libstdc++, 以及其他依赖库）和头文件。这部分内容集合称为Sysroot。Sysroot可以从官方提供的RDK SDK中提取，或者从一个已经烧录好系统的RDK板卡的根文件系统中复制得到。在编译时，需要通过编译器的 <code>--sysroot=&lt;path_to_sysroot&gt;</code> 参数来指定Sysroot的路径。</li>
+<li><strong>使用CMake进行交叉编译：</strong> 如果您的项目使用CMake作为构建系统，推荐创建一个CMake工具链配置文件（toolchain file，例如 <code>aarch64-rdk.cmake</code>）。在这个文件中，您需要指定：<!-- -->
+<ul>
+<li>目标系统名称 (<code>CMAKE_SYSTEM_NAME</code> 通常设为 <code>Linux</code>)。</li>
+<li>目标处理器架构 (<code>CMAKE_SYSTEM_PROCESSOR</code> 通常设为 <code>aarch64</code>)。</li>
+<li>C交叉编译器 (<code>CMAKE_C_COMPILER</code>) 和 C++交叉编译器 (<code>CMAKE_CXX_COMPILER</code>) 的完整路径。</li>
+<li>Sysroot路径 (<code>CMAKE_SYSROOT</code>)。</li>
+<li>查找库和头文件的相关路径设置 (<code>CMAKE_FIND_ROOT_PATH</code>)。
+然后在运行CMake配置项目时，通过 <code>-DCMAKE_TOOLCHAIN_FILE=/path/to/your/aarch64-rdk.cmake</code> 参数来指定使用这个工具链文件。</li>
+</ul>
+</li>
+<li><strong>参考官方手册：</strong> 详细的交叉编译环境搭建步骤、工具链文件示例以及编译参数，请务必参考您所使用的RDK型号和版本的官方《用户手册》或《SDK开发指南》中关于“Linux应用开发”或“交叉编译环境搭建”的章节。</li>
+</ul>
+</li>
+<li>
+<p><strong>编译ROS/TROS功能包：</strong></p>
+<ul>
+<li><strong>使用官方提供的Docker交叉编译环境（强烈推荐）：</strong> 这是为TROS功能包进行交叉编译<strong>最推荐且最便捷</strong>的方式。地平线官方通常会提供预配置好的Docker镜像，这些镜像中已经集成了：<!-- -->
+<ul>
+<li>特定TROS版本（如Foxy, Humble）所需的交叉编译工具链。</li>
+<li>Ament/Colcon等ROS构建工具。</li>
+<li>目标板卡TROS环境对应的所有基础ROS库和依赖项的交叉编译版本。</li>
+<li><strong>操作流程：</strong>
+<ol>
+<li>从官方渠道（如Docker Hub或地平线官方服务器）拉取对应TROS版本的交叉编译Docker镜像。</li>
+<li>按照官方文档的指引启动Docker容器，并将您的ROS工作区源代码目录挂载到容器内部。</li>
+<li>在Docker容器的终端内，使用 <code>colcon build</code> 配合适当的交叉编译参数（通常Docker环境已预设好）来编译您的工作区。</li>
+</ol>
+</li>
+<li><strong>参考官方手册：</strong> TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相 关信息：<a href="https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_start/cross_compile" target="_blank" rel="noopener noreferrer">TROS手册 - 交叉编译Docker参考</a> (请确认链接的有效性和相关性)。</li>
+</ul>
+</li>
+<li><strong>手动配置ROS/TROS交叉编译环境 (极不推荐，非常复杂且极易出错)：</strong> 如果不使用官方提供的Docker环境，手动从零开始搭建一个完整的ROS/TROS交叉编译环境是一项非常复杂和耗时的工作。您需要自行交叉编译ROS的所有核心组件、消息类型、依赖库，并为Colcon等构建工具配置大量的交叉编译参数和环境变量。这通常只适用于有深厚交叉编译和ROS构建系统经验的开发者。</li>
+</ul>
+</li>
+</ol>
+<p><strong>通用交叉编译建议：</strong></p>
+<ul>
+<li><strong>仔细阅读官方文档：</strong> 针对您使用的RDK型号和目标系统版本，务必以官方最新发布的开发文档、SDK说明和移植指南为准。</li>
+<li><strong>保持环境一致性：</strong> 交叉编译环境中所使用的库（尤其是系统库和核心依赖库）的版本，应尽可能与目标RDK板卡上实际运行的库版本保持一致或兼容，以避免运行时出现链接错误或行为不一致的问题。</li>
+<li><strong>Sysroot的正确配置至关重要：</strong> 无论是编译普通Linux程序还是ROS包，正确配置和使用Sysroot是交叉编译成功的关键环节。</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-06-17T09:58:35.000Z" itemprop="dateModified">2025年6月17日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/FAQ"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">8. 常见问题</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/FAQ/interface"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">8.2 接口、外设与驱动</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#q1-什么是d-robotics-rdk套件" class="table-of-contents__link toc-highlight">Q1: 什么是D-Robotics RDK套件？</a></li><li><a href="#q2-如何查看rdk板卡的系统版本号" class="table-of-contents__link toc-highlight">Q2: 如何查看RDK板卡的系统版本号？</a></li><li><a href="#q3-不同rdk-os系统版本和硬件平台之间有什么对应关系" class="table-of-contents__link toc-highlight">Q3: 不同RDK OS系统版本和硬件平台之间有什么对应关系？</a></li><li><a href="#q4-摄像头插拔有什么注意事项" class="table-of-contents__link toc-highlight">Q4: 摄像头插拔有什么注意事项？</a></li><li><a href="#q5-rdk-x3-的调试串口线如何正确连接" class="table-of-contents__link toc-highlight">Q5: RDK X3 的调试串口线如何正确连接?</a></li><li><a href="#q6-f37和gc4663-mipi摄像头如何连接到rdk-x3-连接后如何验证" class="table-of-contents__link toc-highlight">Q6: F37和GC4663 MIPI摄像头如何连接到RDK X3? 连接后如何验证？</a></li><li><a href="#q7-开发板启动异常上电后无任何显示或反复重启可能是什么原因如何排查" class="table-of-contents__link toc-highlight">Q7: 开发板启动异常、上电后无任何显示或反复重启，可能是什么原因？如何排查？</a></li><li><a href="#q8-rdk-x3对供电有什么具体要求" class="table-of-contents__link toc-highlight">Q8: RDK X3对供电有什么具体要求？</a></li><li><a href="#q9-rdk-x3是否有推荐的sd卡品牌或规格" class="table-of-contents__link toc-highlight">Q9: RDK X3是否有推荐的SD卡品牌或规格？</a></li><li><a href="#q10-apt-update-命令执行失败或报错如密钥错误无法更新锁文件被占用如何处理" class="table-of-contents__link toc-highlight">Q10: <code>apt update</code> 命令执行失败或报错（如密钥错误、无法更新、锁文件被占用）如何处理？</a></li><li><a href="#q11-如何查看rdk-x3的cpubpu等硬件单元的运行状态" class="table-of-contents__link toc-highlight">Q11: 如何查看RDK X3的CPU、BPU等硬件单元的运行状态?</a></li><li><a href="#q12-如何为rdk应用设置开机自启动" class="table-of-contents__link toc-highlight">Q12: 如何为RDK应用设置开机自启动?</a></li><li><a href="#q13-开发板的默认登录账户和密码是什么" class="table-of-contents__link toc-highlight">Q13: 开发板的默认登录账户和密码是什么？</a></li><li><a href="#q14-如何在rdk板卡上挂载ntfs文件系统的u盘或硬盘并支持读写" class="table-of-contents__link toc-highlight">Q14: 如何在RDK板卡上挂载NTFS文件系统的U盘或硬盘并支持读写？</a></li><li><a href="#q15-rdk开发板是否支持本地安装vs-code如何在pc上使用vs-code远程连接开发板" class="table-of-contents__link toc-highlight">Q15: RDK开发板是否支持本地安装VS Code？如何在PC上使用VS Code远程连接开发板？</a></li><li><a href="#q16-rdk开发板如何启用和使用adb-android-debug-bridge-调试功能" class="table-of-contents__link toc-highlight">Q16: RDK开发板如何启用和使用ADB (Android Debug Bridge) 调试功能？</a></li><li><a href="#q17-开发板和电脑之间的文件传输有哪些常用方式" class="table-of-contents__link toc-highlight">Q17: 开发板和电脑之间的文件传输有哪些常用方式？</a></li><li><a href="#q18-rdk-x3不同系统版本的有线网口的ip是什么" class="table-of-contents__link toc-highlight">Q18: RDK X3不同系统版本的有线网口的IP是什么？</a></li><li><a href="#q19-rdk-x5- 不同系统版本的网口的ip是什么" class="table-of-contents__link toc-highlight">Q19: RDK X5 不同系统版本的网口的IP是什么？</a></li><li><a href="#q20-系统执行-apt-upgrade-时桌面环境黑屏怎么办" class="table-of-contents__link toc-highlight">Q20: 系统执行 <code>apt upgrade</code> 时桌面环境黑屏怎么办？</a></li><li><a href="#q21-我将x3板卡的hdmi输出接口和电脑的hdmi输入输出接口相连为什么电脑没有出现画面" class="table-of-contents__link toc-highlight">Q21: 我将X3板卡的HDMI输出接口和电脑的HDMI输入/输出接口相连，为什么电脑没有出现画面？</a></li><li><a href="#q22-为什么sd卡插上去能启动但是拔下来后下次就启动不了了" class="table-of-contents__link toc-highlight">Q22: 为什么SD卡插上去能启动，但是拔下来后下次就启动不了了？</a></li><li><a href="#q23-rdk-os的server版能直接升级为desktop版吗" class="table-of-contents__link toc-highlight">Q23: RDK OS的Server版能直接升级为Desktop版吗？</a></li><li><a href="#q24-为什么连接hdmi显示器后没有画面显示或者显示异常" class="table-of-contents__link toc-highlight">Q24: 为什么连接HDMI显示器后没有画面显示，或者显示异常？</a></li><li><a href="#q25-连接的hdmi显示器不被支持如何抓取edid信息以供技术支持分析" class="table-of-contents__link toc-highlight">Q25: 连接的HDMI显示器不被支持，如何抓取EDID信息以供技术支持分析？</a></li><li><a href="#q26-sd卡有时不识别或识别不稳定怎么办" class="table-of-contents__link toc-highlight">Q26: SD卡有时不识别或识别不稳定怎么办？</a></li><li><a href="#q27-系统启动的时候卡在-hobot-u-boot命令行界面怎么办" class="table-of-contents__link toc-highlight">Q27: 系统启动的时候卡在 <code>hobot&gt;</code> U-Boot命令行界面怎么办？</a></li><li><a href="#q28-旭日x3派如何从40pin-gpio给板卡供电rdk-x3呢" class="table-of-contents__link toc-highlight">Q28: 旭日X3派如何从40pin GPIO给板卡供电？RDK X3呢？</a></li><li><a href="#q29-镜像烧录失败的常见原因有哪些" class="table-of-contents__link toc-highlight">Q29: 镜像烧录失败的常见原因有哪些？</a></li><li><a href="#q30-连接不上rdk-x3的vnc远程桌面怎么办" class="table-of-contents__link toc-highlight">Q30: 连接不上RDK X3的VNC远程桌面怎么办？</a></li><li><a href="#q31-使用rdk-x5的-apppydev_demo02_camera_hdmi_output-和-03_yolov5_camera_hdmi_output-示例时没有画面显示只有一个黑色窗口是什么原因" class="table-of-contents__link toc-highlight">Q31: 使用RDK X5的 <code>/app/pydev_demo/02_camera_hdmi_output</code> 和 <code>03_yolov5_camera_hdmi_output</code> 示例时，没有画面显示，只有一个黑色窗口，是什么原因？</a></li><li><a href="#q32-运行rdk-x5的-apppydev_demo02_camera_hdmi_output-或-03_yolov5_camera_hdmi_output-示例时hdmi输出的图像是倒向的或者不显示yolov5的检测框是什么情况" class="table-of-contents__link toc-highlight">Q32: 运行RDK X5的 <code>/app/pydev_demo/02_camera_hdmi_output</code> 或 <code>03_yolov5_camera_hdmi_output</code> 示例时，HDMI输出的图像是倒向的，或者不显示YOLOv5的检测框，是什么情况？</a></li><li><a href="#q33-tf卡micro-sd卡接触不良或损坏时可能会在内核日志中看到哪些典型错误信息" class="table-of-contents__link toc-highlight">Q33: TF卡（Micro SD卡）接触不良或损坏时，可能会在内核日志中看到哪些典型错误信息？</a></li><li><a href="#q34-rdk-x5是否支持实时linux内核rt-linux如何获取和使用" class="table-of-contents__link toc-highlight">Q34: RDK X5是否支持实时Linux内核（RT-Linux）？如何获取和使用？</a></li><li><a href="#q35-rdk-x5使用vnc远程桌面时感觉显示卡顿有什么优化或解决方法" class="table-of-contents__link toc-highlight">Q35: RDK X5使用VNC远程桌面时感觉显示卡顿，有什么优化或解决 方法？</a></li><li><a href="#q36-板卡在高负载运行时感觉温度过高应该如何处理" class="table-of-contents__link toc-highlight">Q36: 板卡在高负载运行时感觉温度过高，应该如何处理？</a></li><li><a href="#q37-如何在conda虚拟环境中获取和使用地平线rdk特定的python包如-hobotgpio-hobot_dnn-等" class="table-of-contents__link toc-highlight">Q37: 如何在Conda虚拟环境中获取和使用地平线RDK特定的Python包（如 <code>hobot.GPIO</code>, <code>hobot_dnn</code> 等）？</a></li><li><a href="#q38-编译自己开发的linux内核模块ko文件后加载时遇到驱动签名报错或required-key-not-available等问题怎么办" class="table-of-contents__link toc-highlight">Q38: 编译自己开发的Linux内核模块（<code>.ko</code>文件）后，加载时遇到“驱动签名报错”或“Required key not available”等问题怎么办？</a></li><li><a href="#q39-如何升级rdk-x5的miniboot" class="table-of-contents__link toc-highlight">Q39: 如何升级RDK X5的MiniBoot？</a></li><li><a href="#q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办" class="table-of-contents__link toc-highlight">Q40: 在编译大型项目（如使用gcc/make/cmake/colcon构建ROS2工作空间）或运行内存消耗较大的工具（如<code>hb_mapper</code>模型转换）时，遇到内存不足的错误怎么办？</a></li><li><a href="#q41-rdk相关问题进行预排查的通用建议有哪些" class="table-of-contents__link toc-highlight">Q41: RDK相关问题进行预排查的通用建议有哪些？</a></li><li><a href="#q42-docker镜像oe包或嵌入式开发samples包下载失败或速度慢怎么办" class="table-of-contents__link toc-highlight">Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？</a></li><li><a href="#q43-为rdk进行交叉编译的环境应该如何配置" class="table-of-contents__link toc-highlight">Q43: 为RDK进行交叉编译的环境应该如何配置？</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-FAQ/interface" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">8.2 Interfaces, Peripherals, and Drivers | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/en/FAQ/interface"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="8.2 Interfaces, Peripherals, and Drivers | RDK DOC"><meta data-rh="true" name="description" content="40-pin GPIO Interface"><meta data-rh="true" property="og:description" content="40-pin GPIO Interface"><link data-rh="true" rel="icon" href="/rdk_doc/en/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/en/FAQ/interface"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/FAQ/interface" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/FAQ/interface" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/FAQ/interface" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"8. FAQs","item":"https://developer.d-robotics.cc/rdk_doc/en/FAQ"},{"@type":"ListItem","position":2,"name":"8.2 Interfaces, Peripherals, and Drivers","item":"https://developer.d-robotics.cc/rdk_doc/en/FAQ/interface"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/en/assets/css/styles.cd83b4b4.css">
+<script src="/rdk_doc/en/assets/js/runtime~main.3ee14752.js" defer="defer"></script>
+<script src="/rdk_doc/en/assets/js/main.c07752ee.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/rdk_doc/en/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/rdk_doc/en/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">D-Robotics</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rdk_doc/en/RDK">RDK X3 / X5</a><a class="navbar__item navbar__link" href="/rdk_doc/en/rdk_s/RDK">RDK S100</a><a href="https://developer.d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>EN</a><ul class="dropdown__menu"><li><a href="/rdk_doc/FAQ/interface" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">CN</a></li><li><a href="/rdk_doc/en/FAQ/interface" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">EN</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rdk_doc/en/RDK">D-Robotics RDK Suite</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Quick_start">1. Quick Start</a><button aria-label="Expand sidebar category &#x27;1. Quick Start&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/System_configuration">2. System Configuration</a><button aria-label="Expand sidebar category &#x27;2. System Configuration&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Basic_Application">3. Basic Application Development</a><button aria-label="Expand sidebar category &#x27;3. Basic Application Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Basic_Development">4. Algorithm Application Development</a><button aria-label="Expand sidebar category &#x27;4. Algorithm Application Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Robot_development">5. Robotics Application Development</a><button aria-label="Expand sidebar category &#x27;5. Robotics Application Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Application_case">6. Application Development Guide</a><button aria-label="Expand sidebar category &#x27;6. Application Development Guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Advanced_development">7. Advanced Development</a><button aria-label="Expand sidebar category &#x27;7. Advanced Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/rdk_doc/en/FAQ">8. FAQs</a><button aria-label="Collapse sidebar category &#x27;8. FAQs&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/hardware_and_system">8.1 Hardware, System, and Environment Configuration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rdk_doc/en/FAQ/interface">8.2 Interfaces, Peripherals, and Drivers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/applications_and_examples">8.3 Application Development, Compilation, and Examples</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/multimedia">8.4 Multimedia Processing and Applications</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/toolchain">8.5 Algorithm toolchain class</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/tros_ros">8.6 TROS/ROS Development</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Appendix">9. Appendix</a><button aria-label="Expand sidebar category &#x27;9. Appendix&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/rdk_doc/en/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/rdk_doc/en/FAQ"><span>8. FAQs</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">8.2 Interfaces, Peripherals, and Drivers</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>8.2 Interfaces, Peripherals, and Drivers</h1></header>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="40-pin-gpio-interface">40-pin GPIO Interface<a href="#40-pin-gpio-interface" class="hash-link" aria-label="Direct link to 40-pin GPIO Interface" title="Direct link to 40-pin GPIO Interface">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q1-does-the-development-board-support-using-vdd_5v-from-the-40pin-header-as-a-power-input">Q1: Does the development board support using VDD_5V from the 40PIN header as a power input?<a href="#q1-does-the-development-board-support-using-vdd_5v-from-the-40pin-header-as-a-power-input" class="hash-link" aria-label="Direct link to Q1: Does the development board support using VDD_5V from the 40PIN header as a power input?" title="Direct link to Q1: Does the development board support using VDD_5V from the 40PIN header as a power input?">​</a></h4>
+<p><strong>A:</strong> Supported on development board versions V1.2 and above. You can usually confirm the version by checking the silkscreen information on the PCB. Please operate with caution and ensure your board version supports this feature—incorrect power supply may cause hardware damage.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q2-can-i-control-the-40-pin-gpio-interface-using-cc">Q2: Can I control the 40-pin GPIO interface using C/C++?<a href="#q2-can-i-control-the-40-pin-gpio-interface-using-cc" class="hash-link" aria-label="Direct link to Q2: Can I control the 40-pin GPIO interface using C/C++?" title="Direct link to Q2: Can I control the 40-pin GPIO interface using C/C++?">​</a></h4>
+<p><strong>A:</strong> Yes, it is supported. Refer to relevant articles and code samples in the Horizon Developer Community, such as:</p>
+<ul>
+<li><a href="https://developer.d-robotics.cc/forumDetail/109609560406362634" target="_blank" rel="noopener noreferrer">Sunrise X3Pi WiringPi</a> (a C/C++ GPIO library adapted for RDK X3)</li>
+<li>Check the official documentation for your RDK model for chapters on GPIO development, which usually provide low-level operation methods or recommended libraries.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="serial-port">Serial Port<a href="#serial-port" class="hash-link" aria-label="Direct link to Serial Port" title="Direct link to Serial Port">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q3-no-debug-serial-log-output-after-powering-on-the-board-what-should-i-do">Q3: No debug serial log output after powering on the board. What should I do?<a href="#q3-no-debug-serial-log-output-after-powering-on-the-board-what-should-i-do" class="hash-link" aria-label="Direct link to Q3: No debug serial log output after powering on the board. What should I do?" title="Direct link to Q3: No debug serial log output after powering on the board. What should I do?">​</a></h4>
+<p><strong>A:</strong> Please troubleshoot as follows:</p>
+<ol>
+<li><strong>Power Indicator:</strong> Check if the red power LED on the board is lit. If not, resolve the power issue first.</li>
+<li><strong>Serial Cable Connection:</strong>
+<ul>
+<li>Ensure the debug serial cable (typically one end to the board&#x27;s DEBUG port, the other to a USB-to-serial module) is properly connected.</li>
+<li>Pay special attention to the TX, RX, and GND wiring between the USB-to-serial module and the board (usually module TX to board RX, module RX to board TX, module GND to board GND).</li>
+<li>Refer to the official documentation for diagrams on &quot;Debug Serial&quot; or &quot;Remote Login&quot;.</li>
+</ul>
+</li>
+<li><strong>Serial Terminal Software Settings:</strong>
+<ul>
+<li>Ensure your PC&#x27;s serial terminal software (such as PuTTY, MobaXterm, minicom, SecureCRT, etc.) is configured correctly. Typical settings for RDK boards:<!-- -->
+<ul>
+<li><strong>Baud rate:</strong> 921600 (some older models or special cases may use 115200; refer to your board&#x27;s documentation)</li>
+<li><strong>Data bits:</strong> 8</li>
+<li><strong>Stop bits:</strong> 1</li>
+<li><strong>Parity:</strong> None</li>
+<li><strong>Flow control:</strong> None</li>
+</ul>
+</li>
+<li><strong>COM Port:</strong> Make sure you select the correct port as recognized by your PC after connecting the USB-to-serial module.
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/interface/image-20221124200013163.png" alt="Serial terminal configuration example" class="img_ev3q"></li>
+</ul>
+</li>
+<li><strong>USB-to-Serial Driver:</strong> Ensure the driver for the USB-to-serial module is correctly installed on your PC.</li>
+<li><strong>Try Other Modules or USB Ports:</strong> Rule out hardware issues with the module or USB port.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="network-interface">Network Interface<a href="#network-interface" class="hash-link" aria-label="Direct link to Network Interface" title="Direct link to Network Interface">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q4-the-board-cannot-access-the-internet-after-connecting-to-the-network-how-to-troubleshoot">Q4: The board cannot access the Internet after connecting to the network. How to troubleshoot?<a href="#q4-the-board-cannot-access-the-internet-after-connecting-to-the-network-how-to-troubleshoot" class="hash-link" aria-label="Direct link to Q4: The board cannot access the Internet after connecting to the network. How to troubleshoot?" title="Direct link to Q4: The board cannot access the Internet after connecting to the network. How to troubleshoot?">​</a></h4>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Check Physical Connection:</strong>
+<ul>
+<li><strong>Wired:</strong> Ensure the Ethernet cable is properly connected to both the board and the router/switch, and the indicator lights are normal.</li>
+<li><strong>Wireless:</strong> Ensure you are connected to the correct Wi-Fi SSID and the password is correct.</li>
+</ul>
+</li>
+<li><strong>IP Address Configuration:</strong>
+<ul>
+<li><strong>DHCP:</strong> Usually, the network should be set to obtain an IP address automatically via DHCP. Check if the router&#x27;s DHCP service is working and if the board has obtained an IP (<code>ifconfig</code> or <code>ip addr</code>).</li>
+<li><strong>Static IP:</strong> If using a static IP, ensure the IP address, subnet mask, gateway, and DNS server are correctly set and match your LAN environment.</li>
+</ul>
+</li>
+<li><strong>Gateway and DNS:</strong>
+<ul>
+<li>Ensure the board has the correct gateway address (usually the router&#x27;s IP).</li>
+<li>Ensure a valid DNS server is configured (try public DNS like <code>8.8.8.8</code> or <code>114.114.114.114</code>). Use <code>ping www.baidu.com</code> to test DNS and Internet connectivity.</li>
+</ul>
+</li>
+<li><strong>Check Network Status:</strong>
+<ul>
+<li>Use <code>ifconfig</code> or <code>ip addr</code> to check interface status and IP configuration.</li>
+<li>Use <code>route -n</code> to view the routing table.</li>
+<li>Use <code>ping &lt;gateway IP&gt;</code> to test connectivity to the gateway.</li>
+</ul>
+</li>
+<li><strong>Refer to Official Docs:</strong> For detailed steps and troubleshooting, see the &quot;<a href="/rdk_doc/en/System_configuration/network_blueteeth">Network Configuration</a>&quot; section (replace with the actual valid doc path).</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q5-unable-to-connect-to-the-board-via-ssh-what-could-be-the-reason">Q5: Unable to connect to the board via SSH. What could be the reason?<a href="#q5-unable-to-connect-to-the-board-via-ssh-what-could-be-the-reason" class="hash-link" aria-label="Direct link to Q5: Unable to connect to the board via SSH. What could be the reason?" title="Direct link to Q5: Unable to connect to the board via SSH. What could be the reason?">​</a></h4>
+<p><strong>A:</strong></p>
+<ul>
+<li>
+<p><strong>Error: <code>Connection timed out</code>:</strong></p>
+<ul>
+<li><strong>Reason:</strong> Indicates a network-level issue—your PC cannot find or connect to the board&#x27;s SSH port (default 22).</li>
+<li><strong>Troubleshooting:</strong>
+<ol>
+<li>Ensure the board is powered on and connected to the network (wired or wireless).</li>
+<li>Confirm the board&#x27;s correct IP address.</li>
+<li>Try <code>ping &lt;board IP&gt;</code> from your PC. If unreachable, resolve network issues first (check IP config, cables, Wi-Fi, router, firewall, etc.).</li>
+<li>Ensure the SSH service (<code>sshd</code>) is running on the board. Log in via serial and run <code>sudo systemctl status ssh</code> or <code>ps aux | grep sshd</code>. If not running, start it: <code>sudo systemctl start ssh</code>.</li>
+<li>Check if any firewall is blocking port 22.</li>
+</ol>
+</li>
+<li><strong>Reference:</strong> See the <a href="/rdk_doc/en/Quick_start/remote_login">SSH Login</a> section (replace with the actual valid doc path).</li>
+</ul>
+</li>
+<li>
+<p><strong>Error: <code>Authentication failed</code> or <code>Permission denied, please try again.</code>:</strong></p>
+<ul>
+<li><strong>Reason:</strong> The network connection is established, but the username or password is incorrect.</li>
+<li><strong>Troubleshooting:</strong>
+<ol>
+<li>Double-check the username (e.g., <code>sunrise</code>, <code>root</code>, <code>hobot</code>, depending on your system image/config).</li>
+<li>Double-check the password (case-sensitive).</li>
+<li>Try the default account and password (if not changed).
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/interface/image-20221124201544978.png" alt="SSH authentication failure example" class="img_ev3q"></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q6-wi-fi-connection-is-unstable-or-slow-what-should-i-do">Q6: Wi-Fi connection is unstable or slow. What should I do?<a href="#q6-wi-fi-connection-is-unstable-or-slow-what-should-i-do" class="hash-link" aria-label="Direct link to Q6: Wi-Fi connection is unstable or slow. What should I do?" title="Direct link to Q6: Wi-Fi connection is unstable or slow. What should I do?">​</a></h4>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Signal Strength &amp; Interference:</strong>
+<ul>
+<li>The onboard Wi-Fi antenna may have limited performance, especially with metal cases, large heatsinks, or other electronic interference.</li>
+<li><strong>Solution:</strong> If your board supports an external Wi-Fi antenna (usually via IPEX or SMA connector), it is strongly recommended to install one for better signal and stability.</li>
+</ul>
+</li>
+<li><strong>Router Location &amp; Channel:</strong>
+<ul>
+<li>Place the board closer to the router and minimize obstacles.</li>
+<li>Try changing the Wi-Fi channel in the router settings to avoid crowded frequencies.</li>
+</ul>
+</li>
+<li><strong>Driver &amp; Firmware:</strong> Ensure the Wi-Fi module driver and firmware are up to date (usually provided with system updates).</li>
+<li><strong>Network Load:</strong> Check if other devices on the LAN are using excessive bandwidth.</li>
+<li><strong>2.4GHz vs 5GHz:</strong> If both your board and router support 5GHz Wi-Fi, try connecting to it for less interference and higher speed (note: 5GHz has weaker wall penetration than 2.4GHz).</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q7-no-wlan0-or-similar-wireless-interface-found-with-ifconfig-how-to-fix">Q7: No <code>wlan0</code> (or similar) wireless interface found with <code>ifconfig</code>. How to fix?<a href="#q7-no-wlan0-or-similar-wireless-interface-found-with-ifconfig-how-to-fix" class="hash-link" aria-label="Direct link to q7-no-wlan0-or-similar-wireless-interface-found-with-ifconfig-how-to-fix" title="Direct link to q7-no-wlan0-or-similar-wireless-interface-found-with-ifconfig-how-to-fix">​</a></h4>
+<p><strong>A:</strong> If <code>ifconfig</code> or <code>ip addr</code> does not show a wireless interface (like <code>wlan0</code>), possible causes and solutions:</p>
+<ol>
+<li><strong>RFKill (Software Block):</strong>
+<ul>
+<li>The wireless module may be soft-blocked by RFKill.</li>
+<li><strong>Solution:</strong> Run the following to unblock WLAN:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo rfkill unblock wlan</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># or sudo rfkill unblock all</span><br></span></code></pre></div></div>
+<!-- -->Then check with <code>ifconfig -a</code> or <code>ip link show</code>.</li>
+</ul>
+</li>
+<li><strong>Driver Issue:</strong>
+<ul>
+<li>The driver may not be loaded or working. Check kernel logs (<code>dmesg | grep -i wlan</code> or <code>dmesg | grep -i wifi</code>) for errors.</li>
+<li>Ensure the correct driver and firmware for your Wi-Fi chip are installed (often provided by packages like <code>hobot-wifi</code>).</li>
+</ul>
+</li>
+<li><strong>Hardware Issue:</strong> Rarely, the Wi-Fi module itself may be faulty.</li>
+<li><strong>System Image or Config:</strong> Ensure your system image supports the onboard Wi-Fi module and relevant kernel configs are enabled.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="usb-interface">USB Interface<a href="#usb-interface" class="hash-link" aria-label="Direct link to USB Interface" title="Direct link to USB Interface">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q8-what-is-the-default-device-node-for-a-usb-camera-on-the-board">Q8: What is the default device node for a USB camera on the board?<a href="#q8-what-is-the-default-device-node-for-a-usb-camera-on-the-board" class="hash-link" aria-label="Direct link to Q8: What is the default device node for a USB camera on the board?" title="Direct link to Q8: What is the default device node for a USB camera on the board?">​</a></h4>
+<p><strong>A:</strong> On Horizon RDK boards (e.g., RDK X3 series), when you connect a standard UVC (USB Video Class) camera, the video device node in Linux is usually <strong>not</strong> <code>/dev/video0</code> as on PCs.</p>
+<ul>
+<li><strong>Default device node is usually:</strong> <code>/dev/video8</code></li>
+<li>It may also be <code>/dev/video9</code>, <code>/dev/video10</code>, etc., if there are other video devices or multiple USB cameras.</li>
+</ul>
+<p>After plugging in the camera, run <code>ls /dev/video*</code> to check the actual device node. When using OpenCV, specify the correct device number (e.g., <code>cv2.VideoCapture(8)</code>).</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q9-no-devvideo8-or-other-device-node-after-plugging-in-a-usb-camera-what-should-i-do">Q9: No <code>/dev/video8</code> (or other) device node after plugging in a USB camera. What should I do?<a href="#q9-no-devvideo8-or-other-device-node-after-plugging-in-a-usb-camera-what-should-i-do" class="hash-link" aria-label="Direct link to q9-no-devvideo8-or-other-device-node-after-plugging-in-a-usb-camera-what-should-i-do" title="Direct link to q9-no-devvideo8-or-other-device-node-after-plugging-in-a-usb-camera-what-should-i-do">​</a></h4>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Check if the camera works:</strong> Connect the USB camera to a PC to verify it is recognized and works.</li>
+<li><strong>Check USB connection:</strong> Ensure the camera is firmly plugged into the board&#x27;s USB Host port. Try re-plugging or using another USB Host port if available.</li>
+<li><strong>Avoid Micro USB conflicts (for some boards):</strong>
+<ul>
+<li>On some boards (e.g., certain RDK X3 versions), the Micro USB port is used for debugging, ADB, or as a USB Device. <strong>If this port is connected to a PC, it may affect other USB Host ports or device enumeration.</strong></li>
+<li><strong>Solution:</strong> If the Micro USB is connected, try disconnecting it and then test the USB camera again.</li>
+</ul>
+</li>
+<li><strong>Check kernel logs:</strong> After plugging in the camera, log in via serial or SSH and run <code>dmesg | tail</code> to view recent kernel messages about USB device detection or driver loading.</li>
+<li><strong>USB Power Issue:</strong> Some high-power cameras may require more current than the USB port provides. Try using a powered USB hub.</li>
+<li><strong>Driver Compatibility:</strong> Most USB cameras follow the UVC standard, and the RDK Linux kernel usually includes the UVC driver. Rare non-standard cameras may have compatibility issues.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q10-usb-gamepadjoystick-not-working-no-devinputjs0-device-node-how-to-fix">Q10: USB gamepad/joystick not working, no <code>/dev/input/js0</code> device node. How to fix?<a href="#q10-usb-gamepadjoystick-not-working-no-devinputjs0-device-node-how-to-fix" class="hash-link" aria-label="Direct link to q10-usb-gamepadjoystick-not-working-no-devinputjs0-device-node-how-to-fix" title="Direct link to q10-usb-gamepadjoystick-not-working-no-devinputjs0-device-node-how-to-fix">​</a></h4>
+<p><strong>A:</strong> If no <code>/dev/input/jsX</code> (e.g., <code>js0</code>) device node appears after plugging in a USB gamepad, it&#x27;s usually due to missing kernel drivers or user-space tools.</p>
+<ol>
+<li><strong>Update the system:</strong> Make sure your board&#x27;s system is up to date, as newer systems may include more drivers.<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update &amp;&amp; sudo apt upgrade</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Load kernel driver:</strong> Gamepads usually require the <code>joydev</code> kernel module. Try loading it manually:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo modprobe joydev</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># or sudo modprobe -a joydev</span><br></span></code></pre></div></div>
+<!-- -->Then check <code>/dev/input/</code> for <code>jsX</code> devices.</li>
+<li><strong>Install joystick tools:</strong> Install the <code>joystick</code> package for user-space tools.<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt install joystick</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Test the gamepad:</strong> If <code>/dev/input/js0</code> exists, use <code>jstest</code> to test buttons and axes:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">jstest /dev/input/js0</span><br></span></code></pre></div></div>
+<!-- -->Press buttons or move sticks to see output in the terminal.</li>
+<li><strong>Check kernel logs:</strong> If still not working, check <code>dmesg</code> after plugging in the gamepad for errors.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mipi-csi-interface">MIPI CSI Interface<a href="#mipi-csi-interface" class="hash-link" aria-label="Direct link to MIPI CSI Interface" title="Direct link to MIPI CSI Interface">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q11-mipi-camera-not-detected-by-i2cdetect-what-could-be-the-reason">Q11: MIPI camera not detected by <code>i2cdetect</code>. What could be the reason?<a href="#q11-mipi-camera-not-detected-by-i2cdetect-what-could-be-the-reason" class="hash-link" aria-label="Direct link to q11-mipi-camera-not-detected-by-i2cdetect-what-could-be-the-reason" title="Direct link to q11-mipi-camera-not-detected-by-i2cdetect-what-could-be-the-reason">​</a></h4>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Incorrect camera connection:</strong>
+<ul>
+<li><strong>FPC cable direction:</strong> Ensure the FPC cable is inserted in the correct direction (usually the blue stiffener faces the connector latch, or follow board/camera markings). Incorrect insertion prevents communication.</li>
+<li><strong>Connector lock:</strong> Make sure the FPC cable is fully inserted and the connector latches are locked.</li>
+<li><strong>Interface mapping:</strong> If the board has multiple MIPI CSI interfaces, ensure the camera is connected to the one specified in software/device tree.</li>
+<li><strong>Reference docs:</strong> Check your board&#x27;s hardware manual or quick start guide for the &quot;<a href="/rdk_doc/en/Quick_start/hardware_introduction/rdk_x3">MIPI Camera</a>&quot; section (replace with the actual valid doc path) for connection details.</li>
+</ul>
+</li>
+<li><strong>No hot-plugging:</strong> <strong>Never plug/unplug MIPI cameras while powered on!</strong> Doing so may cause short circuits and damage.</li>
+<li><strong>I2C bus and address:</strong> Ensure you use the correct <code>&lt;bus_number&gt;</code> in <code>i2cdetect -y -r &lt;bus_number&gt;</code>, and know the camera&#x27;s I2C address.</li>
+<li><strong>Camera power/clock:</strong> Ensure the camera module is powered and the MIPI clock is present.</li>
+<li><strong>Camera/FPC damage:</strong> If all else fails, the camera or FPC cable may be physically damaged.</li>
+<li><strong>Device tree config:</strong> Ensure the Linux device tree is correctly configured for the MIPI interface and camera model.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q12-running-a-mipi-camera-sample-program-gives-valueerror-invalid-literal-for-int-with-base-10-bopen-device-devlt8618_ioctl-failedndevice-not-openn1080-how-to-fix">Q12: Running a MIPI camera sample program gives <code>ValueError: invalid literal for int() with base 10: b&#x27;open device /dev/lt8618_ioctl failed\ndevice not open\n1080&#x27;</code>. How to fix?<a href="#q12-running-a-mipi-camera-sample-program-gives-valueerror-invalid-literal-for-int-with-base-10-bopen-device-devlt8618_ioctl-failedndevice-not-openn1080-how-to-fix" class="hash-link" aria-label="Direct link to q12-running-a-mipi-camera-sample-program-gives-valueerror-invalid-literal-for-int-with-base-10-bopen-device-devlt8618_ioctl-failedndevice-not-openn1080-how-to-fix" title="Direct link to q12-running-a-mipi-camera-sample-program-gives-valueerror-invalid-literal-for-int-with-base-10-bopen-device-devlt8618_ioctl-failedndevice-not-openn1080-how-to-fix">​</a></h4>
+<p><strong>A:</strong> This error means the program expected a numeric string (e.g., &#x27;1080&#x27;), but received an error message mixed with a number. In this case, <code>b&#x27;open device /dev/lt8618_ioctl failed\ndevice not open\n1080&#x27;</code> suggests the program failed to open the display device (<code>/dev/lt8618_ioctl</code>, likely an HDMI control interface), causing the error.</p>
+<p><strong>Main causes and solutions:</strong></p>
+<ul>
+<li><strong>Insufficient permissions:</strong> Many hardware operations require root privileges. If running as a normal user (e.g., <code>sunrise</code>), you may lack permission.<!-- -->
+<ul>
+<li><strong>Solution:</strong> Run the sample with <code>sudo</code>:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo python3 mipi_camera.py</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li><strong>Display device not ready or misconfigured:</strong>
+<ul>
+<li><code>lt8618</code> seems to be an HDMI transmitter chip. If the sample depends on HDMI output and the device is not initialized or is occupied, this error may occur.</li>
+<li>Ensure the HDMI monitor is connected and recognized (if required).</li>
+<li>Check kernel logs (<code>dmesg</code>) for errors about <code>lt8618</code> or display initialization.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="display-interface">Display Interface<a href="#display-interface" class="hash-link" aria-label="Direct link to Display Interface" title="Direct link to Display Interface">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="q13-what-resolutions-does-the-boards-hdmi-interface-support">Q13: What resolutions does the board&#x27;s HDMI interface support?<a href="#q13-what-resolutions-does-the-boards-hdmi-interface-support" class="hash-link" aria-label="Direct link to Q13: What resolutions does the board&#x27;s HDMI interface support?" title="Direct link to Q13: What resolutions does the board&#x27;s HDMI interface support?">​</a></h4>
+<p><strong>A:</strong> Supported HDMI resolutions depend on the <strong>board model (RDK X3, X5, Ultra, etc.), SoC, and RDK OS version</strong>.</p>
+<ul>
+<li><strong>General support:</strong> Most RDK boards support common resolutions such as:<!-- -->
+<ul>
+<li>1920x1080 (1080p) @ 60Hz/50Hz/30Hz</li>
+<li>1280x720 (720p) @ 60Hz/50Hz</li>
+<li>Lower resolutions like 640x480, 800x600, etc.</li>
+</ul>
+</li>
+<li><strong>Specific models/versions:</strong>
+<ul>
+<li>Newer RDK OS versions (e.g., RDK X3 v2.1.0+) may support more resolutions and refresh rates.</li>
+<li>Higher-end boards (RDK X5, Ultra) may support higher resolutions (e.g., 4K).</li>
+</ul>
+</li>
+<li><strong>How to check:</strong>
+<ol>
+<li><strong>Official docs:</strong> The most accurate info is in your board&#x27;s User Manual or Hardware Specification, in the &quot;<a href="/rdk_doc/en/Quick_start/hardware_introduction/rdk_x3">HDMI Interface</a>&quot; or display subsystem section (replace with the actual valid doc path).</li>
+<li><strong>In-system (if display connected):</strong>
+<ul>
+<li>If the board is running Linux with a display, use <code>xrandr</code> (in X Window) to see supported modes.</li>
+<li>Check kernel logs (<code>dmesg | grep -i hdmi</code> or <code>dmesg | grep -i drm</code>) for detected display modes.</li>
+</ul>
+</li>
+<li><strong><code>srpi-config</code> tool:</strong> Some RDK versions include <code>srpi-config</code> for viewing/configuring HDMI output.</li>
+</ol>
+</li>
+</ul>
+<p>If you encounter compatibility issues with a specific monitor, check both resolution and whether the board can correctly parse the monitor&#x27;s EDID information.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-06-17T09:58:35.000Z" itemprop="dateModified">Jun 17, 2025</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/en/FAQ/hardware_and_system"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">8.1 Hardware, System, and Environment Configuration</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/en/FAQ/applications_and_examples"><div class="pagination-nav__sublabel">Next </div><div class="pagination-nav__label">8.3 Application Development, Compilation, and Examples</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#40-pin-gpio-interface" class="table-of-contents__link toc-highlight">40-pin GPIO Interface</a></li><li><a href="#serial-port" class="table-of-contents__link toc-highlight">Serial Port</a></li><li><a href="#network-interface" class="table-of-contents__link toc-highlight">Network Interface</a></li><li><a href="#usb-interface" class="table-of-contents__link toc-highlight">USB Interface</a></li><li><a href="#mipi-csi-interface" class="table-of-contents__link toc-highlight">MIPI CSI Interface</a></li><li><a href="#display-interface" class="table-of-contents__link toc-highlight">Display Interface</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Links</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GuYueHome<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Contact US</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.youtube.com/@D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 D-Robotics.</div></div></div></footer></div>
+</body>
+</html>

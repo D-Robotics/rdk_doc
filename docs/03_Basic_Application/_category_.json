@@ -1,9 +1,0 @@
-{
-  "label": "3. 基础应用开发",
-  "position": 4,
-  "link": {
-    "type": "generated-index",
-    "slug": "/Basic_Application",
-    "description": "系统入门应用，包括图像输入，音频输入以及接口开发等"
-  }
-}

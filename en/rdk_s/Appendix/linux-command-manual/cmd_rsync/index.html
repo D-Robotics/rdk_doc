@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs_s docs-version-current docs-doc-page docs-doc-id-Appendix/linux-command-manual/cmd_rsync" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">rsync | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_rsync"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" property="og:title" content="rsync | RDK DOC"><meta data-rh="true" name="description" content="Rsync 是一个快速且功能强大的文件复制工具。它可以在本地复制文件，也可以通过任何远程 shell 从另一台主机复制文件，还可以与远程的 rsync 守护程序进行文件复制。它提供了大量选项，可以控制其行为的各个方面，并允许非常灵活地指定要复制的文件集合。Rsync 以其增量传输算法而闻名，该算法通过仅发送源文件与目标中现有文件之间的差异来减少通过网络发送的数据量。Rsync 广泛用于备份和镜像操作，同时也作为日常使用的改进型复制命令。"><meta data-rh="true" property="og:description" content="Rsync 是一个快速且功能强大的文件复制工具。它可以在本地复制文件，也可以通过任何远程 shell 从另一台主机复制文件，还可以与远程的 rsync 守护程序进行文件复制。它提供了大量选项，可以控制其行为的各个方面，并允许非常灵活地指定要复制的文件集合。Rsync 以其增量传输算法而闻名，该算法通过仅发送源文件与目标中现有文件之间的差异来减少通过网络发送的数据量。Rsync 广泛用于备份和镜像操作，同时也作为日常使用的改进型复制命令。"><link data-rh="true" rel="icon" href="/rdk_doc/en/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_rsync"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Appendix/linux-command-manual/cmd_rsync" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_rsync" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Appendix/linux-command-manual/cmd_rsync" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"9. 附录","item":"https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Appendix"},{"@type":"ListItem","position":2,"name":"rsync","item":"https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_rsync"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/en/assets/css/styles.cd83b4b4.css">
+<script src="/rdk_doc/en/assets/js/runtime~main.3ee14752.js" defer="defer"></script>
+<script src="/rdk_doc/en/assets/js/main.c07752ee.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/rdk_doc/en/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/rdk_doc/en/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">D-Robotics</b></a><a class="navbar__item navbar__link" href="/rdk_doc/en/RDK">RDK X3 / X5</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rdk_doc/en/rdk_s/RDK">RDK S100</a><a href="https://developer.d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>EN</a><ul class="dropdown__menu"><li><a href="/rdk_doc/rdk_s/Appendix/linux-command-manual/cmd_rsync" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">CN</a></li><li><a href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_rsync" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">EN</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rdk_doc/en/rdk_s/RDK">D-Robotics RDK 套件</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/Quick_start">1. 快速开始</a><button aria-label="Expand sidebar category &#x27;1. 快速开始&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/System_configuration">2. 系统配置</a><button aria-label="Expand sidebar category &#x27;2. 系统配置&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/Basic_Application">3. 基础应用开发</a><button aria-label="Expand sidebar category &#x27;3. 基础应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/Basic_Development">4. 算法应用开发</a><button aria-label="Expand sidebar category &#x27;4. 算法应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/Robot_development">5. 机器人应用开发</a><button aria-label="Expand sidebar category &#x27;5. 机器人应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/Application_case">6. 应用开发指南</a><button aria-label="Expand sidebar category &#x27;6. 应用开发指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/Advanced_development">7. 进阶开发</a><button aria-label="Expand sidebar category &#x27;7. 进阶开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/rdk_s/FAQ">8. 常见问题</a><button aria-label="Expand sidebar category &#x27;8. 常见问题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/rdk_doc/en/rdk_s/Appendix">9. 附录</a><button aria-label="Collapse sidebar category &#x27;9. 附录&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_apt">9.2 Linux命令用法</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_apt">apt</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_dmesg">dmesg</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_dpkg-deb">dpkg-deb</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_dpkg">dpkg</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_find">find</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_grep">grep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_ifconfig">ifconfig</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_ip">ip</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_mount">mount</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_netstat">netstat</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_nohup">nohup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_ps">ps</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_route">route</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_rsync">rsync</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_scp">scp</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_ssh">ssh</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_tar">tar</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_top">top</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_zip">zip</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/rdk_doc/en/rdk_s/Appendix/rdk-command-manual/cmd_devmem">9.3 RDK专属命令用法</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rdk_doc/en/rdk_s/Release_Note/roadmap">10. 版本发布</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/rdk_doc/en/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/rdk_doc/en/rdk_s/Appendix"><span>9. 附录</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">9.2 Linux命令用法</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">rsync</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>rsync</h1></header>
+<p>Rsync 是一个快速且功能 强大的文件复制工具。它可以在本地复制文件，也可以通过任何远程 shell 从另一台主机复制文件，还可以与远程的 rsync 守护程序进行文件复制。它提供了大量选项，可以控制其行为的各个方面，并允许非常灵活地指定要复制的文件集合。Rsync 以其增量传输算法而闻名，该算法通过仅发送源文件与目标中现有文件之间的差异来减少通过网络发送的数据量。Rsync 广泛用于备份和镜像操作，同时也作为日常使用的改进型复制命令。</p>
+<p>Rsync 通过默认的&quot;快速检查&quot;算法查找需要传输的文件，该算法查找大小或最后修改时间发生变化的文件。当快速检查表明文件的数据不需要更新时，对目标文件上的其他保留属性（根据选项请求）的任何更改将直接应用于目标文件。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="语法说明">语法说明<a href="#语法说明" class="hash-link" aria-label="Direct link to 语法说明" title="Direct link to 语法说明">​</a></h2>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Usage: rsync [OPTION]... SRC [SRC]... DEST</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  or   rsync [OPTION]... SRC [SRC]... [USER@]HOST:DEST</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  or   rsync [OPTION]... SRC [SRC]... [USER@]HOST::DEST</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  or   rsync [OPTION]... SRC [SRC]... rsync://[USER@]HOST[:PORT]/DEST</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  or   rsync [OPTION]... [USER@]HOST:SRC [DEST]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  or   rsync [OPTION]... [USER@]HOST::SRC [DEST]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  or   rsync [OPTION]... rsync://[USER@]HOST[:PORT]/SRC [DEST]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">The &#x27;:&#x27; usages connect via remote shell, while &#x27;::&#x27; &amp; &#x27;rsync://&#x27; usages connect</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">to an rsync daemon, and require SRC or DEST to start with a module name.</span><br></span></code></pre></div></div>
+<p>简易写法:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync [OPTION...] SRC... [DEST]</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="选项说明">选项说明<a href="#选项说明" class="hash-link" aria-label="Direct link to 选项说明" title="Direct link to 选项说明">​</a></h2>
+<ul>
+<li>-v, --verbose：增加详细信息输出<!-- -->
+<ul>
+<li>--info=FLAGS：指定详细信息输出的标志</li>
+<li>--debug=FLAGS：指定调试详细信息输出的标志</li>
+<li>--msgs2stderr：为调试输出特殊处理</li>
+</ul>
+</li>
+<li>-q, --quiet：抑制非错误消息的输出<!-- -->
+<ul>
+<li>--no-motd：抑制守护程序模式下的MOTD（请参阅man页注意事项）</li>
+</ul>
+</li>
+<li>-c, --checksum：基于校  验和而不是修改时间和文件大小进行跳过</li>
+<li>-a, --archive：存档模式；等同于 -rlptgoD（不包括 -H、-A、-X）<!-- -->
+<ul>
+<li>--no-OPTION：关闭隐含的OPTION（例如，--no-D）</li>
+</ul>
+</li>
+<li>-r, --recursive：递归处理目录</li>
+<li>-R, --relative：使用相对路径名<!-- -->
+<ul>
+<li>--no-implied-dirs：不随 --relative 一起发送隐含目录</li>
+</ul>
+</li>
+<li>-b, --backup：创建备份文件（参见 --suffix 和 --backup-dir）<!-- -->
+<ul>
+<li>--backup-dir=DIR：将备份文件放入基于DIR的层次结构中</li>
+<li>--suffix=SUFFIX：设置备份文件的后缀（默认为~，如果没有 --backup-dir）</li>
+</ul>
+</li>
+<li>-u, --update：跳过接收端上更新的文件<!-- -->
+<ul>
+<li>--inplace：在原地更新目标文件（请参阅man页）</li>
+<li>--append：将数据附加到较短的文件</li>
+<li>--append-verify：类似于 --append，但附加的文件有旧数据的文件校验和</li>
+</ul>
+</li>
+<li>-d, --dirs：传输目录而不递归</li>
+<li>-l, --links：复制符号链接作为符号链接</li>
+<li>-L, --copy-links：将符号链接转换为所指定的文件/目录<!-- -->
+<ul>
+<li>--copy-unsafe-links：仅转换&quot;不安全&quot;的符号链接</li>
+<li>--safe-links：忽略指向源树外部的符号链接</li>
+<li>--munge-links：混淆符号链接以使其更安全（但不可用）</li>
+</ul>
+</li>
+<li>-k, --copy-dirlinks：将目标目录的符号链接转换为所指定的目录</li>
+<li>-K, --keep-dirlinks：将接收端上的符号链接目录视为目录</li>
+<li>-H, --hard-links：保留硬链接</li>
+<li>-p, --perms：保留权限</li>
+<li>-E, --executability：保留文件的可执行性<!-- -->
+<ul>
+<li>--chmod=CHMOD：影响文件和/或目录的权限</li>
+</ul>
+</li>
+<li>-A, --acls：保留ACL（隐含 --perms）</li>
+<li>-X, --xattrs：保留扩展属性</li>
+<li>-o, --owner：保留所有者（仅超级用户）</li>
+<li>-g, --group：保留组<!-- -->
+<ul>
+<li>--devices：保留设备文件（仅超级用户）</li>
+<li>--copy-devices：将设备内容复制为普通文件</li>
+<li>--specials：保留特殊文件</li>
+</ul>
+</li>
+<li>-D：等同于 --devices --specials</li>
+<li>-t, --times：保留修改时间</li>
+<li>-O, --omit-dir-times：从 --times 中省略目录</li>
+<li>-J, --omit-link-times：从 --times 中省略符号链接<!-- -->
+<ul>
+<li>--super：接收端尝试超级用户活动</li>
+<li>--fake-super：使用xattrs存储/恢复特权属性</li>
+</ul>
+</li>
+<li>-S, --sparse：将连续的空块转换为稀疏块<!-- -->
+<ul>
+<li>--preallocate：在写入文件之前分配目标文件</li>
+</ul>
+</li>
+<li>-n, --dry-run：执行试运行，不进行实际更改</li>
+<li>-W, --whole-file：整个文件传输（不使用增量传输算法）<!-- -->
+<ul>
+<li>--checksum-choice=STR：选择校验和算法</li>
+</ul>
+</li>
+<li>-x, --one-file-system：不跨越文件系统边界</li>
+<li>-B, --block-size=SIZE：强制使用固定的校验块大小</li>
+<li>-e, --rsh=COMMAND：指定要使用的远程 shell<!-- -->
+<ul>
+<li>--rsync-path=PROGRAM：指定在远程机器上运行的rsync</li>
+<li>--existing：跳过在接收端创建新文件</li>
+<li>--ignore-existing：跳过已经存在于接收端的文件的更新</li>
+<li>--remove-source-files：发送端删除已同步的文件（非目录）</li>
+<li>--del：--delete-during 的别名</li>
+<li>--delete：从目标目录中删除多余的文件</li>
+<li>--delete-before：在传输期间接收端删除</li>
+<li>--delete-during：在传输期间接收端删除</li>
+<li>--delete-delay：找到删除操作后才删除</li>
+<li>--delete-after：在传输后接收端删除</li>
+<li>--delete-excluded：也从目标目录中删除被排除的文件</li>
+<li>--ignore-missing-args：忽略缺失的源参数而不报错</li>
+<li>--delete-missing-args：从目标中删除缺失的源参数</li>
+<li>--ignore-errors：即使出现I/O错误也进行删除</li>
+<li>--force：即使不为空也强制删除目录</li>
+<li>--max-delete=NUM：最多删除 NUM 个文  件</li>
+<li>--max-size=SIZE：不传输大于 SIZE 的文件</li>
+<li>--min-size=SIZE：不传输小于 SIZE 的文件</li>
+<li>--partial：保留部分传输的文件</li>
+<li>--partial-dir=DIR：将部分传输的文件放入 DIR</li>
+<li>--delay-updates：在传输结束时将所有更新的文件放在指定位置</li>
+</ul>
+</li>
+<li>-m, --prune-empty-dirs：从文件列表中剪除空目录链<!-- -->
+<ul>
+<li>--numeric-ids：不通过用户名/组名映射uid/gid值</li>
+<li>--usermap=STRING：自定义用户名映射</li>
+<li>--groupmap=STRING：自定义组名映射</li>
+<li>--chown=USER<!-- -->:GROUP<!-- -->：简单的用户名/组名映射</li>
+<li>--timeout=SECONDS：设置I/O超时时间（以秒为单位）</li>
+<li>--contimeout=SECONDS：设置守护程序连接的超时时间（以秒为单位）</li>
+</ul>
+</li>
+<li>-I, --ignore-times：不跳过大小和修改时间匹配的文件</li>
+<li>-M, --remote-option=OPTION：仅将选项发送到远程端<!-- -->
+<ul>
+<li>--size-only：跳过大小匹配的文件</li>
+</ul>
+</li>
+<li>@, --modify-window=NUM：设置修改时间比较的精度</li>
+<li>-T, --temp-dir=DIR：在目录DIR中创建临时文件</li>
+<li>-y, --fuzzy：在没有目标文件的情况下查找相似的文件作为基准<!-- -->
+<ul>
+<li>--compare-dest=DIR：相对于DIR，也比较目标文件</li>
+<li>--copy-dest=DIR：并包括未更改的文件的副本</li>
+<li>--link-dest=DIR：在未更改时将文件硬链接到DIR中</li>
+</ul>
+</li>
+<li>-z, --compress：在传输期间压缩文件数据<!-- -->
+<ul>
+<li>--compress-level=NUM：明确设置压缩级别</li>
+<li>--skip-compress=LIST：跳过具有LIST中后缀的文件的压缩</li>
+</ul>
+</li>
+<li>-C, --cvs-exclude：自动忽略与CVS相同的文件</li>
+<li>-f, --filter=RULE：添加文件过滤规则</li>
+<li>-F：与 --filter=&#x27;dir-merge /.rsync-filter&#x27; 相同<!-- -->
+<ul>
+<li>--exclude=PATTERN：排除与PATTERN匹配的文件</li>
+<li>--exclude-from=FILE：从FILE中读取排除模式</li>
+<li>--include=PATTERN：不排除与PATTERN匹配的文件</li>
+<li>--include-from=FILE：从FILE中读取包含模式</li>
+<li>--files-from=FILE：从FILE中读取源文件名的列表</li>
+</ul>
+</li>
+<li>-0, --from0：所有 *-from/filter 文件以0分隔</li>
+<li>-s, --protect-args：不对空格进行拆分，只对通配符特殊字符进行拆分<!-- -->
+<ul>
+<li>--trust-sender：信任远程发送方的文件列表</li>
+<li>--address=ADDRESS：将传出套接字绑定到守护程序的地址</li>
+<li>--port=PORT：指定双冒号的备用端口号</li>
+<li>--sockopts=OPTIONS：指定自定义TCP选项</li>
+<li>--blocking-io：使用阻塞I/O进行远程shell操作</li>
+<li>--stats：提供一些文件传输统计信息</li>
+</ul>
+</li>
+<li>-8, --8-bit-output：在输出中保留高位字符</li>
+<li>-h, --human-readable：以人类可读的格式输出数字<!-- -->
+<ul>
+<li>--progress：在传输过程中显示进度</li>
+</ul>
+</li>
+<li>-P：与 --partial --progress 相同</li>
+<li>-i, --itemize-changes：输出所有更新的变更摘要<!-- -->
+<ul>
+<li>--out-format=FORMAT：使用指定的格式输出更新</li>
+<li>--log-file=FILE：将操作记录到指定的文件</li>
+<li>--log-file-format=FMT：使用指定的FMT记录更新</li>
+<li>--password-file=FILE：从文件中读取守护程序访问密码</li>
+<li>--list-only：仅列出文件，不复制它们</li>
+<li>--bwlimit=RATE：限制套接字I/O带宽</li>
+<li>--stop-at=y-m-dTh<!-- -->:m<!-- -->：在年-月-日Thour<!-- -->:minute<!-- -->时停止rsync</li>
+<li>--time-limit=MINS：在MINS分钟后停止rsync</li>
+<li>--outbuf=N|L|B：将输出缓冲设置为无、行或块</li>
+<li>--write-batch=FILE：将批处理更新写入文件</li>
+<li>--only-write-batch=FILE：类似于 --write-batch，但不更新目标</li>
+<li>--read-batch=FILE：从文件中读取批处理更新</li>
+<li>--protocol=NUM：强制使用旧的协议版本</li>
+<li>--iconv=CONVERT_SPEC：请求对文件名进行字符集转换</li>
+<li>--checksum-seed=NUM：设置块/文件校验和  种子（高级选项）</li>
+<li>--noatime：在打开源文件时不改变atime</li>
+</ul>
+</li>
+<li>-4, --ipv4：优先使用IPv4</li>
+<li>-6, --ipv6：优先使用IPv6<!-- -->
+<ul>
+<li>--version：显示版本号</li>
+</ul>
+</li>
+<li>(-h) --help：显示帮助信息（只有在单独使用 -h 时才是 --help）</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="常用命令">常用命令<a href="#常用命令" class="hash-link" aria-label="Direct link to 常用命令" title="Direct link to 常用命令">​</a></h2>
+<ul>
+<li>拷贝本地文件，将/app目录下的文件拷贝到/userdata目录下</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -avSH /app/ /userdata/</span><br></span></code></pre></div></div>
+<ul>
+<li>拷贝本地机器的内容到远程机器</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -av /app 192.168.1.12:/app</span><br></span></code></pre></div></div>
+<ul>
+<li>拷贝远程机器的内容到本地机器</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -av 192.168.1.12:/app /app</span><br></span></code></pre></div></div>
+<ul>
+<li>拷贝远程rsync服务器(daemon形式运行rsync)的文件到本地机。</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -av root@192.168.1.12::www /userdata</span><br></span></code></pre></div></div>
+<ul>
+<li>拷贝本地机器文件到远程rsync服务器(daemon形式运行rsync)中。当DST路径信息包含”::”分隔符时启动该模式。</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -av /userdata root@192.168.1.12::www</span><br></span></code></pre></div></div>
+<ul>
+<li>显示远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可。</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -v rsync://192.168.1.12/app</span><br></span></code></pre></div></div>
+<ul>
+<li>指定密码存放文件，无需输入密码，  直接执行rsync传输</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rsync -rvzP --password-file=/etc/rsync.password rsync@$192.168.1.12::app/ /app</span><br></span></code></pre></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-06-17T09:58:35.000Z" itemprop="dateModified">Jun 17, 2025</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_route"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">route</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/en/rdk_s/Appendix/linux-command-manual/cmd_scp"><div class="pagination-nav__sublabel">Next </div><div class="pagination-nav__label">scp</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#语法说明" class="table-of-contents__link toc-highlight">语法说明</a></li><li><a href="#选项说明" class="table-of-contents__link toc-highlight">选项说明</a></li><li><a href="#常用命令" class="table-of-contents__link toc-highlight">常用命令</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Links</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GuYueHome<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Contact US</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.youtube.com/@D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 D-Robotics.</div></div></div></footer></div>
+</body>
+</html>

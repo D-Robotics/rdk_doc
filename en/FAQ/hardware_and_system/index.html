@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-FAQ/hardware_and_system" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">8.1 Hardware, System, and Environment Configuration | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/en/FAQ/hardware_and_system"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="8.1 Hardware, System, and Environment Configuration | RDK DOC"><meta data-rh="true" name="description" content="For certified accessories and purchase links, please refer to the Certified Accessories List."><meta data-rh="true" property="og:description" content="For certified accessories and purchase links, please refer to the Certified Accessories List."><link data-rh="true" rel="icon" href="/rdk_doc/en/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/en/FAQ/hardware_and_system"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/FAQ/hardware_and_system" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/FAQ/hardware_and_system" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"8. FAQs","item":"https://developer.d-robotics.cc/rdk_doc/en/FAQ"},{"@type":"ListItem","position":2,"name":"8.1 Hardware, System, and Environment Configuration","item":"https://developer.d-robotics.cc/rdk_doc/en/FAQ/hardware_and_system"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/en/assets/css/styles.cd83b4b4.css">
+<script src="/rdk_doc/en/assets/js/runtime~main.3ee14752.js" defer="defer"></script>
+<script src="/rdk_doc/en/assets/js/main.c07752ee.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/rdk_doc/en/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/rdk_doc/en/img/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">D-Robotics</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rdk_doc/en/RDK">RDK X3 / X5</a><a class="navbar__item navbar__link" href="/rdk_doc/en/rdk_s/RDK">RDK S100</a><a href="https://developer.d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>EN</a><ul class="dropdown__menu"><li><a href="/rdk_doc/FAQ/hardware_and_system" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">CN</a></li><li><a href="/rdk_doc/en/FAQ/hardware_and_system" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">EN</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rdk_doc/en/RDK">D-Robotics RDK Suite</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Quick_start">1. Quick Start</a><button aria-label="Expand sidebar category &#x27;1. Quick Start&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/System_configuration">2. System Configuration</a><button aria-label="Expand sidebar category &#x27;2. System Configuration&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Basic_Application">3. Basic Application Development</a><button aria-label="Expand sidebar category &#x27;3. Basic Application Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Basic_Development">4. Algorithm Application Development</a><button aria-label="Expand sidebar category &#x27;4. Algorithm Application Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Robot_development">5. Robotics Application Development</a><button aria-label="Expand sidebar category &#x27;5. Robotics Application Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Application_case">6. Application Development Guide</a><button aria-label="Expand sidebar category &#x27;6. Application Development Guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Advanced_development">7. Advanced Development</a><button aria-label="Expand sidebar category &#x27;7. Advanced Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/rdk_doc/en/FAQ">8. FAQs</a><button aria-label="Collapse sidebar category &#x27;8. FAQs&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rdk_doc/en/FAQ/hardware_and_system">8.1 Hardware, System, and Environment Configuration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/interface">8.2 Interfaces, Peripherals, and Drivers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/applications_and_examples">8.3 Application Development, Compilation, and Examples</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/multimedia">8.4 Multimedia Processing and Applications</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/toolchain">8.5 Algorithm toolchain class</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/en/FAQ/tros_ros">8.6 TROS/ROS Development</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/en/Appendix">9. Appendix</a><button aria-label="Expand sidebar category &#x27;9. Appendix&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/rdk_doc/en/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/rdk_doc/en/FAQ"><span>8. FAQs</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">8.1 Hardware, System, and Environment Configuration</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>8.1 Hardware, System, and Environment Configuration</h1></header>
+<p>For certified accessories and purchase links, please refer to the <a href="https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory" target="_blank" rel="noopener noreferrer">Certified Accessories List</a>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q1-what-is-the-d-robotics-rdk-kit">Q1: What is the D-Robotics RDK Kit?<a href="#q1-what-is-the-d-robotics-rdk-kit" class="hash-link" aria-label="Direct link to Q1: What is the D-Robotics RDK Kit?" title="Direct link to Q1: What is the D-Robotics RDK Kit?">​</a></h3>
+<p><strong>A:</strong> D-Robotics Developer Kits, abbreviated as <a href="https://developer.d-robotics.cc/rdk_doc/" target="_blank" rel="noopener noreferrer">D-Robotics RDK Kits</a>, are robot developer kits based on D-Robotics intelligent chips. The main series currently include <strong>RDK X3 (Sunrise X3 Pi)</strong>, <strong>RDK X3 Module</strong>, <strong>RDK X5</strong>, and <strong>RDK Ultra</strong>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q2-how-to-check-the-system-version-of-an-rdk-board">Q2: How to check the system version of an RDK board?<a href="#q2-how-to-check-the-system-version-of-an-rdk-board" class="hash-link" aria-label="Direct link to Q2: How to check the system version of an RDK board?" title="Direct link to Q2: How to check the system version of an RDK board?">​</a></h3>
+<p><strong>A:</strong> After logging into the RDK board, you can use the following commands:</p>
+<ol>
+<li>
+<p><strong>Check the main system version:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cat /etc/version</span><br></span></code></pre></div></div>
+<p>For example, the output might be <code>2.0.0</code> or <code>x3_ubuntu_v1.1.6</code>.</p>
+</li>
+<li>
+<p><strong>Check installed core D-Robotics packages:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">apt list --installed | grep hobot</span><br></span></code></pre></div></div>
+<p>Or use the <code>rdkos_info</code> command (available on newer systems, e.g., 2.1.0 and above):</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">rdkos_info</span><br></span></code></pre></div></div>
+<p><strong>Sample output (RDK OS 2.x, e.g., 2.0.0):</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# apt list --installed | grep hobot</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hobot-boot/unknown,now 2.0.0-20230530181103 arm64 [installed]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hobot-bpu-drivers/unknown,now 2.0.0-20230530181103 arm64 [installed]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ... other hobot-* packages</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# cat /etc/version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2.0.0</span><br></span></code></pre></div></div>
+<p><strong>Sample output (RDK OS 1.x, e.g., 1.1.6):</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# apt list --installed | grep hobot</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hobot-arm64-boot/unknown,now 1.1.6 arm64 [installed]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ... other hobot-arm64-* packages</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root@ubuntu:~# cat /etc/version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">x3_ubuntu_v1.1.6</span><br></span></code></pre></div></div>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q3-what-is-the-relationship-between-different-rdk-os-versions-and-hardware-platforms">Q3: What is the relationship between different RDK OS versions and hardware platforms?<a href="#q3-what-is-the-relationship-between-different-rdk-os-versions-and-hardware-platforms" class="hash-link" aria-label="Direct link to Q3: What is the relationship between different RDK OS versions and hardware platforms?" title="Direct link to Q3: What is the relationship between different RDK OS versions and hardware platforms?">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>RDK OS 2.x and newer (e.g., 2.0.0, 2.1.0, 3.0.x):</strong>
+<ul>
+<li>Based on D-Robotics open-source Linux packages.</li>
+<li>Typically supports the corresponding RDK hardware series, e.g., RDK X3 2.x/3.x supports RDK X3 and RDK X3 Module.</li>
+</ul>
+</li>
+<li><strong>RDK OS 1.x:</strong>
+<ul>
+<li>Based on a closed-source Linux system (legacy version).</li>
+<li>Mainly supports early RDK X3 hardware.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Important Notes:</strong></p>
+<ul>
+<li><strong>Version upgrade:</strong> 1.x systems <strong>cannot</strong> be upgraded to 2.x or newer via <code>apt</code>. To upgrade, you must re-flash the new system image (<a href="https://developer.d-robotics.cc/rdk_doc/install_os" target="_blank" rel="noopener noreferrer">installation guide</a>).</li>
+<li><strong>TROS compatibility:</strong> Different major TROS versions (e.g., Foxy-based TROS vs. Humble-based TROS) are usually tied to specific RDK OS versions. For example, RDK OS 2.x typically comes with ROS2 Foxy-based TROS, while RDK OS 3.x comes with ROS2 Humble-based TROS.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q4-what-should-i-pay-attention-to-when-plugging-or-unplugging-the-camera">Q4: What should I pay attention to when plugging or unplugging the camera?<a href="#q4-what-should-i-pay-attention-to-when-plugging-or-unplugging-the-camera" class="hash-link" aria-label="Direct link to Q4: What should I pay attention to when plugging or unplugging the camera?" title="Direct link to Q4: What should I pay attention to when plugging or unplugging the camera?">​</a></h3>
+<p><strong>A:</strong> <strong>Never plug or unplug the camera while the board is powered on.</strong> Doing so can easily damage the camera module or the mainboard connector. Always disconnect all power before connecting or removing the camera.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q5-how-to-correctly-connect-the-rdk-x3-debug-serial-cable">Q5: How to correctly connect the RDK X3 debug serial cable?<a href="#q5-how-to-correctly-connect-the-rdk-x3-debug-serial-cable" class="hash-link" aria-label="Direct link to Q5: How to correctly connect the RDK X3 debug serial cable?" title="Direct link to Q5: How to correctly connect the RDK X3 debug serial cable?">​</a></h3>
+<p><strong>A:</strong> One end of the RDK X3 debug serial cable (usually a white XH connector or corresponding pin header) connects to the DEBUG serial port on the RDK X3 board. The connector usually has a foolproof design (such as a notch or specific pin order), making it hard to connect incorrectly. The other end connects to a USB-to-serial module (e.g., CH340, CP210x), which then connects to your PC via USB.
+Connection diagram:
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/connect.png" alt="RDK X3 Serial Connection Diagram" class="img_ev3q">
+<strong>Key point:</strong> Ensure the serial module&#x27;s TX connects to RDK&#x27;s RX, RX to RDK&#x27;s TX, and GND to GND.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q6-how-to-connect-f37-and-gc4663-mipi-cameras-to-rdk-x3-how-to-verify-the-connection">Q6: How to connect F37 and GC4663 MIPI cameras to RDK X3? How to verify the connection?<a href="#q6-how-to-connect-f37-and-gc4663-mipi-cameras-to-rdk-x3-how-to-verify-the-connection" class="hash-link" aria-label="Direct link to Q6: How to connect F37 and GC4663 MIPI cameras to RDK X3? How to verify the connection?" title="Direct link to Q6: How to connect F37 and GC4663 MIPI cameras to RDK X3? How to verify the connection?">​</a></h3>
+<p><strong>A:</strong> F37 and GC4663 MIPI camera modules usually connect via a 24-pin FPC (flexible flat cable).
+<strong>Connection note:</strong> The FPC cable usually has a blue stiffener on both ends. Make sure the <strong>blue side faces up</strong> (or towards the connector latch, depending on the connector type) when inserting into the board and camera module, and lock the latch.
+F37 camera connection diagram:
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="F37 Camera to RDK X3 Diagram" class="img_ev3q"></p>
+<p><strong>After connecting:</strong></p>
+<ol>
+<li>
+<p>Ensure the camera is properly connected and the board is powered on.</p>
+</li>
+<li>
+<p><strong>Run the MIPI camera sample (for RDK X3):</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cd /app/ai_inference/03_mipi_camera_sample # Path may vary by system version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo python3 mipi_camera.py</span><br></span></code></pre></div></div>
+<p>If successful, you should see the camera feed and possible AI results via HDMI or other output.
+Example HDMI output (detecting <code>teddy bear</code>, <code>cup</code>, and <code>vase</code>):
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png" alt="MIPI Camera AI Output Example" class="img_ev3q"></p>
+</li>
+<li>
+<p><strong>Check I2C communication with <code>i2cdetect</code>:</strong>
+MIPI cameras use I2C for configuration. Use <code>i2cdetect</code> to scan devices on the relevant I2C bus (often <code>i2c-1</code> or <code>i2c-2</code> on RDK X3; check hardware manual or device tree).</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo i2cdetect -y -r 1  # Scan i2c-1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># or sudo i2cdetect -y -r 2 # Scan i2c-2</span><br></span></code></pre></div></div>
+<p><strong>Expected output:</strong></p>
+<ul>
+<li><strong>F37 (usually at 0x40):</strong>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">00:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">30: -- -- -- -- -- -- -- -- -- -- -- UU -- -- -- --  (UU means kernel driver has claimed it)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  (0x40 is F37 address)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre></div></div>
+</li>
+<li><strong>GC4663 (usually at 0x29):</strong>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">00:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- --  (0x29 is GC4663 address)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">30: -- -- -- -- -- -- -- -- -- -- -- UU -- -- -- --</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<p>If <code>i2cdetect</code> finds the camera&#x27;s I2C address, it means the camera is recognized at the I2C level.</p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q7-what-could-cause-the-board-to-fail-to-boot-show-nothing-on-power-up-or-keep-rebooting-how-to-troubleshoot">Q7: What could cause the board to fail to boot, show nothing on power-up, or keep rebooting? How to troubleshoot?<a href="#q7-what-could-cause-the-board-to-fail-to-boot-show-nothing-on-power-up-or-keep-rebooting-how-to-troubleshoot" class="hash-link" aria-label="Direct link to Q7: What could cause the board to fail to boot, show nothing on power-up, or keep rebooting? How to troubleshoot?" title="Direct link to Q7: What could cause the board to fail to boot, show nothing on power-up, or keep rebooting? How to troubleshoot?">​</a></h3>
+<p><strong>A:</strong> These issues are usually related to power supply, boot media (SD card/eMMC), or hardware connections.</p>
+<ul>
+<li>
+<p><strong>Insufficient or unstable power:</strong></p>
+<ul>
+<li><strong>Symptoms:</strong> System reboots during U-Boot or early kernel boot without clear error logs; green LED abnormal (e.g., not blinking or always on); HDMI black screen.
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20230914173433676.png" alt="U-Boot reboot due to power issue" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20230914174123619.png" alt="Kernel reboot due to power issue" class="img_ev3q"></li>
+<li><strong>Troubleshooting:</strong>
+<ul>
+<li>Use a power adapter that meets board requirements (RDK X3: at least 5V/2A, recommended 5V/3A or higher with QC/PD support).</li>
+<li><strong>Do not</strong> power the board from a PC USB port.</li>
+<li>Use a reliable USB Type-C cable.</li>
+<li>Refer to the <a href="https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory" target="_blank" rel="noopener noreferrer">official accessory list</a> for recommended adapters.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Boot media issues (Micro SD/eMMC):</strong></p>
+<ul>
+<li><strong>Symptoms:</strong> Serial log shows filesystem mount failure, missing partitions, MMC/SD init errors or timeouts.
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194527634.png" alt="SD card image format error" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194636213.png" alt="SD card physical/contact error 1" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/system/image-20221124194721750.png" alt="SD card physical/contact error 2" class="img_ev3q"></li>
+<li><strong>Troubleshooting:</strong>
+<ul>
+<li>Ensure the SD card image is correctly and fully flashed.</li>
+<li>Try reflashing the system image.</li>
+<li>Replace with a new, high-quality Micro SD card.</li>
+<li>Clean the SD card slot and contacts.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Accidentally entering U-Boot via serial:</strong></p>
+<ul>
+<li><strong>Symptoms:</strong> System stops at U-Boot prompt (e.g., <code>hobot&gt;</code>).</li>
+<li><strong>Troubleshooting:</strong> May be caused by unexpected serial input during power-up. Try unplugging the serial cable and rebooting. If at U-Boot prompt, try typing <code>boot</code> and pressing Enter.</li>
+</ul>
+</li>
+<li>
+<p><strong>Other hardware or peripheral conflicts:</strong></p>
+<ul>
+<li>If above steps fail, remove all unnecessary peripherals (USB devices, expansion boards) and try again.</li>
+<li>In rare cases, the board itself may be faulty.</li>
+</ul>
+</li>
+<li>
+<p><strong>Detailed troubleshooting:</strong> See the <a href="https://developer.d-robotics.cc/forumDetail/229678192959702636" target="_blank" rel="noopener noreferrer">official forum guide</a>. Connecting a debug serial cable and capturing the full boot log is crucial for diagnosis.</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q8-what-are-the-power-supply-requirements-for-rdk-x3">Q8: What are the power supply requirements for RDK X3?<a href="#q8-what-are-the-power-supply-requirements-for-rdk-x3" class="hash-link" aria-label="Direct link to Q8: What are the power supply requirements for RDK X3?" title="Direct link to Q8: What are the power supply requirements for RDK X3?">​</a></h3>
+<p><strong>A:</strong> RDK X3 is powered via USB Type-C and supports QC (Quick Charge) and PD (Power Delivery) protocols.</p>
+<ul>
+<li><strong>Recommended:</strong> Use a QC or PD-compatible power adapter.</li>
+<li><strong>Minimum:</strong> At least <strong>5V DC 2A</strong>. For stable operation, especially with peripherals or high load, use <strong>5V/3A</strong> or higher.</li>
+<li><strong>Warning:</strong> <strong>Strongly discouraged</strong> to use a PC USB port for power, as it often cannot supply enough current, leading to boot failures, HDMI issues, abnormal LEDs, or reboots.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q9-are-there-recommended-sd-card-brands-or-specs-for-rdk-x3">Q9: Are there recommended SD card brands or specs for RDK X3?<a href="#q9-are-there-recommended-sd-card-brands-or-specs-for-rdk-x3" class="hash-link" aria-label="Direct link to Q9: Are there recommended SD card brands or specs for RDK X3?" title="Direct link to Q9: Are there recommended SD card brands or specs for RDK X3?">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>Specs:</strong> Use high-speed <strong>C10 (Class 10)</strong> or higher (e.g., UHS Speed Class 1 (U1), U3, Application Performance Class A1/A2) Micro SD cards. Capacity: <strong>16GB or above</strong>.</li>
+<li><strong>Compatibility:</strong> Old, unbranded, or low-speed SD cards may cause boot failures, slow operation, or unstable data access.</li>
+<li><strong>Recommended brands (for reference, test and check latest official advice):</strong> Kingston, SanDisk, Samsung, etc.<!-- -->
+<ul>
+<li>Kingston example: <code>https://item.jd.com/25263496192.html</code></li>
+<li>SanDisk example: <code>https://item.jd.com/1875992.html#crumb-wrap</code>
+(Links are from original docs; verify product and channel before purchase.)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use">Q10: What to do if <code>apt update</code> fails (e.g., key error, update failure, lock file in use)?<a href="#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use" class="hash-link" aria-label="Direct link to q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use" title="Direct link to q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use">​</a></h3>
+<p><strong>A:</strong></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-source-domain-or-gpg-key-issues">(1) Source domain or GPG key issues<a href="#1-source-domain-or-gpg-key-issues" class="hash-link" aria-label="Direct link to (1) Source domain or GPG key issues" title="Direct link to (1) Source domain or GPG key issues">​</a></h4>
+<ul>
+<li><strong>Cause:</strong> The official apt source domain or GPG key may have changed.</li>
+<li><strong>Error examples:</strong>
+<ul>
+<li><code>Clearsigned file isn&#x27;t valid, got &#x27;NOSPLIT&#x27;</code></li>
+<li><code>The repository &#x27;...&#x27; is no longer signed.</code></li>
+<li><code>Could not resolve &#x27;archive.sunrisepi.tech&#x27;</code> (or other old domains)</li>
+<li><code>The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY ...</code></li>
+</ul>
+</li>
+<li><strong>Solution:</strong>
+<ol>
+<li><strong>Update domain:</strong> Edit <code>/etc/apt/sources.list.d/sunrise.list</code> (or other source files), replace old domains (e.g., <code>archive.sunrisepi.tech</code>, <code>sunrise.horizon.cc</code>) with the latest (<code>archive.d-robotics.cc</code>).<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Replace &quot;old_domain&quot; with the actual old domain in your file</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo sed -i &#x27;s/old_domain/archive.d-robotics.cc/g&#x27; /etc/apt/sources.list.d/sunrise.list</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Update GPG key:</strong> Download and install the latest GPG key.<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo wget -O /usr/share/keyrings/sunrise.gpg http://archive.d-robotics.cc/keys/sunrise.gpg</span><br></span></code></pre></div></div>
+</li>
+<li>Try <code>sudo apt update</code> again.</li>
+</ol>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-apt-lock-file-in-use">(2) apt lock file in use<a href="#2-apt-lock-file-in-use" class="hash-link" aria-label="Direct link to (2) apt lock file in use" title="Direct link to (2) apt lock file in use">​</a></h4>
+<ul>
+<li><strong>Error example:</strong>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">E: Could not get lock /var/lib/apt/lists/lock. It is held by process XXXX (apt-get)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">N: Be aware that removing the lock file is not a solution and may break your system.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">E: Unable to lock directory /var/lib/apt/lists/</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Cause:</strong> The system may be running background updates, or a previous apt operation didn&#x27;t finish.</li>
+<li><strong>Solution:</strong>
+<ol>
+<li><strong>Wait:</strong> Sometimes the background process will finish soon.</li>
+<li><strong>Kill the process:</strong> If locked for a long time, kill the process holding the lock (the error message shows the PID, e.g., <code>XXXX</code>):<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo kill XXXX</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Remove lock files (with caution):</strong> After confirming no apt/dpkg processes are running, you can remove lock files. <strong>This is risky and may break your package manager; proceed with caution.</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/lib/apt/lists/lock</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/cache/apt/archives/lock</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/lib/dpkg/lock</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /var/lib/dpkg/lock-frontend</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo dpkg --configure -a  # Attempt to fix unfinished package configs</span><br></span></code></pre></div></div>
+</li>
+<li>Try <code>sudo apt update</code> again.</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q11-how-to-check-the-status-of-cpu-bpu-and-other-hardware-units-on-rdk-x3">Q11: How to check the status of CPU, BPU, and other hardware units on RDK X3?<a href="#q11-how-to-check-the-status-of-cpu-bpu-and-other-hardware-units-on-rdk-x3" class="hash-link" aria-label="Direct link to Q11: How to check the status of CPU, BPU, and other hardware units on RDK X3?" title="Direct link to Q11: How to check the status of CPU, BPU, and other hardware units on RDK X3?">​</a></h3>
+<p><strong>A:</strong> Use the <code>hrut_somstatus</code> tool provided by D-Robotics to view real-time system status, including CPU core usage, BPU (AI unit) usage, memory, and chip temperature.
+On the board terminal, run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo hrut_somstatus</span><br></span></code></pre></div></div>
+<p>This command refreshes status at intervals. Press Ctrl+C to exit.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q12-how-to-set-up-auto-start-for-rdk-applications">Q12: How to set up auto-start for RDK applications?<a href="#q12-how-to-set-up-auto-start-for-rdk-applications" class="hash-link" aria-label="Direct link to Q12: How to set up auto-start for RDK applications?" title="Direct link to Q12: How to set up auto-start for RDK applications?">​</a></h3>
+<p><strong>A:</strong> Two main methods:</p>
+<ol>
+<li>
+<p><strong>Via <code>/etc/rc.local</code> (traditional):</strong>
+Edit this file (create if missing, or enable <code>rc-local.service</code>), add your command before <code>exit 0</code>, and ensure the script is executable.</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">#!/bin/bash -e</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># rc.local</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Example: Start your application in the background</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># /usr/bin/python3 /home/sunrise/my_app.py &amp;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">exit 0</span><br></span></code></pre></div></div>
+<p>Reference: <a href="https://developer.d-robotics.cc/rdk_doc/System_configuration/self_start" target="_blank" rel="noopener noreferrer">RDK Docs - rc.local Autostart</a></p>
+</li>
+<li>
+<p><strong>Via <code>systemd</code> service (modern, recommended):</strong>
+Create a <code>.service</code> file (e.g., <code>/etc/systemd/system/myapp.service</code>), define the start command, dependencies, user, restart policy, etc.
+<strong>Example <code>myapp.service</code>:</strong></p>
+<div class="language-ini codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[Unit]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Description=My Application Service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">After=network.target multi-user.target</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">[Service]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">User=sunrise</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ExecStart=/usr/bin/python3 /home/sunrise/my_app.py</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Restart=on-failure</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># StandardOutput=append:/var/log/myapp_stdout.log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># StandardError=append:/var/log/myapp_stderr.log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">[Install]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">WantedBy=multi-user.target</span><br></span></code></pre></div></div>
+<p>Then enable and start the service:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl daemon-reload</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl enable myapp.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl start myapp.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Check status: sudo systemctl status myapp.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># View logs (if configured): journalctl -u myapp.service</span><br></span></code></pre></div></div>
+<p>Reference: <a href="https://developer.d-robotics.cc/forumDetail/204825652464181760" target="_blank" rel="noopener noreferrer">RDK Community - systemd Autostart</a></p>
+</li>
+</ol>
+<p><strong>Autostart notes:</strong></p>
+<ul>
+<li>Ensure script/program paths are correct and executable.</li>
+<li>Handle dependencies (e.g., network, hardware init) and environment variables.</li>
+<li>If a GUI is needed, ensure <code>DISPLAY</code> is set and X Server is running.</li>
+<li>Redirect output to log files for troubleshooting.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q13-what-are-the-default-login-accounts-and-passwords-for-the-board">Q13: What are the default login accounts and passwords for the board?<a href="#q13-what-are-the-default-login-accounts-and-passwords-for-the-board" class="hash-link" aria-label="Direct link to Q13: What are the default login accounts and passwords for the board?" title="Direct link to Q13: What are the default login accounts and passwords for the board?">​</a></h3>
+<p><strong>A:</strong> Usually, the following accounts are available:</p>
+<ul>
+<li><strong>Normal user:</strong> Username <code>sunrise</code>, password <code>sunrise</code></li>
+<li><strong>Superuser (root):</strong> Username <code>root</code>, password <code>root</code>
+(Note: Actual defaults may vary by image version; check the release notes.)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q14-how-to-mount-an-ntfs-usb-drive-or-hdd-on-rdk-and-enable-readwrite">Q14: How to mount an NTFS USB drive or HDD on RDK and enable read/write?<a href="#q14-how-to-mount-an-ntfs-usb-drive-or-hdd-on-rdk-and-enable-readwrite" class="hash-link" aria-label="Direct link to Q14: How to mount an NTFS USB drive or HDD on RDK and enable read/write?" title="Direct link to Q14: How to mount an NTFS USB drive or HDD on RDK and enable read/write?">​</a></h3>
+<p><strong>A:</strong> Ubuntu&#x27;s default NTFS support may be read-only. For full read/write, install <code>ntfs-3g</code>:</p>
+<ol>
+<li><strong>Install <code>ntfs-3g</code>:</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt -y install ntfs-3g</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Mount the NTFS partition:</strong>
+After installation, use <code>mount</code> (the system will use <code>ntfs-3g</code> automatically).<!-- -->
+<ul>
+<li>Create a mount point:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo mkdir /mnt/my_ntfs_disk</span><br></span></code></pre></div></div>
+</li>
+<li>Mount the device (replace <code>/dev/sda1</code> as needed):<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo mount /dev/sda1 /mnt/my_ntfs_disk</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Or explicitly specify type (usually not needed)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># sudo mount -t ntfs-3g /dev/sda1 /mnt/my_ntfs_disk</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<!-- -->You should now have read/write access at <code>/mnt/my_ntfs_disk</code>.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q15-can-rdk-boards-run-vs-code-locally-how-to-use-vs-code-on-pc-to-connect-remotely">Q15: Can RDK boards run VS Code locally? How to use VS Code on PC to connect remotely?<a href="#q15-can-rdk-boards-run-vs-code-locally-how-to-use-vs-code-on-pc-to-connect-remotely" class="hash-link" aria-label="Direct link to Q15: Can RDK boards run VS Code locally? How to use VS Code on PC to connect remotely?" title="Direct link to Q15: Can RDK boards run VS Code locally? How to use VS Code on PC to connect remotely?">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>Local VS Code:</strong> RDK boards (ARM embedded devices) <strong>do not support</strong> running the full VS Code desktop app locally. Official VS Code is mainly for x86_64.</li>
+<li><strong>Remote development (recommended):</strong>
+Install VS Code on your PC (Windows, macOS, or Linux) and use the <strong>Remote - SSH</strong> extension to connect to the RDK board. This lets you use full VS Code features on your PC, while code runs/compiles on the board.
+<strong>Steps:</strong>
+<ol>
+<li>Install &quot;Remote - SSH&quot; in VS Code on your PC.</li>
+<li>Ensure your PC and RDK board are on the same LAN, and SSH is enabled on the board.</li>
+<li>Configure SSH in VS Code (e.g., <code>ssh username@board_ip</code>).</li>
+<li>Once connected, you can open folders on the RDK board directly in VS Code.</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q16-how-to-enable-and-use-adb-android-debug-bridge-on-rdk">Q16: How to enable and use ADB (Android Debug Bridge) on RDK?<a href="#q16-how-to-enable-and-use-adb-android-debug-bridge-on-rdk" class="hash-link" aria-label="Direct link to Q16: How to enable and use ADB (Android Debug Bridge) on RDK?" title="Direct link to Q16: How to enable and use ADB (Android Debug Bridge) on RDK?">​</a></h3>
+<p><strong>A:</strong> RDK Ubuntu usually has <code>adbd</code> (ADB daemon) built in, but USB mode may need adjustment.</p>
+<ol>
+<li><strong>Check <code>adbd</code> service:</strong> Ensure it&#x27;s running or has a startup script.</li>
+<li><strong>USB mode:</strong> The board&#x27;s USB Type-C or Micro USB (marked OTG/Device) may need to be set to Device mode (not Host) for ADB. This can sometimes be set via <code>srpi-config</code> or by editing device tree/kernel params.</li>
+<li><strong>PC setup:</strong> Install ADB tools (part of Android SDK Platform Tools).</li>
+<li><strong>Connect:</strong> Use a USB cable to connect PC and the board&#x27;s Device-mode USB port.</li>
+<li><strong>Verify:</strong> On PC, run <code>adb devices</code>. If configured correctly, the RDK device should appear.</li>
+<li><strong>Usage:</strong> Once connected, use <code>adb shell</code> for terminal, <code>adb push &lt;local&gt; &lt;remote&gt;</code> to upload, <code>adb pull &lt;remote&gt; &lt;local&gt;</code> to download.</li>
+</ol>
+<p><strong>Note:</strong> Steps may vary by RDK model and system version. Check official docs for details. Sometimes, bootloader update guides may also cover ADB setup.
+Reference: <a href="https://developer.d-robotics.cc/forumDetail/88859074455714818" target="_blank" rel="noopener noreferrer">bootloader image update</a> (may be bootloader-focused; look for ADB-specific docs/posts).</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q17-what-are-common-ways-to-transfer-files-between-the-board-and-a-pc">Q17: What are common ways to transfer files between the board and a PC?<a href="#q17-what-are-common-ways-to-transfer-files-between-the-board-and-a-pc" class="hash-link" aria-label="Direct link to Q17: What are common ways to transfer files between the board and a PC?" title="Direct link to Q17: What are common ways to transfer files between the board and a PC?">​</a></h3>
+<p><strong>A:</strong> Several options:</p>
+<ol>
+<li>
+<p><strong>SCP (Secure Copy, via SSH):</strong></p>
+<ul>
+<li><strong>PC to board:</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">scp /path/to/local_file sunrise@&lt;board_ip&gt;:/path/on/rdk/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># For folders:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">scp -r /path/to/local_folder sunrise@&lt;board_ip&gt;:/path/on/rdk/</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Board to PC:</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">scp sunrise@&lt;board_ip&gt;:/path/on/rdk/remote_file /path/to/local/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">scp -r sunrise@&lt;board_ip&gt;:/path/on/rdk/remote_folder /path/to/local/</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<p>SCP is built-in on Linux/macOS; on Windows, use WinSCP, MobaXterm, or Git Bash.</p>
+</li>
+<li>
+<p><strong>SFTP (SSH File Transfer):</strong>
+Many FTP clients (FileZilla, WinSCP) support SFTP for GUI file transfer. Use SSH credentials.</p>
+</li>
+<li>
+<p><strong>USB storage (U disk/HDD):</strong></p>
+<ul>
+<li>Format USB drive to a supported filesystem (FAT32, exFAT, or NTFS with <code>ntfs-3g</code>).</li>
+<li>Copy files on PC, insert into board&#x27;s USB Host port.</li>
+<li>On the board, mount the drive (<code>sudo mount /dev/sda1 /mnt/usb_disk</code>), then access files.</li>
+</ul>
+</li>
+<li>
+<p><strong>ADB (if configured):</strong></p>
+<ul>
+<li><strong>PC to board:</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">adb push C:\local\path\file.txt /remote/path/on/rdk/</span><br></span></code></pre></div></div>
+</li>
+<li><strong>Board to PC:</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">adb pull /remote/path/on/rdk/file.txt C:\local\path\</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Network sharing (Samba, NFS):</strong>
+Set up Samba or NFS on the board to share directories over LAN. More complex to configure.</p>
+</li>
+<li>
+<p><strong>Python HTTP server (for quick sharing):</strong>
+In the desired directory on the board:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cd /path/to/share</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">python3 -m http.server 8000</span><br></span></code></pre></div></div>
+<p>Then access <code>http://&lt;board_ip&gt;:8000</code> in your PC browser to download files.</p>
+</li>
+</ol>
+<p>Choose based on file size, frequency, network, and preference. For code/config sync, SCP/SFTP or VS Code Remote-SSH is usually most convenient.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q18-what-is-the-default-wired-ip-for-rdk-x3-in-different-system-versions">Q18: What is the default wired IP for RDK X3 in different system versions?<a href="#q18-what-is-the-default-wired-ip-for-rdk-x3-in-different-system-versions" class="hash-link" aria-label="Direct link to Q18: What is the default wired IP for RDK X3 in different system versions?" title="Direct link to Q18: What is the default wired IP for RDK X3 in different system versions?">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li>For RDK X3 <strong>RDK OS 2.0.0 and below</strong>: default wired IP is <code>192.168.1.10/24</code></li>
+<li>For RDK X3 <strong>RDK OS 2.1.0 and above</strong>: default wired IP is <code>192.168.127.10/24</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q19-what-is-the-default-network-ip-for-rdk-x5-in-different-system-versions">Q19: What is the default network IP for RDK X5 in different system versions?<a href="#q19-what-is-the-default-network-ip-for-rdk-x5-in-different-system-versions" class="hash-link" aria-label="Direct link to Q19: What is the default network IP for RDK X5 in different system versions?" title="Direct link to Q19: What is the default network IP for RDK X5 in different system versions?">​</a></h3>
+<p><strong>A:</strong> (Example: RDK OS 3.0.0)</p>
+<ul>
+<li>RDK X5 <strong>3.0.0</strong> wired IP: <code>192.168.127.10/24</code></li>
+<li>RDK X5 <strong>3.0.0</strong> USB Device port (virtual USB NIC): <code>192.168.128.10/24</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q20-what-if-the-desktop-goes-black-during-apt-upgrade">Q20: What if the desktop goes black during <code>apt upgrade</code>?<a href="#q20-what-if-the-desktop-goes-black-during-apt-upgrade" class="hash-link" aria-label="Direct link to q20-what-if-the-desktop-goes-black-during-apt-upgrade" title="Direct link to q20-what-if-the-desktop-goes-black-during-apt-upgrade">​</a></h3>
+<p><strong>A:</strong> It is recommended to perform system updates (<code>sudo apt update &amp;&amp; sudo apt upgrade</code>) via serial terminal or SSH, not in a graphical terminal. Upgrading desktop-related packages in a GUI terminal may cause display interruption or X Server restart, resulting in a black screen.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q21-why-doesnt-my-pc-display-anything-when-connecting-rdk-x3s-hdmi-output-to-the-pcs-hdmi-inputoutput">Q21: Why doesn&#x27;t my PC display anything when connecting RDK X3&#x27;s HDMI output to the PC&#x27;s HDMI input/output?<a href="#q21-why-doesnt-my-pc-display-anything-when-connecting-rdk-x3s-hdmi-output-to-the-pcs-hdmi-inputoutput" class="hash-link" aria-label="Direct link to Q21: Why doesn&#x27;t my PC display anything when connecting RDK X3&#x27;s HDMI output to the PC&#x27;s HDMI input/output?" title="Direct link to Q21: Why doesn&#x27;t my PC display anything when connecting RDK X3&#x27;s HDMI output to the PC&#x27;s HDMI input/output?">​</a></h3>
+<p><strong>A:</strong> The RDK X3 HDMI port is <strong>output only</strong>, for sending video to a display (monitor/TV).
+PC HDMI ports are usually <strong>output only</strong> as well (for external monitors), unless your PC has a capture card or HDMI input.</p>
+<ul>
+<li>Connecting two outputs (RDK X3 and PC HDMI out) will not work.</li>
+<li>If your PC has HDMI input (e.g., via capture card), ensure it&#x27;s set to the correct input source and supports the RDK X3&#x27;s output resolution/format.
+For viewing RDK X3 output on a PC, recommended methods:</li>
+<li><strong>VNC remote desktop:</strong> If using the Desktop version and VNC is enabled, use a VNC client on your PC.</li>
+<li><strong>Video streaming:</strong> Stream camera or AI results from RDK X3 over the network (RTSP, WebRTC), then view on PC.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q22-why-does-the-board-boot-with-the-sd-card-inserted-but-fails-to-boot-after-removing-it">Q22: Why does the board boot with the SD card inserted, but fails to boot after removing it?<a href="#q22-why-does-the-board-boot-with-the-sd-card-inserted-but-fails-to-boot-after-removing-it" class="hash-link" aria-label="Direct link to Q22: Why does the board boot with the SD card inserted, but fails to boot after removing it?" title="Direct link to Q22: Why does the board boot with the SD card inserted, but fails to boot after removing it?">​</a></h3>
+<p><strong>A:</strong> Depends on your RDK model and boot mode:</p>
+<ul>
+<li><strong>For RDK X3 (standard, SD boot) and X3 Module set to SD boot:</strong> The Micro SD card is the <strong>only storage</strong> for OS and data. The SD card <strong>must remain inserted</strong> for normal operation. Removing it means the system can&#x27;t find the OS and won&#x27;t boot.</li>
+<li><strong>For X3 Module set to eMMC boot:</strong> The board has onboard eMMC storage, and the OS can be flashed to eMMC. In this mode, the SD card is <strong>not required</strong> for boot (unless you want to boot from SD temporarily). If you remove an SD card used as external storage, it won&#x27;t affect eMMC boot.</li>
+</ul>
+<p>Check your board model and current boot media settings.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q23-can-the-rdk-os-server-edition-be-directly-upgraded-to-the-desktop-edition">Q23: Can the RDK OS Server edition be directly upgraded to the Desktop edition?<a href="#q23-can-the-rdk-os-server-edition-be-directly-upgraded-to-the-desktop-edition" class="hash-link" aria-label="Direct link to Q23: Can the RDK OS Server edition be directly upgraded to the Desktop edition?" title="Direct link to Q23: Can the RDK OS Server edition be directly upgraded to the Desktop edition?">​</a></h3>
+<p><strong>A:</strong> The Server and Desktop editions of RDK OS differ significantly in their pre-installed software packages. Most notably, the Desktop edition includes a graphical user interface (such as the XFCE desktop environment) and related components, while the Server edition omits these to save resources.</p>
+<ul>
+<li><strong>In theory:</strong> You can manually install all the necessary Desktop packages (such as <code>xserver-xorg</code>, <code>xfce4</code>, <code>lightdm</code>, and their dependencies) on a Server system to &quot;upgrade&quot; it to a graphical environment.</li>
+<li><strong>Official support and stability:</strong> This manual upgrade path is <strong>not officially provided or recommended</strong>, and systems built this way are not guaranteed or tested for stability and completeness. The manual installation process is complex and prone to missing dependencies or configuration conflicts.</li>
+<li><strong>Recommended approach:</strong> If you need the full functionality and best experience of the Desktop edition, it is strongly recommended to directly download and flash the official <strong>Desktop system image</strong>. This is the best way to ensure system stability and feature completeness.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q24-why-is-there-no-display-or-abnormal-output-after-connecting-an-hdmi-monitor">Q24: Why is there no display or abnormal output after connecting an HDMI monitor?<a href="#q24-why-is-there-no-display-or-abnormal-output-after-connecting-an-hdmi-monitor" class="hash-link" aria-label="Direct link to Q24: Why is there no display or abnormal output after connecting an HDMI monitor?" title="Direct link to Q24: Why is there no display or abnormal output after connecting an HDMI monitor?">​</a></h3>
+<p><strong>A:</strong> HDMI display issues can be caused by several factors:</p>
+<ol>
+<li><strong>Monitor compatibility:</strong>
+<ul>
+<li>Some monitors may not be fully compatible with the specific resolutions or refresh rates output by the RDK board.</li>
+<li>RDK OS 2.1.0 and above introduced more HDMI resolution options, which may also cause compatibility issues with certain older monitors.</li>
+<li>Generally, standard 1080p (1920x1080) monitors connected at boot are most likely to work.</li>
+</ul>
+</li>
+<li><strong>Cable issues:</strong> Ensure the HDMI cable is of good quality and firmly connected. Try replacing the cable.</li>
+<li><strong>RDK system configuration:</strong>
+<ul>
+<li>For Desktop systems, ensure the graphical interface service (such as LightDM) is running.</li>
+<li>For Server systems, HDMI may only output the boot logo or console by default, not a graphical desktop.</li>
+<li>On RDK OS 2.1.0 and above, if you encounter display incompatibility, try connecting via VNC (if enabled) and adjust the HDMI output resolution in the system. See: <a href="https://developer.d-robotics.cc/forumDetail/204825652464181769" target="_blank" rel="noopener noreferrer">HDMI display issues and resolution adjustment</a></li>
+</ul>
+</li>
+<li><strong>Power supply issues:</strong> Severe power instability may prevent the display subsystem from initializing properly.</li>
+<li><strong>Hardware issues:</strong> Rarely, the HDMI port on the board or the monitor itself may be faulty.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q25-how-to-capture-edid-information-for-an-unsupported-hdmi-monitor-for-technical-support">Q25: How to capture EDID information for an unsupported HDMI monitor for technical support?<a href="#q25-how-to-capture-edid-information-for-an-unsupported-hdmi-monitor-for-technical-support" class="hash-link" aria-label="Direct link to Q25: How to capture EDID information for an unsupported HDMI monitor for technical support?" title="Direct link to Q25: How to capture EDID information for an unsupported HDMI monitor for technical support?">​</a></h3>
+<p><strong>A:</strong> If your HDMI monitor does not display correctly, technical support may ask for the monitor&#x27;s EDID (Extended Display Identification Data) to help diagnose or add compatibility. EDID contains information about the monitor&#x27;s capabilities, supported resolutions, and timings.
+Common ways to obtain EDID:</p>
+<ol>
+<li><strong>Via Linux command-line tools (if the board can boot or be accessed otherwise):</strong>
+<ul>
+<li>Use tools like <code>get-edid</code> and <code>parse-edid</code> from the <code>read-edid</code> package. Install with <code>sudo apt install read-edid</code>.</li>
+<li>Then try to read the EDID from the connected monitor.</li>
+</ul>
+</li>
+<li><strong>Using dedicated EDID hardware/software:</strong> Some monitor testing tools or EDID programmers can read and save EDID directly.</li>
+<li><strong>Reading on a PC:</strong> If the monitor works on a Linux or Windows PC, you can try reading its EDID there.<!-- -->
+<ul>
+<li>On Linux, use <code>xrandr --props</code> or <code>get-edid | parse-edid</code>.</li>
+<li>On Windows, use tools like MonitorInfoView (NirSoft) or Phoenix EDID Designer.</li>
+</ul>
+</li>
+</ol>
+<p>Once you have the EDID data (usually a binary file or hex text), provide it to technical support.
+For detailed steps on RDK platforms, refer to the official forum guide: <a href="https://developer.d-robotics.cc/forumDetail/235046352323895808" target="_blank" rel="noopener noreferrer">How to provide EDID info for unsupported monitors</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q26-what-should-i-do-if-the-sd-card-is-not-recognized-or-is-unstable">Q26: What should I do if the SD card is not recognized or is unstable?<a href="#q26-what-should-i-do-if-the-sd-card-is-not-recognized-or-is-unstable" class="hash-link" aria-label="Direct link to Q26: What should I do if the SD card is not recognized or is unstable?" title="Direct link to Q26: What should I do if the SD card is not recognized or is unstable?">​</a></h3>
+<p><strong>A:</strong> If the SD card is not recognized or is unstable, check the following:</p>
+<ol>
+<li><strong>SD card quality:</strong>
+<ul>
+<li>Using low-quality, aging, or damaged SD cards is a common cause. Try a new, reliable, high-speed Micro SD card (Class 10, U1/U3).</li>
+</ul>
+</li>
+<li><strong>SD card slot contact:</strong>
+<ul>
+<li>Ensure the SD card is fully inserted and making good contact. Remove and clean the contacts with an eraser, and check for debris in the slot.</li>
+</ul>
+</li>
+<li><strong>SD card compatibility:</strong>
+<ul>
+<li>While RDK X3 has improved SD card compatibility in newer systems, a few cards may still have issues.</li>
+<li>For <strong>Sunrise X3 Pi</strong>, if you encounter compatibility issues, try manually flashing the latest <strong>miniboot</strong> image. This also applies to RDK X3.
+See: <a href="https://developer.d-robotics.cc/forumDetail/88859074455714818" target="_blank" rel="noopener noreferrer">SD card compatibility and miniboot update</a></li>
+</ul>
+</li>
+<li><strong>System image or flashing issues:</strong>
+<ul>
+<li>Ensure the image file is not corrupted and the flashing process is correct. Try re-downloading and using recommended tools (balenaEtcher, Rufus).</li>
+</ul>
+</li>
+<li><strong>Power supply issues:</strong>
+<ul>
+<li>Unstable power can indirectly affect SD card recognition and stability.</li>
+</ul>
+</li>
+<li><strong>Board hardware issues:</strong>
+<ul>
+<li>Rarely, the SD card controller or slot may be faulty.</li>
+</ul>
+</li>
+</ol>
+<p>If you see logs like &quot;mmc0: error -110 whilst initialising SD card&quot; or &quot;Card did not respond to voltage select&quot;, it usually indicates SD card recognition or initialization failure.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q27-what-should-i-do-if-the-system-stops-at-the-hobot-u-boot-command-line-during-boot">Q27: What should I do if the system stops at the <code>hobot&gt;</code> U-Boot command line during boot?<a href="#q27-what-should-i-do-if-the-system-stops-at-the-hobot-u-boot-command-line-during-boot" class="hash-link" aria-label="Direct link to q27-what-should-i-do-if-the-system-stops-at-the-hobot-u-boot-command-line-during-boot" title="Direct link to q27-what-should-i-do-if-the-system-stops-at-the-hobot-u-boot-command-line-during-boot">​</a></h3>
+<p><strong>A:</strong> If the system stops at the <code>hobot&gt;</code> prompt, it means the board has entered U-Boot (Universal Boot Loader) command mode instead of booting Linux. Possible causes:</p>
+<ol>
+<li><strong>Serial interference:</strong> If the debug serial port receives unexpected characters or signals (e.g., accidental keypress, terminal software sending control characters) during the first few seconds of boot, it may interrupt U-Boot&#x27;s auto-boot and drop to the command line.</li>
+<li><strong>Boot order configuration:</strong> U-Boot may be configured to try certain boot media first. If the configuration is changed or the preferred media is missing, it may stop at the command line.</li>
+<li><strong>Boot script issues:</strong> Errors or interruptions in the U-Boot boot script.</li>
+<li><strong>Key press interruption:</strong> Some boards enter U-Boot command mode if a specific key is pressed at boot.</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li><strong>Simple attempt:</strong> At the <code>hobot&gt;</code> prompt, type <code>boot</code> and press Enter to try booting Linux.</li>
+<li><strong>Check serial connection:</strong> Ensure the debug serial connection is stable and free from interference. Try disconnecting the serial cable and rebooting.</li>
+<li><strong>Check boot media:</strong> Ensure the SD card or eMMC image is intact and bootable.</li>
+<li><strong>Reset U-Boot environment variables (with caution):</strong> If you suspect environment variables are corrupted, you can try restoring defaults (e.g., <code>env default -a; saveenv; reset</code>). <strong>This will erase all custom variables—proceed with caution.</strong></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q28-can-sunrise-x3-pi-or-rdk-x3-be-powered-via-the-40-pin-gpio">Q28: Can Sunrise X3 Pi or RDK X3 be powered via the 40-pin GPIO?<a href="#q28-can-sunrise-x3-pi-or-rdk-x3-be-powered-via-the-40-pin-gpio" class="hash-link" aria-label="Direct link to Q28: Can Sunrise X3 Pi or RDK X3 be powered via the 40-pin GPIO?" title="Direct link to Q28: Can Sunrise X3 Pi or RDK X3 be powered via the 40-pin GPIO?">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>Sunrise X3 Pi:</strong> According to official documentation, Sunrise X3 Pi <strong>cannot</strong> be powered via the 40-pin GPIO. Its power design may not support this path or protection.</li>
+<li><strong>RDK X3 (standard/core board):</strong> Some versions of RDK X3 (not Sunrise X3 Pi) <strong>can</strong> be powered via the 5V pin on the 40-pin GPIO. However, this is generally <strong>not recommended</strong> as the main power method due to possible stability and current limitations compared to the dedicated Type-C port.</li>
+</ul>
+<p><strong>General strong recommendation:</strong>
+Always <strong>use a compliant power adapter via the board&#x27;s Type-C (or dedicated power) port</strong>. Powering via non-recommended methods (such as GPIO pins or unsuitable modules) risks insufficient current, unstable voltage, and lack of protection, which may damage hardware or cause instability. Such risks are the user&#x27;s responsibility.</p>
+<p>See related FAQ entries for distinguishing RDK X3 and Sunrise X3 Pi.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q29-what-are-common-causes-of-image-flashing-failures">Q29: What are common causes of image flashing failures?<a href="#q29-what-are-common-causes-of-image-flashing-failures" class="hash-link" aria-label="Direct link to Q29: What are common causes of image flashing failures?" title="Direct link to Q29: What are common causes of image flashing failures?">​</a></h3>
+<p><strong>A:</strong> When flashing a system image to an SD card (using balenaEtcher, Rufus, etc.), failures may be due to:</p>
+<ol>
+<li><strong>Image file issues:</strong>
+<ul>
+<li><strong>Not fully extracted:</strong> Ensure you are flashing the raw <code>.img</code> file, not a compressed archive.</li>
+<li><strong>Incomplete or corrupted download:</strong> Re-download and verify the image&#x27;s MD5/SHA256 checksum if available.</li>
+</ul>
+</li>
+<li><strong>SD card issues:</strong>
+<ul>
+<li><strong>Damaged or poor-quality card:</strong> Try a new, reliable SD card.</li>
+<li><strong>Write protection:</strong> Ensure the SD card&#x27;s physical write-protect switch is off.</li>
+<li><strong>Insufficient capacity:</strong> Ensure the SD card is larger than the extracted image.</li>
+</ul>
+</li>
+<li><strong>Card reader issues:</strong>
+<ul>
+<li>Faulty or incompatible reader. Try another reader.</li>
+<li>Some high-speed SD cards may have issues with old or poor-quality readers.</li>
+</ul>
+</li>
+<li><strong>Flashing tool or PC environment issues:</strong>
+<ul>
+<li><strong>Software version:</strong> Try updating or switching flashing tools.</li>
+<li><strong>USB port or drivers:</strong> Try a different USB port; ensure drivers are OK.</li>
+<li><strong>OS permissions:</strong> On Windows, run the tool as administrator.</li>
+<li><strong>Antivirus/firewall interference:</strong> Temporarily disable security software that may block disk writes.</li>
+<li><strong>Windows format prompt:</strong> If Windows prompts to format the SD card during flashing, <strong>always choose &quot;No&quot; or close the dialog</strong>. Formatting will interrupt flashing.</li>
+</ul>
+</li>
+<li><strong>Cross-verification:</strong>
+If possible, try flashing on another PC or with different SD card/reader combinations to isolate the issue.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q30-what-should-i-do-if-i-cannot-connect-to-rdk-x3s-vnc-remote-desktop">Q30: What should I do if I cannot connect to RDK X3&#x27;s VNC remote desktop?<a href="#q30-what-should-i-do-if-i-cannot-connect-to-rdk-x3s-vnc-remote-desktop" class="hash-link" aria-label="Direct link to Q30: What should I do if I cannot connect to RDK X3&#x27;s VNC remote desktop?" title="Direct link to Q30: What should I do if I cannot connect to RDK X3&#x27;s VNC remote desktop?">​</a></h3>
+<p><strong>A:</strong> If you cannot connect via VNC, check the following:</p>
+<ol>
+<li><strong>System version and VNC service status:</strong>
+<ul>
+<li><strong>Desktop image:</strong> Ensure you have flashed the <strong>Desktop</strong> system image. The Server version does not include a GUI or VNC by default.</li>
+<li><strong>VNC service enabled:</strong>
+<ul>
+<li>On RDK OS 2.1.0 and above (or upgraded from 2.0.0), VNC must be <strong>enabled manually</strong> in <code>srpi-config</code>. SSH into the board, run <code>sudo srpi-config</code>, and enable VNC.</li>
+<li>On earlier versions, VNC may be enabled by default.</li>
+</ul>
+</li>
+<li><strong>VNC service running:</strong> Check for VNC server processes (e.g., <code>tightvncserver</code>, <code>x11vnc</code>).</li>
+</ul>
+</li>
+<li><strong>Network connection:</strong>
+<ul>
+<li>Ensure your PC and RDK X3 are on the <strong>same LAN</strong>.</li>
+<li>Ensure you can <code>ping</code> the RDK X3&#x27;s IP from your PC.</li>
+<li>Check firewalls to ensure VNC ports (default 5900 + display number, e.g., 5901 for :1) are not blocked.</li>
+</ul>
+</li>
+<li><strong>VNC client configuration:</strong>
+<ul>
+<li><strong>IP and port:</strong> Enter the correct IP and port in your VNC client. Port is usually <code>5900 + N</code> (N = display number, usually 1, so 5901). Some clients use <code>192.168.1.10:1</code>.</li>
+<li><strong>Password:</strong> The default VNC password is usually <code>sunrise</code> or what you set in <code>srpi-config</code>.</li>
+</ul>
+</li>
+<li><strong>SSH connection check:</strong>
+Before troubleshooting VNC, ensure you can SSH into RDK X3. If SSH fails, resolve network or SSH issues first.</li>
+<li><strong>Resource usage:</strong>
+RDK X3 (especially models without a dedicated GPU) may have high CPU/memory usage running a GUI and VNC. If overloaded, VNC may be slow or fail to connect.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q31-why-is-there-only-a-black-window-no-image-when-running-apppydev_demo02_camera_hdmi_output-or-03_yolov5_camera_hdmi_output-on-rdk-x5">Q31: Why is there only a black window (no image) when running <code>/app/pydev_demo/02_camera_hdmi_output</code> or <code>03_yolov5_camera_hdmi_output</code> on RDK X5?<a href="#q31-why-is-there-only-a-black-window-no-image-when-running-apppydev_demo02_camera_hdmi_output-or-03_yolov5_camera_hdmi_output-on-rdk-x5" class="hash-link" aria-label="Direct link to q31-why-is-there-only-a-black-window-no-image-when-running-apppydev_demo02_camera_hdmi_output-or-03_yolov5_camera_hdmi_output-on-rdk-x5" title="Direct link to q31-why-is-there-only-a-black-window-no-image-when-running-apppydev_demo02_camera_hdmi_output-or-03_yolov5_camera_hdmi_output-on-rdk-x5">​</a></h3>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Update packages:</strong> Ensure all <code>hobot*</code> packages are up to date. With the correct APT source, run:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update &amp;&amp; sudo apt upgrade</span><br></span></code></pre></div></div>
+<!-- -->Then reboot the board.</li>
+<li><strong>Purpose of the demo:</strong> These demos (especially <code>02_camera_hdmi_output</code>) are designed to output NV12 camera images directly to HDMI via hardware BT1120, <strong>not</strong> to display images in a window using <code>cv2.imshow()</code>. The black/gray window you see may just be a placeholder; the actual image is output directly to the HDMI display.</li>
+<li><strong>Disable desktop environment (for HDMI hardware output):</strong> If running the Desktop version and you want HDMI hardware preview, <strong>you must stop the XFCE desktop environment</strong>:<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo systemctl stop lightdm</span><br></span></code></pre></div></div>
+<!-- -->After stopping the desktop, use SSH or serial to run the demos.</li>
+<li><strong>Sensor resolution selection:</strong> Some demo versions prompt you to select sensor resolution (e.g., enter a number 0-4). Follow the on-screen instructions.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q32-why-is-the-hdmi-output-image-upside-down-or-missing-yolov5-detection-boxes-when-running-these-demos-on-rdk-x5">Q32: Why is the HDMI output image upside down or missing YOLOv5 detection boxes when running these demos on RDK X5?<a href="#q32-why-is-the-hdmi-output-image-upside-down-or-missing-yolov5-detection-boxes-when-running-these-demos-on-rdk-x5" class="hash-link" aria-label="Direct link to Q32: Why is the HDMI output image upside down or missing YOLOv5 detection boxes when running these demos on RDK X5?" title="Direct link to Q32: Why is the HDMI output image upside down or missing YOLOv5 detection boxes when running these demos on RDK X5?">​</a></h3>
+<p><strong>A:</strong></p>
+<ul>
+<li><strong>Upside-down image/no detection boxes (when running under XFCE):</strong> If you run these Python demos in the XFCE desktop and see a window via <code>cv2.imshow()</code>, the image may be upside down (depending on OpenCV and sensor orientation), and <strong>YOLOv5 detection boxes may not appear</strong>. This is because <code>cv2.imshow()</code> renders on the CPU, while detection boxes may be overlaid via hardware OSD (Overlay Screen Display) directly on the HDMI output.</li>
+<li><strong>Correct HDMI hardware preview:</strong>
+<ol>
+<li>As in Q31, run <code>sudo systemctl stop lightdm</code> to stop the desktop.</li>
+<li>SSH or serial into RDK X5.</li>
+<li>Run the demo. The camera image and hardware OSD overlays (for <code>03_yolov5_camera_hdmi_output</code>) will be output directly to the HDMI display.</li>
+</ol>
+</li>
+</ul>
+<p>In short, the expected effect (correct orientation and hardware OSD) requires stopping the desktop and observing via HDMI.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q33-what-typical-kernel-log-errors-indicate-sd-card-contact-issues-or-damage">Q33: What typical kernel log errors indicate SD card contact issues or damage?<a href="#q33-what-typical-kernel-log-errors-indicate-sd-card-contact-issues-or-damage" class="hash-link" aria-label="Direct link to Q33: What typical kernel log errors indicate SD card contact issues or damage?" title="Direct link to Q33: What typical kernel log errors indicate SD card contact issues or damage?">​</a></h3>
+<p><strong>A:</strong> If the Micro SD card has contact issues, is damaged, or incompatible, you may see errors like the following in the serial or <code>dmesg</code> logs:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: card never left busy state</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: error -110 whilst initialising SD card</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc_rescan_try_freq: send_status error -110</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Card did not respond to voltage select! : -110</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: unrecognised CSD structure version x</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mmc0: error -22 whilst initialising SD card</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">eMMC or SD Card not detected on mmchost 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">MMC Device X not found</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">no mmc device at slot X</span><br></span></code></pre></div></div>
+<p>Such logs usually mean you should check the SD card, replace it, or check the slot.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q34-does-rdk-x5-support-real-time-linux-kernel-rt-linux-how-to-obtain-and-use-it">Q34: Does RDK X5 support real-time Linux kernel (RT-Linux)? How to obtain and use it?<a href="#q34-does-rdk-x5-support-real-time-linux-kernel-rt-linux-how-to-obtain-and-use-it" class="hash-link" aria-label="Direct link to Q34: Does RDK X5 support real-time Linux kernel (RT-Linux)? How to obtain and use it?" title="Direct link to Q34: Does RDK X5 support real-time Linux kernel (RT-Linux)? How to obtain and use it?">​</a></h3>
+<p><strong>A:</strong> Yes, RDK X5 supports the Preempt-RT kernel, which is important for low-latency, deterministic robotics applications.</p>
+<ul>
+<li><strong>How to obtain:</strong>
+<ol>
+<li><strong>System image:</strong> Your RDK X5 system version must support it (e.g., RDK OS 3.0.1 or newer).
+Official images: <code>https://archive.d-robotics.cc/downloads/os_images/rdk_x5/</code> (look for Preempt-RT resources under the relevant version).</li>
+<li><strong>Debian packages:</strong> Precompiled RT kernel <code>.deb</code> packages are usually provided.</li>
+<li><strong>Kernel source:</strong> D-Robotics also provides Preempt-RT kernel source on GitHub.
+See: <a href="https://github.com/D-Robotics/x5-kernel-rt" target="_blank" rel="noopener noreferrer">D-Robotics x5-kernel-rt on GitHub</a></li>
+</ol>
+</li>
+<li><strong>How to use:</strong>
+<ol>
+<li>Ensure your base RDK X5 system is installed and running.</li>
+<li>Download the RT kernel <code>.deb</code> packages (image and headers).</li>
+<li>Transfer them to the board.</li>
+<li>Install with <code>sudo dpkg -i &lt;kernel_image.deb&gt; &lt;kernel_headers.deb&gt;</code>.</li>
+<li>Update the bootloader (U-Boot) config as per official docs.</li>
+<li>Reboot.</li>
+<li>Verify with <code>uname -a</code> (should show <code>-rt</code> in the version).</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q35-vnc-remote-desktop-on-rdk-x5-is-laggyhow-to-optimize">Q35: VNC remote desktop on RDK X5 is laggy—how to optimize?<a href="#q35-vnc-remote-desktop-on-rdk-x5-is-laggyhow-to-optimize" class="hash-link" aria-label="Direct link to Q35: VNC remote desktop on RDK X5 is laggy—how to optimize?" title="Direct link to Q35: VNC remote desktop on RDK X5 is laggy—how to optimize?">​</a></h3>
+<p><strong>A:</strong> VNC performance depends on many factors, especially on embedded devices without a dedicated GPU. Try the following:</p>
+<ol>
+<li><strong>Connect an HDMI monitor or dummy plug:</strong>
+<ul>
+<li>Some systems limit graphics performance if no monitor is detected. Connecting a real HDMI monitor or dummy plug may improve VNC performance.</li>
+</ul>
+</li>
+<li><strong>Use virtual display software:</strong>
+<ul>
+<li>Configure a virtual display (e.g., <code>Xvfb</code> or with <code>x11vnc</code>) so VNC grabs from a virtual screen.</li>
+<li>See community guides, e.g.: <a href="https://blog.csdn.net/weixin_64677511/article/details/142444529" target="_blank" rel="noopener noreferrer">RDK X5 virtual display configuration (CSDN)</a></li>
+</ul>
+</li>
+<li><strong>Optimize VNC settings:</strong>
+<ul>
+<li>Lower color depth, compression quality, and disable visual effects to reduce data transfer and rendering load.</li>
+<li>Ensure a stable, high-bandwidth network (wired is better).</li>
+</ul>
+</li>
+<li><strong>Lower desktop resolution:</strong> Reducing screen resolution reduces data to transfer and render.</li>
+<li><strong>Close unnecessary graphical apps:</strong> Free up resources for VNC.</li>
+<li><strong>Check system load:</strong> Use <code>top</code> or <code>htop</code> to check CPU/memory usage. High load will affect VNC performance.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q36-what-should-i-do-if-the-board-gets-too-hot-under-heavy-load">Q36: What should I do if the board gets too hot under heavy load?<a href="#q36-what-should-i-do-if-the-board-gets-too-hot-under-heavy-load" class="hash-link" aria-label="Direct link to Q36: What should I do if the board gets too hot under heavy load?" title="Direct link to Q36: What should I do if the board gets too hot under heavy load?">​</a></h3>
+<p><strong>A:</strong> Overheating can affect stability or damage hardware. Solutions:</p>
+<ol>
+<li><strong>Improve cooling:</strong>
+<ul>
+<li><strong>Passive vs. active:</strong> For sustained high load, passive heatsinks may not be enough. Use <strong>active cooling</strong> (heatsink with fan) or install in a well-ventilated case.</li>
+<li><strong>Heatsink installation:</strong> Ensure good contact with the chip, and use thermal paste or pads.</li>
+</ul>
+</li>
+<li><strong>Ensure airflow:</strong> Avoid placing the board in enclosed or poorly ventilated spaces.</li>
+<li><strong>Monitor temperature:</strong>
+<ul>
+<li>Use commands like <code>cpu_status_monitor</code> or read <code>/sys/class/thermal/thermal_zoneX/temp</code>.</li>
+<li>Know the safe operating temperature range for your board.</li>
+</ul>
+</li>
+<li><strong>Optimize application load:</strong>
+<ul>
+<li>Reduce unnecessary computation, optimize algorithms, or use lighter models to lower power and heat.</li>
+</ul>
+</li>
+<li><strong>Check power supply:</strong> Unstable power can cause abnormal operation and indirectly affect temperature.</li>
+</ol>
+<p><strong>Note:</strong> &quot;Low power&quot; does not mean &quot;low temperature&quot;—good cooling is essential for stable operation.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q37-how-to-use-d-robotics-rdk-specific-python-packages-eg-hobotgpio-hobot_dnn-in-a-conda-virtual-environment">Q37: How to use D-Robotics RDK-specific Python packages (e.g., <code>hobot.GPIO</code>, <code>hobot_dnn</code>) in a Conda virtual environment?<a href="#q37-how-to-use-d-robotics-rdk-specific-python-packages-eg-hobotgpio-hobot_dnn-in-a-conda-virtual-environment" class="hash-link" aria-label="Direct link to q37-how-to-use-d-robotics-rdk-specific-python-packages-eg-hobotgpio-hobot_dnn-in-a-conda-virtual-environment" title="Direct link to q37-how-to-use-d-robotics-rdk-specific-python-packages-eg-hobotgpio-hobot_dnn-in-a-conda-virtual-environment">​</a></h3>
+<p><strong>A:</strong> Official <code>hobot.GPIO</code>, <code>hobot_dnn</code>, etc., are usually precompiled and optimized for the system Python on RDK, and may depend on system libraries and drivers. Using them in Conda or other virtual environments can be challenging due to isolation.</p>
+<p>Possible approaches and notes:</p>
+<ol>
+<li><strong>Check for official Conda support or <code>.whl</code> files:</strong>
+<ul>
+<li>Check the latest official docs, community, or GitHub for Conda support or <code>.whl</code> files that can be installed via <code>pip</code> in Conda. This is ideal.</li>
+</ul>
+</li>
+<li><strong>Try installing system packages in Conda via <code>pip</code> (if no <code>.whl</code>):</strong>
+<ul>
+<li>If the packages are installed in the system Python (e.g., <code>/usr/lib/python3/dist-packages/</code>), and your Conda Python version matches, <strong>sometimes</strong> you can try installing via <code>pip</code> pointing to the package path, but this is not recommended and rarely works reliably.</li>
+</ul>
+</li>
+<li><strong>Modify <code>PYTHONPATH</code> or <code>sys.path</code> (not recommended):</strong>
+<ul>
+<li>You can add the system package path to <code>PYTHONPATH</code> or <code>sys.path</code> after activating Conda, but this breaks isolation and can cause conflicts or runtime errors. Not recommended for production.</li>
+</ul>
+</li>
+<li><strong>Use the system Python environment:</strong>
+<ul>
+<li>If your project does not require strict isolation, or mainly uses RDK-specific packages, the simplest way is to <strong>use the system Python</strong>.</li>
+</ul>
+</li>
+<li><strong>Containerization (Docker):</strong>
+<ul>
+<li>If an official Docker image with these packages is available, use it for reliable isolation and deployment.</li>
+</ul>
+</li>
+<li><strong>Build from source (if available and permitted):</strong>
+<ul>
+<li>If source code is available and you have build instructions, you can try building in your Conda environment, but this requires advanced skills.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Summary:</strong> Prefer official Conda support. If not available, use the system Python. Avoid mixing environments unless you fully understand the risks.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q38-what-should-i-do-if-i-get-driver-signature-error-or-required-key-not-available-when-loading-a-self-compiled-linux-kernel-module-ko">Q38: What should I do if I get &quot;driver signature error&quot; or &quot;Required key not available&quot; when loading a self-compiled Linux kernel module (<code>.ko</code>)?<a href="#q38-what-should-i-do-if-i-get-driver-signature-error-or-required-key-not-available-when-loading-a-self-compiled-linux-kernel-module-ko" class="hash-link" aria-label="Direct link to q38-what-should-i-do-if-i-get-driver-signature-error-or-required-key-not-available-when-loading-a-self-compiled-linux-kernel-module-ko" title="Direct link to q38-what-should-i-do-if-i-get-driver-signature-error-or-required-key-not-available-when-loading-a-self-compiled-linux-kernel-module-ko">​</a></h3>
+<p><strong>A:</strong> Newer Linux kernels, especially with Secure Boot enabled, require kernel modules (<code>.ko</code> files) to be signed. If you compile a module without signing, you may see such errors when loading with <code>insmod</code> or <code>modprobe</code>.</p>
+<p><strong>Typical solution:</strong></p>
+<ol>
+<li>
+<p><strong>Generate a signing key pair:</strong>
+Use <code>openssl</code> to generate a private and public key:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj &quot;/CN=My Module Signing Key/&quot;</span><br></span></code></pre></div></div>
+<p>This creates <code>MOK.priv</code> (private) and <code>MOK.der</code> (public).</p>
+</li>
+<li>
+<p><strong>Sign the kernel module:</strong>
+Use the kernel&#x27;s <code>scripts/sign-file</code> script with your keys:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der /path/to/your/module.ko</span><br></span></code></pre></div></div>
+<p>Adjust paths as needed.</p>
+</li>
+<li>
+<p><strong>Register the public key with the system&#x27;s MOK (Machine Owner Key) list:</strong>
+Use <code>mokutil</code>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo mokutil --import MOK.der</span><br></span></code></pre></div></div>
+<p>Set a temporary password when prompted.</p>
+</li>
+<li>
+<p><strong>Reboot and enroll the key in MOK Manager:</strong>
+On reboot, enter the blue MOK Manager screen, select &quot;Enroll MOK&quot;, and enter the password.</p>
+</li>
+<li>
+<p><strong>Load the signed module:</strong>
+After these steps, your module should load without signature errors.</p>
+</li>
+</ol>
+<p><strong>Important:</strong></p>
+<ul>
+<li>The above is a general process; details may vary by distro, kernel, and Secure Boot config.</li>
+<li><strong>Always refer to your distro&#x27;s and kernel&#x27;s official documentation on &quot;Kernel Module Signing&quot;.</strong></li>
+<li>D-Robotics RDK docs may also have platform-specific guidance: <a href="https://developer.d-robotics.cc/documents_rdk/linux_development/kernel_headers" target="_blank" rel="noopener noreferrer">RDK Docs - Linux Development - Kernel Headers &amp; Module Compilation</a> (see the relevant section on module signing).</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q39-如何升级rdk-x5的miniboot">Q39: 如何升级RDK X5的MiniBoot？<a href="#q39-如何升级rdk-x5的miniboot" class="hash-link" aria-label="Direct link to Q39: 如何升级RDK X5的MiniBoot？" title="Direct link to Q39: 如何升级RDK X5的MiniBoot？">​</a></h3>
+<p><strong>A:</strong> 在RDK X5上，可以通过 <code>srpi-config</code> 工具来方便地升级MiniBoot（U-Boot的早期引导加载程序部分，负责更底层的硬件初始化和引导）。</p>
+<p><strong>步骤如下：</strong></p>
+<ol>
+<li><strong>通过SSH或串口登录到RDK X5的系统终端。</strong></li>
+<li><strong>执行 <code>srpi-config</code> 工具：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo srpi-config</span><br></span></code></pre></div></div>
+</li>
+<li><strong>导航到MiniBoot更新选项：</strong>
+在 <code>srpi-config</code> 的菜单中，通常的路径是：<!-- -->
+<ul>
+<li>选择 <code>1 System Options</code> (或类  似名称的系统选项)</li>
+<li>然后选择 <code>S7 Update MiniBoot</code> (或类似名称的MiniBoot更新选项，具体编号和名称可能随 <code>srpi-config</code> 版本略有调整)</li>
+</ul>
+</li>
+<li><strong>按照提示进行操作：</strong>
+工具会引导您完成升级过程。这通常需要RDK X5能够连接到互联网，以便下载最新的MiniBoot固件包。</li>
+<li><strong>完成并重启：</strong>
+升级完成后，按照提示退出 <code>srpi-config</code> 并重启RDK X5使新的MiniBoot生效。</li>
+</ol>
+<p><strong>验证升级：</strong>
+您可以在RDK X5重启后的串口启动日志中，查看U-Boot的版本信息。更新后的MiniBoot通常会显示更新的编译日期和版本号。
+例如，更新后的版本信息可能类似 (日期和具体版本号会变化)：
+<code>U-Boot 2022.10+ (Dec 26 2024 - 16:58:41 +0800)</code></p>
+<p><strong>注意：</strong> 升级MiniBoot是一个底层固件操作，请确保在稳定的电源和网络环境下进行，并仔细阅读 <code>srpi-config</code> 工具的提示信息。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办">Q40: 在编译大型项目（如使用gcc/make/cmake/colcon构建ROS2工作空间）或运行内存消耗较大的工具（如<code>hb_mapper</code>模型转换）时，遇到内存不足的错误怎么办？<a href="#q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办" class="hash-link" aria-label="Direct link to q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办" title="Direct link to q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办">​</a></h3>
+<p><strong>A:</strong> 内存不足（Out of Memory, OOM）是嵌入式设备或资源受限的开发机上编译大型项目或运行内存密集型应用时常见的问题。以下是一些解决方法：</p>
+<ol>
+<li>
+<p><strong>增加Swap交换空间：</strong>
+当物理内存(RAM)不足时，系统可以使用硬盘上的一部分空间作为虚拟内存（Swap）。这可以缓解OOM问题，但性能会比物理内存慢很多。</p>
+<ul>
+<li><strong>创建并启用Swap文件（示例为创建4GB Swap，大小可根据需求调整）：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 1. 创建一个指定大小的空文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo fallocate -l 4G /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 2. 设置文件权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo chmod 600 /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 3. 将该文件设置为Swap区域</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo mkswap /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 4. 启用Swap文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo swapon /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 5. (可选) 验证Swap是否已激活</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">swapon --show</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">free -h</span><br></span></code></pre></div></div>
+</li>
+<li><strong>使其开机自动挂载：</strong> 编辑 <code>/etc/fstab</code> 文件，在末尾添加一行：<!-- -->
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/swapfile none swap sw 0 0</span><br></span></code></pre></div></div>
+</li>
+<li><strong>关闭Swap（如果需要）：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo swapoff /swapfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo rm /swapfile # 如果不再需要，可以删除文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 同时记得从 /etc/fstab 中移除对应行</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>减少编译并行度/线程数：</strong>
+编译过程（尤其是C++项目）通常会启动多个并行的编译任务以加快速度，但这也会消耗大量内存。</p>
+<ul>
+<li><strong><code>make</code> 命令：</strong> 使用 <code>-j</code> 参数指定并行任务数。例如，单线程编译：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">make -j1</span><br></span></code></pre></div></div>
+<!-- -->可以尝试 <code>-j2</code>, <code>-jN</code> (N为CPU核心数的一半或更少)。</li>
+<li><strong><code>colcon build</code> (ROS2)：</strong>
+<ul>
+<li>限制并行包编译数量：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">colcon build --parallel-workers 1</span><br></span></code></pre></div></div>
+</li>
+<li>禁用并行包编译，改为串行编译（更慢但内存占用更低）：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">colcon build --executor sequential</span><br></span></code></pre></div></div>
+</li>
+<li>结合使用：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">colcon build --executor sequential --parallel-workers 1</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li><strong><code>cmake</code>：</strong> CMake本身不直接控制make的并行度，但最终还是通过make执行。可以在调用make时传递 <code>-j</code> 参数。</li>
+<li><strong>设置 <code>MAKEFLAGS</code> 环境变量（临时）：</strong>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">export MAKEFLAGS=&quot;-j1&quot; </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 然后执行 colcon build 或其他编译命令</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>针对 <code>hb_mapper</code> (地平线模型转换工具)：</strong></p>
+<ul>
+<li>在模型转换的 <code>yaml</code> 配置文件中，查找是否有类似 <code>compiler_parameters</code> -&gt; <code>jobs: 1</code> 的选项，用以限制模型编译（例如ONNX到BIN模型过程中某些阶段）的并行进程数。具体参数名请查阅最新的算法工具链文档。</li>
+</ul>
+</li>
+<li>
+<p><strong>关闭不必要的后台服务和应用程序：</strong>
+在进行编译或运行内存密集型任务前，关闭其他占用内存的程序（如图形界面、浏览器、其他服务等），以释放更多物理内存。</p>
+</li>
+<li>
+<p><strong>使用更高配置的开发机/服务器进行编译：</strong>
+如果是在x86开发机上为RDK进行交叉编译，而开发机本身内存也有限，可以考虑使用内存配置更高的机器。对于板端编译，如果资源实在不足，交叉编译是更好的选择。</p>
+</li>
+<li>
+<p><strong>分步编译/模块化编译：</strong>
+对于非常大的项目，如果构建系统支持，可以尝试只编译项目的一部分，或者将项目分解为更小的模块独立编译。</p>
+</li>
+</ol>
+<p>选择哪种方法或组合取决于具体的错误信息、可用资源以及对编译时间的要求。增加Swap通常是比较通用的缓解方法。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q41-rdk相关问题进行预排查的通用建议有哪些">Q41: RDK相关问题进行预排查的通用建议有哪些？<a href="#q41-rdk相关问题进行预排查的通用建议有哪些" class="hash-link" aria-label="Direct link to Q41: RDK相关问题进行预排查的通用建议有哪些？" title="Direct link to Q41: RDK相关问题进行预排查的通用建议有哪些？">​</a></h3>
+<p><strong>A:</strong> 在遇到RDK相关问题并寻求帮助前，建议进行以下预排查：</p>
+<ol>
+<li><strong>查阅最新官方手册：</strong> 确保您参考的是官方最新版本的用户手册、开发文档和发行说明。官方文档通常会包含最新的信息和已知问题的解决方案。您可以从地平线开发者社区获取最新文档：<a href="https://developer.d-robotics.cc/information" target="_blank" rel="noopener noreferrer">https://developer.d-robotics.cc/information</a></li>
+<li><strong>更新系统及相关软件包：</strong> 许多问题可能在较新的软件版本中得到修复。请确保您的RDK板卡上的操作系统以及所有<code>hobot-*</code>、<code>tros-*</code>等关键软件包都已更新到最新稳定版本。通常可以通过以下命令进行更新：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update &amp;&amp; sudo apt upgrade</span><br></span></code></pre></div></div>
+<!-- -->在提问时，请一并提供通过 <code>rdkos_info</code>、<code>apt list --installed | grep hobot</code> 等命令获取的当前系统和软件包版本信息。</li>
+<li><strong>仔细检查硬件连接：</strong> 确保所有硬件连接都牢固可靠，包括电源线、SD卡、调试串口线、摄像头排线、网络线以及其他外设连接。接触不良是许多问题的根源。</li>
+<li><strong>提供完整的问题复现信息：</strong> 当您向社区或技术支持提问时，请尽可能提供以下信息：<!-- -->
+<ul>
+<li><strong>清晰的问题描述：</strong> 遇到了什么问题？期望的结果是什么？实际观察到的现象是什么？</li>
+<li><strong>RDK硬件型号和系统版本：</strong> 例如RDK X5, RDK OS 3.0.1。</li>
+<li><strong>相关的软件包版本。</strong></li>
+<li><strong>详细的复现步骤：</strong> 一步一步说明如何操作才能触发问题。</li>
+<li><strong>完整的错误日志或截图：</strong> 包括串口打印、dmesg信息、应用程序的报错输出等。</li>
+<li><strong>您已尝试过的解决方法及其结果。</strong>
+提供充分的信息有助于他人更快地理解和定位您的问题。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q42-docker镜像oe包或嵌入式开发samples包下载失败或速度慢怎么办">Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？<a href="#q42-docker镜像oe包或嵌入式开发samples包下载失败或速度慢怎么办" class="hash-link" aria-label="Direct link to Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？" title="Direct link to Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？">​</a></h3>
+<p><strong>A:</strong></p>
+<ol>
+<li><strong>Docker镜像（例如用于算法工具链、交叉编译环境）：</strong>
+<ul>
+<li><strong>官方来源：</strong> Docker镜像通常首发于Docker Hub。地平线官方也可能在自己的服务器或特定的开发者社区资源帖中提供部分关键镜像的下载链接或拉取方式。</li>
+<li><strong>网络问题：</strong> 如果从Docker Hub拉取速度慢或失败，可能是由于网络限制或国际带宽问题。可以尝试配置Docker使用国内的镜像加速器服务（如阿里云、DaoCloud、网易蜂巢等都提供此类服务）。</li>
+<li><strong>社区资源：</strong> 关注地平线开发者社区的公告或资源下载区，有时会提供针对国内用户的镜像获取方案。例如，此帖曾提供过相关资源：<a href="https://developer.d-robotics.cc/forumDetail/136488103547258769" target="_blank" rel="noopener noreferrer">地平线开发者社区论坛相关帖子</a> (请确认链接及内容的最新有效性)。</li>
+</ul>
+</li>
+<li><strong>OE (OpenEmbedded) 包 / BSP (Board Support Package)：</strong>
+<ul>
+<li>OE编译环境相关的包或完整的BSP（包含内核源码、驱动、文件系统构建脚本等）通常体积较大。如果官方提供直接下载，请确保您的网络连接稳定且具有足够的带宽。</li>
+<li>这些资源一般会在开发者社区的“资源中心”板块或对应RDK型号的产品文档页提供下载链接。</li>
+</ul>
+</li>
+<li><strong>嵌入式开发Samples包（示例代码）：</strong>
+<ul>
+<li>示例代码包可能作为BSP的一部分提供（例如在BSP解压后的 <code>bsp/samples/</code> 或类似目录下）。</li>
+<li>也可能作为独立的SDK、代码仓库（如GitHub上的 <code>D-Robotics</code> 组织）或压缩包提供。</li>
+<li>请仔细查阅对应RDK型号和版本的官方文档或快速入门指南，以找到获取官方示例代码的正确途径。</li>
+</ul>
+</li>
+<li><strong>通用下载建议：</strong>
+<ul>
+<li><strong>使用下载工具：</strong> 对于较大的文件，建议使用支持断点 续传的下载工具。</li>
+<li><strong>检查网络环境：</strong> 如果您在公司或机构网络下，确认是否有防火墙、代理服务器或网络策略限制了大文件的下载或访问特定域名。</li>
+<li><strong>错峰下载：</strong> 尝试在网络负载较低的时段进行下载。</li>
+<li><strong>官方渠道优先：</strong> 始终优先从地平线官方开发者社区、官方文档中提供的链接或官方GitHub仓库获取各类开发资源，以确保文件的正确性、完整性和安全性。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q43-为rdk进行交叉编译的环境应该如何配置">Q43: 为RDK进行交叉编译的环境应该如何配置？<a href="#q43-为rdk进行交叉编译的环境应该如何配置" class="hash-link" aria-label="Direct link to Q43: 为RDK进行交叉编译的环境应该如何配置？" title="Direct link to Q43: 为RDK进行交叉编译的环境应该如何配置？">​</a></h3>
+<p><strong>A:</strong> 为RDK板卡（通常是ARM架构）上的应用程序进行交叉编译，一般需要在x86架构的Linux开发主机（推荐使用Ubuntu LTS版本，如Ubuntu 20.04或22.04）上配置交叉编译工具链和相应的目标系统SDK（Sysroot）。具体配置步骤会因您要编译的程序类型（例如，普通的Linux C/C++程序、ROS/TROS功能包）以及目标RDK的型号和系统版本而有所不同。</p>
+<ol>
+<li>
+<p><strong>编译普通Linux C/C++应用程序：</strong></p>
+<ul>
+<li><strong>获取交叉编译工具链：</strong> 地平线官方会为每个RDK系列（如X3、X5、Ultra）提供相应的交叉编译工具链（例如，包含<code>aarch64-linux-gnu-gcc</code>, <code>aarch64-linux-gnu-g++</code>等工具）。这个工具链可能作为SDK的一部分提供，或者需要从开发者社区单独下载。</li>
+<li><strong>安装与配置工具链：</strong> 按照官方文档的指引，将下载的工具链压缩包解压到您开发主机上的一个合适路径（例  如 <code>/opt/toolchains/</code>）。然后，需要将工具链的 <code>bin</code> 目录（包含编译器等可执行文件）添加到您开发主机的 <code>PATH</code> 环境变量中，这样系统才能找到这些交叉编译命令。</li>
+<li><strong>准备Sysroot：</strong> 交叉编译不仅需要编译器，还需要目标板卡系统环境中的库文件（如glibc, libstdc++, 以及其他依赖库）和头文件。这部分内容集合称为Sysroot。Sysroot可以从官方提供的RDK SDK中提取，或者从一个已经烧录好系统的RDK板卡的根文件系统中复制得到。在编译时，需要通过编译器的 <code>--sysroot=&lt;path_to_sysroot&gt;</code> 参数来指定Sysroot的路径。</li>
+<li><strong>使用CMake进行交叉编译：</strong> 如果您的项目使用CMake作为构建系统，推荐创建一个CMake工具链配置文件（toolchain file，例如 <code>aarch64-rdk.cmake</code>）。在这个文件中，您需要指定：<!-- -->
+<ul>
+<li>目标系统名称 (<code>CMAKE_SYSTEM_NAME</code> 通常设为 <code>Linux</code>)。</li>
+<li>目标处理器架构 (<code>CMAKE_SYSTEM_PROCESSOR</code> 通常设为 <code>aarch64</code>)。</li>
+<li>C交叉编译器 (<code>CMAKE_C_COMPILER</code>) 和 C++交叉编译器 (<code>CMAKE_CXX_COMPILER</code>) 的完整路径。</li>
+<li>Sysroot路径 (<code>CMAKE_SYSROOT</code>)。</li>
+<li>查找库和头文件的相关路径设置 (<code>CMAKE_FIND_ROOT_PATH</code>)。
+然后在运行CMake配置项目时，通过 <code>-DCMAKE_TOOLCHAIN_FILE=/path/to/your/aarch64-rdk.cmake</code> 参数来指定使用这个工具链文件。</li>
+</ul>
+</li>
+<li><strong>参考官方手册：</strong> 详细的交叉编译环境搭建步骤、工具链文件示例以及编译参数，请务必参考您所使用的RDK型号和版本的官方《用户手册》或《SDK开发指南》中关于“Linux应用开发”或“交叉编译环境搭建”的章节。</li>
+</ul>
+</li>
+<li>
+<p><strong>编译ROS/TROS功能包：</strong></p>
+<ul>
+<li><strong> 使用官方提供的Docker交叉编译环境（强烈推荐）：</strong> 这是为TROS功能包进行交叉编译<strong>最推荐且最便捷</strong>的方式。地平线官方通常会提供预配置好的Docker镜像，这些镜像中已经集成了：<!-- -->
+<ul>
+<li>特定TROS版本（如Foxy, Humble）所需的交叉编译工具链。</li>
+<li>Ament/Colcon等ROS构建工具。</li>
+<li>目标板卡TROS环境对应的所有基础ROS库和依赖项的交叉编译版本。</li>
+<li><strong>操作流程：</strong>
+<ol>
+<li>从官方渠道（如Docker Hub或地平线官方服务器）拉取对应TROS版本的交叉编译Docker镜像。</li>
+<li>按照官方文档的指引启动Docker容器，并将您的ROS工作区源代码目录挂载到容器内部。</li>
+<li>在Docker容器的终端内，使用 <code>colcon build</code> 配合适当的交叉编译参数（通常Docker环境已预设好）来编译您的工作区。</li>
+</ol>
+</li>
+<li><strong>参考官方手册：</strong> TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相关信息：<a href="https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_start/cross_compile" target="_blank" rel="noopener noreferrer">TROS手册 - 交叉编译Docker参考</a> (请确认链接的有效性和相关性)。</li>
+</ul>
+</li>
+<li><strong>手动配置ROS/TROS交叉编译环境 (极不推荐，非常复杂且极易出错)：</strong> 如果不使用官方提供的Docker环境，手动从零开始搭建一个完整的ROS/TROS交叉编译环境是一项非常复杂和耗时的工作。您需要自行交叉编译ROS的所有核心组件、消息类型、依赖库，并为Colcon等构建工具配置大量的交叉编译参数和环境变量。这通常只适用于有深厚交叉编译和ROS构建系统经验的开发者。</li>
+</ul>
+</li>
+</ol>
+<p><strong>通用交叉编译建议：</strong></p>
+<ul>
+<li><strong>仔细阅读官方文档：</strong> 针对您使用的RDK型号和目标系统版本，务必以官方最新发布的开发文档、SDK说明和移植指南为准。</li>
+<li><strong>保持环境一致性：</strong> 交叉编译环境中所使用的库（尤其是系统库和核心依赖库）的版本，应尽可能与目标RDK板卡上实际运行的库版本保持一致或兼容，以避免运行时出现链接错误或行为不一致的问题。</li>
+<li><strong>Sysroot的正确配置至关重要：</strong> 无论是编译普通Linux程序还是ROS包，正确配置和使用Sysroot是交叉编译成功的关键环节。</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-06-17T09:58:35.000Z" itemprop="dateModified">Jun 17, 2025</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/en/FAQ"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">8. 常见问题</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/en/FAQ/interface"><div class="pagination-nav__sublabel">Next </div><div class="pagination-nav__label">8.2 Interfaces, Peripherals, and Drivers</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#q1-what-is-the-d-robotics-rdk-kit" class="table-of-contents__link toc-highlight">Q1: What is the D-Robotics RDK Kit?</a></li><li><a href="#q2-how-to-check-the-system-version-of-an-rdk-board" class="table-of-contents__link toc-highlight">Q2: How to check the system version of an RDK board?</a></li><li><a href="#q3-what-is-the-relationship-between-different-rdk-os-versions-and-hardware-platforms" class="table-of-contents__link toc-highlight">Q3: What is the relationship between different RDK OS versions and hardware platforms?</a></li><li><a href="#q4-what-should-i-pay-attention-to-when-plugging-or-unplugging-the-camera" class="table-of-contents__link toc-highlight">Q4: What should I pay attention to when plugging or unplugging the camera?</a></li><li><a href="#q5-how-to-correctly-connect-the-rdk-x3-debug-serial-cable" class="table-of-contents__link toc-highlight">Q5: How to correctly connect the RDK X3 debug serial cable?</a></li><li><a href="#q6-how-to-connect-f37-and-gc4663-mipi-cameras-to-rdk-x3-how-to-verify-the-connection" class="table-of-contents__link toc-highlight">Q6: How to connect F37 and GC4663 MIPI cameras to RDK X3? How to verify the connection?</a></li><li><a href="#q7-what-could-cause-the-board-to-fail-to-boot-show-nothing-on-power-up-or-keep-rebooting-how-to-troubleshoot" class="table-of-contents__link toc-highlight">Q7: What could cause the board to fail to boot, show nothing on power-up, or keep rebooting? How to troubleshoot?</a></li><li><a href="#q8-what-are-the-power-supply-requirements-for-rdk-x3" class="table-of-contents__link toc-highlight">Q8: What are the power supply requirements for RDK X3?</a></li><li><a href="#q9-are-there-recommended-sd-card-brands-or-specs-for-rdk-x3" class="table-of-contents__link toc-highlight">Q9: Are there recommended SD card brands or specs for RDK X3?</a></li><li><a href="#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use" class="table-of-contents__link toc-highlight">Q10: What to do if <code>apt update</code> fails (e.g., key error, update failure, lock file in use)?</a></li><li><a href="#q11-how-to-check-the-status-of-cpu-bpu-and-other-hardware-units-on-rdk-x3" class="table-of-contents__link toc-highlight">Q11: How to check the status of CPU, BPU, and other hardware units on RDK X3?</a></li><li><a href="#q12-how-to-set-up-auto-start-for-rdk-applications" class="table-of-contents__link toc-highlight">Q12: How to set up auto-start for RDK applications?</a></li><li><a href="#q13-what-are-the-default-login-accounts-and-passwords-for-the-board" class="table-of-contents__link toc-highlight">Q13: What are the default login accounts and passwords for the board?</a></li><li><a href="#q14-how-to-mount-an-ntfs-usb-drive-or-hdd-on-rdk-and-enable-readwrite" class="table-of-contents__link toc-highlight">Q14: How to mount an NTFS USB drive or HDD on RDK and enable read/write?</a></li><li><a href="#q15-can-rdk-boards-run-vs-code-locally-how-to-use-vs-code-on-pc-to-connect-remotely" class="table-of-contents__link toc-highlight">Q15: Can RDK boards run VS Code locally? How to use VS Code on PC to connect remotely?</a></li><li><a href="#q16-how-to-enable-and-use-adb-android-debug-bridge-on-rdk" class="table-of-contents__link toc-highlight">Q16: How to enable and use ADB (Android Debug Bridge) on RDK?</a></li><li><a href="#q17-what-are-common-ways-to-transfer-files-between-the-board-and-a-pc" class="table-of-contents__link toc-highlight">Q17: What are common ways to transfer files between the board and a PC?</a></li><li><a href="#q18-what-is-the-default-wired-ip-for-rdk-x3-in-different-system-versions" class="table-of-contents__link toc-highlight">Q18: What is the default wired IP for RDK X3 in different system versions?</a></li><li><a href="#q19-what-is-the-default-network-ip-for-rdk-x5-in-different-system-versions" class="table-of-contents__link toc-highlight">Q19: What is the default network IP for RDK X5 in different system versions?</a></li><li><a href="#q20-what-if-the-desktop-goes-black-during-apt-upgrade" class="table-of-contents__link toc-highlight">Q20: What if the desktop goes black during <code>apt upgrade</code>?</a></li><li><a href="#q21-why-doesnt-my-pc-display-anything-when-connecting-rdk-x3s-hdmi-output-to-the-pcs-hdmi-inputoutput" class="table-of-contents__link toc-highlight">Q21: Why doesn&#39;t my PC display anything when connecting RDK X3&#39;s HDMI output to the PC&#39;s HDMI input/output?</a></li><li><a href="#q22-why-does-the-board-boot-with-the-sd-card-inserted-but-fails-to-boot-after-removing-it" class="table-of-contents__link toc-highlight">Q22: Why does the board boot with the SD card inserted, but fails to boot after removing it?</a></li><li><a href="#q23-can-the-rdk-os-server-edition-be-directly-upgraded-to-the-desktop-edition" class="table-of-contents__link toc-highlight">Q23: Can the RDK OS Server edition be directly upgraded to the Desktop edition?</a></li><li><a href="#q24-why-is-there-no-display-or-abnormal-output-after-connecting-an-hdmi-monitor" class="table-of-contents__link toc-highlight">Q24: Why is there no display or abnormal output after connecting an HDMI monitor?</a></li><li><a href="#q25-how-to-capture-edid-information-for-an-unsupported-hdmi-monitor-for-technical-support" class="table-of-contents__link toc-highlight">Q25: How to capture EDID information for an unsupported HDMI monitor for technical support?</a></li><li><a href="#q26-what-should-i-do-if-the-sd-card-is-not-recognized-or-is-unstable" class="table-of-contents__link toc-highlight">Q26: What should I do if the SD card is not recognized or is unstable?</a></li><li><a href="#q27-what-should-i-do-if-the-system-stops-at-the-hobot-u-boot-command-line-during-boot" class="table-of-contents__link toc-highlight">Q27: What should I do if the system stops at the <code>hobot&gt;</code> U-Boot command line during boot?</a></li><li><a href="#q28-can-sunrise-x3-pi-or-rdk-x3-be-powered-via-the-40-pin-gpio" class="table-of-contents__link toc-highlight">Q28: Can Sunrise X3 Pi or RDK X3 be powered via the 40-pin GPIO?</a></li><li><a href="#q29-what-are-common-causes-of-image-flashing-failures" class="table-of-contents__link toc-highlight">Q29: What are common causes of image flashing failures?</a></li><li><a href="#q30-what-should-i-do-if-i-cannot-connect-to-rdk-x3s-vnc-remote-desktop" class="table-of-contents__link toc-highlight">Q30: What should I do if I cannot connect to RDK X3&#39;s VNC remote desktop?</a></li><li><a href="#q31-why-is-there-only-a-black-window-no-image-when-running-apppydev_demo02_camera_hdmi_output-or-03_yolov5_camera_hdmi_output-on-rdk-x5" class="table-of-contents__link toc-highlight">Q31: Why is there only a black window (no image) when running <code>/app/pydev_demo/02_camera_hdmi_output</code> or <code>03_yolov5_camera_hdmi_output</code> on RDK X5?</a></li><li><a href="#q32-why-is-the-hdmi-output-image-upside-down-or-missing-yolov5-detection-boxes-when-running-these-demos-on-rdk-x5" class="table-of-contents__link toc-highlight">Q32: Why is the HDMI output image upside down or missing YOLOv5 detection boxes when running these demos on RDK X5?</a></li><li><a href="#q33-what-typical-kernel-log-errors-indicate-sd-card-contact-issues-or-damage" class="table-of-contents__link toc-highlight">Q33: What typical kernel log errors indicate SD card contact issues or damage?</a></li><li><a href="#q34-does-rdk-x5-support-real-time-linux-kernel-rt-linux-how-to-obtain-and-use-it" class="table-of-contents__link toc-highlight">Q34: Does RDK X5 support real-time Linux kernel (RT-Linux)? How to obtain and use it?</a></li><li><a href="#q35-vnc-remote-desktop-on-rdk-x5-is-laggyhow-to-optimize" class="table-of-contents__link toc-highlight">Q35: VNC remote desktop on RDK X5 is laggy—how to optimize?</a></li><li><a href="#q36-what-should-i-do-if-the-board-gets-too-hot-under-heavy-load" class="table-of-contents__link toc-highlight">Q36: What should I do if the board gets too hot under heavy load?</a></li><li><a href="#q37-how-to-use-d-robotics-rdk-specific-python-packages-eg-hobotgpio-hobot_dnn-in-a-conda-virtual-environment" class="table-of-contents__link toc-highlight">Q37: How to use D-Robotics RDK-specific Python packages (e.g., <code>hobot.GPIO</code>, <code>hobot_dnn</code>) in a Conda virtual environment?</a></li><li><a href="#q38-what-should-i-do-if-i-get-driver-signature-error-or-required-key-not-available-when-loading-a-self-compiled-linux-kernel-module-ko" class="table-of-contents__link toc-highlight">Q38: What should I do if I get &quot;driver signature error&quot; or &quot;Required key not available&quot; when loading a self-compiled Linux kernel module (<code>.ko</code>)?</a></li><li><a href="#q39-如何升级rdk-x5的miniboot" class="table-of-contents__link toc-highlight">Q39: 如何升级RDK X5的MiniBoot？</a></li><li><a href="#q40-在编译大型项目如使用gccmakecmakecolcon构建ros2工作空间或运行内存消耗较大的工具如hb_mapper模型转换时遇到内存不足的错误怎么办" class="table-of-contents__link toc-highlight">Q40: 在编译大型项目（如使用gcc/make/cmake/colcon构建ROS2工作空间）或运行内存消耗较大的工具（如<code>hb_mapper</code>模型转换）时，遇到内存不足的错误怎么办？</a></li><li><a href="#q41-rdk相关问题进行预排查的通用建议有哪些" class="table-of-contents__link toc-highlight">Q41: RDK相关问题进行预排查的通用建议有哪些？</a></li><li><a href="#q42-docker镜像oe包或嵌入式开发samples包下载失败或速度慢怎么办" class="table-of-contents__link toc-highlight">Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？</a></li><li><a href="#q43-为rdk进行交叉编译的环境应该如何配置" class="table-of-contents__link toc-highlight">Q43: 为RDK进行交叉编译的环境应该如何配置？</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Links</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GuYueHome<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Contact US</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.youtube.com/@D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 D-Robotics.</div></div></div></footer></div>
+</body>
+</html>
