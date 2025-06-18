@@ -4,10 +4,34 @@ sidebar_position: 1
 
 # 8.1 硬件、系统与环境配置
 
-认证配件及购买链接请参考[认证配件清单](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory)
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="accessory">
+<TabItem value="rdk_x3" label="rdk_x3">
+
+认证配件及购买链接请参考[RDK X3 认证配件清单](../Advanced_development/hardware_development/rdk_x3/accessory)
+
+</TabItem>
+
+<TabItem value="rdk_x5" label="rdk_x5">
+
+认证配件及购买链接请参考[RDK X5 认证配件清单](../Advanced_development/hardware_development/rdk_x5/accessory)
+
+</TabItem>
+
+<TabItem value="rdk_s100" label="rdk_s100">
+
+认证配件及购买链接请参考[RDK S100 认证配件清单](../rdk_s/Advanced_development/hardware_development/accessory)
+
+</TabItem>
+
+</Tabs>
 
 ### Q1: 什么是D-Robotics RDK套件？
-**A:** D-Robotics Developer Kits，简称[D-Robotics RDK套件](https://developer.d-robotics.cc/rdk_doc/)，是基于D-Robotics智能芯片打造的机器人开发者套件，目前主要包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK X5**、**RDK Ultra**等系列。
+**A:** D-Robotics Developer Kits，简称[D-Robotics RDK套件](https://developer.d-robotics.cc/rdk_doc/)，是基于D-Robotics智能芯片打造的机器人开发者套件，目前主要包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK X5**、**RDK Ultra**、**RDK S100**等系列。
 
 ### Q2: 如何查看RDK板卡的系统版本号？
 **A:** 登录到RDK板卡的系统后，您可以使用以下命令：
@@ -53,7 +77,7 @@ sidebar_position: 1
     * 主要支持早期的RDK X3硬件。
 
 **重要注意事项：**
-* **版本升级：** 1.x版本系统**无法**通过`apt`命令直接升级到2.x或更新版本的系统。如需升级，必须通过烧录新版本系统镜像的方式重新[安装操作系统](https://developer.d-robotics.cc/rdk_doc/install_os)。
+* **版本升级：** 1.x版本系统**无法**通过`apt`命令直接升级到2.x或更新版本的系统。如需升级，必须通过烧录新版本系统镜像的方式重新[安装操作系统](../install_os)。
 * **TROS兼容性：** 不同大版本的TROS（如基于Foxy的TROS和基于Humble的TROS）通常与特定的RDK OS大版本绑定。例如，RDK OS 2.x 通常搭载基于ROS2 Foxy的TROS，而RDK OS 3.x 通常搭载基于ROS2 Humble的TROS。
 
 ### Q4: 摄像头插拔有什么注意事项？
@@ -119,7 +143,7 @@ F37摄像头连接示意图：
         * 确保使用符合开发板要求的电源适配器（RDK X3推荐至少5V/2A，建议使用支持QC/PD的5V/3A或更高规格适配器）。
         * **禁止**使用PC的USB接口为开发板供电。
         * 使用质量可靠的USB Type-C供电线。
-        * 参考官方推荐的[基础配件清单](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory)中的电源适配器型号。
+        * 参考官方推荐的[基础配件清单](../Advanced_development/hardware_development/rdk_x3/accessory)中的电源适配器型号。
 
 * **启动介质问题 (Micro SD卡/eMMC)：**
     * **现象：** 串口日志提示无法挂载文件系统、找不到分区、MMC/SD卡初始化错误或超时。
@@ -160,7 +184,7 @@ F37摄像头连接示意图：
 ### Q10: `apt update` 命令执行失败或报错（如密钥错误、无法更新、锁文件被占用）如何处理？
 **A:**
 #### (1) 地瓜源域名变更或GPG密钥问题
-* **原因：** 地平线官方的apt软件源域名或GPG签名密钥可能发生过变更。
+* **原因：** 地瓜机器人官方的apt软件源域名或GPG签名密钥可能发生过变更。
 * **报错示例：**
     * `Clearsigned file isn't valid, got 'NOSPLIT'`
     * `The repository '...' is no longer signed.`
@@ -203,7 +227,7 @@ F37摄像头连接示意图：
     4.  再次尝试 `sudo apt update`。
 
 ### Q11: 如何查看RDK X3的CPU、BPU等硬件单元的运行状态?
-**A:** 可以使用地平线提供的 `hrut_somstatus` 工具来查看实时的系统状态，包括CPU各个核心的占用率、BPU（AI计算单元）的使用率、内存使用情况、芯片温度等。
+**A:** 可以使用地瓜机器人提供的 `hrut_somstatus` 工具来查看实时的系统状态，包括CPU各个核心的占用率、BPU（AI计算单元）的使用率、内存使用情况、芯片温度等。
 在板卡终端执行：
 
 ```bash
@@ -229,14 +253,14 @@ sudo hrut_somstatus
     # bits.
     #
     # By default this script does nothing.
-   
+
     # Example: Start your application in the background
     # /usr/bin/python3 /home/sunrise/my_app.py &
-   
+
     # Insert what you need before this line
     exit 0
     ```
-    参考：[RDK文档 - rc.local自启动](https://developer.d-robotics.cc/rdk_doc/System_configuration/self_start)
+    参考：[RDK文档 - rc.local自启动](../System_configuration/self_start)
 
 2.  **通过 `systemd` 服务（现代、推荐方式）：**
     创建一个 `.service` 配置文件（例如 `/etc/systemd/system/myapp.service`），定义服务的启动命令、依赖关系、运行用户、重启策略等。
@@ -245,14 +269,14 @@ sudo hrut_somstatus
     [Unit]
     Description=My Application Service
     After=network.target multi-user.target
-   
+
     [Service]
     User=sunrise
     ExecStart=/usr/bin/python3 /home/sunrise/my_app.py
     Restart=on-failure
     # StandardOutput=append:/var/log/myapp_stdout.log
     # StandardError=append:/var/log/myapp_stderr.log
-   
+
     [Install]
     WantedBy=multi-user.target
     ```
@@ -432,7 +456,7 @@ sudo hrut_somstatus
     * Windows下可以使用如MonitorInfoView (NirSoft) 或 Phoenix EDID Designer 等工具。
 
 获取到EDID数据（通常是一个二进制文件或十六进制文本）后，可以将其提供给技术支持。
-具体在地平线RDK平台抓取EDID的方法，请参考官方论坛的指导帖子：[如何提供不支持显示器的EDID信息](https://developer.d-robotics.cc/forumDetail/235046352323895808)
+具体在地瓜机器人RDK平台抓取EDID的方法，请参考官方论坛的指导帖子：[如何提供不支持显示器的EDID信息](https://developer.d-robotics.cc/forumDetail/235046352323895808)
 
 ### Q26: SD卡有时不识别或识别不稳定怎么办？
 **A:** SD卡不识别或识别不稳定的问题，可以从以下几个方面排查：
@@ -519,7 +543,7 @@ sudo hrut_somstatus
 
 ### Q31: 使用RDK X5的 `/app/pydev_demo/02_camera_hdmi_output` 和 `03_yolov5_camera_hdmi_output` 示例时，没有画面显示，只有一个黑色窗口，是什么原因？
 **A:**
-1.  **更新软件包：** 首先，请确保您的RDK X5系统上的所有`hobot*`开头的软件包都已更新到最新版本。在确保地平线官方APT源配置正确后，执行：
+1.  **更新软件包：** 首先，请确保您的RDK X5系统上的所有`hobot*`开头的软件包都已更新到最新版本。在确保地瓜机器人官方APT源配置正确后，执行：
     ```bash
     sudo apt update && sudo apt upgrade
     ```
@@ -563,7 +587,7 @@ no mmc device at slot X
     1.  **系统镜像：** 通常需要您的RDK X5系统版本支持（例如，官方文档中提到的RDK OS 3.0.1或更新版本）。
         官方镜像下载地址参考：`https://archive.d-robotics.cc/downloads/os_images/rdk_x5/` (请查找对应系统版本下的Preempt-RT相关资源，例如 `rdk_os_3.0.1-2024-10-18/Preempt-RT/` 目录，日期仅为示例)。
     2.  **Debian包：** 在上述下载路径中，通常会提供预编译好的实时内核 `.deb` 包。
-    3.  **内核源码：** 地平线也会在GitHub上提供RDK X5的Preempt-RT内核源码，供开发者自行编译和定制。
+    3.  **内核源码：** 地瓜机器人也会在GitHub上提供RDK X5的Preempt-RT内核源码，供开发者自行编译和定制。
         源码仓库参考：[D-Robotics x5-kernel-rt on GitHub](https://github.com/D-Robotics/x5-kernel-rt)
 * **使用方法：**
     1.  确保您的基础RDK X5系统已正确安装并运行。
@@ -604,13 +628,13 @@ no mmc device at slot X
 
 **重要提示：** “发热量小不代表温度会低”。即使芯片本身设计功耗不高，如果散热不良，热量积聚仍然会导致表面温度快速升高。良好的散热设计是保证嵌入式系统稳定运行的关键。
 
-### Q37: 如何在Conda虚拟环境中获取和使用地平线RDK特定的Python包（如 `hobot.GPIO`, `hobot_dnn` 等）？
-**A:** 地平线官方提供的 `hobot.GPIO`、`hobot_dnn` 等Python包通常是为RDK的系统Python环境预编译和优化的，它们可能依赖于系统底层的特定库文件和驱动程序。在Conda等Python虚拟环境中使用这些包可能会遇到一些挑战，因为虚拟环境旨在隔离依赖。
+### Q37: 如何在Conda虚拟环境中获取和使用地瓜机器人RDK特定的Python包（如 `hobot.GPIO`, `hobot_dnn` 等）？
+**A:** 地瓜机器人官方提供的 `hobot.GPIO`、`hobot_dnn` 等Python包通常是为RDK的系统Python环境预编译和优化的，它们可能依赖于系统底层的特定库文件和驱动程序。在Conda等Python虚拟环境中使用这些包可能会遇到一些挑战，因为虚拟环境旨在隔离依赖。
 
 以下是一些可能的方法和注意事项：
 
 1.  **官方是否提供Conda支持或 `.whl` 文件：**
-    * 首先，查阅最新的地平线官方文档、开发者社区或GitHub仓库，看官方是否提供了针对Conda环境的安装说明，或者是否直接发布了可以在Conda环境中通过 `pip` 安装的 `.whl` 格式的这些包。这是最理想的情况。
+    * 首先，查阅最新的地瓜机器人官方文档、开发者社区或GitHub仓库，看官方是否提供了针对Conda环境的安装说明，或者是否直接发布了可以在Conda环境中通过 `pip` 安装的 `.whl` 格式的这些包。这是最理想的情况。
 2.  **尝试在Conda环境中通过 `pip` 安装系统路径下的包（如果 `.whl` 不可用）：**
     * 如果这些包已经安装在RDK的系统Python环境中（例如在 `/usr/lib/python3/dist-packages/` 或类似路径下），并且您的Conda环境使用的Python版本与系统Python及这些包编译时所用的Python版本兼容，**有时**可以直接在激活Conda环境后，尝试用 `pip` 指向这些包的路径进行安装，但这通常不被推荐，且成功率不高，因为 `pip` 主要用于从PyPI或本地`.whl`/源码包安装。
 3.  **修改 `PYTHONPATH` 或 `sys.path` (不推荐，易出错)：**
@@ -619,7 +643,7 @@ no mmc device at slot X
 4.  **使用系统Python环境：**
     * 如果您的项目对Python环境隔离的要求不是非常严格，或者主要就是围绕这些RDK特定包进行开发，最简单直接的方法可能就是**直接使用RDK系统自带的Python环境**，而不是Conda。这些包在系统环境中通常是配置好的。
 5.  **容器化方案 (Docker)：**
-    * 如果地平线官方提供了包含这些包和完整依赖的Docker镜像，那么在Docker容器中使用这些功能是更可靠的隔离和部署方案。
+    * 如果地瓜机器人官方提供了包含这些包和完整依赖的Docker镜像，那么在Docker容器中使用这些功能是更可靠的隔离和部署方案。
 6.  **从源码编译（如果官方提供源码且允许）：**
     * 如果这些特定包的源码是开放的，并且有针对ARM架构的编译指南，理论上您可以尝试在您的Conda环境中从源码编译和安装这些包。但这通常需要较高的技术能力和时间投入。
 
@@ -662,7 +686,7 @@ no mmc device at slot X
 **重要提示：**
 * 上述步骤是一个通用流程，具体命令和细节可能因您的Linux发行版、内核版本以及Secure Boot的配置状态而有所不同。
 * **请务必参考您所使用的Linux发行版和内核版本的官方文档中关于“内核模块签名 (Kernel Module Signing)”的详细指南。**
-* 地平线官方RDK文档中关于“Linux开发”或“驱动开发”的章节，也可能包含针对RDK平台的具体模块签名指导：[RDK文档 - Linux开发 - 内核头文件与模块编译](https://developer.d-robotics.cc/documents_rdk/linux_development/kernel_headers) (请查找此文档中关于模块签名的具体章节)。
+* 地瓜机器人官方RDK文档中关于“Linux开发”或“驱动开发”的章节，也可能包含针对RDK平台的具体模块签名指导：[RDK文档 - Linux开发 - 内核头文件与模块编译](../Advanced_development/linux_development/kernel_headers) (请查找此文档中关于模块签名的具体章节)。
 
 ### Q39: 如何升级RDK X5的MiniBoot？
 **A:** 在RDK X5上，可以通过 `srpi-config` 工具来方便地升级MiniBoot（U-Boot的早期引导加载程序部分，负责更底层的硬件初始化和引导）。
@@ -742,7 +766,7 @@ no mmc device at slot X
     * **`cmake`：** CMake本身不直接控制make的并行度，但最终还是通过make执行。可以在调用make时传递 `-j` 参数。
     * **设置 `MAKEFLAGS` 环境变量（临时）：**
         ```bash
-        export MAKEFLAGS="-j1" 
+        export MAKEFLAGS="-j1"
         # 然后执行 colcon build 或其他编译命令
         ```
 
@@ -762,7 +786,7 @@ no mmc device at slot X
 
 ### Q41: RDK相关问题进行预排查的通用建议有哪些？
 **A:** 在遇到RDK相关问题并寻求帮助前，建议进行以下预排查：
-1.  **查阅最新官方手册：** 确保您参考的是官方最新版本的用户手册、开发文档和发行说明。官方文档通常会包含最新的信息和已知问题的解决方案。您可以从地平线开发者社区获取最新文档：[https://developer.d-robotics.cc/information](https://developer.d-robotics.cc/information)
+1.  **查阅最新官方手册：** 确保您参考的是官方最新版本的用户手册、开发文档和发行说明。官方文档通常会包含最新的信息和已知问题的解决方案。您可以从地瓜机器人开发者社区获取最新文档：[RDK资料中心](https://developer.d-robotics.cc/information)
 2.  **更新系统及相关软件包：** 许多问题可能在较新的软件版本中得到修复。请确保您的RDK板卡上的操作系统以及所有`hobot-*`、`tros-*`等关键软件包都已更新到最新稳定版本。通常可以通过以下命令进行更新：
     ```bash
     sudo apt update && sudo apt upgrade
@@ -781,9 +805,9 @@ no mmc device at slot X
 ### Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？
 **A:**
 1.  **Docker镜像（例如用于算法工具链、交叉编译环境）：**
-    * **官方来源：** Docker镜像通常首发于Docker Hub。地平线官方也可能在自己的服务器或特定的开发者社区资源帖中提供部分关键镜像的下载链接或拉取方式。
+    * **官方来源：** Docker镜像通常首发于Docker Hub。地瓜机器人官方也可能在自己的服务器或特定的开发者社区资源帖中提供部分关键镜像的下载链接或拉取方式。
     * **网络问题：** 如果从Docker Hub拉取速度慢或失败，可能是由于网络限制或国际带宽问题。可以尝试配置Docker使用国内的镜像加速器服务（如阿里云、DaoCloud、网易蜂巢等都提供此类服务）。
-    * **社区资源：** 关注地平线开发者社区的公告或资源下载区，有时会提供针对国内用户的镜像获取方案。例如，此帖曾提供过相关资源：[地平线开发者社区论坛相关帖子](https://developer.d-robotics.cc/forumDetail/136488103547258769) (请确认链接及内容的最新有效性)。
+    * **社区资源：** 关注地瓜机器人开发者社区的公告或资源下载区，有时会提供针对国内用户的镜像获取方案。例如，此帖曾提供过相关资源：[地瓜机器人开发者社区论坛相关帖子](https://developer.d-robotics.cc/forumDetail/136488103547258769) (请确认链接及内容的最新有效性)。
 2.  **OE (OpenEmbedded) 包 / BSP (Board Support Package)：**
     * OE编译环境相关的包或完整的BSP（包含内核源码、驱动、文件系统构建脚本等）通常体积较大。如果官方提供直接下载，请确保您的网络连接稳定且具有足够的带宽。
     * 这些资源一般会在开发者社区的“资源中心”板块或对应RDK型号的产品文档页提供下载链接。
@@ -795,13 +819,13 @@ no mmc device at slot X
     * **使用下载工具：** 对于较大的文件，建议使用支持断点续传的下载工具。
     * **检查网络环境：** 如果您在公司或机构网络下，确认是否有防火墙、代理服务器或网络策略限制了大文件的下载或访问特定域名。
     * **错峰下载：** 尝试在网络负载较低的时段进行下载。
-    * **官方渠道优先：** 始终优先从地平线官方开发者社区、官方文档中提供的链接或官方GitHub仓库获取各类开发资源，以确保文件的正确性、完整性和安全性。
+    * **官方渠道优先：** 始终优先从地瓜机器人官方开发者社区、官方文档中提供的链接或官方GitHub仓库获取各类开发资源，以确保文件的正确性、完整性和安全性。
 
 ### Q43: 为RDK进行交叉编译的环境应该如何配置？
 **A:** 为RDK板卡（通常是ARM架构）上的应用程序进行交叉编译，一般需要在x86架构的Linux开发主机（推荐使用Ubuntu LTS版本，如Ubuntu 20.04或22.04）上配置交叉编译工具链和相应的目标系统SDK（Sysroot）。具体配置步骤会因您要编译的程序类型（例如，普通的Linux C/C++程序、ROS/TROS功能包）以及目标RDK的型号和系统版本而有所不同。
 
 1.  **编译普通Linux C/C++应用程序：**
-    * **获取交叉编译工具链：** 地平线官方会为每个RDK系列（如X3、X5、Ultra）提供相应的交叉编译工具链（例如，包含`aarch64-linux-gnu-gcc`, `aarch64-linux-gnu-g++`等工具）。这个工具链可能作为SDK的一部分提供，或者需要从开发者社区单独下载。
+    * **获取交叉编译工具链：** 地瓜机器人官方会为每个RDK系列（如X3、X5、Ultra）提供相应的交叉编译工具链（例如，包含`aarch64-linux-gnu-gcc`, `aarch64-linux-gnu-g++`等工具）。这个工具链可能作为SDK的一部分提供，或者需要从开发者社区单独下载。
     * **安装与配置工具链：** 按照官方文档的指引，将下载的工具链压缩包解压到您开发主机上的一个合适路径（例如 `/opt/toolchains/`）。然后，需要将工具链的 `bin` 目录（包含编译器等可执行文件）添加到您开发主机的 `PATH` 环境变量中，这样系统才能找到这些交叉编译命令。
     * **准备Sysroot：** 交叉编译不仅需要编译器，还需要目标板卡系统环境中的库文件（如glibc, libstdc++, 以及其他依赖库）和头文件。这部分内容集合称为Sysroot。Sysroot可以从官方提供的RDK SDK中提取，或者从一个已经烧录好系统的RDK板卡的根文件系统中复制得到。在编译时，需要通过编译器的 `--sysroot=<path_to_sysroot>` 参数来指定Sysroot的路径。
     * **使用CMake进行交叉编译：** 如果您的项目使用CMake作为构建系统，推荐创建一个CMake工具链配置文件（toolchain file，例如 `aarch64-rdk.cmake`）。在这个文件中，您需要指定：
@@ -814,15 +838,15 @@ no mmc device at slot X
     * **参考官方手册：** 详细的交叉编译环境搭建步骤、工具链文件示例以及编译参数，请务必参考您所使用的RDK型号和版本的官方《用户手册》或《SDK开发指南》中关于“Linux应用开发”或“交叉编译环境搭建”的章节。
 
 2.  **编译ROS/TROS功能包：**
-    * **使用官方提供的Docker交叉编译环境（强烈推荐）：** 这是为TROS功能包进行交叉编译**最推荐且最便捷**的方式。地平线官方通常会提供预配置好的Docker镜像，这些镜像中已经集成了：
+    * **使用官方提供的Docker交叉编译环境（强烈推荐）：** 这是为TROS功能包进行交叉编译**最推荐且最便捷**的方式。地瓜机器人官方通常会提供预配置好的Docker镜像，这些镜像中已经集成了：
         * 特定TROS版本（如Foxy, Humble）所需的交叉编译工具链。
         * Ament/Colcon等ROS构建工具。
         * 目标板卡TROS环境对应的所有基础ROS库和依赖项的交叉编译版本。
         * **操作流程：**
-            1.  从官方渠道（如Docker Hub或地平线官方服务器）拉取对应TROS版本的交叉编译Docker镜像。
+            1.  从官方渠道（如Docker Hub或地瓜机器人官方服务器）拉取对应TROS版本的交叉编译Docker镜像。
             2.  按照官方文档的指引启动Docker容器，并将您的ROS工作区源代码目录挂载到容器内部。
             3.  在Docker容器的终端内，使用 `colcon build` 配合适当的交叉编译参数（通常Docker环境已预设好）来编译您的工作区。
-        * **参考官方手册：** TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相关信息：[TROS手册 - 交叉编译Docker参考](https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_start/cross_compile) (请确认链接的有效性和相关性)。
+        * **参考官方手册：** TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相关信息：[TROS手册 - 交叉编译Docker参考](../Robot_development/quick_start/cross_compile) (请确认链接的有效性和相关性)。
     * **手动配置ROS/TROS交叉编译环境 (极不推荐，非常复杂且极易出错)：** 如果不使用官方提供的Docker环境，手动从零开始搭建一个完整的ROS/TROS交叉编译环境是一项非常复杂和耗时的工作。您需要自行交叉编译ROS的所有核心组件、消息类型、依赖库，并为Colcon等构建工具配置大量的交叉编译参数和环境变量。这通常只适用于有深厚交叉编译和ROS构建系统经验的开发者。
 
 **通用交叉编译建议：**

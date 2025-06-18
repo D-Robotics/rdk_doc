@@ -10,7 +10,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
 
 ## 环境准备
 
-  - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+  - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考-[硬件简介-MIPI接口](../../Quick_start/hardware_introduction/rdk_s100_camera_expansion_board)
   - 通过HDMI线缆连接开发板和显示器
 
 ## 运行方式
@@ -27,7 +27,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
   在终端中运行之后，会出现“please choose sensor config,xxxx”的要求。
 
   ![screenshot-20241217-115245](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_Image/image/mipi_camera/screenshot-20241217-115245.png)
-  
+
   在运行的时候选择RKD X5支持的配置，上图中选择0或者1都可以。
 
   启动过程可以参考如下视频：
@@ -36,11 +36,5 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
 </details>
 
 ## 预期效果
-程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：  
+程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：
 ![image-20220503221020331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
-
-:::tip
-
-详细代码实现说明请查阅[基于MIPI摄像头推理](../../04_Algorithm_Application/01_pydev_dnn_demo/mipi_camera.md)章节。
-
-:::
