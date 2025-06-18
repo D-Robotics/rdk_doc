@@ -18,6 +18,18 @@ sidebar_position: 4
 
 RDK S100 开发板通过 DC 接口供电，推荐使用套件中自带的电源适配器。
 
+### **驱动安装**
+
+RDK S100 开发板通过 USB Type-C 接口与 PC 连接，烧录系统镜像前需在 PC 上安装 fastboot 驱动程序。
+
+驱动下载地址：[winusb 驱动程序](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/)
+
+Sunrise5 USB 驱动支持 bl1/bl2/bl33 DFU、fastboot 和 adb 模式，安装步骤如下：
+
+1. 下载并解压 `sunrise5_winusb.zip`
+2. 右键以管理员身份运行 `install_driver.bat`
+
+
 ### **存储**
 
 RDK S100 采用 eMMC 作为系统启动介质。
