@@ -135,7 +135,7 @@ cp defconfig <板级配置文件中设置的Kernel配置文件>
 
 通过`menuconfig`方式配置`kernel`与配置`uboot`的的过程是一样的。命令执行过程如下：
 
-首先进入`boot/kernel`目录，然后按照以下步骤配置`kernel`选项。
+首先进入`source/kernel`目录，然后按照以下步骤配置`kernel`选项。
 
 - 使用`drobot_s100_defconfig`来配置生成`.config`，如果源码做过全量编译，则`.config`文件会配置好
 
@@ -168,4 +168,3 @@ make distclean
 # 或者
 make mrproper
 ```
-

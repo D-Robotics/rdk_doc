@@ -735,7 +735,7 @@ ota_tool -c -p all_in_one.zip -i all_in_one.signature
 ota_tool -p all_in_one_inc.zip
 
 # 差分升级，验证包完整性
-ota_tool -c -p aall_in_one_inc.zip -i all_in_one_inc.signature
+ota_tool -c -p all_in_one_inc.zip -i all_in_one_inc.signature
 ```
 
 ### ota_tool 实现
@@ -1023,7 +1023,7 @@ int main(void) {
 | 接口名   | int32_t otaRequestStart(const char *image_name, enum ota_update_owner owner); |
 |:---------|:---------------------------------------------------------------------|
 | 接口形式 | c 函数接口                                                           |
-| 输入参数 | text image_name: 升级包绝对路径。支持多种不同类型的包同时传入，用分号隔开。<br/>owner: 发起本次升级的进程，owner 由 enum ota_update_owner 定义|
+| 输入参数 | image_name: 升级包绝对路径。支持多种不同类型的包同时传入，用分号隔开。<br/>owner: 发起本次升级的进程，owner 由 enum ota_update_owner 定义|
 | 输出参数 | N/A                                                                   |
 | 返回值   | 0: 成功；<br/>-OTAERR_NULLPOINTER：image_name 空指针；<br/>-OTAERR_RANGE：owner 设置错误，超出当前定义范围；<br/>-OTAERR_NOTINIT：未初始化本动态库；<br/>-OTAERR_REPEAT：当前有其他进程正在升级；<br/>-OTAERR_IO：IO失败；<br/>-OTAERR_THREAD_CREATE：线程创建失败 |
 | 功能描述 | 启动升级进程，对传入的 image_name 进行升级，并设置当前升级所有者       |

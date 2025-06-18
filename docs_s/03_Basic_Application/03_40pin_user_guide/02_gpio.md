@@ -7,14 +7,14 @@ sidebar_position: 2
 开发板预置了 GPIO Python 库 `Hobot.GPIO`，用户可以通过如下命令导入GPIO库。
 
 ```shell
-sunrise@ubuntu:~$ sudo python3
-Python 3.8.10 (default, Mar 15 2022, 12:22:08)
+root@ubuntu:~# sudo python3
+Python 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import Hobot.GPIO as GPIO
 >>> GPIO.VERSION
 '0.0.2'
 >>> GPIO.model
-'RDK_X5'
+'RDK_S100'
 ```
 
 :::tip
@@ -68,10 +68,10 @@ GPIO.setwarnings(False)
 
 :::info
 
-在`RDK S100`平台上，存在两种硬件形式， 分别支持30pin和40pin， 其中`40pin`在使用过程中有如下的限制:
+在`RDK S100`平台上，支持`40-pin` GPIO拓展， `40-pin`在使用过程中有如下的限制:
 
-- 40pin上有一组引脚涉及到二选一（UART2, I2C5）。
-- 40pin上PCM相关引脚如果要使用需要波动拨码开关。
+- `40-pin`上有一组引脚涉及到二选一（UART2, I2C5）。
+- `40-pin`上PCM相关引脚如果要使用需要波动拨码开关。
 
 上述描述细节可以查看下图：
 
@@ -162,7 +162,7 @@ GPIO.gpio_function(channel)
 
 :::info
 
-在`RDK S100`平台上，存在两种硬件形式， 分别支持30pin和40pin，其中`40pin`上功能名为PERI_GPIO的管脚不支持中断使用，它们在`BOARD`编码模式下的编号为：**11**、**13**、**15**、**16**、**18**、**22**、**29**、**31**、**36**、**37**； `30pin`无该问题
+在`RDK S100`平台上，`40-pin`上功能名为PERI_GPIO的管脚不支持中断使用，它们在`BOARD`编码模式下的编号为：**11**、**13**、**15**、**16**、**18**、**22**、**29**、**31**、**36**、**37**；
 
 管脚定义请参考 [管脚配置与定义](./01_40pin_define.md#40pin_define)
 
@@ -253,8 +253,6 @@ GPIO.remove_event_detect(channel)
 | simple_out.py          | 单个管脚`输出`测试                            |
 | simple_input.py        | 单个管脚`输入`测试                            |
 | button_led.py          | 一个管脚作为按键输入，一个管脚作为输出控制LED |
-| test_all_pins_input.py | 所有管脚的`输入测试`代码                      |
-| test_all_pins.py       | 所有管脚的`输出测试`代码                      |
 | button_event.py        | 捕获管脚的上升沿、下降沿事件                  |
 | button_interrupt.py    | 中断方式处理管脚的上升沿、下降沿事件          |
 
@@ -267,26 +265,17 @@ import signal
 import Hobot.GPIO as GPIO
 import time
 
+
 def signal_handler(signal, frame):
     sys.exit(0)
 
 
 # 定义使用的GPIO通道为output_pin
-BOARD_ID_PATH = "/sys/class/boardinfo/adc_boardid"
-
-
-def get_board_id():
-    try:
-        with open(BOARD_ID_PATH, "r") as f:
-            return f.read().strip().lower()[-1]
-    except Exception as e:
-        print(f"[WARN] Read {BOARD_ID_PATH} failed: {e}, use default pins")
-        return None
 
 
 def determine_pins():
-    last_char = get_board_id()
-    if last_char == '8':
+    board_id = GPIO.gpio_pin_data.parse_boardid()
+    if GPIO.gpio_pin_data.if_s100_40pin(board_id):
         return 37
     else:
         return 26
@@ -310,7 +299,8 @@ def main():
     finally:
         GPIO.cleanup()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
 ```
@@ -324,29 +314,20 @@ import signal
 import Hobot.GPIO as GPIO
 import time
 
+
 def signal_handler(signal, frame):
     sys.exit(0)
 
 
 # 定义使用的GPIO通道为input_pin
-BOARD_ID_PATH = "/sys/class/boardinfo/adc_boardid"
 
 
 GPIO.setwarnings(False)
 
 
-def get_board_id():
-    try:
-        with open(BOARD_ID_PATH, "r") as f:
-            return f.read().strip().lower()[-1]
-    except Exception as e:
-        print(f"[WARN] Read {BOARD_ID_PATH} failed: {e}, use default pins")
-        return None
-
-
 def determine_pins():
-    last_char = get_board_id()
-    if last_char == '8':
+    board_id = GPIO.gpio_pin_data.parse_boardid()
+    if GPIO.gpio_pin_data.if_s100_40pin(board_id):
         return 37
     else:
         return 26
@@ -376,6 +357,7 @@ def main():
     finally:
         GPIO.cleanup()
 
+
 if __name__=='__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
@@ -391,28 +373,24 @@ import signal
 import Hobot.GPIO as GPIO
 import time
 
+
 def signal_handler(signal, frame):
     sys.exit(0)
+
 
 # 定义使用的GPIO通道：
 # led_pin作为输出，可以点亮一个LED
 # but_pin作为输入，可以接一个按钮
 BOARD_ID_PATH = "/sys/class/boardinfo/adc_boardid"
 
+
 # 禁用警告信息
 GPIO.setwarnings(False)
 
-def get_board_id():
-    try:
-        with open(BOARD_ID_PATH, "r") as f:
-            return f.read().strip().lower()[-1]
-    except Exception as e:
-        print(f"[WARN] Read {BOARD_ID_PATH} failed: {e}, use default pins")
-        return None
 
 def determine_pins():
-    last_char = get_board_id()
-    if last_char == '8':
+    board_id = GPIO.gpio_pin_data.parse_boardid()
+    if GPIO.gpio_pin_data.if_s100_40pin(board_id):
         return 23, 24
     else:
         return 26, 27
@@ -443,13 +421,14 @@ def main():
     finally:
         GPIO.cleanup()  # cleanup all GPIOs
 
+
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
 
 ```
 
-- GPIO 设置为输入模式，启动gpio中断功能，响应管脚的上升沿、下降沿事件，测试代码 `button_interrupt.py`, 实现检测 24 号管脚的下降沿，然后控制13号管脚快速切换高低电平 5 次：
+- GPIO 设置为输入模式，启动gpio中断功能，响应管脚的上升沿、下降沿事件，测试代码 `button_interrupt.py`, 实现检测 24 号管脚的下降沿，然后控制15号管脚快速切换高低电平 5 次：
 
 ```python
 #!/usr/bin/env python3
@@ -458,32 +437,25 @@ import signal
 import Hobot.GPIO as GPIO
 import time
 
+
 def signal_handler(signal, frame):
     sys.exit(0)
+
 
 # 定义使用的GPIO通道：
 # 15号作为输出，可以点亮一个LED
 # 16号作为输出，可以点亮一个LED
 # but_pin作为输入，可以接一个按钮
-led_pin_1 = 15 # BOARD 编码 15
-led_pin_2 = 16 # BOARD 编码 16
-BOARD_ID_PATH = "/sys/class/boardinfo/adc_boardid"
-
+led_pin_1 = 15  # BOARD 编码 15
+led_pin_2 = 16  # BOARD 编码 16
 
 # 禁用警告信息
 GPIO.setwarnings(False)
 
-def get_board_id():
-    try:
-        with open(BOARD_ID_PATH, "r") as f:
-            return f.read().strip().lower()[-1]
-    except Exception as e:
-        print(f"[WARN] Read {BOARD_ID_PATH} failed: {e}, use default pins")
-        return None
 
 def determine_pins():
-    last_char = get_board_id()
-    if last_char == '8':
+    board_id = GPIO.gpio_pin_data.parse_boardid()
+    if GPIO.gpio_pin_data.if_s100_40pin(board_id):
         return 24
     else:
         return 27
@@ -498,8 +470,8 @@ def blink(channel):
         GPIO.output(led_pin_2, GPIO.LOW)
         time.sleep(0.5)
 
-def main():
 
+def main():
     but_pin = determine_pins()
     # Pin Setup:
     GPIO.setmode(GPIO.BOARD)  # BOARD pin-numbering scheme
@@ -524,43 +496,11 @@ def main():
     finally:
         GPIO.cleanup()  # cleanup all GPIOs
 
+
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
 
 ```
 ## hb_gpioinfo工具介绍
-  hb_gpioinfo 是适配X5的一个gpio帮助工具，可以查看当前开发板的的PinName和PinNum的对应关系
-### hb_gpioinfo组成
-  hb_gpioinfo工具由驱动和应用两部分组成,驱动负责解析pinmux-gpio.dtsi并将pinnode和pinname信息导出到debugfs系统中，hb_gpioinfo应用进行解析打印到终端上
-驱动代码路径：`kernel/drivers/gpio/hobot_gpio_debug.c`
-### hb_gpioinfo使用实例
-- PinName:指的是Soc上的管脚名字，原理图上X5 Soc管脚命名一致
-- PinNode：指的是设备树中的PinNode信息
-- PinNum：指的是X5实际的对应的管脚gpio编号
-
-```bash
-root@ubuntu:~# hb_gpioinfo
-gpiochip0 - 8 lines: @platform/31000000.gpio: @GPIOs 498-505
-        [Number]                [Mode]  [Status]  [GpioName]       [PinName]              [PinNode]           [PinNum]
-        line  0:        unnamed input                             AON_GPIO0_PIN0        aon_gpio_0              498
-        line  1:        unnamed input                             AON_GPIO0_PIN1        aon_gpio_1              499
-        line  2:        unnamed input  active-low  GPIO Key Power AON_GPIO0_PIN2        aon_gpio_2              500
-        line  3:        unnamed input              interrupt      AON_GPIO0_PIN3        aon_gpio_3              501
-        line  4:        unnamed input                             AON_GPIO0_PIN4        aon_gpio_4              502
-        line  5:        unnamed input              id             AON_ENV_VDD           aon_gpio_5              503
-        line  6:        unnamed input              id             AON_ENV_CNN0          aon_gpio_6              504
-        line  7:        unnamed input                             AON_ENV_CNN1          aon_gpio_7              505
-gpiochip1 - 31 lines: @platform/35060000.gpio: @GPIOs 466-496
-        [Number]                [Mode]  [Status]  [GpioName]       [PinName]              [PinNode]           [PinNum]
-        line  0:        unnamed input                             HSIO_ENET_MDC         hsio_gpio0_0            466
-        line  1:        unnamed input                             HSIO_ENET_MDIO        hsio_gpio0_1            467
-        line  2:        unnamed input                             HSIO_ENET_TXD_0       hsio_gpio0_2            468
-        line  3:        unnamed input                             HSIO_ENET_TXD_1       hsio_gpio0_3            469
-        line  4:        unnamed input                             HSIO_ENET_TXD_2       hsio_gpio0_4            470
-        line  5:        unnamed input                             HSIO_ENET_TXD_3       hsio_gpio0_5            471
-        line  6:        unnamed input                             HSIO_ENET_TXEN        hsio_gpio0_6            472
-        line  7:        unnamed input                             HSIO_ENET_TX_CLK      hsio_gpio0_7            473
-        line  8:        unnamed input                             HSIO_ENET_RX_CLK      hsio_gpio0_8            474
-        ....
-```
+  hb_gpioinfo 是适配RDK S100的一个gpio帮助工具，可以查看当前开发板的的PinName和PinNum的对应关系, 目前正在开发中。

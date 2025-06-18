@@ -414,7 +414,7 @@ connect 则可以看到实时视频流。实时预览操作示意如图所示。
 
 ## FAQ
 
-5.1 **control-tool 使用说明**
+**control-tool 使用说明**
 
 进入tuning 目录，cd /app/tuning_tool/control_tool
 

@@ -37,14 +37,13 @@ oops@tiger$ tree . -L 1
 
 ├── Kconfig                       # Kconfig相关
 ├── README.md
-└──spi_drv                   # spi driver相关
+└──spi_drv                        # spi driver相关
 ```
 
 **\$project/hobot-drivers/spi/spi_drv** 目录说明
 
 ``` {.text}
 oops@tiger$ tree . -L 1
-├── hobot_spidev.c                 # hobot_spidev驱动
 ├── Makefile
 ├── spi-dw.c                       # spi驱动核心代码
 ├── spi-dw.h
@@ -66,43 +65,12 @@ oops@tiger$
 
 ### SPI 设备树代码
 
-如下dts是S100相关的dts文件：
+S100中涉及到spi配置相关的dts文件如下：
 
 ```C
-├── Makefile
-├── README.md
-├── drobot-camsys-base.dtsi
-├── drobot-s100-fchm.dtsi
-├── drobot-s100-ipc.dtsi
-├── drobot-s100-irq.dtsi
-├── drobot-s100-pdma.dtsi
-├── drobot-s100-pinctrl.dtsi
-├── drobot-s100-pm.dtsi
-├── drobot-s100-rdk-camsys.dtsi
-├── drobot-s100-rdk.dts
-├── drobot-s100-regmap.dtsi
-├── drobot-s100-scmi.dtsi
-├── drobot-s100-smmu-pmcg.dtsi
-├── drobot-s100-soc.dtsi
-├── drobot-s100-thermal.dtsi
-├── drobot-s100-uio.dtsi
-├── drobot-s100-videosys.dtsi
-├── drobot-s100p-pinctrl.dtsi
-└── include
-    ├── drobot_pwr_recovery.h
-    ├── drobot_reboot_mode.h
-    ├── drobot_reboot_reason.h
-    ├── drobot_regmap.h
-    ├── drobot_s100_clk.h
-    ├── drobot_s100_ipc.h
-    ├── drobot_s100_mcu_clk.h
-    ├── drobot_s100_mcu_rst.h
-    ├── drobot_s100_pd.h
-    ├── drobot_s100_perf.h
-    ├── drobot_s100_rst.h
-    ├── drobot_s100_sensor.h
-    ├── drobot_s100_volt.h
-    └── drobot_suspend_mode.h
+|-- drobot-s100-pinctrl.dtsi       # spi pinctrl相关配置
+|-- drobot-s100-soc.dtsi           # spi 设备节点配置
+|-- drobot-s100-pdma.dtsi          # spi pdma使用配置
 ```
 
 ### SPI 设备树配置说明

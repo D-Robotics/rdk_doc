@@ -117,23 +117,3 @@ void main()
     return;
 }
 ```
-
-## 测试程序说明
-
-`libhbpciehl_sample` 主要用于High Level API的简单功能测试。
-
-```console
-root@hobot:~# /app/sample/S83_Sample/S83E02_Communication/pcie_sample/bin/libhbpciehl_sample -h
-/app/sample/S83_Sample/S83E02_Communication/pcie_sample/bin/libhbpciehl_sample v1.0 - Hobot PCIe High Level API tester
-USAGE:
-/app/sample/S83_Sample/S83E02_Communication/pcie_sample/bin/libhbpciehl_sample [options]
-options:
-    -c <chipID>: remote chip ID
-    -p <topicID>: Publish with topicID
-    -s <topicID>: Subscribe with topicID
-    -u <size>: use user buffer instead of the inner buffer for send/receive
-    -l <count>: Send/Reveive count
-    -v verify data
-    -t show transfer speed
-    -h show help
-```

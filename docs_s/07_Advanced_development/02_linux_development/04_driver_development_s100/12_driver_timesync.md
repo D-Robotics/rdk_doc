@@ -91,8 +91,6 @@ port段使用被配置的网口的名字，如\[eth0\]段，其配置的选项�
 
 #### automotive配置示例
 
-  automotive-master.cfg:
-
 automotive-master.cfg:
 
 ```
@@ -585,9 +583,9 @@ Acore的单时间域方案。
 
 #### 代码位置及目录结构
 
-Acore侧timesync sample代码位于工程目录：``{sdk\_dir}/source/hobot-sp-samples/debian/app/timesync\_demo``
+Acore侧timesync sample代码位于工程目录：``{sdk_dir}/source/hobot-sp-samples/debian/app/timesync_demo``
 
-MCU侧timesync sample代码位于工程目录：``{mcu\_dir}/mcu/Service/TimeSync``
+MCU侧timesync sample代码位于工程目录：``{mcu_dir}/mcu/Service/TimeSync``
 
 ### Acore编译
 

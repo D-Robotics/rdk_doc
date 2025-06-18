@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 7.1.2 配件清单
 
-认证配件清单是指经过 D-Robotics 官方认证，可以适配 RDK S100 开发板的第三方配件配件清单。主要包含基础配件(电源、外壳、散热器)、摄像头、显示屏等类别，清单内容会不定期更新，逐步添加更多的配件型号。
+认证配件清单是指经过 D-Robotics 官方认证，可以适配 RDK S100 开发板的第三方配件清单。主要包含基础配件(电源、外壳、散热器)、摄像头、显示屏等类别，清单内容会不定期更新，逐步添加更多的配件型号。
 
 ## 基础配件{#basic_accessories}
 
@@ -20,7 +20,7 @@ sidebar_position: 2
 
 |   型号  | 软件支持    |  描述   | 供应商  |   购买链接    |
 | ------ | -------- | ------- | ------- | ----------- |
-| IMX219 摄像头（兼容树莓派 5） | 支持V4L2接口及HBN接口 | <li>IMX219 传感器</li><li>800W 像素</li><li> FOV 120度</li><li>MIPI 接口</li> | 微雪  | [购买链接](https://www.waveshare.net/shop/IMX219-200-Camera.htm) |
+| IMX219 摄像头（兼容树莓派 5） | 支持V4L2接口及HBN接口 | <li>IMX219 传感器</li><li>800W 像素</li><li> FOV 120度</li><li>MIPI 接口</li> | 微雪  | [购买链接](https://www.waveshare.net/shop/IMX219-120-Camera.htm) |
 | SC230AI 双目摄像头（V3 硬件版本） | 支持HBN接口    | <li>SC230AI 传感器</li><li>200W 像素</li><li>FOV 178 度</li><li>MIPI 接口</li> | 亚博 | [购买连接](https://item.taobao.com/item.htm?spm=a1z0d.6639537%2F202410.item.d893698797289.57177484f3aFnW&id=893698797289&from=cart&skuId=5743852141425&pisk=gGwSXq90eUY5z6kpAbj2h4Y-9QHQRiWNdHiLjkpyvYH-RvZQXXpFZYlIdr34U4rre2MQAlhL82ryqS4aXLyPZvJIEvDd7NWNQQroKvd-0HY9rqnIx9J-ppHoHzuA1KXNQuqX40IaDOyeid1I2BpLJbhvkD0x20nJeiMxjDDpeXpJME3mkvp-wXEYDcnp2vppwqdx40LJ2LhpDt3mvv3LJvIjHqmKaPXj0_g8Vg535mYFGOESlppLhmQoWu_WdmymVVu_289ppMmSNVE-laL2yRhYxXwHxpGL254nXzLRR22bD8FTWZRry5iQbWaAYBa_l5HjmSbBOVNL45VKGgB8cYgStmhJfIH79z2IZ7thjoH8o50iwsbmc8yZOVcXkaE4c4h_Oz7Dp4P_DrGa3EJZB54bdfHO4gpZ5c7HOnGMdmgNciOHtITJ5uFVG7rjwmm27isXPBc-mmgNciOHtbnm0GSfcUOh.) |
 | SC132GS 双目摄像头       | 支持HBN接口    |  <li>SC132GS 传感器</li><li>200W 像素</li><li> FOV 157度</li><li>MIPI接口</li> |御光| 原厂直采 |
 | SG8S-AR0820C-5300-G2A | 支持V4L2接口及HBN接口  | <li>ONSEMI 8.3MP AR0820 RGGB 传感器</li><li>FOV 120度</li><li>1920\*1080@30fps</li><li>加串器MAXIM max9295a</li>GMSL2/FAKRA 接口 |森云智能 | [购买链接](https://www.sensing-world.com/pd.jsp?id=26)  |
@@ -47,7 +47,7 @@ sidebar_position: 2
 
 | 类型  | 供应商   | 型号         | 描述                                     | 购买链接                                                                                                    |
 |-------|-------|--------------|----------------------------------------|---------------------------------------------------------------------------------------------------------|
-| RS485 | 维特智能 | WTGAHRS5-485 | <li>六轴加速度计</li><li>六轴陀螺仪</li> | [购买链接](https://mall.wit-motion.cn/pc/#/detail?productId=1818234342381350912&shopId=1809199270148489216) |
+| RS485 | 维特智能 | WT61PC-485+485连接线 | <li>六轴加速度计</li><li>六轴陀螺仪</li> | [购买链接](https://detail.tmall.com/item.htm?abbucket=8&id=598376182207&pisk=gOls0DNIoGj1FlFAlRYFOsoQIsPjGeRrBZaxrqCNk5FODsiZyA7qgAkfGDiuHsuwIETbAmqaQ5ENGSgjmmyxgolfSXi5g1-MIqCbgSKy4QRrSVP0M3rWI97RSrzfDGI4WkFLgrGi-qQrSVV0DwSvUv3GlXIGsiUYDeNLlzXTMPCA9eabPoFYX-IKJrELMSEA62IL7z6OHsnA9BUgoGBYBseLpr4uMonYBegLxrNYDv9NOrpTyVTwWLchWOHmWk1AMfdgCusLfy4EOM2gVVh1Gs_05RZ-WktOq3X8pq2jiZfbxVHomznOXnZmO2hte0KFQlH7l4kjvEWjVDM8Ofw1k3FZfXFK1RAlN0ebfvhTdZCx72ZLFxi6fOqtQDwuJJQXZyozvVctdEjKW0r_6yeewUgLHvlgEf-d17Ho75kx2HWaXYaA4-CzVBYlhwwlGyZyRe6cn9sOVVKfVkh8By464eTCjtyT-yZWRes1eRU35DLBRGBd.&rn=8b71112fa9ac193128b4a8625125e912&skuId=5660200207716&spm=a1z10.3-b-s.w4011-23008269807.65.52764094tkJGsV) |
 
 :::tip
 持续更新中....

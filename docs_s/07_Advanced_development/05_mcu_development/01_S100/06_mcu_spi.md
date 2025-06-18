@@ -30,10 +30,10 @@ sidebar_position: 6
 ## 代码路径
 
 - McalCdd/Spi/inc/Spi.h - SPI驱动程序的头文件
-- McalCdd/Spi/src/Spi_Lld.h - SPI底层驱动程序的头文件
+- McalCdd/Spi/inc/Spi_Lld.h - SPI底层驱动程序的头文件
 - McalCdd/Spi/src/Spi.c - SPI驱动程序的源文件
 - McalCdd/Spi/src/Spi_Lld.c - SPI底层驱动程序的源文件
-- McalCdd/Common/Register/Spi_Register.h - SPI寄存器定义文件
+- McalCdd/Common/Register/inc/Spi_Register.h - SPI寄存器定义文件
 - Platform/Schm/SchM_Spi.h - SPI模块的调度管理头文件
 - Config/McalCdd/gen_s100_sip_B_mcu1/Spi/inc/Spi_Cfg.h - SPI配置头文件
 - Config/McalCdd/gen_s100_sip_B_mcu1/Spi/inc/Spi_PBcfg.h - SPI PB配置头文件

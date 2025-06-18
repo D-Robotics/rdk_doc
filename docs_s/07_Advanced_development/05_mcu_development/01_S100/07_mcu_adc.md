@@ -25,7 +25,7 @@ S100 Adc 有一个Adc硬件，包含chennel0-channel13和channel15共15个通道
 | `McalCdd/Adc/src/Adc.c`                       | 实现公共API，调用底层函数。                                                |
 | `McalCdd/Adc/src/Adc_Lld.c`                   | 实现底层硬件操作，直接配置寄存器。                                          |
 | `McalCdd/Adc/src/Adc_Private.c`               | 实现私有函数，辅助驱动内部逻辑。                                            |
-| `McalCdd/Common/Register/Adc_Register.h`      | 定义ADC外设寄存器地址和位域。                                              |
+| `McalCdd/Common/Register/inc/Adc_Register.h`      | 定义ADC外设寄存器地址和位域。                                              |
 | `Platform/Schm/SchM_Adc.h`                    | 管理ADC的访问权限和资源保护（如中断安全）。                                 |
 | `Config/McalCdd/gen_s100_sip_B_mcu1/Adc/inc/Adc_PBcfg.h`          | 定义板级外设配置参数（如通道、采样率等）。               |
 | `Config/McalCdd/gen_s100_sip_B_mcu1/Adc/inc/Adc_Cfg.h`            | 提供通用配置宏或默认配置参数（如最大通道数、中断优先级）。|
