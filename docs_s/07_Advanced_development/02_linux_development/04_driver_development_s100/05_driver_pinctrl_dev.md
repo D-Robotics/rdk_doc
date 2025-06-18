@@ -43,7 +43,7 @@ function信息。
 
 ``` {.shell}
 /* 路径 */
-hobot-drivers/pinctrl/pinctrl-hobot-s100e.c     # S100 驱动数据代码
+hobot-drivers/pinctrl/pinctrl-hobot-s100.c     # S100 驱动数据代码
 ```
 
 ## Pinctrl 驱动使用说明

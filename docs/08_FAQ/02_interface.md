@@ -4,6 +4,11 @@ sidebar_position: 2
 
 # 8.2 接口、外设与驱动
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 ### 40PIN接口
 
 #### Q1: 开发板是否支持将40PIN中的VDD_5V作为电源输入？
@@ -52,7 +57,16 @@ sidebar_position: 2
     * 使用 `ifconfig` 或 `ip addr` 查看网络接口状态和IP配置。
     * 使用 `route -n` 查看路由表信息。
     * 使用 `ping <网关IP>` 测试到网关的连通性。
-5.  **参考官方文档：** 详细的网络配置步骤和故障排除方法，请参考官方文档中关于“[网络配置](../02_System_configuration/01_network_blueteeth.md)”的章节 (请将链接替换为实际有效的文档路径)。
+5.  **参考官方文档：** 详细的网络配置步骤和故障排除方法，请参考官方文档中关于“网络配置”的章节。
+    <Tabs groupId="network_conf">
+    <TabItem value="rdk_x3/x5" label="rdk_x3/x5">
+    [RDK X3/X5 网络配置](../System_configuration/network_blueteeth)
+    </TabItem>
+    <TabItem value="rdk_s100" label="rdk_s100">
+    [RDK S100 网络配置](../rdk_s/System_configuration/network_bluetooth)
+    </TabItem>
+    </Tabs>
+
 
 #### Q5: 开发板无法通过SSH远程连接，可能是什么原因？
 **A:**

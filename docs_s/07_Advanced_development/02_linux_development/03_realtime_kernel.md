@@ -15,6 +15,7 @@ sidebar_position: 3
 如果尚未安装`rt-tests`工具，可以使用以下命令进行安装：
 
 ```
+sudo apt update
 sudo apt install rt-tests
 ```
 

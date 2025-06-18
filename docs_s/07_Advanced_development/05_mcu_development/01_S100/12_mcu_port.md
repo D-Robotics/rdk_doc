@@ -246,7 +246,7 @@ Port整体分为对外接口和"Low Level Driver(LLD)"两大部分，这里只�
 ``` bash
 # Driver source code:
 McalCdd/Port/inc/Port_Func.h
-McalCdd/Prot/src/Port_Func.c
+McalCdd/Port/src/Port_Func.c
 ```
 在Config目录下，定义了MCU提供的外设的PIN的具体PinCtrl配置。
 ```bash

@@ -11,13 +11,14 @@ sidebar_position: 2
 你可以通过以下命令安装内核头文件。
 
 ```bash
-sudo apt install hobot-kernel-headers
+sudo apt install linux-headers-6.1.112-rt43
 ```
 命令运行成功后，内核头文件会被安装到`/usr/src`目录下
 ```bash
 root@ubuntu:~# ls /usr/src/linux-headers-*
-arch   certs   Documentation  firmware  include  ipc      kernel  Makefile  Module.symvers  samples  security  System.map  usr
-block  crypto  drivers        fs        init     Kconfig  lib     mm        net             scripts  sound     tools       virt
+Documentation  Makefile  certs    fs       io_uring  lib  rust     security  usr
+Kbuild         arch      crypto   include  ipc       mm   samples  sound     virt
+Kconfig        block     drivers  init     kernel    net  scripts  tools
 ```
 
 ## 使用示例

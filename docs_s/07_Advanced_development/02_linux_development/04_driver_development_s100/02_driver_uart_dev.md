@@ -17,17 +17,15 @@ S100芯片共有4路uart，即uart0~uart3。其中uart0作为调试控制台使�
 drivers/tty/serial/8250/8250_dw.c   #uart驱动文件
 drivers/tty/serial/8250/8250_port.c    #uart端口操作文件
 drivers/tty/serial/8250/8250_core.c    #8250 uart驱动核心
-hobot-drivers/tty/serial/8250/8250_pdma.c    #uart PDMA操作实现文件
+hobot-drivers/serial/8250_pdma.c    #uart PDMA操作实现文件
 ```
 
 ### 内核配置
 
 ``` {.text}
-/*hobot-drivers/configs/hobot_s100_defconfig*/
+/*hobot-drivers/configs/drobot_s100_defconfig*/
 CONFIG_SERIAL_8250=y   # 8250驱动配置
 CONFIG_SERIAL_8250_CONSOLE=y   #8250 console驱动配置
-CONFIG_SERIAL_8250_EXTENDED=y   #8250驱动扩展项配置
-CONFIG_SERIAL_8250_SHARE_IRQ=y   #8250共享中断驱动配置
 CONFIG_SERIAL_8250_DW=y   #使能Designware独有的feature
 ```
 
@@ -37,6 +35,7 @@ CONFIG_SERIAL_8250_DW=y   #使能Designware独有的feature
 ``` {.text}
 /*kernel/arch/arm64/boot/dts/hobot/drobot-s100-soc.dtsi*/
 uart1: uart@394A0000 {
+      power-domains = <&scmi_smc_pd PD_IDX_LSPERI_TOP>;
       compatible = "snps,dw-apb-uart";
       reg = <0x0 0x394A0000 0x0 0x10000>;
       reg-shift = <2>;

@@ -28,6 +28,7 @@ build_freertos.py是编译的整体入口，但是实际调度到scons时，能�
 3. gcc_arm.py：实际定义编译命令的定义文件，真正生效的入口是settings_freertos.py里面定义的“COMPILER_TOOL”字段，COMPILER_TOOL字段进一步会被Sconscruct文件的Variables添加并最后被env获取到其中的“CC”等配置
 
 ## MCU集成说明
+### MCU企业版
 ```c
 MCU
 ├── Build                # Build系统，包含编译/链接脚本
@@ -37,6 +38,7 @@ MCU
 |   └── Tools            # 编译过程中使用的通用工具
 ├── Common               # 包含所有MCAL模块所需的通用文件和定义
 ├── Config               # 针对各种不同board的McalCdd模块配置
+├── log                  # 编译log
 ├── McalCdd              # 各种模块驱动代码
 ├── OpenSource           # FreeRtos开源代码仓库
 ├── output               # 编译/链接生成文件的所在目录
@@ -46,6 +48,20 @@ MCU
 |   └── Schm             # 模块驱动中可能涉及到exclusive区域定义，可能需要客户选择填充
 ├── samples              # 包含使用样例，包括Can，IPC，Eth等驱动
 ├── Service              # 包含地瓜自研的中间服务代码，比如电源管理，OTA管理，Log/Shell等
+└── Target               # 系统基础代码，比如启动相关，任务定义相关，中断相关等
+```
+### MCU社区版
+McalCdd/Service/Platform等代码为企业版专有，如有需要，请联系[D-Robotics](mailto:developer@d-robotics.cc)获取支持。
+```c
+MCU
+├── Build                # Build系统，包含编译/链接脚本
+├── Config               # 针对各种不同board的McalCdd模块配置
+├── Include              # 主要为驱动和Service文件夹内的头文件
+├── Library              # 主要为驱动和Service静态库文件
+├── log                  # 编译log
+├── OpenSource           # FreeRtos开源代码仓库
+├── output               # 编译/链接生成文件的所在目录
+├── samples              # 包含使用样例，包括Can，IPC，Eth等驱动
 └── Target               # 系统基础代码，比如启动相关，任务定义相关，中断相关等
 ```
 

@@ -78,7 +78,7 @@ control 进行输出控制。
 YNR为yuv域的降噪模块Digital Noise Reduction，YNR支持2DNR与3DNR模式
 
 - S100上共有一个YNR模块，YNR1，只支持ISP1-online-YNR1-online-PYM1场景；
-- 在3DNR模式下，处理的最大宽高为2048*2048，在2DNR模式下支持3840*2160；
+- 在3DNR模式下，处理的最大宽高为2048x2048，在2DNR模式下支持3840x2160；
 
 **PYM**
 
@@ -97,6 +97,16 @@ PYM（Pyramid）作为一个硬件加速模块，对输入的图像按照金字�
 **GDC**
 
 GDC作为一个硬件模块，可将输入的图像进行视角变换、畸变校正和指定角度（0,90,180,270）旋转。
+
+模式支持的输入图像典型尺寸为3840x2160，2688x1944，1920x1080，1280x720，640x480，480x320。
+
+硬件特性如下：
+- 最大分辨率：3840x2160
+- 最小分辨率：96x96（奇数行或者列不支持）
+- 性能：3840x2160，60fps
+- 工作模式：ddr-gdc-ddr
+- 输入格式：YUV420 semi-planar
+- 输出格式：YUV420 semi-planar
 
 #### GDCTool简介
 GDC Tool是一种可在PC上进行处理效果仿真的工具。用户可准备jpg模式的图像，load 到gdc-tool中进行离线校正，校正完成后可以直接保存config.bin文件用于硬件校正，也可用保存layout.json文件生成config.bin进行硬件校正
@@ -2841,7 +2851,7 @@ isp_attr_t
 | 名称        | 类型            | 含义                                                                                                                                 | 最大值 | 最小值 | 默认值 | 是否必选 |
 |-------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------|--------|--------|--------|----------|
 | channel     | isp_channel_t   | isp通道属性                                                                                                                          | \-     | \-     | \-     | 是       |
-| sched_mode  | sched_mode_e    | isp调度模式 0 SCHED_MODE_TDMF 硬件直连 1 SCHED_MODE_MANUAL manual模式 2 SCHED_MODE_PASS_THRU 全online模式                            | 2      | 0      | \-     | 是       |
+| sched_mode  | sched_mode_e    | isp调度模式 1 SCHED_MODE_MANUAL manual模式 2 SCHED_MODE_PASS_THRU 全online模式                                                       | 2      | 1      | \-     | 是       |
 | work_mode   | isp_work_mode_e | isp工作模式 0 ISP_WORK_MODE_NOMAL 普通模式 1 ISP_WORK_MODE_TPG isp输出testpattern模式 2 ISP_WORK_MODE_CIM_TPG cim输出testpattern模式 | 2      | 0      | \-     | 否       |
 | hdr_mode    | hdr_mode_e      | isp hdr模式使能                                                                                                                      | 1      | 0      | \-     | 否       |
 | size        | image_size_t    | isp处理尺寸                                                                                                                          | \-     | \-     | \-     | 否       |
@@ -2853,15 +2863,66 @@ isp_channel_t
 
 | 名称    | 类型     | 含义                                                         | 最大值 | 最小值 | 默认值 | 是否必选 |
 |---------|----------|--------------------------------------------------------------|--------|--------|--------|----------|
-| hw_id   | uint32_t | isp硬件id                                                    | 1      | 0      | \-     | 是       |
+| hw_id   | uint32_t | isp硬件id                                                    | 1      | 0      | -     | 是       |
 | slot_id | uint32_t | isp内部硬件通道 online输入时配置0\~3，offline输入时配置4\~11 | 11     | 0      | 0      | 是       |
 
 image_size_t
 
 | 名称   | 类型     | 含义        | 最大值 | 最小值 | 默认值 | 是否必选 |
 |--------|----------|-------------|--------|--------|--------|----------|
-| width  | uint32_t | isp处理宽度 | 4096   | 32     | \-     | 是       |
-| height | uint32_t | isp处理高度 | 2160   | 32     | \-     | 是       |
+| width  | uint32_t | isp处理宽度 | 4096   | 32     | -     | 是       |
+| height | uint32_t | isp处理高度 | 2160   | 32     | -     | 是       |
+
+isp_ichn_attr_t
+
+| 名称               | 类型         | 含义                              | 最大值 | 最小值 | 默认值 | 是否必选 |
+| -------------------- | -------------- | ----------------------------------- | -------- | -------- | -------- | ---------- |
+| input_crop_cfg   | crop_cfg_t | 输入裁剪配置                      | -      | -      | -      | 否       |
+| in_buf_noclean   | uint32_t    | 输入buffer是否做cache clean       | 1      | 0      | -      | 否       |
+| in_buf_noncached | uint32_t    | 输入buffer是否分配为non cache内存 | 1      | 0      | -      | 否       |
+
+crop_cfg_t
+
+| 名称   | 类型           | 含义         | 最大值 | 最小值 | 默认值 | 是否必选 |
+| -------- | ---------------- | -------------- | -------- | -------- | -------- | ---------- |
+| rect   | image_rect_t | 输入裁剪尺寸 | -      | -      | -      | 否       |
+| enable | HB_BOOL       | 是否是能crop | 1      | 0      | -      | 否       |
+
+image_rect_t
+
+| 名称   | 类型      | 含义     | 最大值 | 最小值 | 默认值 | 是否必选 |
+| -------- | ----------- | ---------- | -------- | -------- | -------- | ---------- |
+| x      | uint32_t | x坐标    | -      | -      | -      | 否       |
+| y      | uint32_t | y坐标    | -      | -      | -      | 否       |
+| width  | uint32_t | rect宽度 | -      | -      | -      | 否       |
+| height | uint32_t | rect高度 | -      | -      | -      | 否       |
+
+isp_ochn_attr_t
+
+| 名称                 | 类型                          | 含义                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 最大值 | 最小值 | 默认值 | 是否必选 |
+| ---------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ---------- |
+| stream_output_mode | isp_stream_output_mode_e | 是否otf输出：1-enable0-disable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 1      | 0      | 0      | 是       |
+| axi_output_mode    | isp_axi_output_mode_e     | ddr输出类型：AXI_OUTPUT_MODE_DISABLE = 0, | 14     | 0      | 0      | 是       |
+|||AXI_OUTPUT_MODE_RGB888 = 1,|||||
+|||AXI_OUTPUT_MODE_RAW8 = 2,
+|||AXI_OUTPUT_MODE_RAW10 = 3,
+|||AXI_OUTPUT_MODE_RAW12 = 4,
+|||AXI_OUTPUT_MODE_RAW16 = 5,
+|||AXI_OUTPUT_MODE_RAW24 = 6,
+|||AXI_OUTPUT_MODE_YUV444 = 7,
+|||AXI_OUTPUT_MODE_YUV422 = 8, /* yuv422 */
+|||AXI_OUTPUT_MODE_YUV420 = 9, /* yuv420 */
+|||AXI_OUTPUT_MODE_IR8 = 10,
+|||AXI_OUTPUT_MODE_YUV420_RAW12 = 11,/* yuv420 & raw12*/
+|||AXI_OUTPUT_MODE_YUV422_RAW12 = 12,/* yuv422 & raw12 */
+|||AXI_OUTPUT_MODE_YUV420_RAW16 = 13, /* yuv420 & raw16 */
+|||AXI_OUTPUT_MODE_YUV422_RAW16 = 14, /* yuv422 & raw16 */ 
+| output_crop_cfg    | crop_cfg_t                  | 输出裁剪配置                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | -      | -      | -      | 是       |
+| out_buf_noinvalid  | uint32_t                     | 输出buffer是否做cacha invalid                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 1      | 0      | 0      | 否       |
+| out_buf_noncached  | uint32_t                     | 输出buffer是否分配为non cached                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 1      | 0      | 0      | 否       |
+| buf_num             | uint32_t                     | 分配输出buffer的个数                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 16     | 3      | 0      | 是       |
+
+
 
 **YNR**
 

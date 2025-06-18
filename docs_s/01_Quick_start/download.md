@@ -40,4 +40,3 @@ sidebar_position: 6
 | [参考设计](https://archive.d-robotics.cc/downloads/hardware/rdk_s100/rdk_s100_mcu_port_expansion_board/drobotics_rdk_s100_mcu_port_expansion_board_reference_design_v1p0.zip) | V1.0.0 | 2025-06-10 | 参考设计。                                                    |
 | 产品渲染图                                                                                                                                                                    | V1.0.0 | 2025-06-10 | 产品渲染图片，便于产品材料二次编辑。                          |
 | 产品实拍图                                                                                                                                                                    | V1.0.0 | 2025-06-10 | 产品实物图，便于进行产品材料二次编辑。                        |
-    

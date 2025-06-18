@@ -17,7 +17,6 @@ PCIe软件框架分为RC和EP两个部分：
 |------|------------------------------------|---------------------------|---------------------------------|
 | both | S13E01C01 PCIe basic driver        | hobot-pcie-common.ko      | hobot-ep-dev/hobot-pcie-common/ |
 | both | S13E01C03 PCIe controller driver   | hobot-pcie.ko             | hobot.c                         |
-| both | S13E01C14 PCIe safety driver       | hobot-pcie-stl.ko         | hobot-pcie-stl/                 |
 | RC   | S13E01C02 PCIe device manager      | hobot-pcie-dev-manager.ko | hobot-ep-dev/hobot-pcie-dev-manager |
 | RC   | S13E01C04 PCIe RC controller driver | hobot-pcie-rc.ko          | hobot-rc.c                      |
 | RC   | S13E01C10 PCIe hybrid device driver | hobot-pcie-ep-dev.ko      | hobot-ep-dev/hobot-pcie-ep-dev  |
@@ -32,7 +31,6 @@ PCIe软件框架分为RC和EP两个部分：
 
 ```shell
 modprobe hobot-pcie
-modprobe hobot-pcie-stl
 modprobe hobot-pcie-rc
 modprobe hobot-pcie-ep-dev
 modprobe hobot-pcie-dev-manager
@@ -42,7 +40,6 @@ modprobe hobot-pcie-dev-manager
 
 ```shell
 modprobe hobot-pcie
-modprobe hobot-pcie-stl
 modprobe hobot-pcie-ep-fun
 ```
 
@@ -52,7 +49,6 @@ modprobe hobot-pcie-ep-fun
 rmmod hobot_pcie_dev_manager
 rmmod hobot_pcie_ep_dev
 rmmod hobot_pcie_rc
-rmmod hobot_pcie_stl
 rmmod hobot_pcie_common
 rmmod hobot_pcie
 ```
@@ -62,7 +58,6 @@ rmmod hobot_pcie
 ```shell
 rmmod hobot_pcie_ep_fun
 rmmod hobot_pcie_ep
-rmmod hobot_pcie_stl
 rmmod hobot_pcie_common
 rmmod hobot_pcie
 ```

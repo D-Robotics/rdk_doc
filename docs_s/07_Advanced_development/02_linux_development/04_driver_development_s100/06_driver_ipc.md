@@ -69,7 +69,7 @@ ipcfhal_cfg: ipcfhal_cfg {
 设备树ipcfhal_cfg节点默认配置了一些实例的属性：
 - 属性中第一列表示实例编号，必须唯一且在有效范围
 - 属性的第二列表示该实例分配的通道数量，用户可以自行配置，最大值为32个
-- 属性的第三列表示每个通道的缓冲buf的个数，用户可以自行配置，最大值为1024个，但受控制空间大小的限制。属性第四列表示缓冲buf的大小，单位是Bytes，用户可以自行配置，通道个数*缓冲buf个数*buf大小需要小于等于0.5MB（目前每个实例预分配了1MB的数据空间，暂不扩增）。
+- 属性的第三列表示每个通道的缓冲buf的个数，用户可以自行配置，最大值为1024个，但受控制空间大小的限制。属性第四列表示缓冲buf的大小，单位是Bytes，用户可以自行配置，通道个数\*缓冲buf个数\*buf大小需要小于等于0.5MB（目前每个实例预分配了1MB的数据空间，暂不扩增）。
 
 单个实例的设备树节点如下：
 
@@ -124,8 +124,8 @@ ipc_instance6: ipc_instance6 {
 
 **设备树配置注意事项:**
 
-- 实例3~8数据段默认预分配了1MB空间，Acore侧使用0.5MB，MCU侧使用0.5MB，所以通道个数*缓冲buf个数*buf大小需要小于等于0.5MB。
-- 实例3~8控制段默认预分配了5KB空间，Acore侧使用2.5KB，MCU侧使用2.5KB，存放环形buf的控制信息和状态信息，所以(缓冲buf个数+2)*16*通道个数+8需要小于等于2.5KB。
+- 实例3~8数据段默认预分配了1MB空间，Acore侧使用0.5MB，MCU侧使用0.5MB，所以通道个数\*缓冲buf个数\*buf大小需要小于等于0.5MB。
+- 实例3~8控制段默认预分配了5KB空间，Acore侧使用2.5KB，MCU侧使用2.5KB，存放环形buf的控制信息和状态信息，所以(缓冲buf个数+2)\*16\*通道个数+8需要小于等于2.5KB。
 - 实例5~6用于地瓜机器人内部测试，用户可按照上面配置，修改设备树节点即可。 // TODO:可以完全放开给到客户
 - 每个实例的通道数量需要小于等于32，缓冲buf个数需要小于等于1024，同时需要满足前两点的不等式。
 - 多个业务使用同一个实例的不同通道或者使用不同实例对传输影响不大，主要是参考buf_size/buf_num是否合适以及业务的开发和维护是否方便。
@@ -157,35 +157,29 @@ Sample中Acore与MCU通过共享内存传输数据，通过mailbox中断通知�
 **代码路径：**
 ```bash
 # Sample源码路径
-${SDK}/source/hobot-io-samples/debian/app/Ipcbox_sample  # ipc C++  Sample
+${SDK}/source/hobot-io-samples/debian/app/ipcbox_sample  # ipc C++  Sample
 ${SDK}/source/hobot-io-samples/debian/app/pyhbipchal_sample # ipc python Sample
 ${SDK}/source/hobot-io/debian/app/pyhbipchal # ipc C++库为转换pyhton库源码
 
 
 # 源码随固件一同打包，可在S100自行编译, 路径如下
-${S100}/app/Ipcbox_sample
+${S100}/app/ipcbox_sample
 ${S100}/app/pyhbipchal_sample
 ```
 
 **目录结构：**
 
 ```bash
-root@ubuntu:/app# tree Ipcbox_sample
-Ipcbox_sample
+root@ubuntu:/app/ipcbox_sample# tree .
+.
 ├── ipcbox_runcmd # 运行mcu侧cmd命令Sample
 │   ├── Makefile # Sample编译框架
-│   ├── Makefile.in # Sample编译框架
-│   └── src
-│       ├── Makefile # Sample编译框架
-│       ├── ipcbox_runcmd.cpp # Sample代码
-│       └── ipcfhal_sample_config.json # Sample配置文件
+│   ├── ipcbox_runcmd.cpp # Sample代码
+│   └── ipcfhal_sample_config.json # Sample配置文件
 └── ipcbox_uart # ipc透传uart Sample
     ├── Makefile # Sample编译框架
-    ├── Makefile.in # Sample编译框架
-    └── src
-        ├── Makefile # Sample编译框架
-        ├── ipcfhal_sample_config.json # Sample配置文件
-        └── libipcfhal_sample.cpp # Sample代码
+    ├── ipcbox_uart.cpp # Sample代码
+    └── ipcfhal_sample_config.json # Sample配置文件
 
 ```
 
@@ -254,44 +248,44 @@ Acore与MCU(POLL方式)之间API Sample运行流程图
 #### RunCmd应用
 
 此sample实现了对读取了ADC chanel的电压。
-1. 开机进入S100后，打开应用目录/app/Ipcbox_sample/ipcbox_runcmd
+1. 开机进入S100后，打开应用目录/app/ipcbox_sample/ipcbox_runcmd
 2. 编译：make
-3. 运行./out/ipcbox_runcmd
-4. 出现`Extracted adc data:{"adc_ch":1,"adc_result":2399,"adc_mv":1054}`打印则测试通过
+3. 运行: ./ipcbox_runcmd
+4. 出现`Extracted adc data:{"adc_ch":1,"adc_result":2411,"adc_mv":1059}`打印则测试通过
 其中表示adc对应pin口，adc_mv表示读出来的电压值
 
 ```
-root@ubuntu:/app/Ipcbox_sample/ipcbox_runcmd# ./out/ipcbox_runcmd
+root@ubuntu:/app/ipcbox_sample/ipcbox_runcmd# ./ipcbox_runcmd
 [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 init success.
 [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 config success.
 [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
 [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
-Extracted adc data:{"adc_ch":1,"adc_result":2399,"adc_mv":1054}
+Extracted adc data:{"adc_ch":1,"adc_result":2411,"adc_mv":1059}
 TxCmdItem(96)
-44 2D 52 55 4E 43 4D 44 01 00 00 00 59 07 00 00
+44 2D 49 50 43 42 4F 58 01 00 00 00 55 07 00 00
 69 70 63 73 65 6E 64 5F 61 64 63 20 31 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 60 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-rx_packet(160):D-RUNCMD
-44 2D 52 55 4E 43 4D 44 01 00 00 00 59 10 00 00
+rx_packet(160):D-IPCBOX
+44 2D 49 50 43 42 4F 58 01 00 00 00 4B 10 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 A0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 7B 22 61 64 63 5F 63 68 22 3A 31 2C 22 61 64 63
-5F 72 65 73 75 6C 74 22 3A 32 33 39 39 2C 22 61
-64 63 5F 6D 76 22 3A 31 30 35 34 7D 00 00 00 00
+5F 72 65 73 75 6C 74 22 3A 32 34 31 31 2C 22 61
+64 63 5F 6D 76 22 3A 31 30 35 39 7D 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 86 D8 E6 67 24 37 42 80 91 71 F9 FF FF 00 00
-CC 74 7A 8B FF FF 00 00 74 47 C0 8B FF FF 00 00
-A4 0F EF C7 AA AA 00 00 00 91 71 F9 01 00 00 00
-E8 91 71 F9 FF FF 00 00 E8 91 71 F9 FF FF 00 00
-01 00 00 00 00 00 00 00 D8 1C F0 C7 AA AA 00 00
-40 C0 C2 8B FF FF 00 00 A4 0F EF C7 AA AA 00 00
+00 C9 F5 5A 58 13 C3 E8 F0 1C E7 DE FF FF 00 00
+CC 74 22 8A FF FF 00 00 74 47 67 8A FF FF 00 00
+A4 0F 1F D4 AA AA 00 00 06 00 00 00 01 00 00 00
+58 1D E7 DE FF FF 00 00 58 1D E7 DE FF FF 00 00
+01 00 00 00 00 00 00 00 D8 1C 20 D4 AA AA 00 00
+40 C0 69 8A FF FF 00 00 A4 0F 1F D4 AA AA 00 00
 
 [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 deinit success.
 [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 deinit success.
@@ -301,12 +295,30 @@ E8 91 71 F9 FF FF 00 00 E8 91 71 F9 FF FF 00 00
 #### Uart透传
 此sample实现了对Uart5的透传，测试时需要将uart5的TX和RX短接。
 
-1. 开机进入S100后，打开应用目录cd /app/Ipcbox_sample
+1. 开机进入S100后，打开应用目录cd /app/ipcbox_sample/ipcbox_uart
 2. 编译：make
-3. 运行/app/Ipcbox_sample/out/libipcf_hal_sample
-4. 出现tx_data and rx_data are identical.打印则测试通过
+3. 运行: ./ipcbox_uart
+4. 出现tx_data and rx_data are identical.打印则测试通过, 参考log如下：
+```
+# ./ipcbox_uart
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 config success.
+tx_data(64)
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-![Acore发送数据到MCU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/mcu-ipc2uart.PNG)
+rx_data(64)
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+tx_data and rx_data are identical.
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 deinit success.
+```
+
 
 ### Python应用
 

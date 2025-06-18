@@ -29,50 +29,33 @@ drivers/i2c/busses/i2c-designware-platdrv.c   # I2C驱动代码源文件
 ### 内核配置位置
 
 ```bash
-/* arch/arm64/configs/drobot_s100_defconfig */
-drivers/i2c/i2c-core-base.c  # I2C框架代码
-drivers/i2c/busses/i2c-designware-platdrv.c   # I2C驱动代码源文件
+/* hobot-drivers/configs/drobot_s100_defconfig */
+CONFIG_I2C_CHARDEV=y 			# I2C驱动应用层配置宏
+CONFIG_I2C_DESIGNWARE_PLATFORM=y 	# DW I2C驱动配置宏
 ```
 
 ### 内核DTS节点配置
 
 
 ``` {.text}
-/*hobot-drivers/kernel-dts/drobot-s100-rdk.dts*/
+/*kernel/arch/arm64/boot/dts/hobot/drobot-s100-soc.dtsi*/
 i2c0: i2c@39420000 {
-      #address-cells = <1>;
-      #size-cells = <0>;
-      compatible = "snps,designware-i2c";
-      reg = <0x0 0x39420000 0x0 0x10000>;
-      clocks = <&clk_240m>;
-      clock-names = "apb_pclk";
-      interrupts = <GIC_SPI PERISYS_I2C0_INTR PERISYS_I2C0_INTR_TRIG_TYPE>;
-      clock-frequency = <400000>;  //接口速率配置,支持100000/400000/1000000/3400000
-      pinctrl-names = "default", "gpio";
-      pinctrl-0 = <&cam_i2c0>;
-      pinctrl-1 = <&cam_i2c0_gpio>;
-      scl-gpios = <&cam_port0 8 GPIO_ACTIVE_HIGH>;
-      sda-gpios = <&cam_port0 9 GPIO_ACTIVE_HIGH>;
-      status = "okay";
-};
-```
-
-``` {.text}
-/*hobot-drivers/kernel-dts/drobot-s100-rdk.dts*/
-&i2c5 {
+        power-domains = <&scmi_smc_pd PD_IDX_LSPERI_TOP>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+        compatible = "snps,designware-i2c";
+        reg = <0x0 0x39420000 0x0 0x10000>;
+        clocks = <&scmi_smc_clk CLK_IDX_TOP_PERI_I2C0>;
+        clock-names = "apb_pclk";
+        interrupts = <GIC_SPI PERISYS_I2C0_INTR PERISYS_I2C0_INTR_TRIG_TYPE>;
+        clock-frequency = <400000>;
+        i2c-sda-hold-time-ns = <50>;
+        pinctrl-names = "default", "gpio";
+        pinctrl-0 = <&cam_i2c0>;
+        pinctrl-1 = <&cam_i2c0_gpio>;
+        scl-gpios = <&cam_port0 8 GPIO_ACTIVE_HIGH>;
+        sda-gpios = <&cam_port0 9 GPIO_ACTIVE_HIGH>;
         status = "okay";
-        gpio_exp_74: gpio@74 {
-                 compatible = "ti,tca9539";
-                 reg = <0x74>;
-                 gpio-controller;
-                 #gpio-cells = <2>;
-                 io-gps-reset {
-                 gpio-hog;
-                 gpios = <13 GPIO_ACTIVE_HIGH>;
-                         output-low;
-                         line-name = "io-gps-reset";
-                 };
-        };
 };
 ```
 
@@ -86,28 +69,75 @@ S100 I2C驱动在Kernel Space下提供了可以设置I2C传输频率的接口，
 
 #### I2C速度配置
 
-默认的I2C速率为400K，支持100k/400k/1M/3.4M四种速率，可通过修改dts中相应i2c节点的clock-frequency完成速率修改。对应到i2c-designware-platdrv.c文件的实际速率选择代码如下：
+默认的I2C速率为400K，支持100k/400k/1M/3.4M四种速率，可通过修改dts中相应i2c节点的clock-frequency完成速率修改。对应到代码中有关实际速率选择代码如下：
 
 ``` {.text}
-const int supported_speeds[] = { 0, 100000, 400000, 1000000, 3400000 };
+kernel/drivers/i2c/busses/i2c-designware-common.c
+I2C支持的速率配置如下：
+static const u32 supported_speeds[] = {
+	I2C_MAX_HIGH_SPEED_MODE_FREQ,
+	I2C_MAX_FAST_MODE_PLUS_FREQ,
+	I2C_MAX_FAST_MODE_FREQ,
+	I2C_MAX_STANDARD_MODE_FREQ,
+};
 ...
-device_property_read_u32(&pdev->dev, "clock-frequency", &dev->clk_freq);
-...
-for (i = 0; i < ARRAY_SIZE(supported_speeds); i++) {
-     if (t->bus_freq_hz == supported_speeds[i])
-         return 0;
+kernel/drivers/i2c/busses/i2c-designware-pcidrv.c
+获取设备树中clock-frequency的函数接口如下：
+i2c_parse_fw_timings(&pdev->dev, t, false);
+展开为：
+void i2c_parse_fw_timings(struct device *dev, struct i2c_timings *t, bool use_defaults)
+{
+	bool u = use_defaults;
+	u32 d;
+
+	i2c_parse_timing(dev, "clock-frequency", &t->bus_freq_hz,
+			 I2C_MAX_STANDARD_MODE_FREQ, u);
+
+	d = t->bus_freq_hz <= I2C_MAX_STANDARD_MODE_FREQ ? 1000 :
+	    t->bus_freq_hz <= I2C_MAX_FAST_MODE_FREQ ? 300 : 120;
+	i2c_parse_timing(dev, "i2c-scl-rising-time-ns", &t->scl_rise_ns, d, u);
+
+	d = t->bus_freq_hz <= I2C_MAX_FAST_MODE_FREQ ? 300 : 120;
+	i2c_parse_timing(dev, "i2c-scl-falling-time-ns", &t->scl_fall_ns, d, u);
+
+	i2c_parse_timing(dev, "i2c-scl-internal-delay-ns",
+			 &t->scl_int_delay_ns, 0, u);
+	i2c_parse_timing(dev, "i2c-sda-falling-time-ns", &t->sda_fall_ns,
+			 t->scl_fall_ns, u);
+	i2c_parse_timing(dev, "i2c-sda-hold-time-ns", &t->sda_hold_ns, 0, u);
+	i2c_parse_timing(dev, "i2c-digital-filter-width-ns",
+			 &t->digital_filter_width_ns, 0, u);
+	i2c_parse_timing(dev, "i2c-analog-filter-cutoff-frequency",
+			 &t->analog_filter_cutoff_freq_hz, 0, u);
 }
+验证I2C速率是否有效的函数接口如下：
+i2c_dw_validate_speed(dev);
+展开为：
+int i2c_dw_validate_speed(struct dw_i2c_dev *dev)
+{
+	struct i2c_timings *t = &dev->timings;
+	unsigned int i;
 
-dev_err(dev->dev,
-     "%d Hz is unsupported, only 100kHz, 400kHz, 1MHz and 3.4MHz are supported\n",
-     t->bus_freq_hz);
+	/*
+	 * Only standard mode at 100kHz, fast mode at 400kHz,
+	 * fast mode plus at 1MHz and high speed mode at 3.4MHz are supported.
+	 */
+	for (i = 0; i < ARRAY_SIZE(supported_speeds); i++) {
+		if (t->bus_freq_hz == supported_speeds[i])
+			return 0;
+	}
 
-return -EINVAL;
+	dev_err(dev->dev,
+		"%d Hz is unsupported, only 100kHz, 400kHz, 1MHz and 3.4MHz are supported\n",
+		t->bus_freq_hz);
+
+	return -EINVAL;
+}
 ```
 
 ### User Space
 
-通常，I2C设备由内核驱动程序控制，但也可以从用户态访问总线上的所有设备，通过/dev/i2c-%d接口来访问，Kernel下面的Documentation/i2c/dev-interface文档里有详细的介绍。
+通常，I2C设备由内核驱动程序控制，但也可以从用户态访问总线上的所有设备，通过/dev/i2c-%d接口来访问，Kernel下面的Documentation/i2c/dev-interface.rst文档里有详细的介绍。
 
 #### Debug 接口
 
@@ -119,9 +149,9 @@ return -EINVAL;
 root@ubuntu:/# cat /sys/kernel/debug/dw_i2c0/registers
 39420000.i2c registers:
 =================================
-CON:            0x00000075
+CON:            0x00000065
 SAR:            0x00000055
-DATA_CMD:       0x00000000
+DATA_CMD:       0x00000800
 INTR_STAT:      0x00000000
 INTR_MASK:      0x00000000
 RX_TL:          0x00000000
@@ -129,7 +159,7 @@ TX_TL:          0x00000002
 STATUS:         0x00000006
 TXFLR:          0x00000000
 RXFLR:          0x00000000
-SDA_HOLD:       0x00010001
+SDA_HOLD:       0x0001000c
 TX_ABRT:        0x00000000
 EN_STATUS:      0x00000000
 CLR_RESTA:      0x00000000
@@ -166,7 +196,7 @@ echo 0 > /sys/kernel/debug/dw_i2c0/fifodump_en
 
 **fifodump 接口**
 
-临时存储I2C数据，fifodump\_en使能条件下通过cat打印。
+临时存储I2C数据，fifodump_en使能条件下通过cat打印。
 
 传输正常：
 
@@ -289,12 +319,12 @@ delete_device  device  i2c-dev  name  new_device  of_node  power  subsystem  uev
 ``` {.text}
 root@ubuntu:~# i2cdetect -r -y 3
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:          -- -- -- -- -- -- -- -- -- -- -- -- --
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-40: 40 41 42 43 44 45 -- 47 -- -- -- -- -- 4d -- --
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-70: -- -- -- -- -- -- UU --
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --  
 ```

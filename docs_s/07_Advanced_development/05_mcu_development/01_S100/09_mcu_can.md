@@ -8,7 +8,7 @@ sidebar_position: 9
 
 - 最大可使用CAN controller数量：10。
 - CAN最高传输速率：8M。(受限于transceiver的波特率限制，目前实验室只测试验证到5M波特率。)
-- 个controller的Ram内划分的Block个数：
+- 一个controller的Ram内划分的Block个数：
     - CAN0~CAN3：4 Block (可变payload);
     - CAN4~CAN9：4 Block (可变payload)+ 4 Block(固定payload)。
 - 一个controller支持的最大Mailbox个数为128。
@@ -130,12 +130,115 @@ SJW必须满足: SJW≤min⁡(Phase_Seg1,Phase_Seg2)=min⁡(4,2)=2
 | SJW             | 1 TQ           | 0                |
 | 延迟补偿偏移量  | 3 TQ           | 3                |
 
+#### 6. 将结果更新到配置文件中
+配置文件路径:
+```
+${mcu_sdk}/Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
+```
+
+配置文件中存在两个波特率相关的重要结构体，下面以CAN5为例分别说明：
+- Can_aControllerConfig：用于配置 CAN 控制器。每个控制器都有一个对应的配置项
+```c
+static const Can_ControllerConfigType Can_aControllerConfig[CAN_CONTROLLER_CONFIG_COUNT]=
+{
+    ...
+ {
+        /* Controller ID configured */
+        (uint8)5U,
+        /* Hw controller Offset */
+        (uint8)5U,
+        /* Base Address */
+        FLEXCAN_5_BASE,
+        /* Activation or not */
+        (boolean)TRUE,
+        /* Bus Off uses polling or not */
+        (boolean)TRUE,
+        /* Global mask of Legacy FIFO (not used) */
+        (uint32)0xFFFFFFFFU,
+        /* Acceptance Mode of Legacy FIFO (not used)*/
+        CAN_LEGACY_FIFO_FORMAT_A,
+        /* Legacy FIFO Warning Notification */
+        NULL_PTR,
+        /* Legacy FIFO Overflow Notification */
+        NULL_PTR,
+        /* Enhanced FIFO Overflow Notification */
+        NULL_PTR,
+        /* Error interrupt enable or not */
+        (boolean)TRUE,
+        /* Can Error Notification */
+        Can_ErrorNotif,
+        /* CanFd Error Notification */
+        CanFd_ErrorNotif,
+        /* Default Baudrate ID, 4--1M+5M 5--1M+8M */
+        (uint16)4U,
+         /* Baudrate config Count*/
+        (uint16)6U,
+        /* Pointer to baudrate config Structure */
+        Can_aBaudrateConfig_Ctrl5,
+        /* Pointer to LLD structure to IP config */
+        &Flexcan_aCtrlConfigPB[5U],
+        /* HwObject count */
+        (uint8)9U,
+        /* Point to group of HwObject that referenced to the current Controller */
+        Can_apHwObject_Ctrl5
+    },
+    ...
+}
+```
+- Can_aBaudrateConfig_Ctrl5：用于定义特定控制器的波特率配置，这是一个大数组，上述步骤中生成的参数均写到这个数组中
+```c
+static const Can_BaudrateConfigType Can_aBaudrateConfig_Ctrl5[6U]=
+{
+    {
+        /*Enhance CBT support */
+        (boolean)TRUE,
+        /* Tx Bit Rate Switch or not */
+        (boolean)TRUE,
+        /* CanFd support */
+        (boolean)TRUE,
+        /* Nominal bit rate */ //仲裁段配置
+        {
+            (uint8)6U, // 传播段(prop_seg)‌
+            (uint8)7U, // 相位缓冲段1(phase_seg1)‌
+            (uint8)3U, // 相位缓冲段2(phase_seg2)‌
+            (uint16)3U, // 预分频值（Prescaler）
+            (uint8)1U //同步跳转宽度(SJW)
+        },
+        /* Data bit rate */ //数据段配置
+        {
+            (uint8)3U,
+            (uint8)3U,
+            (uint8)1U,
+            (uint16)3U,
+            (uint8)1U
+        },
+
+        /* Tx Arbitration Start delay */
+        (uint8)12U, // 延迟补偿偏移量(Transceiver Delay Compensation Offset)
+        /* Tranceiver Delay Disable */
+        (boolean)FALSE,
+        (uint8)0U
+    },
+    ...
+```
+
+RDK S100默认配置了6组参数，用户可以通过修改Can_aControllerConfig中的u16DefaultBaudrateID成员值来选择波特率,下表为索引对应的波特率参数：
+| u16DefaultBaudrateID | 仲裁段频率 | 数据段频率 |
+|----------------------|------------|------------|
+| 0                    | 500K       | 1M         |
+| 1                    | 500K       | 2M         |
+| 2                    | 1M         | 2M         |
+| 3                    | 1M         | 5M（短距离:小于50m） |
+| 4                    | 1M         | 5M（长距离:大于50m） |
+| 5                    | 1M         | 8M         |
+
+
 
 ## 应用sample
 
 ### 使用指南
 
-MCU侧CAN2IPC源码目录：mcu/Service/HouseKeeping/can_ipc/hb_CAN2IPC.c
+MCU侧CAN2IPC源码目录：mcu/Service/HouseKeeping/can_ipc/src/hb_CAN2IPC.c
 
 - 源码中hb_CAN2IPC_MainFunction函数被OS周期性调用，其内部通过调用hb_CAN2IPC_Proc 函数将指定的CAN控制器数据通过IPC转发到Acore。
 - hb_CAN2IPC_Proc 函数中三个传入参数分别为：CAN控制器、ipc instance、ipc 指定instance下的虚拟chennel。
@@ -300,7 +403,111 @@ int main(int argc, char *argv[])
 
 ### ACORE侧实例说明
 
+#### 简单的can收发sample
+
+##### 目录介绍
+```
+// /app/Can/can_send
+.
+├── Makefile // 主编译脚本
+├── canhal_send.c // 发送一帧标准帧数据
+└── config // 配置文件目录
+    ├── channels.json  // 通道映射配置文件
+    ├── ipcf_channel.json  // 通道映射配置文件
+    └── nodes.json // 通道映射配置文件
+
+// /app/Can/can_get
+.
+├── Makefile // 主编译脚本
+├── canhal_get.c // while 1循环，接收数据
+└── config // 配置文件目录
+    ├── channels.json   // 通道映射配置文件
+    ├── ipcf_channel.json  // 通道映射配置文件
+    └── nodes.json  // 通道映射配置文件
+```
+
+#### 使用前提
+
+这里仅给出一个简单的sample，实际应用中需要根据实际需求进行修改。
+
+使用前提：
+- MCU1正常运行
+- 硬件连接：Can5连接Can6
+- 由于can_send和can_get都使用的instance channel4(默认映射来自Can5的数据)，**由于Ipc单个channel只能被一个线程使用**，因此修改can_send中的ipcf_channel.json，改为使用instance channel6，改动如下
+
+```json
+{
+  "enable" : true,
+  "libipcf_path" : "/usr/hobot/lib/libhbipcfhal.so.1",
+  "channels" : [
+    {
+      "id" : 0,
+      "channel" : {
+        "name" : "bypass",
+        "instance": 0,
+        "channel": 6, // 这里由4改成了6
+        "fifo_size": 64000,
+        "fifo_type": 0,
+        "pkg_size_max": 4096,
+        "dev_path":"/dev/ipcdrv",
+        "dev_name":"ipcdrv",
+        "recv_timeout" : 4000
+      }
+    }
+  ]
+}
+```
+
+#### 使用方式
+1. 分别编译can_send和can_get两个sample
+2. 进入can_get目录执行以下命令
+```bash
+./canhal_get bypass &
+```
+3. 进入can_send目录执行以下命令
+```bash
+root@ubuntu:/app/Can/can_send# ./canhal_send bypass 6
+[CANHAL][INFO][ipcf_dev.cpp:32][2025-2-20 21:43:47.522]:the path of ipcf plugin is /usr/hobot/lib/libhbipcfhal.so.1.
+group name is bypass
+[CANHAL][INFO][comps_mgr.cpp:158][2025-2-20 21:43:47.523]:channel constructor Register dev: ipcf success.
+[CANHAL][INFO][node.cpp:17][2025-2-20 21:43:47.523]:channel id is 0
+[INFO][hb_ipcf_hal.cpp:282] [channel] bypass [ins] 0 [id] 6 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] bypass [ins] 0 [id] 6 config success.
+[CANHAL][INFO][node.cpp:39][2025-2-20 21:43:47.523]:io_channel init successful
+[CANHAL][INFO][node.cpp:44][2025-2-20 21:43:47.523]:protocol is built_1.0
+Send end, send package total: 1 frame total: 1
+[CANHAL][INFO][can_hal_impl.cpp:120][2025-2-20 21:43:47.524]:Deinit node: bypass
+[INFO][hb_ipcf_hal.cpp:553] [channel] bypass [ins] 0 [id] 6 deinit success.
+[CANHAL][INFO][can_hal_impl.cpp:128][2025-2-20 21:43:47.524]:Deinit node: bypass
+[CANHAL][INFO][channel_ctor.cpp:47][2025-2-20 21:43:47.524]:Deinit device: ipcf
+*********************************************
+[bypass] [pack]length: 1 soc_ts: 1186831 mcu_ts: 1191955
+[canhal_get] [bypass] [canframe] canid is 0x00000131 timestamp is 0x123013 data is:
+ 0x0  0xaa  0xaa  0xaa  0xaa  0xaa  0xaa  0xfc
+```
+4. 出现如下打印则测试成功：
+```
+[canhal_get] [bypass] [canframe] canid is 0x00000131 timestamp is 0x10b221 data is:
+ 0x0  0xaa  0xaa  0xaa  0xaa  0xaa  0xaa  0xfc
+```
+
+
 #### 多通道传输
+
+##### 目录介绍
+```
+// /app/Can/can_multi_ch
+.
+├── Makefile // 主编译脚本
+├── config  // 配置文件目录
+│   ├── channels.json // 通道映射配置文件
+│   ├── ipcf_channel.json // IPCF通道映射配置文件
+│   └── nodes.json // Can虚拟设备映射配置文件
+├── main.cpp // 主程序
+├── readme.md // 说明文件
+└── run.sh // 运行脚本
+```
+
 ##### 此sample实现CAN总线多通道数据发送与接收：
 - **硬件连接**：Can6连接Can7， Can8连接Can9,CAN5连接其他Can设备，不可不接。
 - **发送线程**：为每个通道创建独立线程发送数据，数据内容固定。
@@ -315,18 +522,6 @@ int main(int argc, char *argv[])
 - 被动接收数据，不进行数据处理
 - 超过5s未收到数据则退出程序
 
-##### 目录介绍
-```
-.
-├── Makefile // 主编译脚本
-├── config  // 配置文件目录
-│   ├── channels.json // 通道映射配置文件
-│   ├── ipcf_channel.json // IPCF通道映射配置文件
-│   └── nodes.json // Can虚拟设备映射配置文件
-├── main.cpp // 主程序
-├── readme.md // 说明文件
-└── run.sh // 运行脚本
-```
 ##### 依赖
 - `pthread`线程库
 - `hobot_can_hal` CAN接口库
