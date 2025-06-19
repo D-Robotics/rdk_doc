@@ -145,25 +145,27 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 :::tip
 
 Before burning the Ubuntu system image, please prepare the following:
-- Micro SD card with a capacity of at least 8GB
-- SD card reader
-- Download the image burning tool balenaEtcher (available for download [here](https://www.balena.io/etcher/))
+- A Micro SD card with at least 8GB capacity
+- An SD card reader
+- Download the image burning tool Rufus ([click here to visit the official website](https://rufus.ie/))
 :::
 
-balenaEtcher is a PC-side boot disk creation tool that supports multiple platforms such as Windows/Mac/Linux. The process of creating an SD boot card is as follows:
-1. Open the balenaEtcher tool, click the `Flash from file` button, and select the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the burning image.
+Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
+1. Open Rufus and select the target Micro SD card under the "Device" dropdown.
 
-    ![image-X3-Update-balena1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+   ![image-rufus-select-device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device.png)
 
-2. Click the `Select target` button and select the corresponding Micro SD storage card as the target storage device.
+2. Click the "Select" button and choose the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the image to burn.
 
-    ![image-X3-Update-balena3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+   ![image-rufus-select-img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img.png)
 
-3. Click the `Flash` button to start burning. When the tool prompts `Flash Complete`, it means the image burning is complete. You can close balenaEtcher and remove the storage card.
+3. Keep other parameters as default, then click the "Start" button and wait for the burning process to complete. Once finished, you can close Rufus and remove the SD card.
 
-    ![image-X3-Update-balena4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+   ![image-rufus-flash](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash.png)
 
-</TabItem><TabItem value="x3md" label="RDK X3 Module">
+</TabItem>
+
+<TabItem value="x3md" label="RDK X3 Module">
 
 The RDK X3 Module supports booting the system from two modes: eMMC and SD card:
 

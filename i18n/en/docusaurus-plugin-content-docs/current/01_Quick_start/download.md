@@ -148,7 +148,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
     </tr>
     <tr>
       <td>Image Flashing Tools</td>
-      <td><a href="https://etcher.balena.io/">BalenaEtcher</a><br /><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">rufus</a></td>
+      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">rufus</a></td>
       <td>Software tools for writing image files to SD cards</td>
     </tr>
     <tr>

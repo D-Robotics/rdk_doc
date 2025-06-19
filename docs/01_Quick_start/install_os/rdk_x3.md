@@ -163,21 +163,23 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=1
 在烧录Ubuntu系统镜像前，需要做如下准备：
 - 准备至少8GB容量的Micro SD卡
 - SD 读卡器
-- 下载镜像烧录工具balenaEtcher（可[点击此处下载](https://www.balena.io/etcher/)）
+- 下载镜像烧录工具Rufus（可[点击此处前往官网](https://rufus.ie/)）
 :::
 
-balenaEtcher是一款支持Windows/Mac/Linux等多平台的PC端启动盘制作工具，制作SD启动卡流程如下：
-1. 打开balenaEtcher工具，点击`Flash frome file`按钮，选择解压出来的`ubuntu-preinstalled-desktop-arm64.img`文件作为烧录镜像 
+Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD启动卡流程如下：
+1. 打开Rufus工具，在“设备”下拉框中选择对应的Micro SD存储卡作为目标设备。
 
-    ![image-X3-Update-balena1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-rufus-select-device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device.png)
 
-2. 点击`Select target`按钮，选择对应的Micro SD存储卡作为目标存储设备  
+2. 点击“选择”按钮，选择解压出来的`ubuntu-preinstalled-desktop-arm64.img`文件作为烧录镜像。
 
-    ![image-X3-Update-balena3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-rufus-select-img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img.png)
 
-3. 点击`Flash`按钮开始烧录，待工具提示`Flash Complete`时，表示镜像烧录完成，可以关闭balenaEtcher并取出存储卡
+3. 其他参数保持默认，点击“开始”按钮，等待烧录完成。烧录完成后，可以关闭Rufus并取出存储卡。
 
-    ![image-X3-Update-balena4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-rufus-flash](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash.png)
+
+</TabItem>
 
 </TabItem>
 

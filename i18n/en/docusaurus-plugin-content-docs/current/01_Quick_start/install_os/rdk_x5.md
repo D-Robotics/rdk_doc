@@ -77,25 +77,28 @@ After downloading, extract the Ubuntu system image file, such as `ubuntu-preinst
 ### Flashing the System
 
 :::tip
-Before flashing the Ubuntu system image, prepare the following:  
-- A Micro SD card with at least 8GB capacity  
-- An SD card reader  
-- Download the image flashing tool, balenaEtcher ([Download here](https://www.balena.io/etcher/))  
+
+Before flashing the Ubuntu system image, please prepare the following:
+- A Micro SD card with at least 16GB capacity
+- An SD card reader
+- Download the Rufus image flashing tool ([click here to download](https://rufus.ie/))
+
 :::
 
-**balenaEtcher** is a cross-platform tool for creating bootable SD cards, supporting Windows, macOS, and Linux. Follow these steps to create an SD boot card:
+Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
 
-1. Open the balenaEtcher tool, click the `Flash from file` button, and select the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the flashing image.
+1. Open Rufus and select the target Micro SD card from the "Device" dropdown menu.
 
-    ![image-X3-Update-balena1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena1.png)
+    ![image-rufus-select-device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device.png)
 
-2. Click the `Select target` button and choose the Micro SD card as the target storage device.
+2. Click the "Select" button and choose the extracted `rdk-x5-ubuntu-preinstalled-desktop-arm64.img` file as the image to flash.
 
-    ![image-X3-Update-balena3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena3.png)
+    ![image-rufus-select-img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img.png)
 
-3. Click the `Flash` button to start flashing. Once the tool displays `Flash Complete`, the flashing process is complete. You can close balenaEtcher and remove the SD card.
+3. Keep the other parameters as default, then click "Start" to begin flashing. Once the process is complete, you can close Rufus and remove the SD card.
 
-    ![image-X3-Update-balena4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-X3-Update-balena4.png)
+    ![image-rufus-flash](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash.png)
+
 
 ---
 

@@ -155,7 +155,7 @@ sidebar_position: 6
     </tr>
     <tr>
       <td>镜像烧录工具</td>
-      <td><a href="https://etcher.balena.io/">BalenaEtcher</a><br /><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">rufus</a></td>
+      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">rufus</a></td>
       <td>用于将镜像文件写入到SD卡的软件工具</td>
     </tr>
     <tr>
