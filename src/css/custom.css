@@ -28,3 +28,20 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* 控制目录右侧缩进层级 */
+.table-of-contents__link--level-3 {
+  margin-left: 1rem;
+}
+
+.table-of-contents__link--level-4 {
+  margin-left: 2rem;
+  font-size: 0.95em;
+  color: #666;
+}
+
+.table-of-contents__link--level-5 {
+  margin-left: 3rem;
+  font-size: 0.9em;
+  color: #999;
+}
