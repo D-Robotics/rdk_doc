@@ -181,7 +181,6 @@ Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD�
 
 </TabItem>
 
-</TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
