@@ -39,7 +39,6 @@ root@ubuntu:/app/multimedia_samples/sample_vin/get_vin_data# ./get_vin_data -h
 Usage: get_vin_data [OPTIONS]
 Options:
 	-s <sensor_index>      Specify sensor index
-	-o <online>            Specify the connection method from VIN to ISP, 1: online 0: offline
 	-l <link_port>         Specify the port for connecting serdes sensors, 0:A 1:B 2:C 3:D
 	-h                     Show this help message
 index: 0  sensor_name: imx219-30fps             config_file:linear_1920x1080_raw10_30fps_1lane.c
