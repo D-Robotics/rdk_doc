@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">1.1.1 RDK S100 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" property="og:title" content="1.1.1 RDK S100 | RDK DOC"><meta data-rh="true" name="description" content="image-rdk100mainboardoverview"><meta data-rh="true" property="og:description" content="image-rdk100mainboardoverview"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Quick_start/hardware_introduction/rdk_s100" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"1. 快速开始","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start"},{"@type":"ListItem","position":2,"name":"1.1 硬件简介","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/01_hardware_introduction"},{"@type":"ListItem","position":3,"name":"1.1.1 RDK S100","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.50b7a244.css">
-<script src="/rdk_doc/assets/js/runtime~main.bc1a7ea6.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.88147de1.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.2ed4ca9e.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.e4fcd7a2.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -26,15 +26,19 @@
 <li>装配时，避免对印刷电路板和连接器造成机械或电气损坏。</li>
 <li>通电时，避免手触摸印刷电路板及设备边缘，减少静电放电损坏的风险。</li>
 </ol></div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>对于有独立外部供电的外设，开发板需要先上电，然后外设再上电，若外设早于 S100 开发板先上电且对主板有电源倒灌的情景时，开发板可能会触发保护状态无法启动。</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="产品介绍">产品介绍<a href="#产品介绍" class="hash-link" aria-label="产品介绍的直接链接" title="产品介绍的直接链接">​</a></h2>
 <p>地瓜机器人 RDK S100 系列开发者套件搭载 S100 智能计算芯片，BPU 可提供高达 80/128TOPS 的算力，是一款面向智能计算与机器人应用的开发板，接口丰富，极致易用，独特的异构设计可以同时兼顾感知推理和实时运动控制的需求，减少控制系统的体积和复杂度。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="主要功能">主要功能<a href="#主要功能" class="hash-link" aria-label="主要功能的直接链接" title="主要功能的直接链接">​</a></h3>
-<table><thead><tr><th>名称</th><th>参数</th></tr></thead><tbody><tr><td>核心规格</td><td>CPU: 6x ARM® Cortex®-A78AE <br>MCU: 4x ARM® Cortex®-R52+ (1× DCLS, 1× Split-Lock)<br>BPU: 1x BPU Nash<br>GPU: ARM Mali-G78AE<br>RAM: 96bit LPDDR5, Up to 6400Mbps</td></tr><tr><td>存储</td><td>板载 64GB EMMC<br>提供 M.2 Key M 硬盘接口</td></tr><tr><td>互联接口</td><td>4 x USB 3.0 Type-A 接口<br>1 x USB 2.0 Type-C（镜像烧录、MCU/Main Domain 串口调试） <br>1 x JTAG 调试接口（Main &amp; MCU Domain） <br>1 x 40-Pin GPIO（SPI、I2C、I2S、PWM、UART 等） <br>1 x MCU 接口扩展（供 MCU Domain 使用）</td></tr><tr><td>显示</td><td>1 x HDMI Type-A 接口，最高支持 2560x1440@60Hz</td></tr><tr><td>相机</td><td>1 x 相机扩  展接口，提供 3x 4lane MIPI CSI-2</td></tr><tr><td>音频</td><td>1 x I2S/PCM</td></tr><tr><td>网络能力</td><td>2 x RJ45 接口（1000M 以太网）<br>M.2 Key E（接入 WiFi &amp; BT 模组）<br></td></tr><tr><td>电源</td><td>电源适配器：包装内包含 90W 电源适配器<br>电源输入：板卡支持 12-20V DC, Max 150W</td></tr><tr><td>温度范围</td><td>0℃ ~ 45℃</td></tr></tbody></table>
+<table><thead><tr><th>名称</th><th>参数</th></tr></thead><tbody><tr><td>核心规 格</td><td>CPU: 6x ARM® Cortex®-A78AE <br>MCU: 4x ARM® Cortex®-R52+ (1× DCLS, 1× Split-Lock)<br>BPU: 1x BPU Nash<br>GPU: ARM Mali-G78AE<br>RAM: 96bit LPDDR5, Up to 6400Mbps</td></tr><tr><td>存储</td><td>板载 64GB EMMC<br>提供 M.2 Key M 硬盘接口</td></tr><tr><td>互联接口</td><td>4 x USB 3.0 Type-A 接口<br>1 x USB 2.0 Type-C（镜像烧录、MCU/Main Domain 串口调试） <br>1 x JTAG 调试接口（Main &amp; MCU Domain） <br>1 x 40-Pin GPIO（SPI、I2C、I2S、PWM、UART 等） <br>1 x MCU 接口扩展（供 MCU Domain 使用）</td></tr><tr><td>显示</td><td>1 x HDMI Type-A 接口，最高支持 2560x1440@60Hz</td></tr><tr><td>相机</td><td>1 x 相机扩展接口，提供 3x 4lane MIPI CSI-2</td></tr><tr><td>音频</td><td>1 x I2S/PCM</td></tr><tr><td>网络能力</td><td>2 x RJ45 接口（1000M 以太网）<br>M.2 Key E（接入 WiFi &amp; BT 模组）<br></td></tr><tr><td>电源</td><td>电源适配器：包装内包含 90W 电源适配器<br>电源输入：板卡支持 12-20V DC, Max 150W</td></tr><tr><td>温度范围</td><td>0℃ ~ 45℃</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="拓扑图">拓扑图<a href="#拓扑图" class="hash-link" aria-label="拓扑图的直接链接" title="拓扑图的直接链接">​</a></h3>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_s100_architecture_diagram.png" alt="image-rdk_s100_architecture_diagram" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="接口图">接口图<a href="#接口图" class="hash-link" aria-label="接口图的直接链接" title="接口图的直接链接">​</a></h3>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mainboard_interface.png" alt="image-rdk_100_mainboard" class="img_ev3q"></p>
 <table><thead><tr><th>序号</th><th>功能</th><th>序号</th><th>功能</th></tr></thead><tbody><tr><td>J1</td><td>主板供电接口</td><td>J22</td><td>MCU 域的 16-Pin 接口</td></tr><tr><td>J2</td><td>主板功能接插件</td><td>J23</td><td>MCU 扩展板 100-Pin 接口</td></tr><tr><td>J3</td><td>RTC 电池接口</td><td>J24</td><td>40-Pin 接口</td></tr><tr><td>J8</td><td>风扇控制接口</td><td>J25</td><td>相机口展板 100-Pin 接口</td></tr><tr><td>J15</td><td>Main 域和 MCU 域 JTAG 接口</td><td>K1</td><td>重置按钮</td></tr><tr><td>J16</td><td>Type-C 接口，用于烧录，Main 域和 MCU 域调试</td><td>K2</td><td>睡眠按钮</td></tr><tr><td>J17</td><td>M.2 Key E 接口</td><td>SW1</td><td>电源开关</td></tr><tr><td>J18</td><td>M.2 Key M 接口</td><td>SW2</td><td>烧录模式开关</td></tr><tr><td>J19&amp;J20</td><td>4x USB3.0 Type-A 接口</td><td>SW3&amp;SW6</td><td>引脚功能切换拨码开关</td></tr><tr><td>J21</td><td>HDMI 接口</td><td>U43&amp;U45</td><td>2x 千兆 RJ45 网口</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wi-fi-和-ssd-安装">Wi-Fi 和 SSD 安装<a href="#wi-fi-和-ssd-安装" class="hash-link" aria-label="Wi-Fi 和 SSD 安装的直接链接" title="Wi-Fi 和 SSD 安装的直接链接">​</a></h3>
+<div class="theme-admonition theme-admonition-danger admonition_xJq3 alert alert--danger"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>危险</div><div class="admonitionContent_BuS1"><p>请在开发板电源关闭，且 DC 插头断开的情景下进行安装。</p></div></div>
+<video controls="" width="90%" preload="metadata"><source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/wifi_ssd_assembly_guide.mp4" type="video/mp4"><p>您的浏览器不支持 video 标签。</p></video>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="接口说明">接口说明<a href="#接口说明" class="hash-link" aria-label="接口说明的直接链接" title="接口说明的直接链接">​</a></h2>
 <p>接口定义: <a href="/rdk_doc/assets/files/drobotics_rdk_s100_pinlist_v1p0-4fdacf53caf0e8433f5add8e6edf1ff0.xlsx" target="_blank">drobotics_rdk_s100_pinlist_v1p0.xlsx</a></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="dc-jack-j1">DC Jack (J1)<a href="#dc-jack-j1" class="hash-link" aria-label="DC Jack (J1)的直接链接" title="DC Jack (J1)的直接链接">​</a></h3>
@@ -42,37 +46,26 @@
 <li>典型场景建议使用 70W 的供电电源（<a href="mailto:12V@5.5A" target="_blank" rel="noopener noreferrer">12V@5.5A</a>）。</li>
 <li>极限场景建议使用 150W 的供电电源（<a href="mailto:20V@7.5A" target="_blank" rel="noopener noreferrer">20V@7.5A</a>）。</li>
 </ul></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="automatic-j2">Automatic (J2)<a href="#automatic-j2" class="hash-link" aria-label="Automatic (J2)的直接链接" title="Automatic (J2)的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="automatic-ext-ctrl-connector-j2">Automatic EXT CTRL Connector (J2)<a href="#automatic-ext-ctrl-connector-j2" class="hash-link" aria-label="Automatic EXT CTRL Connector (J2)的直接链接" title="Automatic EXT CTRL Connector (J2)的直接链接">​</a></h3>
+<p>RDK S100 主板有一个 Automatic EXT CTRL Connector 12-Pin 连接器，主要作用如下：</p>
+<ul>
+<li>将主板上的系统运行灯、电源指示灯拓展到主板外部，以便观察主板处于何种工作状态。</li>
+<li>将烧录开关、休眠按键、复位按键、电源开关拓展到主板外部，便于整机装机后人工操作。</li>
+</ul>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><ol>
-<li>12pin 连接器主要作用如下：<!-- -->
-<ol>
-<li>将主板上得系统运行灯/电源指示灯/烧录指示灯拓展到主板外部进行显示，能让人清楚看到对应功能是否正常。</li>
-<li>将烧录开关拓展到主板外面便于人工操作</li>
-<li>将休眠按键和复位按键拓展到主板外面便于操作</li>
-<li>将电源开关拓展到主板外面便于人工操作</li>
-</ol>
-</li>
-<li>上面接口的供电只允许接功能描述中涉及到的电路，不允许接大功耗的负载，若需要接负载必须咨询地瓜工程师。</li>
-<li>PIN1 和 3 连接自锁开关作为烧录开关</li>
-<li>PIN5 和 GND 连接按键为复位按键</li>
-<li>PIN7 和 GND 连接按键为休眠按键</li>
-<li>PIN11 连接外部控制系统运行指示灯 MOS 管的 G 极可以控制灯的闪烁</li>
-<li>PIN2 和 6 连接自锁开关作为电源开关</li>
-<li>PIN10 用来接电源指示灯(翠绿色)</li>
-<li>PIN12 用来接系统运行指示灯(黄色)</li>
-<li>PIN3 还可以用来接烧录的 LED 指示灯(红色)</li>
-<li>VDD_AON_PERI_5V，DCIN_CONN，休眠状态下不掉电，VDD_PERI_3V3 休眠下会掉电</li>
-<li>使用这些电源注意在外接小板上预留短路保护电路，避免导致主板因为外扩子板短路导致供电异常。</li>
+<li>绿灯用于指示主板小系统是否完成上电，橙灯用于指示主板 Main 域系统是否正常运行。</li>
+<li>Automatic EXT CTRL Connector 12-Pin 接口供电仅允许连接功能描述中涉及的电路，禁止连接大功耗负载。</li>
+<li>当系统处于 light sleep 和 deep sleep 模式时，VDD_AON_PERI_5V 和 DCIN_CONN 电源保持供电，VDD_PERI_3V3 电源关闭，外接子板时需预留短路保护电路，防止主板因外接子板短路导致供电异常。</li>
 </ol></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="rtc-j3">RTC (J3)<a href="#rtc-j3" class="hash-link" aria-label="RTC (J3)的直接链接" title="RTC (J3)的直接链接">​</a></h3>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>请联系 FAE 获取相关信息</p></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fan-j8">FAN (J8)<a href="#fan-j8" class="hash-link" aria-label="FAN (J8)的直接链接" title="FAN (J8)的直接链接">​</a></h3>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>请联系 FAE 或社区支持获取相关信息</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fan-connector-j8">FAN Connector (J8)<a href="#fan-connector-j8" class="hash-link" aria-label="FAN Connector (J8)的直接链接" title="FAN Connector (J8)的直接链接">​</a></h3>
+<p>FAN Connector 用于连接散热风扇，支持风扇转动速率控制。</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><ol>
-<li>用于连接 S100 系统的散热风扇控制风扇转动速率，12V 供电能力 200mA。</li>
-<li>当系统处于 light sleep 和 deep sleep 模式时，VDD_PERI_12V 电源关闭。</li>
+<li>12V 最大供电电流为 200mA，当系统处于 light sleep 和 deep sleep 模式时，VDD_PERI_12V 电源关闭。</li>
 </ol></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="type-c-j16">Type-C (J16)<a href="#type-c-j16" class="hash-link" aria-label="Type-C (J16)的直接链接" title="Type-C (J16)的直接链接">​</a></h3>
-<p>RDK S100 开发板提供的一路 Type-C 接口，具有多种功能，包括固件烧录，Main 域调试串口和 MCU 域调试串口。</p>
+<p>USB Type-C(J16)仅用于烧录和调试使用，不是一个标准的全功能 USB Type-C 口，包含如下功能：</p>
 <ul>
 <li>
 <p>调试串口。硬件上通过 2 颗<code>CH340</code>芯片将核心模组 Main 域与 MCU 域的调试串口转换为 USB 接口，用户可使用该接口进行各种调试工作。用户第一次使用该接口时需要在电脑上安装 CH340 驱动，用户可搜索<code>CH340串口驱动</code>关键字进行下载、安装。电脑串口工具的参数需按如下方式配置：</p>
@@ -85,41 +78,97 @@
 </ul>
 </li>
 <li>
-<p>USB 下载接口。RDK S100 开发板提供的一路下载接口用于固件下载，具体可以参考<a href="/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100">1.2 系统烧录</a></p>
+<p>USB 下载接口。RDK S100 开发板提供的一路下载接口用于固件下载，具体可以参考<a href="/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100">1.2 系统  烧录</a></p>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="m2-key-e-j17">M.2 Key E (J17)<a href="#m2-key-e-j17" class="hash-link" aria-label="M.2 Key E (J17)的直接链接" title="M.2 Key E (J17)的直接链接">​</a></h3>
-<p>默认用于连接支持 PCIE 的 Wi-Fi 和四线 UART 的 BT 模组，PCIE 支持 Gen3x1，未提供 USB，SDIO 接口，无 LED 和 ALERT 信号。。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="m2-key-e-expansion-slot-j17">M.2 Key E Expansion Slot (J17)<a href="#m2-key-e-expansion-slot-j17" class="hash-link" aria-label="M.2 Key E Expansion Slot (J17)的直接链接" title="M.2 Key E Expansion Slot (J17)的直接链接">​</a></h3>
+<p>默认用于连接支持 PCIe 的 Wi-Fi 和四线 UART 的 BT 模组，PCIE 支持 Gen3x1，未提供 USB，SDIO 接口，无 LED 和 ALERT 信号。</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><ol>
 <li>若需要支持 Wi-Fi/Bluetooth 休眠唤醒 S100 的功能，请联系地瓜工程师支持。</li>
 <li>当系统处于 light sleep 和 deep sleep 模式时，VDD_AON_PERI_3V3 电源保持供电，最大供电电流为 750mA。</li>
-<li>S100 系统的 IO 不允许电源输入，电源输入会导致 S100 SIP 上电保护。</li>
 </ol></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="m2-key-m-j18">M.2 Key M (J18)<a href="#m2-key-m-j18" class="hash-link" aria-label="M.2 Key M (J18)的直接链接" title="M.2 Key M (J18)的直接链接">​</a></h3>
-<p>用于接 PCIE 固态硬盘，支持 Gen3x1，有 ALERT 信号，无 LED 信号；</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="m2-key-m-expansion-slot-j18">M.2 Key M Expansion Slot (J18)<a href="#m2-key-m-expansion-slot-j18" class="hash-link" aria-label="M.2 Key M Expansion Slot (J18)的直接链接" title="M.2 Key M Expansion Slot (J18)的直接链接">​</a></h3>
+<p>用于接 PCIe 固态硬盘，支持 Gen3x1，有 ALERT 信号，无 LED 信号。</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><ol>
-<li>不支持休眠唤醒功能。</li>
+<li>  不支持休眠唤醒功能。</li>
 <li>I2C4 默认已用于 M.2 KEY M 接口、RTC IC 及 风扇(FAN)转速控制 IC 的通讯，RTC IC 和 风扇转速控制 IC 的 I2C 地址分别为 0X32 和 0X2F（不含读写位）。</li>
 <li>当系统处于 light sleep 和 deep sleep 模式时，VDD_PERI_3V3 电源关闭，最大供电电流为 700mA。</li>
-<li>S100 系统的 IO 不允许电源输入，电源输入会导致 S100 SIP 上电保护。</li>
 </ol></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mcu-16-pin-j22">MCU 16-Pin (J22)<a href="#mcu-16-pin-j22" class="hash-link" aria-label="MCU 16-Pin (J22)的直接链接" title="MCU 16-Pin (J22)的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mcu-expansion-header-j22">MCU Expansion Header (J22)<a href="#mcu-expansion-header-j22" class="hash-link" aria-label="MCU Expansion Header (J22)的直接链接" title="MCU Expansion Header (J22)的直接链接">​</a></h3>
+<p>RDK S100 主板包含一个 16-pin 扩展接口 MCU Expansion Header，以下简称 16-Pin Header。</p>
+<ul>
+<li>电源信号：VDD_AON_PERI_MCU_3V3、VDD_AON_PERI_MCU_5V。</li>
+<li>通信接口：<!-- -->
+<ul>
+<li>I2C9，主板上配置等效 3.2K 的上拉电阻</li>
+<li>SPI3</li>
+<li>UART5</li>
+</ul>
+</li>
+<li>PWM 信号：PWM6、PWM7。</li>
+<li>GPIO 信号：GPIO_MCU_36_3V3、GPIO_MCU_37_3V3。</li>
+</ul>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><ol>
 <li>当系统处于 light sleep 和和 deep sleep 模式时，VDD_AON_PERI_MCU_3V3、VDD_AON_PERI_MCU_5V 电源保持供电，VDD_AON_PERI_MCU_3V3、VDD_AON_PERI_MCU_5V 其最大供电电流分别为 300mA 和 200mA。</li>
 <li>16-Pin Header 中 GPIO_MCU_36_3V3、GPIO_MCU_37_3V3 接外设使用时必须保证外设对应管脚上电默认为拉低状态。</li>
+<li>I2C9_SDA_3V3，I2C9_SCL_3V3 信号作为 GPIO 使用时不允许接外部下拉电阻。</li>
 </ol></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mcu-100-pin-j23">MCU 100-Pin (J23)<a href="#mcu-100-pin-j23" class="hash-link" aria-label="MCU 100-Pin (J23)的直接链接" title="MCU 100-Pin (J23)的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mcu-expansion-connector-j23">MCU Expansion Connector (J23)<a href="#mcu-expansion-connector-j23" class="hash-link" aria-label="MCU Expansion Connector (J23)的直接链接" title="MCU Expansion Connector (J23)的直接链接">​</a></h3>
+<p>RDK S100 主板包含一个 100-Pin 扩展接口 MCU Expansion Connector，以下简称 MCU 100-Pin Connector。</p>
+<ul>
+<li>电源信号：VDD_AON_PERI_MCU_5V、VDD_AON_PERI_MCU_3V3、VDDIO_MCU_3V3、VDDIO_MCU_1V8。</li>
+<li>网络接口：EMAC RGMII 接口信号。</li>
+<li>通信接口：<!-- -->
+<ul>
+<li>I2C8，主板上配置等效 4.7K 上拉电阻。</li>
+<li>I2C9，主板上配置等效 3.2K 上拉电阻。</li>
+<li>SPI2、SPI4、SPI5</li>
+</ul>
+</li>
+<li>CAN 接口：CAN5、CAN6、CAN7、CAN8、CAN9</li>
+<li>其他信号：GPIO、PWM、ADC 信号。</li>
+</ul>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><ol>
-<li>3V3 和 5V 电源休眠模式下不会掉电，3V3 和 5V 电源最大供电电流均为 1000mA。</li>
-<li>VDDIO_MCU_3V3 和 VDDIO_MCU_1V8 不能接外设负载，只允许用作电平转换，上下拉电阻，ADC 分压等小功耗应用，休眠模式下这两个电源会掉电。</li>
+<li>MCU 100-Pin Connector 包含了 1.8V 和 3.3V 两种逻辑电平的 IO，详细信息可参考 Pin 定义文件。</li>
+<li>MCU 100-Pin Connector 中如下 14 个 IO 接外设使用时，必须保证外设对应管脚上电默认高/低状态与 Pin 定义文件中的 Pull Up/Down 状态保持一致：SPI5_CSN1_3V3，GPIO_MCU_36_3V3，GPIO_MCU_37_3V3，GPIO_MCU_35_3V3，SPI5_MOSI_3V3，GPIO_MCU_9_3V3，CAN5_TX_3V3，CAN6_TX_3V3，CAN9_TX_3V3，CAN8_TX_3V3，SPI5_CSN0_3V3，CAN7_TX_3V3，GPIO_MCU_6_3V3，GPIO_MCU_7_3V3。</li>
+<li>当系统处于 light sleep 和 deep sleep 模式时，VDD_AON_PERI_MCU_5V、VDD_AON_PERI_MCU_3V3 电源保持供电，最大供电电流均为 1000mA。</li>
+<li>VDDIO_MCU_3V3 和 VDDIO_MCU_1V8 不允许接大功 耗负载，仅可用于电平转换、上下拉电阻、ADC 分压等小功耗应用；当系统处于 light sleep 模式时，VDDIO_MCU_3V3 和 VDDIO_MCU_1V8 电源保持供电，当系统处于 deep sleep 模式时，VDDIO_MCU_3V3 和 VDDIO_MCU_1V8 电源关闭。</li>
 </ol></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="a-core-40-pin-j24">A-Core 40-Pin (J24)<a href="#a-core-40-pin-j24" class="hash-link" aria-label="A-Core 40-Pin (J24)的直接链接" title="A-Core 40-Pin (J24)的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="main-expansion-header-j24">Main Expansion Header (J24)<a href="#main-expansion-header-j24" class="hash-link" aria-label="Main Expansion Header (J24)的直接链接" title="Main Expansion Header (J24)的直接链接">​</a></h3>
+<p>RDK S100 主板包含一个 40-pin 扩展接口 Main Expansion Header，以下简称 40-Pin Header。</p>
+<ul>
+<li>电源信号：VDD_PERI_3V3，VDD_PERI_5V。</li>
+<li>通信接口：<!-- -->
+<ul>
+<li>I2C5，主板上配置 4K 上拉电阻。</li>
+<li>UART2，主板上配置 4K 上拉电阻。</li>
+<li>SPI0，仅支持主模式。</li>
+<li>LPWM（GPIO_CAM_4_3V3 和 GPIO_CAM_5_3V3）。</li>
+</ul>
+</li>
+<li>音频接口：PCM0 相关信号与 Wi-Fi 模组的 PCM 接口共用。</li>
+<li>GPIO 信号：40PIN_GPIO0_3V3 至 40PIN_GPIO9_3V3 共 10 个 GPIO，由 GPIO 扩展 IC 提供，IC 内部默认有 100K 上拉电阻。</li>
+</ul>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><ol>
 <li>I2C4 默认已用于 M.2 KEY M 接口、RTC IC 及 风扇(FAN)转速控制 IC 的通讯，RTC IC 和 风扇转速控制 IC 的 I2C 地址分别为 0X32 和 0X2F（不含读写位）。</li>
 <li>I2C5 与 UART2 接口管脚复用，40-Pin Header 与 M.2 KEY E 连接器共用 PCM0 接口，可通过 SW6 拨码进行切换使用。</li>
-<li>当系统处于 light sleep 和 deep sleep 模式时，VDD_PERI_3V3，VDD_PERI_5V 电源关闭；VDD_PERI_3V3，VDD_PERI_5V 最大供电电流均为 1000mA。</li>
+<li>当系统处于 light sleep  和 deep sleep 模式时，VDD_PERI_3V3，VDD_PERI_5V 电源关闭；VDD_PERI_3V3，VDD_PERI_5V 最大供电电流均为 1000mA。</li>
+<li>I2C4_SDA_3V3，I2C4_SCL_3V3，I2C5_SDA_3V3，I2C5_SCL_3V3，UART2_TX_3V3，UART2_RX_3V3 信号作为 GPIO 使用时不允许接外部下拉电阻。</li>
 </ol></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cam-100-pin-j25">CAM 100-Pin (J25)<a href="#cam-100-pin-j25" class="hash-link" aria-label="CAM 100-Pin (J25)的直接链接" title="CAM 100-Pin (J25)的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="camera-expansion-connector-j25">Camera Expansion Connector (J25)<a href="#camera-expansion-connector-j25" class="hash-link" aria-label="Camera Expansion Connector (J25)的直接链接" title="Camera Expansion Connector (J25)的直接链接">​</a></h3>
+<p>RDK S100 主板包含一个 100-pin 扩展接口 Camera Expansion Connector，以下简称 CAM 100-Pin Connector。</p>
+<ul>
+<li>电源信号：VDD_PERI_CAM_3V3、VDD_PERI_12V，VDDIO_TOP_1V8。</li>
+<li>图像接口：包含 3 组 4lane MIPI RX 信号。</li>
+<li>通信接口：<!-- -->
+<ul>
+<li>I2C1，主板上配置等效 4.7K 的上拉电阻。</li>
+<li>I2C2，主板上配置等效 4.7K 的上拉电阻。</li>
+<li>I2C3，主板上配置等效 2.2K 的上拉电阻。</li>
+</ul>
+</li>
+<li>其他信号：包含 LPWM 信号、ADC 检测信号、Camera Board ID 信号、GPIO 信号等。</li>
+</ul>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><ol>
 <li>CAM 100-Pin Connector 中包含了 1.8V 和 3.3V 两种逻辑电平的 IO，详细信息可参考 PIN 定义文件。</li>
 <li>VDDIO_TOP_1V8 电源不允许接大功耗负载，仅可用于电平转换、上下拉电阻、ADC 分压等小功耗应用。</li>
@@ -132,27 +181,28 @@
 <p>RDK S100 开发板提供一路 HDMI 显示接口，最高支持 2k 60 帧的显示模式。开发板上电后会通过 HDMI 接口输出 Ubuntu 图形界面，配合特定的示例程序，同时还支持摄像头、视频流画面的预览显示功能。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="usb-接口-j19j20">USB 接口 (J19/J20)<a href="#usb-接口-j19j20" class="hash-link" aria-label="USB 接口 (J19/J20)的直接链接" title="USB 接口 (J19/J20)的直接链接">​</a></h3>
 <p>RDK S100 开发板提供了四路 PCIE 拓展出来的 USB3.0 标准接口，可以满足 4 路 USB 外设同时接入使用。</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="开关按键和灯光说明">开关、按键和灯光说明<a href="#开关按键和灯光说明" class="hash-link" aria-label="开关、按键和灯光说明的直接链接" title="开关、按键和灯光说明的直接链接">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="开关按键和灯光说明">开关、按键和灯光说明<a href="#开关按键和灯光说明" class="hash-link" aria-label="开关、按键和灯光说明  的直接链接" title="开关、按键和灯光说明的直接链接">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="按键-k1k2">按键 (K1/K2)<a href="#按键-k1k2" class="hash-link" aria-label="按键 (K1/K2)的直接链接" title="按键 (K1/K2)的直接链接">​</a></h3>
-<table><thead><tr><th>编号</th><th>名称</th><th>描述</th><th>使用方法</th></tr></thead><tbody><tr><td>K1</td><td>RST</td><td>复位 S100 系统</td><td>按下按键之后系统进入复位</td></tr><tr><td>K2</td><td>SLEEP</td><td>控制 S100 系统进入休眠或者唤醒 S100</td><td>单点按键中断触发休眠和唤醒功能</td></tr></tbody></table>
+<table><thead><tr><th>编号</th><th>名称</th><th>描述</th><th>使用方法</th></tr></thead><tbody><tr><td>K1</td><td>RESET</td><td>复位 S100 系统</td><td>按下按键之后系统进入复位</td></tr><tr><td>K2</td><td>SLEEP</td><td>控制 S100 系统进入休眠或者唤醒 S100</td><td>单点按键中断触发休眠和唤醒功能</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="开关-sw1sw2">开关 (SW1/SW2)<a href="#开关-sw1sw2" class="hash-link" aria-label="开关 (SW1/SW2)的直接链接" title="开关 (SW1/SW2)的直接链接">​</a></h3>
-<table><thead><tr><th>编号</th><th>名称</th><th>描述</th><th>使用方法</th></tr></thead><tbody><tr><td>SW1</td><td>ON/OFF</td><td>电源开关</td><td>▽：开启，↑：关闭</td></tr><tr><td>SW2</td><td>DOWNLOAD</td><td>烧录模式开关</td><td>▽：正常启动模式，↑：烧录模式</td></tr></tbody></table>
+<table><thead><tr><th>编号</th><th>名称</th><th>描述</th><th>使用方法</th></tr></thead><tbody><tr><td>SW1</td><td>ON/OFF</td><td>电源开关</td><td>▽：开启，↑：关闭</td></tr><tr><td>SW2</td><td>DOWNLOAD</td><td>DFU 烧录模式开关</td><td>▽：正常启动模式，↑：DFU 烧录模式</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="拨码开关-sw3sw6">拨码开关 (SW3/SW6)<a href="#拨码开关-sw3sw6" class="hash-link" aria-label="拨码开关 (SW3/SW6)的直接链接" title="拨码开关 (SW3/SW6)的直接链接">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="系统启动盘选择-sw3">系统启动盘选择 (SW3)<a href="#系统启动盘选择-sw3" class="hash-link" aria-label="系统启动盘选择 (SW3)的直接链接" title="系统启动盘选择 (SW3)的直接链接">​</a></h4>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>当前仅支持 eMMC 启动</p></div></div>
 <table><thead><tr><th>D13</th><th>D12</th><th>启动介质</th><th>描述</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>eMMC</td><td>从板载 eMMC 启动</td></tr><tr><td>1</td><td>0</td><td>NVMe</td><td>从 M.2 NVMe 固态硬盘启动</td></tr></tbody></table>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="功能切换-sw4">功能切换 (SW4)<a href="#功能切换-sw4" class="hash-link" aria-label="功能切换 (SW4)的直接链接" title="功能切换 (SW4)的直接链接">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="功能切换-sw6">功能切换 (SW6)<a href="#功能切换-sw6" class="hash-link" aria-label="功能切换 (SW6)的直接链接" title="功能切换 (SW6)的直接链接">​</a></h4>
+<p>40-Pin 中 I2C5 与 UART2 接口管脚复用，40-Pin(J24)与 M.2 KEY E 连接器(J17)共用 PCM0 接口，可通过 SW6 拨码开关进行切换使用。</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>建议</div><div class="admonitionContent_BuS1"><p>对于 PCM0，如果不需要 Wi-Fi 模组的蓝牙音频功能，可以默认向右拨码。</p></div></div>
-<table><thead><tr><th>拨码名称</th><th>1</th><th>0</th></tr></thead><tbody><tr><td>40 PIN</td><td>40-Pin 的 3、5 引脚有效，为 I2C</td><td>40-Pin 的 8、10 引脚有效，为 UART</td></tr><tr><td>PCM0</td><td>PCM0 用于 M.2 E Key</td><td>PCM0 用于 40PIN</td></tr></tbody></table>
+<table><thead><tr><th>拨码名称</th><th>1</th><th>0</th></tr></thead><tbody><tr><td>40 PIN</td><td>40-Pin 的 3、5 引脚有效，为 I2C5</td><td>40-Pin 的 8、10 引脚有效，为 UART2</td></tr><tr><td>PCM0</td><td>PCM0 用于 M.2 E Key</td><td>PCM0 用于 40PIN</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="指示灯">指示灯<a href="#指示灯" class="hash-link" aria-label="指示灯的直接链接" title="指示灯的直接链接">​</a></h3>
-<p>RDK S100 主板 J8 连接器侧边有 POWER、DOWNLOAD 和 SYSTEM 三个指示灯，分别用于指示主板电源状态，烧录模式和系统运行状态</p>
+<p>RDK S100 主板 J8 连接器侧边有 POWER、DOWNLOAD 和 SYSTEM 三个指示灯，分别用 于指示主板电源状态，DFU 烧录模式和系统运行状态</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="power绿色">POWER（绿色）<a href="#power绿色" class="hash-link" aria-label="POWER（绿色）的直接链接" title="POWER（绿色）的直接链接">​</a></h4>
 <table><thead><tr><th style="text-align:left">状态</th><th style="text-align:left">状态描述</th></tr></thead><tbody><tr><td style="text-align:left">常亮</td><td style="text-align:left">电源开启</td></tr><tr><td style="text-align:left">熄灭</td><td style="text-align:left">电源关闭</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="download红色">DOWNLOAD（红色）<a href="#download红色" class="hash-link" aria-label="DOWNLOAD（红色）的直接链接" title="DOWNLOAD（红色）的直接链接">​</a></h4>
-<table><thead><tr><th>状态</th><th>状态描述</th></tr></thead><tbody><tr><td>常亮</td><td>进入烧录模式</td></tr><tr><td>熄灭</td><td>进入正常启动模式</td></tr></tbody></table>
+<table><thead><tr><th>状态</th><th>状态描述</th></tr></thead><tbody><tr><td>常亮</td><td>进入 DFU 烧录模式</td></tr><tr><td>熄灭</td><td>进入正常启动模式</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="system橙色">SYSTEM（橙色）<a href="#system橙色" class="hash-link" aria-label="SYSTEM（橙色）的直接链接" title="SYSTEM（橙色）的直接链接">​</a></h4>
 <table><thead><tr><th>状态</th><th>状态描述</th></tr></thead><tbody><tr><td>闪烁</td><td>系统运行正常</td></tr><tr><td>常亮、熄灭</td><td>系统运行异常</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="连接器型号">连接器型号<a href="#连接器型号" class="hash-link" aria-label="连接器型号的直接链接" title="连接器型号的直接链接">​</a></h2>
-<table><thead><tr><th style="text-align:left">连接器</th><th style="text-align:left">连接器型号</th><th style="text-align:left">连接器厂商</th></tr></thead><tbody><tr><td style="text-align:left">J1</td><td style="text-align:left">DC-044B-D025</td><td style="text-align:left">品赞</td></tr><tr><td style="text-align:left">J2</td><td style="text-align:left">HX JN1.27-2x6P ZZ H4.9</td><td style="text-align:left">韩下</td></tr><tr><td style="text-align:left">J3</td><td style="text-align:left">HDGC1002WV-S-2P</td><td style="text-align:left">华德共创</td></tr><tr><td style="text-align:left">J8</td><td style="text-align:left">470531000</td><td style="text-align:left">莫仕</td></tr><tr><td style="text-align:left">J15</td><td style="text-align:left">356-110A0CMBB1</td><td style="text-align:left">广德众电子</td></tr><tr><td style="text-align:left">J16</td><td style="text-align:left">XUBF-0316-FS458</td><td style="text-align:left">连欣科技</td></tr><tr><td style="text-align:left">J17</td><td style="text-align:left">APCI0108-P001A</td><td style="text-align:left">连欣科技</td></tr><tr><td style="text-align:left">J18</td><td style="text-align:left">APCI0079-P002A</td><td style="text-align:left">连欣科技</td></tr><tr><td style="text-align:left">J22</td><td style="text-align:left">PZ254V-12-16P</td><td style="text-align:left">兴飞连接器</td></tr><tr><td style="text-align:left">J23</td><td style="text-align:left">HC-PBB05-2-100-F-H2.2-G1-R-P-04</td><td style="text-align:left">华灿天禄</td></tr><tr><td style="text-align:left">J24</td><td style="text-align:left">313240SK24011160A4P</td><td style="text-align:left">联祥电子</td></tr><tr><td style="text-align:left">J25</td><td style="text-align:left">HC-PBB05-2-100-F-H4.0-G1-R-P-04</td><td style="text-align:left">华灿天禄</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-06-21T02:35:33.000Z" itemprop="dateModified">2025年6月21日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/rdk_s/01_hardware_introduction"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">1.1 硬件简介</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100_camera_expansion_board"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1.1.2 相机扩展板</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#产品介绍" class="table-of-contents__link toc-highlight">产品介绍</a><ul><li><a href="#主要功能" class="table-of-contents__link toc-highlight">主要功能</a></li><li><a href="#拓扑图" class="table-of-contents__link toc-highlight">拓扑图</a></li><li><a href="#接口图" class="table-of-contents__link toc-highlight">接口图</a></li></ul></li><li><a href="#接口说明" class="table-of-contents__link toc-highlight">接口说明</a><ul><li><a href="#dc-jack-j1" class="table-of-contents__link toc-highlight">DC Jack (J1)</a></li><li><a href="#automatic-j2" class="table-of-contents__link toc-highlight">Automatic (J2)</a></li><li><a href="#rtc-j3" class="table-of-contents__link toc-highlight">RTC (J3)</a></li><li><a href="#fan-j8" class="table-of-contents__link toc-highlight">FAN (J8)</a></li><li><a href="#type-c-j16" class="table-of-contents__link toc-highlight">Type-C (J16)</a></li><li><a href="#m2-key-e-j17" class="table-of-contents__link toc-highlight">M.2 Key E (J17)</a></li><li><a href="#m2-key-m-j18" class="table-of-contents__link toc-highlight">M.2 Key M (J18)</a></li><li><a href="#mcu-16-pin-j22" class="table-of-contents__link toc-highlight">MCU 16-Pin (J22)</a></li><li><a href="#mcu-100-pin-j23" class="table-of-contents__link toc-highlight">MCU 100-Pin (J23)</a></li><li><a href="#a-core-40-pin-j24" class="table-of-contents__link toc-highlight">A-Core 40-Pin (J24)</a></li><li><a href="#cam-100-pin-j25" class="table-of-contents__link toc-highlight">CAM 100-Pin (J25)</a></li><li><a href="#有线网口-u43u45" class="table-of-contents__link toc-highlight">有线网口 (U43/U45)</a></li><li><a href="#hdmi-接口-j21" class="table-of-contents__link toc-highlight">HDMI 接口 (J21)</a></li><li><a href="#usb-接口-j19j20" class="table-of-contents__link toc-highlight">USB 接口 (J19/J20)</a></li></ul></li><li><a href="#开关按键和灯光说明" class="table-of-contents__link toc-highlight">开关、按键和灯光说明</a><ul><li><a href="#按键-k1k2" class="table-of-contents__link toc-highlight">按键 (K1/K2)</a></li><li><a href="#开关-sw1sw2" class="table-of-contents__link toc-highlight">开关 (SW1/SW2)</a></li><li><a href="#拨码开关-sw3sw6" class="table-of-contents__link toc-highlight">拨码开关 (SW3/SW6)</a><ul><li><a href="#系统启动盘选择-sw3" class="table-of-contents__link toc-highlight">系统启动盘选择 (SW3)</a></li><li><a href="#功能切换-sw4" class="table-of-contents__link toc-highlight">功能切换 (SW4)</a></li></ul></li><li><a href="#指示灯" class="table-of-contents__link toc-highlight">指示 灯</a><ul><li><a href="#power绿色" class="table-of-contents__link toc-highlight">POWER（绿色）</a></li><li><a href="#download红色" class="table-of-contents__link toc-highlight">DOWNLOAD（红色）</a></li><li><a href="#system橙色" class="table-of-contents__link toc-highlight">SYSTEM（橙色）</a></li></ul></li></ul></li><li><a href="#连接器型号" class="table-of-contents__link toc-highlight">连接器型号</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+<table><thead><tr><th style="text-align:left">连接器</th><th style="text-align:left">连接器型号</th><th style="text-align:left">连接器厂商</th></tr></thead><tbody><tr><td style="text-align:left">J1</td><td style="text-align:left">DC-044B-D025</td><td style="text-align:left">品赞</td></tr><tr><td style="text-align:left">J2</td><td style="text-align:left">HX JN1.27-2x6P ZZ H4.9</td><td style="text-align:left">韩下</td></tr><tr><td style="text-align:left">J3</td><td style="text-align:left">HDGC1002WV-S-2P</td><td style="text-align:left">华德共创</td></tr><tr><td style="text-align:left">J8</td><td style="text-align:left">470531000</td><td style="text-align:left">莫仕</td></tr><tr><td style="text-align:left">J15</td><td style="text-align:left">356-110A0CMBB1</td><td style="text-align:left">广德众电子</td></tr><tr><td style="text-align:left">J16</td><td style="text-align:left">XUBF-0316-FS458</td><td style="text-align:left">连欣科技</td></tr><tr><td style="text-align:left">J17</td><td style="text-align:left">APCI0108-P001A</td><td style="text-align:left">连欣科技</td></tr><tr><td style="text-align:left">J18</td><td style="text-align:left">APCI0079-P002A</td><td style="text-align:left">连欣科技</td></tr><tr><td style="text-align:left">J22</td><td style="text-align:left">PZ254V-12-16P</td><td style="text-align:left">兴飞连接器</td></tr><tr><td style="text-align:left">J23</td><td style="text-align:left">HC-PBB05-2-100-F-H2.2-G1-R-P-04</td><td style="text-align:left">华灿天禄</td></tr><tr><td style="text-align:left">J24</td><td style="text-align:left">313240SK24011160A4P</td><td style="text-align:left">联祥电子</td></tr><tr><td style="text-align:left">J25</td><td style="text-align:left">HC-PBB05-2-100-F-H4.0-G1-R-P-04</td><td style="text-align:left">华灿天禄</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-06-21T04:03:18.000Z" itemprop="dateModified">2025年6月21日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/rdk_s/01_hardware_introduction"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">1.1 硬件简介</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100_camera_expansion_board"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1.1.2 相机扩展板</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#产品介绍" class="table-of-contents__link toc-highlight">产品介绍</a><ul><li><a href="#主要功能" class="table-of-contents__link toc-highlight">主要功能</a></li><li><a href="#拓扑图" class="table-of-contents__link toc-highlight">拓扑图</a></li><li><a href="#接口图" class="table-of-contents__link toc-highlight">接口图</a></li><li><a href="#wi-fi-和-ssd-安装" class="table-of-contents__link toc-highlight">Wi-Fi 和 SSD 安装</a></li></ul></li><li><a href="#接口说明" class="table-of-contents__link toc-highlight">接口说明</a><ul><li><a href="#dc-jack-j1" class="table-of-contents__link toc-highlight">DC Jack (J1)</a></li><li><a href="#automatic-ext-ctrl-connector-j2" class="table-of-contents__link toc-highlight">Automatic EXT CTRL Connector (J2)</a></li><li><a href="#rtc-j3" class="table-of-contents__link toc-highlight">RTC (J3)</a></li><li><a href="#fan-connector-j8" class="table-of-contents__link toc-highlight">FAN Connector (J8)</a></li><li><a href="#type-c-j16" class="table-of-contents__link toc-highlight">Type-C (J16)</a></li><li><a href="#m2-key-e-expansion-slot-j17" class="table-of-contents__link toc-highlight">M.2 Key E Expansion Slot (J17)</a></li><li><a href="#m2-key-m-expansion-slot-j18" class="table-of-contents__link toc-highlight">M.2 Key M Expansion Slot (J18)</a></li><li><a href="#mcu-expansion-header-j22" class="table-of-contents__link toc-highlight">MCU Expansion Header (J22)</a></li><li><a href="#mcu-expansion-connector-j23" class="table-of-contents__link toc-highlight">MCU Expansion Connector (J23)</a></li><li><a href="#main-expansion-header-j24" class="table-of-contents__link toc-highlight">Main Expansion Header (J24)</a></li><li><a href="#camera-expansion-connector-j25" class="table-of-contents__link toc-highlight">Camera Expansion Connector (J25)</a></li><li><a href="#有线网口-u43u45" class="table-of-contents__link toc-highlight">有线网口 (U43/U45)</a></li><li><a href="#hdmi-接口-j21" class="table-of-contents__link toc-highlight">HDMI 接口 (J21)</a></li><li><a href="#usb-接口-j19j20" class="table-of-contents__link toc-highlight">USB 接口 (J19/J20)</a></li></ul></li><li><a href="#开关按键和灯光说明" class="table-of-contents__link toc-highlight">开关、按键和灯光说明</a><ul><li><a href="#按键-k1k2" class="table-of-contents__link toc-highlight">按键 (K1/K2)</a></li><li><a href="#开关-sw1sw2" class="table-of-contents__link toc-highlight">开关 (SW1/SW2)</a></li><li><a href="#拨码开关-sw3sw6" class="table-of-contents__link toc-highlight">拨码开关 (SW3/SW6)</a><ul><li><a href="#系统启动盘选择-sw3" class="table-of-contents__link toc-highlight">系统启动盘选择 (SW3)</a></li><li><a href="#功能切换-sw6" class="table-of-contents__link toc-highlight">功能切换 (SW6)</a></li></ul></li><li><a href="#指示灯" class="table-of-contents__link toc-highlight">指示灯</a><ul><li><a href="#power绿色" class="table-of-contents__link toc-highlight">POWER（绿色）</a></li><li><a href="#download红色" class="table-of-contents__link toc-highlight">DOWNLOAD（红色）</a></li><li><a href="#system橙色" class="table-of-contents__link toc-highlight">SYSTEM（橙色）</a></li></ul></li></ul></li><li><a href="#连接器型号" class="table-of-contents__link toc-highlight">连接器型号</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
