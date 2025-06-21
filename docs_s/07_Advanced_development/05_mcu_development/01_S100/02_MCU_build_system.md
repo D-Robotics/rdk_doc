@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # MCU系统说明
 ## 编译系统基本说明
-MCU的编译系统基于Scons3.0.0创建，Scons官网：https://scons.org/doc/3.0.0/HTML/scons-user.html
+MCU的编译系统基于Scons3.0.0创建（[Scons 3.0.0用户手册官网](https://scons.org/doc/3.0.0/HTML/scons-user.html)）。
 
 ## MCU1编译系统
 MCU1编译系统位于mcu/Build/FreeRtos_mcu1，具体目录结构，如下图所示：
