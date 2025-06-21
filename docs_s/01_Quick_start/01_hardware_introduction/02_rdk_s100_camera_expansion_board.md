@@ -62,6 +62,20 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | J2001 | DC 电源输入   | SW2200 | MIPI 相机接口功能切换开关 |
 | J2100 | GMSL 相机接口 | SW2201 | MIPI 相机接口电平切换开关 |
 
+### 组装说明
+
+:::danger
+
+1. 请在开发板电源关闭，且 DC 插头断开的情景下进行安装。
+2. 安装时请确保**开发板与子板保持平行**，**接口均匀受力完成扣合**，且连接紧密，以免损坏连接器。
+
+:::
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  您的浏览器不支持 video 标签。
+</video>
+
 ## 接口说明
 
 ### 100Pin 连接器（J2000）
@@ -91,7 +105,7 @@ Camera 扩展板集成了 MAX96712 解串芯片，能够接入 4 路 GMSL2 相�
 
 :::info 信息
 
-1. 当 GMSL 相机的 12V 电源电流需求在 800mA 以内时，无需接入外部 12V 适配器，此时 12V 电源由 RDK S100 提供。若电流需求超过 800mA，则必须接入外部 12V 适配器，以保障 GMSL 相机模组电源的稳定供给。
+1. 当 GMSL 相机的 12V 电源电流需求在 700mA 以内时，无需接入外部 12V 适配器，此时 12V 电源由 RDK S100 提供。若电流需求超过 700mA，则必须接入外部 12V 适配器，以保障 GMSL 相机模组电源的稳定供给。
 2. Camera 扩展板可为每路 GMSL 相机提供最大 550mA@12V 的电流。若超过该电流规格，将无法保证 GMSL 相机模组的稳定运行。
 3. GMSL 接口采用 mini Fakra 4-in-1 z code 连接器，请选用地瓜机器人推荐的线缆与相机进行连接，以保障 GMSL 高速信号的稳定传输。
 

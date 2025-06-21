@@ -54,13 +54,25 @@ RDK S100 MCU Port Expansion Board（含配套 FPC）是地瓜机器人 RDK S100 
 | J4       | CAN6                      | J11  | CAN9 的 120 欧电阻跳线 |
 | J5       | CAN6 的 120 欧电阻跳线    |      |                        |
 
-### 连接方法
+### 组装说明
+
+:::danger
+
+1. 请在开发板电源关闭，且 DC 插头断开的情景下进行安装。
+2. 安装时请确保**连接器保持平行**，**接口均匀受力完成扣合**，且连接紧密，以免损坏连接器。
+
+:::
 
 :::info 提示
 
 FPC 正面丝印"MAIN"标识侧对应 RDK S100 主板的 J23 接口，"SUB"标识侧对应本扩展板的 J1 接口。
 
 :::
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/mcu_port_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  您的浏览器不支持 video 标签。
+</video>
 
 ## 接口说明
 
@@ -93,7 +105,7 @@ MCU 扩展板提供了一个千兆以太网接口。
 :::warning 注意
 
 1. 当系统处于 light sleep 和 deep sleep 模式时，VDD_5V，VDD_3V3，VDD_1V8 电源保持供电。
-2. S100 的 IO 不允许电源输入，电源外灌会导致 S100 SIP 上电保护。
+2. I2C9_SDA_3V3，I2C9_SCL_3V3 信号作为 GPIO 使用时不允许接外部下拉电阻。
 
 :::
 
@@ -105,7 +117,7 @@ RDKS100_LNX_SDK_V4.0.2 暂未实现对应功能
 
 :::
 
-集成惯性测量单元（IMU，型号 BMI088），支持通过 SPI-5 串行总线实现通信控制。
+集成惯性测量单元（IMU，型号 Bosch Sensortec BMI088），支持通过 SPI-5 串行总线实现通信控制。
 
 ## 指示灯
 
