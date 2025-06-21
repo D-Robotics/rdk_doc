@@ -88,8 +88,7 @@ MCU 扩展板提供了一个千兆以太网接口。
 
 ### 30-Pin（J12）
 
-<a href="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/asset/rdk_s100/drobotics_rdk_s100_pinlist_v1p0.xlsx" download>点击下载接口定义表格</a>
-
+接口定义: [drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0.xlsx](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/asset/rdk_s100/drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0.xlsx)
 
 :::warning 注意
 
