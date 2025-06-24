@@ -49,7 +49,7 @@ If the pre-processing and post-processing steps are different from the above mod
 
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
+3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
 
 5. Detection category configuration file (such as [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
 
@@ -59,7 +59,7 @@ If the pre-processing and post-processing steps are different from the above mod
 
 2. Tros.b has been successfully installed on the X86 environment.
 
-3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin) in this example).
+3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin) in this example).
 
 4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
 
