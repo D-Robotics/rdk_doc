@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # D-Robotics RDK套件
 
-本文档为D-Robotics RDK套件的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考**系统烧录**章节。
+本文档为 D-Robotics RDK 套件 X 系列的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考**系统烧录**章节。
 
 :::info 注意
 
@@ -20,13 +20,19 @@ sidebar_position: 0
 
 
 
-## D-Robotics RDK套件概述
+## D-Robotics RDK 套件概述
 
-**D-Robotics Developer Kits**，简称 RDK 套件，是基于 D-Robotics 智能芯片打造的机器人开发者套件，包括 RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5、RDK Ultra。
+**D-Robotics Developer Kits**，简称 RDK 套件，是基于 D-Robotics 智能芯片打造的机器人开发者套件，套件涵盖以下硬件产品：
+
+- RDK X3（旭日 X3 派）
+- RDK X3 Module（旭日 X3 模组）
+- RDK X5
+- RDK Ultra
+- RDK S100
 
 搭配 TogetheROS.Bot 机器人中间件，RDK 套件可以帮助发者快速搭建机器人原型，开展评测和验证工作。
 
-本文将详细说明 RDK 套件的使用方法，包括开发环境搭建、示例教程的运行、应用程序的开发、系统镜像的定制等方面内容。无论您选择使用哪种硬件，本文所介绍的内容都将为您提供一致的使用体验。
+本文将详细说明 RDK X系列套件的使用方法，包括开发环境搭建、示例教程的运行、应用程序的开发、系统镜像的定制等方面内容。无论您选择使用哪种硬件，本文所介绍的内容都将为您提供一致的使用体验。
 
 ## 产品介绍
 
@@ -88,6 +94,10 @@ sidebar_position: 0
 
 **九、附录**  
 本章节提供 RDK OS 中常用的命令用法，其中 RDK 专属命令可以帮助用户获取、查询系统的一些关键信息。
+
+**十、版本发布记录**
+记录了 RDK OS 的版本发布信息，包括版本号、发布日期、更新内容等，
+帮助用户了解系统的更新和变更。
 
 ## 版本发布记录
 
