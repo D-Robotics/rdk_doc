@@ -52,7 +52,7 @@ D-Robotics RDK机器人操作系统提供了[dnn_node_example](https://github.co
 
 2. RDK已成功安装TogetheROS.Bot。
 
-3. 获得D-Robotics交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
+3. 获得D-Robotics交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin)
 
 4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
@@ -64,7 +64,7 @@ D-Robotics RDK机器人操作系统提供了[dnn_node_example](https://github.co
 
 2. X86环境已成功安装tros.b。
 
-3. 获得交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyolo_trashdet_416x416_nv12.bin)
+3. 获得交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin)
 
 4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
