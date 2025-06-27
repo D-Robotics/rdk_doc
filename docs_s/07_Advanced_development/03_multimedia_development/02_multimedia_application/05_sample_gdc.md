@@ -9,6 +9,10 @@ sample_gdc 目录下是用于演示如何使用 GDC 的示例程序，主要功�
 5. `gdc_equisolid`: 读取本地 NV12 的 YUV 图，把图片送入 GDC 做（全景 panoramic）校正处理。
 6. `gdc_transformation`: 读取本地 的 json 配置文件，把图片送入 GDC 做180线性变换、圆柱形变换、等距变换和梯形校正+去畸变处理。
 
+:::warning
+以下Sample需要sudo权限执行。
+:::
+
 ## 1-custom_config
 
 ### 功能概述
