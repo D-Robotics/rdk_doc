@@ -22,7 +22,7 @@ sidebar_position: 4
 
 :::tip 小技巧
 
-  horizon_runtime_sample 示例包获取请参考 [交付物说明](../intermediate/environment_config.md)。 
+  horizon_runtime_sample 示例包获取请参考 [交付物说明](../intermediate/environment_config.md)。
 :::
 
 ##### 示例代码包结构介绍
@@ -117,7 +117,7 @@ sidebar_position: 4
 
 1. 拿到开发板后，请将开发版镜像更新到最新版本，升级方法请参考[**系统更新**](../../../01_Quick_start/install_os/rdk_x3.md) 章节内容。
 
-2. 确保本地开发机和开发板可以远程连接。 
+2. 确保本地开发机和开发板可以远程连接。
 
 ##### 编译
 
@@ -506,18 +506,18 @@ sidebar_position: 4
 
 :::caution 注意
 
-  1. 表格中的数据均为在D-Robotics RDK X3开发板的实测结果，测试模型均来自于[horizon_model_convert_sample](../beginner.md#env_install) 模型示例包；
+  1. 表格中的数据均为在D-Robotics RDK X3开发板的实测结果，测试模型均来自于[horizon_model_convert_sample](../intermediate/environment_config.md) 模型示例包；
 
   2. 对于模型示例包中的 BPU/CPU 混合异构模型，单帧的耗时主要由输入量化CPU节点、模型BPU算子、模型CPU算子、输出反量化CPU节点、CPU后处理等模块构成，具体说明如下：
 
       a. 输入量化CPU节点：完成float32到int8的输入量化操作，该节点只在使用 featuremap 输入的模型中包含。量化耗时与输入 shape 大小成正比
 
       b. 模型CPU算子：
-      
+
           ⅰ. 检测模型中未包含 CPU 算子
-            
+
           ⅱ. 分类模型尾部的 Softmax 和 Reshape 为 CPU 算子
-            
+
           ⅲ. 分割模型 DeepLabV3+ 尾部的 Argmax 为 CPU 算子
 
       c. 输出反量化CPU节点：完成int8到float32的输出反量化操作。量化耗时与输出 shape 大小成正比
@@ -547,7 +547,7 @@ sidebar_position: 4
 
 :::tip 小技巧
 
-  公版模型精度性能评测 ai_benchmark 示例包获取，请参考[《交付物说明》](../intermediate/environment_config#deliverables_instructions)。 
+  公版模型精度性能评测 ai_benchmark 示例包获取，请参考[《交付物说明》](../intermediate/environment_config#deliverables_instructions)。
 :::
 
 ##### 示例代码包结构
@@ -608,12 +608,12 @@ sidebar_position: 4
       │   │   ├── mobilenetv2
       │   │   └── resnet18
       │   ├── config                    # 模型推理配置文件
-      │   │   └── data_name_list  
+      │   │   └── data_name_list
       │   ├── detection                 # 检测模型示例
       │   │   ├── centernet_resnet50
       │   │   ├── efficientdetd0
       │   │   ├── fcos_efficientnetb0
-      │   │   ├── preq_qat_fcos_efficientnetb0 
+      │   │   ├── preq_qat_fcos_efficientnetb0
       │   │   ├── preq_qat_fcos_efficientnetb1
       │   │   ├── preq_qat_fcos_efficientnetb2
       │   │   ├── ssd_mobilenetv1
@@ -622,7 +622,7 @@ sidebar_position: 4
       │   │   └── yolov5s
       │   ├── segmentation              # 分割模型示例
       │   │   ├── deeplabv3plus_efficientnetb0
-      │   │   ├── fastscnn_efficientnetb0   
+      │   │   ├── fastscnn_efficientnetb0
       │   │   └── unet_mobilenet
       │   ├── base_config.sh            # 基础配置
       │   └── README.md
@@ -665,7 +665,7 @@ sidebar_position: 4
       │   │   ├── resnet18
       │   │   └── vargconvnet
       │   ├── config                    # 模型推理配置文件
-      │   │   └── model  
+      │   │   └── model
       │   ├── detection                 # 检测模型示例
       │   │   ├── centernet_resnet101
       │   │   ├── preq_qat_fcos_efficientnetb0
@@ -705,13 +705,13 @@ sidebar_position: 4
 我们提供了开源的模型库，里面包含常用的分类、检测和分割模型，模型的命名规则为：`{model_name}_{backbone}_{input_size}_{input_type}`，开发者可以直接使用。
 
 :::tip 小技巧
-  以下表格中的bin模型都是通过 horizon_model_convert_sample 模型转换示例包转换编译出来的，请阅读[《交付物说明》](../intermediate/environment_config#deliverables_instructions) 章节内容进行获取。 
+  以下表格中的bin模型都是通过 horizon_model_convert_sample 模型转换示例包转换编译出来的，请阅读[《交付物说明》](../intermediate/environment_config#deliverables_instructions) 章节内容进行获取。
 :::
 
   | MODEL              | MODEL NAME                                   |
   |--------------------|----------------------------------------------|
   | centernet_resnet101          | centernet_resnet101_512x512_nv12.bin             |
-  | deeplabv3plus_efficientnetb0 | deeplabv3plus_efficientnetb0_1024x2048_nv12.bin  |  
+  | deeplabv3plus_efficientnetb0 | deeplabv3plus_efficientnetb0_1024x2048_nv12.bin  |
   | deeplabv3plus_efficientnetm1 | deeplabv3plus_efficientnetm1_1024x2048_nv12.bin  |
   | efficientnasnet_m            | efficientnasnet_m_300x300_nv12.bin               |
   | efficientnet_lite4           | efficientnet_lite4_300x300_nv12.bin              |
@@ -741,16 +741,16 @@ sidebar_position: 4
   COCO：https://cocodataset.org/#download
 
   ImageNet：https://www.image-net.org/download.php
-  
+
   Cityscapes：https://github.com/mcordts/cityscapesScripts
-  
+
   FlyingChairs：https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html
 
   KITTI3D：https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
 
   CULane：https://xingangpan.github.io/projects/CULane.html
 
-  nuScenes：https://www.nuscenes.org/nuscenes#download 
+  nuScenes：https://www.nuscenes.org/nuscenes#download
 
   mot17：https://opendatalab.com/MOT17
 ```
@@ -1630,7 +1630,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 ```
 2. 多模型（输出所有模型信息）
 ```
-  hrt_model_exec model_info --model_file=xxx.bin,xxx.bin  
+  hrt_model_exec model_info --model_file=xxx.bin,xxx.bin
 ```
 3. 多模型--pack模型（输出指定模型信息）
 ```
@@ -1725,7 +1725,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 ```
   // infer
-  hrt_model_exec infer --model_file=xxx.bin --input_file="xx0.bin,xx1.jpg,xx2.jpg,xx3.bin,xx4.jpg,xx5.jpg"  --roi="2,4,123,125;6,8,111,113;27,46,143,195;16,28,131,183" 
+  hrt_model_exec infer --model_file=xxx.bin --input_file="xx0.bin,xx1.jpg,xx2.jpg,xx3.bin,xx4.jpg,xx5.jpg"  --roi="2,4,123,125;6,8,111,113;27,46,143,195;16,28,131,183"
   // perf
   hrt_model_exec perf --model_file=xxx.bin --input_file="xx0.bin,xx1.jpg,xx2.jpg,xx3.bin,xx4.jpg,xx5.jpg"   --roi="2,4,123,125;6,8,111,113;27,46,143,195;16,28,131,183"
 ```
@@ -1733,9 +1733,9 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 - ``dump_intermediate``
 
-dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0`` 时，默认dump功能关闭； 
+dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0`` 时，默认dump功能关闭；
 ``dump_intermediate=1`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 方式保存，其中 ``BPU`` 节点输出为 ``aligned`` 数据；
-``dump_intermediate=2`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 和 ``txt`` 两种方式保存，其中 ``BPU`` 节点输出为 ``aligned`` 数据； 
+``dump_intermediate=2`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 和 ``txt`` 两种方式保存，其中 ``BPU`` 节点输出为 ``aligned`` 数据；
 ``dump_intermediate=3`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 和 ``txt`` 两种方式保存，其中 ``BPU`` 节点输出为 ``valid`` 数据。
 如： 模型有两个输入，输入源顺序分别为[``pyramid``， ``ddr``]，将模型每一层节点的输入和输出保存为 ``bin`` 文件，其中 ``BPU`` 节点输出按 ``aligned`` 类型保存，则推理命令行如下：
 
@@ -1746,7 +1746,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
 
 - ``hybrid_dequantize_process``
 
-控制txt格式输出float类型数据。 ``hybrid_dequantize_process`` 参数在 ``enable_dump=true`` 时生效。 
+控制txt格式输出float类型数据。 ``hybrid_dequantize_process`` 参数在 ``enable_dump=true`` 时生效。
 当 ``enable_dump=true`` 时，若设置 ``hybrid_dequantize_process=true`` ，反量化整型输出数据，将所有输出按float类型保存为 ``txt`` 文件，其中模型输出为 ``valid`` 数据，支持配置 ``dump_txt_axis`` 和 ``dump_precision``；
 若设置 ``hybrid_dequantize_process=false`` ，直接保存模型输出的 ``aligned`` 数据，不做任何处理。
 如： 模型有3个输出，输出Tensor数据类型顺序分别为[float，int32，int16]， 输出txt格式float类型的 ``valid`` 数据， 则推理命令行如下：
@@ -1788,7 +1788,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
   | ``core_id``                     | 指定模型推理的核id，0：任意核，1：core0，2：core1；默认为 ``0``。                                                                       |
   | ``input_file``                  | 模型输入信息，多个可通过逗号分隔。                                                                                                      |
   | ``roi_infer``                   | 使能resizer模型推理；若模型输入包含resizer源，设置为 ``true``，默认为 ``false``。                                                       |
-  | ``roi``                         | ``roi_infer`` 为 ``true`` 时生效，设置推理resizer模型时所需的 ``roi`` 区域以分号间隔。                                                  | 
+  | ``roi``                         | ``roi_infer`` 为 ``true`` 时生效，设置推理resizer模型时所需的 ``roi`` 区域以分号间隔。                                                  |
   | ``frame_count``                 | 设置 ``perf`` 运行帧数，当perf_time为0时生效，默认为 ``200``。                                                                          |
   | ``dump_intermediate``           | dump模型每一层输入数据和输出数据，默认值 ``0``，不dump数据。 ``1``：输出文件类型为 ``bin``；                                            |
   |                                 | ``2``：输出类型为 ``bin`` 和 ``txt``，其中BPU节点输出为aligned数据； ``3``：输出类型为 ``bin`` 和 ``txt``，其中BPU节点输出为valid数据。 |
@@ -4574,7 +4574,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 
 :::tip 小技巧
 
-  horizon_runtime_sample 示例包获取请参考 [交付物说明](../intermediate/environment_config.md)。 
+  horizon_runtime_sample 示例包获取请参考 [交付物说明](../intermediate/environment_config.md)。
 :::
 
 ##### 示例代码包结构介绍
@@ -4669,7 +4669,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 
 1. 拿到开发板后，请将开发版镜像更新到最新版本，升级方法请参考[**系统更新**](../../../01_Quick_start/install_os/rdk_ultra.md) 章节内容。
 
-2. 确保本地开发机和开发板可以远程连接。 
+2. 确保本地开发机和开发板可以远程连接。
 
 ##### 编译
 
@@ -5060,7 +5060,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 
 :::tip 小技巧
 
-  公版模型精度性能评测 ai_benchmark 示例包获取，请参考[《交付物说明》](../intermediate/environment_config#deliverables_instructions)。 
+  公版模型精度性能评测 ai_benchmark 示例包获取，请参考[《交付物说明》](../intermediate/environment_config#deliverables_instructions)。
 :::
 
 ##### 示例代码包结构
@@ -5121,12 +5121,12 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
       │   │   ├── mobilenetv2
       │   │   └── resnet18
       │   ├── config                    # 模型推理配置文件
-      │   │   └── data_name_list  
+      │   │   └── data_name_list
       │   ├── detection                 # 检测模型示例
       │   │   ├── centernet_resnet50
       │   │   ├── efficientdetd0
       │   │   ├── fcos_efficientnetb0
-      │   │   ├── preq_qat_fcos_efficientnetb0 
+      │   │   ├── preq_qat_fcos_efficientnetb0
       │   │   ├── preq_qat_fcos_efficientnetb1
       │   │   ├── preq_qat_fcos_efficientnetb2
       │   │   ├── ssd_mobilenetv1
@@ -5135,7 +5135,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
       │   │   └── yolov5s
       │   ├── segmentation              # 分割模型示例
       │   │   ├── deeplabv3plus_efficientnetb0
-      │   │   ├── fastscnn_efficientnetb0   
+      │   │   ├── fastscnn_efficientnetb0
       │   │   └── unet_mobilenet
       │   ├── base_config.sh            # 基础配置
       │   └── README.md
@@ -5178,7 +5178,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
       │   │   ├── resnet18
       │   │   └── vargconvnet
       │   ├── config                    # 模型推理配置文件
-      │   │   └── model  
+      │   │   └── model
       │   ├── detection                 # 检测模型示例
       │   │   ├── centernet_resnet101
       │   │   ├── preq_qat_fcos_efficientnetb0
@@ -5218,13 +5218,13 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 我们提供了开源的模型库，里面包含常用的分类、检测和分割模型，模型的命名规则为：`{model_name}_{backbone}_{input_size}_{input_type}`，开发者可以直接使用。
 
 :::tip 小技巧
-  以下表格中的bin模型都是通过 horizon_model_convert_sample 模型转换示例包转换编译出来的，请阅读[《交付物说明》](../intermediate/environment_config#deliverables_instructions)  章节内容进行获取。 
+  以下表格中的bin模型都是通过 horizon_model_convert_sample 模型转换示例包转换编译出来的，请阅读[《交付物说明》](../intermediate/environment_config#deliverables_instructions)  章节内容进行获取。
 :::
 
   | MODEL              | MODEL NAME                                   |
   |--------------------|----------------------------------------------|
   | centernet_resnet101          | centernet_resnet101_512x512_nv12.bin             |
-  | deeplabv3plus_efficientnetb0 | deeplabv3plus_efficientnetb0_1024x2048_nv12.bin  |  
+  | deeplabv3plus_efficientnetb0 | deeplabv3plus_efficientnetb0_1024x2048_nv12.bin  |
   | deeplabv3plus_efficientnetm1 | deeplabv3plus_efficientnetm1_1024x2048_nv12.bin  |
   | efficientnasnet_m            | efficientnasnet_m_300x300_nv12.bin               |
   | efficientnet_lite4           | efficientnet_lite4_300x300_nv12.bin              |
@@ -5254,16 +5254,16 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
   COCO：https://cocodataset.org/#download
 
   ImageNet：https://www.image-net.org/download.php
-  
+
   Cityscapes：https://github.com/mcordts/cityscapesScripts
-  
+
   FlyingChairs：https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html
 
   KITTI3D：https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
 
   CULane：https://xingangpan.github.io/projects/CULane.html
 
-  nuScenes：https://www.nuscenes.org/nuscenes#download 
+  nuScenes：https://www.nuscenes.org/nuscenes#download
 
   mot17：https://opendatalab.com/MOT17
 ```
@@ -6143,7 +6143,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 ```
 2. 多模型（输出所有模型信息）
 ```
-  hrt_model_exec model_info --model_file=xxx.bin,xxx.bin  
+  hrt_model_exec model_info --model_file=xxx.bin,xxx.bin
 ```
 3. 多模型--pack模型（输出指定模型信息）
 ```
@@ -6238,7 +6238,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 ```
   // infer
-  hrt_model_exec infer --model_file=xxx.bin --input_file="xx0.bin,xx1.jpg,xx2.jpg,xx3.bin,xx4.jpg,xx5.jpg"  --roi="2,4,123,125;6,8,111,113;27,46,143,195;16,28,131,183" 
+  hrt_model_exec infer --model_file=xxx.bin --input_file="xx0.bin,xx1.jpg,xx2.jpg,xx3.bin,xx4.jpg,xx5.jpg"  --roi="2,4,123,125;6,8,111,113;27,46,143,195;16,28,131,183"
   // perf
   hrt_model_exec perf --model_file=xxx.bin --input_file="xx0.bin,xx1.jpg,xx2.jpg,xx3.bin,xx4.jpg,xx5.jpg"   --roi="2,4,123,125;6,8,111,113;27,46,143,195;16,28,131,183"
 ```
@@ -6246,9 +6246,9 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 - ``dump_intermediate``
 
-dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0`` 时，默认dump功能关闭； 
+dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0`` 时，默认dump功能关闭；
 ``dump_intermediate=1`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 方式保存，其中 ``BPU`` 节点输出为 ``aligned`` 数据；
-``dump_intermediate=2`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 和 ``txt`` 两种方式保存，其中 ``BPU`` 节点输出为 ``aligned`` 数据； 
+``dump_intermediate=2`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 和 ``txt`` 两种方式保存，其中 ``BPU`` 节点输出为 ``aligned`` 数据；
 ``dump_intermediate=3`` 时，模型中每一层节点输入数据和输出数据以 ``bin`` 和 ``txt`` 两种方式保存，其中 ``BPU`` 节点输出为 ``valid`` 数据。
 如： 模型有两个输入，输入源顺序分别为[``pyramid``， ``ddr``]，将模型每一层节点的输入和输出保存为 ``bin`` 文件，其中 ``BPU`` 节点输出按 ``aligned`` 类型保存，则推理命令行如下：
 
@@ -6259,7 +6259,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
 
 - ``hybrid_dequantize_process``
 
-控制txt格式输出float类型数据。 ``hybrid_dequantize_process`` 参数在 ``enable_dump=true`` 时生效。 
+控制txt格式输出float类型数据。 ``hybrid_dequantize_process`` 参数在 ``enable_dump=true`` 时生效。
 当 ``enable_dump=true`` 时，若设置 ``hybrid_dequantize_process=true`` ，反量化整型输出数据，将所有输出按float类型保存为 ``txt`` 文件，其中模型输出为 ``valid`` 数据，支持配置 ``dump_txt_axis`` 和 ``dump_precision``；
 若设置 ``hybrid_dequantize_process=false`` ，直接保存模型输出的 ``aligned`` 数据，不做任何处理。
 如： 模型有3个输出，输出Tensor数据类型顺序分别为[float，int32，int16]， 输出txt格式float类型的 ``valid`` 数据， 则推理命令行如下：
@@ -6301,7 +6301,7 @@ dump模型每一层节点的输入数据和输出数据。 ``dump_intermediate=0
   | ``core_id``                     | 指定模型推理的核id，0：任意核，1：core0，2：core1；默认为 ``0``。                                                                       |
   | ``input_file``                  | 模型输入信息，多个可通过逗号分隔。                                                                                                      |
   | ``roi_infer``                   | 使能resizer模型推理；若模型输入包含resizer源，设置为 ``true``，默认为 ``false``。                                                       |
-  | ``roi``                         | ``roi_infer`` 为 ``true`` 时生效，设置推理resizer模型时所需的 ``roi`` 区域以分号间隔。                                                  | 
+  | ``roi``                         | ``roi_infer`` 为 ``true`` 时生效，设置推理resizer模型时所需的 ``roi`` 区域以分号间隔。                                                  |
   | ``frame_count``                 | 设置 ``perf`` 运行帧数，当perf_time为0时生效，默认为 ``200``。                                                                          |
   | ``dump_intermediate``           | dump模型每一层输入数据和输出数据，默认值 ``0``，不dump数据。 ``1``：输出文件类型为 ``bin``；                                            |
   |                                 | ``2``：输出类型为 ``bin`` 和 ``txt``，其中BPU节点输出为aligned数据； ``3``：输出类型为 ``bin`` 和 ``txt``，其中BPU节点输出为valid数据。 |

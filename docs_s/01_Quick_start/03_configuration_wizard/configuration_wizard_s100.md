@@ -140,6 +140,51 @@ source /etc/default/locale
 
 待更新
 
+## NoMachine 配置
+
+`NoMachine`当前不支持`apt`下载，需要到官网获取`deb`包。
+
+NoMachine下载官方网址： [NoMachine Download](https://downloads.nomachine.com/download/?id=30&platform=linux&distro=arm)
+
+**下载安装包**
+
+进入官网后找到适合`RDK S100`的`ARM64`版本的安装包，点击`Download`
+
+![image_s100_nomachine_dl](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image_s100_nomachine_dl.PNG)
+
+**安装**
+
+```shell
+sudo apt update; sudo apt upgrade -y   // 确保当前软件是较新的状态
+dpkg -i nomachine_*_arm64.deb
+```
+
+**配置启动**
+
+配置服务器以允许远程连接
+
+```shell
+sudo systemctl start nxserver
+```
+
+设置`NoMachine`为开机启动：
+
+```shell
+sudo systemctl enable nxserver
+```
+
+重启`NoMachine`服务:
+
+```shell
+sudo systemctl restart nxserver
+```
+
+**重启**
+
+由于`NXServer`的配置问题，完成上述操作后直接连接会黑屏，需要重启后使用。
+
+`NoMachine`的使用请查看 [远程登录 - NoMachine登录](../remote_login#Nomachine登陆)。
+
 ## 用户管理
 
 **修改用户名**

@@ -33,7 +33,7 @@ RDK X3提供了网口、USB、摄像头、LCD、HDMI、40PIN等功能接口，�
 
 RDK X3 Module官方载板提供了以太网口、USB、HDMI、MIPI CSI、MIPI DSI、40PIN等多种外围接口，方便用户对RDK X3 Module进行功能验证、开发测试等工作。接口布局如下：
 
-![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board1.jpg) 
+![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board1.jpg)
 
 | 序号 | 接口功能        | 序号 | 接口功能                | 序号 | 接口功能               |
 | ---- | --------------- | ---- | ----------------------- | ---- | ---------------------- |
@@ -64,7 +64,7 @@ RDK X3 Module官方载板提供了以太网口、USB、HDMI、MIPI CSI、MIPI DS
 
 RDK X3 Module载板提供一组200pin板板连接器，用于核心模组的安装。安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
 
-![image-x3-md-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-setup.jpg) 
+![image-x3-md-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-x3-md-setup.jpg)
 
 模组安装方法如下：
 
@@ -119,7 +119,7 @@ RDK X3 Module载板通过DC接口供电，推荐使用认证配件清单中推�
 - 停止位（Stop bits）：1
 - 流控（Flow Control）：无
 
-串口连接时，需要将杜邦线接入开发板接口3，串口USB转接板接入电脑。连接完成后如下图：  
+串口连接时，需要将杜邦线接入开发板接口3，串口USB转接板接入电脑。连接完成后如下图：
 ![debug_uart_x3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
 </TabItem>
@@ -223,7 +223,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=5
 
 ### 接入USB串口转接板
 
-开发板USB Type A接口(接口5和6)，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../03_Basic_Application/03_40pin_user_guide/uart.md#40pin_uart_usage) 章节对串口进行使用。
+开发板USB Type A接口(接口5和6)，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/03_40pin_user_guide/uart.md#40pin_uart_usage) 章节对串口进行使用。
 
 </TabItem>
 
@@ -275,7 +275,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=7
 
 摄像头模组通过FPC排线跟开发板连接，注意排线两端蓝面向上插入连接器。
 
-以JXF37摄像头模组为例，安装完成后如下图：  
+以JXF37摄像头模组为例，安装完成后如下图：
 ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-X3-PI-Camera.jpg)
 
 安装完成后，用户可以通过i2cdetect命令确认模组I2C地址能否正常检测到。
@@ -340,7 +340,7 @@ RDK X3 Module载板提供CAM 0/1/2三组MIPI CSI接口，可以满足3路Camera�
 | 4    | IMX477 | 1200W  | H:62  V:37 D:68  | 0x1a         |
 | 5    | OV5647 | 500W   | H:62  V:37 D:68  | 0x36         |
 
-上述Camera模组的购买方式可参考[购买链接](../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)。
+上述Camera模组的购买方式可参考[购买链接](../../07_Advanced_development/01_hardware_development/rdk_x3/accessory.md)。
 
 安装完成后，用户可以通过i2cdetect命令确认模组I2C地址能否正常检测到。
 
@@ -457,7 +457,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=8
 
 开发板的无线网络支持板载和外置天线两种配置，通常情况下板载天线可以满足使用需求。当开发板安装金属材质外壳后，需要连接外置天线到（接口11），以增强信号强度。
 
-:::tip 
+:::tip
 通过以下命令可以将板载天线转化为外置天线 sed -i 's/trace/cable/g' /etc/init.d/hobot-wifi ，重启后生效。
 使用以下命令 sed -i 's/cable/trace/g' /etc/init.d/hobot-wifi 重启后进行复原。
 :::
@@ -498,7 +498,7 @@ RDK X3 2.0 & Module 外扩40PIN管脚及其定义如下：
 
 ![image-X3-PI-40Pin_Index](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
-40PIN各功能的使用方法请查看 [40PIN 功能使用](../03_Basic_Application/03_40pin_user_guide/40pin_define.md) 章节。
+40PIN各功能的使用方法请查看 [40PIN 功能使用](../../03_Basic_Application/03_40pin_user_guide/40pin_define.md) 章节。
 
 </TabItem>
 
@@ -542,9 +542,9 @@ RDK X3 Module载板提供一组控制IO接口（接口13），用户使用跳线
 | 7      | TXD2     | 串口UART2发送信号              | 串口UART2接收信号                   |
 | 8      | GND      | GDN                            | GND                                 |
 
-此外，为方便用户查询，上述管脚定义在载板丝印也有体现。  
+此外，为方便用户查询，上述管脚定义在载板丝印也有体现。
 
-![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-control-pin1.png)  
+![image-carrier-board-control-pin1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-control-pin1.png)
 
 </TabItem>
 
@@ -576,7 +576,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 默认情况下，RDK X3 Module核心模组固件、载板电平配置为3.3V，如需要切换IO电平时，需要按如下步骤进行：
 
 1. 下载支持1.8V电平配置的启动固件，[固件下载地址](https://archive.d-robotics.cc/downloads/miniboot)。
-2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](../01_Quick_start/install_os.md)。
+2. 使用官方烧录工具`hbupdate`，更新核心板启动固件，具体方法请参考[镜像烧录](../install_os)。
 3. 设备断电，使用跳线帽将`vref`、`1.8V`信号短接后重新上电。
 :::
 

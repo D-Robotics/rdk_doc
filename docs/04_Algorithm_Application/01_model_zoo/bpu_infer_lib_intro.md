@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 4.3.2 ModelZoo快速上手
+# 4.1.2 ModelZoo快速上手
 
 ## 概述
 

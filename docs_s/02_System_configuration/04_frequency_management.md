@@ -13,11 +13,11 @@ sidebar_position: 4
 - temp3_input是MCU域的第一个温度传感器，temp4_input是MCU域的第二个温度传感器，
 - temp5_input是BPU温度传感器。
 
-温度的精度为0.000001摄氏度
+温度的精度为0.001摄氏度
 
 ```
 root@ubuntu:~# cat /sys/class/hwmon/hwmon0/temp1_input
-46837000
+46837
 root@ubuntu:~#
 ```
 ### Thermal机制
@@ -25,14 +25,85 @@ Linux Thermal 是 Linux 系统下温度控制相关的模块，主要用来控�
 
 要想达到合理控制设备温度，我们需要了解以下三个模块：
 
-获取温度的设备：在 Thermal 框架中被抽象为 Thermal Zone Device，RDK S100上有5个thermal zone，分别是thermal_zone0~thermal_zone4,分别绑定5个温度传感器；
+  - 获取温度的设备：在 Thermal 框架中被抽象为 Thermal Zone Device，RDK S100上有5个thermal zone，分别是thermal_zone0~thermal_zone4，分别绑定5个温度传感器；
+  - 进行降温的设备：在 Thermal 框架中被抽象为 Thermal Cooling Device，有CPU、BPU和风扇；
+    - CPU/BPU等设备通过调频来进行降温；
+    - 风扇则可以控制转速来进行降温；
+  - 控制温度策略：在 Thermal 框架中被抽象为 Thermal Governor;
 
-需要降温的设备：在 Thermal 框架中被抽象为 Thermal Cooling Device，有CPU、BPU、和风扇；
+以上模块的信息和控制都可以在 `/sys/class/thermal` 目录下获取。
 
-控制温度策略：在 Thermal 框架中被抽象为 Thermal Governor;
+#### Thermal Zone简介
+获取某一个thermal_zone的信息，以thermal_zone0为例，示例命令如下：
+```shell
+root@ubuntu:~# cat /sys/class/thermal/thermal_zone0/type
+pvt_cmn_pvtc1_t1
+```
 
-以上模块的信息和控制都可以在 /sys/class/thermal 目录下获取。
+获取某一个thermal_zone的当前的策略，以thermal_zone0为例，示例命令如下：
+```shell
+root@ubuntu:~# cat /sys/class/thermal/thermal_zone0/policy
+step_wise
+```
 
+获取某一个thermal_zone支持的策略，以thermal_zone0为例，示例命令如下：
+```shell
+root@ubuntu:~# cat /sys/class/thermal/thermal_zone0/available_policies
+user_space step_wise
+```
+可看到thermal支持的策略有：`user_space`和`step_wise`
+- `user_space`： 是通过uevent将温区当前温度，温控触发点等信息上报到用户空间，由用户空间软件制定温控的策略。
+
+- `step_wise`： 是每个轮询周期逐级提高冷却状态，是一种相对温和的温控策略
+
+具体选择哪种策略客户可以根据产品自行选择。可在编译的时候指定或者通过sysfs动态切换。
+例如：动态切换thermal_zone0的策略为`user_space`模式
+```shell
+echo user_space > /sys/class/thermal/thermal_zone0/policy
+```
+
+##### thermal_zone0简介
+在thermal_zone0中有4个trip_point，
+- trip_point_0_temp：关机温度，默认设置为120度
+- trip_point_1_temp：用于控制风扇转速，默认为43度，风扇档位范围2~5，表示超过43度，风扇将从关闭状态调整为2档，最高可提升到5档。
+- trip_point_2_temp：用于控制风扇转速，默认为65度，风扇档位范围6~10，表示超过65度，风扇将调整到6档，最高可提升到10档慢转速。
+- trip_point_3_temp：用于控制CPU Acore频率，默认为95度，表示超过95度，CPU Acore会降频。
+可通过sysfs查看相应的温度设置
+```shell
+root@ubuntu:~# cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
+120000
+```
+若想调整相应的温度温度，如85度开始CPU调频，可通过如下命令：
+```shell
+echo 85000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_3_temp
+```
+
+##### thermal_zone1/2/3简介
+在thermal_zone1/2/3中有1个trip_point，都表示的是关机问题，默认为120度
+
+在thermal_zone4中有两个trip_point,其中
+- trip_point_0_temp为关机温度，默认为120度。
+- trip_point_1_temp为BPU的调频温度，默认为95度
+
+例如想要结温到85摄氏度，BPU开始调频：
+```shell
+echo 85000 > /sys/devices/virtual/thermal/thermal_zone4/trip_point_1_temp
+```
+
+如果想要调整关机温度为105摄氏度， 可通过修改所有thermal_zone的trip_point_0_temp来实现
+```shell
+echo 105000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
+echo 105000 > /sys/devices/virtual/thermal/thermal_zone1/trip_point_0_temp
+echo 105000 > /sys/devices/virtual/thermal/thermal_zone2/trip_point_0_temp
+echo 105000 > /sys/devices/virtual/thermal/thermal_zone3/trip_point_0_temp
+echo 105000 > /sys/devices/virtual/thermal/thermal_zone4/trip_point_0_temp
+```
+
+:::info
+PS：以上设置只在当前启动有效，<ins>重启后</ins>需要**重新**设置。
+:::
+
+#### 降温设备
 在RDK S100中一共有四个cooling(降温)设备：
 
 - cooling_device0: cpu cluster 0， 通过调整频率控制温度
@@ -42,57 +113,38 @@ Linux Thermal 是 Linux 系统下温度控制相关的模块，主要用来控�
 
 其中，cooling 设备CPU和风扇与thermal_zone0关联，cooling设备BPU与thermal_zone4关联，thermal_zone1/2/3没有绑定cooling设备
 
-目前默认的策略用的是step_wise。
+目前默认的策略用的是`step_wise`。
 
-```
-cat /sys/class/thermal/thermal_zone0/policy
-```
-通过以下命令可看到thermal支持的策略：user_space和step_wise
-```
-cat /sys/class/thermal/thermal_zone0/available_policies
-```
-- user_space 是通过uevent将温区当前温度，温控触发点等信息上报到用户空间，由用户空间软件制定温控的策略。
+##### 风扇调节
+RDK S100开发板上的emc2305风扇控制器，可以通过设备节点获取设备基本信息及控制转速：
+1. 获取降温设备信息：
+    ```shell
+    root@ubuntu:~# cat /sys/class/thermal/cooling_device2/type
+    emc2305_fan
+    ```
+2. 获取可配置的风扇档位：
+    ```shell
+    root@ubuntu:~# cat /sys/class/thermal/cooling_device2/max_state
+    10
+    ```
+3. 获取当前风扇档位
+   ```shell
+   root@ubuntu:~# cat /sys/class/thermal/cooling_device2/max_state
+   5
+   ```
+4. 配置thermal_zone0的策略为`userspace`：
+    ```
+    echo user_space > /sys/class/thermal/thermal_zone0/policy
+    ```
+5. 配置当前风扇档位为10：
+   ```shell
+   root@ubuntu:~# echo 10 > /sys/class/thermal/cooling_device2/cur_state
+   ```
 
-- step_wise 是每个轮询周期逐级提高冷却状态，是一种相对温和的温控策略
+:::info
+**注意**：当thermal_zone0的策略为`step_wise`时，用户配置的风扇档位会被系统自动根据当前温度进行调节。如果客户需要将风扇固定为特定档位，请参考[Thermal Zone](#thermal-zone简介)章节，将thermal_zone0的策略改为`user_space`
+:::
 
-具体选择哪种策略是根据产品需要自己选择。可在编译的时候指定或者通过sysfs动态切换。
-例如：动态切换thermal_zone0的策略为 user_space模式
-```
-echo user_space > /sys/class/thermal/thermal_zone0/policy
-```
-在thermal_zone0中有4个trip_point，
-- trip_point_0_temp：关机温度，默认设置为120度
-- trip_point_1_temp： 用于控制风扇转速，默认为50度，风扇档位范围2~5，表示超过50度，风扇将从关闭状态调整为2档，最高可提升到5档。
-- trip_point_2_temp：用于控制风扇转速，默认为75度，风扇档位范围6~10，表示超过75度，风扇将调整到6档，最高可提升到10档慢转速。
-- trip_point_3_temp： 用于控制CPU Acore频率，默认为95度，表示超过95度，CPU Acore会降频。
-
-可通过sysfs查看相应的温度设置
-```
-cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
-```
-若想调整相应的温度温度，如85度开始CPU调频，可通过如下命令：
-```
-echo 85000000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_3_temp
-```
-在thermal_zone1/2/3中有1个trip_point，都表示的是关机问题，默认为120度
-
-在thermal_zone4中有两个trip_point,其中
-- trip_point_0_temp为关机温度，默认为120度。
-- trip_point_1_temp为BPU的调频温度，默认为95度
-
-例如想要结温到85摄氏度，BPU开始调频：
-```
-echo 85000000 > /sys/devices/virtual/thermal/thermal_zone4/trip_point_1_temp
-```
-如果想要调整关机温度为105摄氏度， 可通过修改所有thermal_zone的trip_point_0_temp来实现
-```
-echo 105000000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
-echo 105000000 > /sys/devices/virtual/thermal/thermal_zone1/trip_point_0_temp
-echo 105000000 > /sys/devices/virtual/thermal/thermal_zone2/trip_point_0_temp
-echo 105000000 > /sys/devices/virtual/thermal/thermal_zone3/trip_point_0_temp
-echo 105000000 > /sys/devices/virtual/thermal/thermal_zone4/trip_point_0_temp
-```
-ps：以上设置断电重启后需要重新设置
 ### CPU频率管理
 
 在linux内核中，自带了cpufreq子系统用来控制cpu的频率和频率控制策略。

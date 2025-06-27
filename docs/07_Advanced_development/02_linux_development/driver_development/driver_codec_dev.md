@@ -27,7 +27,7 @@ X3芯片的I2S有以下特性：
 -   传输协议支持：`i2s/dsp(TDM)A`
 
 -   I2S做master模式下的默认时钟：mclk为12.288M bclk为2.048M。mclk不发生变化的情况下，bclk支持6.144M、4.096M、3.072M、2.048M、1.536M,根据应用层传输的参数动态调整，调频策略在sound/soc/hobot/hobot-cpudai.c的hobot_i2s_sample_rate_set函数中.对于44.1k采样率的支持，在不调整PLL的情况下，可以调整出的最接近频率44.11764khz
-    
+
 -   **I2S做slave，在需要读写i2s寄存器操作前，需要有bclk时钟灌入，否则会访问i2s模块寄存器异常，导致系统不能正常工作**
 
 针对板级`RDM X3 Module`，还有以下限制：
@@ -79,20 +79,20 @@ Device Drivers --->
 在对应的`i2c`添加`codec`信息，例如`WM8960`挂在`i2c0`总线上，则在`i2c0`中增加信息如下配置：
 
 ```c
-&i2c0 {   
+&i2c0 {
         status = "okay";
         #address-cells = <1>;
         #size-cells = <0>;
-           
+
         wm8960:wm8960@0x1a{
             compatible = "wlf,wm8960";
             reg = <0x1a>;
             #sound-dai-cells = <0>;
-        }; 
+        };
 }
 ```
 
-在`dts`文件中，配置对应`Codec`所需要的`sound card`信息。  
+在`dts`文件中，配置对应`Codec`所需要的`sound card`信息。
 
 `WM8960`在`RDK X3 Module`上以一主（播放）一从（录制）使用，两个`I2S`共享时钟
 
@@ -195,7 +195,7 @@ crw-rw----+ 1 root audio 116, 33 Mar 28 01:54 timer
 ```
 #### 声卡使用
 
-请参考 [音频转接板使用](../../../03_Basic_Application/02_audio/audio_board_x3.md)
+请参考 [音频转接板使用](../../../03_Basic_Application/02_audio/rdk_x3_and_rdk_x3_module)
 
 
 

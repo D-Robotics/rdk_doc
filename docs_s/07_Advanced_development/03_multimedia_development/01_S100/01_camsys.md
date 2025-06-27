@@ -3958,6 +3958,536 @@ int32_t init_stitch(test_ctx_t *test_ctx)
         return 0;
 }
 ```
+
+### 2v imx219 + MIPI + CIM + ISP + PYM + STITCH 拼接后编码 sample
+
+当前sample 从两路imx219 sensor CIM ISP PYM 等模块组成的 pipeline 中获取两路图像，再将两路图像经过STITCH CODEC 模块上下拼接成一个h264文件cim-isp-pym-stitch.h264
+
+测试步骤:
+
+安装两路imx219 sensor 后开机, 执行以下命令
+
+sunrise@ubuntu:~$ cd /app/multimedia_demo/camsys_demo/sample_2v_219_stitch_codec/
+sunrise@ubuntu:/app/multimedia_demo/camsys_demo/sample_2v_219_stitch_codec$ make
+sunrise@ubuntu:/app/multimedia_demo/camsys_demo/sample_2v_219_stitch_codec$ ./sample_2v_219_stitch_codec
+
+生成的cim-isp-pym-stitch.h264 文件播放如下
+
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sth_codec_2025-06-24_20-37-19.png)
+
+
+STITCH配置参数：
+```c
+struct stitch_base_attr sth_base_attr = {
+		  .mode = 2,
+		  .roi_nums = 2,
+		  .img_nums = 2,
+		  .alpha_lut = {
+			.share_id = 0,
+			.vaddr = 0,
+			.offset = 0,
+			.size = 0
+		  },
+		  .beta_lut = {
+			.share_id = 0,
+			.vaddr = 0,
+			.offset = 0,
+			.size = 0
+		  },
+		  .blending = {{
+			  .roi_index = 0,
+			  .blending_mode = 3,
+			  .direct = 0,
+			  .uv_en = 1,
+			  .src0_index = 0,
+			  .src1_index = 1,
+			  .margin = 0,
+			  .margin_inv = 128,
+			  .gain_src0_yuv = {256, 256, 256},
+			  .gain_src1_yuv = {256, 256, 256}
+			}, {
+			  .roi_index = 1,
+			  .blending_mode = 3,
+			  .direct = 0,
+			  .uv_en = 1,
+			  .src0_index = 1,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 128,
+			  .gain_src0_yuv = {256, 256, 256},
+			  .gain_src1_yuv = {256, 256, 256}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}, {
+			  .roi_index = 0,
+			  .blending_mode = 0,
+			  .direct = 0,
+			  .uv_en = 0,
+			  .src0_index = 0,
+			  .src1_index = 0,
+			  .margin = 0,
+			  .margin_inv = 0,
+			  .gain_src0_yuv = {0, 0, 0},
+			  .gain_src1_yuv = {0, 0, 0}
+			}}
+};
+
+struct stitch_ch_attr sth_inch_attr[] = {
+           {
+			.width = 1920,
+			.height = 1080,
+			.strid = {1920, 1920},
+			.rois = {{
+				.roi_index = 0,
+				.roi_x = 0,
+				.roi_y = 0,
+				.roi_w = 1920,
+				.roi_h = 1080
+			  }, {
+				.roi_index = 1,
+				.roi_x = 0,
+				.roi_y = 0,
+				.roi_w = 1920,
+				.roi_h = 1080
+			  },
+			}
+		  }, {
+			.width = 1920,
+			.height = 1080,
+			.strid = {1920, 1920},
+			.rois = {{
+				.roi_index = 0,
+				.roi_x = 0,
+				.roi_y = 0,
+				.roi_w = 1920,
+				.roi_h = 1080
+			  }, {
+				.roi_index = 1,
+				.roi_x = 0,
+				.roi_y = 0,
+				.roi_w = 1920,
+				.roi_h = 1080
+			  },
+			}
+		  }, {
+			.width = 0,
+			.height = 0,
+			.strid = {0, 0},
+		  }, {
+			.width = 0,
+			.height = 0,
+			.strid = {0, 0},
+		  }
+};
+
+struct stitch_ch_attr sth_och_attr = {
+		  .width = 1920,
+		  .height = 2160,
+		  .strid = {1920, 1920},
+		  .rois = {{
+			  .roi_index = 0,
+			  .roi_x = 0,
+			  .roi_y = 0,
+			  .roi_w = 1920,
+			  .roi_h = 1080
+			}, {
+			  .roi_index = 1,
+			  .roi_x = 0,
+			  .roi_y = 1080,
+			  .roi_w = 1920,
+			  .roi_h = 1080
+			},
+		  }
+};
+```
+
+创建一路vflow:
+```c
+	int i = 0;
+	ret = hbn_vflow_create(&vflow_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_create[%d]:%d error\n", i, __LINE__);
+		goto err;
+	}
+
+	ret = hbn_camera_create(&cam_cfg[i], &cam_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_camera_create[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	vin_vnode_fd[i] = vin_vnode_create(&vin_attr[i]);
+	if (vin_vnode_fd[i] < 0) {
+		ret = (int32_t)vin_vnode_fd[i];
+		printf("vin_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], vin_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	isp_vnode_fd[i] = isp_vnode_create(&isp_cfg[i]);
+	if (isp_vnode_fd[i] < 0) {
+		ret = (int32_t)isp_vnode_fd[i];
+		printf("isp_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], isp_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ynr_vnode_fd[i] = ynr_vnode_create(&ynr_info[i]);
+	if (ynr_vnode_fd[i] < 0) {
+		ret = (int32_t)ynr_vnode_fd[i];
+		printf("ynr_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], ynr_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	pym_vnode_fd[i] = pym_vnode_create(&pym_cfg[i]);
+	if (pym_vnode_fd[i] < 0) {
+		ret = (int32_t)pym_vnode_fd[i];
+		printf("pym_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], pym_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	sth_vnode_fd = sth_vnode_create();
+	if (sth_vnode_fd < 0) {
+		ret = (int32_t)sth_vnode_fd;
+		printf("sth_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], sth_vnode_fd);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_camera_attach_to_vin(cam_vnode_fd[i], vin_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], vin_vnode_fd[i], 0, isp_vnode_fd[i], 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], isp_vnode_fd[i], 1, ynr_vnode_fd[i], 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], ynr_vnode_fd[i], 1, pym_vnode_fd[i], 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], pym_vnode_fd[i], 0, sth_vnode_fd, 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+```
+
+创建另一路vflow，并且两路vflow绑定在同一stitch上:
+```c
+	i = 1;
+	ret = hbn_vflow_create(&vflow_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_create[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_camera_create(&cam_cfg[i], &cam_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_camera_create[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	vin_vnode_fd[i] = vin_vnode_create(&vin_attr[i]);
+	if (vin_vnode_fd[i] < 0) {
+		ret = (int32_t)vin_vnode_fd[i];
+		printf("vin_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], vin_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	isp_vnode_fd[i] = isp_vnode_create(&isp_cfg[i]);
+	if (isp_vnode_fd[i] < 0) {
+		ret = (int32_t)isp_vnode_fd[i];
+		printf("isp_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], isp_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ynr_vnode_fd[i] = ynr_vnode_create(&ynr_info[i]);
+	if (ynr_vnode_fd[i] < 0) {
+		ret = (int32_t)ynr_vnode_fd[i];
+		printf("ynr_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], ynr_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+	pym_vnode_fd[i] = pym_vnode_create(&pym_cfg[i]);;
+	if (pym_vnode_fd[i] < 0) {
+		ret = (int32_t)pym_vnode_fd[i];
+		printf("pym_vnode_init[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], pym_vnode_fd[i]);
+	if (ret < 0) {
+		printf("bn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_add_vnode(vflow_fd[i], sth_vnode_fd);
+	if (ret < 0) {
+		printf("hbn_vflow_add_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_camera_attach_to_vin(cam_vnode_fd[i], vin_vnode_fd[i]);
+	if (ret < 0) {
+		printf("hbn_camera_attach_to_vin[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], vin_vnode_fd[i], 0, isp_vnode_fd[i], 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], isp_vnode_fd[i], 1, ynr_vnode_fd[i], 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], ynr_vnode_fd[i], 1, pym_vnode_fd[i], 0);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+
+	ret = hbn_vflow_bind_vnode(vflow_fd[i], pym_vnode_fd[i], 0, sth_vnode_fd, 1);
+	if (ret < 0) {
+		printf("hbn_vflow_bind_vnode[%d]:%d error\n", i, __LINE__);
+		goto err1;
+	}
+```
+
+配置CODEC编码模块:
+```c
+	//config codec
+	ret = codec_config_param(&context, MEDIA_CODEC_ID_H264, sth_och_attr.width, sth_och_attr.height);
+	if (ret < 0) {
+		printf("codec_config_param error!!!\n");
+		goto err1;
+	}
+
+	ret = codec_init(&context);
+	if (ret < 0) {
+		printf("codec_init error!!!\n");
+		goto err1;
+	}
+
+	ret = codec_start(&context);
+	if (ret < 0) {
+		printf("codec_init error!!!\n");
+		goto err2;
+	}
+
+	h264fd = fopen(H264_FNAME, "w+");
+    if (h264fd == NULL) {
+        printf("open(%s) fail", H264_FNAME);
+		ret = -1;
+        goto err3;
+    }
+
+	ret = hbn_vflow_start(vflow_fd[0]);
+	ret |= hbn_vflow_start(vflow_fd[1]);
+	if (ret < 0) {
+		printf("codec_init error!!!\n");
+		goto err3;
+	}
+```
+
+循环取图并发送个CODEC编码，再从CODEC中取图保存为h264文件
+```c
+	while (imgframe.cnt < 30 * TIMEOUT) {
+		ret = hbn_vnode_getframe(sth_vnode_fd, 0, 1000, &imgframe.vnode_buffer);
+		printf("sth_worker, ret = %d\n", ret);
+		if (ret == 0) {
+			ret = codec_set_input(&context, &imgframe);
+			if (ret < 0) {
+				printf("codec_set_input error!!!\n");
+				goto err4;
+			}
+
+			ret = codec_get_output(&context, &imgframe);
+			if (ret < 0) {
+				printf("codec_get_output error!!!\n");
+				goto err4;
+			}
+
+            ret = write_output_h264(&imgframe, h264fd);
+			if (ret < 0) {
+				printf("write_output_h264 error!!!\n");
+				goto err4;
+			}
+
+			ret = codec_release_output(&context, &imgframe);
+			if (ret < 0) {
+				printf("codec_release_output error!!!\n");
+				goto err4;
+			}
+
+			hbn_vnode_releaseframe(sth_vnode_fd, 0, &imgframe.vnode_buffer);
+		} else {
+			printf("hbn_vnode_getframe fail, ret = %d\n", ret);
+			goto err4;
+		}
+
+		imgframe.cnt++;
+	}
+```
+
 ## V4L2 Sample
 
 ### imx219 + MIPI + CIM + ISP + PYM：

@@ -128,3 +128,32 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 3. 输入密码（sunrise）即可完成登录
 
 ![image-Cmdline-Linux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/linux_login_01.gif)
+
+
+## NoMachine登陆
+
+:::tip
+NoMachine功能需要S100端的软件包支持，配置指南见[NoMachine配置](./03_configuration_wizard/configuration_wizard_s100.md#nomachine-配置)
+:::
+
+本章节面向使用Ubuntu Desktop系统版本的用户，介绍如何通过`NoMachine`实现远程桌面登录功能。
+
+**连接开发板**
+
+1. 打开`NoMachine`客户端，点击`Add`增加主机配置
+
+![nomachine_login01](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-S100-nomachine_login01.jpg)
+
+2. 在跳出来的界面中填写`RDK100`的主机信息，完成后点击`Add`
+
+![nomachine_login02](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-S100-nomachine_login02.jpg)
+
+3. 此时返回主界面，双击刚才生成的主机
+
+![nomachine_login03](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-S100-nomachine_login03.jpg)
+
+4. 弹出登录界面，输入用户名、密码点击OK即可完成远程登陆
+
+![nomachine_login04](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-S100-nomachine_login04.jpg)
+
+![nomachine_login05](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-S100-nomachine_login05.jpg)

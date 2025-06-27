@@ -19,7 +19,7 @@ sidebar_position: 1
   // 示例版本为 V1.0.0
 
   wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
-  
+
   // 更多模型转换示例，根据需要进行下载！
   //wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
 ```
@@ -44,7 +44,7 @@ sidebar_position: 1
 
     1. ``board`` 文件夹下为板端可执行程序。
 
-    2. ``host`` 文件夹下为x86开发环境下的环境依赖、工具依赖以及模型推理相关的libdnn库和头文件。 
+    2. ``host`` 文件夹下为x86开发环境下的环境依赖、工具依赖以及模型推理相关的libdnn库和头文件。
 
 
 
@@ -115,13 +115,13 @@ D-Robotics 要求的Docker基础环境信息如下：
 
   ```bash
     // 运行 docker 镜像的命令
-  
+
     export version=v1.0.0
-  
+
     export ai_toolchain_package_path=/home/users/xxx/ai_toolchain_package
-  
+
     export dataset_path=/home/users/xxx/data/
-  
+
     docker run -it --rm \
       -v "$ai_toolchain_package_path":/open_explorer \
       -v "$dataset_path":/data \
@@ -150,8 +150,8 @@ D-Robotics 要求的Docker基础环境信息如下：
   在执行上述命令时：
 
   - ``dataset_path`` 为数据集文件目录，如果该目录不存在会导致加载问题，需要创建好后再运行命令。
-  
-  - 公共数据集可参考以下链接下载：    
+
+  - 公共数据集可参考以下链接下载：
 
       VOC：http://host.robots.ox.ac.uk/pascal/VOC/  （使用VOC2012版本）
 
@@ -195,7 +195,7 @@ D-Robotics 要求的Docker基础环境信息如下：
 ### 开发板部署
 
 
-开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os.md) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
+开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
 
 
 #### 补充文件准备
@@ -205,7 +205,7 @@ D-Robotics 要求的Docker基础环境信息如下：
 执行命令如下：
 
 ```bash
-  // 若使用RDK X3开发板，执行命令 
+  // 若使用RDK X3开发板，执行命令
   bash install_xj3.sh ${board_ip}
 ```
 :::info 备注
@@ -369,13 +369,13 @@ X5算法工具链要求的Docker基础环境信息如下：
   [**ImageNet：**](https://www.image-net.org/download.php)
 
   [**Cityscapes：**](https://github.com/mcordts/cityscapesScripts)
-        
+
   [**CIFAR-10:**](http://www.cs.toronto.edu/~kriz/cifar.html)
-        
+
   [**FlyingChairs:**](https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html)
-        
+
   [**KITTI3D:**](https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d)
-        
+
   [**CULane:**](https://xingangpan.github.io/projects/CULane.html)
 
   [**nuScenes:**](https://www.nuscenes.org/nuscenes)
@@ -455,7 +455,7 @@ ftp://oemng@42.62.85.52:10021/RDK/rdk-x3-ultra/
 
     1. ``board`` 文件夹下为板端可执行程序。
 
-    2. ``host`` 文件夹下为x86开发环境下的环境依赖、工具依赖以及模型推理相关的libdnn库和头文件。 
+    2. ``host`` 文件夹下为x86开发环境下的环境依赖、工具依赖以及模型推理相关的libdnn库和头文件。
 
 
 
@@ -526,13 +526,13 @@ D-Robotics 要求的Docker基础环境信息如下：
 
   ```bash
     // 运行 docker 镜像的命令
-  
+
     export version=v1.0.0
-  
+
     export ai_toolchain_package_path=/home/users/xxx/ai_toolchain_package
-  
+
     export dataset_path=/home/users/xxx/data/
-  
+
     docker run -it --rm \
       -v "$ai_toolchain_package_path":/open_explorer \
       -v "$dataset_path":/data \
@@ -561,8 +561,8 @@ D-Robotics 要求的Docker基础环境信息如下：
   在执行上述命令时：
 
   - ``dataset_path`` 为数据集文件目录，如果该目录不存在会导致加载问题，需要创建好后再运行命令。
-  
-  - 公共数据集可参考以下链接下载：    
+
+  - 公共数据集可参考以下链接下载：
 
       VOC：http://host.robots.ox.ac.uk/pascal/VOC/  （使用VOC2012版本）
 
@@ -606,7 +606,7 @@ D-Robotics 要求的Docker基础环境信息如下：
 ### 开发板部署
 
 
-开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os.md) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
+开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
 
 
 #### 补充文件准备
@@ -616,7 +616,7 @@ D-Robotics 要求的Docker基础环境信息如下：
 执行命令如下：
 
 ```bash
-  // 若使用RDK Ultra开发板，执行命令 
+  // 若使用RDK Ultra开发板，执行命令
   bash install_ultra.sh ${board_ip}
 ```
 :::info 备注
@@ -640,10 +640,10 @@ D-Robotics 要求的Docker基础环境信息如下：
 版本管理工具包括以下功能：
 
 - ddk_vcs list;
-- ddk_vcs install; 
-- ddk_vcs uninstall; 
-- ddk_vcs patch; 
-- ddk_vcs show; 
+- ddk_vcs install;
+- ddk_vcs uninstall;
+- ddk_vcs patch;
+- ddk_vcs show;
 
 
 ### ddk_vcs list
@@ -757,4 +757,3 @@ ddk_vcs show 用于显示有关已安装软件包的信息。使用 ``ddk_vcs sh
   -------- ----------- ------- ----------
   aarch_64 bpu_predict 1.10.2  5b6e5dd6c5
 ```
-
