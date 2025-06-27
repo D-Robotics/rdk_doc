@@ -6,7 +6,7 @@ sidebar_position: 3
 
 :::tip
 
-系统镜像下载与烧录的完整步骤，请[**点击查看该章节**](../../../01_Quick_start/install_os.md)。
+系统镜像下载与烧录的完整步骤，请[**点击查看该章节**](../../../01_Quick_start/install_os)。
 
 
 :::
@@ -57,4 +57,3 @@ RDK Ultra开发套件烧录Ubuntu系统时，需要使用D-Robotics `hbupdate`�
 
 - 工具提示如下错误时，说明网络传输速度过慢，建议更换性能更好的PC后重新升级。
 ![image-flash-system8](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-system8.jpg)
-

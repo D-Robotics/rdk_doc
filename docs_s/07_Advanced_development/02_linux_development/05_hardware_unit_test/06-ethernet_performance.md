@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # 以太网性能测试
 
-本章旨在指导如何使用 `iperf3` 工具进行以太网性能测试。可以查阅 [iperf3](../linux_command_manual/cmd_iperf3.md) 了解该命令的详细使用说明。
+本章旨在指导如何使用 `iperf3` 工具进行以太网性能测试。可以查阅 [iperf3](https://iperf.fr/iperf-doc.php#3docd) 了解该命令的详细使用说明。
 
 **以太网性能测试的关注点：**
 
@@ -125,7 +125,7 @@ Connecting to host 192.168.1.195, port 5002
 
 ### 测试结果
 
-请查阅 [iperf3- 测试结果分析](../linux_command_manual/cmd_iperf3.html#span-id-iperf-result) 了解输出信息各字段含义。
+请查阅 [iperf3- 测试结果分析](https://iperf.fr/iperf-doc.php#3doc) 了解输出信息各字段含义。
 
 为获得理想的性能测试结果，请确保以下条件：
 

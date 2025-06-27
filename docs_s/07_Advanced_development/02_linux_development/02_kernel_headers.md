@@ -21,6 +21,7 @@ Kbuild         arch      crypto   include  ipc       mm   samples  sound     vir
 Kconfig        block     drivers  init     kernel    net  scripts  tools
 ```
 
+<!--
 ## 使用示例
 
 我们用一个简单的 `Hello World` 内核模块的开发介绍如果使用内核头文件。步骤概要如下：
@@ -64,10 +65,10 @@ ifneq ($(KERNELRELEASE),)
 	obj-m := hello.o
 else
 	PWD=$(shell pwd)
-	KDIR := /usr/src/linux-headers-$(shell uname -r)
+	KDIR := /usr/src/linux-headers-6.1.112-rt43
 
 all:
-	make -C $(KDIR) M=$(PWD) modules
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
 clean:
 	rm -rf *.ko *.o *.mod.o *.mod.c *.symvers  modul* .*.ko.cmd .*.o.cmd .tmp_versions
 endif
@@ -79,18 +80,18 @@ endif
 保存`Makefile`后，执行`make`命令完成模块的编译，生成`hello.ko`文件。
 ```bash
 root@ubuntu:~# make
-make  -C /usr/src/linux-headers-6.1.83 M=/root modules
-make[1]: Entering directory '/usr/src/linux-headers-6.1.83'
+make  -C /usr/src/linux-headers-6.1.112-rt43 M=/root modules
+make[1]: Entering directory 'linux-headers-6.1.112-rt43'
   CC [M]  /root/hello.o
   Building modules, stage 2.
   MODPOST 1 modules
   CC      /root/hello.mod.o
   LD [M]  /root/hello.ko
-make[1]: Leaving directory '/usr/src/linux-headers-6.1.83'
+make[1]: Leaving directory 'linux-headers-6.1.112-rt43'
 ```
 
 ### 模块签名
-编译好的驱动模块文件，需要进行签名后才能加载到RDK X3的内核里，命令如下：
+编译好的驱动模块文件，需要进行签名后才能加载到RDK S100的内核里，命令如下：
 ```bash
 root@ubuntu:~# hobot-sign-file hello.ko
 Sign Kernel Module File Done.
@@ -142,3 +143,4 @@ sudo depmod
 ```bash
 sudo echo hello > /lib/modules-load.d/hello.conf
 ```
+ -->

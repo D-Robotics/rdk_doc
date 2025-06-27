@@ -31,8 +31,7 @@ hbmem api使用说明，包括com buffer、graphic buffer、graphic buffer group
 
 libhbmem库调用ion进行buffer分配
 
-![hbmem_sample_call_sequence]https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02
-_S100/hbmem/hbmem_sample_call_sequence.png)
+![hbmem_sample_call_sequence](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/hbmem/hbmem_sample_call_sequence.png)
 
 com buffer、graph buffer、graphic buffer group 分配流程图
 

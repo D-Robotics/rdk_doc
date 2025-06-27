@@ -18,15 +18,15 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
 
   ```bash
   sunrise@ubuntu:~$ cd /app/pydev_demo/03_mipi_camera_sample/
-  sunrise@ubuntu:/app/pydev_demo/03_mipi_camera_sample$ sudo python3 ./mipi_camera.py 
+  sunrise@ubuntu:/app/pydev_demo/03_mipi_camera_sample$ sudo python3 ./mipi_camera.py
   ```
 
 ## 预期效果
-程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：  
+程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：
 ![image-20220503221020331](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
 
 :::tip
 
-详细代码实现说明请查阅[基于MIPI摄像头推理](../../04_Algorithm_Application/01_pydev_dnn_demo/mipi_camera.md)章节。
+详细代码实现说明请查阅[基于MIPI摄像头推理](../../03_Basic_Application/01_Image/mipi_camera.md)章节。
 
 :::

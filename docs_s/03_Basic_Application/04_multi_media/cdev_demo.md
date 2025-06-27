@@ -10,9 +10,9 @@ sidebar_position: 2
 
 本示例`vio2display`示例实现了`MIPI`摄像头图像采集功能，并通过`HDMI`接口输出，用户可通过显示器预览画面。
 
-示例流程框图：（待更新）
+示例流程框图：
 
-<!-- ![image-vio_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg) -->
+ ![image-vio_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-vio_to_display.png)
 
 - **环境准备：**
 
@@ -38,43 +38,35 @@ sidebar_position: 2
   程序正确运行后，开发板会通过显示器输出`MIPI`摄像头采集的实时画面。运行 log 如下：
 
   ```bash
-    sunrise@ubuntu:/tmp/nfs/sp_cdev/cdev_demo/vio2display$ ./vio2display -w 1920 -h 1080
-    disp_w=1920, disp_h=1080
-    2023/03/28 02:08:03.359 !INFO [x3_cam_init_param][0099]Enable mipi host0 mclk
-    2023/03/28 02:08:03.359 !INFO [x3_cam_init_param][0099]Enable mipi host1 mclk
-    Camera: gpio_num=114, active=low, i2c_bus=3, mipi_host=0
-    Camera: gpio_num=114, active=low, i2c_bus=1, mipi_host=1
-    Camera: gpio_num=114, active=low, i2c_bus=0, mipi_host=2
-    Camera 0:
-          enable: 1
-          i2c_bus: 3
-          mipi_host: 0
-    Camera 1:
-          enable: 1
-          i2c_bus: 1
-          mipi_host: 1
-    Camera 2:
-          enable: 1
-          i2c_bus: 0
-          mipi_host: 2
-    cmd=i2ctransfer -y -f 3 w2@0x10 0x0 0x0 r1 2>&1, result=0x02
-
-    Found sensor:imx219 on i2c bus 3, use mipi host 0
-    Setting VPS channel-2: src_w:1920, src_h:1080; dst_w:1920, dst_h:1080;
-    Setting VPS channel-1: src_w:1920, src_h:1080; dst_w:1920, dst_h:1080;
-    sp_open_camera success!
-    libiar: hb_disp_set_timing done!
-
-    Press 'q' to Exit !
+  sunrise@ubuntu:/app/cdev_demo/vio2display$ ./vio2display -w 1920 -h 1080
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
+  disp_w=1920, disp_h=1080
+  2025/06/16 10:12:21.574 !INFO [CamInitParam][0295]set camera fps: -1,width: 1920,height: 1080  
+  mipi mclk is not configed.
+  Searching camera sensor on device: /proc/device-tree/soc/vcon@0 i2c bus: 1 mipi rx phy: 0
+  WARN: Sensor Name: ar0820std-30fps, Expected Chip ID: 0xCB34, Actual Chip ID Read: 0x00
+  [0] INFO: Found sensor name:imx219-30fps on mipi rx csi 0, i2c addr 0x10, config_file:linear_1920x1080_raw10_30fps_1lane.c
+  2025/06/16 10:12:21.575 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
+  [  110.667129] [E|ISP-2A|main.c+66]: [FW_GENERIC]/sys/class/vps/isp0_src/v3a open fail, err is Permission denied  
+  [  110.667169] [E|ISP-2A|main.c+68]: [FW_GENERIC]/sys/class/vps/isp1_src/v3a open fail, err is Permission denied  
+  sp_open_camera success!
+  2025/06/16 10:12:21.727 !INFO [OpenDisplay][0111]Wayland is available, using Wayland for rendering.  
+  Using default socket path: /run/user/1000/wayland-0  
+  Press 'q' to Exit !
   ```
 
 ## 摄像头图像采集并编码
 
 本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存，用户可通过显示器预览画面。
 
-示例流程框图：（待更新）
+示例流程框图：
 
-<!-- ![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png) -->
+![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-vio_to_encode.png)
 
 - **环境准备：**
 
@@ -87,8 +79,8 @@ sidebar_position: 2
 
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/vio2encoder
-  sunrise@ubuntu:/app/cdev_demo/vio2encoder$ sudo make
-  sunrise@ubuntu:/app/cdev_demo/vio2encoder$ sudo ./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264
+  sunrise@ubuntu:/app/cdev_demo/vio2encoder$ make
+  sunrise@ubuntu:/app/cdev_demo/vio2encoder$ ./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264
   ```
 
   参数说明：
@@ -103,42 +95,39 @@ sidebar_position: 2
   程序正确运行后，在当前目录下会生成名为`stream.h264`的视频文件。运行 log 如下：
 
   ```bash
-  sunrise@ubuntu:/tmp/nfs/sp_cdev/cdev_demo/vio2encoder$ sudo ./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264
-  2023/03/28 02:27:32.560 !INFO [x3_cam_init_param][0099]Enable mipi host0 mclk
-  2023/03/28 02:27:32.561 !INFO [x3_cam_init_param][0099]Enable mipi host1 mclk
-  Camera: gpio_num=114, active=low, i2c_bus=3, mipi_host=0
-  Camera: gpio_num=114, active=low, i2c_bus=1, mipi_host=1
-  Camera: gpio_num=114, active=low, i2c_bus=0, mipi_host=2
-  Camera 0:
-       enable: 1
-       i2c_bus: 3
-       mipi_host: 0
-  Camera 1:
-       enable: 1
-       i2c_bus: 1
-       mipi_host: 1
-  Camera 2:
-       enable: 1
-       i2c_bus: 0
-       mipi_host: 2
-  cmd=i2ctransfer -y -f 3 w2@0x10 0x0 0x0 r1 2>&1, result=0x02
-
-  Found sensor:imx219 on i2c bus 3, use mipi host 0
-  Setting VPS channel-2: src_w:1920, src_h:1080; dst_w:1920, dst_h:1080;
-  Setting VPS channel-1: src_w:1920, src_h:1080; dst_w:1920, dst_h:1080;
+  sunrise@ubuntu:/app/cdev_demo/vio2encoder$  ./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
+  2025/06/16 11:04:37.628 !INFO [CamInitParam][0295]set camera fps: -1,width: 1920,height: 1080
+  
+  mipi mclk is not configed.
+  Searching camera sensor on device: /proc/device-tree/soc/vcon@0 i2c bus: 1 mipi rx phy: 0
+  WARN: Sensor Name: ar0820std-30fps, Expected Chip ID: 0xCB34, Actual Chip ID Read: 0x00
+  [0] INFO: Found sensor name:imx219-30fps on mipi rx csi 0, i2c addr 0x10, config_file:linear_1920x1080_raw10_30fps_1lane.c
+  2025/06/16 11:04:37.629 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
+  [ 3246.617496] [E|ISP-2A|main.c+66]: [FW_GENERIC]/sys/class/vps/isp0_src/v3a open fail, err is Permission denied
+  
+  [ 3246.617538] [E|ISP-2A|main.c+68]: [FW_GENERIC]/sys/class/vps/isp1_src/v3a open fail, err is Permission denied
+  
   sp_open_camera success!
+  2025/06/16 11:04:37.770 !INFO [vp_encode_config_param][0408]codec type is h264: frame size:3110912  frame rate: 30
   sp_start_encode success!
   sp_module_bind(vio -> encoder) success!
+  ^C
+  recv:2,Stoping...
   ```
 
-<!--
 ## 视频文件解码并显示
 
 本示例`decoder2display`实现了视频文件解码，并通过`HDMI`接口输出，用户可通过显示器预览画面。
 
-示例流程框图：（待更新）
+示例流程框图：
 
-![image-decoder_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.png)
+![image-decoder_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-decoder_to_display.png)
 
 - **环境准备：**
 
@@ -151,8 +140,8 @@ sidebar_position: 2
 
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/decode2display
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ sudo make
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ sudo ./decoder2display -w 1920 -h 1080 -i stream.h264
+  sunrise@ubuntu:/app/cdev_demo/decode2display$ make
+  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/pydev_demo/07_decode_rtsp_stream/1080P_test.h264
   ```
 
   参数说明：
@@ -164,22 +153,30 @@ sidebar_position: 2
 - **预期效果：**
   程序正确运行后，视频画面会通过开发板的`HDMI`接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
   ```bash
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ sudo ./decoder2display -w 1920 -h 1080 -i stream.h264
-  disp_w=1024, disp_h=600
-  [x3_av_open_stream]:[380]:probesize: 5000000
+  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/pydev_demo/07_decode_rtsp_stream/1080P_test.h264
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
+  disp_w=1920, disp_h=1080
   sp_start_decode success!
-  libiar: hb_disp_set_timing done!
+  2025/06/16 10:48:49.220 !WARN [sp_start_display][0049]Warning: Using vot_chn values 0-3 is deprecated. Defaulting to HDMI mode.
+  2025/06/16 10:48:49.221 !WARN [sp_start_display][0050]Please use the new method: pass 10 for DisplayPort (DP) or 11 for HDMI.
+  2025/06/16 10:48:49.221 !INFO [OpenDisplay][0111]Wayland is available, using Wayland for rendering.
+  
+  Using default socket path: /run/user/1000/wayland-0
   sp_start_display success!
-  sp_open_vps success!
   ```
 
 ## RTSP 拉流解码
 
 本示例`rtsp2display`实现了拉取`rtsp`码流、解码，并通过`HDMI`输出视频图像的功能，用户可通过显示器预览画面。
 
-示例流程框图：（待更新）
+示例流程框图：
 
-![rtsp2display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
+![rtsp2display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-rtsp_to_display.png)
 
 - **环境准备：**
 
@@ -188,8 +185,9 @@ sidebar_position: 2
   - 准备`rtsp`码流作为输入源，使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/1080P_test.h264`。用户可通过如下命令启动推流服务：
 
     ```text
-    cd /app/pydev_demo/08_decode_rtsp_stream/
-    root@ubuntu:/app/pydev_demo/08_decode_rtsp_stream# sudo ./live555MediaServer &
+    cd /app/pydev_demo/07_decode_rtsp_stream/
+    root@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo chmod +x live555MediaServer
+    root@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo ./live555MediaServer &
     ```
 
 - **运行方式：**
@@ -197,8 +195,8 @@ sidebar_position: 2
 
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/rtsp2display
-  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo make #可能会打印一些警告信息，无需理会
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ sudo ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
+  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ make #可能会打印一些警告信息，无需理会
+  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
   ```
 
   参数配置：
@@ -210,7 +208,13 @@ sidebar_position: 2
   程序正确运行后，视频画面会通过开发板的`HDMI`接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
 
   ```
-  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
+  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
   avformat_open_input ok!
   avformat_find_stream_info ok!
   Input #0, rtsp, from 'rtsp://127.0.0.1/1080P_test.h264':
@@ -222,14 +226,18 @@ sidebar_position: 2
   av_dump_format ok!
   rtsp_w:1920,rtsp_h:1080
   display_w:1920,dispaly_h:1080
-  ... 省略 ...
+  2025/06/16 10:57:21.724 !WARN [sp_start_display][0049]Warning: Using vot_chn values 0-3 is deprecated. Defaulting to HDMI mode.
+  2025/06/16 10:57:21.724 !WARN [sp_start_display][0050]Please use the new method: pass 10 for DisplayPort (DP) or 11 for HDMI.
+  2025/06/16 10:57:21.724 !INFO [OpenDisplay][0111]Wayland is available, using Wayland for rendering.
+  
+  Using default socket path: /run/user/1000/wayland-0
+  2025/06/16 10:57:21.793 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
   sp_open_vps success!
-  Created new framebuffer: fb_id=76 for dma_buf_fd=18
+  Could not read frame ---(error 'End of file') 
   ```
 
 - **注意事项：**
   - 使用 UDP 协议传输码流时，可能出现因网络丢包导致的花屏现象，此时可切换成 TCP 协议传输解决。
-!-->
 
 ## VPS 缩放示例
 
@@ -246,8 +254,9 @@ sidebar_position: 2
 
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/vps
-  sunrise@ubuntu:/app/cdev_demo/vps$ sudo make
-  sunrise@ubuntu:/app/cdev_demo/vps$ sudo ./vps -m 1 -i stream.h264 -o output.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
+  sunrise@ubuntu:/app/cdev_demo/vps$ make
+  sunrise@ubuntu:/app/cdev_demo/vps$ ./vps -m 1 -i input_1080p.h264 -o output1.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
+  sunrise@ubuntu:/app/cdev_demo/vps$ ./vps -m 2 -i input_1080p.yuv -o output.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
   ```
 
   **参数配置：**
@@ -265,13 +274,26 @@ sidebar_position: 2
   程序正确运行后，当前目录会保存处理后的图像文件`outpu.yuv`。运行 log 如下：
 
   ```shell
-  sunrise@ubuntu:/app/cdev_demo/vps$ sudo ./vps -m 1 -i stream.h264 -o output.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
-
-  ... 省略 ...
-  2000/01/01 18:57:31.330 !INFO [CamInitVseParam][0231]Setting VSE channel-0: input_width:1920, input_height:1080, dst_w:1280, dst_h:720
+  sunrise@ubuntu:/app/cdev_demo/vps$ ./vps -m 1 -i input_1080p.h264 -o output1.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
+  2025/06/16 10:33:02.709 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1280, dst_h:720
+  sunrise@ubuntu:/app/cdev_demo/vps$ ./vps -m 2 -i input_1080p.yuv -o output.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
+  2025/06/16 10:33:29.134 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1280, dst_h:720
   ... 省略 ...
   ```
 
+<!--
 ## 目标检测算法—fcos
 
 本示例基于`fcos`模型，实现了本地视频流的目标检测算法功能，用户可通过显示器预览检测结果。
@@ -386,3 +408,4 @@ sidebar_position: 2
   2000/01/01 19:06:40.013 !INFO [CamInitParam][0139]Setting VSE channel-1: input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
   ... 省略 ...
   ```
+ -->

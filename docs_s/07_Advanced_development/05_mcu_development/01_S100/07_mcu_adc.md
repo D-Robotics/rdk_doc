@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# ADC 使用指南
+# ADC使用指南
 
 ## 硬件支持
 

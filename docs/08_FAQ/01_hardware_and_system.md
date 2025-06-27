@@ -686,7 +686,16 @@ no mmc device at slot X
 **重要提示：**
 * 上述步骤是一个通用流程，具体命令和细节可能因您的Linux发行版、内核版本以及Secure Boot的配置状态而有所不同。
 * **请务必参考您所使用的Linux发行版和内核版本的官方文档中关于“内核模块签名 (Kernel Module Signing)”的详细指南。**
-* 地瓜机器人官方RDK文档中关于“Linux开发”或“驱动开发”的章节，也可能包含针对RDK平台的具体模块签名指导：[RDK文档 - Linux开发 - 内核头文件与模块编译](../Advanced_development/linux_development/kernel_headers) (请查找此文档中关于模块签名的具体章节)。
+* 地瓜机器人官方RDK文档中关于“Linux开发”或“驱动开发”的章节，也可能包含针对RDK平台的具体模块签名指导：
+    <Tabs groupId="sign_ko">
+
+    <TabItem value="rdk_x3_x5" label="rdk_x3_x5">
+    [内核头文件与模块编译](../07_Advanced_development/02_linux_development/kernel_headers.md) (请查找此文档中关于模块签名的具体章节)。
+    </TabItem>
+    <TabItem value="rdk_s100" label="rdk_s100">
+    [内核头文件与模块编译](../rdk_s/07_Advanced_development/02_linux_development/02_kernel_headers) (请查找此文档中关于模块签名的具体章节)。
+    </TabItem>
+    </Tabs>
 
 ### Q39: 如何升级RDK X5的MiniBoot？
 **A:** 在RDK X5上，可以通过 `srpi-config` 工具来方便地升级MiniBoot（U-Boot的早期引导加载程序部分，负责更底层的硬件初始化和引导）。
