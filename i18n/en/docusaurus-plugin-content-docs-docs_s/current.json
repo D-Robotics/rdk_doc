@@ -2,5 +2,257 @@
   "version.label": {
     "message": "Next",
     "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.1. 快速开始": {
+    "message": "1. 快速开始",
+    "description": "The label for category 1. 快速开始 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1. 快速开始.link.generated-index.description": {
+    "message": "RDK系统安装、快速上手",
+    "description": "The generated-index page description for category 1. 快速开始 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.1 硬件简介": {
+    "message": "1.1 硬件简介",
+    "description": "The label for category 1.1 硬件简介 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2 系统烧录": {
+    "message": "1.2 系统烧录",
+    "description": "The label for category 1.2 系统烧录 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.3 入门配置": {
+    "message": "1.3 入门配置",
+    "description": "The label for category 1.3 入门配置 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.2. 系统配置": {
+    "message": "2. 系统配置",
+    "description": "The label for category 2. 系统配置 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.2. 系统配置.link.generated-index.description": {
+    "message": "系统配置",
+    "description": "The generated-index page description for category 2. 系统配置 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3. 基础应用开发": {
+    "message": "3. 基础应用开发",
+    "description": "The label for category 3. 基础应用开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3. 基础应用开发.link.generated-index.description": {
+    "message": "系统入门应用，包括图像输入，音频输入以及接口开发等",
+    "description": "The generated-index page description for category 3. 基础应用开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.1 图像采集与应用": {
+    "message": "3.1 图像采集与应用",
+    "description": "The label for category 3.1 图像采集与应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2 语音采集与应用": {
+    "message": "3.2 语音采集与应用",
+    "description": "The label for category 3.2 语音采集与应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.3 扩展引脚排应用": {
+    "message": "3.3 扩展引脚排应用",
+    "description": "The label for category 3.3 扩展引脚排应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.4 多媒体应用": {
+    "message": "3.4 多媒体应用",
+    "description": "The label for category 3.4 多媒体应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.4.3 多媒体接口使用说明": {
+    "message": "3.4.3 多媒体接口使用说明",
+    "description": "The label for category 3.4.3 多媒体接口使用说明 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Python": {
+    "message": "Python",
+    "description": "The label for category Python in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C++": {
+    "message": "C++",
+    "description": "The label for category C++ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.4. 算法应用开发": {
+    "message": "4. 算法应用开发",
+    "description": "The label for category 4. 算法应用开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.4. 算法应用开发.link.generated-index.description": {
+    "message": "提供算法开发案例，包括python/C++等多种接口以及算法仓库等内容",
+    "description": "The generated-index page description for category 4. 算法应用开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.4.3 模型仓库示例": {
+    "message": "4.3 模型仓库示例",
+    "description": "The label for category 4.3 模型仓库示例 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5. 机器人应用开发": {
+    "message": "5. 机器人应用开发",
+    "description": "The label for category 5. 机器人应用开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5. 机器人应用开发.link.generated-index.description": {
+    "message": "机器人应用开发",
+    "description": "The generated-index page description for category 5. 机器人应用开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.1 系统安装": {
+    "message": "5.1 系统安装",
+    "description": "The label for category 5.1 系统安装 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.2 功能体验": {
+    "message": "5.2 功能体验",
+    "description": "The label for category 5.2 功能体验 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3 Boxs算法仓库": {
+    "message": "5.3 Boxs算法仓库",
+    "description": "The label for category 5.3 Boxs算法仓库 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.1 目标检测": {
+    "message": "5.3.1 目标检测",
+    "description": "The label for category 5.3.1 目标检测 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.2 图像分类": {
+    "message": "5.3.2 图像分类",
+    "description": "The label for category 5.3.2 图像分类 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.3 图像分割": {
+    "message": "5.3.3 图像分割",
+    "description": "The label for category 5.3.3 图像分割 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.4 应用算法": {
+    "message": "5.3.4 应用算法",
+    "description": "The label for category 5.3.4 应用算法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.4 Apps应用示例": {
+    "message": "5.4 Apps应用示例",
+    "description": "The label for category 5.4 Apps应用示例 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.5 功能开发": {
+    "message": "5.5 功能开发",
+    "description": "The label for category 5.5 功能开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.6. 应用开发指南": {
+    "message": "6. 应用开发指南",
+    "description": "The label for category 6. 应用开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.6. 应用开发指南.link.generated-index.description": {
+    "message": "算法/机器人应用等多种解决方案",
+    "description": "The generated-index page description for category 6. 应用开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7. 进阶开发": {
+    "message": "7. 进阶开发",
+    "description": "The label for category 7. 进阶开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7. 进阶开发.link.generated-index.description": {
+    "message": "硬件/系统/多媒体/算法等章节开发",
+    "description": "The generated-index page description for category 7. 进阶开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.1 硬件开发指南": {
+    "message": "7.1 硬件开发指南",
+    "description": "The label for category 7.1 硬件开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.1 硬件开发指南.link.generated-index.description": {
+    "message": "硬件开发指南",
+    "description": "The generated-index page description for category 7.1 硬件开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.2. Linux开发指南": {
+    "message": "7.2. Linux开发指南",
+    "description": "The label for category 7.2. Linux开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.2. Linux开发指南.link.generated-index.description": {
+    "message": "Linux开发指南",
+    "description": "The generated-index page description for category 7.2. Linux开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.2.4 RDK S100驱动开发指南": {
+    "message": "7.2.4 RDK S100驱动开发指南",
+    "description": "The label for category 7.2.4 RDK S100驱动开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.2.4 RDK S100驱动开发指南.link.generated-index.description": {
+    "message": "RDK S100驱动开发指南",
+    "description": "The generated-index page description for category 7.2.4 RDK S100驱动开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.PCIe使用指南": {
+    "message": "PCIe使用指南",
+    "description": "The label for category PCIe使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HBMEM使用指南": {
+    "message": "HBMEM使用指南",
+    "description": "The label for category HBMEM使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.2.5 硬件单元测试": {
+    "message": "7.2.5 硬件单元测试",
+    "description": "The label for category 7.2.5 硬件单元测试 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.2.5 硬件单元测试.link.generated-index.description": {
+    "message": "硬件单元测试",
+    "description": "The generated-index page description for category 7.2.5 硬件单元测试 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.3 多媒体开发指南": {
+    "message": "7.3 多媒体开发指南",
+    "description": "The label for category 7.3 多媒体开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.3 多媒体开发指南.link.generated-index.description": {
+    "message": "多媒体开发指南",
+    "description": "The generated-index page description for category 7.3 多媒体开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.3.1 S100 多媒体开发指南": {
+    "message": "7.3.1 S100 多媒体开发指南",
+    "description": "The label for category 7.3.1 S100 多媒体开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.3.1 S100 多媒体开发指南.link.generated-index.description": {
+    "message": "多媒体开发指南",
+    "description": "The generated-index page description for category 7.3.1 S100 多媒体开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.3.2 多媒体应用开发 ": {
+    "message": "7.3.2 多媒体应用开发 ",
+    "description": "The label for category 7.3.2 多媒体应用开发  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.3.2 多媒体应用开发 .link.generated-index.description": {
+    "message": " 多媒体应用开发 ",
+    "description": "The generated-index page description for category 7.3.2 多媒体应用开发  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.4 算法工具链开发指南": {
+    "message": "7.4 算法工具链开发指南",
+    "description": "The label for category 7.4 算法工具链开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.4 算法工具链开发指南.link.generated-index.description": {
+    "message": "算法工具链开发指南",
+    "description": "The generated-index page description for category 7.4 算法工具链开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.5 MCU开发指南": {
+    "message": "7.5 MCU开发指南",
+    "description": "The label for category 7.5 MCU开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.5 MCU开发指南.link.generated-index.description": {
+    "message": "MCU开发指南",
+    "description": "The generated-index page description for category 7.5 MCU开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.5.1 S100 MCU开发指南": {
+    "message": "7.5.1 S100 MCU开发指南",
+    "description": "The label for category 7.5.1 S100 MCU开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.7.5.1 S100 MCU开发指南.link.generated-index.description": {
+    "message": "MCU开发指南",
+    "description": "The generated-index page description for category 7.5.1 S100 MCU开发指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.8. 常见问题": {
+    "message": "8. 常见问题",
+    "description": "The label for category 8. 常见问题 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.8. 常见问题.link.generated-index.description": {
+    "message": "常见问题",
+    "description": "The generated-index page description for category 8. 常见问题 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.9. 附录": {
+    "message": "9. 附录",
+    "description": "The label for category 9. 附录 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.9. 附录.link.generated-index.description": {
+    "message": "接口使用说明",
+    "description": "The generated-index page description for category 9. 附录 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.9.1 RDK专属命令用法": {
+    "message": "9.1 RDK专属命令用法",
+    "description": "The label for category 9.1 RDK专属命令用法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.9.2 Linux命令用法": {
+    "message": "9.2 Linux命令用法",
+    "description": "The label for category 9.2 Linux命令用法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.10. 版本发布": {
+    "message": "10. 版本发布",
+    "description": "The label for category 10. 版本发布 in sidebar tutorialSidebar"
   }
 }

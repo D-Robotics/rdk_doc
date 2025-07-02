@@ -53,7 +53,7 @@
   },
   "sidebar.tutorialSidebar.category.3.3 40PIN管脚应用": {
     "message": "3.3 40-pin GPIO Pin Application",
-    "description": "The label for category 3.3 40-pin GPIO管脚应用 in sidebar tutorialSidebar"
+    "description": "The label for category 3.3 40PIN管脚应用 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.3.4 多媒体应用": {
     "message": "3.4 Multimedia Applications",
@@ -250,5 +250,17 @@
   "sidebar.tutorialSidebar.category.9.2 Linux命令用法": {
     "message": "9.2 Linux Command Usage",
     "description": "The label for category 9.2 Linux命令用法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2.1 RDK X3 && RDK X3 Module": {
+    "message": "3.2.1 RDK X3 && RDK X3 Module",
+    "description": "The label for category 3.2.1 RDK X3 && RDK X3 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2.2 RDK X5": {
+    "message": "3.2.2 RDK X5",
+    "description": "The label for category 3.2.2 RDK X5 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.10. 版本发布": {
+    "message": "10. Version release",
+    "description": "The label for category 10. 版本发布 in sidebar tutorialSidebar"
   }
 }
