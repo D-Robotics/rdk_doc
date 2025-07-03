@@ -19,13 +19,13 @@ npm install --registry=https://registry.npmmirror.com
 仅构建中文手册：
 
 ```shell
-npm run start
+npm run start 
 ```
 
 仅构建英文手册：
 
 ```shell
-npm run start  -- --locale en
+npm run start  -- --locale en 
 ```
 
 本方式无法实现文档的中英文切换，只能实现单种语言文档的构建，如果需要中英文同步显示，需要参考步骤三的方式。

@@ -87,17 +87,9 @@
     "message": "Algorithm development examples, including various interfaces such as python/C++ and algorithm repositories",
     "description": "The generated-index page description for category 4. 算法应用开发 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.4.1 Python模型推理示例": {
-    "message": "4.1 Python Model Inference Example",
-    "description": "The label for category 4.1 Python模型推理示例 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.4.2 C++模型推理接口说明": {
-    "message": "4.2 C++ Model Inference Interface Description",
-    "description": "The label for category 4.2 C++模型推理接口说明 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.4.3 模型仓库示例": {
-    "message": "4.3 Model Repository Example",
-    "description": "The label for category 4.3 模型仓库示例 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.4.1 模型仓库示例": {
+    "message": "4.1 Modelzoo",
+    "description": "The label for category 4.1 模型仓库示例 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5. 机器人应用开发": {
     "message": "5. Robotics Application Development",
