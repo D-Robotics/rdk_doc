@@ -645,168 +645,168 @@ Possible approaches and notes:
 * **Always refer to your distro's and kernel's official documentation on "Kernel Module Signing".**
 * D-Robotics RDK docs may also have platform-specific guidance: [RDK Docs - Linux Development - Kernel Headers & Module Compilation](https://developer.d-robotics.cc/documents_rdk/linux_development/kernel_headers) (see the relevant section on module signing).
 
-### Q39: 如何升级RDK X5的MiniBoot？
-**A:** 在RDK X5上，可以通过 `srpi-config` 工具来方便地升级MiniBoot（U-Boot的早期引导加载程序部分，负责更底层的硬件初始化和引导）。
+### Q39: How to upgrade MiniBoot on RDK X5?
+**A:** On RDK X5, you can conveniently upgrade MiniBoot (the early-stage bootloader responsible for low-level hardware initialization and booting) using the `srpi-config` tool.
 
-**步骤如下：**
-1.  **通过SSH或串口登录到RDK X5的系统终端。**
-2.  **执行 `srpi-config` 工具：**
+**Steps:**
+1.  **Log in to the RDK X5 system terminal via SSH or serial.**
+2.  **Run the `srpi-config` tool:**
     ```bash
     sudo srpi-config
     ```
-3.  **导航到MiniBoot更新选项：**
-    在 `srpi-config` 的菜单中，通常的路径是：
-    * 选择 `1 System Options` (或类似名称的系统选项)
-    * 然后选择 `S7 Update MiniBoot` (或类似名称的MiniBoot更新选项，具体编号和名称可能随 `srpi-config` 版本略有调整)
-4.  **按照提示进行操作：**
-    工具会引导您完成升级过程。这通常需要RDK X5能够连接到互联网，以便下载最新的MiniBoot固件包。
-5.  **完成并重启：**
-    升级完成后，按照提示退出 `srpi-config` 并重启RDK X5使新的MiniBoot生效。
+3.  **Navigate to the MiniBoot update option:**
+    In the `srpi-config` menu, the typical path is:
+    * Select `1 System Options` (or similar system options)
+    * Then select `S7 Update MiniBoot` (or similar MiniBoot update option; the exact number and name may vary by `srpi-config` version)
+4.  **Follow the prompts:**
+    The tool will guide you through the upgrade process. This usually requires RDK X5 to be connected to the Internet to download the latest MiniBoot firmware package.
+5.  **Complete and reboot:**
+    After the upgrade, exit `srpi-config` as prompted and reboot RDK X5 to activate the new MiniBoot.
 
-**验证升级：**
-您可以在RDK X5重启后的串口启动日志中，查看U-Boot的版本信息。更新后的MiniBoot通常会显示更新的编译日期和版本号。
-例如，更新后的版本信息可能类似 (日期和具体版本号会变化)：
+**Verify the upgrade:**
+After rebooting RDK X5, you can check the U-Boot version information in the serial boot log. The updated MiniBoot will typically show a newer build date and version number.
+For example, the updated version info may look like (date and version will vary):
 `U-Boot 2022.10+ (Dec 26 2024 - 16:58:41 +0800)`
 
-**注意：** 升级MiniBoot是一个底层固件操作，请确保在稳定的电源和网络环境下进行，并仔细阅读 `srpi-config` 工具的提示信息。
+**Note:** Upgrading MiniBoot is a low-level firmware operation. Make sure to perform it under stable power and network conditions, and carefully read the prompts from the `srpi-config` tool.
 
-### Q40: 在编译大型项目（如使用gcc/make/cmake/colcon构建ROS2工作空间）或运行内存消耗较大的工具（如`hb_mapper`模型转换）时，遇到内存不足的错误怎么办？
-**A:** 内存不足（Out of Memory, OOM）是嵌入式设备或资源受限的开发机上编译大型项目或运行内存密集型应用时常见的问题。以下是一些解决方法：
+### Q40: What should I do if I encounter out-of-memory errors when compiling large projects (e.g., using gcc/make/cmake/colcon to build a ROS2 workspace) or running memory-intensive tools (such as `hb_mapper` model conversion)?
+**A:** Out of Memory (OOM) is common when compiling large projects or running memory-intensive applications on embedded devices or resource-constrained development machines. Here are some solutions:
 
-1.  **增加Swap交换空间：**
-    当物理内存(RAM)不足时，系统可以使用硬盘上的一部分空间作为虚拟内存（Swap）。这可以缓解OOM问题，但性能会比物理内存慢很多。
-    * **创建并启用Swap文件（示例为创建4GB Swap，大小可根据需求调整）：**
+1.  **Increase swap space:**
+    When physical memory (RAM) is insufficient, the system can use part of the disk as virtual memory (swap). This can alleviate OOM issues, but performance will be much slower than physical memory.
+    * **Create and enable a swap file (example: create 4GB swap, adjust size as needed):**
         ```bash
-        # 1. 创建一个指定大小的空文件
+        # 1. Create an empty file of the specified size
         sudo fallocate -l 4G /swapfile
-        # 2. 设置文件权限
+        # 2. Set file permissions
         sudo chmod 600 /swapfile
-        # 3. 将该文件设置为Swap区域
+        # 3. Set the file as swap area
         sudo mkswap /swapfile
-        # 4. 启用Swap文件
+        # 4. Enable the swap file
         sudo swapon /swapfile
-        # 5. (可选) 验证Swap是否已激活
+        # 5. (Optional) Verify swap is active
         swapon --show
         free -h
         ```
-    * **使其开机自动挂载：** 编辑 `/etc/fstab` 文件，在末尾添加一行：
+    * **Make it mount automatically at boot:** Edit `/etc/fstab` and add at the end:
         ```
         /swapfile none swap sw 0 0
         ```
-    * **关闭Swap（如果需要）：**
+    * **Disable swap (if needed):**
         ```bash
         sudo swapoff /swapfile
-        sudo rm /swapfile # 如果不再需要，可以删除文件
-        # 同时记得从 /etc/fstab 中移除对应行
+        sudo rm /swapfile # Remove file if not needed
+        # Also remove the corresponding line from /etc/fstab
         ```
 
-2.  **减少编译并行度/线程数：**
-    编译过程（尤其是C++项目）通常会启动多个并行的编译任务以加快速度，但这也会消耗大量内存。
-    * **`make` 命令：** 使用 `-j` 参数指定并行任务数。例如，单线程编译：
+2.  **Reduce build parallelism/number of threads:**
+    The build process (especially for C++ projects) often launches multiple parallel tasks to speed up, but this also consumes a lot of memory.
+    * **`make` command:** Use the `-j` parameter to specify the number of parallel jobs. For example, single-threaded build:
         ```bash
         make -j1
         ```
-        可以尝试 `-j2`, `-jN` (N为CPU核心数的一半或更少)。
-    * **`colcon build` (ROS2)：**
-        * 限制并行包编译数量：
+        You can try `-j2`, `-jN` (N is half the number of CPU cores or less).
+    * **`colcon build` (ROS2):**
+        * Limit the number of parallel package builds:
             ```bash
             colcon build --parallel-workers 1
             ```
-        * 禁用并行包编译，改为串行编译（更慢但内存占用更低）：
+        * Disable parallel package build, use sequential build (slower but lower memory usage):
             ```bash
             colcon build --executor sequential
             ```
-        * 结合使用：
+        * Combine:
             ```bash
             colcon build --executor sequential --parallel-workers 1
             ```
-    * **`cmake`：** CMake本身不直接控制make的并行度，但最终还是通过make执行。可以在调用make时传递 `-j` 参数。
-    * **设置 `MAKEFLAGS` 环境变量（临时）：**
+    * **`cmake`:** CMake itself does not directly control make parallelism, but ultimately uses make. Pass the `-j` parameter when calling make.
+    * **Set the `MAKEFLAGS` environment variable (temporary):**
         ```bash
         export MAKEFLAGS="-j1" 
-        # 然后执行 colcon build 或其他编译命令
+        # Then run colcon build or other build commands
         ```
 
-3.  **针对 `hb_mapper` (地平线模型转换工具)：**
-    * 在模型转换的 `yaml` 配置文件中，查找是否有类似 `compiler_parameters` -> `jobs: 1` 的选项，用以限制模型编译（例如ONNX到BIN模型过程中某些阶段）的并行进程数。具体参数名请查阅最新的算法工具链文档。
+3.  **For `hb_mapper` (Horizon model conversion tool):**
+    * In the model conversion `yaml` config file, look for options like `compiler_parameters` -> `jobs: 1` to limit the number of parallel processes during model compilation (e.g., ONNX to BIN model). Check the latest algorithm toolchain docs for specific parameter names.
 
-4.  **关闭不必要的后台服务和应用程序：**
-    在进行编译或运行内存密集型任务前，关闭其他占用内存的程序（如图形界面、浏览器、其他服务等），以释放更多物理内存。
+4.  **Close unnecessary background services and applications:**
+    Before compiling or running memory-intensive tasks, close other memory-consuming programs (such as GUI, browsers, other services) to free up more physical memory.
 
-5.  **使用更高配置的开发机/服务器进行编译：**
-    如果是在x86开发机上为RDK进行交叉编译，而开发机本身内存也有限，可以考虑使用内存配置更高的机器。对于板端编译，如果资源实在不足，交叉编译是更好的选择。
+5.  **Use a higher-spec development machine/server for compilation:**
+    If cross-compiling for RDK on an x86 development machine with limited memory, consider using a machine with more memory. For on-board compilation, if resources are insufficient, cross-compilation is a better choice.
 
-6.  **分步编译/模块化编译：**
-    对于非常大的项目，如果构建系统支持，可以尝试只编译项目的一部分，或者将项目分解为更小的模块独立编译。
+6.  **Step-by-step/module-based compilation:**
+    For very large projects, if the build system supports it, try compiling only part of the project or breaking it into smaller modules for independent compilation.
 
-选择哪种方法或组合取决于具体的错误信息、可用资源以及对编译时间的要求。增加Swap通常是比较通用的缓解方法。
+Which method(s) to use depends on the specific error, available resources, and build time requirements. Increasing swap is a common mitigation.
 
-### Q41: RDK相关问题进行预排查的通用建议有哪些？
-**A:** 在遇到RDK相关问题并寻求帮助前，建议进行以下预排查：
-1.  **查阅最新官方手册：** 确保您参考的是官方最新版本的用户手册、开发文档和发行说明。官方文档通常会包含最新的信息和已知问题的解决方案。您可以从地平线开发者社区获取最新文档：[https://developer.d-robotics.cc/information](https://developer.d-robotics.cc/information)
-2.  **更新系统及相关软件包：** 许多问题可能在较新的软件版本中得到修复。请确保您的RDK板卡上的操作系统以及所有`hobot-*`、`tros-*`等关键软件包都已更新到最新稳定版本。通常可以通过以下命令进行更新：
+### Q41: What are the general recommendations for pre-checking RDK-related issues?
+**A:** Before seeking help with RDK-related issues, it is recommended to perform the following pre-checks:
+1.  **Consult the latest official manuals:** Make sure you are referring to the latest version of the official user manual, development documentation, and release notes. Official docs usually contain the latest information and solutions to known issues. You can get the latest docs from the D-Robotics developer community: [https://developer.d-robotics.cc/information](https://developer.d-robotics.cc/information)
+2.  **Update the system and related packages:** Many issues may be fixed in newer software versions. Make sure your RDK board's OS and all key packages (`hobot-*`, `tros-*`, etc.) are updated to the latest stable version. Usually, you can update with:
     ```bash
     sudo apt update && sudo apt upgrade
     ```
-    在提问时，请一并提供通过 `rdkos_info`、`apt list --installed | grep hobot` 等命令获取的当前系统和软件包版本信息。
-3.  **仔细检查硬件连接：** 确保所有硬件连接都牢固可靠，包括电源线、SD卡、调试串口线、摄像头排线、网络线以及其他外设连接。接触不良是许多问题的根源。
-4.  **提供完整的问题复现信息：** 当您向社区或技术支持提问时，请尽可能提供以下信息：
-    * **清晰的问题描述：** 遇到了什么问题？期望的结果是什么？实际观察到的现象是什么？
-    * **RDK硬件型号和系统版本：** 例如RDK X5, RDK OS 3.0.1。
-    * **相关的软件包版本。**
-    * **详细的复现步骤：** 一步一步说明如何操作才能触发问题。
-    * **完整的错误日志或截图：** 包括串口打印、dmesg信息、应用程序的报错输出等。
-    * **您已尝试过的解决方法及其结果。**
-    提供充分的信息有助于他人更快地理解和定位您的问题。
+    When asking for help, also provide your current system and package versions via `rdkos_info`, `apt list --installed | grep hobot`, etc.
+3.  **Carefully check hardware connections:** Ensure all hardware connections are secure and reliable, including power cables, SD cards, debug serial cables, camera cables, network cables, and other peripherals. Poor contact is the root cause of many issues.
+4.  **Provide complete problem reproduction information:** When asking the community or technical support, provide as much of the following as possible:
+    * **Clear problem description:** What is the issue? What is the expected result? What is the actual observed behavior?
+    * **RDK hardware model and system version:** e.g., RDK X5, RDK OS 3.0.1.
+    * **Relevant package versions.**
+    * **Detailed reproduction steps:** Step-by-step instructions to trigger the issue.
+    * **Complete error logs or screenshots:** Including serial output, dmesg info, application error output, etc.
+    * **Solutions you have tried and their results.**
+    Providing sufficient information helps others understand and locate your issue faster.
 
-### Q42: Docker镜像、OE包或嵌入式开发Samples包下载失败或速度慢怎么办？
+### Q42: What should I do if Docker images, OE packages, or embedded development sample packages fail to download or are slow?
 **A:**
-1.  **Docker镜像（例如用于算法工具链、交叉编译环境）：**
-    * **官方来源：** Docker镜像通常首发于Docker Hub。地平线官方也可能在自己的服务器或特定的开发者社区资源帖中提供部分关键镜像的下载链接或拉取方式。
-    * **网络问题：** 如果从Docker Hub拉取速度慢或失败，可能是由于网络限制或国际带宽问题。可以尝试配置Docker使用国内的镜像加速器服务（如阿里云、DaoCloud、网易蜂巢等都提供此类服务）。
-    * **社区资源：** 关注地平线开发者社区的公告或资源下载区，有时会提供针对国内用户的镜像获取方案。例如，此帖曾提供过相关资源：[地平线开发者社区论坛相关帖子](https://developer.d-robotics.cc/forumDetail/136488103547258769) (请确认链接及内容的最新有效性)。
-2.  **OE (OpenEmbedded) 包 / BSP (Board Support Package)：**
-    * OE编译环境相关的包或完整的BSP（包含内核源码、驱动、文件系统构建脚本等）通常体积较大。如果官方提供直接下载，请确保您的网络连接稳定且具有足够的带宽。
-    * 这些资源一般会在开发者社区的“资源中心”板块或对应RDK型号的产品文档页提供下载链接。
-3.  **嵌入式开发Samples包（示例代码）：**
-    * 示例代码包可能作为BSP的一部分提供（例如在BSP解压后的 `bsp/samples/` 或类似目录下）。
-    * 也可能作为独立的SDK、代码仓库（如GitHub上的 `D-Robotics` 组织）或压缩包提供。
-    * 请仔细查阅对应RDK型号和版本的官方文档或快速入门指南，以找到获取官方示例代码的正确途径。
-4.  **通用下载建议：**
-    * **使用下载工具：** 对于较大的文件，建议使用支持断点续传的下载工具。
-    * **检查网络环境：** 如果您在公司或机构网络下，确认是否有防火墙、代理服务器或网络策略限制了大文件的下载或访问特定域名。
-    * **错峰下载：** 尝试在网络负载较低的时段进行下载。
-    * **官方渠道优先：** 始终优先从地平线官方开发者社区、官方文档中提供的链接或官方GitHub仓库获取各类开发资源，以确保文件的正确性、完整性和安全性。
+1.  **Docker images (e.g., for algorithm toolchains, cross-compilation environments):**
+    * **Official sources:** Docker images are usually released on Docker Hub. D-Robotics may also provide some key images on their own servers or in specific developer community resource posts.
+    * **Network issues:** If pulling from Docker Hub is slow or fails, it may be due to network restrictions or international bandwidth. Try configuring Docker to use a domestic mirror accelerator service (e.g., Alibaba Cloud, DaoCloud, NetEase, etc. provide such services).
+    * **Community resources:** Check the D-Robotics developer community announcements or resource download area, which may provide image acquisition solutions for domestic users. For example, this post once provided related resources: [D-Robotics Developer Community Forum Post](https://developer.d-robotics.cc/forumDetail/136488103547258769) (check the latest validity).
+2.  **OE (OpenEmbedded) packages / BSP (Board Support Package):**
+    * OE build environment packages or full BSPs (including kernel source, drivers, filesystem build scripts, etc.) are usually large. If provided directly by the official site, ensure your network is stable and has enough bandwidth.
+    * These resources are generally available in the "Resource Center" section of the developer community or on the product documentation page for your RDK model.
+3.  **Embedded development sample packages (sample code):**
+    * Sample code packages may be provided as part of the BSP (e.g., in `bsp/samples/` after extracting the BSP).
+    * They may also be provided as standalone SDKs, code repositories (such as on the D-Robotics GitHub organization), or compressed packages.
+    * Check the official documentation or quick start guide for your RDK model and version to find the correct way to obtain official sample code.
+4.  **General download advice:**
+    * **Use download tools:** For large files, use tools that support resuming interrupted downloads.
+    * **Check network environment:** If you are on a company or institutional network, check for firewalls, proxies, or policies that may restrict large downloads or access to certain domains.
+    * **Download during off-peak hours:** Try downloading when network load is lower.
+    * **Official channels first:** Always prefer to get development resources from official D-Robotics developer community, official documentation links, or official GitHub repositories to ensure file correctness, completeness, and security.
 
-### Q43: 为RDK进行交叉编译的环境应该如何配置？
-**A:** 为RDK板卡（通常是ARM架构）上的应用程序进行交叉编译，一般需要在x86架构的Linux开发主机（推荐使用Ubuntu LTS版本，如Ubuntu 20.04或22.04）上配置交叉编译工具链和相应的目标系统SDK（Sysroot）。具体配置步骤会因您要编译的程序类型（例如，普通的Linux C/C++程序、ROS/TROS功能包）以及目标RDK的型号和系统版本而有所不同。
+### Q43: How should I set up the cross-compilation environment for RDK?
+**A:** To cross-compile applications for RDK boards (usually ARM architecture), you generally need to set up a cross-compilation toolchain and the corresponding target system SDK (sysroot) on an x86 Linux development host (Ubuntu LTS versions like 20.04 or 22.04 are recommended). The specific steps depend on the type of program you want to compile (e.g., regular Linux C/C++ programs, ROS/TROS packages) and the target RDK model and system version.
 
-1.  **编译普通Linux C/C++应用程序：**
-    * **获取交叉编译工具链：** 地平线官方会为每个RDK系列（如X3、X5、Ultra）提供相应的交叉编译工具链（例如，包含`aarch64-linux-gnu-gcc`, `aarch64-linux-gnu-g++`等工具）。这个工具链可能作为SDK的一部分提供，或者需要从开发者社区单独下载。
-    * **安装与配置工具链：** 按照官方文档的指引，将下载的工具链压缩包解压到您开发主机上的一个合适路径（例如 `/opt/toolchains/`）。然后，需要将工具链的 `bin` 目录（包含编译器等可执行文件）添加到您开发主机的 `PATH` 环境变量中，这样系统才能找到这些交叉编译命令。
-    * **准备Sysroot：** 交叉编译不仅需要编译器，还需要目标板卡系统环境中的库文件（如glibc, libstdc++, 以及其他依赖库）和头文件。这部分内容集合称为Sysroot。Sysroot可以从官方提供的RDK SDK中提取，或者从一个已经烧录好系统的RDK板卡的根文件系统中复制得到。在编译时，需要通过编译器的 `--sysroot=<path_to_sysroot>` 参数来指定Sysroot的路径。
-    * **使用CMake进行交叉编译：** 如果您的项目使用CMake作为构建系统，推荐创建一个CMake工具链配置文件（toolchain file，例如 `aarch64-rdk.cmake`）。在这个文件中，您需要指定：
-        * 目标系统名称 (`CMAKE_SYSTEM_NAME` 通常设为 `Linux`)。
-        * 目标处理器架构 (`CMAKE_SYSTEM_PROCESSOR` 通常设为 `aarch64`)。
-        * C交叉编译器 (`CMAKE_C_COMPILER`) 和 C++交叉编译器 (`CMAKE_CXX_COMPILER`) 的完整路径。
-        * Sysroot路径 (`CMAKE_SYSROOT`)。
-        * 查找库和头文件的相关路径设置 (`CMAKE_FIND_ROOT_PATH`)。
-        然后在运行CMake配置项目时，通过 `-DCMAKE_TOOLCHAIN_FILE=/path/to/your/aarch64-rdk.cmake` 参数来指定使用这个工具链文件。
-    * **参考官方手册：** 详细的交叉编译环境搭建步骤、工具链文件示例以及编译参数，请务必参考您所使用的RDK型号和版本的官方《用户手册》或《SDK开发指南》中关于“Linux应用开发”或“交叉编译环境搭建”的章节。
+1.  **Compiling regular Linux C/C++ applications:**
+    * **Obtain the cross-compilation toolchain:** D-Robotics provides a toolchain for each RDK series (e.g., X3, X5, Ultra), usually as part of the SDK or as a separate download. The toolchain includes `aarch64-linux-gnu-gcc`, `aarch64-linux-gnu-g++`, etc.
+    * **Install and configure the toolchain:** Follow the official docs to extract the toolchain to a suitable path (e.g., `/opt/toolchains/`). Add the toolchain's `bin` directory to your host's `PATH` so the system can find the cross-compilation commands.
+    * **Prepare the sysroot:** Cross-compilation requires not only the compiler but also the target board's libraries (glibc, libstdc++, and other dependencies) and headers. This collection is called the sysroot. You can extract it from the official RDK SDK or copy it from a flashed RDK board's root filesystem. Specify the sysroot path with the compiler's `--sysroot=<path_to_sysroot>` parameter.
+    * **Using CMake for cross-compilation:** If your project uses CMake, create a toolchain file (e.g., `aarch64-rdk.cmake`) specifying:
+        * Target system name (`CMAKE_SYSTEM_NAME`, usually `Linux`).
+        * Target processor architecture (`CMAKE_SYSTEM_PROCESSOR`, usually `aarch64`).
+        * C and C++ cross-compilers (`CMAKE_C_COMPILER`, `CMAKE_CXX_COMPILER`).
+        * Sysroot path (`CMAKE_SYSROOT`).
+        * Library and header search paths (`CMAKE_FIND_ROOT_PATH`).
+        Then run CMake with `-DCMAKE_TOOLCHAIN_FILE=/path/to/your/aarch64-rdk.cmake`.
+    * **Refer to official manuals:** For detailed steps, toolchain file examples, and build parameters, refer to the official User Manual or SDK Development Guide for your RDK model and version, especially the sections on "Linux Application Development" or "Cross-Compilation Environment Setup".
 
-2.  **编译ROS/TROS功能包：**
-    * **使用官方提供的Docker交叉编译环境（强烈推荐）：** 这是为TROS功能包进行交叉编译**最推荐且最便捷**的方式。地平线官方通常会提供预配置好的Docker镜像，这些镜像中已经集成了：
-        * 特定TROS版本（如Foxy, Humble）所需的交叉编译工具链。
-        * Ament/Colcon等ROS构建工具。
-        * 目标板卡TROS环境对应的所有基础ROS库和依赖项的交叉编译版本。
-        * **操作流程：**
-            1.  从官方渠道（如Docker Hub或地平线官方服务器）拉取对应TROS版本的交叉编译Docker镜像。
-            2.  按照官方文档的指引启动Docker容器，并将您的ROS工作区源代码目录挂载到容器内部。
-            3.  在Docker容器的终端内，使用 `colcon build` 配合适当的交叉编译参数（通常Docker环境已预设好）来编译您的工作区。
-        * **参考官方手册：** TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相关信息：[TROS手册 - 交叉编译Docker参考](https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_start/cross_compile) (请确认链接的有效性和相关性)。
-    * **手动配置ROS/TROS交叉编译环境 (极不推荐，非常复杂且极易出错)：** 如果不使用官方提供的Docker环境，手动从零开始搭建一个完整的ROS/TROS交叉编译环境是一项非常复杂和耗时的工作。您需要自行交叉编译ROS的所有核心组件、消息类型、依赖库，并为Colcon等构建工具配置大量的交叉编译参数和环境变量。这通常只适用于有深厚交叉编译和ROS构建系统经验的开发者。
+2.  **Compiling ROS/TROS packages:**
+    * **Use the official Docker cross-compilation environment (strongly recommended):** This is the easiest and most reliable way to cross-compile TROS packages. D-Robotics usually provides pre-configured Docker images with:
+        * The required TROS version (e.g., Foxy, Humble) toolchain.
+        * Ament/Colcon build tools.
+        * All base ROS libraries and dependencies for the target board.
+        * **Workflow:**
+            1.  Pull the appropriate TROS cross-compilation Docker image from the official source (Docker Hub or D-Robotics server).
+            2.  Start the Docker container as per the docs, mounting your ROS workspace source directory.
+            3.  Inside the container, use `colcon build` with the appropriate cross-compilation parameters (usually pre-set in Docker).
+        * **Refer to official manuals:** The TROS User Manual's sections on "Source Installation", "Developer Guide", or "Cross-Compilation" usually have detailed Docker usage and command examples. For example: [TROS Manual - Cross-Compilation Docker Reference](https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_start/cross_compile) (check link validity).
+    * **Manual ROS/TROS cross-compilation setup (not recommended, very complex):** If not using the official Docker environment, setting up a full ROS/TROS cross-compilation environment from scratch is very complex and error-prone. You must cross-compile all core ROS components, message types, dependencies, and configure many build parameters and environment variables. This is only for advanced users.
 
-**通用交叉编译建议：**
-* **仔细阅读官方文档：** 针对您使用的RDK型号和目标系统版本，务必以官方最新发布的开发文档、SDK说明和移植指南为准。
-* **保持环境一致性：** 交叉编译环境中所使用的库（尤其是系统库和核心依赖库）的版本，应尽可能与目标RDK板卡上实际运行的库版本保持一致或兼容，以避免运行时出现链接错误或行为不一致的问题。
-* **Sysroot的正确配置至关重要：** 无论是编译普通Linux程序还是ROS包，正确配置和使用Sysroot是交叉编译成功的关键环节。
+**General cross-compilation advice:**
+* **Read official docs carefully:** Always follow the latest official development docs, SDK instructions, and porting guides for your RDK model and system version.
+* **Keep environment consistent:** The libraries used in your cross-compilation environment (especially system and core dependencies) should match or be compatible with those on the target RDK board to avoid runtime errors or inconsistencies.
+* **Correct sysroot configuration is critical:** Whether compiling regular Linux programs or ROS packages, correct sysroot setup is key to successful cross-compilation.
