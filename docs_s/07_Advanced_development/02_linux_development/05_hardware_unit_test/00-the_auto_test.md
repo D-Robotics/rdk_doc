@@ -45,27 +45,27 @@ Description=Set the CPU to enter boost mode
 [CpuAndBpu]
 Status=enabled
 Description=CPU, BPU, and DDR stress test
-ExecStart=/app/multimedia_samples/chip_base_test/01_cpu_bpu_ddr/scripts/stress_test.sh -t 24h
+ExecStart=/app/chip_base_test/01_cpu_bpu_ddr/scripts/stress_test.sh -t 24h
 
 [EmmcStablity]
 Status=enabled
 Description=eMMC stability test
-ExecStart=/app/multimedia_samples/chip_base_test/02_emmc/emmc_stability_test.sh -t 24h
+ExecStart=/app/chip_base_test/02_emmc/emmc_stability_test.sh -t 24h
 
 [NandFlash]
 Status=disabled
 Description=NAND flash stress test
-ExecStart=/app/multimedia_samples/chip_base_test/03_nand_flash/nand_test.sh -t 24h
+ExecStart=/app/chip_base_test/03_nand_flash/nand_test.sh -t 24h
 
 [UART]
 Status=enabled
 Description=UART stress test
-ExecStart=/app/multimedia_samples/chip_base_test/04_uart_test/uartstress.sh -b 115200 -d /dev/ttyS2 -c 1000000
+ExecStart=/app/chip_base_test/04_uart_test/uartstress.sh -b 115200 -d /dev/ttyS2 -c 1000000
 
 [SPI]
 Status=enabled
 Description=SPI stress test
-ExecStart=/app/multimedia_samples/chip_base_test/05_spi_test/spistress.sh -d /dev/spidev0.0 -c 1000000
+ExecStart=/app/chip_base_test/05_spi_test/spistress.sh -d /dev/spidev0.0 -c 1000000
 ```
 
 ### 使用说明
@@ -91,7 +91,7 @@ ExecStart=/app/multimedia_samples/chip_base_test/05_spi_test/spistress.sh -d /de
   适用于使用官方系统镜像并需要手动运行或调试测试项的场景。执行以下命令启动测试：
 
   ```bash
-  /app/multimedia_samples/chip_base_test/startup.sh
+  /app/chip_base_test/startup.sh
   # 或者
   cd /app/multimedia_samples/chip_base_test
   ./startup.sh
@@ -131,7 +131,7 @@ ExecStart=/app/multimedia_samples/chip_base_test/05_spi_test/spistress.sh -d /de
    驱动单元测试程序的脚本支持通过 `-o` 选项自定义日志目录。用户可以编辑 `config.ini` 配置文件，在对应测试项的 `ExecStart` 参数中添加 `-o` 选项。例如：
 
    ```text
-   ExecStart=/app/multimedia_samples/chip_base_test/01_cpu_bpu_ddr/scripts/stress_test.sh -t 24h -o /userdata/logs
+   ExecStart=/app/chip_base_test/01_cpu_bpu_ddr/scripts/stress_test.sh -t 24h -o /userdata/logs
    ```
 
    此配置会将日志保存到 `/userdata/logs` 目录下。
@@ -152,7 +152,7 @@ AutoTest 支持通过配置 `config.ini` 文件和脚本灵活扩展测试项，
 将测试脚本保存到适当位置，例如：
 
 ```bash
-/app/multimedia_samples/chip_base_test/new_test/new_test.sh
+/app/chip_base_test/new_test/new_test.sh
 ```
 
 ### 配置 `config.ini` 文件
@@ -169,7 +169,7 @@ AutoTest 支持通过配置 `config.ini` 文件和脚本灵活扩展测试项，
 [NewTest]
 Status=enabled
 Description=New feature stability or stress test
-ExecStart=/app/multimedia_samples/chip_base_test/new_test/new_test.sh -t 12h -o /userdata/new_test_logs
+ExecStart=/app/chip_base_test/new_test/new_test.sh -t 12h -o /userdata/new_test_logs
 ```
 
 字段说明：
@@ -182,7 +182,7 @@ ExecStart=/app/multimedia_samples/chip_base_test/new_test/new_test.sh -t 12h -o 
 完成配置后，通过 `startup.sh` 脚本启动测试：
 
 ```bash
-/app/multimedia_samples/chip_base_test/startup.sh
+/app/chip_base_test/startup.sh
 ```
 
 `startup.sh` 会根据 `config.ini` 文件中的配置自动加载并运行新增的测试项。

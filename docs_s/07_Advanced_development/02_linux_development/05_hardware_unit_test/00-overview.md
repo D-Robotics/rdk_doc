@@ -43,7 +43,7 @@
 3. 执行相应的测试脚本或程序，例如执行 CPU / BPU / DDR 压力测试：
 
    ```bash
-   cd /app/multimedia_samples/chip_base_test/01_cpu_bpu_ddr/scripts
+   cd /app/chip_base_test/01_cpu_bpu_ddr/scripts
    ./stress_test.sh
    ```
 
