@@ -1,10 +1,7 @@
 # sample_vin 使用说明
 
-## get_vin_data
-
-### 功能简介
-
-`get_vin_data` 完成 Camera Sensor 、MIPI CSI 和 SIF 模块的初始化，实现从vin模块获取视频帧数据的功能，支持从 VIN 模块获取 Raw 或者 YUV 格式的图像。
+## 功能概述
+`sample_vin`完成 Camera Sensor 、MIPI CSI 和 SIF 模块的初始化，实现从vin模块获取视频帧数据的功能，支持从 VIN 模块获取 Raw 或者 YUV 格式的图像。
 
 ### sample_vin 架构说明
 

@@ -388,8 +388,8 @@ IMX219_RGGB_Raw10_IMX219_RDK-S100()
 **板端执行 tuning 程序**
 
 ```c
-cd /app/utils/tuning_tool/scripts
-.bash run_tuning.sh 
+cd /app/tuning_tool/scripts
+bash run_tuning.sh 
 # 按照交互页面提示，选择对应的 sensor
 ```
 

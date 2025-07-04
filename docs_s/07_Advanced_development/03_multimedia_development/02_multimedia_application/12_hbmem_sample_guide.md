@@ -1,4 +1,4 @@
-# hbmem sample
+# hbmem sample 使用说明
 
 ## 功能概述
 

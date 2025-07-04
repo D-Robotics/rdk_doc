@@ -67,7 +67,7 @@ root@buildroot:/# gcc -O3 -fopenmp -DNTIMES=100 stream.c -lgomp -o stream
 确保已完成准备工作后，运行测试命令：
 
 ```shell
-root@buildroot:/# ./steam
+root@buildroot:/# ./stream
 ```
 
 等待 10 秒左右后得到以下结果：
@@ -124,7 +124,7 @@ Solution Validates: avg error less than 1.000000e-13 on all three arrays
 - **Add (加法)：** 先从内存单元读出两个值，做加法运算，再将结果写入到另一个内存单元。
   - 测试描述： Add 测试模拟了两个数组相加并将结果存储到第三个数组中，这测试了 CPU 和内存在并行操作时的带宽需求。
   - 带宽结果： 44642.0 MB/
-- **Triad (组合操作)：** 将 Copy、 Scale、 Add 三种操作组合起来进行测。具体操作方式是：先从内存单元中中读两个值 a、 b ，对其进行乘加混合运算（ a + 因子 * b ） ，将运算结果写入到另一个内存单元
+- **Triad (组合操作)：** 将 Copy、 Scale、 Add 三种操作组合起来进行测。具体操作方式是：先从内存单元中读两个值 a、 b ，对其进行乘加混合运算（ a + 因子 * b ） ，将运算结果写入到另一个内存单元
   - 测试描述： Triad 不仅涉及两个数组相加，还将结果与另一个数组进行缩放，是一个同时进行计算、加法和内存访问的复合操作。
   - 带宽结果： 42987.3 MB/s
 
