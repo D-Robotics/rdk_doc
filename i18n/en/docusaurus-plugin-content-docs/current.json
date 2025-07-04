@@ -53,7 +53,7 @@
   },
   "sidebar.tutorialSidebar.category.3.3 40PIN管脚应用": {
     "message": "3.3 40-pin GPIO Pin Application",
-    "description": "The label for category 3.3 40-pin GPIO管脚应用 in sidebar tutorialSidebar"
+    "description": "The label for category 3.3 40PIN管脚应用 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.3.4 多媒体应用": {
     "message": "3.4 Multimedia Applications",
@@ -87,17 +87,9 @@
     "message": "Algorithm development examples, including various interfaces such as python/C++ and algorithm repositories",
     "description": "The generated-index page description for category 4. 算法应用开发 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.4.1 Python模型推理示例": {
-    "message": "4.1 Python Model Inference Example",
-    "description": "The label for category 4.1 Python模型推理示例 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.4.2 C++模型推理接口说明": {
-    "message": "4.2 C++ Model Inference Interface Description",
-    "description": "The label for category 4.2 C++模型推理接口说明 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.4.3 模型仓库示例": {
-    "message": "4.3 Model Repository Example",
-    "description": "The label for category 4.3 模型仓库示例 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.4.1 模型仓库示例": {
+    "message": "4.1 Modelzoo",
+    "description": "The label for category 4.1 模型仓库示例 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5. 机器人应用开发": {
     "message": "5. Robotics Application Development",
@@ -250,5 +242,17 @@
   "sidebar.tutorialSidebar.category.9.2 Linux命令用法": {
     "message": "9.2 Linux Command Usage",
     "description": "The label for category 9.2 Linux命令用法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2.1 RDK X3 && RDK X3 Module": {
+    "message": "3.2.1 RDK X3 && RDK X3 Module",
+    "description": "The label for category 3.2.1 RDK X3 && RDK X3 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2.2 RDK X5": {
+    "message": "3.2.2 RDK X5",
+    "description": "The label for category 3.2.2 RDK X5 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.10. 版本发布": {
+    "message": "10. Version release",
+    "description": "The label for category 10. 版本发布 in sidebar tutorialSidebar"
   }
 }
