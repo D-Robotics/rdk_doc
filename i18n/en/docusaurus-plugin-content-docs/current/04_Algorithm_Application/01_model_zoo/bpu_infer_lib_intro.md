@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 4.1.2 Quick Start with ModelZoo
+# 4.1.2 Quick Start with Model Zoo
 
 ## Overview
 
