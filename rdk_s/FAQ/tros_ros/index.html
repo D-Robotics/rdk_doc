@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">8.6 TROS/ROS 开发 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/rdk_s/FAQ/tros_ros"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" property="og:title" content="8.6 TROS/ROS 开发 | RDK DOC"><meta data-rh="true" name="description" content="本节主要解答与地瓜机器人操作系统（TogetheROS.Bot, tros.b）以及通用ROS/ROS2在RDK平台上开发和使用相关的常见疑问。"><meta data-rh="true" property="og:description" content="本节主要解答与地瓜机器人操作系统（TogetheROS.Bot, tros.b）以及通用ROS/ROS2在RDK平台上开发和使用相关的常见疑问。"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/FAQ/tros_ros"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/FAQ/tros_ros" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/FAQ/tros_ros" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/FAQ/tros_ros" hreflang="x-default"><link data-rh="true" rel="stylesheet" href="/assets/css/docsly.min.css"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"8. 常见问题","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/FAQ"},{"@type":"ListItem","position":2,"name":"8.6 TROS/ROS 开发","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/FAQ/tros_ros"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.3002a7b5.css">
-<script src="/rdk_doc/assets/js/runtime~main.607721fe.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.2ed367c0.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.27587a83.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.fb6492a3.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -16,7 +16,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="q1-tros相关的软件包运行发生错误推荐的预先排查步骤有哪些">Q1: TROS相关的软件包运行发生错误，推荐的预先排查步骤有哪些？<a href="#q1-tros相关的软件包运行发生错误推荐的预先排查步骤有哪些" class="hash-link" aria-label="Q1: TROS相关的软件包运行发生错误，推荐的预先排查步骤有哪些？的直接链接" title="Q1: TROS相关的软件包运行发生错误，推荐的预先排查步骤有哪些？的直接链接">​</a></h3>
 <p><strong>A:</strong></p>
 <ol>
-<li><strong>确保您的tros软件包都是最新的：</strong> 许多问题可能在新版本中已被修复。在确保地平线官方APT源（如 <code>sunrise.horizon.cc</code> 或最新的 <code>archive.d-robotics.cc</code>）配置正确后，执行以下命令更新所有tros相关的包：<!-- -->
+<li><strong>确保您的tros软件包都是最新的：</strong> 许多问题可能在新版本中已被修复。在确保D-Robotics官方APT源（如 <code>sunrise.horizon.cc</code> 或最新的 <code>archive.d-robotics.cc</code>）配置正确后，执行以下命令更新所有tros相关的包：<!-- -->
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> update </span><span class="token operator" style="color:#393A34">&amp;&amp;</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> upgrade</span><br></span></code></pre></div></div>
 <!-- -->在提问时，也请使用 <code>rdkos_info</code>、<code>apt list --installed | grep tros</code>、<code>apt show &lt;tros_package_name&gt;</code> 等命令提供您的系统和软件包版本信息。</li>
 <li><strong>尝试定位问题出现的ROS节点：</strong>
@@ -47,14 +47,14 @@
 <li>
 <p><strong>TROS与ROS2的关系：</strong></p>
 <ul>
-<li>TROS (TogetheROS.Bot) 是地平线基于开源的ROS2（Robot Operating System 2）针对其RDK硬件平台进行优化和适配后发布的机器人操作系统。</li>
-<li>它通常基于某个ROS2的LTS（长期支持）版本进行构建，例如  ：<!-- -->
+<li>TROS (TogetheROS.Bot) 是D-Robotics基于开源的ROS2（Robot Operating System 2）针对其RDK硬件平台进行优化和适配后发布的机器人操作系统。</li>
+<li>它通常基于某个ROS2的LTS（长期支持）版本进行构建，例如：<!-- -->
 <ul>
 <li>在RDK OS 2.x (基于Ubuntu 20.04) 上，TROS通常基于 <strong>ROS2 Foxy Fitzroy</strong>。</li>
 <li>在RDK OS 3.x (基于Ubuntu 22.04) 上，TROS通常基于 <strong>ROS2 Humble Hawksbill</strong>。</li>
 </ul>
 </li>
-<li>TROS在标准的ROS2基础上，集成了地平线硬件（如BPU、VPU、JPU、Sensor等）的驱动、硬件加速库、以及针对机器人常用功能的优化方案和示例。</li>
+<li>TROS在标准的ROS2基础上，集成了D-Robotics硬件（如BPU、VPU、JPU、Sensor等）的驱动、硬件加速库、以及针对机器人常用功能的优化方案和示例。</li>
 <li>TROS与对应版本的标准ROS2在核心API和通信机制上是<strong>完全兼容</strong>的，这意味着为标准ROS2 Foxy/Humble开发的节点和服务通常可以直接或稍作修改后在对应版本的TROS上运行，反之亦然。它们可以相互通信。</li>
 </ul>
 </li>
@@ -79,20 +79,20 @@
 <p><strong>注意：</strong> 任何在x86平台直接编译（而非交叉编译）的ROS功能包都不能直接在ARM架构的RDK板卡上运行，反之亦然。需要确保程序是为目标平台的架构编译的。</p>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q3-tros是如何安装在rdk板卡上的是否需要手动安装">Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？<a href="#q3-tros是如何安装在rdk板卡上的是否需要手动安装" class="hash-link" aria-label="Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？的直接链接" title="Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？的 直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q3-tros是如何安装在rdk板卡上的是否需要手动安装">Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？<a href="#q3-tros是如何安装在rdk板卡上的是否需要手动安装" class="hash-link" aria-label="Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？的直接链接" title="Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？的直接链接">​</a></h3>
 <p><strong>A:</strong></p>
 <ul>
 <li>TROS通常在您烧录官方提供的RDK OS系统镜像时，就已经<strong>内置并预装</strong>在板卡上了。您不需要在烧录完系统后再手动执行完整的TROS安装流程。</li>
-<li>您可以通过APT包管理器来更新或增量安装TROS的各个功能包。在确保地平线官方APT源配置正确的前提下，执行 <code>sudo apt update &amp;&amp; sudo apt upgrade</code> 会更新已安装的TROS包到最新版本。</li>
+<li>您可以通过APT包管理器来更新或增量安装TROS的各个功能包。在确保D-Robotics官方APT源配置正确的前提下，执行 <code>sudo apt update &amp;&amp; sudo apt upgrade</code> 会更新已安装的TROS包到最新版本。</li>
 <li>旧版本中可能存在的<code>hhp</code>工具或手动建立软链接的步骤，在新版的TROS中通常已不再需要。</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="q4-tros相关功能包的源代码在哪里可以找到">Q4: TROS相关功能包的源代码在哪里可以找到？<a href="#q4-tros相关功能包的源代码在哪里可以找到" class="hash-link" aria-label="Q4: TROS相关功能包的源代码在哪里可以找到？的直接链接" title="Q4: TROS相关功能包的源代码在哪里可以找到？的直接链接">​</a></h3>
 <p><strong>A:</strong></p>
 <ul>
-<li><strong>TROS手册：</strong> 地平线官方的TROS用户手册中，在介绍各个核心功能包或示例时，通常会提供对应源码的GitHub仓库链接。</li>
-<li><strong>NodeHub：</strong> 如果功能包是作为NodeHub（地平线机器人应用商店或组件平台）的一部分提供，其相关介绍页面通常也会包含源码链接。</li>
+<li><strong>TROS手册：</strong> D-Robotics官方的TROS用户手册中，在介绍各个核心功能包或示例时，通常会提供对应源码的GitHub仓库链接。</li>
+<li><strong>NodeHub：</strong> 如果功能包是作为NodeHub（D-Robotics应用商店或组件平台）的一部分提供，其相关介绍页面通常也会包含源码链接。</li>
 <li><strong>GitHub D-Robotics组织：</strong> 大部分TROS相关的开源功能包都托管在GitHub上的 <strong>D-Robotics</strong> 组织下 (<a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer">https://github.com/D-Robotics</a>)。您可以在该组织内通过搜索功能包的名称（或部分名称）来查找其源码仓库。</li>
-<li><strong>README文档：</strong> 通常，每个TROS功能包的源码仓库中都会包含一个详细的<code>README.md</code>文件，其中会说明该功能  包的编译方法、使用说明、参数配置、依赖项等重要信息。</li>
+<li><strong>README文档：</strong> 通常，每个TROS功能包的源码仓库中都会包含一个详细的<code>README.md</code>文件，其中会说明该功能包的  编译方法、使用说明、参数配置、依赖项等重要信息。</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="q5-tros功能包的源码编译有哪些注意事项">Q5: TROS功能包的源码编译有哪些注意事项？<a href="#q5-tros功能包的源码编译有哪些注意事项" class="hash-link" aria-label="Q5: TROS功能包的源码编译有哪些注意事项？的直接链接" title="Q5: TROS功能包的源码编译有哪些注意事项？的直接链接">​</a></h3>
 <p><strong>A:</strong></p>
@@ -146,7 +146,7 @@
 <li><strong>查看错误日志：</strong> 仔细阅读安装过程中出现的任何错误信息，它们通常会指出问题的具体原因（如依赖冲突、下载失败、编译错误等）。</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="q7-tros中的多媒体方案如视频流处理编解码有哪些推荐的参考资源">Q7: TROS中的多媒体方案（如视频流处理、编解码）有哪些推荐的参考资源？<a href="#q7-tros中的多媒体方案如视频流处理编解码有哪些推荐的参考资源" class="hash-link" aria-label="Q7: TROS中的多媒体方案（如视频流处理、编解码）有哪些推荐的参考资源？的直接链接" title="Q7: TROS中的多媒体方案（如视频流处理、编解码）有哪些推荐的参考资源？的直接链接">​</a></h3>
-<p><strong>A:</strong> 地平线官方TROS手册中通常会有专门的章节或示例介绍如何在ROS2环境中使用RDK的多媒体能力。</p>
+<p><strong>A:</strong> D-Robotics官方TROS手册中通常会有专门的章节或示例介绍如何在ROS2环境中使用RDK的多媒体能力。</p>
 <ul>
 <li><strong>社区手册 - 机器人开发 - 应用示例 - 视频应用 (video_boxs)：</strong>
 <a href="https://developer.d-robotics.cc/rdk_doc/Robot_development/apps/video_boxs" target="_blank" rel="noopener noreferrer">https://developer.d-robotics.cc/rdk_doc/Robot_development/apps/video_boxs</a>
@@ -189,7 +189,7 @@
 <p><strong>确保相关ROS节点正常运行：</strong></p>
 <ul>
 <li><strong>图像发布节点：</strong> 必须有一个节点（如<code>mipi_cam</code>, <code>usb_cam</code>, 或图像回放节点）正在发布图像话题。</li>
-<li><strong>AI推理节点（如果需要显示AI结果）：</strong> 必须有一个节点正在进行AI推理并发布AI结果话题。</li>
+<li><strong>AI推理节点（如果需要显示AI结果）：</strong> 必须有一个节点  正在进行AI推理并发布AI结果话题。</li>
 <li><strong>WebSocket节点本身 (<code>hobot_websocket</code> 或类似)：</strong> 该节点负责将ROS话题数据转换为WebSocket消息发送给浏览器。</li>
 <li>使用 <code>ros2 node list</code> 和 <code>ros2 topic list</code> 检查这些节点和话题是否都处于活动状态。</li>
 </ul>
@@ -219,7 +219,7 @@
 <p><strong>网络带宽与质量：</strong></p>
 <ul>
 <li>传输未压缩的图像数据（尤其是高分辨率、高帧率）对网络带宽要求较高。如果您的RDK板卡与电脑之间的网络连接质量不佳（例如，Wi-Fi信号弱、网络拥堵、使用手机热点带宽不足），可能导致WebSocket数据传输卡顿、延迟过高或失败。</li>
-<li>尝试降  低图像分辨率或帧率，或者使用压缩图像格式进行传输。</li>
+<li>尝试降低  图像分辨率或帧率，或者使用压缩图像格式进行传输。</li>
 </ul>
 </li>
 <li>
@@ -302,18 +302,18 @@
 </li>
 </ul>
 <p>通过这种方式，可以将计算密集型的可视化和仿真任务放在PC上，而RDK板卡则专注于运行其实时机器人应用程序，从而保证整体系统的性能和稳定性。</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q12-rdk-x3的内核版本较老是否还能支  持使用realsense-d435i深度相机如何安装">Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？<a href="#q12-rdk-x3的内核版本较老是否还能支持使用realsense-d435i深度相机如何安装" class="hash-link" aria-label="Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？的直接链接" title="Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q12-rdk-x3的内核版本较老是否还能支持  使用realsense-d435i深度相机如何安装">Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？<a href="#q12-rdk-x3的内核版本较老是否还能支持使用realsense-d435i深度相机如何安装" class="hash-link" aria-label="Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？的直接链接" title="Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？的直接链接">​</a></h3>
 <p><strong>A:</strong></p>
 <ul>
-<li><strong>支持情况：</strong> 尽管RDK X3的Linux内核版本可能相对较老（例如4.14.x），但地平线官方通常会在其发布的RDK OS系统镜像中，针对常用的外设（如Intel RealSense系列深度相机）<strong>预先打入或集成了所需的内核补丁 (patches) 和驱动模块</strong>。</li>
-<li><strong>安装方法：</strong> 因此，您通常<strong>不需要</strong>自行从RealSense SDK源码编译内核模块。地平线官方会提供通过APT软件包管理器直接安装RealSense相机驱动和相关工具的方式。<!-- -->
+<li><strong>支持情况：</strong> 尽管RDK X3的Linux内核版本可能相对较老（例如4.14.x），但D-Robotics官方通常会在其发布的RDK OS系统镜像中，针对常用的外设（如Intel RealSense系列深度相机）<strong>预先打入或集成了所需的内核补丁 (patches) 和驱动模块</strong>。</li>
+<li><strong>安装方法：</strong> 因此，您通常<strong>不需要</strong>自行从RealSense SDK源码编译内核模块。D-Robotics官方会提供通过APT软件包管理器直接安装RealSense相机驱动和相关工具的方式。<!-- -->
 <ul>
-<li><strong>官方教程：</strong> 请参考地平线开发者社区或RDK X3用户手册中关于“传感器Demo”或“外设支持”章节中针对RealSense D435i（或其他型号）的说明。
+<li><strong>官方教程：</strong> 请参考D-Robotics开发者社区或RDK X3用户手册中关于“传感器Demo”或“外设支持”章节中针对RealSense D435i（或其他型号）的说明。
 例如，此链接曾提供相关指导：<a href="https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_demo/demo_sensor#realsense%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86" target="_blank" rel="noopener noreferrer">RDK文档 - RealSense图像采集</a>。</li>
-<li><strong>APT安装：</strong> 安装过程通常是在配置好地平线官方APT源后，执行类似 <code>sudo apt install librealsense2-dkms librealsense2-utils librealsense2-dev</code> 的命令。</li>
+<li><strong>APT安装：</strong> 安装过程通常是在配置好D-Robotics官方APT源后，执行类似 <code>sudo apt install librealsense2-dkms librealsense2-utils librealsense2-dev</code> 的命令。</li>
 </ul>
 </li>
-<li><strong>使用：</strong> 安装完成后，您就可以在RDK X3上使用RealSense SDK (librealsense2) 提供的API来获取深度图、彩色图、红外图以及IMU数据  （对于D435i）。</li>
+<li><strong>使用：</strong> 安装完成后，您就可以在RDK X3上使用RealSense SDK (librealsense2) 提供的API来获取深度图、彩色图、红外图以及IMU数据 （对于D435i）。</li>
 <li><strong>具体API和数据获取：</strong> 关于如何使用librealsense2的API来获取特定数据流、配置相机参数等具体编程问题，请参考Intel RealSense官方的SDK文档和示例代码。</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="q13-如何为tros配置零拷贝zero-copy数据传输环境">Q13: 如何为TROS配置零拷贝（Zero-Copy）数据传输环境？<a href="#q13-如何为tros配置零拷贝zero-copy数据传输环境" class="hash-link" aria-label="Q13: 如何为TROS配置零拷贝（Zero-Copy）数据传输环境？的直接链接" title="Q13: 如何为TROS配置零拷贝（Zero-Copy）数据传输环境？的直接链接">​</a></h3>
@@ -322,7 +322,7 @@
 <li>
 <p><strong>TROS Foxy版本 (基于ROS2 Foxy)：</strong></p>
 <ul>
-<li>ROS2 Foxy自身对零拷贝的支持尚不完善，地平线在TROS Foxy中可能通过自定义的共享内存方案（如 <code>hobot_shm</code> 包）来增强或实现类似零拷贝的功能。</li>
+<li>ROS2 Foxy自身对零拷贝的支持尚不完善，D-Robotics在TROS Foxy中可能通过自定义的共享内存方案（如 <code>hobot_shm</code> 包）来增强或实现类似零拷贝的功能。</li>
 <li>请参考TROS Foxy版本对应的官方文档或 <code>hobot_shm</code> 包的README，了解其特定的配置和使用方法。</li>
 </ul>
 </li>
@@ -339,12 +339,12 @@
 <li>
 <p><strong>通用参考：</strong></p>
 <ul>
-<li>地平线官方文档中关于TROS通信优化或特定Demo（如图像传输Demo）的章节，通常会包含零拷贝的配置指南。
+<li>D-Robotics官方文档中关于TROS通信优化或特定Demo（如图像传输Demo）的章节，通常会包含零拷贝的配置指南。
 例如：<a href="https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_demo/demo_communication" target="_blank" rel="noopener noreferrer">RDK文档 - ROS通信 - 零拷贝配置</a> (请确认链接的最新有效性)。</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q14-除了地平线官方的apt源是否有其他ros2的公开软件源可以使用">Q14: 除了地平线官方的APT源，是否有其他ROS2的公开软件源可以使用？<a href="#q14-除了地平线官方的apt源是否有其他ros2的公开软件源可以使用" class="hash-link" aria-label="Q14: 除了地平线官方的APT源，是否有其他ROS2的公开软件源可以使用？的直接链接" title="Q14: 除了地平线官方的APT源，是否有其他ROS2的公开软件源可以使用？的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="q14-除了d-robotics官方的apt源是否有其他ros2的公开软件源可以使用">Q14: 除了D-Robotics官方的APT源，是否有其他ROS2的公开软件源可以使用？<a href="#q14-除了d-robotics官方的apt源是否有其他ros2的公开软件源可以使用" class="hash-link" aria-label="Q14: 除了D-Robotics官方的APT源，是否有其他ROS2的公开软件源可以使用？的直接链接" title="Q14: 除了D-Robotics官方的APT源，是否有其他ROS2的公开软件源可以使用？的直接链接">​</a></h3>
 <p><strong>A:</strong> 是的。标准的ROS2发行版（如Foxy, Humble, Iron等）都有其官方的APT软件源，由Open Robotics（现为Intrinsic）维护。</p>
 <ul>
 <li>
@@ -375,6 +375,6 @@
 </ul>
 </li>
 </ul>
-<p><strong>注意：</strong> 当系统中同时存在地平线TROS的源和ROS2官方源时，<code>apt</code>在安装或更新软件包时会根据包的版本和优先级进行选择。通常，TROS的包会针对RDK硬件有特定优化。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-07-04T09:05:43.000Z" itemprop="dateModified">2025年7月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/FAQ/toolchain"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">8.5 AI模型、算法与工具链</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Appendix"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">9. 附录</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#q1-tros相关的软件包运行发生错误推荐的预先排查步骤有哪些" class="table-of-contents__link toc-highlight">Q1: TROS相关的软件包运行发生错误，推荐的预先排查步骤有哪些？</a></li><li><a href="#q2-tros和标准的ros2有什么区别tros-foxy版本如何升级到tros-humble版本" class="table-of-contents__link toc-highlight">Q2: TROS和标准的ROS2有什么区别？TROS Foxy版本如何升级到TROS Humble版本？</a></li><li><a href="#q3-tros是如何安装在rdk板卡上的是否需要手动安装" class="table-of-contents__link toc-highlight">Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？</a></li><li><a href="#q4-tros相关功能包的源代码在哪里可以找到" class="table-of-contents__link toc-highlight">Q4: TROS相关功能包的源代码在哪里可以找到？</a></li><li><a href="#q5-tros功能包的源码编译有哪些注意事项" class="table-of-contents__link toc-highlight">Q5: TROS功能包的源码编译有哪些注意事项？</a></li><li><a href="#q6-在rdk板卡上尝试安装标准ros2时报错怎么办" class="table-of-contents__link toc-highlight">Q6: 在RDK板卡上尝试安装标准ROS2时报错，怎么办？</a></li><li><a href="#q7-tros中的多媒体方案如视频流处理编解码有哪些推荐的参考资源" class="table-of-contents__link toc-highlight">Q7: TROS中的多媒体方案（如视频流处理、编解码）有哪些推荐的参考资源？</a></li><li><a href="#q8-启动usb或mipi摄像头节点后终端提示标定数据不存在例如-usb_camera_calibrationyaml-does-not-exist这是正常的吗" class="table-of-contents__link toc-highlight">Q8: 启动USB或MIPI摄像头节点后，终端提示“标定数据不存在”（例如 <code>[usb_camera_calibration.yaml] does not exist!</code>），这是正常的吗？</a></li><li><a href="#q9-使用tros的websocket可视化功能时浏览器页面上不显示图像或ai结果可能是什么原因" class="table-of-contents__link toc-highlight">Q9: 使用TROS的WebSocket可视化功能时，浏览器页面上不显示图像或AI结果，可能是什么原因？</a></li><li><a href="#q10-使用tros的智能语音功能时报错或者想使用自己的usb麦克风应该如何配置" class="table-of-contents__link toc-highlight">Q10: 使用TROS的智能语音功能时报错，或者想使用自己的USB麦克风，应该如何配置？</a></li><li><a href="#q11-为什么不建议在rdk这种嵌入式终端设备上直接运行rviz或gazebo推荐的做法是什么" class="table-of-contents__link toc-highlight">Q11: 为什么不建议在RDK这种嵌入式终端设备上直接运行Rviz或Gazebo？推荐的做法是什么？</a></li><li><a href="#q12-rdk-x3的内核版本较老是否还能支持使用realsense-d435i深度相机如何安装" class="table-of-contents__link toc-highlight">Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？</a></li><li><a href="#q13-如何为tros配置零拷贝zero-copy数据传输环境" class="table-of-contents__link toc-highlight">Q13: 如何为TROS配置零拷贝（Zero-Copy）数据传输环境？</a></li><li><a href="#q14-除了地平线官方的apt源是否有其他ros2的公开软件源可以使用" class="table-of-contents__link toc-highlight">Q14: 除了地平线官方的APT源，是否有其他ROS2的公开软件源可以使用？</a></li></ul></div></div></div></div></main></div></div></div><footer class="bg-gray-100 py-8 mt-16"><div class="container mx-auto px-4"><div class="text-center"><p class="text-gray-600">© 2024 RDK Documentation. Built with Docusaurus.</p></div></div></footer><footer class="footer footer--dark"><div class="container-fluid container"><div class="footer__row"><div class="footer__data"></div><div class="links"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi</a></li></ul></div></div></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+<p><strong>注意：</strong> 当系统中同时存在D-Robotics TROS的源和ROS2官方源时，<code>apt</code>在安装或更新软件包时会根据包的版本和优先级进行选择。通常，TROS的包会针对RDK硬件有特定优化。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-07-07T01:43:39.000Z" itemprop="dateModified">2025年7月7日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/FAQ/toolchain"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">8.5 AI模型、算法与工具链</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Appendix"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">9. 附录</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#q1-tros相关的软件包运行发生错误推荐的预先排查步骤有哪些" class="table-of-contents__link toc-highlight">Q1: TROS相关的软件包运行发生错误，推荐的预先排查步骤有哪些？</a></li><li><a href="#q2-tros和标准的ros2有什么区别tros-foxy版本如何升级到tros-humble版本" class="table-of-contents__link toc-highlight">Q2: TROS和标准的ROS2有什么区别？TROS Foxy版本如何升级到TROS Humble版本？</a></li><li><a href="#q3-tros是如何安装在rdk板卡上的是否需要手动安装" class="table-of-contents__link toc-highlight">Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？</a></li><li><a href="#q4-tros相关功能包的源代码在哪里可以找到" class="table-of-contents__link toc-highlight">Q4: TROS相关功能包的源代码在哪里可以找到？</a></li><li><a href="#q5-tros功能包的源码编译有哪些注意事项" class="table-of-contents__link toc-highlight">Q5: TROS功能包的源码编译有哪些注意事项？</a></li><li><a href="#q6-在rdk板卡上尝试安装标准ros2时报错怎么办" class="table-of-contents__link toc-highlight">Q6: 在RDK板卡上尝试安装标准ROS2时报错，怎么办？</a></li><li><a href="#q7-tros中的多媒体方案如视频流处理编解码有哪些推荐的参考资源" class="table-of-contents__link toc-highlight">Q7: TROS中的多媒体方案（如视频流处理、编解码）有哪些推荐的参考资源？</a></li><li><a href="#q8-启动usb或mipi摄像头节点后终端提示标定数据不存在例如-usb_camera_calibrationyaml-does-not-exist这是正常的吗" class="table-of-contents__link toc-highlight">Q8: 启动USB或MIPI摄像头节点后，终端提示“标定数据不存在”（例如 <code>[usb_camera_calibration.yaml] does not exist!</code>），这是正常的吗？</a></li><li><a href="#q9-使用tros的websocket可视化功能时浏览器页面上不显示图像或ai结果可能是什么原因" class="table-of-contents__link toc-highlight">Q9: 使用TROS的WebSocket可视化功能时，浏览器页面上不显示图像或AI结果，可能是什么原因？</a></li><li><a href="#q10-使用tros的智能语音功能时报错或者想使用自己的usb麦克风应该如何配置" class="table-of-contents__link toc-highlight">Q10: 使用TROS的智能语音功能时报错，或者想使用自己的USB麦克风，应该如何配置？</a></li><li><a href="#q11-为什么不建议在rdk这种嵌入式终端设备上直接运行rviz或gazebo推荐的做法是什么" class="table-of-contents__link toc-highlight">Q11: 为什么不建议在RDK这种嵌入式终端设备上直接运行Rviz或Gazebo？推荐的做法是什么？</a></li><li><a href="#q12-rdk-x3的内核版本较老是否还能支持使用realsense-d435i深度相机如何安装" class="table-of-contents__link toc-highlight">Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？</a></li><li><a href="#q13-如何为tros配置零拷贝zero-copy数据传输环境" class="table-of-contents__link toc-highlight">Q13: 如何为TROS配置零拷贝（Zero-Copy）数据传输环境？</a></li><li><a href="#q14-除了d-robotics官方的apt源是否有其他ros2的公开软件源可以使用" class="table-of-contents__link toc-highlight">Q14: 除了D-Robotics官方的APT源，是否有其他ROS2的公开软件源可以使用？</a></li></ul></div></div></div></div></main></div></div></div><footer class="bg-gray-100 py-8 mt-16"><div class="container mx-auto px-4"><div class="text-center"><p class="text-gray-600">© 2024 RDK Documentation. Built with Docusaurus.</p></div></div></footer><footer class="footer footer--dark"><div class="container-fluid container"><div class="footer__row"><div class="footer__data"></div><div class="links"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi</a></li></ul></div></div></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
