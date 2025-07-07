@@ -8,7 +8,7 @@ sidebar_position: 6
 
 ### Q1: TROS相关的软件包运行发生错误，推荐的预先排查步骤有哪些？
 **A:**
-1.  **确保您的tros软件包都是最新的：** 许多问题可能在新版本中已被修复。在确保地平线官方APT源（如 `sunrise.horizon.cc` 或最新的 `archive.d-robotics.cc`）配置正确后，执行以下命令更新所有tros相关的包：
+1.  **确保您的tros软件包都是最新的：** 许多问题可能在新版本中已被修复。在确保D-Robotics官方APT源（如 `sunrise.horizon.cc` 或最新的 `archive.d-robotics.cc`）配置正确后，执行以下命令更新所有tros相关的包：
     ```bash
     sudo apt update && sudo apt upgrade
     ```
@@ -29,11 +29,11 @@ sidebar_position: 6
 ### Q2: TROS和标准的ROS2有什么区别？TROS Foxy版本如何升级到TROS Humble版本？
 **A:**
 * **TROS与ROS2的关系：**
-    * TROS (TogetheROS.Bot) 是地平线基于开源的ROS2（Robot Operating System 2）针对其RDK硬件平台进行优化和适配后发布的机器人操作系统。
+    * TROS (TogetheROS.Bot) 是D-Robotics基于开源的ROS2（Robot Operating System 2）针对其RDK硬件平台进行优化和适配后发布的机器人操作系统。
     * 它通常基于某个ROS2的LTS（长期支持）版本进行构建，例如：
         * 在RDK OS 2.x (基于Ubuntu 20.04) 上，TROS通常基于 **ROS2 Foxy Fitzroy**。
         * 在RDK OS 3.x (基于Ubuntu 22.04) 上，TROS通常基于 **ROS2 Humble Hawksbill**。
-    * TROS在标准的ROS2基础上，集成了地平线硬件（如BPU、VPU、JPU、Sensor等）的驱动、硬件加速库、以及针对机器人常用功能的优化方案和示例。
+    * TROS在标准的ROS2基础上，集成了D-Robotics硬件（如BPU、VPU、JPU、Sensor等）的驱动、硬件加速库、以及针对机器人常用功能的优化方案和示例。
     * TROS与对应版本的标准ROS2在核心API和通信机制上是**完全兼容**的，这意味着为标准ROS2 Foxy/Humble开发的节点和服务通常可以直接或稍作修改后在对应版本的TROS上运行，反之亦然。它们可以相互通信。
 
 * **TROS版本升级 (例如从Foxy到Humble)：**
@@ -55,13 +55,13 @@ sidebar_position: 6
 ### Q3: TROS是如何安装在RDK板卡上的？是否需要手动安装？
 **A:**
 * TROS通常在您烧录官方提供的RDK OS系统镜像时，就已经**内置并预装**在板卡上了。您不需要在烧录完系统后再手动执行完整的TROS安装流程。
-* 您可以通过APT包管理器来更新或增量安装TROS的各个功能包。在确保地平线官方APT源配置正确的前提下，执行 `sudo apt update && sudo apt upgrade` 会更新已安装的TROS包到最新版本。
+* 您可以通过APT包管理器来更新或增量安装TROS的各个功能包。在确保D-Robotics官方APT源配置正确的前提下，执行 `sudo apt update && sudo apt upgrade` 会更新已安装的TROS包到最新版本。
 * 旧版本中可能存在的`hhp`工具或手动建立软链接的步骤，在新版的TROS中通常已不再需要。
 
 ### Q4: TROS相关功能包的源代码在哪里可以找到？
 **A:**
-* **TROS手册：** 地平线官方的TROS用户手册中，在介绍各个核心功能包或示例时，通常会提供对应源码的GitHub仓库链接。
-* **NodeHub：** 如果功能包是作为NodeHub（地平线机器人应用商店或组件平台）的一部分提供，其相关介绍页面通常也会包含源码链接。
+* **TROS手册：** D-Robotics官方的TROS用户手册中，在介绍各个核心功能包或示例时，通常会提供对应源码的GitHub仓库链接。
+* **NodeHub：** 如果功能包是作为NodeHub（D-Robotics应用商店或组件平台）的一部分提供，其相关介绍页面通常也会包含源码链接。
 * **GitHub D-Robotics组织：** 大部分TROS相关的开源功能包都托管在GitHub上的 **D-Robotics** 组织下 ([https://github.com/D-Robotics](https://github.com/D-Robotics))。您可以在该组织内通过搜索功能包的名称（或部分名称）来查找其源码仓库。
 * **README文档：** 通常，每个TROS功能包的源码仓库中都会包含一个详细的`README.md`文件，其中会说明该功能包的编译方法、使用说明、参数配置、依赖项等重要信息。
 
@@ -108,7 +108,7 @@ sidebar_position: 6
 4.  **查看错误日志：** 仔细阅读安装过程中出现的任何错误信息，它们通常会指出问题的具体原因（如依赖冲突、下载失败、编译错误等）。
 
 ### Q7: TROS中的多媒体方案（如视频流处理、编解码）有哪些推荐的参考资源？
-**A:** 地平线官方TROS手册中通常会有专门的章节或示例介绍如何在ROS2环境中使用RDK的多媒体能力。
+**A:** D-Robotics官方TROS手册中通常会有专门的章节或示例介绍如何在ROS2环境中使用RDK的多媒体能力。
 * **社区手册 - 机器人开发 - 应用示例 - 视频应用 (video_boxs)：**
     [https://developer.d-robotics.cc/rdk_doc/Robot_development/apps/video_boxs](https://developer.d-robotics.cc/rdk_doc/Robot_development/apps/video_boxs)
     (请确认此链接为最新且有效。)
@@ -210,11 +210,11 @@ sidebar_position: 6
 
 ### Q12: RDK X3的内核版本较老，是否还能支持使用RealSense D435i深度相机？如何安装？
 **A:**
-* **支持情况：** 尽管RDK X3的Linux内核版本可能相对较老（例如4.14.x），但地平线官方通常会在其发布的RDK OS系统镜像中，针对常用的外设（如Intel RealSense系列深度相机）**预先打入或集成了所需的内核补丁 (patches) 和驱动模块**。
-* **安装方法：** 因此，您通常**不需要**自行从RealSense SDK源码编译内核模块。地平线官方会提供通过APT软件包管理器直接安装RealSense相机驱动和相关工具的方式。
-    * **官方教程：** 请参考地平线开发者社区或RDK X3用户手册中关于“传感器Demo”或“外设支持”章节中针对RealSense D435i（或其他型号）的说明。
+* **支持情况：** 尽管RDK X3的Linux内核版本可能相对较老（例如4.14.x），但D-Robotics官方通常会在其发布的RDK OS系统镜像中，针对常用的外设（如Intel RealSense系列深度相机）**预先打入或集成了所需的内核补丁 (patches) 和驱动模块**。
+* **安装方法：** 因此，您通常**不需要**自行从RealSense SDK源码编译内核模块。D-Robotics官方会提供通过APT软件包管理器直接安装RealSense相机驱动和相关工具的方式。
+    * **官方教程：** 请参考D-Robotics开发者社区或RDK X3用户手册中关于“传感器Demo”或“外设支持”章节中针对RealSense D435i（或其他型号）的说明。
         例如，此链接曾提供相关指导：[RDK文档 - RealSense图像采集](https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_demo/demo_sensor#realsense%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86)。
-    * **APT安装：** 安装过程通常是在配置好地平线官方APT源后，执行类似 `sudo apt install librealsense2-dkms librealsense2-utils librealsense2-dev` 的命令。
+    * **APT安装：** 安装过程通常是在配置好D-Robotics官方APT源后，执行类似 `sudo apt install librealsense2-dkms librealsense2-utils librealsense2-dev` 的命令。
 * **使用：** 安装完成后，您就可以在RDK X3上使用RealSense SDK (librealsense2) 提供的API来获取深度图、彩色图、红外图以及IMU数据（对于D435i）。
 * **具体API和数据获取：** 关于如何使用librealsense2的API来获取特定数据流、配置相机参数等具体编程问题，请参考Intel RealSense官方的SDK文档和示例代码。
 
@@ -222,7 +222,7 @@ sidebar_position: 6
 **A:** 零拷贝是一种优化ROS2节点间大数据（如图像）传输性能的技术，通过共享内存等机制避免不必要的内存拷贝。TROS（基于ROS2）也支持零拷贝。
 
 * **TROS Foxy版本 (基于ROS2 Foxy)：**
-    * ROS2 Foxy自身对零拷贝的支持尚不完善，地平线在TROS Foxy中可能通过自定义的共享内存方案（如 `hobot_shm` 包）来增强或实现类似零拷贝的功能。
+    * ROS2 Foxy自身对零拷贝的支持尚不完善，D-Robotics在TROS Foxy中可能通过自定义的共享内存方案（如 `hobot_shm` 包）来增强或实现类似零拷贝的功能。
     * 请参考TROS Foxy版本对应的官方文档或 `hobot_shm` 包的README，了解其特定的配置和使用方法。
 
 * **TROS Humble版本 (基于ROS2 Humble)：**
@@ -236,10 +236,10 @@ sidebar_position: 6
         export ROS_DISABLE_LOANED_MESSAGES=0
         ```
 * **通用参考：**
-    * 地平线官方文档中关于TROS通信优化或特定Demo（如图像传输Demo）的章节，通常会包含零拷贝的配置指南。
+    * D-Robotics官方文档中关于TROS通信优化或特定Demo（如图像传输Demo）的章节，通常会包含零拷贝的配置指南。
         例如：[RDK文档 - ROS通信 - 零拷贝配置](https://developer.d-robotics.cc/rdk_doc/Robot_development/quick_demo/demo_communication) (请确认链接的最新有效性)。
 
-### Q14: 除了地平线官方的APT源，是否有其他ROS2的公开软件源可以使用？
+### Q14: 除了D-Robotics官方的APT源，是否有其他ROS2的公开软件源可以使用？
 **A:** 是的。标准的ROS2发行版（如Foxy, Humble, Iron等）都有其官方的APT软件源，由Open Robotics（现为Intrinsic）维护。
 * **ROS2官方源：**
     * 地址通常是 `http://packages.ros.org/ros2/ubuntu`。
@@ -269,4 +269,4 @@ sidebar_position: 6
 * **国内镜像源：**
     * 为了加速下载，国内的一些高校或机构（如清华大学TUNA、中科大LUG、上海交大SJTUG等）也提供了ROS2官方软件源的镜像。您可以将上述 `packages.ros.org` 的地址替换为这些镜像站的地址。具体地址请查询对应镜像站的帮助文档。
 
-**注意：** 当系统中同时存在地平线TROS的源和ROS2官方源时，`apt`在安装或更新软件包时会根据包的版本和优先级进行选择。通常，TROS的包会针对RDK硬件有特定优化。
+**注意：** 当系统中同时存在D-Robotics TROS的源和ROS2官方源时，`apt`在安装或更新软件包时会根据包的版本和优先级进行选择。通常，TROS的包会针对RDK硬件有特定优化。
