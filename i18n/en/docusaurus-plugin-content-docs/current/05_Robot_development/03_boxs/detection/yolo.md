@@ -10,9 +10,13 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports four versions: yolov2, yolov3, yolov5, and yolov5x.
+YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports four versions: YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12、YOLO13.
 
-The model is trained using the [COCO dataset](http://cocodataset.org/), and the supported object detection types include humans, animals, fruits, and vehicles, totaling 80 types.
+Since all YOLos after YOLOv8 are based on the Ultralytics algorithm framework, the Parser of YOLOv8 can be used. The relevant bin model can be found on GitHub⭐️ : Get it [RDK_Model_Zoo](https://github.com/D-Robotics/rdk_model_zoo).
+
+The model is trained using the [COCO dataset](http://cocodataset.org/), and the supported object detection types include humans, animals, fruits, and vehicles, totaling 80 types. 
+
+You can also use the Ultralytics software package to train on custom datasets. (https://docs.ultralytics.com/zh/modes/train)
 
 Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
