@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# YOLOv8-Seg
+# Ultralytics YOLOv8-Seg
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The YOLOv8-Seg algorithm example uses images as input and performs algorithm inference using BPU. It publishes segmentation result messages.
+The Ultralytics YOLOv8-Seg algorithm example uses images as input and performs algorithm inference using BPU. It publishes segmentation result messages.
 
 The YOLOv8-Seg is trained on the [COCO128-seg](http://cocodataset.org/) dataset and the Onnx model. It supports instance segmentation for 80 categories including humans, animals, fruits, and vehicles.
 
