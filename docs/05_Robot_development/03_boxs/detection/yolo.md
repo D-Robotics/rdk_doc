@@ -10,11 +10,13 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持YOLOv2、YOLOv3、YOLOv5、YOLOv5x、YOLOv8、YOLOv10、YOLO11、YOLO12等版本。
+YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12、YOLO13 等版本。
 
 由于YOLOv8后的YOLO均基于Ultralytics算法框架，所以使用YOLOv8的Parser即可，相关bin模型可前往GitHub⭐️：[RDK_Model_Zoo](https://github.com/D-Robotics/rdk_model_zoo)获取。
 
 模型使用[COCO数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型。
+
+也可以使用Ultralytics软件包来进行自定义数据集的训练. (https://docs.ultralytics.com/zh/modes/train)
 
 代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
