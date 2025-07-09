@@ -97,7 +97,7 @@ The device is pre-installed with the latest matching miniboot firmware. To ensur
 - **‌Firmware Upgrade Guide‌** 
 After a system update, execute the rdk-miniboot-update command to burn the latest miniboot firmware from the system image to the NAND.
 - **‌Upgrade Verification Mechanism‌‌** 
-Starting from hobot-miniboot_3.0.3, the rdk-miniboot-update tool automatically displays both the current NAND firmware version and the target upgrade version, reducing upgrade risks and ensuring operational safety.57
+Starting from hobot-miniboot_3.0.3, the rdk-miniboot-update tool automatically displays both the current NAND firmware version and the target upgrade version, reducing upgrade risks and ensuring operational safety.
 
 #### TROS Algorithm Upgrade & Version: 3.2.3
 
