@@ -130,7 +130,7 @@ sidebar_position: 6
     <tr>
       <td>🛠️ **参考设计资料**</td>
       <td>即将发布</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Hardware_Design_Guide_V1P0_0526.pdf">硬件设计指南</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Pinout_V1P0_0526.pdf">接口定义文档</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf">硬件设计指南</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx">接口定义文档</a></td>
       <td>暂不开放</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/reference_design">设计资料</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design">设计资料</a></td>
@@ -172,7 +172,7 @@ sidebar_position: 6
       <p><strong>内容简介：</strong>详细指导客户如何基于模组设计定制化的底板，包括供电、电源管理、接口连接、电气保护等关键设计要点。</p>
       <p><strong>适用场景：</strong>适用于底板硬件开发初期，确保设计与模组高度兼容、稳定可靠。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Hardware_Design_Guide_V1P0_0526.pdf" className="download-link">📥 硬件设计指南</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf" className="download-link">📥 硬件设计指南</a>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@ sidebar_position: 6
       <p><strong>内容简介：</strong>对模组的各个接口引脚进行详细定义，配合典型应用场景说明，帮助开发者快速理解信号含义与使用方式。</p>
       <p><strong>适用场景：</strong>接口设计阶段，确保引脚连接正确，便于功能调试与扩展开发。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Pinout_V1P0_0526.pdf" className="download-link">📥 接口定义文档</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx" className="download-link">📥 接口定义文档</a>
       </div>
     </div>
   </div>

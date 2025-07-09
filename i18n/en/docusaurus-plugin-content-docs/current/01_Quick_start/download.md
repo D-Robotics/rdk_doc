@@ -129,7 +129,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
     <tr>
       <td>🛠️ **Reference Design Materials**</td>
       <td>Coming Soon</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Hardware_Design_Guide_V1P0_0526.pdf">Hardware Design Guide</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Pinout_V1P0_0526.pdf">Interface Definition Document</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf">Hardware Design Guide</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx">Interface Definition Document</a></td>
       <td>Not Currently Available</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/reference_design">Design Materials</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design">Design Materials</a></td>
@@ -171,7 +171,7 @@ Provides complete hardware design support materials for module customers, facili
       <p><strong>Content:</strong> Detailed guidance on designing custom carrier boards based on the module, including power supply, power management, interface connections, electrical protection, and other key design points.</p>
       <p><strong>Use Case:</strong> Suitable for early carrier board hardware development to ensure high compatibility and reliable stability with the module.</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Hardware_Design_Guide_V1P0_0526.pdf" className="download-link">📥 Hardware Design Guide</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf" className="download-link">📥 Hardware Design Guide</a>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@ Provides complete hardware design support materials for module customers, facili
       <p><strong>Content:</strong> Detailed definition of module interface pins with typical application scenarios, helping developers quickly understand signal meanings and usage methods.</p>
       <p><strong>Use Case:</strong> Interface design phase to ensure correct pin connections and facilitate functional debugging and extension development.</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Pinout_V1P0_0526.pdf" className="download-link">📥 Interface Definition Document</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx" className="download-link">📥 Interface Definition Document</a>
       </div>
     </div>
   </div>
