@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 4.1.3 ModelZoo Inference API
+# 4.1.3 Model Zoo Inference API
 
 ## Overview
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# YOLOv8-Seg
+# Ultralytics YOLOv8-Seg
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-YOLOv8-Seg实例分割算法示例使用图片作为输入，利用BPU进行算法推理，发布包含检测和分割结果msg。
+Ultralytics YOLOv8-Seg实例分割算法示例使用图片作为输入，利用BPU进行算法推理，发布包含检测和分割结果msg。
 
 YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来的Onnx模型，模型来源： https://github.com/D-Robotics/hobot_model 。
 支持对人、动物、水果、交通工具等共80种类型进行实例分割。

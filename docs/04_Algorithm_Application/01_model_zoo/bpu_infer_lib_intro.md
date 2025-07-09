@@ -14,10 +14,10 @@ bpu_infer_lib可使用
 
 ```
 # RDK X5 使用以下命令
-pip install bpu_infer_lib_x5
+pip install bpu_infer_lib_x5 -i  http://sdk.d-robotics.cc:8080/simple/  --trusted-host sdk.d-robotics.cc
 
 # RDK X3 使用以下命令
-pip install bpu_infer_lib_x3
+pip install bpu_infer_lib_x3 -i  http://sdk.d-robotics.cc:8080/simple/  --trusted-host sdk.d-robotics.cc
 ```
 
 的方式在RDK系列开发板端进行安装。

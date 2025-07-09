@@ -59,9 +59,6 @@ const config = {
           routeBasePath: "/", // 修改默认文档路径
           sidebarPath: "./sidebars.js",
           showLastUpdateTime: true,
-          remarkPlugins: [
-            [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
-          ],
         },
         blog: { showReadingTime: true },
         pages: { exclude: ["/imager/**", "**/dl/**"] },
@@ -80,22 +77,8 @@ const config = {
         routeBasePath: "rdk_s",
         sidebarPath: "./sidebars.js",
         showLastUpdateTime: true,
-        remarkPlugins: [
-          [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
-        ],
       },
     ],
-    async function myPlugin(context, options) {
-      return {
-        name: "docusaurus-tailwindcss",
-        configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
-          postcssOptions.plugins.push(require("tailwindcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
-          return postcssOptions;
-        },
-      };
-    },
   ],
 
   markdown: {
@@ -108,18 +91,11 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       
-      // ✅ 新增：支持 h2 ~ h5 add by xgs for table of contents
-      tableOfContents: {
-        minHeadingLevel: 2,
-        maxHeadingLevel: 5,
-      },
-      
-      docs: {
-        sidebar: {
-          autoCollapseCategories: true,
-          hideable: true,
-        },
-      },
+                // ✅ 新增：支持 h2 ~ h5 add by xgs for table of contents
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
+    },
       navbar: {
         title: "D-Robotics",
         logo: {
@@ -134,6 +110,13 @@ const config = {
             position: "left",
             label: "RDK X3 / X5",
           },
+          // add by xgs for S100_doc 2025 年 4 月 21 日 16:34:51 新增S100_doc npm install 去新增插件
+          // {
+          //   to: '/docs_s/',  // 与routeBasePath保持一致
+          //   label: 'RDK S Series',
+          //   position: 'left',
+          //   // activeBaseRegex: '/docs_s/',
+          // },
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
@@ -141,11 +124,13 @@ const config = {
             position: "left",
             label: "RDK S100",
           },
+
           {
             href: "https://developer.d-robotics.cc/",
             label: "Community",
             position: "left",
           },
+
           {
             href: "https://github.com/D-Robotics",
             label: "GitHub",
@@ -194,31 +179,6 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: [
-          'dart',
-          'ruby',
-          'groovy',
-          'kotlin',
-          'java',
-          'swift',
-          'objectivec',
-          'json',
-          'bash',
-          'python',
-          'cpp',
-          'c',
-        ],
-        magicComments: [
-          {
-            className: 'theme-code-block-highlighted-line',
-            line: 'highlight-next-line',
-            block: { start: 'highlight-start', end: 'highlight-end' },
-          },
-          {
-            className: 'code-block-error-line',
-            line: 'highlight-next-line-error',
-          },
-        ],
       },
     }),
   themes: [

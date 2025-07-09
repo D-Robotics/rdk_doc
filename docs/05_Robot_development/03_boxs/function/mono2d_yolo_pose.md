@@ -1,7 +1,7 @@
 ---
 sidebar_position: 21
 ---
-# 人体检测和跟踪(Yolo-Pose)
+# 人体检测和跟踪(Ultralytics YOLO Pose)
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

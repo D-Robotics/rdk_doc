@@ -1,7 +1,7 @@
 ---
 sidebar_position: 21
 ---
-# Human Detection and Tracking (Yolo-Pose)
+# Human Detection and Tracking (Ultralytics YOLO Pose)
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
