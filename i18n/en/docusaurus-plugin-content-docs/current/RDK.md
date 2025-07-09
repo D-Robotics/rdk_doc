@@ -91,7 +91,13 @@ Provides commonly used commands in RDK OS, including RDK-specific commands for q
 ### RDK X5
 
 <font color="red">Note:</font>
-- After updating the system, use the rdk-miniboot-update command to update the NAND firmware to the latest version.
+
+- **‌Factory Settings** 
+The device is pre-installed with the latest matching miniboot firmware. To ensure hardware compatibility, downgrading to older firmware versions is strictly prohibited, as it may cause the device to fail to start.
+- **‌Firmware Upgrade Guide‌** 
+After a system update, execute the rdk-miniboot-update command to burn the latest miniboot firmware from the system image to the NAND.
+- **‌Upgrade Verification Mechanism‌‌** 
+Starting from hobot-miniboot_3.0.3, the rdk-miniboot-update tool automatically displays both the current NAND firmware version and the target upgrade version, reducing upgrade risks and ensuring operational safety.57
 
 #### TROS Algorithm Upgrade & Version: 3.2.3
 
