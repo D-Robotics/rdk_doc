@@ -111,7 +111,7 @@ dtparam=i2c5=on
 
 ### arm_boost
 
-当设置为1时，开启超频，RDK v1.x 版本最高频率提高到 1.5GHz，RDK V2.0 和 RDK Module 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/scaling_boost_frequencies` 获取使能 boost 后会开放哪些更高 CPU 频率。
+当设置为1时，开启超频，RDK v1.x 版本最高频率提高到 1.5GHz，RDK V2.0 和 RDK Module 最高频率提高到1.8GHz，通过 `cat /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies` 获取使能 boost 后会开放哪些更高 CPU 频率。
 
 默认不开启超频，设置`arm_boost` 为 `1`时开启，例如：
 
@@ -121,7 +121,7 @@ arm_boost=1
 
 ### governor
 
-CPU 频率的调度方式，有 `conservative ondemand userspace powersave performance schedutil` 方式可以选择， 通过 `cat /sys/devices/system/cpu/cpufreq/scaling_available_governors` 获取可以设置的模式。
+CPU 频率的调度方式，有 `conservative ondemand userspace powersave performance schedutil` 方式可以选择， 通过 `cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors ` 获取可以设置的模式。
 
 例如设置`CPU`运行在性能模式：
 
@@ -133,7 +133,7 @@ governor=performance
 
 ### frequency
 
-`governor`设置为 `userspace` 时，可以通过本选型设置`CPU`运行在一个固定的频率上，目前一般可以设置`240000 500000 800000 1000000 1200000 1500000 1800000`这些频率，具体可以通过`cat /sys/devices/system/cpu/cpufreq/scaling_available_frequencies` 获取可以设置的频率列表。
+`governor`设置为 `userspace` 时，可以通过本选型设置`CPU`运行在一个固定的频率上，目前一般可以设置`240000 500000 800000 1000000 1200000 1500000 1800000`这些频率，具体可以通过`cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies` 获取可以设置的频率列表。
 
 例如设置`CPU`降频运行在 `1GHz`：
 
