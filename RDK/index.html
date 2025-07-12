@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">D-Robotics RDK套件 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/RDK"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="D-Robotics RDK套件 | RDK DOC"><meta data-rh="true" name="description" content="本文档为 D-Robotics RDK 套件 X 系列的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考系统烧录章节。"><meta data-rh="true" property="og:description" content="本文档为 D-Robotics RDK 套件 X 系列的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。欢迎用户使用，具体方法请参考系统烧录章节。"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/RDK"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/RDK" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/RDK" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/RDK" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"D-Robotics RDK套件","item":"https://developer.d-robotics.cc/rdk_doc/RDK"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.50b7a244.css">
-<script src="/rdk_doc/assets/js/runtime~main.cf23de58.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.9ee8bbaf.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.d2789a0a.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.45cb1fcd.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -84,8 +84,12 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="rdk-x5">RDK X5<a href="#rdk-x5" class="hash-link" aria-label="RDK X5的直接链接" title="RDK X5的直接链接">​</a></h3>
 <font color="red">注意事项：</font>
 <ul>
-<li>更新系统后，请使用 rdk-miniboot-update 命令更新nand固件至最新版本</li>
-<li>官方会定期发布新版镜像，这些镜像包含了最新的功能优化和问题修复。用户既可以通过下载最新镜像进行安装，也可以直接通过在线升级方式获取系统更新。</li>
+<li><strong>设备出厂说明</strong>
+设备出厂时已预装匹配的最新版 miniboot 固件，为保障硬件兼容性，严禁降级刷入旧版本固件；降级操作可能导致设备无法启动。</li>
+<li><strong>固件升级指南</strong>
+系统更新后，执行 rdk-miniboot-update 命令将系统镜像中的最新 miniboot 固件烧录至 NAND。</li>
+<li><strong>升级校验机制</strong>
+自 hobot-miniboot_3.0.3 版本起，rdk-miniboot-update 工具自动显示当前 NAND 固件版本与目标升级版本，以降低升级风险并确保操作安全。</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="tros算法升级--版本号323">TROS算法升级 &amp; 版本号：3.2.3<a href="#tros算法升级--版本号323" class="hash-link" aria-label="TROS算法升级 &amp; 版本号：3.2.3的直接链接" title="TROS算法升级 &amp; 版本号：3.2.3的直接链接">​</a></h4>
 <p>镜像更新</p>
@@ -98,7 +102,7 @@
 <li><strong>桌面显示优化</strong> Ubuntu 桌面支持 3D GPU 加速渲染，视觉体验更流畅。</li>
 <li><strong>音频子板适配新增</strong> 支持 微雪 WM8960 Audio HAT 与 幻尔载板，加快语音方案集成效率。</li>
 <li><strong>WIFI 驱动升级</strong> 增强弱信号环境下连接稳定性，优化休眠/唤醒过程中的自动重连机制。</li>
-<li><strong>Sensor采集框架支持扩展</strong> 集成 V4L2 框架，已适配：imx477，ov5647，imx219，更多 Sensor 支持持续更新中。</li>
+<li><strong>Sensor采集框架支持扩展</strong> 集成 V4L2 框架，已 适配：imx477，ov5647，imx219，更多 Sensor 支持持续更新中。</li>
 <li><strong>网络与远程优化</strong> 默认切换至 iptables legacy 模式，VNC 显示流畅性提升，远程桌面不卡顿。</li>
 <li><strong>接口增强</strong> CAN 接口稳定性优化，解决高速数据丢包问题。srpi-config 工具新增 Uart7 支持，提升串口扩展能力。</li>
 <li><strong>存储兼容性优化</strong> 提升对 SD 卡的兼容性，适配更多存储卡型号。</li>
@@ -116,8 +120,8 @@
 <li><strong>配置管理</strong> 支持使用 config.txt 配置 40pin 引脚在 U-Boot 阶段的初始化状态，提升系统启动稳定性。</li>
 <li><strong>触摸屏增强</strong> 新增双击和长按操作，长按模拟右键，屏幕控制更加灵活。</li>
 <li><strong>设备树覆盖支持</strong> 增加 1_wire 设备树覆盖（dtoverlay）示例，为定制硬件连接提供更多选择。</li>
-<li><strong>双目算法升级</strong>  StereoNet 深度算法升级，显著提升深度效果；新增 ZED 相机支持，实现双目图像采集，搭配 StereoNet 轻松构建智能视觉系统。</li>
-<li><strong>全新应用方案：智能视频盒子</strong> hobot_rtsp_client：支持 RTSP 拉流、解码、智能推理，并通过 Web 界面展示推理结果，快速集成边缘 AI 解决方案 。</li>
+<li><strong>双目算法升级</strong>  StereoNet 深度算法升级，显著提升深度效果；新增 ZED 相机支持，实现双目 图像采集，搭配 StereoNet 轻松构建智能视觉系统。</li>
+<li><strong>全新应用方案：智能视频盒子</strong> hobot_rtsp_client：支持 RTSP 拉流、解码、智能推理，并通过 Web 界面展示推理结果，快速集成边缘 AI 解决方案。</li>
 <li><strong>开放词汇检测方案：DOSOD</strong> hobot_dosod：基于地瓜自研的开放性词汇检测算法，提供端侧部署方案，让语音交互更灵活。</li>
 </ul>
 <p><strong>问题修复与优化：</strong></p>
@@ -168,10 +172,10 @@
 <ul>
 <li>支持 ubuntu 22.04</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本号210">版本号：2.1.0<a href="#版本号210" class="hash-link" aria-label="版本号：2.1.0的直接链接" title="版本号：2.1.0的直接链接">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="  版本号210">版本号：2.1.0<a href="#版本号210" class="hash-link" aria-label="版本号：2.1.0的直接链接" title="版本号：2.1.0的直接链接">​</a></h4>
 <p>新增功能：</p>
 <ul>
-<li>完善srpi-config系统配置工具，支持Wi-Fi连接，开/关SSH 、VNC，使能/禁用40pin上的外设总线，本地化语言配置，设置CPU超频，设置ION内存大小等系统配置。</li>
+<li>完善srpi-config系统配置工具，支持Wi-Fi连接，开/关SSH、VNC，使能/禁用40pin上的外设总线，本地化语言配置，设置CPU超频，设置ION内存大小等系统配置。</li>
 <li>支持了/boot/config.txt系统配置文件，支持设置dtoverlay、cpu超频、io启动状态配置等选项。</li>
 <li>添加yolov5s v6/v7 模型示例。</li>
 </ul>
@@ -198,7 +202,7 @@
 <li>支持 chromium 浏览器，用户可以使用 <code>sudo apt install chromium</code> 安装使用。</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本号200">版本号：2.0.0<a href="#版本号200" class="hash-link" aria-label="版本号：2.0.0的直接链接" title="版本号：2.0.0的直接链接">​</a></h4>
-<p>这次发布带来了许多令人期待的功能和改进，旨在提供更好的开发体验和更广泛的应用场景支持。以下是本次版本发布的主要亮点：</p>
+<p>这次发布带来了许多令人期待的功能和改进，旨在 提供更好的开发体验和更广泛的应用场景支持。以下是本次版本发布的主要亮点：</p>
 <p>开放源代码：</p>
 <ul>
 <li>我们完全开放了操作系统的源代码，包括系统核心模块和功能模块的源代码。开发者可以自由地查看和修改源代码，为定制化和优化提供了更大的灵活性。</li>
@@ -216,6 +220,6 @@
 <li>我们对已有功能进行了优化，修复了已知问题和漏洞，提升了操作系统的稳定性和性能。</li>
 <li>修订了文档和帮助文档，提供更全面、准确的技术资料和指南。</li>
 <li>我们提供了更低层的API，方便开发者进行二次开发和集成，使其能够更加灵活地定制软件。</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-07-09T10:27:37.000Z" itemprop="dateModified">2025年7月9日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Quick_start"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1. 快速开始</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#d-robotics-rdk-套件概述" class="table-of-contents__link toc-highlight">D-Robotics RDK 套件概述</a></li><li><a href="#产品介绍" class="table-of-contents__link toc-highlight">产品介绍</a><ul><li><a href="#工作温度与散热建议" class="table-of-contents__link toc-highlight">工作温度与散热建议</a><ul><li><a href="#工作温度范围" class="table-of-contents__link toc-highlight">工作温度范围</a></li><li><a href="#芯片热特性" class="table-of-contents__link toc-highlight">芯片热特性</a></li><li><a href="#散热设计建议" class="table-of-contents__link toc-highlight">散热设计建议</a></li></ul></li></ul></li><li><a href="#文档使用指引" class="table-of-contents__link toc-highlight">文档使用指引</a></li><li><a href="#版本发布记录" class="table-of-contents__link toc-highlight">版本发布记录</a><ul><li><a href="#rdk-x5" class="table-of-contents__link toc-highlight">RDK X5</a><ul><li><a href="#tros算法升级--版本号323" class="table-of-contents__link toc-highlight">TROS算法升级 &amp; 版本号：3.2.3</a></li><li><a href="#双目算法升级--版本号311" class="table-of-contents__link toc-highlight">双目算法升级 &amp; 版本号：3.1.1</a></li><li><a href="#版本号310" class="table-of-contents__link toc-highlight">版本号：3.1.0</a></li><li><a href="#版本号301" class="table-of-contents__link toc-highlight">版本号：3.0.1</a></li><li><a href="#版本号300" class="table-of-contents__link toc-highlight">版本号：3.0.0</a></li></ul></li><li><a href="#rdk-x3" class="table-of-contents__link toc-highlight">RDK X3</a><ul><li><a href="#版本号300-1" class="table-of-contents__link toc-highlight">版本号：3.0.0</a></li><li><a href="#版本号210" class="table-of-contents__link toc-highlight">版本号：2.1.0</a></li><li><a href="#版本号200" class="table-of-contents__link toc-highlight">版本号：2.0.0</a></li></ul></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-07-12T09:34:23.000Z" itemprop="dateModified">2025年7月12日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Quick_start"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1.  快速开始</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#d-robotics-rdk-套件概述" class="table-of-contents__link toc-highlight">D-Robotics RDK 套件概述</a></li><li><a href="#产品介绍" class="table-of-contents__link toc-highlight">产品介绍</a><ul><li><a href="#工作温度与散热建议" class="table-of-contents__link toc-highlight">工作温度与散热建议</a><ul><li><a href="#工作温度范围" class="table-of-contents__link toc-highlight">工作温度范围</a></li><li><a href="#芯片热特性" class="table-of-contents__link toc-highlight">芯片热特性</a></li><li><a href="#散热设计建议" class="table-of-contents__link toc-highlight">散热设计建议</a></li></ul></li></ul></li><li><a href="#文档使用指引" class="table-of-contents__link toc-highlight">文档使用指引</a></li><li><a href="#版本发布记录" class="table-of-contents__link toc-highlight">版本发布记录</a><ul><li><a href="#rdk-x5" class="table-of-contents__link toc-highlight">RDK X5</a><ul><li><a href="#tros算法升级--版本号323" class="table-of-contents__link toc-highlight">TROS算法升级 &amp; 版本号：3.2.3</a></li><li><a href="#双目算法升级--版本号311" class="table-of-contents__link toc-highlight">双目算法升级 &amp; 版本号：3.1.1</a></li><li><a href="#版本号310" class="table-of-contents__link toc-highlight">版本号：3.1.0</a></li><li><a href="#版本号301" class="table-of-contents__link toc-highlight">版本号：3.0.1</a></li><li><a href="#版本号300" class="table-of-contents__link toc-highlight">版本号：3.0.0</a></li></ul></li><li><a href="#rdk-x3" class="table-of-contents__link toc-highlight">RDK X3</a><ul><li><a href="#版本号300-1" class="table-of-contents__link toc-highlight">版本号：3.0.0</a></li><li><a href="#版本号210" class="table-of-contents__link toc-highlight">版本号：2.1.0</a></li><li><a href="#版本号200" class="table-of-contents__link toc-highlight">版本号：2.0.0</a></li></ul></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
