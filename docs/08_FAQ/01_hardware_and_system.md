@@ -181,28 +181,70 @@ F37摄像头连接示意图：
     * 闪迪示例链接 (来自原始文档): `https://item.jd.com/1875992.html#crumb-wrap`
     (请注意，链接仅为原始文档提供，具体购买时请仔细甄别产品型号和渠道。)
 
-### Q10: `apt update` 命令执行失败或报错（如密钥错误、无法更新、锁文件被占用）如何处理？
-**A:**
-#### (1) 地瓜源域名变更或GPG密钥问题
-* **原因：** 地瓜机器人官方的apt软件源域名或GPG签名密钥可能发生过变更。
-* **报错示例：**
-    * `Clearsigned file isn't valid, got 'NOSPLIT'`
-    * `The repository '...' is no longer signed.`
-    * `Could not resolve 'archive.sunrisepi.tech'` (或其他旧域名)
-    * `The following signatures couldn't be verified because the public key is not available: NO_PUBKEY ...`
-* **解决方法：**
-    1.  **更新域名：** 编辑 `/etc/apt/sources.list.d/sunrise.list` (或其他地瓜源配置文件)，将其中旧的域名 (如 `archive.sunrisepi.tech`, `sunrise.horizon.cc`) 替换为最新的官方域名 (当前通常是 `archive.d-robotics.cc`)。
-        ```bash
-        # 示例，请将“旧域名”替换为实际在您配置文件中看到的旧域名
-        sudo sed -i 's/旧域名/archive.d-robotics.cc/g' /etc/apt/sources.list.d/sunrise.list
-        ```
-    2.  **更新GPG密钥：** 下载并安装最新的地瓜源GPG密钥。
-        ```bash
-        sudo wget -O /usr/share/keyrings/sunrise.gpg [http://archive.d-robotics.cc/keys/sunrise.gpg](http://archive.d-robotics.cc/keys/sunrise.gpg)
-        ```
-    3.  再次尝试 `sudo apt update`。
+### Q10: `apt update` 命令执行失败或报错如何处理？
 
-#### (2) apt锁文件被占用
+#### 常见报错类型
+- 密钥验证失败或过期
+- 软件源域名无法解析  
+- 锁文件被占用
+- 网络连接问题
+
+#### 问题排查与解决
+
+##### 1. 软件源域名变更或GPG密钥问题
+
+**典型报错信息：**
+- `Clearsigned file isn't valid, got 'NOSPLIT'`
+- `The repository '...' is no longer signed.`
+- `Could not resolve 'archive.sunrisepi.tech'` (或其他旧域名)
+- `The following signatures couldn't be verified because the public key is not available: NO_PUBKEY ...`
+
+**原因分析：**  
+地瓜机器人官方软件源域名或GPG签名密钥发生变更，导致本地配置过期。
+
+**解决步骤：**
+
+1. **检查当前源配置**
+   ```bash
+   cat /etc/apt/sources.list.d/sunrise.list
+   ```
+   
+   正确的配置应类似：
+   ```
+   deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-s100 jammy main #RDK S100
+   # deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5 jammy universe #RDK X5
+   # deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk jammy universe #RDK X3
+   ```
+
+2. **更新域名配置**
+   
+   如果发现旧域名（如 `archive.sunrisepi.tech` 或 `sunrise.horizon.cc`等），需要更新：
+   ```bash
+   # 替换旧域名为新域名
+   sudo sed -i 's/archive.sunrisepi.tech/archive.d-robotics.cc/g' /etc/apt/sources.list.d/sunrise.list
+   sudo sed -i 's/旧域名/archive.d-robotics.cc/g' /etc/apt/sources.list.d/sunrise.list
+   ```
+
+3. **切换测试版到正式版**
+   截至25-7-14 ，RDK S100的正式版源尚未发布。
+   
+   如果使用测试版源（包含 `-beta` 后缀），需要切换到正式版：
+   ```bash
+   sudo sed -i 's/ubuntu-rdk-s100-beta/ubuntu-rdk-s100/g' /etc/apt/sources.list.d/sunrise.list
+   ```
+
+4. **更新GPG密钥**
+   ```bash
+   sudo wget -O /usr/share/keyrings/sunrise.gpg http://archive.d-robotics.cc/keys/sunrise.gpg
+   ```
+
+5. **重新更新软件包列表**
+        ```bash
+        sudo apt update
+        ```
+
+
+##### 2. APT锁文件被占用
 * **报错示例：**
     ```
     E: Could not get lock /var/lib/apt/lists/lock. It is held by process XXXX (apt-get)
@@ -216,7 +258,7 @@ F37摄像头连接示意图：
         ```bash
         sudo kill XXXX
         ```
-    3.  **清理锁文件（谨慎操作）：** 在确认没有apt或dpkg进程正在运行后，可以尝试移除相关的锁文件。**此操作有一定风险，可能破坏您的包管理系统，请务必谨慎。**
+    3.  **清理锁文件（⚠️ 谨慎操作）：** 在确认没有apt或dpkg进程正在运行后，可以尝试移除相关的锁文件。**此操作有一定风险，可能破坏您的包管理系统，请务必谨慎。**
         ```bash
         sudo rm /var/lib/apt/lists/lock
         sudo rm /var/cache/apt/archives/lock
