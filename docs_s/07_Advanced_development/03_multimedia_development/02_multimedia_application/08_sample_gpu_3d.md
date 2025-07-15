@@ -1,4 +1,5 @@
 # sample_gpu_3d 使用说明
+## 功能概述
 3D GPU 支持以下标准 API：
 - OpenGLES
 - OpenCL

@@ -1,6 +1,6 @@
-# sunrise camera 用户使用说明
+# sunrise camera 使用说明
 
-## 功能说明
+## 功能概述
 
 sunrise camera 是官方开发的应用程序，方便用户对 Camera、 VIO、 Codec、 BPU 等模块的快速评测。用户通过 PC 上的 Web 浏览器，可以方便的对程序进行参数配置，并实时预览视频流、算法渲染结果等信息。程序主要功能如下：
 

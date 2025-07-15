@@ -243,6 +243,27 @@ Acore与MCU(POLL方式)之间API Sample运行流程图
 ```
 
 ### 实例说明
+
+### 错误码定义
+
+| 错误码宏定义 | 错误码值 | 中文说明 |
+|-------------|---------|---------|
+| `IPCF_HAL_E_OK` | 0 | 操作成功 |
+| `IPCF_HAL_E_NOK` | 1 | 操作失败 |
+| `IPCF_HAL_E_CONFIG_FAIL` | 2 | 配置失败 |
+| `IPCF_HAL_E_WRONG_CONFIGURATION` | 3 | 配置错误 |
+| `IPCF_HAL_E_NULL_POINTER` | 4 | 传入了空指针参数 |
+| `IPCF_HAL_E_PARAM_INVALID` | 5 | 参数无效 |
+| `IPCF_HAL_E_LENGTH_TOO_SMALL` | 6 | 长度过小 |
+| `IPCF_HAL_E_INIT_FAILED` | 7 | 初始化失败 |
+| `IPCF_HAL_E_UNINIT` | 8 | 在未初始化前调用 |
+| `IPCF_HAL_E_BUFFER_OVERFLOW` | 9 | 源地址或目标地址缓冲区溢出 |
+| `IPCF_HAL_E_ALLOC_FAIL` | 10 | 资源分配失败 |
+| `IPCF_HAL_E_TIMEOUT` | 11 | 操作超时 |
+| `IPCF_HAL_E_REINIT` | 12 | 重复初始化 |
+| `IPCF_HAL_E_BUSY` | 13 | 系统繁忙 |
+| `IPCF_HAL_E_CHANNEL_INVALID` | 14 | **数据写入通道状态异常：内核态RingBuffer已达容量上限，导致数据写入操作失败，建议等待1-2ms后重试操作;**<br/>**数据读取通道状态异常：内核态RingBuffer已空，导致数据读取操作失败，建议等待1-2ms后重试操作** |
+
 ### C++ 应用
 
 #### RunCmd应用
@@ -252,6 +273,7 @@ Acore与MCU(POLL方式)之间API Sample运行流程图
 2. 编译：make
 3. 运行: ./ipcbox_runcmd
 4. 出现`Extracted adc data:{"adc_ch":1,"adc_result":2411,"adc_mv":1059}`打印则测试通过
+
 其中表示adc对应pin口，adc_mv表示读出来的电压值
 
 ```

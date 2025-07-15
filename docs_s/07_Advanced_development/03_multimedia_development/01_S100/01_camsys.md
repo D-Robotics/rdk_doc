@@ -1048,6 +1048,8 @@ LUT表，硬件读取DDR中的alpha、beta权重值进行加权融合。
 LUT表，硬件读取DDR中的alpha权重值并进行融合src0。
 其中，LUT表指的是融合拼接权重参数buf
 
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch_work.png)
+
 **硬件拼接示意图**
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch0.png)
@@ -2628,6 +2630,58 @@ hb_vnode_type vnode_type, uint32_t index)
 【注意事项】
 
 模块需要事先open。
+
+### ISP API
+
+1. **hbn_isp_get_ae_statistics**
+
+【函数声明】
+
+int32_t hbn_isp_get_ae_statistics(hbn_vnode_handle_t vnode_fd, isp_statistics_t *ae_statistics, int32_t time_out)
+
+【参数描述】
+
+[IN] hbn_vflow_handle_t vflow_fd：vflow handle；
+
+[IN] int32_t time_out：等待超时时间；
+
+[OUT] isp_statistics_t *ae_statistics：ae统计数据；
+
+【返回值】
+
+成功：HBN_STATUS_SUCESS 0
+
+失败：异常为负值错误码，参考返回值说明
+
+【功能描述】
+
+通过ISP模块的vflow_fd来获取AE统计数据1024bin，固定为2096个字节，数据排布如下图：
+
+
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/isp_1024_bin.png)
+
+2. **hbn_isp_release_ae_statistics**
+
+【函数声明】
+
+int32_t hbn_isp_release_ae_statistics(hbn_vnode_handle_t vnode_fd, isp_statistics_t *ae_statistics)
+
+【参数描述】
+
+[IN] hbn_vflow_handle_t vflow_fd：vflow handle；
+
+[IN] isp_statistics_t *ae_statistics：ae统计数据；
+
+【返回值】
+
+成功：HBN_STATUS_SUCESS 0
+
+失败：异常为负值错误码，参考返回值说明
+
+【功能描述】
+
+释放获取到的AE统计数据，需要和hbn_isp_get_ae_statistics成对使用
+
 
 ### 参数说明
 

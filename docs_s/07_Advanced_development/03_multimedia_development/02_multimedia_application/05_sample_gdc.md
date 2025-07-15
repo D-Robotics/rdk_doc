@@ -1,5 +1,6 @@
 # sample_gdc 使用说明
 
+## 功能概述
 sample_gdc 目录下是用于演示如何使用 GDC 的示例程序，主要功能介绍如下：
 
 1. `generate_custom_config.py`: 生成 GDC 的矫正标定配置参数。

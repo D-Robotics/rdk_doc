@@ -1,6 +1,6 @@
 # sample_isp 使用说明
 
-### 功能概述
+## 功能概述
 
 `sample_isp` 完成 Camera Sensor 、 MIPI CSI 、 CIM 和 ISP 模块的初始化，实现从 ISP 模块获取视频帧数据的功能，支持从 ISP 模块获取 YUV 格式的图像。
 
