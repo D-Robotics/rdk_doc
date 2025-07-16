@@ -345,7 +345,7 @@ RTC时间：这个是S100 MCU侧带的一个实时时钟，不支持通过纽扣
 
 ### MCU支持的时间同步方式
 
-MCU只支持下面的时间同步方式:
+MCU支持下面的时间同步方式:
 
 基于PPS的Timesync：在秒脉冲上升沿捕捉到两个时间的snapshot，根据snapshot计算误差，根据误差进行时间同步 ；
 
@@ -690,6 +690,21 @@ MCU侧的修改需要注意 PRODUCT\_IMAGE宏的影响，详细内容请参考�
   TimeSyncCtrl 4 10
   TimeSyncCtrl 6
 ```
+
+:::tip
+MCU默认不启动时间同步服务。如果配置默认启动，除了修改以上描述的配置，另外需要增加初始化的动作，参考如下：
+
+```
+TASK(OsTask_SysCore_Startup)
+{
+  ......
+  Timesync_Init();
+  ......
+}
+```
+
+完成以上配置，在加载MCU1固件后，时间同步服务默认启动，不再需要执行``TimeSyncCtrl``的命令。
+:::
 
 Acore执行如下命令，第一条命令设置log等级，允许输出打印到控制台；第二条命令启动ptp时间同步，将外部ptp master时间同步到Acore网卡；
 第三条命令将网卡时间同步到Linux系统时间；第五条命令启动时间同步程序，将Acore网卡时间同步给MCU侧Rtc。
