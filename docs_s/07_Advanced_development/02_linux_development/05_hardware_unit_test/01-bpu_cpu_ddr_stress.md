@@ -96,24 +96,28 @@ CPU-BPU-DDR 压力测试的测试原理主要涉及对 CPU、 BPU 和 DDR 在高
 
 **1.** 开始压力测试前，需要在芯片上添加散热片，否则芯片可能会进入过温保护影响测试结果。
 
-**2.** 确认在 /app/multimedia_samples/chip_base_test/01_cpu_bpu_ddr 路径下存在的文件是否完整：
-
+**2.** 确认在 /app/chip_base_test/01_cpu_bpu_ddr 路径下存在的文件是否完整：
+:::warning
+下方路径中的`/lib/`路径内的动态库以及`module`路径下的模型文件及输入文件，仅限于**压力测试**场景用于**给BPU加压**场景，不能用于其他任何用途。
+:::
 ```shell
 01_cpu_bpu_ddr/
-`-- scripts
-	|-- Readme.md
-	|-- bpu_os_test
-	|-- lib
-	|   |-- libhbrt4.so
-	|   `-- libhbtl.so
-	|-- module
-	|   |-- input_1.bin
-	|   |-- input_2.bin
-	|   `-- yolov3.hbm
-	|-- run.sh
-	|-- stop_test.sh
-	|-- stress_test.sh
-	`-- stressapptest
+└── scripts
+    ├── Readme.md
+    ├── bpu_os_test
+    ├── lib
+    │   ├── libhbrt4.so
+    │   └── libhbtl.so
+    ├── module
+    │   ├── input_1.bin
+    │   ├── input_2.bin
+    │   └── yolov3.hbm
+    ├── run.sh
+    ├── stop_test.sh
+    ├── stress_test.sh
+    └── stressapptest
+
+3 directories, 11 files
 ```
 
 ## 测试方法
@@ -154,7 +158,7 @@ Example:
 确保已完成准备工作后，运行测试命令：
 
 ```shell
-cd /app/multimedia_samples/chip_base_test/01_cpu_bpu_ddr/scripts
+cd /app/chip_base_test/01_cpu_bpu_ddr/scripts
 
 ./stress_test.sh
 ```
@@ -251,13 +255,13 @@ CpuX  [ 进度条 ]
 - `Load average: 7.10 9.56 9.57`：表示系统在 1 分钟、5 分钟、15 分钟内的平均负载。
 
 ## 测试指标
-测试程序启动后，会在 `/app/multimedia_samples/chip_base_test/log` 目录下产生 `bpu-stressX.log` 和 `cpu-stressX.log` 两份日志文件用来记录压测时的状态，确保能够在压测中保持如下内容：
+测试程序启动后，会在 `/app/chip_base_test/log` 目录下产生 `bpu-stressX.log` 和 `cpu-stressX.log` 两份日志文件用来记录压测时的状态，确保能够在压测中保持如下内容：
 
 - 能稳定运行 48 小时，不出现重启或挂死的情况。
 - 使用以下命令检查日志文件中是否存在 `fail`、`error`、`timeout` 等异常打印。
 
 ```shell
-cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout' bpu-stress*.log cpu-stress*.log
+cd "/app/chip_base_test/log/" && grep -iE 'error|fail|timeout' bpu-stress*.log cpu-stress*.log
 ```
 
 - 执行 `TOP` 命令查看 CPU、 BPU 占比情况，正常状态应稳定保持在 98-100% 区间。
@@ -267,7 +271,7 @@ cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout
 输入命令：
 
 ```shell
-cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout' bpu-stress*.log cpu-stress*.log
+cd "/app/chip_base_test/log/" && grep -iE 'error|fail|timeout' bpu-stress*.log cpu-stress*.log
 ```
 
 显示如下：

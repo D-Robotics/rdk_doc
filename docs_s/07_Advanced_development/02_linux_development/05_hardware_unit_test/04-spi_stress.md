@@ -37,7 +37,7 @@ SPI 压力测试的核心部分是通过回环测试进行数据的传输和接�
 串口压测支持输入后缀 -h 查看命令参数的说明 ，例如：
 
 ```shell
-root@buildroot:/app/multimedia_samples/chip_base_test/04_spi_test# ./spistress.sh -h
+root@buildroot:/app/chip_base_test/04_spi_test# ./spistress.sh -h
 Usage: ./spistress.sh [options]
 
 Options:
@@ -98,10 +98,10 @@ RDKS100 Acore支持2路SPI，且SPI0，SPI1只能做SPI Master。
 SPI内部回环测试仅SPI Master支持，其原理是SPI硬件IP的tx fifo将数据发给rx fifo从而形成回环。
 :::
 
-**3.** 确认 SDK 中 `/app/multimedia_samples/chip_base_test/04_spi_test` 路径下，或者板端 `root@buildroot:/app/multimedia_samples/chip_base_test/04_spi_test#` 路径下存在 `spistress.sh`、`spidev_tc.c`、`spidev_tc` 三个文件。
+**3.** 确认 SDK 中 `/app/chip_base_test/04_spi_test` 路径下，或者板端 `root@buildroot:/app/chip_base_test/04_spi_test#` 路径下存在 `spistress.sh`、`spidev_tc.c`、`spidev_tc` 三个文件。
 
 ```shell
-(base) root@//app/multimedia_samples/chip_base_test/04_spi_test# tree
+(base) root@//app/chip_base_test/04_spi_test# tree
 .
 ├── spidev_tc
 ├── spidev_tc.c
@@ -125,18 +125,18 @@ gcc -o spidev_tc spidev_tc.c
 运行一段时间后，日志打印结果如下：
 
 ```shell
-root@buildroot:/app/multimedia_samples/chip_base_test/04_spi_test# ./spistress.sh
+root@buildroot:/app/chip_base_test/04_spi_test# ./spistress.sh
 SPI test starting...
 Test configuration:
   Device: /dev/spidev0.0
   Stress Count: 100
   SPI Speed: 12000000 Hz
-  Output Directory: /app/multimedia_samples/chip_base_test/log
-  Log file: /app/multimedia_samples/chip_base_test/log/spi_test_log3.txt
-SPI test completed successfully! Log saved to: /app/multimedia_samples/chip_base_test/log/spi_test_log3.txt
+  Output Directory: /app/chip_base_test/log
+  Log file: /app/chip_base_test/log/spi_test_log3.txt
+SPI test completed successfully! Log saved to: /app/chip_base_test/log/spi_test_log3.txt
 ```
 
-此时发现日志中没有打印其他信息，可直接在 /app/multimedia_samples/chip_base_test/log/ 路径下，查看 spi_test_log1 日志。
+此时发现日志中没有打印其他信息，可直接在 /app/chip_base_test/log/ 路径下，查看 spi_test_log1 日志。
 
 ```shell
 root@buildroot:/app/multimedia_samples/chip_base_test# cat log/spi_test_log1.txt
@@ -155,14 +155,14 @@ Test times: 99 Data verification Successful
 
 ## 测试指标
 
-测试程序启动后会在 `/app/multimedia_samples/chip_base_test/log/` 目录下生成文件如下：
+测试程序启动后会在 `/app/chip_base_test/log/` 目录下生成文件如下：
 
 - spi_test_log*.txt：记录压测时的打印信息与当前状态。
 
 测试目标是确保系统能够在 48 小时内稳定运行，不发生重启或挂死的情况。为确保测试过程中的稳定性，可通过以下命令检查日志文件中是否存在 `fail`、 `error`、 `timeout` 等异常信息：
 
 ```shell
-cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout' spi_test_log*.txt
+cd "/app/chip_base_test/log/" && grep -iE 'error|fail|timeout' spi_test_log*.txt
 ```
 
 ### SPI 压测结果

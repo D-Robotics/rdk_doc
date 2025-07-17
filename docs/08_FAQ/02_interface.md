@@ -173,7 +173,18 @@ import TabItem from '@theme/TabItem';
     * **FPC排线方向：** MIPI摄像头通过FPC软排线连接。请务必确认排线的插入方向是否正确（通常排线两端的蓝色加强筋面需要朝向连接器卡扣的扳手面，或遵循板卡和摄像头模组上的标记）。错误的插入方向会导致无法通信。
     * **连接器锁紧：** 确保FPC排线已完全插入连接器，并且连接器两端的卡扣已牢固锁紧。
     * **接口对应：** 如果板卡有多个MIPI CSI接口，确保摄像头连接到了您在软件配置或设备树中指定的那个接口。
-    * **参考文档：** 仔细查阅您所使用的RDK板卡型号对应的硬件手册或快速入门指南中关于“[MIPI摄像头](../01_Quick_start/hardware_introduction/rdk_x3.md)”连接的章节 (请将链接替换为实际有效的文档路径)，确认连接细节。
+    * **参考文档：** 仔细查阅您所使用的RDK板卡型号对应的硬件手册或快速入门指南中关于“MIPI摄像头”连接的章节，确认连接细节。
+        <Tabs groupId="network_conf">
+        <TabItem value="rdk_x3" label="rdk_x3">
+        [RDK X3 MIPI摄像头](../01_Quick_start/hardware_introduction/rdk_x3.md)
+        </TabItem>
+        <TabItem value="rdk_x5" label="rdk_x5">
+        [RDK X5 MIPI摄像头](../01_Quick_start/hardware_introduction/rdk_x5.md)
+        </TabItem>
+        <TabItem value="rdk_s100" label="rdk_s100">
+        [RDK S100 MIPI摄像头](/rdk_s/Quick_start/hardware_introduction/rdk_s100_camera_expansion_board)
+        </TabItem>
+        </Tabs>
 2.  **禁止带电插拔：**
     * **严禁在开发板通电的情况下插拔MIPI摄像头！** 带电操作极易因瞬间的电流冲击或引脚接触顺序错误而导致摄像头模组或板卡MIPI接口电路短路损坏。
 3.  **I2C总线和地址：**

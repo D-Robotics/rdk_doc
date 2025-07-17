@@ -32,19 +32,21 @@ Bit idx  Function name   Status
 
 **ramdump的时候可能会损坏保存dump文件的分区，请务必将dump文件保存到非根文件系统分区，且分区容量大于DDR容量**
 
+**建议创建一个专门用于ramdump的分区，[自定义分区说明](../rdk_gen#自定义分区说明)，比如分区命名为ramdump**
+
 #### 自动抓取
 
 暂不支持
 
 #### 手动抓取
 
-触发Kernel panic重启到U-Boot之后，在U-Boot下执行以下命令，数据存储到eMMC或者ufs的/map/目录。
+触发Kernel panic重启到U-Boot之后，在U-Boot下执行以下命令，数据存储到eMMC或者ufs的/ramdump/目录。
 
 ```Shell
 Hobot$ setenv enable_ramdump 1
-Hobot$ setenv ramdump_part_name map
-Hobot$ setenv ramdump_in map
-Hobot$ memdump userdata
+Hobot$ setenv ramdump_part_name ramdump # 这里的ramdump表明要保存dump文件的实际分区，请根据实际板子分区替换
+Hobot$ setenv ramdump_in map # 这里的map表明让ramdump将文件保存进ufs或者emmc（根据启动模式），请务必设置成map
+Hobot$ memdump userdata # 这里是进行ramdump的命令，命令中的userdata指的是DRAM的userdata
 intf mmc,dev 0,part 17 directory /Recovery required
 file found, deleting
 update journal finished

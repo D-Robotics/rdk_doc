@@ -189,7 +189,7 @@ SPI 外部回环测试是指定一个SPI Slave，一个SPI Master，对应线连
 
 1、打开一个终端，操作 SPI 从设备：
 
-root@ubuntu:~# /app/multimedia_samples/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev2.0 -e 1 -v -S 64 -I 1
+root@ubuntu:~# /app/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev2.0 -e 1 -v -S 64 -I 1
 spi mode: 0x0
 bits per word: 8
 max speed: 500000 Hz (500 kHz)
@@ -200,7 +200,7 @@ Userspace spi read test, test_len=64 iterations=1
 
 
 2、打开另一个终端，操作 SPI 主设备：
-root@ubuntu:~# /app/multimedia_samples/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev1.1 -e 2 -v -S 64 -I 1
+root@ubuntu:~# /app/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev1.1 -e 2 -v -S 64 -I 1
 spi mode: 0x0
 bits per word: 8
 max speed: 500000 Hz (500 kHz)
@@ -216,7 +216,7 @@ root@ubuntu:~#
 
 3、这个时候可以观察到 SPI 从设备的终端会显示接收到的数据，整体状态形如下述结果：
 
-root@ubuntu:~# /app/multimedia_samples/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev2.0 -e 1 -v -S 64 -I 1
+root@ubuntu:~# /app/chip_base_test/05_spi_test/spidev_tc -D /dev/spidev2.0 -e 1 -v -S 64 -I 1
 spi mode: 0x0
 bits per word: 8
 max speed: 500000 Hz (500 kHz)
@@ -230,7 +230,7 @@ root@ubuntu:~#
 
 ```
 
-:::info 备注  
+:::info 备注
 在进行外部回环测试时，需要先执行SPI Slave程序，再执行SPI Master程序。假如先执行SPI Master程序，后执行SPI Slave程序，可能会由于Master与Slave不同步导致SPI接收数据出现丢失。如果想进行多次测试，可以写脚本多次执行测试程序，来保证Master与Slave之间的同步。
 :::
 
@@ -871,5 +871,3 @@ A：可以拿出示波器或者其他信号测量的设备，连接想测量的�
 ![image-spidriver_spi-pin-connect](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_spi-pin-connect.png)
 ![image-spidriver_snn_clk_loop_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_1.png)
 ![image-spidriver_snn_clk_loop_100](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/spidriver_snn_clk_loop_100.png)
-
-

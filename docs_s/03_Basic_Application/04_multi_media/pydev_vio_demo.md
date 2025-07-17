@@ -53,6 +53,18 @@ RTSP stream frame_width:1920, frame_height:1080
 ```
 
 最后，视频流会通过 HDMI 接口输出，用户可以通过显示器预览视频画面。
+:::info
+注意上述路径中`127.0.0.1`部分需要根据`live555MediaServer`执行时打印的端口，添加端口信息，例如：
+```shell
+# final output of live555MediaServer
+...
+(We use port 80 for optional RTSP-over-HTTP tunneling, or for HTTP live streaming (for indexed Transport Stream files only).)
+...
+
+# decode_rtsp_stream.py  actual command
+sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# ./decode_rtsp_stream.py -u rtsp://127.0.0.1:80/1080P_test.h264
+```
+:::
 
 ### 选项参数说明
 
