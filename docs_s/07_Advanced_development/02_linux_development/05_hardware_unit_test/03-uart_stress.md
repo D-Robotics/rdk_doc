@@ -47,7 +47,7 @@ sidebar_position: 3
 串口压测支持输入后缀 -h 查看命令参数的说明 ，例如：
 
 ```shell
-root@buildroot:/app/multimedia_samples/chip_base_test/03_uart_test# ./uartstress.sh -h
+root@buildroot:/app/chip_base_test/03_uart_test# ./uartstress.sh -h
 Usage: ./uartstress.sh [options]
 
 Options:
@@ -151,10 +151,10 @@ index 504b21b..8d72794 100644
 
 ![Connection_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Connection_diagram.png)
 
-**4.** 确认在 /app/multimedia_samples/chip_base_test/03_uart_test 路径下存在 `uartstress.sh`、`uart_test.c`、`uart_test` 三个文件。
+**4.** 确认在 /app/chip_base_test/03_uart_test 路径下存在 `uartstress.sh`、`uart_test.c`、`uart_test` 三个文件。
 
 ```shell
-(base) root@DESKTOP-BD9DR0J:/app/multimedia_samples/chip_base_test/03_uart_test# tree
+(base) root@DESKTOP-BD9DR0J:/app/chip_base_test/03_uart_test# tree
 .
 ├── uart_test
 ├── uart_test.c
@@ -177,20 +177,20 @@ gcc -o uart_test uart_test.c
 运行一段时间后，日志打印结果如下：
 
 ```shell
-root@buildroot:/app/multimedia_samples/chip_base_test/03_uart_test# ./uartstress.sh
+root@buildroot:/app/chip_base_test/03_uart_test# ./uartstress.sh
 Uart test starting...
 Test configuration:
   Baudrate: 115200
   Device: /dev/ttyS2
   Stress count: 100
-  Output directory: /app/multimedia_samples/chip_base_test/log
-  Log file: /app/multimedia_samples/chip_base_test/log/uart_test_log2.txt
+  Output directory: /app/chip_base_test/log
+  Log file: /app/chip_base_test/log/uart_test_log2.txt
 ```
 
-此时发现日志中没有打印其他信息，可直接在 /app/multimedia_samples/chip_base_test/log/ 路径下，查看日志。
+此时发现日志中没有打印其他信息，可直接在 /app/chip_base_test/log/ 路径下，查看日志。
 
 ```shell
-root@buildroot:# cat /app/multimedia_samples/chip_base_test/log/uart_test_log2.txt
+root@buildroot:# cat /app/chip_base_test/log/uart_test_log2.txt
 Test uart device:/dev/ttyS2
 Test size: 512 KBytes, baudrate: 115200
 Performing uart recv...
@@ -213,14 +213,14 @@ This is uart send test 4 times
 
 ## 测试指标
 
-测试程序启动后会在 `/app/multimedia_samples/chip_base_test/log/` 目录下生成文件如下：
+测试程序启动后会在 `/app/chip_base_test/log/` 目录下生成文件如下：
 
 - uart_test_log*.txt：记录压测时的打印信息与当前状态。
 
 测试目标是确保系统能够在 48 小时内稳定运行，不发生重启或挂死的情况。为确保测试过程中的稳定性，可通过以下命令检查日志文件中是否存在 `fail`、 `error`、 `timeout` 等异常信息：
 
 ```shell
-cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout' uart_test_log*.txt
+cd "/app/chip_base_test/log/" && grep -iE 'error|fail|timeout' uart_test_log*.txt
 ```
 
 ### 串口压测结果

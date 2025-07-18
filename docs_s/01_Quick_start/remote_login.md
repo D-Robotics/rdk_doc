@@ -101,7 +101,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 - 找到 Internet 协议版本 4 选项并双击打开
 - 在下图红框位置填入对应的网络参数，点击确定
 
-![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
+![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-s100-pc-static-ip.png)
 
 如需将开发板有线网络配置为动态获取 DHCP 模式，可参考[有线网络](../02_System_configuration/01_network_bluetooth.md)章节进行配置。
 

@@ -12,7 +12,7 @@ sidebar_position: 10
 ## 测试准备工作
 1.  S100 开发板存放了 clpeak 的patch 和 build 方法 , 可以 `cd` 到如下路径查看 :
 	```bash
-	cd /app/multimedia_samples/chip_base_test/10_gpu_3d_test/
+	cd /app/chip_base_test/10_gpu_3d_test/
 	ls clpeak
 	0001-feat-build-add-aarch64-toolchain-for-S100-cross-comp.patch  Readme.md
 	```

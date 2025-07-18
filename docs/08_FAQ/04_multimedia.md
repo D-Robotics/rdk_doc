@@ -41,7 +41,7 @@ sidebar_position: 4
     ```
     其中 `<card_number>` 是声卡的序号。这个命令会列出指定声卡的所有控件。
 3.  **获取特定控件的值：**
-    ```bash 
+    ```bash
     tinymix -c <card_number> <control_name>
     ```
     这个命令会显示指定声卡上某个控件的当前值。例如：
@@ -118,7 +118,7 @@ sidebar_position: 4
     * 要操作特定的声卡，需要使用 `-c <card_number>` (或 `-c<card_number>`) 参数指定声卡序号，以及可能需要的 `-D hw:<card_number>` 或 `-d <device_number>` 参数。
     * **查看特定声卡（如上述示例中的板载声卡，序号为1）的控件 (controls)：**
         ```bash
-        amixer -c 1 controls 
+        amixer -c 1 controls
         # 或者使用硬件设备名: amixer -D hw:1 controls
         ```
     * **获取或设置特定声卡上控件的值 (例如，获取板载声卡序号1上名为 'ADC PGA Gain' 的第一个控件的值)：**
@@ -201,3 +201,24 @@ sidebar_position: 4
     * 或者，尝试重启PulseAudio服务（如果知道如何操作且系统支持，例如 `systemctl --user restart pulseaudio.service` 或 `pulseaudio -k && pulseaudio --start`，但这可能不如重启板卡干净）。
 
 重启后，您应该可以在系统的声音设置（如果使用桌面环境）或通过 `pactl list sources` / `pactl list sinks` 命令看到两个声卡的输入和输出设备，并能选择使用它们。
+
+### Q4: RDKS100如何通过图形化界面方式支持音频功能使用
+
+1. 修改PulseAudio配置文件：`/etc/pulse/default.pa`
+
+    pulseaudio server启动默认设置的fragment\_size不满足pdma限制的64字节对齐，因此需要修改配置文件默认设置保证pulseaudio服务加载成功。
+
+    修改配置参考如下：
+
+    ```
+        .ifexists module-udev-detect.so
+        load-module module-alsa-sink device=hw:0,1 mmap=false tsched=0 fragments=2 fragment_size=1920 rate=48000 channels=2 //新增
+        load-module module-alsa-source device=hw:0,0 mmap=false tsched=0 fragments=2 fragment_size=1920 rate=48000 channels=2 //新增
+        # load-module module-udev-detect //注释掉
+    ```
+
+    :::tip
+    以上配置，`device=hw:X,Y`中的`X`代表声卡号，`Y`代表设备号。用户可根据实际需求制定声卡/设备号，声卡/设备号确认方法请查看：[控制命令](/rdk_s/Basic_Application/audio/audio_board_s100#控制命令)。
+    :::
+
+2. 修改后保存配置并重启系统，加载音频驱动后图形化界面功能即可正常使用。

@@ -26,7 +26,7 @@ sidebar_position: 7
 
 **2.** 为避免其他进程干扰，建议关闭无关的后台程序，可以使用 `top` 命令查看并停止不必要的服务。
 
-**3.** 在 /app/multimedia_samples/chip_base_test/07_cpu_performance/coremark-main 路径下，已经提供了coremark的源码。
+**3.** 在 /app/chip_base_test/07_cpu_performance/coremark-main 路径下，已经提供了coremark的源码。
 
 **4.** 编译 O3 优化下的多核与单核性能程序
 
@@ -254,7 +254,7 @@ CoreMark 1.0 : 84290.380360 / GCC11.3.1 20220712  -O3 -funroll-all-loops -static
 
 **1. 问**：需要测试多核怎样开启 `-O2` 编译优化情况下的 coremark 指标 ?
 
-**1. 答**：测试多核以及开启 `-O2` 编译优化情况下的 coremark 指标，需要重新编译 coremark 源码，通过设置编译选项参数得到需要的 coremark 程序。在 `/app/multimedia_samples/chip_base_test/07_cpu_performance/coremark-main` 路径下，可以按照以下命令进行重新编译。
+**1. 答**：测试多核以及开启 `-O2` 编译优化情况下的 coremark 指标，需要重新编译 coremark 源码，通过设置编译选项参数得到需要的 coremark 程序。在 `/app/chip_base_test/07_cpu_performance/coremark-main` 路径下，可以按照以下命令进行重新编译。
 
 编译单核开启 `-O2` 的 coremark 命令：
 

@@ -190,8 +190,8 @@ sidebar_position: 2
 
     ```text
     cd /app/pydev_demo/07_decode_rtsp_stream/
-    root@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo chmod +x live555MediaServer
-    root@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo ./live555MediaServer &
+    sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo chmod +x live555MediaServer
+    sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo ./live555MediaServer &
     ```
 
 - **运行方式：**
@@ -241,7 +241,17 @@ sidebar_position: 2
   ```
 
 - **注意事项：**
-  - 使用 UDP 协议传输码流时，可能出现因网络丢包导致的花屏现象，此时可切换成 TCP 协议传输解决。
+  - 使用 UDP 协议传输码流时，可能出现因网络丢包导致的花屏现象，此时可切换成 TCP 协议传输解决；
+  - 注意上述命令中`127.0.0.1`部分需要根据`live555MediaServer`执行时打印出来的服务器实际运行端口，添加端口信息，例如：
+    ```shell
+    # final output of live555MediaServer
+    ...
+    (We use port 8000 for optional RTSP-over-HTTP tunneling, or for HTTP live streaming (for indexed Transport Stream files only).)
+    ...
+
+    # rtsp2display actual command
+    sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo ./rtsp2display -i rtsp://127.0.0.1:8080/1080P_test.h264 -t tcp
+    ```
 
 ## VPS 缩放示例
 

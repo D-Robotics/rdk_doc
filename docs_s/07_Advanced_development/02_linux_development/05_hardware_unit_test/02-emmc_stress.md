@@ -91,7 +91,7 @@ mmcblk0boot1
 
 在 eMMC 性能测试中，命令 -s 256MB 会创建指定大小的文件进行读写测试，例如，-s 256M -f "$output_dir/iozone_data"， 请注意在 `/app` 挂载路径下的剩余空间是否满足最大文件读写测试的需求。
 
-**2.** 确认在 /app/multimedia_samples/chip_base_test/02_emmc 路径下存在 `emmc_performance_test.sh` 和 `emmc_stability_test` 两个测试脚本。
+**2.** 确认在 /app/chip_base_test/02_emmc 路径下存在 `emmc_performance_test.sh` 和 `emmc_stability_test` 两个测试脚本。
 
 ```shell
 02_emmc/
@@ -130,7 +130,7 @@ Options:
 确保完成准备工作后，运行测试命令：
 
 ```shell
-/app/multimedia_samples/chip_base_test/02_emmc/
+/app/chip_base_test/02_emmc/
 
 ./emmc_stability_test.sh
 ```
@@ -142,7 +142,7 @@ eMMC stability test starting...
 Test configuration:
   Test duration: 2880 minutes
   Sleep duration: 30 seconds
-  Output directory: /app/multimedia_samples/chip_base_test/log
+  Output directory: /app/chip_base_test/log
 loop_test: 1
         Iozone: Performance Test of File I/O
                 Version $Revision: 3.489 $
@@ -169,7 +169,7 @@ loop_test: 1
         Using maximum file size of 2097152 kilobytes.
         Using Maximum Record Size 16384 kB
         Excel chart generation enabled
-        Command line used: iozone -e -I -az -n 16m -g 2g -q 16m -f /app/multimedia_samples/chip_base_test/log/iozone_data -Rb /app/multimedia_samples/chip_base_test/log/test_iozone_emmc_stability_1.xls
+        Command line used: iozone -e -I -az -n 16m -g 2g -q 16m -f /app/chip_base_test/log/iozone_data -Rb /app/chip_base_test/log/test_iozone_emmc_stability_1.xls
         Output is in kBytes/sec
         Time Resolution = 0.000001 seconds.
         Processor cache size set to 1024 kBytes.
@@ -209,8 +209,8 @@ loop_test: 1
 
 - `Test duration`：测试持续时间 : 这是测试的持续时间，单位为分钟（即 48 小时）。
 - `Sleep duration`：睡眠时间 : 在每次循环执行测试时，脚本会等待 30 秒钟，可以让系统和存储设备有足够的时间进行恢复，减少测试过程中可能的波动。
-- `Output directory`：输出目录：`/app/multimedia_samples/chip_base_test/log`
-- `Command line used`：使用命令：`iozone -e -I -az -n 16m -g 2g -q 16m -f /app/multimedia_samples/chip_base_test/log/iozone_data -Rb /app/multimedia_samples/chip_base_test/log/test_iozone_emmc_stability_1.xls`，关键参数如下：
+- `Output directory`：输出目录：`/app/chip_base_test/log`
+- `Command line used`：使用命令：`iozone -e -I -az -n 16m -g 2g -q 16m -f /app/chip_base_test/log/iozone_data -Rb /app/chip_base_test/log/test_iozone_emmc_stability_1.xls`，关键参数如下：
   - 文件大小范围：最小 16MB，最大 2GB。
   - 记录大小范围：从 4KB 到 16384KB（即 16MB）。
 - `主要性能指标`：
@@ -227,7 +227,7 @@ loop_test: 1
 确保已完成准备工作后，运行测试命令：
 
 ```shell
-/app/multimedia_samples/chip_base_test/02_emmc/
+/app/chip_base_test/02_emmc/
 
 ./emmc_performance_test.sh
 ```
@@ -276,7 +276,7 @@ loop_test: 1
 
 - `Test duration`：测试持续时间 : 这是测试的持续时间，单位为分钟（即 48 小时）。
 - `Sleep duration`：睡眠时间 : 在每次循环执行测试时，脚本会等待 30 秒钟，可以让系统和存储设备有足够的时间进行恢复，减少测试过程中可能的波动。
-- `Output directory`：输出目录：`/app/multimedia_samples/chip_base_test/log`
+- `Output directory`：输出目录：`/app/chip_base_test/log`
 - `Command line used`：使用命令：`iozone -e -I -a -r 4K -r 16K -r 64K -r 256K -r 1M -r 4M -r 16M -s 16K -s 1M -s 16M -s 128M -s 256M -f "$output_dir/iozone_data" -Rb "$output_dir/test_iozone_emmc_ext4_performance_${loop_num}.xls"`
   - 记录大小（ Record Size）包括 4KB, 16KB, 64KB, 256KB, 1MB, 4MB, 16MB。
   - 文件大小（ File Size）设置为 16KB, 1MB, 16MB, 128MB, 256MB。
@@ -293,7 +293,7 @@ loop_test: 1
 
 ### eMMC 稳定性测试
 
-测试程序启动后，稳定性测试会在 `/app/multimedia_samples/chip_base_test/log` 目录下生成以下文件：
+测试程序启动后，稳定性测试会在 `/app/chip_base_test/log` 目录下生成以下文件：
 
 - test_iozone_emmc_stability.log：记录压测时的状态信息。
 - test_iozone_emmc_stability_*.xls：记录压测时的数据结果。
@@ -301,7 +301,7 @@ loop_test: 1
 测试目标是确保系统能够在 48 小时内稳定运行，不发生重启或挂死的情况。为确保测试过程中的稳定性，可通过以下命令检查日志文件中是否存在 fail、 error、 timeout 等异常信息：
 
 ```shell
-cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout' test_iozone_emmc_stability*.log
+cd "/app/chip_base_test/log/" && grep -iE 'error|fail|timeout' test_iozone_emmc_stability*.log
 ```
 
 ### eMMC 稳定性测试结果
@@ -317,7 +317,7 @@ Test loop 3 succeeded!
 
 ### eMMC 性能测试
 
-测试程序启动后，性能测试将在 /app/multimedia_samples/chip_base_test/log 目录下生成以下文件：
+测试程序启动后，性能测试将在 /app/chip_base_test/log 目录下生成以下文件：
 
 - test_iozone_emmc_performance.log：记录压测时的状态信息。
 - test_iozone_emmc_performance_*.xls：记录压测时的数据结果
@@ -325,7 +325,7 @@ Test loop 3 succeeded!
 测试目标是确保系统能够在 48 小时内稳定运行，期间不发生重启或挂死现象。为检查日志中的异常信息，可使用以下命令查找 fail、 error、 timeout 等关键字：
 
 ```shell
-cd "/app/multimedia_samples/chip_base_test/log/" && grep -iE 'error|fail|timeout' test_iozone_emmc_performance*.log
+cd "/app/chip_base_test/log/" && grep -iE 'error|fail|timeout' test_iozone_emmc_performance*.log
 ```
 
 此外，性能应符合实际使用中的通用标准。针对 RDKS100 （ eMMC 5.1 ），其最高支持 HS400 模式。通常，读取速度在 250 MB/s 到 300 MB/s 之间，写入速度略低，通常在 120 MB/s 到 200 MB/s 之间。

@@ -55,10 +55,10 @@ LPDDR5
 
 目前 RDKS100 DDR 频率为 6400MHz。
 
-**2.** 确认在 /app/multimedia_samples/chip_base_test/08_ddr_bandwidth/ 路径下存在 stream 测试文件，如不存在，可在路径下重新编译生成：
+**2.** 确认在 /app/chip_base_test/08_ddr_bandwidth/ 路径下存在 stream 测试文件，如不存在，可在路径下重新编译生成：
 
 ```shell
-root@buildroot:/# cd /app/multimedia_samples/chip_base_test/08_ddr_bandwidth
+root@buildroot:/# cd /app/chip_base_test/08_ddr_bandwidth
 root@buildroot:/# gcc -O3 -fopenmp -DNTIMES=100 stream.c -lgomp -o stream
 ```
 
