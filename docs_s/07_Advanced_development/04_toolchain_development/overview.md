@@ -44,3 +44,7 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/ai_toolchain_ubuntu_22_s100_cpu_
 ```bash
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/ai_toolchain_ubuntu_22_s100_gpu_v3.2.0.tar --ftp-password=Oeftp~123$%
 ```
+
+### 备用下载地址
+**备用下载地址：**  
+👉 [百度网盘](https://pan.baidu.com/s/1_0JxJaEG12e1F3jLt3Rpyg?pwd=rr74) 提取码: `rr74`
