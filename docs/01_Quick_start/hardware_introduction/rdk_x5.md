@@ -31,17 +31,34 @@ RDK X5提供了网口、USB、摄像头、LCD、HDMI、CANFD、40PIN等功能接
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-RDK X5 Module Carrier Board，作为 X5 模组的配套底板，提供了丰富的配置和接口，包括 USB3.0、以太网、HDMI、MIPI CSI、MIPI DSI、40pin header 等，方便用户对模组的功能验证和开发。 
+X5 MD采用核心板与IO载板分离的模块化设计方式，便于功能扩展与定制开发。
+
+RDK X5 Module Carrier Board是RDK X5 Module的配套IO载板，提供了丰富的外设接口。 
+
+直出接口包括：
+
+- 两路22Pin摄像头接口（集成MIPI CSI、LPWM&MCLK、I²C、GPIO）
+- 一路HDMI接口
+- 一路RJ45以太网接口
+- 一路LCD接口（集成MIPI DSI和I²C）
+- 40Pin扩展接口（包含GPIO、I²C、SPI、I²S、PWM）
+- 多路功能控制接口等
+
+经过IO载板外围器件处理后输出的接口包括：
+
+- CAN总线接口（采用TCAN4550芯片，SPI转CAN）
+- 耳机音频接口（基于ES8326B，支持I²S转音频DAC&ADC）
+- 四路USB 3.0接口（通过GL3510 USB Hub扩展）
 
 ![img-20250416-161040](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250416-161040.png)
 
 | 序号 | 功能 | 序号 | 功能 | 序号 | 功能 |
 | -------- | ---------------------------- | -------- | ----------------------- | ----------------------- | ----------------------- |
-| 1	| 电源接口 | 9	| CAM2接口，4lane | 17 | Audio接口 |
+| 1	| USB Type C 5V/5A供电接口 | 9	| CAM2接口，4lane | 17 | Audio接口 |
 | 2	| USB2.0配置header | 10	| CAM1接口，4lane | 18 | IO电平选择header |
-| 3	| USB2.0 Device接口 | 11	| 40pin header | 19 | MIPI DSI接口 |
-| 4	| USB3.0 HOST接口 | 12	| 核心模组接口 | 20 | Micro SD卡接口（背面） |
-| 5	| USB3.0 HOST接口 | 13	| RTC电池接口 | 21 | HDMI接口 |
+| 3	| USB2.0 接口 | 11	| 40pin header | 19 | MIPI DSI接口 |
+| 4	| USB3.0 HOST接口x2 | 12	| 核心模组接口 | 20 | Micro SD卡接口（背面） |
+| 5	| USB3.0 HOST接口x2 | 13	| RTC电池接口 | 21 | HDMI接口 |
 | 6	| 千兆以太网口 | 14	| CAN终端电阻接入开关 | 22 | Debug口，USB转串口（背面） |
 | 7	| 风扇接口 | 15	| CAN总线接口 | 23 | Sleep按键 |
 | 8	| POE 接口 | 16	| 功能控制IO header | 24 | 电源开关 |
@@ -65,7 +82,11 @@ RTC在给电池供电的时候，对电池的电压和放电电流要求为：2~
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-RDK X5 Module载板提供一组300pin板板连接器，用于核心模组的安装。安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
+RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片及其关键电路设计，融合了PMIC电源管理模块、DDR、eMMC、QSPI NAND、Wi-Fi/蓝牙等核心功能单元。
+
+核心板提供300针高速扩展接口，可灵活连接多种外设，满足各类应用场景的快速部署需求。
+
+安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
 
 ![img-20250418-111059](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250418-111059.png)
 
@@ -156,7 +177,7 @@ RDK X5 Module载板提供一组300pin板板连接器，用于核心模组的安�
 </TabItem>
 </Tabs>
 
-## USB 显示接口
+## USB 接口
 
 <Tabs groupId="rdk-type">
 <TabItem value="x5" label="RDK X5">
@@ -196,6 +217,21 @@ RDK X5 Module载板提供一组300pin板板连接器，用于核心模组的安�
 ### USB 摄像头
 
 开发板 USB Type A 接口，支持 USB 摄像头功能，可自动检测USB摄像头接入并创建设备节点`/dev/video0`。
+
+##  IO电平选择
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X5">
+
+无该接口。
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+开发板提供一路 IO 电平选择接口（对应接口 18），可切换 IO 电平为 1.8V 或 3.3V。该设置会同时影响 40Pin 接口和 CAM 接口的 IO 电平。
+
+</TabItem>
+</Tabs>
 
 ## MIPI Camera 接口{#mipi_port}
 
@@ -261,6 +297,8 @@ root@ubuntu:~# i2cdetect -y -r 4
 |  1  | IMX219  | 800W |    |  |
 |  2  | OV5647  | 500W |    |  |
 | 3   | IMX477  | 1230W |   |  |
+
+IO电平（接口 18）要选择3.3V。
 
 摄像头模组通过22pin 同向排线跟开发板连接，排线金属面背对黑色卡扣插入连接器。
 
@@ -379,4 +417,18 @@ RDK X5 Module 开发板提供 CANFD 接口（接口15）和 CAN终端电阻接�
 
 ## 40PIN 接口
 
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X5">
+
 RDK X5开发板提供 40PIN 接口，IO 信号采用 3.3 V电平设计。管脚定义兼容树莓派等产品，详细管脚定义、复用关系参考硬件开发章节。
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+
+RDK X5 Module 开发板提供 1 路 40PIN 接口，方便用户扩展外围接口，对应接口 11。
+
+40PIN 上的所有 IO 管脚支持通过电平选择接口（接口 18）来切换 3.3V 和 1.8V 电压域。
+
+</TabItem>
+</Tabs>

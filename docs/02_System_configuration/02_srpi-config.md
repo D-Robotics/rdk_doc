@@ -173,7 +173,7 @@ sudo srpi-config
 
 - **Boot Order**
   
-  RDK X3 Module支持从eMMC和SD卡两种模式启动系统，本选项用于切换启动模式。
+  RDK X3 Module 和 RDK X5 Module 支持从eMMC和SD卡两种模式启动系统，本选项用于切换启动模式。
 
 ## Update
 
