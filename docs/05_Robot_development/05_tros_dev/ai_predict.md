@@ -110,7 +110,7 @@ class BodyDetNode : public hobot::dnn_node::DnnNode {
   const std::vector<int32_t> box_outputs_index_ = {box_output_index_};
 
   // 图片消息订阅者
-  rclcpp::SubscriptionHbmem<hbm_img_msgs::msg::HbmMsg1080P>::ConstSharedPtr
+  rclcpp::Subscription<hbm_img_msgs::msg::HbmMsg1080P>::ConstSharedPtr
       ros_img_subscription_ = nullptr;
   // 算法推理结果消息发布者
   rclcpp::Publisher<ai_msgs::msg::PerceptionTargets>::SharedPtr
@@ -133,7 +133,7 @@ BodyDetNode::BodyDetNode(const std::string & node_name, const rclcpp::NodeOption
 
   // 创建消息订阅者，从摄像头节点订阅图像消息
   ros_img_subscription_ =
-          this->create_subscription_hbmem<hbm_img_msgs::msg::HbmMsg1080P>(
+          this->create_subscription<hbm_img_msgs::msg::HbmMsg1080P>(
           "/hbmem_img", 10, std::bind(&BodyDetNode::FeedImg, this, std::placeholders::_1));
   // 创建消息发布者，发布算法推理消息
   msg_publisher_ = this->create_publisher<ai_msgs::msg::PerceptionTargets>(
@@ -184,8 +184,8 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   }
   
   // 验证输出数据的有效性
-  if (node_output->outputs.empty() ||
-    static_cast<int32_t>(node_output->outputs.size()) < box_output_index_) {
+  if (node_output->output_tensors.empty() ||
+    static_cast<int32_t>(node_output->output_tensors.size()) < box_output_index_) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Invalid outputs");
     return -1;
   }
@@ -406,7 +406,7 @@ BodyDetNode::BodyDetNode(const std::string & node_name, const rclcpp::NodeOption
 
   // 创建消息订阅者，从摄像头节点订阅图像消息
   ros_img_subscription_ =
-          this->create_subscription_hbmem<hbm_img_msgs::msg::HbmMsg1080P>(
+          this->create_subscription<hbm_img_msgs::msg::HbmMsg1080P>(
           "/hbmem_img", 10, std::bind(&BodyDetNode::FeedImg, this, std::placeholders::_1));
   // 创建消息发布者，发布算法推理消息
   msg_publisher_ = this->create_publisher<ai_msgs::msg::PerceptionTargets>(
@@ -564,8 +564,8 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   }
   
   // 验证输出数据的有效性
-  if (node_output->outputs.empty() ||
-    static_cast<int32_t>(node_output->outputs.size()) < box_output_index_) {
+  if (node_output->output_tensors.empty() ||
+    static_cast<int32_t>(node_output->output_tensors.size()) < box_output_index_) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Invalid outputs");
     return -1;
   }

@@ -104,7 +104,7 @@ class BodyDetNode : public hobot::dnn_node::DnnNode {
   const std::vector<int32_t> box_outputs_index_ = {box_output_index_};
 
   // Image message subscriber
-  rclcpp::SubscriptionHbmem<hbm_img_msgs::msg::HbmMsg1080P>::ConstSharedPtr
+  rclcpp::Subscription<hbm_img_msgs::msg::HbmMsg1080P>::ConstSharedPtr
       ros_img_subscription_ = nullptr;
   // Algorithm inference result message publisher
   rclcpp::Publisher<ai_msgs::msg::PerceptionTargets>::SharedPtr
@@ -127,7 +127,7 @@ BodyDetNode::BodyDetNode(const std::string & node_name, const rclcpp::NodeOption
 
   // Create a message subscriber to subscribe image messages from the camera node
   ros_img_subscription_ =
-          this->create_subscription_hbmem<hbm_img_msgs::msg::HbmMsg1080P>(
+          this->create_subscription<hbm_img_msgs::msg::HbmMsg1080P>(
           "/hbmem_img", 10, std::bind(&BodyDetNode::FeedImg, this, std::placeholders::_1));
   // Create a message publisher to publish algorithm inference messages
   msg_publisher_ = this->create_publisher<ai_msgs::msg::PerceptionTargets>(
@@ -176,8 +176,8 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   }
   
   // Validate the output data
-  if (node_output->outputs.empty() ||
-    static_cast<int32_t>(node_output->outputs.size()) < box_output_index_) {
+  if (node_output->output_tensors.empty() ||
+    static_cast<int32_t>(node_output->output_tensors.size()) < box_output_index_) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Invalid outputs");
     return -1;
   }
@@ -399,7 +399,7 @@ BodyDetNode::BodyDetNode(const std::string& node_name, const rclcpp::NodeOptions
 
   // Create message subscriber, subscribe to image messages from camera node
   ros_img_subscription_ =
-          this->create_subscription_hbmem<hbm_img_msgs::msg::HbmMsg1080P>(
+          this->create_subscription<hbm_img_msgs::msg::HbmMsg1080P>(
           "/hbmem_img", 10, std::bind(&BodyDetNode::FeedImg, this, std::placeholders::_1));
   // Create message publisher, publish algorithm inference messages
   msg_publisher_ = this->create_publisher<ai_msgs::msg::PerceptionTargets>(
@@ -542,8 +542,8 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   }
   
   // Validate the validity of the output data
-  if (node_output->outputs.empty() ||
-    static_cast<int32_t>(node_output->outputs.size()) < box_output_index_) {
+  if (node_output->output_tensors.empty() ||
+    static_cast<int32_t>(node_output->output_tensors.size()) < box_output_index_) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Invalid outputs");
     return -1;
   }
