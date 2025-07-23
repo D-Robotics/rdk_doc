@@ -65,6 +65,10 @@ SLAM建图案例：[4.1 SLAM建图](../../apps/slam)
    </TabItem>
    </Tabs>
 
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/03_applications_and_examples.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
 5. RDK已安装RealSense D435i相机。
 
 6. 开源数据集EuRoC。

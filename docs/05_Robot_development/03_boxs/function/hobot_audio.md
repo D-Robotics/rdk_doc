@@ -48,6 +48,10 @@ import TabItem from '@theme/TabItem';
 
    </TabItem>
    </Tabs>
+
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/03_applications_and_examples.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
    
 4. 按照以下方法在RDK上接好环形或线形四麦音频板。
 

@@ -40,6 +40,10 @@ import TabItem from '@theme/TabItem';
 
    </TabItem>
    </Tabs>
+
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/03_applications_and_examples.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
    
 4. 音频板正确连接到RDK X5的3.5mm的耳麦接口。
 5. USB音响正确连接到RDK X5的usb接口。

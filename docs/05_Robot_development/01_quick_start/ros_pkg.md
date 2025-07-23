@@ -25,6 +25,10 @@ tros.b和ROS2 Foxy/Humble版本接口完全兼容，能够复用ROS2丰富工具
 sudo apt update
 ```
 
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/03_applications_and_examples.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
 ### 2 安装packages
 
 <Tabs groupId="tros-distro">
