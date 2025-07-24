@@ -185,7 +185,6 @@ SD卡不插入开发板，核心板自带的emmc会被映射成U盘；
 
 ![img-2025-1451](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1451.png)
 
-![img-2025-1451](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1452.png)
 
 ### 启动系统
 
