@@ -31,12 +31,12 @@ Model Zoo的github仓在这里：https://github.com/D-Robotics/rdk_model_zoo
 
 如使用RDK X5：
 ```
-pip install bpu_infer_lib_x5 -i http://archive.d-robotics.cc/simple/ --trusted-host archive.d-robotics.cc
+pip install bpu_infer_lib_x5 -i http://sdk.d-robotics.cc/simple/ --trusted-host sdk.d-robotics.cc
 ```
 
 如使用RDK X3：
 ```
-pip install bpu_infer_lib_x3 -i http://archive.d-robotics.cc/simple/ --trusted-host archive.d-robotics.cc
+pip install bpu_infer_lib_x3 -i http://sdk.d-robotics.cc/simple/ --trusted-host sdk.d-robotics.cc
 ```
 
 2. jupyterlab

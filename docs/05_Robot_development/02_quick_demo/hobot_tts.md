@@ -64,6 +64,10 @@ import TabItem from '@theme/TabItem';
     sudo tar -xf tts_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_tts/
     ```
 
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
 2. 运行如下命令检查音频设备是否正常：
 
     ```bash

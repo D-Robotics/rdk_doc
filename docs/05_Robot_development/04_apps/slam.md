@@ -66,6 +66,10 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
    sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
 :::
 
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
 4. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
  <Tabs groupId="tros-distro">

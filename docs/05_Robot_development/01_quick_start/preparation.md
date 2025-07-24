@@ -21,6 +21,10 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 - **系统版本号查看方法以及详细说明，请查看[FAQs](/docs/08_FAQ/03_applications_and_examples.md)。**
 :::
 
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
 ### 系统配置
 
 镜像成功烧写后，需要配置RDK IP地址，方便日常使用。登录用户名：root 密码：root。

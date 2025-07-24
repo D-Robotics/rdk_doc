@@ -62,7 +62,10 @@ sudo apt install tros-humble
 </TabItem>
 </Tabs>
 
-**注意：如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
+:::caution **注意**
+- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
+:::
 
 安装完成后，查看/opt目录下文件
 
@@ -89,6 +92,10 @@ ssh root@10.64.61.241
 sudo apt update
 sudo apt upgrade
 ```
+
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
 
 ### 查看当前tros.b版本
 
