@@ -57,7 +57,7 @@ APP以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
    </Tabs>
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/03_applications_and_examples.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 4. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/function/hobot_audio.md)）。
