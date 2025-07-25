@@ -73,13 +73,13 @@ echo user_space > /sys/class/thermal/thermal_zone0/policy
 root@ubuntu:~# cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
 120000
 ```
-若想调整相应的温度温度，如85度开始CPU调频，可通过如下命令：
+若想调整相应的温度，如85度开始CPU调频，可通过如下命令：
 ```shell
 echo 85000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_3_temp
 ```
 
 ##### thermal_zone1/2/3简介
-在thermal_zone1/2/3中有1个trip_point，都表示的是关机问题，默认为120度
+在thermal_zone1/2/3中有1个trip_point，都表示的是关机温度，默认为120度
 
 在thermal_zone4中有两个trip_point,其中
 - trip_point_0_temp为关机温度，默认为120度。
@@ -129,7 +129,7 @@ RDK S100开发板上的emc2305风扇控制器，可以通过设备节点获取�
     ```
 3. 获取当前风扇档位
    ```shell
-   root@ubuntu:~# cat /sys/class/thermal/cooling_device2/max_state
+   root@ubuntu:~# cat /sys/class/thermal/cooling_device2/cur_state
    5
    ```
 4. 配置thermal_zone0的策略为`userspace`：

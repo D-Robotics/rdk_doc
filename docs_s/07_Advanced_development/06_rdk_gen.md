@@ -178,18 +178,18 @@ hobot-camera/
 ### 自定义deb包流程说明
 1. 在`source/`文件夹下，新建对应包的包名（dpkg内的package name）命名的文件夹，这里以"new_package"为例；
 2. 在`source/new_package`文件夹下，新建`debian`文件夹，里面创建4个脚本文件，这4个脚本文件可以为空：
-  - preinst：安装new_package包拷贝前需要执行的脚本；
-  - postinst：安装new_package包拷贝执行完成后需要执行的脚本；
-  - prerm：移除new_package包执行删除命令前需要执行的脚本；
-  - postrm：移除new_package包执行删除命令后需要执行的脚本。
+    - preinst：安装new_package包拷贝前需要执行的脚本；
+    - postinst：安装new_package包拷贝执行完成后需要执行的脚本；
+    - prerm：移除new_package包执行删除命令前需要执行的脚本；
+    - postrm：移除new_package包执行删除命令后需要执行的脚本。
 3. 如果需要在`mk_debs.sh`不带入参时自动对该包进行编译，则在`mk_debs.sh`脚本的`deb_pkg_list`变量内添加`new_package`字段；
 4. 在`mk_debs.sh`脚本的`make_debian_deb`函数的`switch`内添加`new_package`的`case`：
-  - 在`case`内调度`gen_control_file`函数，生成构建deb包所需要的control文件；
-  - 在`case`内调度`sed`命令，将默认的“depends”字段替换为真正的deb依赖。假设`new_package`的依赖为`dep_pkg1`和`dep_pkg2`；
-    - 如果有依赖，则使用`sed -i 's/Depends: .*$/Depends: dep_pkg1,dep_pkg2/' "${deb_dst_dir}"/DEBIAN/control;`
-    - 如果没有依赖，则使用`sed -i 's/Depends: .*$/Depends: /' "${deb_dst_dir}"/DEBIAN/control`;
-  - (可选)如果该deb在打包前，需要进行源码编译，则进行源码编译命令的调度，请注意最终的所有输出，均需要输出到`out/build/debs/new_pkg/debian/`目录下;
-  - 置位`is_allowed=1`
+     - 在`case`内调度`gen_control_file`函数，生成构建deb包所需要的control文件；
+     - 在`case`内调度`sed`命令，将默认的“depends”字段替换为真正的deb依赖。假设`new_package`的依赖为`dep_pkg1`和`dep_pkg2`；
+       - 如果有依赖，则使用`sed -i 's/Depends: .*$/Depends: dep_pkg1,dep_pkg2/' "${deb_dst_dir}"/DEBIAN/control;`
+       - 如果没有依赖，则使用`sed -i 's/Depends: .*$/Depends: /' "${deb_dst_dir}"/DEBIAN/control`;
+     - (可选)如果该deb在打包前，需要进行源码编译，则进行源码编译命令的调度，请注意最终的所有输出，均需要输出到`out/build/debs/new_pkg/debian/`目录下;
+     - 置位`is_allowed=1`
 
 ## deb包编入镜像流程说明
 在镜像构建的过程中，deb包会被编入板端根文件系统内。
@@ -198,7 +198,7 @@ hobot-camera/
 #### 流程说明
 当`pack_image.sh`不添加-l选项进行调度时，会进入在线镜像构建流程。流程介绍如下：
 1. 从`pack_image.sh`的`DEFAULT_CONFIG`字段获取当前的默认编译配置文件，以`build_params/ubuntu-22.04_desktop_rdk-s100_release.conf`为例；
-  - 该配置文件可以通过-c选项指定
+     - 该配置文件可以通过-c选项指定
 2. 从`build_params/ubuntu-22.04_desktop_rdk-s100_release.conf`内获取`RDK_DPKG_DEB_PKG_LIST`字段；
 3. chroot到`out/deploy/rootfs`目录下：
    1. 根据`RDK_DPKG_DEB_PKG_LIST`字段从现有板端apt源内尝试下载所有deb包；
@@ -358,7 +358,7 @@ RDK S100的分区定义文件保存在`source/bootloader/device/rdk/s100/partiti
 ### 分区修改说明
 S100X支持变更eMMC/UFS上的分区，只需添加或删除或修改分区配置对应的分区字段。对于flash分区，如有变更需求，请联系地瓜。
 
-:::warn 分区修改注意事项
+:::warning 分区修改注意事项
 1. 分区表中，`log`及其以前的分区为启动分区，原则上不建议修改。
 2. 其他分区，如`userdata`，`system`等，可以自由调整大小，如果新增分区，注意调整`fstab`文件以确保分区被正常挂载；
 :::
