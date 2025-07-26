@@ -533,6 +533,25 @@ Acore Eth PPS的输出，可以借助ethtool工具，命令格式如下 :
 
 如果需要修改输出周期的话，修改最后一个参数\<1000000000\>，该参数的单位是ns，如果要修改为400ms的话，则改为\<400000000\>。
 
+:::tip
+配置eth pps输出需要注意的两点，下面以修改eth pps0并设置PPS_INOUT脚为PPS_OUT功能为例进行说明。如果有其他需求，用户请根据实际使用调整配置项。
+1. 修改Port配置的默认pps_source
+```
+ static const Port_Lld_PpsConfigType PpsConfig =
+ {
+     (boolean)TRUE,
+-    PPS_SOURCE_AON_RTC,
++    PPS_SOURCE_ETH0_PTP,
+ };
+```
+2. 将pin脚配置成PPS_OUT func
+```
+-    {(uint8)2, "PPS_OUT", (boolean)TRUE, {(boolean)TRUE, (boolean)FALSE, (boolean)TRUE, (boolean)TRUE, (boolean)TRUE, GPIO, PORT_PIN_CONFIG_TYPE0, PORT_PULL_NONE, PORT_DRIVE_DEFAULT, PORT_PIN_DIR_OUT, PORT_PIN_LEVEL_HIGH}},
++    {(uint8)2, "PPS_OUT", (boolean)TRUE, {(boolean)TRUE, (boolean)FALSE, (boolean)TRUE, (boolean)TRUE, (boolean)TRUE, PPS_OUT, PORT_PIN_CONFIG_TYPE0, PORT_PULL_NONE, PORT_DRIVE_DEFAULT, PORT_PIN_DIR_OUT, PORT_PIN_LEVEL_HIGH}},
+```
+以上通过修改`McalCdd/gen_s100_sip_B/Port/src/Port_PBcfg.c`实现，修改完成后更新MCU固件即可。
+:::
+
 ### MCU Eth PPS的配置方法
 
 MCU Eth PPS的信号周期和脉冲宽度在`Config/McalCdd/gen_s100_sip_B_mcu1/Ethernet/src/Mac_Ip_PBcfg.c`配置文件中设置默认值，其中PpsInterval的默认值为1000(ms)，参数PpsWidth的默认值为10(ms)。
