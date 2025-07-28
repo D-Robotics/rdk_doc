@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 ---
-# Segment Anything
+# MobileSAM Segment Anything
 
 
 ```mdx-code-block
@@ -25,7 +25,7 @@ Application scenario: Combining detection boxes for obstacle segmentation, water
 
 | Platform             | System | Function                                            |
 | -------------------- | ---------------- | ------------------------------------------------------------|
-| RDK X5| Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
+| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
 
 ## Preparation
 
