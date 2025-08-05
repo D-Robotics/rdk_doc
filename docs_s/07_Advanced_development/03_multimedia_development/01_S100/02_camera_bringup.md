@@ -316,6 +316,18 @@ out/deploy/rootfs/usr/hobot/lib/sensor 中。
 | channel_num                       | mipi 虚拟通道 number，linear mode 填 1，HDR DOL2 mode 填 2。                                                       |
 | channel_sel[MIPIHOST_CHANNEL_NUM] | mipi 虚拟通道对应的 ipi channel。                                                                                  |
 
+:::tip
+商业版提供更完整的功能支持、更深入的硬件能力开放和专属的定制内容。为确保内容合规、安全交付，我们将通过以下方式开放商业版访问权限：
+
+商业版本获取流程：
+填写问卷：提交您的机构信息、使用场景等基本情况
+签署保密协议（NDA）：我们将根据提交信息与您联系，双方确认后签署保密协议
+内容释放：完成协议签署后，我们将通过私有渠道为您开放商业版本资料
+如您希望获取商业版内容，请填写下方问卷，我们将在3～5个工作日内与您联系：
+
+问卷链接：https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+:::
+
 #### camera sensor 配置
 
 | 字段                         | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

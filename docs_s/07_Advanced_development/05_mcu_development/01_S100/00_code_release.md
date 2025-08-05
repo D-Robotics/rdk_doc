@@ -8,6 +8,18 @@ sidebar_position: 0
 MCU0固件编译/McalCdd/Service/Platform等代码为企业版专有，如有需要，请联系[D-Robotics](mailto:developer@d-robotics.cc)获取支持。
 :::
 
+:::tip
+商业版提供更完整的功能支持、更深入的硬件能力开放和专属的定制内容。为确保内容合规、安全交付，我们将通过以下方式开放商业版访问权限：
+
+商业版本获取流程：
+填写问卷：提交您的机构信息、使用场景等基本情况
+签署保密协议（NDA）：我们将根据提交信息与您联系，双方确认后签署保密协议
+内容释放：完成协议签署后，我们将通过私有渠道为您开放商业版本资料
+如您希望获取商业版内容，请填写下方问卷，我们将在3～5个工作日内与您联系：
+
+问卷链接：https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+:::
+
 ## MCU社区版
 
 ```c

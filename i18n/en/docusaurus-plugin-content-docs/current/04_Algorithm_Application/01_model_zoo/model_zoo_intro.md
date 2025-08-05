@@ -31,12 +31,12 @@ Install the required Python libraries using pip:
 
 For RDK X5:
 ```
-pip install bpu_infer_lib_x5 -i http://archive.d-robotics.cc/simple/ --trusted-host archive.d-robotics.cc
+pip install bpu_infer_lib_x5 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc
 ```
 
 For RDK X3:
 ```
-pip install bpu_infer_lib_x3 -i http://archive.d-robotics.cc/simple/ --trusted-host archive.d-robotics.cc
+pip install bpu_infer_lib_x3 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc 
 ```
 
 2. jupyterlab

@@ -14,10 +14,10 @@ You can install bpu_infer_lib on RDK series development boards using the followi
 
 ```
 # For RDK X5, use:
-pip install bpu_infer_lib_x5 -i  http://sdk.d-robotics.cc:8080/simple/  --trusted-host sdk.d-robotics.cc
+pip install bpu_infer_lib_x5 -i http://sdk.d-robotics.cc:8080/simple/  --trusted-host sdk.d-robotics.cc
 
 # For RDK X3, use:
-pip install bpu_infer_lib_x3 -i  http://sdk.d-robotics.cc:8080/simple/  --trusted-host sdk.d-robotics.cc
+pip install bpu_infer_lib_x3 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc
 ```
 
 ## Quick Start
