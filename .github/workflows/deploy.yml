@@ -16,9 +16,12 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18.19.1'  # 使用 Node.js 18.19.1 版本
-    - name: Install dependencies
-      run: npm install
+        node-version: '20'  # 使用 Node.js 20 版本
+        cache: 'npm'
+    - name: Clean install dependencies
+      run: |
+        rm -rf node_modules package-lock.json
+        npm install
 
     - name: Build Docusaurus site
       run: npm run build
