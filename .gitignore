@@ -27,6 +27,6 @@ yarn-error.log*
 translate_doc.py
 
 yarn.lock
-package-lock.json
+# package-lock.json
 
 .idea
