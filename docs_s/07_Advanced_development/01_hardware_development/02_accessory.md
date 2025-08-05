@@ -38,6 +38,18 @@ sidebar_position: 2
 | M.2 2230 E key | AzureWave  | AW-XM612MA-PUR     | 基于 Infineon CYW55572 ，Wi-Fi 6 + Bluetooth 5.3，双频并发，支持 1024-QAM 和 OFDMA，高速低延迟，工规产品，适用于高性能边缘设备、工业物联网和智能终端。 | 请联系售后                                          |
 | M.2 2230 E key | gxlinkstar | RTL8822CE+内置天线 | 2.4G/5GHz 双频，不支持蓝牙使用                                                                                                                         | [购买链接](https://item.jd.com/10115715024347.html) |
 
+:::tip
+商业版提供更完整的功能支持、更深入的硬件能力开放和专属的定制内容。为确保内容合规、安全交付，我们将通过以下方式开放商业版访问权限：
+
+商业版本获取流程：
+填写问卷：提交您的机构信息、使用场景等基本情况
+签署保密协议（NDA）：我们将根据提交信息与您联系，双方确认后签署保密协议
+内容释放：完成协议签署后，我们将通过私有渠道为您开放商业版本资料
+如您希望获取商业版内容，请填写下方问卷，我们将在3～5个工作日内与您联系：
+
+问卷链接：https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+:::
+
 ## 传感器
 
 ### IMU
