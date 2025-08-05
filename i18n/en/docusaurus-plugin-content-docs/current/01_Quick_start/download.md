@@ -238,6 +238,99 @@ Provides complete hardware design support materials for module customers, facili
   </div>
 </div>
 
+<div class="hardware-docs-grid">
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📊</span>
+      <h4>Module Specifications</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Datasheet</p>
+      <p><strong>Content:</strong> Provides detailed technical parameters of the module, including electrical characteristics, interface specifications, dimension definitions, operating environment, and other key information.</p>
+      <p><strong>Use Case:</strong> Helps customers fully understand module performance indicators for selection evaluation or system solution planning.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Datasheet%20V1P0_0526.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🔧</span>
+      <h4>Hardware Design Guide</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Hardware Design Guide</p>
+      <p><strong>Content:</strong> Detailed guidance on designing custom carrier boards based on the module, including power supply, power management, interface connections, electrical protection, and other key design points.</p>
+      <p><strong>Use Case:</strong> Suitable for early carrier board hardware development to ensure high compatibility and reliable stability with the module.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf" className="download-link">📥 Hardware Design Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📌</span>
+      <h4>Interface Definition & Application Notes</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Pinout Description and Application Note</p>
+      <p><strong>Content:</strong> Detailed definition of module interface pins with typical application scenarios, helping developers quickly understand signal meanings and usage methods.</p>
+      <p><strong>Use Case:</strong> Interface design phase to ensure correct pin connections and facilitate functional debugging and extension development.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx" className="download-link">📥 Interface Definition Document</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🎛️</span>
+      <h4>Official Carrier Board Reference Design</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK_X5_Module_Carrier_Board</p>
+      <p><strong>Content:</strong> Provides complete official carrier board schematics as important reference for customer carrier board design, covering various interfaces, power supply, and functional module layouts.</p>
+      <p><strong>Use Case:</strong> Reference design use to help shorten carrier board development cycle and reduce design errors.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Carrier_Board_V1P0_0526.pdf" className="download-link">📥 Official Carrier Board Schematics</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📐</span>
+      <h4>Module Structure Drawings</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK_X5_MD_HW_V0P3_BOTTOM.dxf / RDK_X5_MD_HW_V0P3_TOP.dxf</p>
+      <p><strong>Content:</strong> Provides 2D structure drawings (DXF format) for module top and bottom, including hole positions, outline dimensions, interface layouts, and other key structural information.</p>
+      <p><strong>Use Case:</strong> Supports customers in overall structural design, module mounting, enclosure reservations, and other work.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_TOP.dxf" className="download-link">📥 TOP Structure Drawing</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_BOTTOM.dxf" className="download-link">📥 BOTTOM Structure Drawing</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📋</span>
+      <h4>Module Brief Specifications</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> drobotics_rdk_x5_md_brief_v0p5.pdf</p>
+      <p><strong>Content:</strong> Concise product introduction for RDK X5 module, covering main features, application directions, core advantages, etc., for quick understanding of product positioning.</p>
+      <p><strong>Use Case:</strong> Used for early market promotion, project proposals, or initial customer understanding.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 Module Brief Introduction</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 :::warning Important Notes
 - RDK X3 Module schematics, PCB, and other design materials are not currently available
 - Some RDK X5 Module materials are being organized and will be released soon
