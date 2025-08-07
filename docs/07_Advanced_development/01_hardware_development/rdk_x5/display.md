@@ -21,7 +21,9 @@ mv /etc/X11/xorg.conf.d/xorg_dsi_ignore.conf.disable /etc/X11/xorg.conf.d/xorg_d
 ```
 也可以通过srpi-config来选择输出方式，可以参考 [Dsiplay Chose DSI or HDMI](../../../System_configuration/srpi-config#display-options) 章节
 
-
+:::info 注意
+- **RDK X5 MD**  IO 电平选择接口（接口 18），需要切换到3.3V
+:::
 
 ## HDMI
 
