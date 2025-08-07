@@ -30,7 +30,7 @@ SERIAL_8250_DWLIB
 
 ### DTS设备节点配置
 
-X5 UART控制器的设备树定义位于SDK包的kernel文件夹下的<font color="red">arch/arm64/boot/dts/hobot/x5.dtsiS</font>文件内。
+X5 UART控制器的设备树定义位于SDK包的kernel文件夹下的<font color="red">arch/arm64/boot/dts/hobot/x5.dtsi</font>文件内。
 
 <font color="red">备注：</font> x5.dtsi中的节点主要声明SoC共有特性，和具体电路板无关，一般情况下不用修改。
 
