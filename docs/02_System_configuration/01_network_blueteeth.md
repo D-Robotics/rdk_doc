@@ -6,7 +6,90 @@ sidebar_position: 1
 
 本章节主要介绍开发板有线、无线网络配置的修改方法。
 
-## 有线网络{#config_ethnet}
+## 有线网络：RDK X5（>= 3.3.0）
+
+开发板有线网络默认采用静态IP配置，初始IP地址为`192.168.127.10`。用户可通过如下方法实现静态、DHCP模式的切换。
+
+### [shell]修改静态IP配置
+开发板静态网络配置保存在`/etc/NetworkManager/system-connections/netplan-eth0.nmconnection`文件中，通过修改`address1`字段，可完成对静态IP配置的修改，`route-metri`是网络优先级配置，设置为`700`是为了让有线网络的优先级更低，当有线和无线网络同时使能时优先会使用无线网络。
+
+```shell
+sudo vim /etc/NetworkManager/system-connections/netplan-eth0.nmconnection
+```
+
+```shell
+[connection]
+id=netplan-eth0
+uuid=f6f8b5a7-9e23-49b2-a792-dc589b3d3e88
+type=ethernet
+interface-name=eth0
+timestamp=1754294545
+
+[ethernet]
+wake-on-lan=0
+
+[ipv4]
+address1=192.168.127.10/24,192.168.127.1
+dns=8.8.8.8;8.8.4.4;
+method=manual
+route-metric=700
+
+[ipv6]
+addr-gen-mode=eui64
+method=ignore
+
+[proxy]
+```
+
+修改完成后，命令行输入`sudo restart_network`命令让配置生效。
+
+### [shell]修改DHCP配置
+
+修改`[ipv4]`字段，只保留`method=auto`和`route-metric=700`
+
+```shell
+[ipv4]
+method=auto
+route-metric=700
+```
+
+修改完成后，命令行输入sudo restart_network命令让配置生效。
+
+### [shell]修改MAC地址配置
+
+修改`[ethernet]`字段，添加`cloned-mac-address=12:34:56:78:9A:BA`
+
+```shell
+[ethernet]
+cloned-mac-address=12:34:56:78:9A:BA
+wake-on-lan=0
+```
+
+修改完成后，reboot重启让配置生效。
+
+### [桌面]修改静态IP配置
+
+![image-edid](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-edid.png)
+
+![image-edid2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-edid2.png)
+
+![image-setip](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-setip.png)
+
+### [桌面]修改DHCP配置
+
+![image-dhcp](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-dhcp.png)
+
+### [桌面]修改MAC地址配置
+
+![image-mac](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-mac.png)
+
+### [桌面]配置生效
+
+点选`netplan-eth0`，配置生效。
+
+![image-enable](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-enable.png)
+
+## 有线网络：RDK X3/X5（< 3.3.0）{#config_ethnet}
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=11
 
