@@ -6,6 +6,17 @@ sidebar_position: 6
 
 ## tros-humble
 
+### 版本号：2.4.1 (2025-7-30)
+
+新增功能：
+
+- [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持`imx415`模组。
+- [EdgeSAM分割一切](/docs/05_Robot_development/03_boxs/function/mono_edgesam.md)算法新增`edgesam`作为模型推理；新增`nv12`格式数据输入；新增对分割结果padding, 用于在双目深度案例一同可视化。
+- 新增[人体实例跟踪](/docs/05_Robot_development/03_boxs/function/reid.md)算法，基于`reid`模型提取人体特征，通过`SQlite`数据库存储、管理、查询特征。
+- 新增[双目OCC](/docs/05_Robot_development/03_boxs/function/dstereo_occupancy.md)算法，集成地瓜双目`OCC`网络。
+- [视觉语言模型](/docs/05_Robot_development/02_quick_demo/hobot_llamacpp.md)新增`smolvlm2`模型适配, 支持图片回灌、订阅模式；新增`llm`模型推理结束后输出完整话题的能力。
+
+
 ### 版本号：2.4.0 (2025-5-12)
 
 新增功能：
