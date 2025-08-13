@@ -6,7 +6,7 @@ sidebar_position: 5
 
 :::tip 🛠️ 工具链和系统下载指引
 
-工具链问题建议优先使用最新版本。相关下载资源请参考：[下载资源汇总](../01_Quick_start/download)
+工具链问题建议优先使用最新版本。相关下载资源请参考：[下载资源汇总](../01_Quick_start/download.md)
 
 :::
 

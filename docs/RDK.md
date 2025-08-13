@@ -8,7 +8,7 @@ sidebar_position: 0
 
 :::tip 💾 下载资源汇总
 
-相关下载资源请参考：[下载资源汇总](./01_Quick_start/download)
+相关下载资源请参考：[下载资源汇总](./01_Quick_start/download.md)
 
 包含系统镜像、硬件资料、工具链等全部下载资源。
 

@@ -8,7 +8,7 @@ This document is the user manual for the D-Robotics RDK Suite. It provides devel
 
 :::tip 💾 Download Resources Summary
 
-For related download resources, please refer to: [Download Resources Summary](./01_Quick_start/download)
+For related download resources, please refer to: [Download Resources Summary](./01_Quick_start/download.md)
 
 Includes system images, hardware materials, toolchains, and all download resources.
 

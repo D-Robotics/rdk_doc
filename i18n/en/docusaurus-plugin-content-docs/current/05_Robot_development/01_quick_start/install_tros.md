@@ -21,7 +21,7 @@ Prerequisites
 
 :::info 📋 System Version Confirmation and Download
 
-Before installing TogetheROS, please confirm the system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download)
+Before installing TogetheROS, please confirm the system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download.md)
 
 :::
 

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::tip 📦 RDK X5 Module 详细硬件资料
 
-相关下载资源请参考：[下载资源汇总](../../../01_Quick_start/download) - RDK X5 Module 专区
+相关下载资源请参考：[下载资源汇总](../../../01_Quick_start/download.md) - RDK X5 Module 专区
 
 包含规格书、原理图、机械尺寸图、3D图、参考设计资料等完整硬件资料。
 
@@ -20,4 +20,4 @@ RDK X5 Module 是基于地平线旭日®5芯片的核心模组，采用模块化
 
 ## 资料下载
 
-所有相关的硬件资料、系统镜像、开发工具等资源，请访问[下载资源汇总](../../../01_Quick_start/download)页面获取。
+所有相关的硬件资料、系统镜像、开发工具等资源，请访问[下载资源汇总](../../../01_Quick_start/download.md)页面获取。

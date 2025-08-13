@@ -5,7 +5,7 @@ sidebar_position: 5
 
 :::tip 🛠️ Toolchain and System Download Guide
 
-For toolchain issues, we recommend using the latest version first. For related download resources, please refer to: [Download Resources Summary](../01_Quick_start/download)
+For toolchain issues, we recommend using the latest version first. For related download resources, please refer to: [Download Resources Summary](../01_Quick_start/download.md)
 
 :::
 

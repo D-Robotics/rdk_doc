@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::tip 🛠️ System Requirements and Toolchain Download Guide
 
-Please confirm system environment requirements before using the algorithm toolchain. For related download resources, please refer to: [Download Resources Summary](../../../01_Quick_start/download)
+Please confirm system environment requirements before using the algorithm toolchain. For related download resources, please refer to: [Download Resources Summary](../../../01_Quick_start/download.md)
 
 :::
 

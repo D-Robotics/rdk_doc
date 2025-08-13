@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::info 🔄 Consider Updating to Latest System Before Problem-Solving
 
-Many issues can be resolved through system updates. For related download resources, please refer to: [Download Resources Summary](../01_Quick_start/download)
+Many issues can be resolved through system updates. For related download resources, please refer to: [Download Resources Summary](../01_Quick_start/download.md)
 
 :::
 

@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 
 :::info 📋 系统版本确认与下载
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](../../01_Quick_start/download)
+安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](../../01_Quick_start/download.md)
 
 :::
 

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::tip 📦 RDK X5 Module Detailed Hardware Materials
 
-For related download resources, please refer to: [Download Resources Summary](../../../01_Quick_start/download) - RDK X5 Module Section
+For related download resources, please refer to: [Download Resources Summary](../../../01_Quick_start/download.md) - RDK X5 Module Section
 
 Includes specification sheets, schematics, mechanical drawings, 3D drawings, reference design materials, and other complete hardware documentation.
 
@@ -20,4 +20,4 @@ RDK X5 Module is a core module based on D-Robotics Sunrise®5 chip, featuring a 
 
 ## Material Downloads
 
-For all related hardware materials, system images, development tools, and other resources, please visit the [Download Resources Summary](../../../01_Quick_start/download) page.
+For all related hardware materials, system images, development tools, and other resources, please visit the [Download Resources Summary](../../../01_Quick_start/download.md) page.

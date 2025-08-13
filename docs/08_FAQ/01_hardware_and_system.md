@@ -6,7 +6,7 @@ sidebar_position: 1
 
 :::info 🔄 问题解决前请考虑更新到最新系统
 
-许多问题可通过系统更新解决，相关下载资源请参考：[下载资源汇总](../01_Quick_start/download)
+许多问题可通过系统更新解决，相关下载资源请参考：[下载资源汇总](../01_Quick_start/download.md)
 
 :::
 
