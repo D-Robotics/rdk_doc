@@ -4,6 +4,12 @@ sidebar_position: 1
 
 # 8.1 Hardware, System, and Environment Configuration
 
+:::info 🔄 Consider Updating to Latest System Before Problem-Solving
+
+Many issues can be resolved through system updates. For related download resources, please refer to: [Download Resources Summary](../01_Quick_start/download)
+
+:::
+
 For certified accessories and purchase links, please refer to the [Certified Accessories List](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory).
 
 ### Q1: What is the D-Robotics RDK Kit?

@@ -20,6 +20,12 @@ import TabItem from '@theme/TabItem';
 - RDK能够正常访问互联网
 - RDK能够远程ssh
 
+:::info 📋 系统版本确认与下载
+
+安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](../../01_Quick_start/download)
+
+:::
+
 :::caution 注意
 - **2.x版本tros.b仅支持2.x版本系统镜像，[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持1.x版本系统。**
 - **如果您使用的是1.x版本系统镜像，需要将[系统升级](./preparation)到2.x版本。**

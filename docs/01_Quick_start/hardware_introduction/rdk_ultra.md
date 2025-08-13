@@ -4,7 +4,13 @@ sidebar_position: 3
 
 # 1.1.3 RDK Ultra
 
+:::tip 📦 完整硬件资料汇总
 
+相关下载资源请参考：[下载资源汇总](../download)
+
+包含规格书、原理图、机械尺寸图、3D图、参考设计资料等完整硬件资料。
+
+:::
 
 RDK Ultra开发套件提供了以太网口、USB、HDMI、MIPI CSI、40PIN等多种外围接口，方便用户对RDK Ultra开发套件进行功能体验、开发测试等工作，接口布局如下：
 

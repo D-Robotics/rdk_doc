@@ -4,6 +4,12 @@ sidebar_position: 1
 
 # 7.4.1 Introduction
 
+:::tip 🛠️ System Requirements and Toolchain Download Guide
+
+Please confirm system environment requirements before using the algorithm toolchain. For related download resources, please refer to: [Download Resources Summary](../../../01_Quick_start/download)
+
+:::
+
 The D-Robotics Algorithm Toolchain is an algorithm solution developed based on the D-Robotics processor. It can help you quantize floating-point models into fixed-point models and quickly deploy self-developed algorithm models on the D-Robotics processor.
 
 Currently, most models trained on GPUs are floating-point models, which means that the parameters are stored using the float data type. The D-Robotics BPU architecture processor uses INT8 as the computing precision (the general precision of processors in the industry) and can only run quantized fixed-point models. The process of converting a trained floating-point model to a fixed-point model is called quantization. Depending on whether the quantized parameters need to be adjusted, we can divide the quantization methods into Quantization Aware Training (QAT) and Post-Training Quantization (PTQ).

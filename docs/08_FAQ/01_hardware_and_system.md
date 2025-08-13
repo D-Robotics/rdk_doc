@@ -4,6 +4,12 @@ sidebar_position: 1
 
 # 8.1 硬件、系统与环境配置
 
+:::info 🔄 问题解决前请考虑更新到最新系统
+
+许多问题可通过系统更新解决，相关下载资源请参考：[下载资源汇总](../01_Quick_start/download)
+
+:::
+
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

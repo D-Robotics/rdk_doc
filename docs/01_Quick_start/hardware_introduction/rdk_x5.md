@@ -4,6 +4,14 @@ sidebar_position: 2
 
 # 1.1.2 RDK X5
 
+:::tip 📦 完整硬件资料汇总
+
+相关下载资源请参考：[下载资源汇总](../download)
+
+包含规格书、原理图、机械尺寸图、3D图、参考设计资料等完整硬件资料。
+
+:::
+
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

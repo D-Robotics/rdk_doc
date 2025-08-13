@@ -12,6 +12,12 @@ sidebar_position: 3
 
 :::
 
+:::info 📋 配置前请先完成系统安装
+
+配置前请先完成系统安装，系统镜像下载请参考：[下载资源汇总](./download)
+
+:::
+
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

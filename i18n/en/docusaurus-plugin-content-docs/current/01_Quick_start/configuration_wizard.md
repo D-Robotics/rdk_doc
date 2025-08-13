@@ -11,6 +11,12 @@ The system version should be no lower than `2.1.0`.
 
 :::
 
+:::info 📋 Please Complete System Installation Before Configuration
+
+Please complete system installation before configuration. For system image downloads, refer to: [Download Resources Summary](./download)
+
+:::
+
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

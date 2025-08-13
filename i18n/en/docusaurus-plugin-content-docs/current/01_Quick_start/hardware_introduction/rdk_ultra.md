@@ -10,8 +10,15 @@ sidebar_position: 3
 
 :::
 
+:::tip 📦 Complete Hardware Materials Summary
 
-The RDK Ultra development kit provides a variety of peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and a 40-pin header, making it convenient for users to experience, develop, and test the kit’s functions. The interface layout is as follows:
+For related download resources, please refer to: [Download Resources Summary](../download)
+
+Includes specification sheets, schematics, mechanical drawings, 3D drawings, reference design materials, and other complete hardware documentation.
+
+:::
+
+The RDK Ultra development kit provides a variety of peripheral interfaces, including Ethernet, USB, HDMI, MIPI CSI, and a 40-pin header, making it convenient for users to experience, develop, and test the kit's functions. The interface layout is as follows:
 
 ![image-carrier-board1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface1.jpg)
 ![image-carrier-board2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_ultra/image/rdk_ultra/image-rdk-ultra-interface2.jpg) 

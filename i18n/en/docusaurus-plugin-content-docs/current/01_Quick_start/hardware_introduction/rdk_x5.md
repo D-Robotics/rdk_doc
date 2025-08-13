@@ -3,6 +3,14 @@ sidebar_position: 2
 ---
 # 1.1.2 RDK X5
 
+:::tip 📦 Complete Hardware Materials Summary
+
+For related download resources, please refer to: [Download Resources Summary](../download)
+
+Includes specification sheets, schematics, mechanical drawings, 3D drawings, reference design materials, and other complete hardware documentation.
+
+:::
+
 ## Interface Overview
 
 RDK X5 provides various functional interfaces, including Ethernet, USB, camera, LCD, HDMI, CAN FD, and 40-pin GPIO, enabling users to develop and test applications such as multimedia processing and deep learning algorithms. The layout of the development board's interfaces is shown below:

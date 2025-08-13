@@ -3,6 +3,12 @@ sidebar_position: 5
 ---
 # 8.5 Algorithm toolchain class
 
+:::tip 🛠️ Toolchain and System Download Guide
+
+For toolchain issues, we recommend using the latest version first. For related download resources, please refer to: [Download Resources Summary](../01_Quick_start/download)
+
+:::
+
 This section addresses frequently asked questions related to AI model deployment, algorithm development, and toolchain usage on the Horizon RDK platform.
 
 ### Q1: What information should I provide when seeking technical support for toolchain issues?

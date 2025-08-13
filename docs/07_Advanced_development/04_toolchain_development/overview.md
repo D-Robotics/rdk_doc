@@ -4,6 +4,12 @@ sidebar_position: 1
 
 # 7.4.1 简介
 
+:::tip 🛠️ 系统环境要求和工具链下载指引
+
+使用算法工具链前请确认系统环境要求。相关下载资源请参考：[下载资源汇总](../../../01_Quick_start/download)
+
+:::
+
 D-Robotics 算法工具链是基于D-Robotics 处理器研发的算法解决方案，可以帮助您把浮点模型量化为定点模型， 并在D-Robotics 处理器上快速部署自研算法模型。
 
 目前在GPU上训练的模型大部分都是浮点模型，即参数使用的是float类型存储；D-Robotics BPU架构的处理器使用的是  INT8   的计算精度（业内处理器的通用精度），只能运行定点量化模型。从训练出的浮点模型转为定点模型的过程，我们叫做量化，依据是否要对量化后的参数进行调整，我们可以将量化方法分为QAT（Quantification Aware Training）量化感知训练和PTQ（Post-Training Quantization）训练后量化。

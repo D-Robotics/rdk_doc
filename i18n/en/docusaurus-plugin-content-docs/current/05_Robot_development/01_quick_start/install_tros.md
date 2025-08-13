@@ -19,6 +19,12 @@ Prerequisites
 - The RDK can access the internet normally.
 - The RDK can be accessed remotely via SSH.
 
+:::info 📋 System Version Confirmation and Download
+
+Before installing TogetheROS, please confirm the system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download)
+
+:::
+
 ### Installation
 
 **Note: The IP address of the RDK used here is 10.64.61.241. Replace it with your IP address during installation.**

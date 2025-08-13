@@ -4,6 +4,14 @@ sidebar_position: 1
 
 # 1.1.1 RDK X3
 
+:::tip 📦 Complete Hardware Materials Summary
+
+For related download resources, please refer to: [Download Resources Summary](../download)
+
+Includes specification sheets, schematics, mechanical drawings, 3D drawings, reference design materials, and other complete hardware documentation.
+
+:::
+
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
