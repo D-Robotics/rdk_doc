@@ -667,7 +667,7 @@ no mmc device at slot X
     * **散热片安装：** 确保散热片与芯片（CPU/SoC）接触良好，导热硅脂或导热垫片已正确涂抹/放置。
 2.  **确保空气流通：** 避免将板卡放置在密闭或通风不良的环境中。
 3.  **监控温度：**
-    * 使用系统命令（如 `cpu_status_monitor`，或读取 `/sys/class/thermal/thermal_zoneX/temp` 文件内容）来实时监控芯片温度。
+    * 使用系统命令（如 `hrut_somstatus`，或读取 `/sys/class/thermal/thermal_zoneX/temp` 文件内容）来实时监控芯片温度。
     * 了解板卡芯片的安全工作温度范围，避免长时间超出上限。
 4.  **优化应用负载：**
     * 如果可能，优化您的应用程序，减少不必要的计算，降低CPU/BPU的持续高负载。
