@@ -117,6 +117,10 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 
 编译时，在`robot_dev_config/aarch64_toolchainfile.cmake`编译脚本中通过`CMAKE_SYSROOT`宏指定`sysroot_docker`的安装路径。
 
+:::info
+robot_dev_config的tag号（版本信息），请查看[版本发布记录](/docs/05_Robot_development/01_quick_start/changelog.md)章节。
+:::
+
 #### 3 交叉编译
 
 该部分操作均在开发机的docker内完成。
@@ -159,6 +163,10 @@ cd ..
 ## 拉取代码
 vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
+
+:::info
+robot_dev_config的tag号（版本信息），请查看[版本发布记录](/docs/05_Robot_development/01_quick_start/changelog.md)章节。
+:::
 
 ## X86平台
 
