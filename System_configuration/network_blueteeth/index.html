@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">2.1 网络与蓝牙配置 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="2.1 网络与蓝牙配置 | RDK DOC"><meta data-rh="true" name="description" content="本章节主要介绍开发板有线、无线网络配置的修改方法。"><meta data-rh="true" property="og:description" content="本章节主要介绍开发板有线、无线网络配置的修改方法。"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/System_configuration/network_blueteeth" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"2. 系统配置","item":"https://developer.d-robotics.cc/rdk_doc/System_configuration"},{"@type":"ListItem","position":2,"name":"2.1 网络与蓝牙配置","item":"https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.0fbd7d27.css">
-<script src="/rdk_doc/assets/js/runtime~main.ab7c3123.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.75c237fa.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.83c0be8d.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.18549017.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -176,24 +176,68 @@
 <p>执行<code>apt full-upgrade</code>命令后，可能会重新安装驱动、内核文件和部分系统软件，建议用户手动重启设备使更新生效，命令如下：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo reboot</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="蓝牙配置">蓝牙配置<a href="#蓝牙配置" class="hash-link" aria-label="蓝牙配置的直接链接" title="蓝牙配置的直接链接">​</a></h2>
-<p>Video: <a href="https://www.bilibili.com/video/BV1rm4y1E73q/?p=9" target="_blank" rel="noopener noreferrer">https://www.bilibili.com/video/BV1rm4y1E73q/?p=9</a></p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>从 3.0.0 系统开始，蓝牙默认随系统启动，无需手动重复初始化。在 RDK X3 和 RDK X5 平台上均保持一致。</p></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="初始化">初始化<a href="#初始化" class="hash-link" aria-label="初始化的直接链接" title="初始化的直接链接">​</a></h3>
-<p>开发板蓝牙功能默认没有开启，需要执行 <code>/usr/bin/startbt6212.sh</code>脚本进行初始化，该脚本完成以下工作：</p>
+<p>如果开发板蓝牙功能默认没有开启，<code>hciconfig</code>查看不到设备，可以执行 <code>/usr/bin/startbt.sh</code>脚本进行初始化，该脚本完成以下工作：</p>
 <ul>
-<li>复位蓝牙</li>
-<li>创建 <code>messagebus</code> 用户和用户组，<code>dbus-daemon</code> 程序运行时  需要使用该用户</li>
-<li>运行 <code>brcm_patchram_plus</code> 完成蓝牙的驱动加载和固件加载</li>
-<li>循环检查 <code>/sys/class/bluetooth/hci0</code> 目录是否存在，确认蓝牙驱动已经正常运行</li>
-<li>出现 <strong>Done setting line discpline</strong>  表示蓝牙启用成功</li>
+<li>完成蓝牙初始化</li>
 <li>执行 <code>hciconfig hci0 up</code>  完成蓝牙的Link Up</li>
-<li>执行 <code>hciconfig hci0 piscan</code> 进行蓝牙扫描，本步骤可以根据情况去掉</li>
+<li>执行 <code>hciconfig hci0 piscan</code> 进行蓝牙扫描</li>
 </ul>
+<p>Video: <a href="https://www.bilibili.com/video/BV1rm4y1E73q/?p=9" target="_blank" rel="noopener noreferrer">https://www.bilibili.com/video/BV1rm4y1E73q/?p=9</a></p>
 <p>脚本执行成功后的log如下：</p>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172145987.png" alt="image-20220601172145987" class="img_ev3q"></p>
 <p>此外，用户可以使用命令查询蓝牙进程是否正常，命令如下：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">ps ax | grep &quot;/usr/bin/dbus-daemon\|/usr/lib/bluetooth/bluetoothd&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">/usr/bin/dbus-daemon</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">/usr/lib/bluetooth/bluetoothd</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="通信接口">通信接口<a href="#通信接口" class="hash-link" aria-label="通信接口的直接链接" title="通信接口的直接链接">​</a></h3>
+<p>为充分发挥开发板的扩展能力，当前硬件设计已集成多样化的接口与外设资源。</p>
+<p>受限于接口布局及硬件资源分配，开发板未能完整复现蓝牙模组的所有通信接口。</p>
+<p>目前仅提供 <code>BT_RX</code> <code>BT_TX</code> 双线模式，可满足无实时性要求的 AT 指令交互与数据传输等基础功能。</p>
+<p>基于 UART 接口的蓝牙模组，不同接口连接方式及对应功能如下：</p>
+<ul>
+<li>‌基础通信模式（UART Only）‌</li>
+<li>
+<ul>
+<li>接口引脚：<code>BT_RX</code> <code>BT_TX</code></li>
+</ul>
+</li>
+<li>
+<ul>
+<li>功能特性：基于UART的异步串行数据通信（如AT指令交互、低速率数据传输），无流控机制，在波特率超载或持续大数据量传输时，存在数据包丢失及缓冲区溢出风险。</li>
+</ul>
+</li>
+<li>‌增强型传输模式（增加硬件流控）‌</li>
+<li>
+<ul>
+<li>接口引脚：<code>BT_RX</code> <code>BT_TX</code> <code>BT_CTS</code> <code>BT_RTS</code></li>
+</ul>
+</li>
+<li>
+<ul>
+<li>功能特性：可有效避免数据包丢失及缓冲区溢出风险，支持A2DP高保真单向音频流传输。</li>
+</ul>
+</li>
+<li>语音通信模式（PCM同步接口）</li>
+<li>
+<ul>
+<li>接口引脚：<code>PCM_SYNC</code> <code>PCM_DIN</code> <code>PCM_CLK</code> <code>PCM_DOUT</code></li>
+</ul>
+</li>
+<li>
+<ul>
+<li>功能特性：支持基于SCO链路的实时双向音频传输，比如HPF/HSP</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="usb蓝牙">USB蓝牙<a href="#usb蓝牙" class="hash-link" aria-label="USB蓝牙的直接链接" title="USB蓝牙的直接链接">​</a></h3>
+<p>如需深入使用蓝牙功能，例如在 <code>SPP（蓝牙虚拟串口）</code> 模式下实现高速稳定通信、在 <code>PAN（蓝牙虚拟网卡）</code> 模式下保证带宽质量，或在 <code>A2DP（高保真单向音频流）</code> 模式下避免音频中断，建议优先使用 <code>USB 接口蓝牙模块</code>。</p>
+<p>开发板已集成 <code>USB2.0-BT</code>、<code>CSR8510 A10</code> 等常见蓝牙驱动，可直接支持大部分免固件的 USB 蓝牙模组。</p>
+<p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-USB2.0-BT.png" alt="image-USB2.0-BT" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-CSR8510.png" alt="image-CSR8510" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-hci1.png" alt="image-hci1" class="img_ev3q"></p>
+<p>对于 <code>Realtek</code> 系列蓝牙模组，则需要额外的<code>固件</code>支持。请向模组厂家获取适配 Linux 平台 的固件，并将其放置到指定目录后，方可正常使用。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="配网连接">配网连接<a href="#配网连接" class="hash-link" aria-label="配网连接的直接链接" title="配网连接的直接链接">​</a></h3>
-<p>执行<code>sudo bluetoothctl</code>进入交互模式下的蓝牙配置界面，出现了  类似下图的设备信息表示蓝牙被识别到了，然后用<code>show</code>来查看蓝牙信息，留意蓝牙的<code>powered</code>和<code>discoverable</code>状态。</p>
+<p>执行<code>sudo bluetoothctl</code>进入交互模式下的蓝牙配置界面，出现了类似下图的设备信息表示蓝牙被识别到了，然后用<code>show</code>来查看蓝牙信息，留意蓝牙的<code>powered</code>和<code>discoverable</code>状态。</p>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172604051.png" alt="image-20220601172604051" class="img_ev3q"></p>
 <p>执行 <code>power on</code> 使能蓝牙，如下图所示：</p>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601172501882.png" alt="image-20220601172501882" class="img_ev3q"></p>
@@ -214,6 +258,6 @@
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154414717.png" alt="image-20220601154414717" class="img_ev3q"></p>
-<p>经过以上操作后，蓝牙的扫描、配对的基本功能就完成了，如需使用更多功能，可查阅 <code>BlueZ</code>的官方帮助说明。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-08-14T10:39:43.000Z" itemprop="dateModified">2025年8月14日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/System_configuration"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">2. 系统配置</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/System_configuration/srpi-config"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">2.2 srpi-config 工具配置</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#有线网络rdk-x5-330" class="table-of-contents__link toc-highlight">有线网络：RDK X5（&gt;= 3.3.0）</a><ul><li><a href="#shell修改静态ip配置" class="table-of-contents__link toc-highlight">[shell]修改静态IP配置</a></li><li><a href="#shell修改dhcp配置" class="table-of-contents__link toc-highlight">[shell]修改DHCP配置</a></li><li><a href="#shell修改mac地址配置" class="table-of-contents__link toc-highlight">[shell]修改MAC地址配置</a></li><li><a href="#桌面修改静态ip配置" class="table-of-contents__link toc-highlight">[桌面]修改静态IP配置</a></li><li><a href="#桌面修改dhcp配置" class="table-of-contents__link toc-highlight">[桌面]修改DHCP配置</a></li><li><a href="#桌面修改mac地址配置" class="table-of-contents__link toc-highlight">[桌面]修改MAC地址配置</a></li><li><a href="#桌面配置生效" class="table-of-contents__link toc-highlight">[桌面]配置生效</a></li></ul></li><li><a href="#config_ethnet" class="table-of-contents__link toc-highlight">有线网络：RDK X3/X5（&lt; 3.3.0）</a><ul><li><a href="#修改静态ip配置" class="table-of-contents__link toc-highlight">修改静态IP配置</a></li><li><a href="#修改dhcp配置" class="table-of-contents__link toc-highlight">修改DHCP配置</a></li><li><a href="#修改mac地址配置" class="table-of-contents__link toc-highlight">修改MAC地址配置</a></li></ul></li><li><a href="#无线网络" class="table-of-contents__link toc-highlight">无线网络</a><ul><li><a href="#station模式" class="table-of-contents__link toc-highlight">Station模式</a></li><li><a href="#soft-ap模式" class="table-of-contents__link toc-highlight">Soft AP模式</a></li></ul></li><li><a href="#dns服务" class="table-of-contents__link toc-highlight">DNS服务</a></li><li><a href="#系统更新" class="table-of-contents__link toc-highlight">系统更新</a></li><li><a href="#蓝牙配置" class="table-of-contents__link toc-highlight">蓝牙配置</a><ul><li><a href="#初始化" class="table-of-contents__link toc-highlight">初始化</a></li><li><a href="# 配网连接" class="table-of-contents__link toc-highlight">配网连接</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+<p>经过以上操作后，蓝牙的扫描、配对的基本功能就完成了，如需使用更多功能，可查阅 <code>BlueZ</code>的官方帮助说明。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-08-14T12:54:11.000Z" itemprop="dateModified">2025年8月14日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/System_configuration"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">2. 系统配置</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/System_configuration/srpi-config"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">2.2 srpi-config 工具配置</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#有线网络rdk-x5-330" class="table-of-contents__link toc-highlight">有线网络：RDK X5（&gt;= 3.3.0）</a><ul><li><a href="#shell修改静态ip配置" class="table-of-contents__link toc-highlight">[shell]修改静态IP配置</a></li><li><a href="#shell修改dhcp配置" class="table-of-contents__link toc-highlight">[shell]修改DHCP配置</a></li><li><a href="#shell修改mac地址配置" class="table-of-contents__link toc-highlight">[shell]修改MAC地址配置</a></li><li><a href="#桌面修改静态ip配置" class="table-of-contents__link toc-highlight">[桌面]修改静态IP配置</a></li><li><a href="#桌面修改dhcp配置" class="table-of-contents__link toc-highlight">[桌面]修改DHCP配 置</a></li><li><a href="#桌面修改mac地址配置" class="table-of-contents__link toc-highlight">[桌面]修改MAC地址配置</a></li><li><a href="#桌面配置生效" class="table-of-contents__link toc-highlight">[桌面]配置生效</a></li></ul></li><li><a href="#config_ethnet" class="table-of-contents__link toc-highlight">有线网络：RDK X3/X5（&lt; 3.3.0）</a><ul><li><a href="#修改静态ip配置" class="table-of-contents__link toc-highlight">修改静态IP配置</a></li><li><a href="#修改dhcp配置" class="table-of-contents__link toc-highlight">修改DHCP配置</a></li><li><a href="#修改mac地址配置" class="table-of-contents__link toc-highlight">修改MAC地址配置</a></li></ul></li><li><a href="#无线网络" class="table-of-contents__link toc-highlight">无线网络</a><ul><li><a href="#station模式" class="table-of-contents__link toc-highlight">Station模式</a></li><li><a href="#soft-ap模式" class="table-of-contents__link toc-highlight">Soft AP模式</a></li></ul></li><li><a href="#dns服务" class="table-of-contents__link toc-highlight">DNS服务</a></li><li><a href="#系统更新" class="table-of-contents__link toc-highlight">系统更新</a></li><li><a href="#蓝牙配置" class="table-of-contents__link toc-highlight">蓝牙配置</a><ul><li><a href="#初始化" class="table-of-contents__link toc-highlight">初始化</a></li><li><a href="#通信接口" class="table-of-contents__link toc-highlight">通信接口</a></li><li><a href="#usb蓝牙" class="table-of-contents__link toc-highlight">USB蓝牙</a></li><li><a href="#配网连接" class="table-of-contents__link toc-highlight">配网连接</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
