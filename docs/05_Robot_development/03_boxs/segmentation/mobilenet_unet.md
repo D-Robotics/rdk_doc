@@ -12,8 +12,7 @@ import TabItem from '@theme/TabItem';
 
 mobilenet_unet分割算法示例使用图片作为输入，利用BPU进行算法推理，发布包含分割结果msg。
 
-mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据集训练出来的Onnx模型，模型来源： https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/MobilenetUnet 。
-支持对人、车辆、路面、路标等类别进行分割。
+mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据集训练出来的Onnx模型，支持对人、车辆、路面、路标等类别进行分割。
 
 代码仓库： https://github.com/D-Robotics/hobot_dnn
 
