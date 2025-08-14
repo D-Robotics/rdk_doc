@@ -175,6 +175,10 @@
     "message": "7.1.4 RDK X5 Hardware Description",
     "description": "The label for category 7.1.4 RDK X5硬件说明 in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.7.1.5 RDK X5 Module硬件说明": {
+    "message": "7.1.5 RDK X5 Module Hardware Description",
+    "description": "The label for category 7.1.5 RDK X5 Module硬件说明 in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.7.2 Linux开发指南": {
     "message": "7.2. Linux Development Guide",
     "description": "The label for category 7.2 Linux开发指南 in sidebar tutorialSidebar"
@@ -195,13 +199,13 @@
     "message": "7.2.4 Hardware Unit Testing",
     "description": "The label for category 7.2.4 硬件单元测试 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.7.3 多媒体开发指南": {
-    "message": "7.3 Multimedia Development Guide",
-    "description": "The label for category 7.3 多媒体开发指南 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.7.3 RDK X3 多媒体开发指南": {
+    "message": "7.3 RDK X3 Multimedia Development Guide",
+    "description": "The label for category 7.3 RDK X3 多媒体开发指南 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.7.3 多媒体开发指南.link.generated-index.description": {
-    "message": "Multimedia Development Guide",
-    "description": "The generated-index page description for category 7.3 多媒体开发指南 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.7.3 RDK X3 多媒体开发指南.link.generated-index.description": {
+    "message": "RDK X3 Multimedia Development Guide",
+    "description": "The generated-index page description for category 7.3 RDK X3 多媒体开发指南 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.7.4 算法工具链开发指南": {
     "message": "7.4 Algorithm Toolchain Development Guide",
