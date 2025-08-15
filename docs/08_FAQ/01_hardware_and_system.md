@@ -274,6 +274,33 @@ F37摄像头连接示意图：
         ```
     4.  再次尝试 `sudo apt update`。
 
+##### 3. ROS2 GPG密钥问题
+
+**典型报错信息：**
+
+    ```bash
+    W: GPG error: http://packages.ros.org/ros2/ubuntu jammy InReleaase: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F42ED6FBAB17C654
+    E: The repository 'http://packages.ros.org/ros2/ubuntu jammy InRelease' is not signed.
+    N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+    N: See apt-secure(8) manpage for repository creation and user configuration details.
+    ```
+
+**原因分析：**  
+ROS2官方软件源GPG签名密钥更新，导致本地配置过期。
+
+**解决步骤：**
+
+1. **更新GPG密钥**
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo tee /usr/share/keyrings/ros-archive-keyring.gpg > /dev/null
+   ```
+
+2. **重新更新软件包列表**
+        ```bash
+        sudo apt update
+        ```
+
+
 ### Q11: 如何查看RDK X3的CPU、BPU等硬件单元的运行状态?
 **A:** 可以使用地瓜机器人提供的 `hrut_somstatus` 工具来查看实时的系统状态，包括CPU各个核心的占用率、BPU（AI计算单元）的使用率、内存使用情况、芯片温度等。
 在板卡终端执行：
