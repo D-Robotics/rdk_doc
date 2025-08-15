@@ -22,6 +22,13 @@ import TabItem from '@theme/TabItem';
 | RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 | RDK X5, RDK X5 Module                | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| faceAge | X3 | 1×3×128x128 | 1261.29 |
+| faceAge | X5 | 1×3×128x128 | 1207.32 |
+
 ## 准备工作
 
 ### RDK平台

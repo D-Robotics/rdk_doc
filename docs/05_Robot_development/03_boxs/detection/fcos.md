@@ -28,6 +28,13 @@ FCOS是D-Robotics开源的Onnx模型，使用[COCO数据集](http://cocodataset.
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地                           |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| fcos | X3 | 1x3x512x512 | 74.91 |
+| fcos | X5 | 1x3x512x512 | 258.92 |
+
 ## 准备工作
 
 ### RDK平台

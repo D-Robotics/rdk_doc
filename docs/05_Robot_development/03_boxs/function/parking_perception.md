@@ -49,6 +49,12 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，推理渲染结果在Web显示/保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果在Web显示/保存在本地             |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| parking_perception | X3 | 1x3x640x320 | 103.52 |
+
 ## 准备工作
 
 ### RDK平台

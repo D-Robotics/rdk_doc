@@ -26,6 +26,12 @@ EfficientNet_Det是从  (https://github.com/HorizonRobotics-Platform/ModelZoo/tr
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| EfficientNet | X3 | 1x3x512x512 | 54.58 |
+
 ## 准备工作
 
 ### RDK平台

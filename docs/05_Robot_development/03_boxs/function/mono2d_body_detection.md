@@ -44,6 +44,13 @@ import TabItem from '@theme/TabItem';
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 | X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过Web展示推理渲染结果                |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| fastrcnn | X3 | 1x3x544x960 | 74.96 |
+| fastrcnn | X5 | 1x3x544x960 | 125.21 |
+
 ## 准备工作
 
 ### RDK平台

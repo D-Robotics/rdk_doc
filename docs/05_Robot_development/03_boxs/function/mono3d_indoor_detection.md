@@ -38,6 +38,13 @@ mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 | X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果保存在本地                |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| centernet | X3 | 1x3x512x960 | 85.93 |
+| centernet | X5 | 1x3x512x960 | 196.33 |
+
 ## 准备工作
 
 ### RDK平台

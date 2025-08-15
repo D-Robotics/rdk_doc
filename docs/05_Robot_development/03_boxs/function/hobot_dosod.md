@@ -23,6 +23,12 @@ DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| DOSOD-l | X5 | 1×640×640×3 | 12 |
+
 ## 准备工作
 
 ### RDK平台
@@ -230,4 +236,4 @@ webserver has launch
 
 
 ## 进阶使用
-如果您希望修改自定义类别, 请参考[模型重参数化方法] （链接即将上线）
+如果您希望修改自定义类别, 请参考[模型重参数化方法](https://horizonrobotics.feishu.cn/docx/G5z3dOzWKozBtCxBZK9ceWEknTh)
