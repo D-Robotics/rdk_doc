@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12、YOLO13 等版本。
+YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12 等版本。
 
 由于YOLOv8后的YOLO均基于Ultralytics算法框架，所以使用YOLOv8的Parser即可，相关bin模型可前往GitHub⭐️：[RDK_Model_Zoo](https://github.com/D-Robotics/rdk_model_zoo)获取。
 
@@ -30,10 +30,32 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 | 平台                  | 运行方式     | 支持算法             | 示例功能                                                     |
 | --------------------- | ------------ | -------------------- | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5x/yolov8/yolov10 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK Ultra             | Ubuntu 20.04 (Foxy) | yolov5x              | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| RDK S100 | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5x/yolov8/yolov10 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK S100 | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | yolov2/yolov3        | · 使用本地回灌，渲染结果保存在本地                           |
+
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| yolov2 | X3 | 1x608x608x3 | 12.60 |
+| yolov3 | X3 | 1x416x416x3 | 11.71 |
+| yolov5 | X3 | 1x512x512x3 | 32.62 |
+| yolov2 | X5 | 1x608x608x3 | 38.33 |
+| yolov3 | X5 | 1x416x416x3 | 31.28 |
+| yolov5 | X5 | 1x512x512x3 | 10.37 |
+| yolov8n | X5 | 1x3x640x640 | 140.46 |
+| yolov10n | X5 | 1x3x640x640 | 36.47 |
+| yolov11m | X5 | 1x3x640x640 | 28.95 |
+| yolov12m | X5 | 1x3x640x640 | 74 |
+| yolov2 | S100 | 1x3x608x608 | 226.19 |
+| yolov3 | S100 | 1x3x416x416 | 212.55 |
+| yolov5 | S100 | 1x3x672x672 | 62.24 |
+| yolov8n | S100 | 1x3x640x640 | 506.57 |
+| yolov10n | S100 | 1x3x640x640 | 494.10 |
+| yolov11m | S100 | 1x3x640x640 | 162.46 |
+| yolo12n | S100 | 1x3x640x640 | 42.66 |
 
 ## 准备工作
 
@@ -88,7 +110,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=mipi
 
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 #### 使用USB摄像头发布图片
@@ -122,7 +144,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=usb
 
 # 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 #### 使用本地图片回灌
@@ -156,7 +178,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-除了YOLOv2算法，还支持YOLOv3和YOLOv5算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`，使用YOLOv8算法的启动配置为`dnn_example_config_file:="config/yolov8workconfig.json"`，使用YOLOv10算法的启动配置为`dnn_example_config_file:="config/yolov10workconfig.json"`。
+除了YOLOv2算法，还支持YOLOv3和YOLOv5算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`，使用YOLOv8算法的启动配置为`dnn_example_config_file:="config/yolov8workconfig.json"`，使用YOLOv10算法的启动配置为`dnn_example_config_file:="config/yolov10workconfig.json"`，使用YOLOv11算法的启动配置为`dnn_example_config_file:="config/yolov11workconfig.json"`，使用YOLOv12算法的启动配置为`dnn_example_config_file:="config/yolov12workconfig.json"`。
 
 ### RDK Ultra平台
 

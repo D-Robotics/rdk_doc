@@ -26,6 +26,12 @@ import TabItem from '@theme/TabItem';
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
+## 算法信息
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ------------ | ---- |
+| pwcnet | X5 | 1×6×384×512 | 23 |
+
 ## 准备工作
 
 ### RDK平台
@@ -156,6 +162,6 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 [mono_pwcnet-3] [WARN] [0000000507.422862825] [mono_pwcnet]: Sub img fps: 5.04, Smart fps: 5.00, pre process time ms: 38, infer time ms: 41, post process time ms: 1
 ```
 
-在PC端的浏览器输入http://IP:8000 ,然后点击右侧的Full Image Segmentation查看渲染效果（IP为RDK设备的IP地址）
+在PC端的浏览器输入http://IP:8000 ,然后点击右侧的 'Full Image Segmentation' 查看渲染效果（IP为RDK设备的IP地址）
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif)

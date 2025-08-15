@@ -35,6 +35,14 @@ import TabItem from '@theme/TabItem';
 | SmolVLM2 | 256M | X5 | [SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
 | SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf)
 
+## 算法信息
+
+| 模型 | 参数量 | 平台 | 输入尺寸 | 推理延迟(ms) |
+| ---- | ---- | ---- | ------------ | ---- |
+| InternVL-image-encode | 0.5B | X5 | 1x3x448x448 | 2456.00 |
+| InternVL-image-encode | 0.5B | S100 | 1x3x448x448 | 336.62 |
+| Smolvlm2-image-encode | 0.5B | X5 | 1x3x512x512 | 1055 |
+
 ## 准备工作
 
 ### RDK平台
