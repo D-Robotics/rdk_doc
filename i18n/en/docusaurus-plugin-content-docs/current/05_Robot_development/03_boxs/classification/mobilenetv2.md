@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The mobilenetv2 image classification algorithm example uses images as input and utilizes the BPU for inference. It publishes messages containing object categories.
 
-The mobilenetv2 is a caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. The model source can be found at: https://github.com/shicai/MobileNet-Caffe . Supported target types include people, animals, fruits, vehicles, and other 1000 categories. For specific supported categories, please refer to the file /opt/tros/lib/dnn_node_example/config/imagenet.list on the RDK (TogatherROS.Bot installed).
+The mobilenetv2 is a caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. The model source can be found at: https://github.com/shicai/MobileNet-Caffe . Supported target types include people, animals, fruits, vehicles, and other 1000 categories. For specific supported categories, please refer to the file /opt/tros/lib/dnn_node_example/config/imagenet.list on the RDK (TogetheROS.Bot installed).
 
 Code repository:  https://github.com/D-Robotics/hobot_dnn
 
