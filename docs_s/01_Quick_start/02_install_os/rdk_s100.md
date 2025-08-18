@@ -18,18 +18,6 @@ sidebar_position: 4
 
 RDK S100 开发板通过 DC 接口供电，推荐使用套件中自带的电源适配器。
 
-### **驱动安装**
-
-RDK S100 开发板通过 USB Type-C 接口与 PC 连接，烧录系统镜像前需在 PC 上安装 fastboot 驱动程序。
-
-驱动下载地址：[winusb 驱动程序](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/)
-
-Sunrise5 USB 驱动支持 bl1/bl2/bl33 DFU、fastboot 和 adb 模式，安装步骤如下：
-
-1. 下载并解压 `sunrise5_winusb.zip`
-2. 右键以管理员身份运行 `install_driver.bat`
-
-
 ### **存储**
 
 RDK S100 采用 eMMC 作为系统启动介质。
@@ -71,11 +59,11 @@ Hobot$ fastboot 0
 
 usb驱动下载（可[点击此处下载](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/)）
 
-下载sunrise5_winusb.zip压缩包，进行驱动安装，步骤如下：
+下载`sunrise5_winusb.zip`压缩包，进行驱动安装，步骤如下：
 
-1、解压 sunrise5_winusb.zip。
+1、解压`sunrise5_winusb.zip`。
 
-2、进入sunrise5_winusb，右键点击install_driver.bat，选择以管理员身份运行。
+2、进入`sunrise5_winusb`，右键点击`install_driver.bat`，选择以管理员身份运行。
 
 成功安装驱动后，设备管理器会显示Android Device设备，如下图：
 
@@ -95,6 +83,12 @@ RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌面
 参考[1.6 资源汇总](../../01_Quick_start/download.md)章节。
 
 ### 系统烧录
+
+:::info 注意
+
+目前**需要将 SW3 拨至 ↑ 位置**，使用板载 eMMC 来启动，暂时不支持从 M.2 NVMe 固态硬盘启动。
+
+:::
 
 RDK S100 开发套件可借助 PC 端工具 D-Navigation 来完成 Ubuntu 系统的烧录工作。当前，该烧录过程支持两种 USB 下载模式，用户可在烧录工具的 “下载选取” 界面里的 “下载模式” 选项处进行选择。这两种模式的具体区别如下：
 
