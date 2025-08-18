@@ -1,8 +1,8 @@
 ---
-sidebar_position: 9
+sidebar_position: 1
 ---
 
-# 5.2.9 大语言模型
+# Bloom大语言模型
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -22,6 +22,12 @@ import TabItem from '@theme/TabItem';
 | RDK X3, RDK X3 Module (4GB内存) | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 端侧大语言模型体验 |
 
 **注意：仅支持RDK X3，RDK X3 Module 4GB内存版本。**
+
+## 算法信息
+
+| 模型 | 参数量 | 平台 | prefill eval time(ms/token) | eval time(ms/token) |
+| ---- | ---- | ---- | ------------ | ---- |
+| Bloom| 1.4B | X3 | 305.34 | 364.78 |
 
 ## 准备工作
 

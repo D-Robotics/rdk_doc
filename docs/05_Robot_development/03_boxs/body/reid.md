@@ -1,5 +1,5 @@
 ---
-sidebar_position: 22
+sidebar_position: 6
 ---
 # 人体实例跟踪
 

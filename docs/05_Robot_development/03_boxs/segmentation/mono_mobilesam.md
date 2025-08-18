@@ -1,7 +1,7 @@
 ---
-sidebar_position: 14
+sidebar_position: 4
 ---
-# MobileSAM分割一切
+# MobileSAM 分割一切
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
-sidebar_position: 20
+sidebar_position: 2
 ---
-# 智能语音 Sensevoice
+# Sensevoice
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

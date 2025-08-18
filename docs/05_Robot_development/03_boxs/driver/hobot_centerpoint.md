@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 2
 ---
 # 激光雷达目标检测算法
 
