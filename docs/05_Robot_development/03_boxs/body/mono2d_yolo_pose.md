@@ -1,5 +1,5 @@
 ---
-sidebar_position: 21
+sidebar_position: 7
 ---
 # 人体检测和跟踪(Ultralytics YOLO Pose)
 

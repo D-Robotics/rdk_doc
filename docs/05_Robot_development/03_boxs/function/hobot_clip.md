@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 1
 ---
 # 文本图片特征检索
 

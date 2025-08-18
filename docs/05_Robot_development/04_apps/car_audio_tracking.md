@@ -72,7 +72,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
-5. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/function/hobot_audio.md)）。
+5. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/audio/hobot_audio.md)）。
 
 6. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 

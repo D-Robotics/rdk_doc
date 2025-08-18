@@ -1,8 +1,8 @@
 ---
-sidebar_position: 10
+sidebar_position: 2
 ---
 
-# 5.2.10 视觉语言模型
+# 视觉语言模型
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -37,11 +37,11 @@ import TabItem from '@theme/TabItem';
 
 ## 算法信息
 
-| 模型 | 参数量 | 平台 | 输入尺寸 | 推理延迟(ms) |
-| ---- | ---- | ---- | ------------ | ---- |
-| InternVL-image-encode | 0.5B | X5 | 1x3x448x448 | 2456.00 |
-| InternVL-image-encode | 0.5B | S100 | 1x3x448x448 | 336.62 |
-| Smolvlm2-image-encode | 0.5B | X5 | 1x3x512x512 | 1055 |
+
+| 模型 | 参数量 | 量化方式 | 平台 | 输入尺寸 | image encoder time(ms) | prefill eval time(ms/token) | eval time(ms/token) |
+| ---- | ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
+| InternVL2_5 | 0.5B | Q4_0 | X5 | 1x3x448x448 | 2456.00 | 7.7 | 51.6 |
+| Smolvlm2 | 256M | Q8_0 |X5 | 1x3x512x512 | 1053 | 9.3 | 27.8 |
 
 ## 准备工作
 

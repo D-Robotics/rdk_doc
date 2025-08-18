@@ -1,7 +1,7 @@
 ---
-sidebar_position: 21
+sidebar_position: 3
 ---
-# EdgeSAM分割一切
+# EdgeSAM 分割一切
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

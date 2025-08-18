@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
 ### RDK平台
 
-- 可以使用视觉语言模型 [视觉语言模型](/docs/05_Robot_development/02_quick_demo/hobot_llamacpp.md)
+- 可以使用视觉语言模型 [视觉语言模型](/docs/05_Robot_development/03_boxs/generate/hobot_llamacpp.md)
 
 - 可以使用TTS工具 [文本转语音](/docs/05_Robot_development/02_quick_demo/hobot_tts.md)
 
