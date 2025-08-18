@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
-| RDK S100 | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
 
 ## 支持模型
 
@@ -146,6 +146,15 @@ wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/reso
 
 </TabItem>
 
+<TabItem value="s100" label="RDK S100">
+
+```bash
+wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm?download=true
+wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf
+```
+
+</TabItem>
+
 </Tabs>
 
 <Tabs groupId="tros-distro">
@@ -155,6 +164,16 @@ wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/reso
 source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:=1 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="Describe the image." -p model_file_name:=SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin -p llm_model_name:=SmolVLM2-256M-Video-Instruct-Q8_0.gguf
+```
+
+</TabItem>
+
+<TabItem value="s100" label="RDK S100">
+
+```bash
+source /opt/tros/humble/setup.bash
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:=1 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="Describe the image." -p model_file_name:=SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm -p llm_model_name:=SmolVLM2-256M-Video-Instruct-Q8_0.gguf
 ```
 
 </TabItem>

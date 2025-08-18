@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
 | 平台      | 运行方式     | 示例功能                                |
 | --------- | ------------ | --------------------------------------- |
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 使用本地回灌，并通过web展示推理渲染结果 |
-| RDK S100 | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过web展示推理渲染结果 |
 
 ## 准备工作
 
