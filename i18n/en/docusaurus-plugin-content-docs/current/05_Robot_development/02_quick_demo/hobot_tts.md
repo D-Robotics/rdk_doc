@@ -73,11 +73,21 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 
     If a similar audio playback device like `pcmC0D1p` appears, it means the device is working fine.
 
-    :::caution
+    
     When using the audio board for the first time, you need to use `srpi-config` for configuration, otherwise the audio device will not be recognized.
    
-    For the configuration method, refer to the RDK User Manual [Voice Acquisition and Applications](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio)
-    :::
+   <Tabs groupId="board_type">
+   <TabItem value="rdk_x3" label="RDK_X3">
+
+   For the configuration method, refer to the RDK User Manual [RDK X3 Waveshare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)
+
+   </TabItem>
+   <TabItem value="rdk_x5" label="RDK_X5">
+
+   For the configuration method, refer to the RDK User Manual [RDK X5 WaveShare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio/rdk_x5/audio_driver_hat2_rev2.md)
+   
+   </TabItem>
+   </Tabs>
 
 3. Start the hobot_tts program.
 
