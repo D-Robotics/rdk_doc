@@ -78,9 +78,7 @@ import TabItem from '@theme/TabItem';
     如果出现类似`pcmC0D1p`音频播放设备则表示设备正常。
 
    :::caution
-   首次使用音频板需要使用`srpi-config`进行配置，否则无法识别出音频设备。
-   
-   配置方法参考RDK用户手册[音频转接板](https://developer.d-robotics.cc/documents_rdk/hardware_development/rdk_x3/audio_board)章节。
+   首次使用音频板需要使用`srpi-config`进行配置，否则无法识别出音频设备。配置方法参考RDK用户手册[语音采集与应用](/docs/03_Basic_Application/02_audio)章节。
    :::
 
 3. 启动hobot_tts程序

@@ -76,7 +76,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
     :::caution
     When using the audio board for the first time, you need to use `srpi-config` for configuration, otherwise the audio device will not be recognized.
    
-    For the configuration method, refer to the RDK User Manual [Audio Adapter Board](/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md)
+    For the configuration method, refer to the RDK User Manual [Voice Acquisition and Applications](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio)
     :::
 
 3. Start the hobot_tts program.

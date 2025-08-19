@@ -109,7 +109,7 @@ If no devices are detected, please check the device connection again.
 
 #### Configure the Audio Board
 
-For the first-time use of the audio board, use `srpi-config` to configure it. Refer to the RDK user manual's [Audio Adapter Board](/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md) section for configuration instructions.
+For the first-time use of the audio board, use `srpi-config` to configure it. Refer to the RDK user manual's [Voice Acquisition and Applications](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio) section for configuration instructions.
 
 ## Usage
 
