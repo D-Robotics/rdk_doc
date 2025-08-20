@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # Gesture Recognition
 
 ```mdx-code-block

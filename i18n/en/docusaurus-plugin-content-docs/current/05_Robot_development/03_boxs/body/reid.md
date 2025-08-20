@@ -1,7 +1,7 @@
 ---
-sidebar_position: 22
+sidebar_position: 7
 ---
-# Segment Anything
+# Human Instance Tracking Reid
 
 
 ```mdx-code-block

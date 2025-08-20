@@ -56,7 +56,7 @@ Code repository:  (https://github.com/D-Robotics/audio_control.git)
    </TabItem>
    </Tabs>
 
-4. The compatible audio board has been successfully connected to the RDK (refer to the [Smart Voice section](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/function/hobot_audio.md) for more details).
+4. The compatible audio board has been successfully connected to the RDK (refer to the [Smart Voice section](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/audio/hobot_audio.md) for more details).
 
 5. The PC is on the same network (either wired or connected to the same Wi-Fi network) as the RDK. The PC-side environment package requirements include:
 

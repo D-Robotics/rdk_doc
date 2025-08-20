@@ -36,7 +36,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 ### On RDK Platform
 
-- You can use the Vision Language Model [Vision Language Model](../02_quick_demo/hobot_llamacpp.md)
+- You can use the Vision Language Model [Vision Language Model](../03_box/generate/hobot_llamacpp.md)
 
 - You can use the TTS tool [Text-to-Speech](../02_quick_demo/hobot_tts.md)
 

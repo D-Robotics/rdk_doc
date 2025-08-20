@@ -1,8 +1,8 @@
 ---
-sidebar_position: 9
+sidebar_position: 1
 ---
 
-# 5.2.9 Large Language Model
+# Bloom Large Language Model
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
