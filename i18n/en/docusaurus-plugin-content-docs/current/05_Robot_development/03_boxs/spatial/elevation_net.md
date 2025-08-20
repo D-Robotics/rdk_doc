@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Monocular Elevation Network
 
 ```mdx-code-block

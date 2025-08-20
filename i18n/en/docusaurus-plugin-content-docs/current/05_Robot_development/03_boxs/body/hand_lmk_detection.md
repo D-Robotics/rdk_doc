@@ -1,5 +1,7 @@
+---
+sidebar_position: 2
+---
 # Hand Keypoint Detection
-
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

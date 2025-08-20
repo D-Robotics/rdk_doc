@@ -1,5 +1,5 @@
 ---
-sidebar_position: 21
+sidebar_position: 6
 ---
 # Human Detection and Tracking (Ultralytics YOLO Pose)
 

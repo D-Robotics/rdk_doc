@@ -1,4 +1,7 @@
-# Intelligent Voice 2
+---
+sidebar_position: 2
+---
+# Sensevoice
 
 
 ```mdx-code-block

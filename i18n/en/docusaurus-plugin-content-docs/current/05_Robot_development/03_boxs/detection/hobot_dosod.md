@@ -1,5 +1,5 @@
 ---
-sidebar_position: 19
+sidebar_position: 6
 ---
 # DOSOD
 
@@ -229,4 +229,4 @@ You can view the image and algorithm rendering effects by entering http://IP:800
 
 
 ## Advance
-If you want to modify the target text, you can parameter the model. [Usage] TODO.
+If you want to modify the target text, you can re-parameter the model. [DOSOD Deployment to RDK X5](https://horizonrobotics.feishu.cn/docx/MZgtdSDzNoHyOjxFSQbcRoVDnEj).

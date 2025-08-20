@@ -1,8 +1,8 @@
 ---
-sidebar_position: 10
+sidebar_position: 2
 ---
 
-# 5.2.10 Vision Language Model
+# Vision Language Model
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
