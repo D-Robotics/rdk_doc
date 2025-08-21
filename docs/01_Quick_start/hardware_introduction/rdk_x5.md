@@ -433,10 +433,65 @@ RDK X5开发板提供 40PIN 接口，IO 信号采用 3.3 V电平设计。管脚�
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-
 RDK X5 Module 开发板提供 1 路 40PIN 接口，方便用户扩展外围接口，对应接口 11。
 
 40PIN 上的所有 IO 管脚支持通过电平选择接口（接口 18）来切换 3.3V 和 1.8V 电压域。
+
+</TabItem>
+</Tabs>
+
+## 连接器型号
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X5">
+
+| 连接器 | 型号 |   厂商  |  描述  |
+| --- | ------ | ------- | ------- |
+| J1 | HDGC1002WV-S-2P | HDGC (华德共创) | RTC 电池接口 |
+| J14/J15 | AFC11-S22ICA-00 | JS (钜硕电子) | MIPI Camera 接口 |
+| J16 | AFC01-S22FCA-00 | JS (钜硕电子) | LCD 显示接口 |
+| J18 | HDGC1002WV-S-3P | HDGC (华德共创) | CAN FD 高速接口 |
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+| 连接器 | 型号 |   厂商  |  描述  |
+| --- | ------ | ------- | ------- |
+| J1/J21 | DF40C-100DS-0.4V(51) | HRS(广濑) | 100P连接器 |
+| J3 | DF40C-60DS-0.4V(51) | HRS(广濑) | 60P连接器 |
+| J4 | PZ254V-12-10P | XFCN(兴飞) | 功能控制IO header |
+| J5 | WAFER-SH1.0-2PLB | XFCN(兴飞) | RTC电池接口 |
+| J7/J8/J10 | FPC-05F-22PH20 | XUNPU(讯普) | CAM接口，MIPI DSI接口 |
+| J15 | WAFER-SH1.0-4PLB | XUNPU(讯普) | 风扇接口 |
+| J18 | WAFER-SH1.0-3PLB | XUNPU(讯普) | CAN总线接口 |
+| J20 | PH2.54-01-02PZS | XUNPU(讯普) | POE 接口 |
+
+</TabItem>
+</Tabs>
+
+## 接口电源负载能力
+
+以下数据均为单个接口能提供的负载电流，多个接口同时使用时，可能会受影响。
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X5">
+
+| 接口 | 负责能力 | 
+| --- | ------ | 
+| CAN接口 | 500mA @ 3.3V | 
+| DSI接口 | 500mA @ 3.3V | 
+| 40Pin接口 | 1A @ 3.3V/1A @ 5V | 
+| USB3接口 | 1A @ 5V | 
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+| 接口 | 负责能力 | 
+| --- | ------ | 
+| CAN接口 | 500mA @ 3.3V | 
+| DSI接口 | 500mA @ 3.3V | 
+| 40Pin接口 | 1A @ 3.3V/1A @ 5V | 
+| USB3接口 | 1A @ 5V | 
 
 </TabItem>
 </Tabs>

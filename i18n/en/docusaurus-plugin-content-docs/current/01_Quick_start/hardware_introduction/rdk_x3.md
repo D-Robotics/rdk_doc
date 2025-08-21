@@ -631,4 +631,54 @@ By default, the firmware of the core module of RDK X3 Module and the level confi
 
 </TabItem>
 
+
+</Tabs>
+
+## Connector Models
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X3">
+
+| Connector  | Model  |   Vendor   |  Description   |
+| --- | ------ | ------- | ------- |
+| J34 | AFC01-S24FCA-00 | jushuodz | MIPI CSI Connector  |
+| E1 | U.FL-R-SMT-1(10) | hirose | Wi-Fi Antenna Connector  |
+
+</TabItem>
+<TabItem value="x5md" label="RDK X3 Module">
+
+| Connector  | Model  |   Vendor   |  Description   |
+| --- | ------ | ------- | ------- |
+| J710 | AFA07-S15FCA-00 | jushuodz | MIPI DSI Connector  |
+| U100/U101 | AFA07-S15FCA-00 | jushuodz | CAM0/CAM2 Connector  |
+| J27 | AFA07-S15FCA-00 | jushuodz | CAM1 Connector  |
+
+</TabItem>
+</Tabs>
+
+## Interface Power Load Capacity
+
+The following values indicate the maximum load current supported by a single interface. When multiple interfaces are used concurrently, the available current per interface may be reduced.
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X3">
+
+| Interface  | Power Capacity | 
+| --- | ------ | 
+| CAN Interface | 500mA @ 3.3V | 
+| DSI Interface | 500mA @ 3.3V | 
+| 40Pin Interface | 1A @ 3.3V/1A @ 5V | 
+| USB3 Interface | 1A @ 5V | 
+
+</TabItem>
+<TabItem value="x5md" label="RDK X3 Module">
+
+| Interface  | Power Capacity | 
+| --- | ------ | 
+| CAN Interface | 500mA @ 3.3V | 
+| DSI Interface | 500mA @ 3.3V | 
+| 40Pin Interface | 1A @ 3.3V/1A @ 5V | 
+| USB3 Interface | 600mA @ 5V | 
+
+</TabItem>
 </Tabs>

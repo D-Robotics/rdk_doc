@@ -592,3 +592,52 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 
 
 </Tabs>
+
+## 连接器型号
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X3">
+
+| 连接器 | 型号 |   厂商  |  描述  |
+| --- | ------ | ------- | ------- |
+| J34 | AFC01-S24FCA-00 | JS (钜硕电子) | MIPI CSI 摄像头接口 |
+| E1 | U.FL-R-SMT-1(10) | HRS(广濑) | Wi-Fi天线接口 |
+
+</TabItem>
+<TabItem value="x5md" label="RDK X3 Module">
+
+| 连接器 | 型号 |   厂商  |  描述  |
+| --- | ------ | ------- | ------- |
+| J710 | AFA07-S15FCA-00 | JS (钜硕电子) | MIPI DSI接口 |
+| U100/U101 | AFA07-S15FCA-00 | JS (钜硕电子) | CAM0接口，CAM2接口 |
+| J27 | AFA07-S15FCA-00 | JS (钜硕电子) | CAM1接口 |
+
+</TabItem>
+</Tabs>
+
+## 接口电源负载能力
+
+以下数据均为单个接口能提供的负载电流，多个接口同时使用时，可能会受影响。
+
+<Tabs groupId="rdk-type">
+<TabItem value="x5" label="RDK X3">
+
+| 接口 | 负责能力 | 
+| --- | ------ | 
+| CAN接口 | 500mA @ 3.3V | 
+| DSI接口 | 500mA @ 3.3V | 
+| 40Pin接口 | 1A @ 3.3V/1A@5V | 
+| USB3接口 | 1A @ 5V | 
+
+</TabItem>
+<TabItem value="x5md" label="RDK X3 Module">
+
+| 接口 | 负责能力 | 
+| --- | ------ | 
+| CAN接口 | 500mA @ 3.3V | 
+| DSI接口 | 500mA @ 3.3V | 
+| 40Pin接口 | 1A @ 3.3V/1A @ 5V | 
+| USB3接口 | 600mA @ 5V | 
+
+</TabItem>
+</Tabs>
