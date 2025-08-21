@@ -2,35 +2,35 @@
 sidebar_position: 2
 ---
 
-# 3.4.2 参考示例（C++）
+# 3.4.2 参考示例（ C++）
 
 本章节介绍多媒体库开发的多种功能示例，包括摄像头图像采集、视频编解码、视频显示、算法推理等功能。
 
 ## 摄像头图像采集和显示
 
-本示例`vio2display`示例实现了`MIPI`摄像头图像采集功能，并通过`HDMI`接口输出，用户可通过显示器预览画面。
+本示例 `vio2display` 示例实现了 `MIPI` 摄像头图像采集功能，并通过 `HDMI` 接口输出，用户可通过显示器预览画面。
 
 示例流程框图如下：
 ![image-vio_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_display.jpg)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
-   - 通过HDMI线缆连接开发板和显示器
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+   - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/vio2display
     sunrise@ubuntu:/app/cdev_demo/vio2display$ sudo make
     sunrise@ubuntu:/app/cdev_demo/vio2display$ sudo ./vio2display -w 1920 -h 1080
     ```
    参数说明：
-    - -w: sensor输出宽度
-    - -h: sensor输出高度
+    - -w: sensor 输出宽度
+    - -h: sensor 输出高度
 
  - **预期效果：**
-    程序正确运行后，开发板会通过显示器输出`MIPI`摄像头采集的实时画面。运行log如下：
+    程序正确运行后，开发板会通过显示器输出 `MIPI` 摄像头采集的实时画面。运行 log 如下：
     ```bash
       sunrise@ubuntu:/tmp/nfs/sp_cdev/cdev_demo/vio2display$ ./vio2display -w 1920 -h 1080
       disp_w=1920, disp_h=1080
@@ -64,30 +64,30 @@ sidebar_position: 2
 
 ## 摄像头图像本地保存 (RDK X3)
 
-本示例`vio_capture`示例实现了`MIPI`摄像头图像采集，并将`RAW`和`YUV`两种格式的图像本地保存的功能。示例流程框图如下：
+本示例 `vio_capture` 示例实现了 `MIPI` 摄像头图像采集，并将 `RAW` 和 `YUV` 两种格式的图像本地保存的功能。示例流程框图如下：
 ![image-capture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
-   - 通过HDMI线缆连接开发板和显示器
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+   - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/vio_capture/
     sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo make
     sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo ./capture -b 12 -c 10 -h 1080 -w 1920
     ```
     参数说明：
-    - -b: RAW图bit数，IMX477：12，others：10
+    - -b: RAW 图 bit 数， IMX477 ： 12 ， others： 10
     - -c: 保存图像的数量
     - -w: 保存图像的宽度
     - -h: 保存图像的高度
 
 
  - **预期效果：**
-    程序正确运行后，当前目录保存指定数量的图片文件，`RAW`格式以`raw_*.raw`方式命名，`YUV`格式以`yuv_*.yuv`方式命名。运行log如下：
+    程序正确运行后，当前目录保存指定数量的图片文件，`RAW` 格式以 `raw_*.raw` 方式命名，`YUV` 格式以 `yuv_*.yuv` 方式命名。运行 log 如下：
     ```bash
     sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo ./capture -b 12 -c 10 -h 1080 -w 1920
     Setting VPS channel-2: src_w:1920, src_h:1080; dst_w:1920, dst_h:1080;
@@ -109,17 +109,17 @@ sidebar_position: 2
 
 ## 摄像头图像本地保存 (RDK X5)
 
-本示例`vio_capture`示例实现了`MIPI`摄像头图像采集，并将`RAW`和`YUV`两种格式的图像本地保存的功能。示例流程框图如下：
+本示例 `vio_capture` 示例实现了 `MIPI` 摄像头图像采集，并将 `RAW` 和 `YUV` 两种格式的图像本地保存的功能。示例流程框图如下：
 ![image-capture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.jpg)
 
  - **环境准备：**
 
-   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
  - **运行方式：**
-   示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+   示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
 
    ```bash
    sunrise@ubuntu:~$ cd /app/cdev_demo/vio_capture/
@@ -129,14 +129,14 @@ sidebar_position: 2
 
    参数说明：
 
-   - -b:  RAW图bit数，IMX219 / IMX477 / OV5647 都设置为 16，只有极少数 Camera Sensor 需要设置为 8
+   - -b:  RAW 图 bit 数， IMX219 / IMX477 / OV5647 都设置为 16 ，只有极少数 Camera Sensor 需要设置为 8
    - -c: 保存图像的数量
    - -w: 保存图像的宽度
    - -h: 保存图像的高度
 
 
  - **预期效果：**
-   程序正确运行后，当前目录保存指定数量的图片文件，`RAW`格式以`raw_*.raw`方式命名，`YUV`格式以`yuv_*.yuv`方式命名。运行log如下：
+   程序正确运行后，当前目录保存指定数量的图片文件，`RAW` 格式以 `raw_*.raw` 方式命名，`YUV` 格式以 `yuv_*.yuv` 方式命名。运行 log 如下：
 
    ```bash
    sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo ./capture -b 16 -c 10 -h 1080 -w 1920
@@ -162,37 +162,37 @@ sidebar_position: 2
 
 ## 摄像头图像本地保存 (RDK Ultra)
 
-本示例`vio_capture`示例实现了`MIPI`摄像头图像采集，并提供`RAW`和`YUV`两种格式的图像本地保存的功能（两者互斥）。示例流程框图如下：
+本示例 `vio_capture` 示例实现了 `MIPI` 摄像头图像采集，并提供 `RAW` 和 `YUV` 两种格式的图像本地保存的功能（两者互斥）。示例流程框图如下：
 ![image-capture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-capture.png)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
-   - 通过HDMI线缆连接开发板和显示器
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+   - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
-   - **如果需要获取raw数据，请先按照以下步骤进行配置**：
-      - 编辑摄像头对应的配置文件，以`IMX219`为例，编辑`/etc/camera_configs/Ultra/imx219/1080/vpm.json`
-      - 将`isp_dma_output_format`字段修改成`4`，保存更改
+   - **如果需要获取 raw 数据，请先按照以下步骤进行配置**：
+      - 编辑摄像头对应的配置文件，以 `IMX219` 为例，编辑 `/etc/camera_configs/Ultra/imx219/1080/vpm.json`
+      - 将 `isp_dma_output_format` 字段修改成 `4`，保存更改
    - **如果需要获取`NV12`格式的图片，请先按照以下步骤进行配置**：
-      - 编辑摄像头对应的配置文件，以`IMX219`为例，编辑`/etc/camera_configs/Ultra/imx219/1080/vpm.json`
-      - 将`isp_stream_output_format`字段修改为`0`；将`isp_dma_output_format`字段修改为`9`；将`pym_mode`字段修改为`0`；保存更改
+      - 编辑摄像头对应的配置文件，以 `IMX219` 为例，编辑 `/etc/camera_configs/Ultra/imx219/1080/vpm.json`
+      - 将 `isp_stream_output_format` 字段修改为 `0`；将 `isp_dma_output_format` 字段修改为 `9`；将 `pym_mode` 字段修改为 `0`；保存更改
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/vio_capture/
     sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo make
     sunrise@ubuntu:/app/cdev_demo/vio_capture$ sudo ./capture -b 12 -c 10 -h 1080 -w 1920 -m 0
     ```
     参数说明：
-    - -b: RAW图bit数，目前都是**12**
+    - -b: RAW 图 bit 数，目前都是 **12**
     - -c: 保存图像的数量
     - -w: 保存图像的宽度
     - -h: 保存图像的高度
-    - -m: 保存图像的类型，0:yuv，1:raw
+    - -m: 保存图像的类型， 0:yuv， 1:raw
 
 
  - **预期效果：**
-    程序正确运行后，当前目录保存指定数量的图片文件，`RAW`格式以`raw_*.raw`方式命名，`YUV`格式以`yuv_*.yuv`方式命名。运行log如下：
+    程序正确运行后，当前目录保存指定数量的图片文件，`RAW` 格式以 `raw_*.raw` 方式命名，`YUV` 格式以 `yuv_*.yuv` 方式命名。运行 log 如下：
     ```bash
     root@ubuntu:/app/cdev_demo/media_cdev/vio_capture# sudo ./capture -b 12 -c 10 -h 1080 -w 1920 -m 0
     Camera: gpio_num=432, active=low, i2c_bus=6, mipi_host=3
@@ -215,16 +215,16 @@ sidebar_position: 2
 
 ## 摄像头图像采集并编码
 
-本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存，用户可通过显示器预览画面。示例流程框图如下：
+本示例 `vio2encoder` 示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存。示例流程框图如下：
 ![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.png)
 
  - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
-   - 通过HDMI线缆连接开发板和显示器
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+   - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
  - **运行方式：** 按照以下命令执行程序
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/vio2encoder
     sunrise@ubuntu:/app/cdev_demo/vio2encoder$ sudo make
@@ -233,12 +233,12 @@ sidebar_position: 2
     参数说明：
       - -w: 编码视频宽度
       - -h: 编码视频高度
-      - --iwidth: sensor输出宽度
-      - --iheight: sensor输出高度
+      - --iwidth: sensor 输出宽度
+      - --iheight: sensor 输出高度
       - -o: 编码输出路径
 
  - **预期效果**：
-    程序正确运行后，在当前目录下会生成名为`stream.h264`的视频文件。运行log如下：
+    程序正确运行后，在当前目录下会生成名为 `stream.h264` 的视频文件。运行 log 如下：
     ```bash
    sunrise@ubuntu:/tmp/nfs/sp_cdev/cdev_demo/vio2encoder$ sudo ./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264
    2023/03/28 02:27:32.560 !INFO [x3_cam_init_param][0099]Enable mipi host0 mclk
@@ -270,17 +270,17 @@ sidebar_position: 2
 
 ## 摄像头图像采集并编码 (RDK X5)
 
-本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存，用户可通过显示器预览画面。示例流程框图如下：
+本示例 `vio2encoder` 示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存。示例流程框图如下：
 ![image-vio_to_encoder](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-vio_to_encoder.jpg)
 
  - **环境准备：**
 
-   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
    - 通过 HDMI 线缆连接开发板和显示器
    - 开发板上电，并通过命令行登录
 
  - **运行方式：** 按照以下命令执行程序
-   示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+   示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
 
    ```bash
    sunrise@ubuntu:~$ cd /app/cdev_demo/vio2encoder
@@ -292,12 +292,12 @@ sidebar_position: 2
 
      - -w: 编码视频宽度
      - -h: 编码视频高度
-     - --iwidth: sensor输出宽度
-     - --iheight: sensor输出高度
+     - --iwidth: sensor 输出宽度
+     - --iheight: sensor 输出高度
      - -o: 编码输出路径
 
  - **预期效果**：
-   程序正确运行后，在当前目录下会生成名为`stream.h264`的视频文件。运行log如下：
+   程序正确运行后，在当前目录下会生成名为 `stream.h264` 的视频文件。运行 log 如下：
 
    ```bash
    sunrise@ubuntu:/tmp/nfs/sp_cdev/cdev_demo/vio2encoder$ sudo ./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264
@@ -315,11 +315,11 @@ sidebar_position: 2
 
 ## 视频文件解码并显示
 
-本示例`decoder2display`实现了视频文件解码，并通过`HDMI`接口输出的工，用户可通过显示器预览画面。示例流程框图如下：
+本示例 `decoder2display` 实现了视频文件解码，并通过 `HDMI` 接口输出的工，用户可通过显示器预览画面。示例流程框图如下：
 ![image-decoder_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-decoder_to_display.png)
 
 - **环境准备：**
-  - 通过HDMI线缆连接开发板和显示器
+  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
   - 准备视频编码文件 `stream.h264` 作为输入。
 
@@ -338,7 +338,7 @@ sidebar_position: 2
 
 
  - **预期效果：**
-    程序正确运行后，视频画面会通过开发板的`HDMI`接口输出，用户可以通过显示器预览视频画面。运行log如下：
+    程序正确运行后，视频画面会通过开发板的 `HDMI` 接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
     ```bash
     sunrise@ubuntu:/app/cdev_demo/decode2display$ sudo ./decoder2display -w 1920 -h 1080 -i stream.h264
     disp_w=1024, disp_h=600
@@ -349,15 +349,15 @@ sidebar_position: 2
     sp_open_vps success!
     ```
 
-## RTSP拉流解码
+## RTSP 拉流解码
 
-本示例`rtsp2display`实现了拉取`rtsp`码流、解码，并通过`HDMI`输出视频图像的功能，用户可通过显示器预览画面。示例流程框图如下：
+本示例 `rtsp2display` 实现了拉取 `rtsp` 码流、解码，并通过 `HDMI` 输出视频图像的功能，用户可通过显示器预览画面。示例流程框图如下：
 ![rtsp2display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/image-rtsp_to_display.jpg)
 
 - **环境准备：**
-  - 通过HDMI线缆连接开发板和显示器
+  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
-  - 准备`rtsp`码流作为输入源，使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/1080P_test.h264`。用户可通过如下命令启动推流服务：
+  - 准备 `rtsp` 码流作为输入源，使用系统预置的推流服务。该服务会把 `1080P_test.h264` 视频文件处理成 rtsp 流， url 地址为 `rtsp://127.0.0.1/1080P_test.h264`。用户可通过如下命令启动推流服务：
 
     ```text
     cd /app/pydev_demo/08_decode_rtsp_stream/
@@ -365,19 +365,19 @@ sidebar_position: 2
     ```
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/rtsp2display
-    sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo make #可能会打印一些警告信息，无需理会
+    sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo make # 可能会打印一些警告信息，无需理会
     sunrise@ubuntu:/app/cdev_demo/decode2display$ sudo ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
     ```
     参数配置：
-    - -i: 码流url地址
+    - -i: 码流 url 地址
     - -t: 传输类型，可选 tcp / udp
 
 
  - **预期效果：**
-    程序正确运行后，视频画面会通过开发板的`HDMI`接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
+    程序正确运行后，视频画面会通过开发板的 `HDMI` 接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
 
     ```
     sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
@@ -402,15 +402,15 @@ sidebar_position: 2
 
 ## VPS 缩放示例
 
-本示例实现了基于视频处理模块`VPS`的视频缩放功能，用户可通过显示器预览画面。
+本示例实现了基于视频处理模块 `VPS` 的视频缩放功能，用户可通过显示器预览画面。
 
 - **环境准备：**
-  - 通过HDMI线缆连接开发板和显示器
+  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
-  - 准备图像(NV12)、视频文件(H264)作为输入
+  - 准备图像 (NV12)、视频文件 (H264) 作为输入
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/vps
     sunrise@ubuntu:/app/cdev_demo/vps$ sudo make
@@ -420,14 +420,14 @@ sidebar_position: 2
       - -i: 待操作的文件路径
       - -iheight: 输入高度
       - -iwidth: 输入宽度
-      - -m: 输入模式，1:视频流；2:NV12图片
+      - -m: 输入模式， 1: 视频流； 2:NV12 图片
       - -o: 输出路径
       - -oheight: 输出高度
       - -width: 输出宽度
       - -skip:（可选）对于视频流输入，调过开头的帧数
 
  - **预期效果：**
-    程序正确运行后，当前目录会保存处理后的图像文件`outpu.yuv`。运行log如下：
+    程序正确运行后，当前目录会保存处理后的图像文件 `outpu.yuv`。运行 log 如下：
 
     ```shell
     sunrise@ubuntu:/app/cdev_demo/vps$ sudo ./vps -m 1 -i stream.h264 -o output.yuv --iheight 1080 --iwidth 1920 --oheight 720 --owidth 1280
@@ -437,17 +437,17 @@ sidebar_position: 2
     ... 省略 ...
     ```
 
-## 目标检测算法—fcos
+## 目标检测算法— fcos
 
-本示例基于`fcos`模型，实现了本地视频流的目标检测算法功能，用户可通过显示器预览检测结果。
+本示例基于 `fcos` 模型，实现了本地视频流的目标检测算法功能，用户可通过显示器预览检测结果。
 
 - **环境准备：**
-  - 通过HDMI线缆连接开发板和显示器
+  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
-  - 准备视频文件(H264)作为输入
+  - 准备视频文件 (H264) 作为输入
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/bpu/src
     sunrise@ubuntu:/app/cdev_demo/bpu/src$ sudo make
@@ -460,10 +460,10 @@ sidebar_position: 2
       - -h: 输入视频的高度
       - -w: 输入视频的宽度
       - -i: 输入视频的路径
-      - -m: 模型类型，默认为1
+      - -m: 模型类型，默认为 1
 
  - **预期效果：**
-    程序正确运行后，会通过`HDMI`接口输出视频和算法检测渲染后的画面，用户可通过显示器预览。运行log如下：
+    程序正确运行后，会通过 `HDMI` 接口输出视频和算法检测渲染后的画面，用户可通过显示器预览。运行 log 如下：
 
     ```bash
     sunrise@ubuntu:/app/cdev_demo/bpu/src/bin$ sudo ./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080
@@ -501,17 +501,17 @@ sidebar_position: 2
     fps:55.555556,processing time:18
     ```
 
-## 目标检测算法—YOLOv5s
+## 目标检测算法— YOLOv5s
 
-本示例基于`YOLOv5`模型，实现了摄像头目标检测算法功能，用户可通过显示器预览检测结果。
+本示例基于 `YOLOv5` 模型，实现了摄像头目标检测算法功能，用户可通过显示器预览检测结果。
 
 - **环境准备：**
-   - 开发板断电状态下，将`MIPI`摄像头接入开发板，连接方法可参考-[硬件简介-MIPI接口](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
-  - 通过HDMI线缆连接开发板和显示器
+   - 开发板断电状态下，将 `MIPI` 摄像头接入开发板，连接方法可参考 -[ 硬件简介 -MIPI 接口 ](https://developer.d-robotics.cc/rdk_doc/Quick_start/hardware_introduction/rdk_x3#mipi_port)
+  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
 
  - **运行方式：**
-    示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+    示例代码以源码形式提供，需要使用 `make` 命令进行编译后运行，步骤如下：
 
     ```bash
     sunrise@ubuntu:~$ cd /app/cdev_demo/bpu/src
@@ -523,11 +523,11 @@ sidebar_position: 2
     **参数配置：**
 
     - -f: 模型的路径
-    - -m: 模型类型，默认为0
+    - -m: 模型类型，默认为 0
 
 
  - **预期效果：**
-    程序正确运行后，会通过`HDMI`接口输出视频和算法检测渲染后的画面，用户可通过显示器预览。运行log如下：
+    程序正确运行后，会通过 `HDMI` 接口输出视频和算法检测渲染后的画面，用户可通过显示器预览。运行 log 如下：
 
     ```bash
     sunrise@ubuntu:/app/cdev_demo/bpu/src/bin$ sudo ./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0
