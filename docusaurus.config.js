@@ -186,17 +186,22 @@ const config = {
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        language: ["en", "zh"],
+        // Performance optimizations
+        hashed: true, // Enable long-term caching for better performance
+        language: ["en", "zh"], // Chinese and English support
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
         docsRouteBasePath: ["/", "rdk_s"],
-        // For Docs using Chinese, The `language` is recommended to set to:
-        // ```
-        // language: ["en", "zh"],
-        // ```
+        
+        // Optimize index size and loading speed
+        indexDocs: true,
+        indexBlog: false, // Disable blog indexing to reduce index size
+        indexPages: false, // Disable pages indexing to reduce index size
+        
+        // Search behavior optimizations
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
+        searchResultContextMaxLength: 50, // Reduce context length for smaller index
       },
     ],
     "@docusaurus/theme-mermaid",

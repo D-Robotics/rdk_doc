@@ -116,16 +116,36 @@
     "description": "The label for category 5.3.1 目标检测 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5.3.2 图像分类": {
-    "message": "5.3.2 Image Classfication",
+    "message": "5.3.2 Image Classification",
     "description": "The label for category 5.3.2 图像分类 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5.3.3 图像分割": {
     "message": "5.3.3 Image Segmentation",
     "description": "The label for category 5.3.3 图像分割 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.5.3.4 应用算法": {
-    "message": "5.3.4 Application Algorithms",
-    "description": "The label for category 5.3.4 应用算法 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.5.3.4 人体识别": {
+    "message": "5.3.4 Human Body Recognition",
+    "description": "The label for category 5.3.4 人体识别 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.5 车路协同": {
+    "message": "5.3.5 Autonomous Driving",
+    "description": "The label for category 5.3.5 车路协同 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.6 空间感知": {
+    "message": "5.3.6 Spatial Perception",
+    "description": "The label for category 5.3.6 空间感知 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.7 智能语音": {
+    "message": "5.3.7 Intelligent Audio",
+    "description": "The label for category 5.3.7 智能语音 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.8 生成式大模型": {
+    "message": "5.3.8 Generative Large Models",
+    "description": "The label for category 5.3.8 生成式大模型 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.9 其他算法": {
+    "message": "5.3.9 Other Algorithms",
+    "description": "The label for category 5.3.9 其他算法 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5.4 Apps应用示例": {
     "message": "5.4 Apps Application Examples",
