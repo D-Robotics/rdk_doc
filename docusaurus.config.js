@@ -91,6 +91,8 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       
+      
+      
                 // ✅ 新增：支持 h2 ~ h5 add by xgs for table of contents
     tableOfContents: {
       minHeadingLevel: 2,
@@ -182,27 +184,26 @@ const config = {
       },
     }),
   themes: [
-    // add by xgs for search.
+    "@docusaurus/theme-mermaid",
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
-        // Performance optimizations
-        hashed: true, // Enable long-term caching for better performance
-        language: ["en", "zh"], // Chinese and English support
+        // 性能优化
+        hashed: true, // 启用长期缓存
+        language: ["en", "zh"], // 中英文支持
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
-        docsRouteBasePath: ["/", "rdk_s"],
+        docsRouteBasePath: ["/", "rdk_s"], // 支持多个文档路径
         
-        // Optimize index size and loading speed
+        // 优化索引大小和加载速度
         indexDocs: true,
-        indexBlog: false, // Disable blog indexing to reduce index size
-        indexPages: false, // Disable pages indexing to reduce index size
+        indexBlog: false, // 禁用博客索引
+        indexPages: false, // 禁用页面索引
         
-        // Search behavior optimizations
-        searchResultContextMaxLength: 50, // Reduce context length for smaller index
+        // 搜索行为优化
+        searchResultContextMaxLength: 50, // 减少上下文长度
       },
     ],
-    "@docusaurus/theme-mermaid",
   ],
 };
 
