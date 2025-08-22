@@ -199,8 +199,6 @@ const config = {
         indexPages: false, // Disable pages indexing to reduce index size
         
         // Search behavior optimizations
-        searchBarShortcut: true,
-        searchBarShortcutHint: true,
         searchResultContextMaxLength: 50, // Reduce context length for smaller index
       },
     ],
