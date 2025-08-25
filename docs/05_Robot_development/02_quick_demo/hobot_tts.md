@@ -19,9 +19,10 @@ import TabItem from '@theme/TabItem';
 
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X5, RDK X5 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
-**注意：仅支持RDK X3，RDK X3 Module暂不支持。**
+**注意：仅支持RDK X3，RDK X3 Module暂不支持， RDK S100只支持USB语音设备。**
 
 ## 准备工作
 
