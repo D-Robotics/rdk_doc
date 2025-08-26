@@ -158,27 +158,27 @@ RDK X5 相关配件的完整规格书资料，提供详细的技术参数和使�
   <tbody>
     <tr>
       <td>📷 **摄像头模组**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 摄像头模组规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 摄像头模组规格书</a></td>
       <td>单摄像头模组技术规格和接口详细说明</td>
     </tr>
     <tr>
       <td>👁️ **双目摄像头模组**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK 双目摄像头模组规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK 双目摄像头模组规格书</a></td>
       <td>用于立体视觉应用的双摄像头模组</td>
     </tr>
     <tr>
       <td>🔌 **PoE 模组**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE 模组规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE 模组规格书</a></td>
       <td>网络供电模组，用于通过网线供电的应用场景</td>
     </tr>
     <tr>
       <td>🛡️ **保护外壳**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 外壳规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 外壳规格书</a></td>
       <td>保护外壳尺寸和安装规格说明</td>
     </tr>
     <tr>
       <td>🔋 **电源适配器**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 电源适配器规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 电源适配器规格书</a></td>
       <td>官方电源适配器规格和电气要求</td>
     </tr>
   </tbody>
