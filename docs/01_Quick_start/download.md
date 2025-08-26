@@ -28,8 +28,8 @@ sidebar_position: 6
   <thead>
     <tr>
       <th>📦 产品类别</th>
-      <th>RDK X5</th>
-      <th>RDK X3</th>
+      <th>RDK X5(Module)</th>
+      <th>RDK X3(Module)</th>
       <th>RDK Ultra</th>
       <th>说明</th>
     </tr>

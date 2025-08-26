@@ -27,8 +27,8 @@ This document summarizes the download resources related to the D-Robotics RDK su
   <thead>
     <tr>
       <th>📦 Product Category</th>
-      <th>RDK X5</th>
-      <th>RDK X3</th>
+      <th>RDK X5(Module)</th>
+      <th>RDK X3(Module)</th>
       <th>RDK Ultra</th>
       <th>Description</th>
     </tr>

@@ -80,20 +80,15 @@ const config = {
       },
     ],
   ],
-
   markdown: {
     mermaid: true,
   },
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
-      
-      
-      
-                // ✅ 新增：支持 h2 ~ h5 add by xgs for table of contents
+      // ✅ 新增：支持 h2 ~ h5 add by xgs for table of contents
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 5,
