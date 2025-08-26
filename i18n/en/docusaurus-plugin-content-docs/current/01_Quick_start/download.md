@@ -92,7 +92,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
   <tbody>
     <tr>
       <td>📄 **Specifications**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_Product_Brief_V1.0.pdf">RDK X5 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Datasheet%20V1P0_0526.pdf">RDK X5 Module Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_Product_Brief.pdf">RDK X3-2.0 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK_X3_Module_Product_Brief.pdf">RDK X3 Module Specifications</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK_X3_Module_Carrier_Board_Product_Brief.pdf">Carrier Board Specifications</a></td>
@@ -138,6 +138,53 @@ This document summarizes the download resources related to the D-Robotics RDK su
   </tbody>
 </table>
 </div>
+
+### RDK X5 Accessory Specifications
+
+:::info Additional RDK X5 Component Documentation
+Complete specifications for RDK X5 accessories and modules are available in English.
+:::
+
+<div class="table-wrapper">
+<table className="no-wrap-table">
+  <thead>
+    <tr>
+      <th>📦 **Component**</th>
+      <th>📋 **Specification Document**</th>
+      <th>📝 **Description**</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📷 **Camera Module**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 Camera Module Specifications</a></td>
+      <td>Single camera module technical specifications and interface details</td>
+    </tr>
+    <tr>
+      <td>👁️ **Stereo Camera Module**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK Stereo Camera Module Specifications</a></td>
+      <td>Dual camera module for stereo vision applications</td>
+    </tr>
+    <tr>
+      <td>🔌 **PoE Module**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE Module Specifications</a></td>
+      <td>Power over Ethernet module for network-powered applications</td>
+    </tr>
+    <tr>
+      <td>🛡️ **Protective Case**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 Case Specifications</a></td>
+      <td>Protective enclosure dimensions and mounting specifications</td>
+    </tr>
+    <tr>
+      <td>🔋 **Power Adapter**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 Power Adapter Specifications</a></td>
+      <td>Official power supply specifications and electrical requirements</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+---
 
 ### 📋 RDK X5 Module Detailed Hardware Resources
 
@@ -458,6 +505,7 @@ Providing comprehensive hardware design support materials for module customers t
       <th>🇯🇵 **MIC**</th>
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
+      <th>♻️ **RoHS**</th>
     </tr>
   </thead>
   <tbody>
@@ -469,6 +517,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/D-ROBOTICS%20211-241225%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3**</td>
@@ -478,6 +527,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td>
       <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3 Module**</td>
@@ -485,6 +535,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C02-%202402T78342E-RF%20C2%20EMC%20210115.pdf">📄 CE EMC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/FCC/D-ROBOTICS%202BGUG-RDKX3M%20FCC%20Grant%20-%20DTS.PDF">📄 FCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
+      <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
