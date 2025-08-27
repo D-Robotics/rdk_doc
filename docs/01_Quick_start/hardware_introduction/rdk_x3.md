@@ -181,25 +181,11 @@ RDK X3 Module载板提供一路调试（接口15），硬件上通过`CH340`芯�
 
 开发板提供一路HDMI(接口9)显示接口，最高支持1080P分辨率。开发板通过HDMI接口在显示器输出Ubuntu系统桌面(Ubuntu Server版本显示logo图标)。此外，HDMI接口还支持实时显示摄像头、网络流画面功能。
 
-目前HDMI接口支持的显示分辨率如下：
-
-- 1920x1080
-- 1280x720
-- 1024x600
-- 800x480
-
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
 
 RDK X3 Module载板提供一路HDMI显示接口（接口2），最高支持1080P分辨率。开发板通过HDMI接口在显示器输出Ubuntu系统桌面(Ubuntu Server版本显示logo图标)。此外，HDMI接口还支持实时显示摄像头、网络流画面功能。
-
-目前HDMI接口支持的显示分辨率如下：
-
-- 1920x1080
-- 1280x720
-- 1024x600
-- 800x480
 
 </TabItem>
 
