@@ -13,7 +13,7 @@ sidebar_position: 3
 | --- | --------- | -------- | --------------- | --------- |
 | 电源 | 微雪 | ORD-PSU-5V3A-USB-C-US | Type-C接口 5V/3A 定制电源 | [购买链接](https://www.waveshare.net/shop/ORD-PSU-5V3A-USB-C-US.htm)  |
 | 电源 | 亚博 | T03F-050300Z | Type-C接口 5V/3A 定制电源 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=608661929691&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.154.4df82edcjJ7wap&skuId=4949624573441)  |
-| 外壳 | 亚博 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=6844a66941541&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.138.4df82edcjJ7wap)  |
+| 外壳 | 亚博 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=12&id=684466941541&mi_id=0000PLEQT62T_Np1N3BL9CgPql-Vl9KYFYm0g339d5STQ5g&ns=1&skuId=4890111988477&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%224306038429178a697db9630f4094face%22%7D&xxc=taobaoSearch)  |
 | 外壳 | 轮趣 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=670534732857&rn=0b151aa6abd5b8d65e5533b8259449f1&spm=a1z10.3-b-s.w4011-24713677160.27.ef207988tOY0c9&skuId=5004448047864)  |
 | 散热器 | 微雪 | N/A | 散热风扇扩展板 | [购买链接](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | 散热器 | 亚博 | N/A | 主板风扇，支持OLED显示 | [购买链接](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |

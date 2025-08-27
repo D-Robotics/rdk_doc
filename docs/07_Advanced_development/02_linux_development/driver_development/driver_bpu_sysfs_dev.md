@@ -44,13 +44,13 @@ sidebar_position: 9
   - 设置BPU为目标频率，目标频率需要被BPU支持：
 
     ```
-    echo 200000000 > /sys/devices/system/bpu/bpu0/devfreq/devfreq*/userspace/set_freq
+    echo 600000000 > /sys/devices/system/bpu/bpu0/devfreq/devfreq*/userspace/set_freq
     ```
 
   - 确认被设置的频率：
 
     ```
-    cat /sys/devices/system/bpu/bpu0/devfreq/devfreq*/available_frequencies
+    cat /sys/devices/system/bpu/bpu0/devfreq/devfreq*/cur_freq
     ```
 
 - limit：读写文件，用于设置该Core核心硬件相关的缓冲数量，默认值为0，任何大于0的值为实际数量，与优先级相关，越小的正值优先级越高，
