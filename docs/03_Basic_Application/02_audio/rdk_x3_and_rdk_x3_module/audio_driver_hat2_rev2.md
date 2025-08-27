@@ -1,6 +1,10 @@
 ---
 sidebar_position: 1
 ---
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
 # 微雪 Audio Driver HAT REV2
 
@@ -16,8 +20,21 @@ Audio Driver HAT REV2是由微雪电子生产的一款音频转接板，采用ES
 
 - ### 硬件部署
 
-1. 按照下图方式，将转接板接入RDK X3的40pin header。  
+<Tabs groupId="rdk-type">
+<TabItem value="rdk-x3-pi" label="RDK-X3-PI">
+
+1. 按照下图方式，将转接板接入 RDK X3 的 40pin header。  
 ![image-audio-driver-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
+
+</TabItem>
+
+<TabItem value="rdk-x3-md" label="RDK-X3-Module">
+
+1. 按照下图方式，将转接板接入 RDK X3 的 40pin header。
+![image-x3md-v2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-x3md-v2.png)
+
+</TabItem>
+</Tabs>
 
 2. 使用命令`cat /sys/class/socinfo/som_name`，查询开发板类型，并根据返回值设置音频子板的拨码开关状态。
    - 返回值为5或者6时，3个拨码开关全部拨到`ON`位置。
