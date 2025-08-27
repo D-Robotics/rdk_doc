@@ -6,7 +6,7 @@ sidebar_position: 3
 
 :::info 注意
 
-**RDK X3 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成[最新版本系统镜像的烧写](../../../01_Quick_start/install_os) </font>。
+**RDK X3 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成[最新版本系统镜像的烧写](../../../Quick_start/install_os/rdk_x3) </font>。
 
 :::
 
@@ -41,7 +41,7 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
   sudo reboot
   ```
 
-当RDK X3模组需要烧录系统到SD上，不从eMMC模式启动时，请参考[安装系统](../../01_Quick_start/install_os)完成SD卡系统的烧录。
+当RDK X3模组需要烧录系统到SD上，不从eMMC模式启动时，请参考[安装系统](../../../Quick_start/install_os/rdk_x3)完成SD卡系统的烧录。
 
 RDK X3模组烧录eMMC系统镜像时，需要使用D-Robotics `hbupdate`烧录工具。目前工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
 
