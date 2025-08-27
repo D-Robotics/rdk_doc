@@ -6,7 +6,7 @@ sidebar_position: 1
 
 本章节主要介绍开发板有线、无线网络配置的修改方法。
 
-## 有线网络：RDK X5（>= 3.3.0）
+## 有线网络：RDK X5（>= 3.3.0）RDK X3（>= 3.0.2）
 
 开发板有线网络默认采用静态IP配置，初始IP地址为`192.168.127.10`。用户可通过如下方法实现静态、DHCP模式的切换。
 
@@ -89,7 +89,7 @@ wake-on-lan=0
 
 ![image-enable](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-enable.png)
 
-## 有线网络：RDK X3/X5（< 3.3.0）{#config_ethnet}
+## 有线网络：RDK X5（< 3.3.0）RDK X3（< 3.0.2）{#config_ethnet}
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=11
 

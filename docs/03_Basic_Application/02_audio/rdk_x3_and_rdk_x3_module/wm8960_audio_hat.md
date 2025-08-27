@@ -19,8 +19,21 @@ WM8960 Audio HAT 是由微雪电子生产的一款音频转接板，采用 WM896
 
 - ### 硬件部署
 
-1. 按照下图方式，将转接板接入 RDK X3 的 40pin header  
+<Tabs groupId="rdk-type">
+<TabItem value="rdk-x3-pi" label="RDK-X3-PI">
+
+1. 按照下图方式，将转接板接入 RDK X3 的 40pin header。   
 ![image-wm8960-audio-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-wm8960-audio-hat-setup.jpg)
+
+</TabItem>
+
+<TabItem value="rdk-x3-md" label="RDK-X3-Module">
+
+1. 按照下图方式，将转接板接入 RDK X3 的 40pin header。  
+![image-x3md-wm8960](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-x3md-wm8960.png)
+
+</TabItem>
+</Tabs>
 
 - ### 软件配置
 
@@ -120,7 +133,7 @@ WM8960 Audio HAT 是由微雪电子生产的一款音频转接板，采用 WM896
     使用 tinyplay 播放录制好的音频文件，常用参数如下：
 
     ```shell
-    tinyplay ./2chn_test.wav -D 0 -d 1
+    tinyplay ./2chn_test.wav -D 0 -d 0
     ```
 </TabItem>
 </Tabs>
