@@ -16,18 +16,19 @@ DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/
 
 应用场景：DOSOD强大的零样本检测能力使得其具有更强的泛化能力，可以应用在智能驾驶、智能家居、地质检测等领域。
 
-
 ## 支持平台
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
 | ---- | ---- | ------------ | ---- |
 | DOSOD-l | X5 | 1×640×640×3 | 12 |
+| DOSOD-l | S100 | 1×640×640×3 | 44.89 |
 
 ## 准备工作
 
@@ -66,8 +67,8 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
 
-# 启动launch文件, 通过dosod_model_file_name配置对应模型, dosod_vocabulary_file_name配置对应词汇本。注意词汇本与模型一一对应。
-ros2 launch hobot_dosod dosod.launch.py dosod_model_file_name:=config/dosod_mlp3x_l_rep-int8.bin dosod_vocabulary_file_name:=config/offline_vocabulary.json
+# 启动launch文件
+ros2 launch hobot_dosod dosod.launch.py
 ```
 
 </TabItem>
@@ -93,8 +94,8 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 # 配置USB摄像头
 export CAM_TYPE=usb
 
-# 启动launch文件, 通过dosod_model_file_name配置对应模型, dosod_vocabulary_file_name配置对应词汇本。注意词汇本与模型一一对应。
-ros2 launch hobot_dosod dosod.launch.py dosod_model_file_name:=config/dosod_mlp3x_l_rep-int8.bin dosod_vocabulary_file_name:=config/offline_vocabulary.json
+# 启动launch文件
+ros2 launch hobot_dosod dosod.launch.py
 ```
 
 </TabItem>
@@ -119,13 +120,15 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 # 配置本地回灌图片
 export CAM_TYPE=fb
 
-# 启动launch文件, 通过dosod_model_file_name配置对应模型, dosod_vocabulary_file_name配置对应词汇本。注意词汇本与模型一一对应。
-ros2 launch hobot_dosod dosod.launch.py dosod_model_file_name:=config/dosod_mlp3x_l_rep-int8.bin dosod_vocabulary_file_name:=config/offline_vocabulary.json
+# 启动launch文件
+ros2 launch hobot_dosod dosod.launch.py
 ```
 
 </TabItem>
 
 </Tabs>
+
+除了设定模型，还支持变更模型与配置。更改模型文件配置为`dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`，更改模型类别配置为`dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
 
 ## 结果分析
 

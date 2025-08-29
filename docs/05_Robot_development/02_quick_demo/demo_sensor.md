@@ -21,7 +21,8 @@ import TabItem from '@theme/TabItem';
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -336,6 +337,9 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
+    如 imx219 摄像头的接入RDK S100方式如下图：
+    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
+
 2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
 
 3. RDK已成功安装tros.b
@@ -549,6 +553,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 | 类型 | 型号 | 规格 | 支持平台 |
 | ------ | ------ | ------ | ------ |
 | 摄像头| SC230ai | 200W | RDK X5, RDK X5 Module |
+| 摄像头| SC230ai | 200W | RDK S100, RDK S100P |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -557,6 +562,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 | 平台   | 运行方式      |
 | ------ | ------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
+| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  |
 
 ### 准备工作
 
@@ -565,6 +571,9 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 1. 确认摄像头正确接入RDK，例如 SC230ai 双目摄像头的接入RDK X5, RDK X5 Module方式如下图：
 
     ![image-X5-PI-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
+
+    如SC230ai 双目摄像头的接入S100方式如下图：
+    ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
 
 2. RDK已烧录好Ubuntu 22.04系统镜像
 

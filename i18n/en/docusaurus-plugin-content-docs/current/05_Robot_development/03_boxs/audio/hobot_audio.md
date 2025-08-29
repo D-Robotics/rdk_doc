@@ -23,7 +23,8 @@ Example of voice-controlled car movement: [Voice-controlled car movement](../../
 
 | Platform | System | Function                    |
 | -------- | ------------ | ---------------------------------- |
-| RDK X3, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the audio module algorithm and display the results in the terminal |
+| RDK X3  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the audio module algorithm and display the results in the terminal |
+| RDK X5  | Ubuntu 22.04 (Humble) | Start the audio module algorithm and display the results in the terminal |
 
 **Note: Only supports RDK X3.**
 
@@ -112,7 +113,20 @@ If no devices are detected, please check the device connection again.
 
 #### Configure the Audio Board
 
-For the first-time use of the audio board, use `srpi-config` to configure it. Refer to the RDK user manual's [Audio Adapter Board](/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md) section for configuration instructions.
+    When using the audio board for the first time, you need to use `srpi-config` for configuration, otherwise the audio device will not be recognized.
+   
+   <Tabs groupId="board_type">
+   <TabItem value="rdk_x3" label="RDK_X3">
+
+   For the configuration method, refer to the RDK User Manual [RDK X3 Waveshare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)
+
+   </TabItem>
+   <TabItem value="rdk_x5" label="RDK_X5">
+
+   For the configuration method, refer to the RDK User Manual [RDK X5 WaveShare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio/rdk_x5/audio_driver_hat2_rev2.md)
+   
+   </TabItem>
+   </Tabs>
 
 ## Usage
 

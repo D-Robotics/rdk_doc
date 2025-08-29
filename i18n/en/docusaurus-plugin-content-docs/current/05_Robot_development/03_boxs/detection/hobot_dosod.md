@@ -21,6 +21,7 @@ Application Scenarios: The robust zero-shot detection capability of DOSOD endows
 | Platform                            | System | Function                                     |
 | ----------------------------------- | -------------- | -------------------------------------------------------- |
 | RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
 
 ## Preparation
 
@@ -59,7 +60,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 export CAM_TYPE=mipi
 
 # Start the launch file
-ros2 launch hobot_dosod dosod.launch.py dosod_model_file_name:=config/dosod_mlp3x_l_rep-int8.bin dosod_vocabulary_file_name:=config/offline_vocabulary.json
+ros2 launch hobot_dosod dosod.launch.py
 ```
 
 </TabItem>
@@ -86,7 +87,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 export CAM_TYPE=usb
 
 # Start the launch file
-ros2 launch hobot_dosod dosod.launch.py dosod_model_file_name:=config/dosod_mlp3x_l_rep-int8.bin dosod_vocabulary_file_name:=config/offline_vocabulary.json
+ros2 launch hobot_dosod dosod.launch.py
 ```
 
 </TabItem>
@@ -112,7 +113,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 export CAM_TYPE=fb
 
 # Start the launch file
-ros2 launch hobot_dosod dosod.launch.py dosod_model_file_name:=config/dosod_mlp3x_l_rep-int8.bin dosod_vocabulary_file_name:=config/offline_vocabulary.json
+ros2 launch hobot_dosod dosod.launch.py
 ```
 
 </TabItem>

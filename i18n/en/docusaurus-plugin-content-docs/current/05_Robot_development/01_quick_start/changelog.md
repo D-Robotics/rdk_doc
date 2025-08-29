@@ -5,6 +5,94 @@ sidebar_position: 6
 
 ## tros-humble
 
+### Version: 2.4.2 (2025-8-29)
+
+#### New Features (RDK S100 platform):
+
+- [MIPI Image Capture](../02_quick_demo/demo_sensor.md) supports the 230ai stereo module.
+
+- [YOLO Object Detection](../03_boxs/detection/yolo.md) supports yolo11 and yolov12 algorithms; added launch scripts using the component mode, supporting inference with 4K images captured by mipi cam.
+
+- [EdgeSAM Segment Anything](../03_boxs/segmentation/mono_edgesam.md) 
+  - Added edgesam as a supported inference model, added support for nv12 formatted input data.
+  - Added padding for segmentation results, enabling visualization together with stereo depth examples.
+
+- [Text-Image Feature Retrieval Algorithm](../03_boxs/function/hobot_clip.md) for extracting and retrieving text-image features.
+
+- [DOSOD Algorithm](../03_boxs/detection/hobot_dosod.md) Introduced a deployment package for D-Robotics’ self-developed open-vocabulary detection DOSOD on the edge. 
+  - Added a re-parameterization quantization method for customizing detection classes in DOSOD models.
+
+- [Stereo OCC](../03_boxs/spatial/dstereo_occupancy.md) integrating D-Robotics’ stereo OCC network.
+
+- [Vision Language Model](../03_boxs/generate/hobot_llamacpp.md)
+  - Added support for the smolvlm2 model, with image feedback and subscription mode.
+  - Added the capability to output complete topics after llm inference.
+
+- [Stereo Depth Estimation Algorithm](../03_boxs/spatial/hobot_stereonet.md)
+
+### Version: 2.4.1 (2025-7-30)
+
+#### New Features (RDK X5 platform):
+
+- [MIPI Image Capture](../02_quick_demo/demo_sensor.md) supports the imx415 module.
+
+- [EdgeSAM Segment Anything](../03_boxs/segmentation/mono_edgesam.md) 
+  - Added edgesam as a supported inference model, added support for nv12 formatted input data.
+  - Added padding for segmentation results, enabling visualization together with stereo depth examples.
+
+- [Added Human Re-Identification Algorithm](../03_boxs/body/reid.md)
+  - Extracts human features based on the reid model.
+  - Stores, manages, and queries features using an SQLite database.
+
+- [Stereo OCC Algorithm](../03_boxs/spatial/dstereo_occupancy.md) integrating D-Robotics’ stereo OCC network.
+
+- [Vision Language Model](../03_boxs/generate/hobot_llamacpp.md)
+  - Added support for the smolvlm2 model, with image feedback and subscription mode.
+  - Added the capability to output complete topics after llm inference.
+
+### Version: 2.4.0 (2025-5-12)
+
+#### New Features:
+
+Added support for the `RDK S100` platform.
+
+### Version: 2.3.3 (2025-4-30)
+
+#### New Features:
+
+Added support for the `RDK X5 Module` platform.
+
+- [Sensevoice ASR](../03_boxs/audio/sensevoice_ros2.md) Added ASR Open-Source Solution based on sensevoice_cpp, supporting command words and ASR data publishing.
+
+- [Stereo Depth Estimation Algorithm](../03_boxs/spatial/hobot_stereonet.md) optimized post-processing performance and introduced the V2.3 model.
+
+- [Vision Language Model](../03_boxs/generate/hobot_llamacpp.md) Added an On-Device Vision-Language Model Example based on llama.cpp.
+
+### Version: 2.3.2 (2025-1-15)
+
+#### Feature Changes:
+
+- [Stereo Depth Estimation Algorithm](../03_boxs/spatial/hobot_stereonet.md) updated stereo models to improve depth estimation results.
+
+- [Multi-Stream Video Analysis](../04_apps/video_boxs.md) optimized processing pipeline and improved web visualization effects.
+
+- [Stereo Assistance Package](https://github.com/D-Robotics/hobot_stereonet_utils) removed some non-functional launch files.
+
+#### New Features:
+
+- Add [ZED Camera Image Capture](../02_quick_demo/demo_sensor.md) for acquiring stereo images as input to stereo depth estimation algorithms.
+
+- [DOSOD Algorithm](../03_boxs/detection/hobot_dosod.md) Introduced a deployment package for D-Robotics’ self-developed open-vocabulary detection DOSOD on the edge. 
+  - Added a re-parameterization quantization method for customizing detection classes in DOSOD models.
+
+#### Bug Fixes:
+
+- [YOLOv8-Seg Image Segmentation](../03_boxs/segmentation/yolov8_seg.md) fixed crash issues caused by box out-of-bounds in post-processing.
+
+- [Image codec](../02_quick_demo/hobot_codec.md) fixed frame rate calculation errors.
+
+- [MIPI Image Capture](../02_quick_demo/demo_sensor.md) fixed i2c detection issues and added configuration for the lpwm switch.
+
 ### Version: 2.3.1 (2024-11-20)
 
 #### Functional Changes:
@@ -12,7 +100,7 @@ sidebar_position: 6
 
 #### New Features:
 - [Image Publishing Tool](../02_quick_demo/demo_tool.md) now supports publishing `bgr/rgb` formatted message data and allows configuration of the frame_id for published messages.
-- [Body Detection and Tracking Algorithm](../03_boxs/function/mono2d_body_detection.md):
+- [Body Detection and Tracking Algorithm](../03_boxs/body/mono2d_body_detection.md):
   - Supports configurable subscribed message topics.
   - Enables component mode operation.
   - Allows image scaling in preprocessing before inference.
@@ -23,11 +111,11 @@ sidebar_position: 6
 - [Image Encoding/Decoding Node](../02_quick_demo/hobot_codec.md):
   - Uses the frame_id of subscribed image messages for output image messages.
   - Supports frame-drop control for publishing.
-- [Hand Gesture Recognition Algorithm](../03_boxs/function/hand_gesture_detection.md):
+- [Hand Gesture Recognition Algorithm](../03_boxs/body/hand_gesture_detection.md):
   - Supports configuration of post-processing thresholds at startup.
   - Enables dynamic gesture recognition.
-- Added [Facial Age Detection Algorithm](../03_boxs/function/mono_face_age_detection.md) for detecting age.
-- Added [Face 106 Keypoints Detection Algorithm](../03_boxs/function/mono_face_landmarks_detection.md) to detect 106 key points on the face.
+- Added [Facial Age Detection Algorithm](../03_boxs/body/mono_face_age_detection.md) for detecting age.
+- Added [Face 106 Keypoints Detection Algorithm](../03_boxs/body/mono_face_landmarks_detection.md) to detect 106 key points on the face.
 - Introduced [Perception Message Fusion Node](https://github.com/D-Robotics/tros_perception_fusion):
   - Subscribes to multiple [PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg) topics.
   - Aligns timestamps, de-duplicates data, and fuses them into a single published topic.
@@ -43,7 +131,7 @@ sidebar_position: 6
 
 #### Bug Fixes:
 - [MIPI Image Capture](../02_quick_demo/demo_sensor.md): Fixed the issue where the `imx219` module failed to start.
-- [Hand Keypoint Detection Algorithm](../03_boxs/function/hand_lmk_detection.md):
+- [Hand Keypoint Detection Algorithm](../03_boxs/body/hand_lmk_detection.md):
   - Added bounding box expansion in preprocessing to resolve incorrect keypoint outputs.
 
 ---
@@ -56,11 +144,11 @@ sidebar_position: 6
 - Added the following algorithms to the repository:
   - `yolov8` and `yolov10` for [object detection](../03_boxs/detection/yolo.md).
   - `yolov8-seg` for [image segmentation](../03_boxs/segmentation/yolov8_seg.md).
-  - [YOLO-World Algorithm](../03_boxs/function/hobot_yolo_world.md) for open-vocabulary input detection.
+  - [YOLO-World Algorithm](../03_boxs/detection/hobot_yolo_world.md) for open-vocabulary input detection.
   - [Optical Flow Estimation Algorithm](../03_boxs/function/mono_pwcnet.md).
-  - [Segment Everything Algorithm](../03_boxs/function/mono_mobilesam.md) for indiscriminate segmentation.
+  - [Segment Everything Algorithm](../03_boxs/segmentation/mono_mobilesam.md) for indiscriminate segmentation.
   - [Text-Image Feature Retrieval Algorithm](../03_boxs/function/hobot_clip.md).
-  - [Stereo Depth Estimation Algorithm](../03_boxs/function/hobot_stereonet.md) for vision-based depth estimation.
+  - [Stereo Depth Estimation Algorithm](../03_boxs/spatial/hobot_stereonet.md) for vision-based depth estimation.
 
 ---
 

@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK S100 | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 
 ## 算法信息
 
@@ -74,7 +74,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 export CAM_TYPE=mipi
 
 # 启动launch文件
-ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
 **使用USB摄像头发布图片**
@@ -89,7 +89,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 export CAM_TYPE=usb
 
 # 启动launch文件
-ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
 **使用本地回灌图片**

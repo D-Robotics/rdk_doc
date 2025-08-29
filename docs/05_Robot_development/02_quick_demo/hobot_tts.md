@@ -19,9 +19,11 @@ import TabItem from '@theme/TabItem';
 
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X5, RDK X5 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
-**注意：仅支持RDK X3，RDK X3 Module暂不支持。**
+**注意：仅支持RDK X3，RDK X3 Module暂不支持， RDK S100只支持USB语音设备。**
 
 ## 准备工作
 
@@ -77,11 +79,18 @@ import TabItem from '@theme/TabItem';
 
     如果出现类似`pcmC0D1p`音频播放设备则表示设备正常。
 
-   :::caution
-   首次使用音频板需要使用`srpi-config`进行配置，否则无法识别出音频设备。
-   
-   配置方法参考RDK用户手册[音频转接板](https://developer.d-robotics.cc/documents_rdk/hardware_development/rdk_x3/audio_board)章节。
-   :::
+    <Tabs groupId="board_type">
+    <TabItem value="rdk_x3" label="RDK_X3">
+
+    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](/docs/03_Basic_Application/02_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)章节。
+
+    </TabItem>
+    <TabItem value="rdk_x5" label="RDK_X5">
+
+    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](/docs/03_Basic_Application/02_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
+    
+    </TabItem>
+    </Tabs>
 
 3. 启动hobot_tts程序
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 1
 ---
 # CLIP
 
@@ -39,7 +39,8 @@ The project consists of four parts.
 
 | Platform             | System | Function                                            |
 | -------------------- | ---------------- | ------------------------------------------------------------|
-| RDK X5| Ubuntu 22.04 (Humble) | Start CLIP Storage/Query mode, Storage database saved locally while query results display on the Web|
+| RDK X5 | Ubuntu 22.04 (Humble) | Start CLIP Storage/Query mode, Storage database saved locally while query results display on the Web|
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start CLIP Storage/Query mode, Storage database saved locally while query results display on the Web|
 
 ## Preparation
 
@@ -76,7 +77,8 @@ Set clip_mode to "0" to store the image files from the "/root/config" directory 
 (Users can change the image folder path "clip_storage_folder" and the database name "clip_db_file" as needed. It is recommended to use absolute paths.)
 
 <Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
+
+<TabItem value="x5" label="RDK X5">
 
 ```shell
 # Configure the tros.b environment
@@ -91,6 +93,21 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 
 </TabItem>
 
+<TabItem value="s100" label="RDK S100">
+
+```shell
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Copy the configuration file required for running the example from the installation path of tros.b.
+cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
+
+# Start the launch file
+ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_storage_folder:=/root/config
+```
+
+</TabItem>
+
 </Tabs>
 
 **Mode Two: Query**
@@ -100,7 +117,8 @@ Set clip_mode to "1", set database path to "clip.db" and set query text "a diagr
 (Users can change the database name "clip_db_file", query text "clip_text", and query result path "clip_result_folder" as needed. It is recommended to use absolute paths.)
 
 <Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
+
+<TabItem value="x5" label="RDK X5">
 
 ```shell
 # Configure the tros.b environment
@@ -109,7 +127,17 @@ source /opt/tros/humble/setup.bash
 # Start the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
+</TabItem>
 
+<TabItem value="s100" label="RDK S100">
+
+```shell
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Start the launch file
+ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
+```
 </TabItem>
 
 </Tabs>

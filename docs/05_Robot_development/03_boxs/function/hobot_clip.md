@@ -36,12 +36,14 @@ import TabItem from '@theme/TabItem';
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动CLIP 入库/检索, 入库结果保存在本地/检索结果显示在Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动CLIP 入库/检索, 入库结果保存在本地/检索结果显示在Web |
 
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
 | ---- | ---- | ------------ | ---- |
 | clip image encoder | X5 | 1x3x224x224 | 4.6 |
+| clip image encoder | S100 | 1x3x224x224 | 166.92 |
 
 ## 准备工作
 
@@ -79,7 +81,7 @@ sudo tar -xf text_encoder.tar.gz -C config
 
 <Tabs groupId="tros-distro">
 
-<TabItem value="humble" label="Humble">
+<TabItem value="x5" label="RDK X5">
 
 ```shell
 # 配置ROS2环境
@@ -94,6 +96,21 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 
 </TabItem>
 
+<TabItem value="s100" label="RDK S100">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
+
+# 启动launch文件
+ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_storage_folder:=/root/config
+```
+
+</TabItem>
+
 </Tabs>
 
 **模式2 检索**
@@ -104,7 +121,7 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 
 <Tabs groupId="tros-distro">
 
-<TabItem value="humble" label="Humble">
+<TabItem value="x5" label="RDK X5">
 
 ```shell
 # 配置ROS2环境
@@ -112,6 +129,17 @@ source /opt/tros/humble/setup.bash
 
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
+```
+</TabItem>
+
+<TabItem value="s100" label="RDK S100">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 启动launch文件
+ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
 </TabItem>
 
