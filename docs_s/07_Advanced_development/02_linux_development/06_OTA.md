@@ -67,7 +67,7 @@ RDK默认不开启OTA功能，如需开启请按如下流程操作：
 
 ### OTA 打包工具介绍
 
-OTA打包工具位于”ota_tools/”路径下，该文件夹包含的内容如下：
+OTA打包工具位于`ota_tools/`路径下，该文件夹包含的内容如下：
 ```bash
 tree
 .
@@ -82,7 +82,7 @@ tree
 └── private_key.pem     // 私钥文件，用于 OTA 包的签名
 ```
 
-一般使用位于”ota_tools/”路径下的ota_pack_tool.sh制作所需的OTA升级包，支持OTA升级包解包，解包后重打包，制作升级包以及制作差分包等。
+一般使用位于`ota_tools/`路径下的ota_pack_tool.sh制作所需的OTA升级包，支持OTA升级包解包，解包后重打包，制作升级包以及制作差分包等。
 
 使用方法如下：
 ```bash
@@ -108,7 +108,7 @@ Options:
 ```bash
 ./ota_pack_tool.sh -x out/ota_packages/all_in_one.zip
 ```
-- 升级包解包后，可以更新ota_tools/out/ota_unpack下的镜像，重新制作OTA包，使用的OTA配置文件与ota_process均位于ota_tools/out/ota_unpack目录，该方法无法修改OTA配置文件gpt.conf。
+- 升级包解包后，可以更新`ota_tools/out/ota_unpack`下的镜像，重新制作OTA包，使用的OTA配置文件与ota_process均位于`ota_tools/out/ota_unpack`目录，该方法无法修改OTA配置文件gpt.conf。
 
 升级包重打包指令为：
 ```BASH
@@ -118,7 +118,7 @@ Options:
 - 打包后的目标文件路径为：ota_tools/out/ota_repack
 #### OTA 制作普通升级包
 
-通过如下命令可以制作系统升级包，使用的分区配置文件通过ota_pack_tool.sh脚本中的GPT_CONFIG配置，默认使用/out/product/img_packages/s100-gpt.json，可根据实际需求修改。
+通过如下命令可以制作系统升级包，使用的分区配置文件通过ota_pack_tool.sh脚本中的GPT_CONFIG配置，默认使用`/out/product/img_packages/s100-ota-gpt.json`，可根据实际需求修改。
 
 ```BASH
 
@@ -128,7 +128,7 @@ Options:
 # sys_signed代表打包secure版本升级包
  ./ota_pack_tool.sh -c sys_signed -d ~/s100/out/product/img_packages/
 ```
-生成的 OTA 升级包将输出到ota_tools/out/ota_packages目录，在该目录下，您将看到zip和signature两种后缀的文件,其中zip后缀文件是 OTA 升级包, signature后缀文件是对同名升级包的签名文件：
+生成的 OTA 升级包将输出到`ota_tools/out/ota_packages`目录，在该目录下，您将看到zip和signature两种后缀的文件，其中zip后缀文件是 OTA 升级包，signature后缀文件是对同名升级包的签名文件：
 ```BASH
 all_in_one.signature            #nonsecure 升级包签名文件
 all_in_one.zip                  #nonsecure 升级包文件
@@ -449,15 +449,15 @@ OTA 升级包中包含一个名为 data.json 的配置文件。该文件在编�
 
 - 准备阶段：
 
-![ota_tool_sequence_step1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step1.png)
+    ![ota_tool_sequence_step1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step1.png)
 
 - 升级阶段：
 
-![ota_tool_sequence_step2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step2.png)
+    ![ota_tool_sequence_step2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step2.png)
 
 - 验证阶段：
 
-![ota_tool_sequence_step3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step3.png)
+    ![ota_tool_sequence_step3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step3.png)
 
 ### OTA 状态机
 
@@ -646,7 +646,7 @@ S100参考实现中，OTA升级完重启之后起到内核会触发systemd的OTA
 
   - 当差分升级时，S100 OTA会根据差分镜像和板端原始分区数据通过逆差分还原成目标镜像，并写入到对应的外部存储器分区，完成最终的升级。
 
-  - S100上使用的是开源的差分算法工具hdiffz/hpatch，详细信息请参考:https://github.com/sisong/HDiffPatch。
+  - S100上使用的是开源的差分算法工具hdiffz/hpatch，详细信息请参考:[github | HDiffPatch](https://github.com/sisong/HDiffPatch)。
 
 
 ### OTA 安全保护措施

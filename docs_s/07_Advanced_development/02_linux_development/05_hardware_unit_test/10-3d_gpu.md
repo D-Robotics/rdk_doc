@@ -21,8 +21,9 @@ sidebar_position: 10
 ### 渲染性能测试方法
 1. `apt install glmark2-es2-wayland -y` 安装 glmark2 进行测试
 
-2. 接上显示器桌面可以看到 3D GPU 的渲染效果
-	- 程序使用 HDMI 桌面显示
+2. 连接显示器并进入桌面环境
+	- 在登录界面选择点击右下角的小齿轮，选择 GNOME 或 Ubuntu (Wayland)会话
+	- 程序通过 HDMI 输出到显示器，可以直观看到 3D GPU 的渲染效果
 3. 执行 glmark2-es2-wayland
 
 4. 打印如下结果：

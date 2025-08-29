@@ -22,7 +22,7 @@ S100 MCU芯片总共提供4个I2C控制器(I2C6-9)，默认速率为Fast Mode Pl
 
 ## 代码路径
 
-- Mcalcdd/Common/Register/inc/I2c_Register.h # 寄存器相关内容
+- McalCdd/Common/Register/inc/I2c_Register.h # 寄存器相关内容
 - McalCdd/I2c/src/I2c.c # 驱动代码
 - McalCdd/I2c/src/I2c_Lld.c # 底层驱动代码
 - McalCdd/I2c/inc/I2c.h # 驱动头文件

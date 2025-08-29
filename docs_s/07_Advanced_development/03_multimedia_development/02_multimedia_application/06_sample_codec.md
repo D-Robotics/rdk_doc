@@ -81,35 +81,35 @@ Examples:
 
 - 默认使用 `codec_config.ini` 中的配置项启动编解码（默认使能一路 H264 编码：`encode_streams = 0x1`），执行程序时不需要带任何参数：
 
-```
-./sample_codec
-```
+  ```
+  ./sample_codec
+  ```
 
 - 启动指定的编码流（在 `codec_config.ini` 中定义）：
 
-```
-sample_codec -e 0x1  # 启动 venc_stream1
-sample_codec -e 0x3  # 启动 venc_stream1 和 venc_stream2
-```
+  ```
+  ./sample_codec -e 0x1  # 启动 venc_stream1
+  ./sample_codec -e 0x3  # 启动 venc_stream1 和 venc_stream2
+  ```
 
 - 启动指定的解码流（在 `codec_config.ini` 中定义）：
 
-```
-sample_codec -e 0 -d 0x1 # 关闭编码，启动 vdec_stream1
-sample_codec -e 0 -d 0x3  # 关闭编码，启动 vdec_stream1 和 vdec_stream2
-```
+  ```
+  ./sample_codec -e 0 -d 0x1 # 关闭编码，启动 vdec_stream1
+  ./sample_codec -e 0 -d 0x3  # 关闭编码，启动 vdec_stream1 和 vdec_stream2
+  ```
 
 - 启用详细模式以获取更多日志信息：
 
-```
-sample_codec -v
-```
+  ```
+  ./sample_codec -v
+  ```
 
 - 显示帮助信息：
 
-```
-sample_codec -h
-```
+  ```
+  ./sample_codec -h
+  ```
 
 ### 配置文件说明
 

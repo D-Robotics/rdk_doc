@@ -21,20 +21,20 @@ sidebar_position: 9
 
 ## 软件架构
 
-S100芯片的Can控制器位于MCU域，负责Can数据收发。由于感知等应用位于Acore，因此部分Can数据需要通过IPC核间通信机制转发到Acore。架构保证传输可靠性，转发机制实现数据正确性检测、丢包检测和传输超时检测等机制。此外，还需要规避MCU侧高频转发小数据块导致CPU占用率过高，造成MCU实时性降低等性能问题。
+S100芯片的CAN控制器位于MCU域，负责CAN数据收发。由于感知等应用位于Acore，因此部分CAN数据需要通过IPC核间通信机制转发到Acore。架构保证传输可靠性，转发机制实现数据正确性检测、丢包检测和传输超时检测等机制。此外，还需要规避MCU侧高频转发小数据块导致CPU占用率过高，造成MCU实时性降低等性能问题。
 
-S100 Can转发方案的核心流程如下：
-- 首先通过MCU侧CAN2IPC模块将CAN通道映射到对应IPC通道，然后通过Acore侧CANHAL模块将IPC通道反映射为虚拟Can设备通道。最后用户通过CANHAL提供的API接口获取虚拟Can设备中的数据。其中，CAN2IPC模块为MCU侧服务，CANHAL模块为Acore侧提供给应用程序的动态库。
-- CAN2IPC模块周期性采集MCU侧CAN数据，按照指定传输协议进行打包，然后通过IPC核间通信转发到Acore。Ipc instance 0中的channel0~channel7默认分配给Can转发使用。
-- CANHAL模块获取来自MCU侧的IPC数据，按照指定的传输协议解析数据，并支持业务软件通过API获取原始Can帧。
+S100 CAN转发方案的核心流程如下：
+- 首先通过MCU侧CAN2IPC模块将CAN通道映射到对应IPC通道，然后通过Acore侧CANHAL模块将IPC通道反映射为虚拟CAN设备通道。最后用户通过CANHAL提供的API接口获取虚拟CAN设备中的数据。其中，CAN2IPC模块为MCU侧服务，CANHAL模块为Acore侧提供给应用程序的动态库。
+- CAN2IPC模块周期性采集MCU侧CAN数据，按照指定传输协议进行打包，然后通过IPC核间通信转发到Acore。Ipc instance 0中的channel0~channel7默认分配给CAN转发使用。
+- CANHAL模块获取来自MCU侧的IPC数据，按照指定的传输协议解析数据，并支持业务软件通过API获取原始CAN帧。
 
 
-![Acore与MCU之间透传Can数据架构图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can.png)
+![Acore与MCU之间透传CAN数据架构图](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can.png)
 
 数据流如上图所示：
 - 外设数据通过CAN的PHY和控制器器件被MCU域CAN驱动接收后，CAN驱动将数据上报并缓存在hobot CANIF模块。
 - CAN2IPC Service周期性从CANIF模块取出CAN帧，按照可靠传输协议进行打包，然后通过IPC核间通信机制转发给Acore。
-- CANHAL模块获取来自MCU侧的IPC数据，按照指定的传输协议解析数据，Acore 应用程序通过CANHAL Lib库提供的API获取Can帧。
+- CANHAL模块获取来自MCU侧的IPC数据，按照指定的传输协议解析数据，Acore 应用程序通过CANHAL Lib库提供的API获取CAN帧。
 
 方案特性说明：
 - 支持数据透传正确性校验。
@@ -42,6 +42,165 @@ S100 Can转发方案的核心流程如下：
 - 支持传输超时检测。MCU侧CAN2IPC转发数据时将数据包打上MCU侧的时间戳，Acore CANHAL接收到数据后会读取Acore的时间戳，如果传输超时会报警。注意，需要提前启动时间同步完成MCU RTC时间和Acore 网卡phc0的时间同步。
 - 支持多个CAN通道并行传输。MCU侧多个CAN控制器的数据可同时被转发给Acore，Acore应用程序通过CANHAL从不同通道号读出CAN数据。
 - 由于CANHAL底层通过ipc核间通信进行传输，而ipc目前不支持多个进程或者线程读写同一个通道，因此CANHAL也不支持该特性。
+
+## 硬件连接说明
+
+- CAN物理层的形式主要分为闭环总线及开环总线网络两种，一个适合于高速通讯，一个适合于远距离通讯；**S100的sample默认采用闭环总线网络架构**。
+
+- CAN总线的引脚位于S100的MCU扩展板上，引出了5路CAN接口，连接器分别对应了5个绿色的螺丝式的3 PIN连接器。1 PIN（三角标志）为GND，中间PIN为CAN_L，剩下的为CAN_H。
+
+![MCU CAN物理图示](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can_phy.png)
+
+- MCU小板通过2pin跳帽的形式来选择是否在CAN_H和CAN_L之间接入120欧姆电阻；当插入跳帽时，接入电阻，适用于闭环网络所需的终端匹配阻抗‌；移除跳帽则断开终端电阻，适用于开环网络或中继节点场景‌。
+
+
+![MCU CAN简笔图示](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can_sche.png)
+
+CAN闭环网络使用两个120欧姆电阻是CAN总线的标准配置，以下以S100举例，如何正确接入电阻：
+:::info 提示
+整体而言，开环网络配置不需要接入120欧姆电阻，而闭环网络配置总共需要插入**两个**120欧姆电阻；
+:::
+- 在使用开环网络时，确保CAN_H与CAN_L线路正确连接，所用到的CAN不要插入跳线帽(在网络中不接入120欧姆电阻)；
+- 若将S100的CAN5和CAN6连接组成双节点内部闭环网络，确保CAN_H与CAN_L线路正确连接，还需要在CAN5和CAN6接线端子后面的插针插入跳帽(在网络中插入两个120欧姆电阻)；
+- 若将S100的CAN5~CAN9连接组成多节点内部闭环网络，确保CAN_H与CAN_L线路正确连接，还需要插入两个跳线帽，任意选择两个，严禁插入超过2个跳线帽，以免出现不可预测的问题；
+- 若将S100的CAN5~CAN9中的任意一个控制器和其它CAN设备组成外部闭环网络，确保CAN_H与CAN_L线路正确连接外，还需要在RDK的CAN控制器的接线端子后面的插针插入跳帽，并在网络中其它设备端接入一个120Ω电阻；
+
+
+## CAN Filter 配置
+
+标准帧的filter最多可配置128个，扩展帧的filter最多可配置64个，可选择的filter类型如下：
+- ONE_ID_FILTER：指定ID并可配置MASK来忽略ID中的哪些bit进行过滤，
+- RANGE_ID_FILTER：按照ID范围进行过滤，
+- TWO_ID_FILTER：指定两个ID进行过滤。
+
+### 过滤器的识别
+过滤器类型通过检查u32HwFilterCode的最高2位来确定：
+- 0b00: ONE_ID_FILTER
+- 0b01: RANGE_ID_FILTER
+- 0b10: TWO_ID_FILTER
+
+```c
+/**
+ * @struct Can_HwFilterType
+ * @brief Can Hardware Filter
+ * @NO{S01E03C01}
+ */
+typedef struct Can_HwFilterType
+{
+    const uint32 u32HwFilterCode;   /**< @brief Specifies (together with the filter mask) the identifiers range that passes the hardware filter. */
+    const uint32 u32HwFilterMask;   /**< @brief Describes a mask for hardware-based filtering of CAN identifiers. */
+}Can_HwFilterType;
+
+```
+
+- 配置举例：
+    - 这是CAN 7 的过滤器配置，拥有两个过滤器
+    - 过滤器0的第一个元素的高2位为01，属于范围过滤方式
+    - 过滤器0和过滤1为"或"关系，即如果至少有一个过滤元件满足匹配标准，则CAN消息内容将被传输到增强型RX FIFO存储器
+
+```c
+// Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
+static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+{
+    {   // 接收id为0x0~0x7ff的消息
+        (uint32)0x400007ffU,
+        (uint32)0x00000000U
+    },
+    {   // 接收id为0x600~0x7ff的消息
+        (uint32)0x400007ffU,
+        (uint32)0x00000600U
+    }
+};
+```
+
+### ONE_ID_FILTER（单ID过滤方式）
+
+这是最常见的过滤器类型，使用过滤器代码和掩码进行过滤,伪代码如下：
+```c
+if ((Received_ID & Filter_Mask) == (Filter_Code & Filter_Mask))
+    // 接收该消息
+else
+    // 丢弃该消
+```
+
+举例代码如下：
+```c
+// Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
+static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+{
+    {
+        (uint32)0x00000400U,  // 只接收id = 0x400&0x7ff = 0x400 消息
+        (uint32)0x000007ffU
+    },
+    {   // 范围过滤方式，支持混用
+        (uint32)0x400007ffU,
+        (uint32)0x00000600U
+    }
+};
+```
+
+
+### RANGE_ID_FILTER（范围过滤方式）
+
+在这种模式下，使用范围过滤逻辑：
+
+```c
+if (id1 <= Received_ID <= id2)
+    // 接收该消息
+else
+    // 丢弃该消息
+```
+这也是S100mcu的默认模式;举例代码如下：
+```c
+// Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
+static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+{
+    {   // 接收id为0x0~0x7ff的消息
+        (uint32)0x400007ffU,
+        (uint32)0x00000000U
+    },
+    {   // 接收id为0x600~0x7ff的消息
+        (uint32)0x400007ffU,
+        (uint32)0x00000600U
+    }
+};
+```
+
+### TWO_ID_FILTER（双ID过滤方式）
+
+这种类型允许指定两个独立的ID进行匹配：
+- id1: 第一个匹配ID
+- id2: 第二个匹配ID
+
+```c
+if (Received_ID == id1 || Received_ID == id2)
+    // 接收该消息
+else
+    // 丢弃该消息
+```
+
+举例代码如下：
+```c
+// Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
+static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+{
+    {
+        (uint32)0x80000404U,// 只接收id为404的消息
+        (uint32)0x00000303U // 只接收id为303的消息
+    },
+    {   // 范围过滤方式，支持混用
+        (uint32)0x400007ffU,
+        (uint32)0x00000600U
+    }
+};
+```
+
+:::tip
+1. RDK S100软硬件支持同时接收扩展帧和标准帧，而不需要修改配置
+2. RDK S100硬件支持对扩展帧和标准帧分别过滤，软件暂不支持对扩展帧的过滤
+3. 扩展帧的id长度最高为11位，即最大为0x7FF
+:::
+
 
 ## 波特率配置
 
@@ -243,7 +402,7 @@ MCU侧CAN2IPC源码目录：mcu/Service/HouseKeeping/can_ipc/src/hb_CAN2IPC.c
 - 源码中hb_CAN2IPC_MainFunction函数被OS周期性调用，其内部通过调用hb_CAN2IPC_Proc 函数将指定的CAN控制器数据通过IPC转发到Acore。
 - hb_CAN2IPC_Proc 函数中三个传入参数分别为：CAN控制器、ipc instance、ipc 指定instance下的虚拟chennel。
 
-S100 默认将Can5~Can9 转发给ACORE，示例如下
+S100 默认将CAN5~CAN9 转发给ACORE，示例如下
 ```C
 void hb_CAN2IPC_MainFunction(void) {
 hb_CAN2IPC_Proc(CANTRANS_INS0CH5_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, IpcConf_IpcInstance_0_IpcChannel_4);
@@ -259,7 +418,7 @@ hb_CAN2IPC_Proc(CANTRANS_INS0CH9_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, 
 }
 ```
 
-Acore canhal使用可参考sample源码目录：source/hobot-io-samples/debian/app/Can，可以在S100的/app/Can目录下直接make编译使用。
+Acore canhal使用可参考sample源码目录：`source/hobot-io-samples/debian/app/Can`，可以在S100的`/app/Can`目录下直接make编译使用。
 
 以多路透传为例，目录结构如下：
 ```bash
@@ -270,15 +429,16 @@ $ tree /app/Can/can_multi_ch
 │   ├── channels.json
 │   ├── ipcf_channel.json
 │   └── nodes.json
-├── main.c
-└── readme.md
+├── main.cpp
+├── readme.md
+└── run.sh
 
 ```
 json文件配置主要包括3个json配置文件：node.json、ipcf_channel.json、channels.json。目前为了支持多进程，各个进程都会去当前路径下的config目录下寻找这3个配置文件。
 
-node.json负责创建虚拟Can设备节点给CANHAL API访问。关键配置选项包括：
-- channel_id字段指定该虚拟Can设备从ipc配置文件ipcf_channel.json中哪一个节点获取数据。
-- target字段表示该虚拟Can设备节点的名称，CANHAL API通过该名称访问指定的节点。
+node.json负责创建虚拟CAN设备节点给CANHAL API访问。关键配置选项包括：
+- channel_id字段指定该虚拟CAN设备从ipc配置文件ipcf_channel.json中哪一个节点获取数据。
+- target字段表示该虚拟CAN设备节点的名称，CANHAL API通过该名称访问指定的节点。
 - enable字段表示该节点是否使能。
 
 ```json
@@ -366,7 +526,7 @@ channels.json指定ipc配置文件，用户一般不需要更改。
 Acore无法直接操作CAN外设，需要通过借助Ipc模块来中转数据，与外设通道的映射关系可以查阅 [MCU IPC使用指南](../../../07_Advanced_development/05_mcu_development/01_S100/08_mcu_ipc.md) 中的IPC 使用情况章节。
 
 
-Acore应用程序通过CANHAL获取MCU侧Can帧的流程伪代码如下：
+Acore应用程序通过CANHAL获取MCU侧CAN帧的流程伪代码如下：
 
 ```c
 void send_frame_data(void *arg)
@@ -426,14 +586,14 @@ int main(int argc, char *argv[])
     └── nodes.json  // 通道映射配置文件
 ```
 
-#### 使用前提
+##### 使用前提
 
 这里仅给出一个简单的sample，实际应用中需要根据实际需求进行修改。
 
 使用前提：
 - MCU1正常运行
-- 硬件连接：Can5连接Can6
-- 由于can_send和can_get都使用的instance channel4(默认映射来自Can5的数据)，**由于Ipc单个channel只能被一个线程使用**，因此修改can_send中的ipcf_channel.json，改为使用instance channel6，改动如下
+- 硬件连接：使用CAN闭环总线网络，CAN5连接CAN6，CAN_H和CAN_L之间接入120欧姆电阻（CAN5和CAN6接线柱后面的2 PIN引脚使用跳线帽或杜邦线短接）。
+- 由于can_send和can_get都使用的instance channel4(默认映射来自CAN5的数据)，**由于Ipc单个channel只能被一个线程使用**，因此修改can_send中的ipcf_channel.json，改为使用instance channel6，改动如下
 
 ```json
 {
@@ -458,7 +618,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-#### 使用方式
+##### 使用方式
 1. 分别编译can_send和can_get两个sample
 2. 进入can_get目录执行以下命令
 ```bash
@@ -508,13 +668,13 @@ Send end, send package total: 1 frame total: 1
 └── run.sh // 运行脚本
 ```
 
-##### 此sample实现CAN总线多通道数据发送与接收：
-- **硬件连接**：Can6连接Can7， Can8连接Can9,CAN5连接其他Can设备，不可不接。
-- **发送线程**：为每个通道创建独立线程发送数据，数据内容固定。
-- **接收线程**：为每个通道创建独立线程接收数据。
+本程序实现CAN总线多通道数据发送与接收：
+- **硬件连接**：使用CAN闭环总线网络，Can6连接Can7， Can8连接Can9，Can5单独通道不接，CAN_H和CAN_L之间接入120欧姆电阻（把所用到的CAN总线的接线柱后面的2 PIN引脚使用跳线帽或杜邦线短接）。
+- **发送线程**：为每个通道创建独立线程发送数据，当使用CANFD时，数据包含计数器和时间戳,当使用经典CAN时，数据为全0x55。
+- **接收线程**：为每个通道创建独立线程接收数据并验证数据正确性。
 
 发送策略：
-- 相隔固定时间通过Can发送数据，可通过修改延时调整发送频率，目前测试4路Can的收发，每路Can的最高发送频率为1000Hz，大于时会出现丢包情况。
+- 相隔固定时间通过CAN发送数据，可通过修改延时调整发送频率，目前测试4路CAN的收发，每路CAN的最高发送频率为1000Hz，大于时会出现丢包情况。
 - 数据内容：通过CANFD发送扩展帧(64bytes)的数据。
 - 目标通道：CAN6~CAN9轮询发送
 
@@ -613,7 +773,7 @@ D-Robotics:/$ can_tran_debug
 [01217.804661 0]RecvNum[7]: 1, OverFlowErr[7]: 0
 [01217.806059 0]RecvNum[8]: 1, OverFlowErr[8]: 0
 [01217.806435 0]RecvNum[9]: 1, OverFlowErr[9]: 0
-[01217.806978 0]Hb_CanIf Statistics: // Can控制器收发数据统计
+[01217.806978 0]Hb_CanIf Statistics: // CAN控制器收发数据统计
 [01217.808159 0]Can 0 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
 [01217.809520 0]Can 1 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
 [01217.810941 0]Can 2 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0

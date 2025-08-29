@@ -49,7 +49,7 @@ for (j=0; j<STREAM_ARRAY_SIZE; j++)
 **1.** 确认 DDR 类型和频率：不同类型的 DDR 内存（如 LPDDR4 ）和其频率会影响带宽的测试结果，使用命令 `cat /sys/class/boardinfo/ddr_type` 查看 DDR 状态信息。
 
 ```bash
-root@buildroot:/# cat /sys/class/boardinfo/ddr_type
+sunrise@ubuntu:/# cat /sys/class/boardinfo/ddr_type
 LPDDR5
 ```
 
@@ -58,8 +58,8 @@ LPDDR5
 **2.** 确认在 /app/chip_base_test/08_ddr_bandwidth/ 路径下存在 stream 测试文件，如不存在，可在路径下重新编译生成：
 
 ```shell
-root@buildroot:/# cd /app/chip_base_test/08_ddr_bandwidth
-root@buildroot:/# gcc -O3 -fopenmp -DNTIMES=100 stream.c -lgomp -o stream
+sunrise@ubuntu:/# cd /app/chip_base_test/08_ddr_bandwidth
+sunrise@ubuntu:/# gcc -O3 -fopenmp -DNTIMES=100 stream.c -lgomp -o stream
 ```
 
 ## 测试方法
@@ -67,7 +67,7 @@ root@buildroot:/# gcc -O3 -fopenmp -DNTIMES=100 stream.c -lgomp -o stream
 确保已完成准备工作后，运行测试命令：
 
 ```shell
-root@buildroot:/# ./stream
+sunrise@ubuntu:/# ./stream
 ```
 
 等待 10 秒左右后得到以下结果：

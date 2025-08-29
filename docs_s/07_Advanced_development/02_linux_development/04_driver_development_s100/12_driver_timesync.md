@@ -513,13 +513,13 @@ Acore Eth PPS有两种输出方法，flex mode和fix mode两种。上电默认�
 
 flex mode: 灵活的pps模式，它的开始/结束时间、周期、占空比均可以灵活配置，其上升沿是整秒时刻，PPS输出不会随着PHC时间的变化而变化；当前软件版本下，其占空比是百分之一，周期可以根据下方配置方法灵活配置，常用的有1s，400ms。
 
-fixed mode: 固定的pps模式，它的周期固定，且占空比也固定为46.3%。PPS输出会随着PHC时间的变化而变化。当前软件版本下，其支持1s周期，波形的整秒时刻是下降沿，经过537ms的低电平后，再输出463ms的高电平。
+fixed mode: 固定的pps模式，它的周期固定，且占空比也固定为46.3129%。PPS输出会随着PHC时间的变化而变化。当前软件版本下，其支持1s周期，波形的整秒时刻是下降沿，经过536.871ms的低电平后，再输出463.129ms的高电平。
 
 整秒输出需求配置方法：
 
 若在flex mode下有整秒时刻输出PPS的需求，需要在gptp时间同步完成后，再配置PPS输出；
 
-若在fixed mode下有整秒时刻输出PPS的需求，需要注意ETH的整秒时刻在下降沿出现，而LPWM被ETH上升沿同步。因此需要参考下图，调整LPWM的offset。以camera一秒30帧举例，PPS上升沿在537ms，下降沿在1s整秒处，要求在整秒位置出图的话，offset=463对33.333取余数=29.671ms。
+若在fixed mode下有整秒时刻输出PPS的需求，需要注意ETH的整秒时刻在下降沿出现，而LPWM被ETH上升沿同步。因此需要参考下图，调整LPWM的offset。以camera一秒30帧举例，PPS上升沿在536.871ms，下降沿在1s整秒处，要求在整秒位置出图的话，offset=463.129对33.333取余数=29.8ms。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/image44.png)
 

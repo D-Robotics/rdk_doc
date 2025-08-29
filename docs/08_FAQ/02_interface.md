@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
     [RDK X3/X5 网络配置](../System_configuration/network_blueteeth)
     </TabItem>
     <TabItem value="rdk_s100" label="rdk_s100">
-    [RDK S100 网络配置](../rdk_s/System_configuration/network_bluetooth)
+    [RDK S100 网络配置](/rdk_s/System_configuration/network_bluetooth)
     </TabItem>
     </Tabs>
 

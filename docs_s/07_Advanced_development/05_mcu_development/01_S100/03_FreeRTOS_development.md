@@ -325,7 +325,7 @@ sidebar_position: 3
 |CMN_PPU_PMU|370|Pmu_Ppu0Isr|
 
 ## MCU中断使用情况
-由于MCU0和MCU1处于统一硬件域，所以当中断产生时，MCU0/MCU1都能接收到同一中断。因此为了保障MCU系统的正常运行，统一中断只能由MCU0或MCU1使能。但是又因为MCU0不对外开源，因此需要对MCU0使用的中断进行总结，避免MCU1客户开发过程中使用冲突。
+由于MCU0和MCU1处于统一硬件域，所以当中断产生时，MCU0/MCU1都能接收到同一中断。因此为了保障MCU系统的正常运行，同一中断只能由MCU0或MCU1使能。但是又因为MCU0不对外开源，因此需要对MCU0使用的中断进行总结，避免MCU1客户开发过程中使用冲突。
 
 目前MCU0已经使用的中断：
 | 模块 | 中断号 | 名称 |
@@ -372,10 +372,10 @@ sidebar_position: 3
 ### scons简述
 目前RDK-S100 mcu仅仅支持s100_sip_B的编译，并且采用的是scons编译方式取代了Makefile。
 Scons跟Makefile类似，每个文件夹由Sconscript编译文件（类似于Makefile），最后有个总的SConstruct文件总体去控制编译。
-如mcu1的镜像就是SConstruct_Lite_FRtos_S100_sip_B控制。
+如MCU1的镜像就是SConstruct_Lite_FRtos_S100_sip_B控制。
 ### 增加编译目录流程
 1. 修改mcu/Build/FreeRtos_mcu1/SConstruct_Lite_FRtos_S100_sip_B文件，增加/删除相应的模块。
-   
+
    如增加mcu/Service/Log文件夹，只需增加相应的位置即可。变量False表示控制构建过程中不会将源文件复制到编译输出目录。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/scons_add_context.png)
@@ -425,16 +425,13 @@ FreeRtos_OsTask_SysCore_BSW_xms和FreeRtos_OsTask_SysCore_ASW_xms为周期性任
 
 如果客户自行开发，可参考上述两种类型的例子。也可以在已经创建的任务中处理自己的demo，见下文。
 任务函数位于/mcu/Target/Target-hobot-lite-freertos-mcu1/target/HorizonTask.c文件中，
-以OsTask_SysCore_BSW_5ms为例，任务会周期性地检测Can事务处理：
+以OsTask_SysCore_BSW_10ms为例，任务会周期性地检测Shell事务处理：
 ```c
-TASK(OsTask_SysCore_BSW_5ms)
+TASK(OsTask_SysCore_BSW_10ms)
 {
-    hb_CAN2IPC_MainFunction();
-    Hb_Ipc2Can_MainFunction();
-    if (Eth_Test == 1) {
-        EthTest_Mainfunc();
-        Eth_Receive(0, 0, &ethRxStat);
-    }
+    #ifdef SHELL_ENABLE
+        Shell_Handler();
+    #endif
 }
 ```
 ### FreeRtos系统中断使用
@@ -442,9 +439,31 @@ FreeRtos的中断使用集中在/mcu/Target/Target-hobot-lite-freertos/target/Fr
 ```c
 void FreeRtos_Irq_Init(void)
 {
-  FreeRtosInstallHandler(); // 中断处理函数设置
-  Isr_SetPriority(); // 中断优先级设置
-  Isr_Enable(); // 中断使能
+  int interrupt_index = 0;
+  for(; interrupt_index < INTERRUPT_MCU_MAX_NUM; interrupt_index++)
+  {
+    if((!Interrupt_McuConfigs[interrupt_index].irqNumber) && (!Interrupt_McuConfigs[interrupt_index].priority)
+        && (!Interrupt_McuConfigs[interrupt_index].Handler) && (!Interrupt_McuConfigs[interrupt_index].enable_flag))
+    {
+      break;
+    }
+
+    if(Interrupt_McuConfigs[interrupt_index].Handler)
+    {
+      INT_SYS_InstallHandler(Interrupt_McuConfigs[interrupt_index].irqNumber, Interrupt_McuConfigs[interrupt_index].Handler, NULL);
+    }
+
+    if(Interrupt_McuConfigs[interrupt_index].priority)
+    {
+      INT_SYS_SetPriority(Interrupt_McuConfigs[interrupt_index].irqNumber, Interrupt_McuConfigs[interrupt_index].priority);
+    }
+
+    if(Interrupt_McuConfigs[interrupt_index].enable_flag)
+    {
+      INT_SYS_EnableIRQ(Interrupt_McuConfigs[interrupt_index].irqNumber);
+    }
+  }
+
 }
 ```
 

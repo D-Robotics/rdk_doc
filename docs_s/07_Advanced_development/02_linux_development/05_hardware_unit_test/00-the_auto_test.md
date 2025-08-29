@@ -38,10 +38,6 @@ AutoTest 使用 `startup.sh` 脚本读取 `config/config.ini` 配置文件来启
 ### 配置文件示例
 
 ```bash
-[CpuBoost]
-Status=disabled
-Description=Set the CPU to enter boost mode
-
 [CpuAndBpu]
 Status=enabled
 Description=CPU, BPU, and DDR stress test
@@ -52,20 +48,15 @@ Status=enabled
 Description=eMMC stability test
 ExecStart=/app/chip_base_test/02_emmc/emmc_stability_test.sh -t 24h
 
-[NandFlash]
-Status=disabled
-Description=NAND flash stress test
-ExecStart=/app/chip_base_test/03_nand_flash/nand_test.sh -t 24h
-
 [UART]
 Status=enabled
 Description=UART stress test
-ExecStart=/app/chip_base_test/04_uart_test/uartstress.sh -b 115200 -d /dev/ttyS2 -c 1000000
+ExecStart=/app/chip_base_test/03uart_test/uartstress.sh -b 115200 -d /dev/ttyS2 -c 1000000
 
 [SPI]
 Status=enabled
 Description=SPI stress test
-ExecStart=/app/chip_base_test/05_spi_test/spistress.sh -d /dev/spidev0.0 -c 1000000
+ExecStart=/app/chip_base_test/04_spi_test/spistress.sh -d /dev/spidev0.0 -c 1000000
 ```
 
 ### 使用说明
@@ -80,7 +71,6 @@ ExecStart=/app/chip_base_test/05_spi_test/spistress.sh -d /dev/spidev0.0 -c 1000
    - 调整设备路径（如 `/dev/ttyS2` 或 `/dev/spidev0.0`）。
    - 调整其他测试选项（如循环次数 `-c` 或波特率 `-b`）。
    - 目前支持的所有测试项的脚本程序都支持 `-h` 选项，可以查阅命令帮助信息来调整参数。
-3. **CpuBoost** 这一项是环境配置项，用来设置 `CPU` 是否超频。
 
 ## 使用 startup.sh 启动测试
 
@@ -93,7 +83,7 @@ ExecStart=/app/chip_base_test/05_spi_test/spistress.sh -d /dev/spidev0.0 -c 1000
   ```bash
   /app/chip_base_test/startup.sh
   # 或者
-  cd /app/multimedia_samples/chip_base_test
+  cd /app/chip_base_test
   ./startup.sh
   ```
 

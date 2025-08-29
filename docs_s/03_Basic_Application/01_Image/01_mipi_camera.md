@@ -15,8 +15,8 @@ sidebar_position: 1
 按照以下命令执行程序
 
   ```bash
-  sunrise@ubuntu:~$ cd /app/pydev_demo/03_mipi_camera_sample/
-  sunrise@ubuntu:/app/pydev_demo/03_mipi_camera_sample$ python mipi_camera_streamer.py -w 1920 -h 1080
+  sunrise@ubuntu:~$ cd /app/pydev_demo/10_mipi_camera_sample
+  sunrise@ubuntu:/app/pydev_demo/10_mipi_camera_sample$ python 05_mipi_camera_streamer.py -w 1920 -h 1080
   ```
 
 ## 预期效果

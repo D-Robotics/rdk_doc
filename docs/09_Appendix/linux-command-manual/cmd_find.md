@@ -247,7 +247,7 @@ find . -type f -group sunrise
 找出当前目录下所有`root`的文件，并把所有权更改为用户`sunrise`
 
 ```shell
-find .-type f -user root -exec chown sunrise {} \;
+find . -type f -user root -exec chown sunrise {} \;
 ```
 
 上例中， **{}** 用于与 **-exec** 选项结合使用来匹配所有文件，然后会被替换为相应的文件名。

@@ -23,7 +23,7 @@ sudo ./pack_images.sh -p
 ./mk_debs.sh hobot-configs
 ```
 
-## 根文件系统预编译包构建说明
+## 7.6.2 根文件系统预编译包构建说明
 RDK S100的根文件系统由multistrap+chroot构建生成。
 
 ### multistrap
@@ -120,7 +120,7 @@ multistrap默认会将所有Priority为“Required”的包进行安装。
 1. 在`[Gerneral]`字段集中添加`omitrequired=true`；
 2. 在`Packages`中对所有需要添加的包进行定义。
 
-## RDK S100 deb包构建流程说明
+## 7.6.3 RDK S100 deb包构建流程说明
 ### 简介
 RDK S100默认以deb包的形式来管理用户层的地瓜定制功能。在SDK的source/目录下保存了所有地瓜定制功能的deb包构建的源码。
 
@@ -162,7 +162,7 @@ hobot-camera/
 │   ├── inc
 │   └── sensor
 ├── lib -> ../hobot-multimedia/debian/usr/hobot/lib # 方便编译的源码软连接
-├── sensor_calibration       # Sensor tuning库
+├── sensor_calibration       # Sensor tuning库，下列库仅为示例，以实际情况为准
 │   └── lib_imx219_linear.so
 └── tuning_tool              # 地瓜提供的Sensor tuning工具
     ├── bin
@@ -191,7 +191,7 @@ hobot-camera/
      - (可选)如果该deb在打包前，需要进行源码编译，则进行源码编译命令的调度，请注意最终的所有输出，均需要输出到`out/build/debs/new_pkg/debian/`目录下;
      - 置位`is_allowed=1`
 
-## deb包编入镜像流程说明
+## 7.6.4 deb包编入镜像流程说明
 在镜像构建的过程中，deb包会被编入板端根文件系统内。
 
 ### 在线镜像构建
@@ -239,7 +239,7 @@ apt download <package names>
 2. 知道需要的文件，且host端有安装过：
    - 可以通过`dpkg -S <filename>`命令获取包名。
 
-## 自定义分区说明
+## 7.6.5 自定义分区说明
 RDK S100的分区定义文件保存在`source/bootloader/device/rdk/s100/partition_config_files`文件夹下，默认使用的分区表为：`source/bootloader/device/rdk/s100/partition_config_files/s100-gpt.json`
 ```json
 {
@@ -290,7 +290,7 @@ RDK S100的分区定义文件保存在`source/bootloader/device/rdk/s100/partiti
 - `AB_part_b`：AB分区的B分区后缀；
 - `BAK_part_bak`：备份分区后缀；
 
-分区单独配置使用“分区名”：“分区配置类型”的形式，可以根据需要选择不同的分区配置类型。 例如：boot分区就需要首先在分区全局配置中添加boot分区的描述，然后在`source/bootloader/device/rdk/s100/sub_config`文件夹中创建`boot.json`，并在其中定义`boot_common`：
+分区单独配置使用“分区名”：“分区配置类型”的形式，可以根据需要选择不同的分区配置类型。 例如：boot分区就需要首先在分区全局配置中添加boot分区的描述，然后在`source/bootloader/device/rdk/s100/partition_config_files/sub_config`文件夹中创建`boot.json`，并在其中定义`boot_common`：
 ```json
 {
 	"boot_common": {
@@ -362,6 +362,18 @@ S100X支持变更eMMC/UFS上的分区，只需添加或删除或修改分区配�
 1. 分区表中，`log`及其以前的分区为启动分区，原则上不建议修改。
 2. 其他分区，如`userdata`，`system`等，可以自由调整大小，如果新增分区，注意调整`fstab`文件以确保分区被正常挂载；
 :::
+
+分区表修改后，需要经过以下步骤生效：
+1. 构建hobot-miniboot deb包：
+	```shell
+	# In RDK Source Root Directory
+	./mk_debs.sh hobot-miniboot
+	```
+2. 本地构建镜像：
+	```shell
+	# In RDK Source Root Directory
+	sudo ./pack_image.sh -l
+	```
 
 :::tip
 商业版提供更完整的功能支持、更深入的硬件能力开放和专属的定制内容。为确保内容合规、安全交付，我们将通过以下方式开放商业版访问权限：

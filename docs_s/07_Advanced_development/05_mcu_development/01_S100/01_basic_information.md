@@ -37,7 +37,7 @@ sudo apt-get install -y build-essential make cmake libpcre3 libpcre3-dev bc biso
                         curl repo git liblz4-tool apt-cacher-ng libssl-dev checkpolicy autoconf \
                         android-sdk-libsparse-utils mtools parted dosfstools udev rsync python3-pip scons
 
-pip install scons>=4.0.0
+pip install "scons>=4.0.0"
 pip install ecdsa
 pip install tqdm
 ```
@@ -45,18 +45,20 @@ pip install tqdm
 ## 编译MCU系统
 
 1. 编译会使用python3，RDK S100开发使用的python3的版本为3.8.10；
-2. mcu1的镜像分为debug和release两个版本。debug版本的镜像会有调试信息，而release版本不含调试信息。
+2. MCU1的镜像分为debug和release两个版本。debug版本的镜像会有调试信息，而release版本不含调试信息。
 
-```c
-/* 编译mcu1 */
+```shell
+# 编译MCU1 Debug版本
 cd mcu/Build/FreeRtos_mcu1
-python build_freertos.py s100_sip_B debug/release
-
-/*
-1.首次编译会从arm官网下载一份工具链然后解压缩（10min左右），网速不好可能会存在工具链下载不成功或者工具链下载不完整的问题，可删除已下载的工具链，再多尝试下载几次。
-2.如果已有相关工具链，可以将其移至/Build/ToolChain/Gcc/内，当检测到有工具链，就不会从官网下载。
-mv 工具链地址/gcc-arm-none-eabi-10.3-2021.10/ 新代码/Build/ToolChain/Gcc/gcc-arm-none-eabi-10.3-2021.10
+python build_freertos.py s100_sip_B debug
+# 1.首次编译会从arm官网下载一份工具链然后解压缩（10min左右），网速不好可能会存在工具链下载不成功或者工具链下载不完整的问题，可删除已下载的工具链，再多尝试下载几次。
+# 2.如果已有相关工具链，可以将其移至/Build/ToolChain/Gcc/内，当检测到有工具链，就不会从官网下载。
+# mv 工具链地址/gcc-arm-none-eabi-10.3-2021.10/ 新代码/Build/ToolChain/Gcc/gcc-arm-none-eabi-10.3-2021.10
 */
+
+# 编译MCU1 Debug版本
+cd mcu/Build/FreeRtos_mcu1
+python build_freertos.py s100_sip_B release
 ```
 
 ## 编译成功标志
@@ -67,22 +69,22 @@ mv 工具链地址/gcc-arm-none-eabi-10.3-2021.10/ 新代码/Build/ToolChain/Gcc
 
 ```c
 output/
-├── dbg                                 # 该文件夹下包含debug版本的编译生成文件
+├── debug                               # 该文件夹下包含debug版本的编译生成文件
 |    ├── objs                           # 编译生成的i/s/o文件
 |    └── S100_MCU_SIP_V2.0              # 编译生成的bin/map/elf等文件
 |         ├── custom_compiler_flags.py
-|         ├── S100_MCU_DEBUG.elf        # mcu1启动文件
+|         ├── S100_MCU_DEBUG.elf        # MCU1启动文件
 |         ├── S100_MCU_DEBUG.map
 |         ├── S100_MCU_SIP_V2.0.bin
 ├── objs                                # 编译生成的i/s/o文件，根据编译的版本变化
-├── rel                                 # 该文件夹下包含release版本的编译生成文件
+├── release                             # 该文件夹下包含release版本的编译生成文件
 |    ├── objs                           # 编译生成的i/s/o文件
 |    └── S100_MCU_SIP_V2.0              # 编译生成的bin/map/elf等文件
 ```
 
 ## MCU1启动/关闭流程
-MCU1的启动/关闭是由Acore经过remoteproc框架传递信息给mcu0进而实现启动/关闭mcu1。
-### MCU1启动原理与步骤
+MCU1的启动/关闭是由Acore经过remoteproc框架传递信息给MCU0进而实现启动/关闭MCU1。
+### MCU1启动原理与步骤{#start_mcu1}
 #### MCU1启动原理
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_start.png)
@@ -90,7 +92,7 @@ MCU1的启动/关闭是由Acore经过remoteproc框架传递信息给mcu0进而�
 #### MCU1启动步骤
 下述启动流程以debug版本为例，release版本与其类似，只是少一些log打印。
 
-1. 经过上述编译流程，编译debug版本会在S100_MCU_SIP_V2.0文件夹下产生S100_MCU_DEBUG.elf文件（release版本类似），该文件为mcu1的firmware文件，因此需要将该文件推送到板端的/lib/firmware目录。举例子如下：
+1. 经过上述编译流程，编译debug版本会在S100_MCU_SIP_V2.0文件夹下产生S100_MCU_DEBUG.elf文件（release版本类似），该文件为MCU1的firmware文件，因此需要将该文件推送到板端的/lib/firmware目录。举例子如下：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/push_elf.png)
 
@@ -132,7 +134,7 @@ MCU侧串口打印
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_stop_log.png)
 
 :::caution
-stop mcu1之后，如果需要再次启动mcu1，必须等待系统进入wfi模式之后，才能再次start mcu1，见下图所示。原因解释：避免系统还没有进入wfi模式时，start mcu1会重新加载firmware至 mcu sram位置导致之前位置代码被覆盖，导致系统运行跑飞挂死
+stop MCU1之后，如果需要再次启动MCU1，必须等待系统进入wfi模式之后，才能再次start MCU1，见下图所示。原因解释：避免系统还没有进入wfi模式时，start MCU1会重新加载firmware至 mcu sram位置导致之前位置代码被覆盖，导致系统运行跑飞挂死
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_enter_wfi.png)
 :::
@@ -140,36 +142,65 @@ stop mcu1之后，如果需要再次启动mcu1，必须等待系统进入wfi模�
 ## MCU0/MCU1模块划分
 MCU整个系统含有ICU、RTC、IPC、port、CAN等模块，但是为了用户开发的方便，对于功能进行了划分，划分细节如下图所示。
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_functions.png)
+|模块|模块位置|
+|----|---------------|
+|ppslcu|MCU0|
+|port|MCU0|
+|uart|MCU0/MCU1|
+|log|MCU0/MCU1|
+|shell_init|MCU0/MCU1|
+|mDma|MCU0/MCU1|
+|I2c|MCU0: i2c6, i2c7/MCU1: i2c8, i2c9|
+|tca9539|MCU0|
+|ICU|MCU0|
+|GPT|MCU0|
+|pmic|MCU0|
+|fls_init|MCU0|
+|otafiash|MCU0|
+|ipc|MCU0: instance8/MCU1: instance0(其他instance未划分, 均可使用)|
+|crypto|MCU0|
+|pvt|MCU0|
+|canGW|MCU1|
+|Rtc|MCU0|
+|RTC_pps|MCU0|
+|Eth_Init|MCU1|
+|Scmi|MCU0|
 
 ## MCU在sysfs上debug功能介绍
 
 MCU目前在sysfs上支持查看系统状态alive，系统存活时间taskcounter，mcu版本mcu_version，sbl版本sbl_version等功能。
-1. 系统状态alive：表示mcu0\mcu1所处状态，分别为alive和dead两种。mcu alive状态每1s更新一次，所以获取状态会有1s延迟；
+1. 系统状态alive：表示MCU0/MCU1所处状态，分别为alive和dead两种。mcu alive状态每1s更新一次，所以获取状态会有1s延迟；
 2. 系统存活时间taskcounter：表示mcu启动后持续的时间，单位：秒；
 3. mcu版本mcu_version：可以查看mcu版本信息，包括debug版本还是release版本，以及编译的时间；
 4. sbl版本sbl_version：可以查看sbl版本信息以及编译的时间，但是只有在remoteproc_mcu0下可以查看;
-5. MCU串口log:可以查看MCU串口log信息，分别remoteproc_mcu0对应MCU0，remoteproc_mcu1对应MCU1。
+5. mcu串口log: 可以查看MCU串口log信息，分别remoteproc_mcu0对应MCU0，remoteproc_mcu1对应MCU1。
+6. mcu cpuloads: 可以获取到MCU0/MCU1各任务的任务状态，优先级，剩余栈，运行次数（FreeRtos tickcount）和使用率等信息，帮助用户去debug。cpuloads数据获取需要1s的延迟，因为会涉及到大量数据拷贝至sysfs文件系统下的输出buffer。cpuloads的获取需要在MCU0/MCU1**已上电**的情况下才能进行获取。
 
-系统状态alive，图示：
+:::info 图片中的信息可能因版本更新而有所不同，文中示例仅供参考
+:::
+1. 系统状态alive，图示：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/alive_state.png)
 
-系统存活时间taskcounter，图示：
+2. 系统存活时间taskcounter，图示：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/taskcounter_state.png)
 
-mcu版本mcu_version，图示：
+3. mcu版本mcu_version，图示：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_version.png)
 
-sbl版本sbl_version，图示：
+4. sbl版本sbl_version，图示：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/sbl_version.png)
 
-MCU串口log获取，图示：
+5. mcu串口log获取，图示：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log.png)
+
+6. mcu cpuloads获取，图示:
+
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/cpuload.jpg)
 
 ## MCU串口使用
 如果RDK-S100含有连接方式如下，mcu串口和Acore串口共用一个串口，自行查看：设备管理器 -》端口-》MCU-COM-波特率921600
@@ -183,17 +214,17 @@ MCU串口log获取，图示：
 ```c
 fastboot 0
 ```
-2. 编译好的mcu0 镜像/output_sysmcu/目录下找到相应的mcu0镜像
+2. 编译好的MCU0 镜像/output_sysmcu/目录下找到相应的MCU0镜像（MCU0代码仅在商业版中提供）
 ```c
 fastboot oem interface:mtd
-/* 编译出来的mcu0镜像：MCU_S100_SIP_V2.0.img */
+/* 编译出来的MCU0镜像：MCU_S100_SIP_V2.0.img */
 fastboot flash MCU_a "xxx/MCU_S100_SIP_V2.0.img"
 fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
 ```
 #### 空片烧录或烧挂重新烧录
-1. 通过编译RDKS100-acore获取RDKS100镜像包，结构如下所示
+1. 通过编译RDKS100-acore或者[官方下载链接](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)获取RDKS100镜像包，结构如下所示，确保同一个文件夹内有`img_packages`及`xmodem_tools`两个文件夹即可正常烧录：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
 
 2. 烧录第一步：进入dfu模式，按照下图拨key即可(烧录完，记得拨回去！！！)
 
@@ -206,43 +237,54 @@ d. 上述操作完成后，按图片中按键1，同时2处的灯变为红色
 
 3. 烧录第二步：在你解压的镜像文件夹下执行下面的指令，即dfu下载进入uboot(sec版本)
 ```c
-dfu-util.exe -d 3652:6610 -a 0 -D out/product/xmodem_tools/sec/out/s100/cmd_load_sbl
-dfu-util.exe -d 3652:6610 -a 0 -D out/product/xmodem_tools/sec/out/s100/sbl.pkg
-dfu-util.exe -d 3652:6610 -a 0 -D out/product/xmodem_tools/sec/out/s100/cmd_exit_sbl
-dfu-util.exe -d 3652:6620 -a 0 -R -D out/product/xmodem_tools/sec/out/s100/u-boot-spl_ddr.bin
-dfu-util.exe -d 3652:6620 -a 0 -R -D out/product/xmodem_tools/sec/out/s100/S100_MCU_V1.0.bin
+dfu-util.exe -d 3652:6610 -a 0 -D xmodem_tools/sec/out/s100/cmd_load_hsmfw
+dfu-util.exe -d 3652:6610 -a 0 -D xmodem_tools/sec/out/s100/hsmfw_se.pkg
+dfu-util.exe -d 3652:6610 -a 0 -D xmodem_tools/sec/out/s100/cmd_exit_hsmfw
+dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/fpt.img
+dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/keyimage.img
+dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/SBL.img
+dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/hsmrca.pkg
+dfu-util.exe -d 3652:6620 -a 0 -R -D xmodem_tools/sec/out/s100/spl.img
+dfu-util.exe -d 3652:6620 -a 0 -R -D xmodem_tools/sec/out/s100/MCU_S100_V1.0.img
 # mcu启动可能费时比较久
-dfu-util.exe -d 3652:6625 -a 0 -D out/product/xmodem_tools/sec/out/s100/hobot-s100-bl31.dtb
-dfu-util.exe -d 3652:6625 -a 1 -D out/product/xmodem_tools/sec/out/s100/bl31.bin
-dfu-util.exe -d 3652:6625 -a 2 -D out/product/xmodem_tools/sec/out/s100/tee-pager_v2.bin
-dfu-util.exe -d 3652:6625 -a 3 -R -D out/product/xmodem_tools/sec/out/s100/u-boot.bin
+dfu-util.exe -d 3652:6625 -a 0 -D xmodem_tools/sec/out/s100/acore_cfg.img
+dfu-util.exe -d 3652:6625 -a 1 -D xmodem_tools/sec/out/s100/bl31.img
+dfu-util.exe -d 3652:6625 -a 2 -D xmodem_tools/sec/out/s100/optee.img
+dfu-util.exe -d 3652:6625 -a 3 -R -D xmodem_tools/sec/out/s100/uboot.img
 ```
 4. 烧录第三步：整体烧录命令如下：
 ```c
 fastboot.exe oem interface:mtd
-fastboot.exe flash hb_vspiflash out/product/img_packages/disk/miniboot_flash_nose.img
+fastboot.exe flash hb_vspiflash img_packages/disk/miniboot_flash_nose.img
 
 fastboot.exe oem interface:blk
 fastboot.exe oem bootdevice:scsi
-fastboot.exe flash 0x0 out/product/img_packages/disk/emmc_disk.simg
+fastboot.exe flash 0x0 img_packages/disk/emmc_disk.simg
 ```
-### 自动烧录
-1. 能够正常进入Uboot，下载模式选择“uboot”
+### 工具烧录
+1. 能够正常进入Uboot时，按如下配置：
+   1. “下载模式”选择“uboot”；
+   2. “储存介质”选择“emmc”；
+   3. “类型”选择“secure”；
+   4. “选择镜像”位置请选择带有`img_packages`和`xmodem_tools`的文件夹；
+   5. “acore串口”根据实际情况选择；
+   6. “波特率”选择“921600”；
+   7. 单击“其他配置”的右方的小箭头，点击“分区选择”，然后只勾选“miniboot_flash”；
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot.png)
+  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot.png)
 
-2. 不能正常进入UBoot，下载模式选择“usb”
+2. 不能正常进入UBoot，下载模式选择“usb”，不需要选择串口及波特率，其他配置与能够正常进入Uboot时保持一致：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb.png)
+  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb.png)
 
 ## MCU1 Undefined/Abort 异常处理原理
 
-正常情况下系统在进入undefined/abort异常时，最终会进入死循环状态。只有重新执行上下电流程才能再次正常运行。RDK-S100由于不能对mcu1单独进行上下电，所以需要进行系统流程的修改，以实现上述的预期。
-具体原理：当Undefined/Abort异常产生时，也会最终进入死循环状态。通过Acore的sysfs对mcu1进行软件下电，也即通知mcu1进入wfi模式，等下次再次start时，mcu1将重新软件启动，从而实现预期。
+正常情况下系统在进入undefined/abort异常时，最终会进入死循环状态。只有重新执行上下电流程才能再次正常运行。RDK-S100由于不能对MCU1单独进行上下电，所以需要进行系统流程的修改，以实现上述的预期。
+具体原理：当Undefined/Abort异常产生时，也会最终进入死循环状态。通过Acore的sysfs对MCU1进行软件下电，也即通知MCU1进入wfi模式，等下次再次start时，MCU1将重新软件启动，从而实现预期。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_exception.png)
 
-以Undefined异常为例子，当Undefined异常产生时，uart串口输出log “EL1_Undefined_Handler”，并进入最终进入S100_Exception_Handler处理函数，并根据exception_on变量进入死循环状态。当Acore通过remoteproc框架stop mcu1后，核间中断修改exception_on变量，进而关闭tick周期性中断，并进入WFI模式（STANDBY模式）：
+以Undefined异常为例子，当Undefined异常产生时，uart串口输出log “EL1_Undefined_Handler”，并进入最终进入S100_Exception_Handler处理函数，并根据exception_on变量进入死循环状态。当Acore通过remoteproc框架stop MCU1后，核间中断修改exception_on变量，进而关闭tick周期性中断，并进入WFI模式（STANDBY模式）：
 ```c
 void Os_Isr_Cross_Core_Ins0_Isr(void)
 {
@@ -306,11 +348,11 @@ void EL1_Undefined_Handler(void)
 }
 ```
 ## MCU1 main函数简介
-main函数是进入系统后的关键代码，下述代码也是mcu1正常启动的关键，请勿随意删除相关代码，删除可能会导致启动异常。
+main函数是进入系统后的关键代码，下述代码也是MCU1正常启动的关键，请勿随意删除相关代码，删除可能会导致启动异常。
 ```c
 int main(void)
 {
-    Ipc_MainPowerUp = TRUE;   /* IPC 上电标志，mcu1默认上电，因为在mcu0已上电 */
+    Ipc_MainPowerUp = TRUE;   /* IPC 上电标志，MCU1默认上电，因为在MCU0已上电 */
     PpsIcu_Irq_Init();        /* PPS相关中断配置为边沿触发函数 */
     Uart_Init();              /* UART串口初始化，debug用 */
     Log_Init();               /* log串口初始化，初始化后可在Acore获取相应mcu log信息 */

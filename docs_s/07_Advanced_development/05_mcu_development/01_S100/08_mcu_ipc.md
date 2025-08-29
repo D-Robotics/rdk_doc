@@ -247,6 +247,12 @@ Ipc_InstanceConfigType Ipc_ShmCfgInstances0 = {
 
 ## 应用sample
 
+:::tip
+所运行的应用程序sample均运行于Acore侧，并与MCU1进行通信，因此在使用前需运行MCU1的系统.
+
+**运行方式:** [MCU1启动步骤](./01_basic_information.md#start_mcu1)
+:::
+
 ### IpcBox功能介绍
 
 IpcBox是IPC的应用扩展，使用instance7用于透传外设数据和执行MCU侧的CMD应用，简称RunCmd应用。

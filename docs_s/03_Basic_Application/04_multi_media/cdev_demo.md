@@ -6,10 +6,6 @@ sidebar_position: 2
 
 本章节介绍多媒体库开发的多种功能示例，包括摄像头图像采集、视频编解码、视频显示、算法推理等功能。
 
-:::warning
-以下Sample需要sudo权限执行。
-:::
-
 ## 摄像头图像采集和显示
 
 本示例`vio2display`示例实现了`MIPI`摄像头图像采集功能，并通过`HDMI`接口输出，用户可通过显示器预览画面。
@@ -56,17 +52,69 @@ sidebar_position: 2
   WARN: Sensor Name: ar0820std-30fps, Expected Chip ID: 0xCB34, Actual Chip ID Read: 0x00
   [0] INFO: Found sensor name:imx219-30fps on mipi rx csi 0, i2c addr 0x10, config_file:linear_1920x1080_raw10_30fps_1lane.c
   2025/06/16 10:12:21.575 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
-  [  110.667129] [E|ISP-2A|main.c+66]: [FW_GENERIC]/sys/class/vps/isp0_src/v3a open fail, err is Permission denied
-  [  110.667169] [E|ISP-2A|main.c+68]: [FW_GENERIC]/sys/class/vps/isp1_src/v3a open fail, err is Permission denied
   sp_open_camera success!
   2025/06/16 10:12:21.727 !INFO [OpenDisplay][0111]Wayland is available, using Wayland for rendering.
   Using default socket path: /run/user/1000/wayland-0
   Press 'q' to Exit !
   ```
 
+## 摄像头图像本地保存
+
+本示例vio_capture示例实现了MIPI摄像头图像采集，并将RAW和YUV两种格式的图像本地保存的功能。示例流程框图如下：
+
+示例流程框图：
+
+ ![image-vio_capture.png](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-vio_capture.png)
+
+- **环境准备：**
+
+  - 开发板断电状态下，将`MIPI`摄像头接入开发板
+  - 开发板上电，并通过命令行登录
+
+- **运行方式：**
+  示例代码以源码形式提供，需要使用`make`命令进行编译后运行，步骤如下：
+
+  ```bash
+  sunrise@ubuntu:~$ cd /app/cdev_demo/vio_capture/
+  sunrise@ubuntu:/app/cdev_demo/vio_capture$ make
+  sunrise@ubuntu:/app/cdev_demo/vio_capture$ ./capture -b 10 -c 10 -w 1920 -h 1080
+  ```
+
+  参数说明：
+
+  - -b: RAW图bit数，例如IMX219支持格式为RAW10，则bit数为10。sensor支持格式可参考[配件清单](http://sysgbj2.hobot.cc/rdk_doc/rdk_s/Advanced_development/hardware_development/accessory)
+  - -c: 保存图像的数量，获取到每张图像的时间间隔一般为1/fps
+  - -w: 保存图像的宽度
+  - -h: 保存图像的高度
+
+- **预期效果：**
+  程序正确运行后，当前目录保存指定数量的图片文件，`RAW`格式以`raw_*.raw`方式命名，`YUV`格式以`yuv_*.yuv`方式命名。运行log如下：
+
+  ```bash
+  sunrise@ubuntu:/app/cdev_demo/vio_capture$ ./capture -b 10 -c 10 -w 1920 -h 1080
+  [UCP]: log level = 3
+  [UCP]: UCP version = 3.7.3
+  [VP]: log level = 3
+  [DNN]: log level = 3
+  [HPL]: log level = 3
+  [UCPT]: log level = 6
+  2025/06/04 22:24:22.139 !INFO [CamInitParam][0296]set camera fps: -1,width: 1920,height: 1080
+
+  mipi mclk is not configed.
+  Searching camera sensor on device: /proc/device-tree/soc/vcon@0 i2c bus: 1 mipi rx phy: 0
+  WARN: Sensor Name: ar0820std-30fps, Expected Chip ID: 0xCB34, Actual Chip ID Read: 0x00
+  [0] INFO: Found sensor name:imx219-30fps on mipi rx csi 0, i2c addr 0x10, config_file:linear_1920x1080_raw10_30fps_1lane.c
+  2025/06/04 22:24:22.140 !INFO [CamInitPymParam][0259]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
+  capture time :0
+  temp_ptr.data_size[0]:2592000
+  ... 省略 ...
+  capture time :9
+  temp_ptr.data_size[0]:2592000
+  ```
+
 ## 摄像头图像采集并编码
 
-本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存，用户可通过显示器预览画面。
+本示例`vio2encoder`示例实现了 `MIPI` 摄像头图像采集功能，并编码后在本地保存
 
 示例流程框图：
 
@@ -75,7 +123,6 @@ sidebar_position: 2
 - **环境准备：**
 
   - 开发板断电状态下，将`MIPI`摄像头接入开发板
-  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
 
 - **运行方式：** 按照以下命令执行程序
@@ -113,10 +160,6 @@ sidebar_position: 2
   WARN: Sensor Name: ar0820std-30fps, Expected Chip ID: 0xCB34, Actual Chip ID Read: 0x00
   [0] INFO: Found sensor name:imx219-30fps on mipi rx csi 0, i2c addr 0x10, config_file:linear_1920x1080_raw10_30fps_1lane.c
   2025/06/16 11:04:37.629 !INFO [CamInitPymParam][0258]Setting PYM channel:0: crop_x:0, crop_y:0, input_width:1920, input_height:1080, dst_w:1920, dst_h:1080
-  [ 3246.617496] [E|ISP-2A|main.c+66]: [FW_GENERIC]/sys/class/vps/isp0_src/v3a open fail, err is Permission denied
-
-  [ 3246.617538] [E|ISP-2A|main.c+68]: [FW_GENERIC]/sys/class/vps/isp1_src/v3a open fail, err is Permission denied
-
   sp_open_camera success!
   2025/06/16 11:04:37.770 !INFO [vp_encode_config_param][0408]codec type is h264: frame size:3110912  frame rate: 30
   sp_start_encode success!
@@ -145,7 +188,7 @@ sidebar_position: 2
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/decode2display
   sunrise@ubuntu:/app/cdev_demo/decode2display$ make
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/pydev_demo/07_decode_rtsp_stream/1080P_test.h264
+  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/res/assets/1080P_test.h264
   ```
 
   参数说明：
@@ -157,7 +200,7 @@ sidebar_position: 2
 - **预期效果：**
   程序正确运行后，视频画面会通过开发板的`HDMI`接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
   ```bash
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/pydev_demo/07_decode_rtsp_stream/1080P_test.h264
+  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/res/assets/1080P_test.h264
   [UCP]: log level = 3
   [UCP]: UCP version = 3.7.3
   [VP]: log level = 3
@@ -186,12 +229,12 @@ sidebar_position: 2
 
   - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
-  - 准备`rtsp`码流作为输入源，使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/1080P_test.h264`。用户可通过如下命令启动推流服务：
+  - 准备`rtsp`码流作为输入源，使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/assets/1080P_test.h264`。用户可通过如下命令启动推流服务：
 
     ```text
-    cd /app/pydev_demo/07_decode_rtsp_stream/
-    sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo chmod +x live555MediaServer
-    sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo ./live555MediaServer &
+    cd /app/res
+    sunrise@ubuntu:/app/res# sudo chmod +x live555MediaServer
+    sunrise@ubuntu:/app/res# sudo ./live555MediaServer &
     ```
 
 - **运行方式：**
@@ -200,7 +243,7 @@ sidebar_position: 2
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/rtsp2display
   sunrise@ubuntu:/app/cdev_demo/rtsp2display$ make #可能会打印一些警告信息，无需理会
-  sunrise@ubuntu:/app/cdev_demo/decode2display$ ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
+  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ ./rtsp2display -i rtsp://127.0.0.1/assets/1080P_test.h264 -t tcp
   ```
 
   参数配置：
@@ -212,7 +255,7 @@ sidebar_position: 2
   程序正确运行后，视频画面会通过开发板的`HDMI`接口输出，用户可以通过显示器预览视频画面。运行 log 如下：
 
   ```
-  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ ./rtsp2display -i rtsp://127.0.0.1/1080P_test.h264 -t tcp
+  sunrise@ubuntu:/app/cdev_demo/rtsp2display$ ./rtsp2display -i rtsp://127.0.0.1/assets/1080P_test.h264 -t tcp
   [UCP]: log level = 3
   [UCP]: UCP version = 3.7.3
   [VP]: log level = 3
@@ -221,7 +264,7 @@ sidebar_position: 2
   [UCPT]: log level = 6
   avformat_open_input ok!
   avformat_find_stream_info ok!
-  Input #0, rtsp, from 'rtsp://127.0.0.1/1080P_test.h264':
+  Input #0, rtsp, from 'rtsp://127.0.0.1/assets/1080P_test.h264':
     Metadata:
       title           : H.264 Video, streamed by the LIVE555 Media Server
       comment         : 1080P_test.h264
@@ -242,7 +285,7 @@ sidebar_position: 2
 
 - **注意事项：**
   - 使用 UDP 协议传输码流时，可能出现因网络丢包导致的花屏现象，此时可切换成 TCP 协议传输解决；
-  - 注意上述命令中`127.0.0.1`部分需要根据`live555MediaServer`执行时打印出来的服务器实际运行端口，添加端口信息，例如：
+  - 若使用上述命令有Connection refused报错，则上述命令中`127.0.0.1`部分可能需要根据`live555MediaServer`执行时打印出来的服务器实际运行端口，添加端口信息，例如：
     ```shell
     # final output of live555MediaServer
     ...
@@ -250,16 +293,15 @@ sidebar_position: 2
     ...
 
     # rtsp2display actual command
-    sunrise@ubuntu:/app/cdev_demo/rtsp2display$ sudo ./rtsp2display -i rtsp://127.0.0.1:8080/1080P_test.h264 -t tcp
+    sunrise@ubuntu:/app/cdev_demo/rtsp2display$ ./rtsp2display -i rtsp://127.0.0.1:8000/assets/1080P_test.h264 -t tcp
     ```
 
 ## VPS 缩放示例
 
-本示例实现了基于视频处理模块`VPS`的视频缩放功能，用户可通过显示器预览画面。
+本示例实现了基于视频处理模块`VPS`的视频缩放功能, 可截取视频文件其中一帧进行缩小处理，或缩小指定图片
 
 - **环境准备：**
 
-  - 通过 HDMI 线缆连接开发板和显示器
   - 开发板上电，并通过命令行登录
   - 准备图像(NV12)、视频文件(H264)作为输入
 

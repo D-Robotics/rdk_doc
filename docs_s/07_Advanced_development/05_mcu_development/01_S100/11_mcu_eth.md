@@ -75,7 +75,7 @@ Eth_TxConfirmation //释放buffer
 
 ```
 # 使能EthTest_Mainfunc周期性调用
-setvar Eth_Test1
+setvar Eth_Test 1
 
 # eth up
 setvar eth_contrMode 1

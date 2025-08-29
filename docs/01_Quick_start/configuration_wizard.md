@@ -231,7 +231,7 @@ RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设�
 
 对于以上操作对于各种系统都是通用方式，对于闪连操作，注意仅限RDX X5的Type C接口可以使用。
 
-具体使用方式如下：  
+具体使用方式如下：
 
 :::
 
@@ -293,7 +293,7 @@ sudo pkill -u sunrise
 #sunrise用户改名为usertest
 sudo usermod -l usertest sunrise
 #用户的家目录改为/home/usertest
-sudo usermod -d /home/usertest -m sunrise
+sudo usermod -d /home/usertest -m usertest
 #修改用户密码
 sudo passwd usertest
 ```

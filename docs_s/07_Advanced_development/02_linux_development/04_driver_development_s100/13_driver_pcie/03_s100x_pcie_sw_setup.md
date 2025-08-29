@@ -51,8 +51,6 @@ CONFIG_PCIE_HOBOT_EP_FUN=m
 
 其中hybrid为必须使能的功能，已经被上述配置包含，其他功能可以按需配置。
 
-如果有debug的需求（具体使用参考：S100 PCIe驱动debug信息汇总）：
-
 ```shell
 CONFIG_PCIE_HOBOT_DEBUG=y
 ```

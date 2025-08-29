@@ -172,3 +172,5 @@ D-Robotics:/$ [0544.238961 0] main on start
 | Return value | Std_ReturnType |
 | Description | main domain power on or resume, and main domain periperals |
 | Available via | Pmu.h |
+
+以上休眠唤醒API调用sample在```Service/Cmd_Utility/power_sample_cmd/src/PowerControl.c```

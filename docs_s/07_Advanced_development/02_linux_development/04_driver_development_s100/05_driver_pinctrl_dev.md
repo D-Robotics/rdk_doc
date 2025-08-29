@@ -122,7 +122,7 @@ pin脚io-domain的设置，会直接影响到模块功能的正常运行，甚�
 4.  由于S100中一个group power控制一组pin脚，一个pin脚的设置可能会影响同组中其它的pin。因此拉通对齐会议，根据第三步中识别出来的gap信息，进行讨论和修复，直到gap消除。
 
 ### Pinctrl节点参考设置
-S100 acore中pinctrl设备树文件路径为: hobot-drivers/kernel-dts/hobot-s100-pinctrl.dtsi。
+S100 acore中pinctrl设备树文件路径为: hobot-drivers/kernel-dts/drobot-s100-pinctrl.dtsi。
 
 pinctrl节点中将一组pin组合到一起，每个节点的配置包含多个子节点.
 
