@@ -34,10 +34,28 @@ sudo srpi-config
 
 ![image-20240817195940261](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
 
+在 RDK X5 中，部分接口存在 复用关系。
+
+同一组复用功能中，只有 开启其中一项功能时才会生效。
+
+当所有复用功能都 关闭 时，接口才会表现为普通 GPIO 功能。
+
+复用功能示例如下：
+
+  | 接口功能1 | 接口功能2 | 
+  | ---- | ---- |
+  | uart3 | i2c5 |
+  | i2c0 | pwm2 |
+  | spi2 | pwm0 |
+  | spi2 | pwm1 |
+  | i2c1 | pwm3 |
+
 `okay`配置对应管脚为专用功能，`disabled` 关闭该管脚的专用功能，可以用作 GPIO ，配置 **重启** 后生效。
 
 - 键盘上、下键选择功能项， 回车键开关功能
 - 键盘左、右键选择  Select 和 Exit ，回车键确认
+
+
 
 ## 40PIN 管脚定义{#40pin_define}
 

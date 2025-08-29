@@ -22,6 +22,22 @@ After selecting `3 Interface Options` -> `I3 Peripheral bus config`, you will en
 
 ![I3 Peripheral Bus Config](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20240817195940261.png)
 
+On the RDK X5, some interfaces have multiplexed functions.
+
+For a given multiplexed group, only one function can be enabled at a time.
+
+When all multiplexed functions are disabled, the interface operates as a standard GPIO.
+
+Examples of multiplexed functions:
+
+  | Function 1 | Function 2 | 
+  | ---- | ---- |
+  | uart3 | i2c5 |
+  | i2c0 | pwm2 |
+  | spi2 | pwm0 |
+  | spi2 | pwm1 |
+  | i2c1 | pwm3 |
+
 - **`okay`:** Configures the corresponding pin for its dedicated function.  
 - **`disabled`:** Disables the pin's dedicated function, allowing it to be used as a GPIO.  
 - **Note:** Configuration changes take effect **after a restart**.
