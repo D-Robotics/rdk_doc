@@ -6,15 +6,29 @@ sidebar_position: 6
 
 ## tros-humble
 
+### 版本号：2.4.2 (2025-8-29)
+
+新增功能（`RDK S100`平台）：
+
+- [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持`230ai`双目模组。
+- [目标检测YOLO](/docs/05_Robot_development/03_boxs/detection/yolo.md)支持`yolo11`和`yolov12`算法；增加使用`component`方式启动的脚本，支持使用`mipi cam`采集4K图像进行推理。
+- [EdgeSAM分割一切](/docs/05_Robot_development/03_boxs/segmentation/mono_edgesam.md)算法新增`edgesam`作为模型推理；新增`nv12`格式数据输入；新增对分割结果padding, 用于在双目深度案例一同可视化。
+- 新增[文本图片特征检索算法](/docs/05_Robot_development/03_boxs/function/hobot_clip.md)，用于文本图片特征提取检索。
+- 新增[DOSOD算法](/docs/05_Robot_development/03_boxs/detection/hobot_dosod.md)，新增地瓜自研开放性词汇检测DOSOD端侧部署功能包；新增DOSOD模型自定义修改检测类别的重参数量化方法。
+- 新增[双目OCC](/docs/05_Robot_development/03_boxs/spatial/dstereo_occupancy.md)，集成地瓜双目`OCC`网络。
+- [视觉语言模型](/docs/05_Robot_development/04_apps/hobot_llamacpp.md)算法新增`smolvlm2`模型适配, 支持图片回灌、订阅模式；新增`llm`模型推理结束后输出完整话题的能力。
+- 新增[双目深度估计算法](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md)。
+
+
 ### 版本号：2.4.1 (2025-7-30)
 
-新增功能：
+新增功能（`RDK X5`平台）：
 
 - [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持`imx415`模组。
-- [EdgeSAM分割一切](/docs/05_Robot_development/03_boxs/function/mono_edgesam.md)算法新增`edgesam`作为模型推理；新增`nv12`格式数据输入；新增对分割结果padding, 用于在双目深度案例一同可视化。
-- 新增[人体实例跟踪](/docs/05_Robot_development/03_boxs/function/reid.md)算法，基于`reid`模型提取人体特征，通过`SQlite`数据库存储、管理、查询特征。
-- 新增[双目OCC](/docs/05_Robot_development/03_boxs/function/dstereo_occupancy.md)算法，集成地瓜双目`OCC`网络。
-- [视觉语言模型](/docs/05_Robot_development/02_quick_demo/hobot_llamacpp.md)新增`smolvlm2`模型适配, 支持图片回灌、订阅模式；新增`llm`模型推理结束后输出完整话题的能力。
+- [EdgeSAM分割一切](/docs/05_Robot_development/03_boxs/segmentation/mono_edgesam.md)算法新增`edgesam`作为模型推理；新增`nv12`格式数据输入；新增对分割结果padding, 用于在双目深度案例一同可视化。
+- 新增[人体实例跟踪](/docs/05_Robot_development/03_boxs/body/reid.md)算法，基于`reid`模型提取人体特征，通过`SQlite`数据库存储、管理、查询特征。
+- 新增[双目OCC](/docs/05_Robot_development/03_boxs/spatial/dstereo_occupancy.md)算法，集成地瓜双目`OCC`网络。
+- [视觉语言模型](/docs/05_Robot_development/04_apps/hobot_llamacpp.md)新增`smolvlm2`模型适配, 支持图片回灌、订阅模式；新增`llm`模型推理结束后输出完整话题的能力。
 
 
 ### 版本号：2.4.0 (2025-5-12)
@@ -28,22 +42,23 @@ sidebar_position: 6
 新增功能：
 
 - 支持`RDK X5 Module`平台。
-- 新增基于`sensevoice_cpp`的[ASR开源方案](/docs/05_Robot_development/03_boxs/function/sensevoice_ros2.md)，支持命令词和ASR数据的推送。
-- [双目深度估计算法](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md)优化后处理耗时，新增V2.3版本模型。
-- 新增基于`llama.cpp`的端侧[视觉语言模型](/docs/05_Robot_development/02_quick_demo/hobot_llamacpp.md)算法示例。
+- 新增基于`sensevoice_cpp`的[ASR开源方案](/docs/05_Robot_development/03_boxs/audio/sensevoice_ros2.md)，支持命令词和ASR数据的推送。
+- [双目深度估计算法](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md)优化后处理耗时，新增V2.3版本模型。
+- 新增基于`llama.cpp`的端侧[视觉语言模型](/docs/05_Robot_development/04_apps/hobot_llamacpp.md)算法示例。
+
 
 ### 版本号：2.3.2 (2025-1-15)
 
 功能变更：
 
-- [双目深度估计算法](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md)更新双目模型，优化深度估计效果。
+- [双目深度估计算法](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md)更新双目模型，优化深度估计效果。
 - [多路视频分析](/docs/05_Robot_development/04_apps/video_boxs.md)算法应用示例，优化示例处理流程以及WEB端可视化效果。
 - [双目辅助功能包](https://github.com/D-Robotics/hobot_stereonet_utils)删除部分不能启动的launch文件。
 
 新增功能：
 
 - 新增[ZED相机图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)，用于启动zed相机获取双目图像，用于双目深度估计算法输入。
-- 新增[DOSOD算法](/docs/05_Robot_development/03_boxs/function/hobot_dosod.md)，新增地瓜自研开放性词汇检测DOSOD端侧部署功能包。
+- 新增[DOSOD算法](/docs/05_Robot_development/03_boxs/detection/hobot_dosod.md)，新增地瓜自研开放性词汇检测DOSOD端侧部署功能包。
 
 问题修复：
 - 修复[yolov8-seg图像分割](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md)算法后处理中由于box越界导致的crash问题。
@@ -59,12 +74,12 @@ sidebar_position: 6
 新增功能：
 
 - [图像发布工具](/docs/05_Robot_development/02_quick_demo/demo_tool.md)支持发布`bgr/rgb`格式消息数据；支持配置发布消息的frame_id。
-- [人体检测和跟踪算法](/docs/05_Robot_development/03_boxs/function/mono2d_body_detection.md)支持配置订阅的消息topic；支持component模式运行；算法前处理支持对输入图片进行缩放后推理；launch启动脚本支持使用压缩图片回灌，并支持配置图片的路径。
+- [人体检测和跟踪算法](/docs/05_Robot_development/03_boxs/body/mono2d_body_detection.md)支持配置订阅的消息topic；支持component模式运行；算法前处理支持对输入图片进行缩放后推理；launch启动脚本支持使用压缩图片回灌，并支持配置图片的路径。
 - [板端算法模型推理与部署框架](https://github.com/D-Robotics/hobot_dnn.git)修复多线程推理中推理耗时计算错误的问题；支持在配置文件中配置任务数功能。
 - [图像编解码Node](/docs/05_Robot_development/02_quick_demo/hobot_codec.md)使用订阅到图像消息的frame_id作为输出图像消息的frame_id；支持发布丢帧控制。
-- [手势识别算法](/docs/05_Robot_development/03_boxs/function/hand_gesture_detection.md)支持启动时配置后处理阈值；支持动态手势识别。
-- 新增[人脸年龄检测算法](/docs/05_Robot_development/03_boxs/function/mono_face_age_detection.md)，用于检测人的年龄。
-- 新增[人脸106关键点检测算法](/docs/05_Robot_development/03_boxs/function/mono_face_landmarks_detection.md)，用于检测人脸106个关键点信息。
+- [手势识别算法](/docs/05_Robot_development/03_boxs/body/hand_gesture_detection.md)支持启动时配置后处理阈值；支持动态手势识别。
+- 新增[人脸年龄检测算法](/docs/05_Robot_development/03_boxs/body/mono_face_age_detection.md)，用于检测人的年龄。
+- 新增[人脸106关键点检测算法](/docs/05_Robot_development/03_boxs/body/mono_face_landmarks_detection.md)，用于检测人脸106个关键点信息。
 - 新增[感知消息融合Node](https://github.com/D-Robotics/tros_perception_fusion)，用于订阅多个[PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg)类型的topic，经过时间对齐、数据去重后，再融合成一个topic后发布。应用参考[多算法推理](/docs/05_Robot_development/02_quick_demo/ai_predict.md)。
 - 新增[感知消息滤波Node](https://github.com/D-Robotics/tros_lowpass_filter)，采用OneEuroFilter滤波策略对点和框做平滑操作，用于对感知结果中的人体、人脸、人手等检测框和关键点数据进行位置纠正，修复框和点的抖动问题。应用参考[多算法推理](/docs/05_Robot_development/02_quick_demo/ai_predict.md)。
 - 新增[双目辅助功能包](https://github.com/D-Robotics/hobot_stereonet_utils)，用于对双目图像、深度图像进行采集。
@@ -73,7 +88,7 @@ sidebar_position: 6
 问题修复：
 
 - [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)修复`imx219`模组启动失败的问题.
-- [人手关键点检测算法](/docs/05_Robot_development/03_boxs/function/hand_lmk_detection.md)前处理增加人手框外扩功能，解决算法输出的关键点错误的问题。
+- [人手关键点检测算法](/docs/05_Robot_development/03_boxs/body/hand_lmk_detection.md)前处理增加人手框外扩功能，解决算法输出的关键点错误的问题。
 
 
 ### 版本号：2.3.0 (2024-09-19)
@@ -83,11 +98,11 @@ sidebar_position: 6
 - 支持`RDK X5`平台。
 - 数据采集增加[双目MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)功能。
 - 算法仓库新增`yolov8`和`yolov10`[目标检测](/docs/05_Robot_development/03_boxs/detection/yolo.md)，`yolov8-seg`[图像分割](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md)参考算法。
-- 算法仓库新增[YOLO-World算法](/docs/05_Robot_development/03_boxs/function/hobot_yolo_world.md)，用于开放性词汇输入检测。
+- 算法仓库新增[YOLO-World算法](/docs/05_Robot_development/03_boxs/detection/hobot_yolo_world.md)，用于开放性词汇输入检测。
 - 算法仓库新增[光流估计算法](/docs/05_Robot_development/03_boxs/function/mono_pwcnet.md)，用于光流检测。
-- 算法仓库新增[分割一切算法](/docs/05_Robot_development/03_boxs/function/mono_mobilesam.md)，用于无差别分割一切。
+- 算法仓库新增[分割一切算法](/docs/05_Robot_development/03_boxs/segmentation/mono_mobilesam.md)，用于无差别分割一切。
 - 算法仓库新增[文本图片特征检索算法](/docs/05_Robot_development/03_boxs/function/hobot_clip.md)，用于文本图片特征提取检索。
-- 算法仓库新增[双目深度估计算法](/docs/05_Robot_development/03_boxs/function/hobot_stereonet.md)，实现基于视觉的深度估计。
+- 算法仓库新增[双目深度估计算法](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md)，实现基于视觉的深度估计。
 
 
 ### 版本号：2.2.0 (2024-04-11)

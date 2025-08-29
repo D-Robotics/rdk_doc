@@ -27,7 +27,8 @@ Use cases: As a representative algorithm in single-stage object detection, the Y
 | Platform              | System | Supported Algorithms | Function                                            |
 | --------------------- | ---------------- | -------------------- | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
-| RDK X5 | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5x/yolov8/yolov10 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+| RDK X5 | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
 
 ## Preparations
 

@@ -23,6 +23,7 @@ import TabItem from '@theme/TabItem';
 | 平台   | 运行方式     | 示例功能                           |
 | ------ | ------------ | ---------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
 
 ## 准备工作
 
