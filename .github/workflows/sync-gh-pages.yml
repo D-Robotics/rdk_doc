@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout gh-pages branch (shallow)
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v3
         with:
           ref: gh-pages
-          fetch-depth: 1   # 只拉取最新一次提交，加快速度
+          fetch-depth: 0   # 拉取完整历史，保证可以 push
 
       - name: Setup Git
         run: |
@@ -28,14 +28,5 @@ jobs:
           git remote remove gitee 2>/dev/null || true
           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
 
-      - name: Copy new site content
-        run: |
-          # 清空旧内容，拷贝最新生成的静态文件
-          rm -rf *
-          cp -r ./_site/* .  # 假设你 Docusaurus build 的目录是 _site
-
-      - name: Commit and push changes
-        run: |
-          git add -A
-          git diff-index --quiet HEAD || git commit -m "Update gh-pages"
-          git push gitee gh-pages
+      - name: Push gh-pages to Gitee
+        run: git push gitee gh-pages --force

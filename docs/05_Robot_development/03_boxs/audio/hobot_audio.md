@@ -53,7 +53,7 @@ import TabItem from '@theme/TabItem';
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
-   
+
 4. 按照以下方法在RDK上接好环形或线形四麦音频板。
 
 ### 连接音频板
@@ -123,7 +123,7 @@ import TabItem from '@theme/TabItem';
     <TabItem value="rdk_x5" label="RDK_X5">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](/docs/03_Basic_Application/02_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
-    
+
     </TabItem>
     </Tabs>
 
