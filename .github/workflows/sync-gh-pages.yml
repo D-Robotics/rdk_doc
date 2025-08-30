@@ -25,7 +25,8 @@ jobs:
 
       - name: Add Gitee remote
         run: |
-          git remote add gitee https://${{ secrets.GITEE_USER }}:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
+          git remote remove gitee 2>/dev/null || true
+          git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
 
       - name: Push gh-pages to Gitee
         run: git push gitee gh-pages --force
