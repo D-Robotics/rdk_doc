@@ -98,7 +98,7 @@ static const Spi_ChannelCfg SpiChannel_2 =
 ```
 
 
-### 使用示例
+### 单片选使用示例
 
 spi_test 命令用于测试SPI（Serial Peripheral Interface，串行外设接口）功能。该命令支持初始化和参数设置、获取参数以及执行SPI测试。
 
@@ -167,8 +167,48 @@ TxChBuf0 (256 bytes):
 [0433.700110 0]=====SPI ASYNC TEST SUCCESS=====
 
 ```
+### 双片选使用示例
 
+SpiTest_Mul_cs 命令用于测试SPI（Serial Peripheral Interface，串行外设接口）功能。
 
+使用方式和参数解析如下：
+```shell
+########################## support test case: ##########################
+usag: SpiTest_Mul_cs Case_num Sequences Cs DataWidth DataLen Loop_times
+[1]: SpiTest_Mul_cs 1 1 0 8 1 1 -- get versioninfo
+[2]: SpiTest_Mul_cs 2 5 0 8 10 1 -- InterruptMode Sync Transfer
+[3]: SpiTest_Mul_cs 3 5 0 8 10 1 -- PollingMode Sync Transfer
+[4]: SpiTest_Mul_cs 4 5 0 8 10 1 -- InterruptMode Async Transfer
+[5]: SpiTest_Mul_cs 5 5 0 8 10 1 -- PollingMode Async Transfer
+other: SpiTest 110  -- help
+```
+- 参数解析：
+    - Case_num (argv[1]): 指定要执行的操作，支持5种模式，如使用中断异步传输， Case_num设置为4
+    - Sequences (argv[2]): 指定使用哪路spi， 如使用spi4，Sequences参数设置为4
+    - Cs (argv[3]): 表示使用哪路cs， 如使用cs0， Cs参数设置为0
+    - DataWidth (argv[4]): 表示传输数据位宽， 如位宽为8bit，DataWidth设置为8
+    - Datalen (argv[5]): 表示传输的数据量，如传输10组数据， Datalen设置为10
+    - Loop_times (argv[6]): 表示测试几次， 如测试5次， Loop_times设置为5
+- 举例说明：
+    - spi4，async interrupt传输，cs1，8bit数据宽度， 10组数据， 测试1次： SpiTest_Mul_cs 4 4 1 8 10 1
+
+将SPI4的MISO和MOSI短接，运行以下命令
+```shell
+Robotics:/$ SpiTest_Mul_cs 4 4 1 8 10 1
+[get_spi_status 98] [INFO]: SPI status: SPI_IDLE
+[SpiTest_Mul_cs 450] [INFO]: ####################### test_case_num: 4 #######################
+############################# Loop Times: 1 #############################
+[Spi_Trans_Test 231] [INFO]: data_tx: 0xcbccc40, data_rx: 0xcbcca40
+[Spi_Trans_Test 238] [INFO]: len = 10, check_data_len = 10
+[get_spi_sequence_result 122] [INFO]: SPI result: SPI_SEQ_PENDING
+TX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
+RX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
+[check_data 81] [INFO]: check data success.
+[Spi_Interrupt_Async_Transfer_Test 353] [INFO]: Transfer success.
+[SpiTest_Mul_cs 474] [INFO]: Test case pass.
+[SpiTest_Mul_cs 479] [INFO]: #####################################################################
+
+```
 ### 应用程序接口
 
 #### void Spi_Init(const Spi_ConfigType* ConfigPtr)
@@ -199,7 +239,7 @@ Parameters(inout)
 Parameters(out)
     None
 Return value：Std_ReturnType
-	E_OK: Spi write IB buffer success.
+    E_OK: Spi write IB buffer success.
     E_NOT_OK: Spi write IB buffer failed.
 ```
 
@@ -217,7 +257,7 @@ Parameters(inout)
 Parameters(out)
     None
 Return value：Std_ReturnType
-	E_OK: set success
+    E_OK: set success
     E_NOT_OK: set failed
 ```
 
@@ -235,7 +275,7 @@ Parameters(inout)
 Parameters(out)
     DataBufferPtr: Pointer to destination data buffer in RAM
 Return value：Std_ReturnType
-	E_OK: set success
+    E_OK: set success
     E_NOT_OK: set failed
 ```
 
@@ -255,7 +295,7 @@ Parameters(inout)
 Parameters(out)
     DesDataBufferPtr: Pointer to the memory location that will hold the received data
 Return value：Std_ReturnType
-	E_OK: Spi Setup EB buffer success.
+    E_OK: Spi Setup EB buffer success.
     E_NOT_OK: Spi Setup EB buffer failed.
 ```
 
@@ -335,7 +375,7 @@ Parameters(inout)
 Parameters(out)
     None
 Return value：Std_ReturnType
-	E_OK: Transmission command has been accepted
+    E_OK: Transmission command has been accepted
     E_NOT_OK: Transmission command has not been accepted
 ```
 
@@ -353,7 +393,7 @@ Parameters(inout)
 Parameters(out)
     None
 Return value：Spi_StatusType
-	Spi_StatusType
+    Spi_StatusType
 ```
 
 #### void Spi_Cancel(Spi_SequenceType Sequence)

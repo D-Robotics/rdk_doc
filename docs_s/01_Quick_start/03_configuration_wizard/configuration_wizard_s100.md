@@ -197,12 +197,14 @@ sudo pkill -u sunrise
 #sunrise用户改名为usertest
 sudo usermod -l usertest sunrise
 #用户的家目录改为/home/usertest
-sudo usermod -d /home/usertest -m sunrise
+sudo usermod -d /home/usertest -m usertest
 #修改用户密码
 sudo passwd usertest
 ```
 
-最后将`/etc/lightdm/lightdm.conf.d/22-hobot-autologin.conf`文件中的 `autologin-user=sunrise` 改为`autologin-user=usertest`，更新自动登录的用户名称
+最后将更新桌面服务自动登录的用户名称:
+  - gdm：RDK S100默认桌面服务，将`/etc/gdm3/custom.conf`文件中的`AutomaticLogin = sunrise`改为`AutomaticLogin = usertest`
+  - lighttdm：将`/etc/lightdm/lightdm.conf.d/22-hobot-autologin.conf`文件中的 `autologin-user=sunrise` 改为`autologin-user=usertest`，
 
 **增加新用户**
 

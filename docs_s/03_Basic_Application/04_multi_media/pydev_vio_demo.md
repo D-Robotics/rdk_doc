@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # 3.4.1 参考示例（python）
 
+## MIPI Camera
+请参考[算法示例 | MIPI Camera部分](/rdk_s/Algorithm_Application/Python_Sample/mipi_camera_yolov5x)
+
+<!--
 本章节将通过视频流解码等示例程序，介绍 D-Robotics Python 语言的 `hobot_vio` 图像多媒体库的使用方法，包括视频拉流、缩放及编解码等操作。
 
 ## 视频流解码
@@ -15,18 +19,18 @@ sidebar_position: 1
 
 ### 运行方法
 
-本示例运行依赖 rtsp 流，如用户不方便搭建 rtsp 推流服务，可使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/1080P_test.h264`。
+本示例运行依赖 rtsp 流，如用户不方便搭建 rtsp 推流服务，可使用系统预置的推流服务。该服务会把`1080P_test.h264`视频文件处理成 rtsp 流，url 地址为`rtsp://127.0.0.1/assets/1080P_test.h264`。
 
 用户可通过如下命令启动推流服务：
 
 ```
-cd /app/pydev_demo/07_decode_rtsp_stream/
-sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# sudo ./live555MediaServer &
+cd /app/res
+sunrise@ubuntu:/app/res# sudo ./live555MediaServer &
 ```
 
 服务正常启动后的log如下， 注意最后一行的 `We use port 80`, 说明rtsp服务运行在80端口，它有可能存在8000和8080的情况，在后面设置rtsp url的时候需要根据实际使用的端口号做修改：
 ```bash
-sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream#
+sunrise@ubuntu:/app/res#
 LIVE555 Media Server version 1.01 (LIVE555 Streaming Media library version 2020.07.09).
 Play streams from this server using the URL
         rtsp://192.168.127.10/<filename>
@@ -41,7 +45,7 @@ Each file's type is inferred from its name suffix:
 
 ```shell
 sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# ./decode_rtsp_stream.py
-['rtsp://127.0.0.1/1080P_test.h264']
+['rtsp://127.0.0.1/assets/1080P_test.h264']
 RTSP stream frame_width:1920, frame_height:1080
 Decoder(0, 1) return:0 frame count: 0
 Camera vps return:0
@@ -62,7 +66,7 @@ RTSP stream frame_width:1920, frame_height:1080
 ...
 
 # decode_rtsp_stream.py  actual command
-sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# ./decode_rtsp_stream.py -u rtsp://127.0.0.1:80/1080P_test.h264
+sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# ./decode_rtsp_stream.py -u rtsp://127.0.0.1:80/assets/1080P_test.h264
 ```
 :::
 
@@ -70,7 +74,7 @@ sunrise@ubuntu:/app/pydev_demo/07_decode_rtsp_stream# ./decode_rtsp_stream.py -u
 
 示例程序`decode_rtsp_stream.py`可通过修改启动参数，设置rtsp地址、开关HDMI输出、开关AI推理等功能。参数说明如下：
 
-- **-u**  ： 设置rtsp网络地址，支持输入多个地址，如：`-u "rtsp://127.0.0.1/1080P_test.h264;rtsp://192.168.1.10:8000/1080P_test.h264"`
+- **-u**  ： 设置rtsp网络地址，支持输入多个地址，如：`-u "rtsp://127.0.0.1/assets/1080P_test.h264;rtsp://192.168.1.10:8000/assets/1080P_test.h264"`
 - **-d**  ： 开启、关闭HDMI的显示输出，不设置时默认开启显示，`-d 0 ` 关闭显示，多路解码时只显示第一路的视频
 - **-a**  ： 开启、关闭AI算法推理功能，不设置时默认关闭算法，`-a`开启算法推理，运行目标检测算法
 
@@ -111,3 +115,4 @@ sudo ./decode_rtsp_stream.py -a
 - rtsp视频流目前仅支持 1080P 分辨率
 
 - 不支持使用 vlc 软件进行 rtsp 推流，原因是 vlc 软件不支持添加`PPS`和`SPS`信息
+ -->

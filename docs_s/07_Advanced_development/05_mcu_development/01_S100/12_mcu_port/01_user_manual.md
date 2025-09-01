@@ -1,5 +1,5 @@
 ---
-sidebar_position: 12
+sidebar_position: 1
 ---
 # Port使用指南
 ## 基本概述
@@ -234,70 +234,3 @@ Port_Func提供的GPIO接口，使用的PinIdx为[Port_Func模块PIN号对应的
         };
         ```
 :::
-
-# Port开发指南
-## 基本概述
-Port整体分为对外接口和"Low Level Driver(LLD)"两大部分，这里只介绍用户接口开发部分。
-
-## Port_Func模块
-地瓜MCU系统提供针对功能整体配置的Port_Func模块。
-
-在McalCdd的路径中，定义了Port_Func模块的对外接口：
-``` bash
-# Driver source code:
-McalCdd/Port/inc/Port_Func.h
-McalCdd/Port/src/Port_Func.c
-```
-在Config目录下，定义了MCU提供的外设的PIN的具体PinCtrl配置。
-```bash
-# PIN definition source code:
-Config/McalCdd/gen_s100_sip_B_mcu1/Port/inc/Port_FuncCfg.h
-Config/McalCdd/gen_s100_sip_B_mcu1/Port/src/Port_FuncCfg.c
-```
-### PinCtrl配置说明
-在`Config/McalCdd/gen_s100_sip_B_mcu1/Port/inc/Port_FuncCfg.h`中，提供了方便定义PIN属性的宏：
-```C
-#define PORT_FUNC_MCU_PIN(Pin_Idx, Pin_Name, Pin_Func, Schmitt, Input_En, SlewRate, Pull_Type, Drive_Strength) { \
-	(uint8)(Pin_Idx), /**< Pin Id */ \
-	(Pin_Name), /**< Pin name */ \
-	(boolean)(TRUE), /**< IsUsed */ \
-	{ \
-		(boolean)(TRUE), /**< ModeChang */ \
-		(boolean)(Schmitt), /**< Schmitt Trigger */ \
-		(boolean)(Input_En), /**< Input Enable*/ \
-		(boolean)(FALSE), /**< Is Used GPIO */ \
-		(boolean)(FALSE), /**< Direciton change allowed */ \
-		(Pin_Func), /**< Pin Function */ \
-		(SlewRate), /**< Slew Rate */ \
-		(Pull_Type), /**< Pin Pull Type */ \
-		(Drive_Strength), /**< Pin Drive Strength */ \
-		(PORT_PIN_DIR_IN), /**< GPIO Direction */ \
-		(PORT_PIN_LEVEL_LOW) /**< GPIO Output Value */ \
-	} \
-}
-
-...
-
-
-#define PORT_FUNC_AON_PIN(Pin_Idx, Pin_Name, Pin_Func, Schmitt, Input_En, SlewRate, Pull_Type, Drive_Strength) { \
-	(uint8)((Pin_Idx) + (S100_PORT_MCU_PIN_NUM)), /**< Pin Id Converted */ \
-	(Pin_Name), /**< Pin name */ \
-	(boolean)(TRUE), /**< IsUsed */ \
-	{ \
-		(boolean)(TRUE), /**< ModeChang */ \
-		(boolean)(Schmitt), /**< Schmitt Trigger */ \
-		(boolean)(Input_En), /**< Input Enable*/ \
-		(boolean)(FALSE), /**< Is Used GPIO */ \
-		(boolean)(FALSE), /**< Direciton change allowed */ \
-		(Pin_Func), /**< Pin Function */ \
-		(SlewRate), /**< Slew Rate */ \
-		(Pull_Type), /**< Pin Pull Type */ \
-		(Drive_Strength), /**< Pin Drive Strength */ \
-		(PORT_PIN_DIR_IN), /**< GPIO Direction */ \
-		(PORT_PIN_LEVEL_LOW) /**< GPIO Output Value */ \
-	} \
-}
-
-...
-```
-地瓜根据各个功能的实际情况，提供了一套默认的PIN属性定义，在`Config/McalCdd/gen_s100_sip_B_mcu1/Port/src/Port_FuncCfg.c`文件内，客户可以根据自己的实际需求进行修改。

@@ -12,7 +12,7 @@
 开发者在使用官方发布的 SDK 交付包时，所提供的 EVB（评估板）系统镜像会默认将所有测试程序安装到开发板上的以下路径：
 
 - **开发板路径：**
-  `/app/multimedia_samples/chip_base_test`
+  `/app/chip_base_test`
 
 ## 测试环境准备
 
@@ -23,7 +23,7 @@
 2. 在开发板中确认测试工具和脚本的存放路径：
 
    ```bash
-   ls /app/multimedia_samples/chip_base_test
+   ls /app/chip_base_test
    ```
 
 3. 根据本章节描述的测试方法，逐步执行相应测试程序，并对结果进行记录与分析。
@@ -37,7 +37,7 @@
 2. 进入测试程序目录：
 
    ```bash
-   cd /app/multimedia_samples/chip_base_test
+   cd /app/chip_base_test
    ```
 
 3. 执行相应的测试脚本或程序，例如执行 CPU / BPU / DDR 压力测试：

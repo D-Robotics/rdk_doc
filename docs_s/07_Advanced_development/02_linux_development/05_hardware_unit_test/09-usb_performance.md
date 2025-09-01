@@ -193,7 +193,7 @@ usb-gadget start succeed.
 **3.** 使用以下命令来配置 usb0 网络接口的 IP 地址，使其与 PC 端远程网卡的 IP 地址网段一致。
 
 ```shell
-ifconfig usb0 192.168.5.10
+ifconfig usb0 192.168.1.110
 ```
 
 PC 端远程网卡 ip 配置如图：
@@ -211,8 +211,8 @@ iperf3 -s -p 5002
 在 RDK_S100 开发板运行 iperf3 启动客户端，设置 Server 端一样的 ip 地址和 port 号连接 Server 启动测试，执行命令如下：
 
 ```shell
-root@ubuntu:~# iperf3 -c 192.168.5.12 -i 1 -t 600 -p 5002
-Connecting to host 192.168.5.12, port 5002
+root@ubuntu:~# iperf3 -c 192.168.1.111 -i 1 -t 600 -p 5002
+Connecting to host 192.168.1.111, port 5002
 [  5] local 192.168.5.10 port 57234 connected to 192.168.5.12 port 5002
 [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
 [  5]   0.00-1.00   sec  34.4 MBytes   289 Mbits/sec    0   67.0 KBytes
@@ -224,8 +224,8 @@ Connecting to host 192.168.5.12, port 5002
 此时客户端如果成功连接， pc 服务端打印如下：
 
 ```shell
-Accepted connection from 192.168.5.10, port 57220
-[  5] local 192.168.5.12 port 5002 connected to 192.168.5.10 port 57234
+Accepted connection from 192.168.1.110, port 57220
+[  5] local 192.168.1.111 port 5002 connected to 192.168.1.110 port 57234
 ```
 
 ## 测试指标

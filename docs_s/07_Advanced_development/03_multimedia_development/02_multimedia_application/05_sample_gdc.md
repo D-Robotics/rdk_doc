@@ -10,10 +10,6 @@ sample_gdc 目录下是用于演示如何使用 GDC 的示例程序，主要功�
 5. `gdc_equisolid`: 读取本地 NV12 的 YUV 图，把图片送入 GDC 做（全景 panoramic）校正处理。
 6. `gdc_transformation`: 读取本地 的 json 配置文件，把图片送入 GDC 做180线性变换、圆柱形变换、等距变换和梯形校正+去畸变处理。
 
-:::warning
-以下Sample需要sudo权限执行。
-:::
-
 ## 1-custom_config
 
 ### 功能概述
@@ -22,18 +18,18 @@ sample_gdc 目录下是用于演示如何使用 GDC 的示例程序，主要功�
 
 ### 代码位置及目录结构
 
-- 代码位置 `/app/multimedia_samples/sample_gdc/`
+- 代码位置 `/app/multimedia_samples/sample_gdc/1-custom_config`
 - 目录结构
 
-```bash
-sample_gdc/
-├── 1-custom_config
-│   ├── Makefile
-│   ├── chessboard
-│   ├── chessboard.png
-│   ├── custom_config.txt
-│   └── generate_custom_config.py
-```
+	```bash
+	sample_gdc/
+	├── 1-custom_config
+	│   ├── Makefile
+	│   ├── chessboard
+	│   ├── chessboard.png
+	│   ├── custom_config.txt
+	│   └── generate_custom_config.py
+	```
 
 ### 开发和使用流程
 
@@ -50,13 +46,13 @@ sample_gdc/
 - 以上面的棋盘格图片作为输入，执行以下 python 程序（确保系统支持 Python 3，和安装了 `opencv-python` 库），生成 GDC 的矫正标定参数文件（custom_config.txt）：
 
   ```bash
-  cd 1-custom_config
+  # Enter /app/multimedia_samples/sample_gdc/1-custom_config directory
   python3 ./generate_custom_config.py
   ```
 
-:::caution 注意
-注意事项：拍摄棋盘格的时候尽量距离远一点，棋盘格占画面较大时容易导致 python 程序识别失败
-:::
+  :::caution 注意
+  注意事项：拍摄棋盘格的时候尽量距离远一点，棋盘格占画面较大时容易导致 python 程序识别失败
+  :::
 
   在字符终端运行时的日志：
 
@@ -173,27 +169,27 @@ optional arguments:
 
 #### 代码位置及目录结构
 
-- 代码位置 `/app/multimedia_samples/sample_gdc/`
+- 代码位置 `/app/multimedia_samples/sample_gdc/2-generate_bin`
 - 目录结构
 
-```bash
-sample_gdc/
-├── 2-generate_bin
-│   ├── Makefile
-│   ├── gdc_bin_custom_config.json
-│   └── generate_bin.c
-```
+	```bash
+	sample_gdc/
+	├── 2-generate_bin
+	│   ├── Makefile
+	│   ├── gdc_bin_custom_config.json
+	│   └── generate_bin.c
+	```
 
 ### 编译部署
 
 ####  编译
 
-- 进入 sample_gdc 目录，执行 `make` 编译
-- 输出成果物是 sample_gdc/2-generate_bin 目录下的 `generate_bin`
+- 进入 `sample_gdc/2-generate_bin` 目录，执行 `make` 编译
+- 输出成果物是 `sample_gdc/2-generate_bin` 目录下的 `generate_bin`
 
 ####  程序部署
 
-刷写系统软件镜像后 , 本 sample 的可执行文件位于板端 : /app/multimedia_samples/sample_gdc/2-generate_bin。
+安装hobot-multimedia-samples包并编译后 , 本 sample 的可执行文件位于板端 : `/app/multimedia_samples/sample_gdc/2-generate_bin`。
 
 ### 运行
 
@@ -202,6 +198,7 @@ sample_gdc/
 直接执行程序 `./generate_bin -h` 可以获得帮助信息：
 
 ```shell
+# Enter /app/multimedia_samples/sample_gdc/2-generate_bin directory
 ./generate_bin -h
 genereate_bin [-c json_config_file] [-o output_file]
 ```
@@ -219,8 +216,7 @@ genereate_bin [-c json_config_file] [-o output_file]
 执行命令：
 
 ```shell
-cd 2-generate_bin
-chmod +x generate_bin
+# Enter /app/multimedia_samples/sample_gdc/2-generate_bin directory
 ./generate_bin
 ```
 
@@ -233,7 +229,7 @@ gdc gen cfg_buf 0xffff82090010, size 10972
 Generate bin file size:10972
 ```
 
-## gdc_static_valid
+## 3-gdc_static_valid
 
 ### 功能概述
 
@@ -241,29 +237,29 @@ gdc_static_valid 程序会读取本地 NV12 的 YUV 图，把 gdc.bin 和图片�
 
 #### 代码位置及目录结构
 
-- 代码位置 `/app/multimedia_samples/sample_gdc/`
+- 代码位置 `/app/multimedia_samples/sample_gdc/3-gdc_static_valid`
 - 目录结构
 
-```bash
-sample_gdc/
-├── 3-gdc_static_valid
-│   ├── Makefile
-│   ├── gdc_static_valid.c
-│   └── test_res
-│       ├── test_image_1920x1080.jpg
-│       └── test_image_1920x1080.yuv
-```
+	```bash
+	sample_gdc/
+	├── 3-gdc_static_valid
+	│   ├── Makefile
+	│   ├── gdc_static_valid.c
+	│   └── test_res
+	│       ├── test_image_1920x1080.jpg
+	│       └── test_image_1920x1080.yuv
+	```
 
 ### 编译部署
 
 #### 编译
 
-- 进入 sample_gdc 目录，执行 `make` 编译
-- 输出成果物是 sample_gdc/3-gdc_static_valid 目录下的 `gdc_static_valid`
+- 进入 `sample_gdc/3-gdc_static_valid` 目录，执行 `make` 编译
+- 输出成果物是 `sample_gdc/3-gdc_static_valid` 目录下的 `gdc_static_valid`
 
 #### 程序部署
 
-刷写系统软件镜像后 , 本 sample 的可执行文件位于板端 : /app/multimedia_samples/sample_gdc/3-gdc_static_valid。
+安装hobot-multimedia-samples包并编译后 , 本 sample 的可执行文件位于板端 : `/app/multimedia_samples/sample_gdc/3-gdc_static_valid`。
 
 ### 运行
 
@@ -305,8 +301,7 @@ gdc_static_valid 的选项参数说明：
 执行命令完成静态图片的矫正验证：
 
 ```bash
-cd 3-gdc_static_valid
-chmod +x gdc_static_valid
+# Enter /app/multimedia_samples/sample_gdc/3-gdc_static_valid directory
 ./gdc_static_valid -c ../../vp_sensors/gdc_bin/imx219_gdc.bin -i test_res/test_image_1920x1080.yuv -o gdc_output_1920x1080.yuv -w 1920 -h 1080
 ```
 
@@ -323,7 +318,7 @@ output:1920x1080
 handle 34661 GDC dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800 frame id: 0, timestamp: 0
 ```
 
-## gdc_stress_test
+## 4-gdc_stress_test
 
 ### 功能概述
 
@@ -331,31 +326,31 @@ gdc_stress_test 程序会读取本地 NV12 的 YUV 图，把 gdc.bin 和图片�
 
 #### 代码位置及目录结构
 
-- 代码位置 `/app/multimedia_samples/sample_gdc/`
+- 代码位置 `/app/multimedia_samples/sample_gdc/4-gdc_stress_test`
 - 目录结构
 
-```bash
-sample_gdc/
-├── 4-gdc_stress_test
-│   ├── Makefile
-│   ├── gdc_1920x1080.bin
-│   ├── gdc_stress_test.c
-│   ├── test.sh
-│   └── test_res
-│       ├── test_image_1920x1080.jpg
-│       └── test_image_1920x1080.yuv
-```
+	```bash
+	sample_gdc/
+	├── 4-gdc_stress_test
+	│   ├── Makefile
+	│   ├── gdc_1920x1080.bin
+	│   ├── gdc_stress_test.c
+	│   ├── test.sh
+	│   └── test_res
+	│       ├── test_image_1920x1080.jpg
+	│       └── test_image_1920x1080.yuv
+	```
 
 ### 编译部署
 
 #### 编译
 
-- 进入 sample_gdc 目录，执行 `make` 编译
-- 输出成果物是 sample_gdc/4-gdc_stress_test 目录下的 `gdc_stress_test`
+- 进入 `sample_gdc/4-gdc_stress_test` 目录，执行 `make` 编译
+- 输出成果物是 `sample_gdc/4-gdc_stress_test` 目录下的 `gdc_stress_test`
 
 #### 程序部署
 
-刷写系统软件镜像后 , 本 sample 的可执行文件位于板端 : /app/multimedia_samples/sample_gdc/4-gdc_stress_test。
+安装hobot-multimedia-samples包并编译后 , 本 sample 的可执行文件位于板端 : `/app/multimedia_samples/sample_gdc/4-gdc_stress_test`。
 
 ### 运行
 
@@ -402,8 +397,7 @@ gdc_stress_test 的选项参数说明：
 执行命令：
 
 ```bash
-cd 4-gdc_stress_test
-chmod +x gdc_stress_test
+# Enter /app/multimedia_samples/sample_gdc/4-gdc_stress_test directory
 sh test.sh
 ```
 
@@ -450,34 +444,38 @@ fps average gdc [process1] = 142
 Gdc time consuming [process3]: 70
 fps average gdc [process3] = 142
 ```
+:::info
+- 上列打印仅为示例，实际打印以板端运行为准；
+- 压测脚本会将压测程序置于后台持续运行，一段时间后会自动停止，如果需要提前停止，可以使用命令：`sudo killall gdc_stress_test`
+:::
 
-## gdc_equisolid
+## 5-gdc_equisolid
 ### 功能概述
 
 gdc_equisolid 程序会读取本地 NV12 的 YUV 图，把图片送入 GDC 做（全景 panoramic）校正处理，最后把校正的结果结果保存为本地 NV12 格式的 YUV 图。
 
 #### 代码位置及目录结构
 
-- 代码位置 `/app/multimedia_samples/sample_gdc/`
+- 代码位置 `/app/multimedia_samples/sample_gdc/5-gdc_equisolid`
 - 目录结构
 
-```bash
-sample_gdc/
-├── 5-gdc_equisolid
-│   ├── Makefile
-│   └── gdc_equisolid.c
-```
+	```bash
+	sample_gdc/
+	├── 5-gdc_equisolid
+	│   ├── Makefile
+	│   └── gdc_equisolid.c
+	```
 
 ### 编译部署
 
 #### 编译
 
-- 进入 sample_gdc 目录，执行 `make` 编译
-- 输出成果物是 sample_gdc/5-gdc_equisolid 目录下的 `gdc_equisolid`
+- 进入 `sample_gdc/5-gdc_equisolid` 目录，执行 `make` 编译
+- 输出成果物是 `sample_gdc/5-gdc_equisolid` 目录下的 `gdc_equisolid`
 
 #### 程序部署
 
-刷写系统软件镜像后 , 本 sample 的可执行文件位于板端 : /app/multimedia_samples/sample_gdc/5-gdc_equisolid。
+安装hobot-multimedia-samples包并编译后 , 本 sample 的可执行文件位于板端 : `/app/multimedia_samples/sample_gdc/5-gdc_equisolid`。
 
 ### 运行
 
@@ -512,8 +510,7 @@ gdc_equisolid 的选项参数说明：
 执行命令完成静态图片的（全景 panoramic）校正验证：
 
 ```bash
-cd gdc_equisolid
-chmod +x gdc_equisolid
+# Enter /app/multimedia_samples/sample_gdc/5-gdc_equisolid directory
 ./gdc_equisolid -i ../3-gdc_static_valid/test_res/test_image_1920x1080.yuv --iw 1920 --ih 1080
 ```
 
@@ -534,7 +531,7 @@ handle 34661 GDC dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800
 
 本文的 gdc_transformation 实现 GDC 模块将回灌输入的图像进行180线性变换、圆柱形变换、等距变换和梯形校正+去畸变。
 
-#### 软件架构说明：
+#### 软件架构说明
 
 gdc_transformation 程序采用回灌流程，即从系统存储中读取原始 YUV 文件和 GDC Tool 生成的 json 文件，作为 GDC 的输入图像。 依赖`libgdcbin.so`将 GDC 坐标点通过计算，把图像的变换结果保存为本地 NV12 格式的 YUV 图。
 
@@ -544,33 +541,33 @@ gdc_transformation 程序采用回灌流程，即从系统存储中读取原始 
 
 #### 代码位置及目录结构
 
-- 代码位置 `/app/multimedia_samples/sample_gdc/`
+- 代码位置 `/app/multimedia_samples/sample_gdc/6-gdc_transformation`
 - 目录结构
 
-```bash
-sample_gdc/
-└── 6-gdc_transformation
-	├── Makefile
-	├── gdc_res
-	│   ├── Affine.json
-	│   ├── Equidistant.json
-	│   ├── Equisolid_cylinder.json
-	│   ├── Keystone_dewarping.json
-	│   └── test_building_1920x1080.yuv
-	└── gdc_transformation.c
-```
+	```bash
+	sample_gdc/
+	└── 6-gdc_transformation
+		├── Makefile
+		├── gdc_res
+		│   ├── Affine.json
+		│   ├── Equidistant.json
+		│   ├── Equisolid_cylinder.json
+		│   ├── Keystone_dewarping.json
+		│   └── test_building_1920x1080.yuv
+		└── gdc_transformation.c
+	```
 根目录包含 Makefile,gdc_res 目录中包含了资源文件,比如 GDC Tool 生成生成的 json 文件、YUV 图像；gdc_transformation.c 是 main 入口的所在文件。
 
 ### 编译部署
 
 #### 编译
 
-- 进入 sample_gdc 目录，执行 `make` 编译
-- 输出成果物是 sample_gdc/6-gdc_transformation 目录下的 `gdc_transformation`
+- 进入 `sample_gdc/6-gdc_transformation` 目录，执行 `make` 编译
+- 输出成果物是 `sample_gdc/6-gdc_transformation` 目录下的 `gdc_transformation`
 
 #### 程序部署
 
-刷写系统软件镜像后 , 本 sample 的可执行文件位于板端 : /app/multimedia_samples/sample_gdc/6-gdc_transformation。
+安装hobot-multimedia-samples包并编译后 , 本 sample 的可执行文件位于板端 : `/app/multimedia_samples/sample_gdc/6-gdc_transformation`。
 
 ### 运行
 
@@ -601,8 +598,7 @@ gdc_transformation 的选项参数说明：
 执行命令完成静态图片的 transformation 验证：
 
 ```bash
-cd 6-gdc_transformation
-chmod +x gdc_transformation
+# Enter /app/multimedia_samples/sample_gdc/6-gdc_transformation directory
 ./gdc_transformation -i gdc_res/test_building_1920x1080.yuv --ix 1920 --iy 1080
 ```
 

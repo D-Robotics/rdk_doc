@@ -37,7 +37,7 @@ SPI 压力测试的核心部分是通过回环测试进行数据的传输和接�
 串口压测支持输入后缀 -h 查看命令参数的说明 ，例如：
 
 ```shell
-root@buildroot:/app/chip_base_test/04_spi_test# ./spistress.sh -h
+sunrise@ubuntu:/app/chip_base_test/04_spi_test# ./spistress.sh -h
 Usage: ./spistress.sh [options]
 
 Options:
@@ -56,7 +56,7 @@ Options:
 - `-o <directory>`：设置日志输出目录，默认值为 ../log。
 
 **示例：**
-例如，使用命令： `./spistress.sh -d /dev/spidev0.0 -c 500 -s 24000000 -o /userdata/spi_test_logs` 自定义测试 SPI 设备 /dev/spidev0.0 ，设置传输速度为 24 MHz，进行 500 次测试，输出目录为 /app/multimedia_samples/chip_base_test 。
+例如，使用命令： `./spistress.sh -d /dev/spidev0.0 -c 500 -s 24000000 -o /userdata/spi_test_logs` 自定义测试 SPI 设备 /dev/spidev0.0 ，设置传输速度为 24 MHz，进行 500 次测试，输出目录为 /app/chip_base_test 。
 
 `spidev_tc` 源码中的详细参数与设置命令解析如下：
 
@@ -98,7 +98,7 @@ RDKS100 Acore支持2路SPI，且SPI0，SPI1只能做SPI Master。
 SPI内部回环测试仅SPI Master支持，其原理是SPI硬件IP的tx fifo将数据发给rx fifo从而形成回环。
 :::
 
-**3.** 确认 SDK 中 `/app/chip_base_test/04_spi_test` 路径下，或者板端 `root@buildroot:/app/chip_base_test/04_spi_test#` 路径下存在 `spistress.sh`、`spidev_tc.c`、`spidev_tc` 三个文件。
+**3.** 确认 SDK 中 `/app/chip_base_test/04_spi_test` 路径下，或者板端 `sunrise@ubuntu:/app/chip_base_test/04_spi_test#` 路径下存在 `spistress.sh`、`spidev_tc.c`、`spidev_tc` 三个文件。
 
 ```shell
 (base) root@//app/chip_base_test/04_spi_test# tree
@@ -125,7 +125,7 @@ gcc -o spidev_tc spidev_tc.c
 运行一段时间后，日志打印结果如下：
 
 ```shell
-root@buildroot:/app/chip_base_test/04_spi_test# ./spistress.sh
+sunrise@ubuntu:/app/chip_base_test/04_spi_test# ./spistress.sh
 SPI test starting...
 Test configuration:
   Device: /dev/spidev0.0
@@ -133,13 +133,13 @@ Test configuration:
   SPI Speed: 12000000 Hz
   Output Directory: /app/chip_base_test/log
   Log file: /app/chip_base_test/log/spi_test_log3.txt
-SPI test completed successfully! Log saved to: /app/chip_base_test/log/spi_test_log3.txt
+SPI test completed successfully! Log saved to: /app/chip_base_test/log/spi_test_log1.txt
 ```
 
 此时发现日志中没有打印其他信息，可直接在 /app/chip_base_test/log/ 路径下，查看 spi_test_log1 日志。
 
 ```shell
-root@buildroot:/app/multimedia_samples/chip_base_test# cat log/spi_test_log1.txt
+sunrise@ubuntu:/app/chip_base_test# cat log/spi_test_log1.txt
 spi mode: 0x0
 bits per word: 8
 max speed: 12000000 Hz (12000 kHz)

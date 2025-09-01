@@ -32,16 +32,18 @@ sudo vim /etc/netplan/01-hobot-net.yaml
 ```shell
 network:
   version: 2
-  renderer: networkd
+  renderer: NetworkManager
   ethernets:
-    eth1:
-      dhcp4: no
-      dhcp6: no
-      macaddress: fa:5b:14:b6:08:a6
-      addresses: [192.168.127.10/24, ]
-      gateway4: 192.168.127.1
+    eth0:
+      dhcp4: yes
+      dhcp6: yes
       nameservers:
-         addresses: [223.5.5.5, ]
+        addresses: [10.9.1.2, 8.8.8.8, 8.8.4.4]
+    eth1:
+      addresses:
+        - 192.168.127.10/24
+      nameservers:
+        addresses: [10.9.1.2, 8.8.8.8, 8.8.4.4]
 
 ```
 

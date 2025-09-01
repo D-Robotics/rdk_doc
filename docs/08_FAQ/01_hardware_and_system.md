@@ -18,19 +18,19 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="accessory">
 <TabItem value="rdk_x3" label="rdk_x3">
 
-认证配件及购买链接请参考[RDK X3 认证配件清单](../Advanced_development/hardware_development/rdk_x3/accessory)
+认证配件及购买链接请参考[RDK X3 认证配件清单](/Advanced_development/hardware_development/rdk_x3/accessory)
 
 </TabItem>
 
 <TabItem value="rdk_x5" label="rdk_x5">
 
-认证配件及购买链接请参考[RDK X5 认证配件清单](../Advanced_development/hardware_development/rdk_x5/accessory)
+认证配件及购买链接请参考[RDK X5 认证配件清单](/Advanced_development/hardware_development/rdk_x5/accessory)
 
 </TabItem>
 
 <TabItem value="rdk_s100" label="rdk_s100">
 
-认证配件及购买链接请参考[RDK S100 认证配件清单](../rdk_s/Advanced_development/hardware_development/accessory)
+认证配件及购买链接请参考[RDK S100 认证配件清单](/rdk_s/Advanced_development/hardware_development/accessory)
 
 </TabItem>
 
@@ -83,7 +83,7 @@ import TabItem from '@theme/TabItem';
     * 主要支持早期的RDK X3硬件。
 
 **重要注意事项：**
-* **版本升级：** 1.x版本系统**无法**通过`apt`命令直接升级到2.x或更新版本的系统。如需升级，必须通过烧录新版本系统镜像的方式重新[安装操作系统](../install_os)。
+* **版本升级：** 1.x版本系统**无法**通过`apt`命令直接升级到2.x或更新版本的系统。如需升级，必须通过烧录新版本系统镜像的方式重新[安装操作系统](/install_os)。
 * **TROS兼容性：** 不同大版本的TROS（如基于Foxy的TROS和基于Humble的TROS）通常与特定的RDK OS大版本绑定。例如，RDK OS 2.x 通常搭载基于ROS2 Foxy的TROS，而RDK OS 3.x 通常搭载基于ROS2 Humble的TROS。
 
 ### Q4: 摄像头插拔有什么注意事项？
@@ -149,7 +149,7 @@ F37摄像头连接示意图：
         * 确保使用符合开发板要求的电源适配器（RDK X3推荐至少5V/2A，建议使用支持QC/PD的5V/3A或更高规格适配器）。
         * **禁止**使用PC的USB接口为开发板供电。
         * 使用质量可靠的USB Type-C供电线。
-        * 参考官方推荐的[基础配件清单](../Advanced_development/hardware_development/rdk_x3/accessory)中的电源适配器型号。
+        * 参考官方推荐的[基础配件清单](/Advanced_development/hardware_development/rdk_x3/accessory)中的电源适配器型号。
 
 * **启动介质问题 (Micro SD卡/eMMC)：**
     * **现象：** 串口日志提示无法挂载文件系统、找不到分区、MMC/SD卡初始化错误或超时。
@@ -191,7 +191,7 @@ F37摄像头连接示意图：
 
 #### 常见报错类型
 - 密钥验证失败或过期
-- 软件源域名无法解析  
+- 软件源域名无法解析
 - 锁文件被占用
 - 网络连接问题
 
@@ -205,7 +205,7 @@ F37摄像头连接示意图：
 - `Could not resolve 'archive.sunrisepi.tech'` (或其他旧域名)
 - `The following signatures couldn't be verified because the public key is not available: NO_PUBKEY ...`
 
-**原因分析：**  
+**原因分析：**
 地瓜机器人官方软件源域名或GPG签名密钥发生变更，导致本地配置过期。
 
 **解决步骤：**
@@ -214,7 +214,7 @@ F37摄像头连接示意图：
    ```bash
    cat /etc/apt/sources.list.d/sunrise.list
    ```
-   
+
    正确的配置应类似：
    ```
    deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-s100 jammy main #RDK S100
@@ -223,7 +223,7 @@ F37摄像头连接示意图：
    ```
 
 2. **更新域名配置**
-   
+
    如果发现旧域名（如 `archive.sunrisepi.tech` 或 `sunrise.horizon.cc`等），需要更新：
    ```bash
    # 替换旧域名为新域名
@@ -233,7 +233,7 @@ F37摄像头连接示意图：
 
 3. **切换测试版到正式版**
    截至25-7-14 ，RDK S100的正式版源尚未发布。
-   
+
    如果使用测试版源（包含 `-beta` 后缀），需要切换到正式版：
    ```bash
    sudo sed -i 's/ubuntu-rdk-s100-beta/ubuntu-rdk-s100/g' /etc/apt/sources.list.d/sunrise.list
@@ -285,7 +285,7 @@ F37摄像头连接示意图：
     N: See apt-secure(8) manpage for repository creation and user configuration details.
     ```
 
-**原因分析：**  
+**原因分析：**
 ROS2官方软件源GPG签名密钥更新，导致本地配置过期。
 
 **解决步骤：**
@@ -335,7 +335,7 @@ sudo hrut_somstatus
     # Insert what you need before this line
     exit 0
     ```
-    参考：[RDK文档 - rc.local自启动](../System_configuration/self_start)
+    参考：[RDK文档 - rc.local自启动](/System_configuration/self_start)
 
 2.  **通过 `systemd` 服务（现代、推荐方式）：**
     创建一个 `.service` 配置文件（例如 `/etc/systemd/system/myapp.service`），定义服务的启动命令、依赖关系、运行用户、重启策略等。
@@ -765,10 +765,10 @@ no mmc device at slot X
     <Tabs groupId="sign_ko">
 
     <TabItem value="rdk_x3_x5" label="rdk_x3_x5">
-    [内核头文件与模块编译](../07_Advanced_development/02_linux_development/kernel_headers.md) (请查找此文档中关于模块签名的具体章节)。
+    [内核头文件与模块编译](/07_Advanced_development/02_linux_development/kernel_headers.md) (请查找此文档中关于模块签名的具体章节)。
     </TabItem>
     <TabItem value="rdk_s100" label="rdk_s100">
-    [内核头文件与模块编译](../rdk_s/07_Advanced_development/02_linux_development/02_kernel_headers) (请查找此文档中关于模块签名的具体章节)。
+    [内核头文件与模块编译](/rdk_s/Advanced_development/linux_development/kernel_headers) (请查找此文档中关于模块签名的具体章节)。
     </TabItem>
     </Tabs>
 
@@ -930,10 +930,56 @@ no mmc device at slot X
             1.  从官方渠道（如Docker Hub或地瓜机器人官方服务器）拉取对应TROS版本的交叉编译Docker镜像。
             2.  按照官方文档的指引启动Docker容器，并将您的ROS工作区源代码目录挂载到容器内部。
             3.  在Docker容器的终端内，使用 `colcon build` 配合适当的交叉编译参数（通常Docker环境已预设好）来编译您的工作区。
-        * **参考官方手册：** TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相关信息：[TROS手册 - 交叉编译Docker参考](../Robot_development/quick_start/cross_compile) (请确认链接的有效性和相关性)。
+        * **参考官方手册：** TROS用户手册中关于“源码安装”、“开发者指南”或“交叉编译”的章节通常会有详细的Docker使用方法和命令示例。例如，此链接可能包含相关信息：[TROS手册 - 交叉编译Docker参考](/Robot_development/quick_start/cross_compile)。
     * **手动配置ROS/TROS交叉编译环境 (极不推荐，非常复杂且极易出错)：** 如果不使用官方提供的Docker环境，手动从零开始搭建一个完整的ROS/TROS交叉编译环境是一项非常复杂和耗时的工作。您需要自行交叉编译ROS的所有核心组件、消息类型、依赖库，并为Colcon等构建工具配置大量的交叉编译参数和环境变量。这通常只适用于有深厚交叉编译和ROS构建系统经验的开发者。
 
 **通用交叉编译建议：**
 * **仔细阅读官方文档：** 针对您使用的RDK型号和目标系统版本，务必以官方最新发布的开发文档、SDK说明和移植指南为准。
 * **保持环境一致性：** 交叉编译环境中所使用的库（尤其是系统库和核心依赖库）的版本，应尽可能与目标RDK板卡上实际运行的库版本保持一致或兼容，以避免运行时出现链接错误或行为不一致的问题。
 * **Sysroot的正确配置至关重要：** 无论是编译普通Linux程序还是ROS包，正确配置和使用Sysroot是交叉编译成功的关键环节。
+
+### Q44: IMX219等 MIPI摄像头如何连接到RDK S100? 连接后如何验证？
+**A:** IMX219这类MIPI摄像头模组通常通过24pin FPC（柔性扁平电缆）与开发板连接。
+**连接注意：** FPC排线的两端通常有蓝色或黑色加强筋，请确保**加强筋的一面朝上**（或朝向连接器卡扣的扳手面，具体取决于连接器类型）插入到开发板和摄像头模组的连接器中，并锁紧卡扣。
+
+IMX219摄像头连接示意图：
+![IMX219摄像头连接到RDK S100示意图](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/mipi_connect.png)
+
+
+**连接后验证：**
+1.  **确保摄像头已正确连接且开发板已上电。**
+2.  **运行MIPI摄像头示例程序 (以RDK S100为例)：**
+    ```bash
+    cd /app/pydev_demo/10_mipi_camera_sample # 路径可能因系统版本而异
+    python3 01_mipi_camera_yolov5x.py
+    ```
+    如果一切正常，您应该能通过HDMI输出或其他指定方式看到摄像头捕捉的画面以及可能的AI算法处理结果
+    示例算法渲染结果HDMI输出（检测到`teddy bear`、`cup`和`vase`）：
+    ![MIPI摄像头算法渲染结果示例](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-20220511181747071.png)
+
+3.  **通过 `i2cdetect` 命令检查I2C通信：**
+
+    MIPI摄像头通常通过I2C总线与主控芯片通信以进行配置。您可以使用 `i2cdetect` 命令来扫描连接到特定I2C总线上的设备。RDK S100上MIPI摄像头常用的I2C总线可能是 `i2c-1` 或 `i2c-2` (具体请查
+    ```bash
+    sudo i2cdetect -y -r 1  # 扫描 i2c-1 总线
+    # 或 sudo i2cdetect -y -r 2 # 扫描 i2c-2 总线
+    ```
+    **预期输出示例：**
+    * **IMX219 (通常地址为 0x10):**
+    ```
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:                         -- -- -- -- -- -- -- --
+    10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  (0x10为IMX219地址)
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    30: -- -- -- -- -- -- -- -- -- -- -- UU -- -- -- --  (UU可能表示内核驱动已占用)
+    ...
+    ```
+    如果`i2cdetect`能够扫描到摄像头的I2C地址，说明摄像头至少在I2C通信层面被识别了。
+
+### Q45：RDK S100 Docker安装后服务启动失败
+docker需要使用iptables的legacy模式，用户可以使用以下命令修复docker运行：
+```shell
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+sudo systemctl restart docker
+```

@@ -19,7 +19,7 @@
 ├── chip_base_test    # 驱动功能单元测试，请查阅 [ BSP 开发指南 - 驱动功能单元测试 ] 了解使用方法
 ├── Makefile.in       # Makefile 的参数配置，包括交叉编译工具链，头文件、库文件引用等
 ├── README.md
-├── sample_codec      # 视频图像编、解码模块的示例代码，包括 H264\H265\JPEG\MJPEG 的编码和解码
+├── sample_codec      # 视频图像编、解码模块的示例代码，包括 H264/H265/JPEG/MJPEG 的编码和解码
 ├── sample_gdc        # GDC 模块支持的各种转换模式的示例代码
 ├── sample_isp        # ISP 模块的示例代码，包括如何初始化 ISP，获取 ISP 处理后的数据等
 ├── sample_pipeline   # 串联多功能模块的示例代码，例如： VIN->ISP->PYM->GDC->CODEC 编码的数据流通路功能测试

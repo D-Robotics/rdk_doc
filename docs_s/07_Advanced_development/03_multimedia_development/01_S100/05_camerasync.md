@@ -122,17 +122,19 @@ LPWM工作原理：LPWM 受PPS触发源trigger，其作为Trigger Bus的Target�
 
 - 多个Camera通过SerDes连接S100,同时接有LPWM，用于Camera的曝光同步的触发。
 
-- LPWM的触发源使用MCU RTC。
+- LPWM的触发源使用Acore的ETH PPS0。
 
 ### LPWM触发源选择
 
 LPWM模块有多种触发源可选，对于上述硬件连接方式，仍可有多种源可以选择，可参考: [LPWM推荐使用配置]
 
-本方案中使用MCU RTC作为LPWM的触发源：
+本方案中使用Acore ETH PPS0作为LPWM的触发源：
 
 - 其与Lidar都使用网络同步，可使用PHC时间作为统一时间轴。
 
-对于使用Acore ETH PPS0同步源，使用fixed mode时，其上升沿基于PPS整秒时间有一固定偏移537ms，需要在使用时按需求进行offset计算与配置，更多可参考: [Acore ETH PPS说明](../../02_linux_development/04_driver_development_s100/12_driver_timesync.md#Acore\_Eth_\PPS)
+- Acore ETH PPS误差最小，建议优先使用。
+
+对于使用Acore ETH PPS0同步源，使用fixed mode时，其上升沿基于PPS整秒时间有一固定偏移536.871ms，需要在使用时按需求进行offset计算与配置，更多可参考: [Acore ETH PPS说明](../../02_linux_development/04_driver_development_s100/12_driver_timesync.md#Acore\_Eth_\PPS)
 
 ### Camera同步模式选择
 
@@ -225,13 +227,13 @@ FSYNC选择: 根据模组实际硬件连接，选用正常的GPIO作为FSYNC使�
 
 基于上述硬件连接与软件方案，有同步方案如下：
 
-- 使用MCU RTC触发。
+- 使用Acore ETH PPS0触发。
 
 - Lidar在整百ms时刻开始扫描，数据带对齐时间戳。
 
 - Camera(以AR0820为例)使用SHUTTER SYNC出图同步，自动曝光。
 
-- 通过LPWM的offset调整相位整百ms。
+- 通过LPWM的offset调整相位整百ms，如30fps适配offset=463.129ms对33.333ms取余数=29.8ms。
 
 - Camera在经offset正确配置后，可在整百ms(每3帧)同步输出，与Lidar数据对齐。
 
@@ -303,37 +305,37 @@ LPWM的配置由json完成，配置示例如下，更多可参考: [LPWM JSON配
 ```
 {
     "lpwm_chn0": {
-        "trigger_source": 0,
+        "trigger_source": 8,
         "trigger_mode": 1,
         "period": 33333,
-        "offset": 10,
+        "offset": 29800,
         "duty_time": 100,
         "threshold": 0,
         "adjust_step": 0
     },
     "lpwm_chn1": {
-        "trigger_source": 0,
+        "trigger_source": 8,
         "trigger_mode": 1,
         "period": 33333,
-        "offset": 10,
+        "offset": 29800,
         "duty_time": 100,
         "threshold": 0,
         "adjust_step": 0
     },
     "lpwm_chn2": {
-        "trigger_source": 0,
+        "trigger_source": 8,
         "trigger_mode": 1,
         "period": 33333,
-        "offset": 10,
+        "offset": 29800,
         "duty_time": 100,
         "threshold": 0,
         "adjust_step": 0
     },
     "lpwm_chn3": {
-        "trigger_source": 0,
+        "trigger_source": 8,
         "trigger_mode": 1,
         "period": 33333,
-        "offset": 10,
+        "offset": 29800,
         "duty_time": 100,
         "threshold": 0,
         "adjust_step": 0
@@ -341,7 +343,7 @@ LPWM的配置由json完成，配置示例如下，更多可参考: [LPWM JSON配
 }
 ```
 
-若使用trigger\_mode为1，trigger\_source为0，则使用MCU RTC进行同步。
+若使用trigger\_mode为1，trigger\_source为8，则使用的是ETH PPS0进行同步。
 
 ## 总结
 
@@ -351,4 +353,4 @@ S100上多Camera同步主要通过LPWM模块的硬件连接与软件配置共同
 
 在模组点亮配置时，也需进行SerDes上的LPWM同步透传，同时Sensor配置为Slave模式，选择相应的GPIO作为FSYNC信号，实现同步触发输出。
 
-在与Lidar设备同步场景，使用ETH PPS0同步源，使用fixed mode，需要主要正确计算并配置LPWM的offset，以达到完全相位对齐的要求。
+在与Lidar设备同步场景，使用ETH PPS0同步源，使用fixed mode，需要正确计算并配置LPWM的offset，以达到完全相位对齐的要求。

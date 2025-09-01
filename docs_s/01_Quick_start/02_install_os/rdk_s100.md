@@ -35,6 +35,13 @@ RDK S100 开发板支持以太网、Wi-Fi 两种网络接口，用户可通过�
 安装USB驱动
 对于Windows操作系统，在使用adb和fastboot功能前，需要首先确认是否安装对应的驱动程序。
 
+开发板进入uboot命令行模式（即命令行输出`Hobot$`）：
+```bash
+开发板重新上电，长按任意键进入uboot命令行模式
+  或
+开发板上电后reboot，长按任意键进入uboot命令行模式
+```
+
 在开发板的uboot命令行下输入fastboot 0，让开发板进入fastboot模式：
 
 ```bash
@@ -78,7 +85,7 @@ RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌面
 **RDK S100**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成最新版本系统镜像的烧写</font>。
 :::
 
-### 镜像下载 {#img_download}
+### 镜像下载
 
 参考[1.6 资源汇总](../../01_Quick_start/download.md)章节。
 
@@ -96,6 +103,12 @@ RDK S100 开发套件可借助 PC 端工具 D-Navigation 来完成 Ubuntu 系统
 - **USB 烧录方式：** 该模式基于 DFU 协议，当 RDK S100 遇到无法进入 U-Boot 模式，或者系统损坏导致设备变砖等特殊情况时，使用此模式帮助恢复系统。
 
 下面给出使用 PC 工具 D-Navigation 烧录的具体烧录步骤。
+
+:::info 注意
+
+windows pc 上 D-Navigation需要在[驱动安装](#驱动下载)成功后才能使用，使用前请确保驱动安装成功。
+
+:::
 
 :::tip
 
@@ -115,40 +128,52 @@ RDK S100 开发套件可借助 PC 端工具 D-Navigation 来完成 Ubuntu 系统
 
   - MacOS 版本启动(目前支持 M 芯片)：
 
-            双击打开D-Navigation.exe
+         xattr -cr D-navigation.app # App 解除隔离，在终端执行
+         双击打开D-Navigation.exe
 
     :::
 
 #### uboot 烧录
 
-1. 准备 RDKS100 镜像包，结构如下所示
+1. 准备 RDKS100 镜像包
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+   1. 从网页上[下载](#镜像下载)镜像包
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/download_web.png)
+   2. 解压后得到 product 文件夹，结构如下所示，确保同一个文件夹内有`img_packages`文件夹和`xmodem_tools`文件
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
 
 2. 开发板上电
 
-:::tip
+   :::tip
 
-U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用占用。
-:::
+   U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用占用。
+   :::
 
 3. 打开地瓜芯片工具 D-Navigation，完成如下操作：
 
-- 选择产品型号：S100
-- 下载模式：uboot；介质存储 emmc；类型：secure
-- 点击浏览选择固件所在 product 文件夹
-- 选择与 RDK S100 连接的串口，波特率 921600
-- 点击开始升级(升级过程中，如有'Need manual reset'提示，请重新上电)
+   - 选择产品型号：S100
+   - 下载模式：uboot；介质存储 emmc；类型：secure
+   - 点击浏览选择固件所在 product 文件夹
+   - 选择与 RDK S100 连接的串口，波特率 921600
+   - 点击开始升级(升级过程中，如有'Need manual reset'提示，请重新上电)
 
-![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download.png)
+   ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download.png)
 
 4. 待升级完成后重新上电
 
 #### USB 烧录(空片烧录或烧挂重新烧录)
 
-1. 准备 RDKS100 镜像包，结构如下所示
+:::tip
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+SW1、SW2等说明可查看[1.1.1章节开关、按键和灯光说明内容](../../01_Quick_start/01_hardware_introduction/01_rdk_s100.md#开关按键和灯光说明)
+:::
+
+
+1. 准备 RDKS100 镜像包
+   1. 从网页上[下载](#镜像下载)镜像包
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/download_web.png)
+   2. 解压后得到 product 文件夹，结构如下所示，确保同一个文件夹内有`img_packages`文件夹和`xmodem_tools`文件
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
 
 2. 将设备切换到 DFU 模式，具体步骤：
 
@@ -156,16 +181,16 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
    2. 将 SW2 拨码至 ↑，进入 Download 模式
    3. 将 SW1 拨码至 ▽，开启电源
    4. 如果`DOWNLOAD`灯亮，则进入 DFU 模式，否则按下`K1`复位系统。
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
 
 3. 打开地瓜芯片工具 D-Navigation，完成如下操作
 
-- 选择产品型号：S100
-- 下载模式：usb；介质存储 emmc；类型：secure
-- 点击浏览选择固件所在 product 文件夹
-- 设备断电重启，点击开始升级，等待升级完成
+   - 选择产品型号：S100
+   - 下载模式：usb；介质存储 emmc；类型：secure
+   - 点击浏览选择固件所在 product 文件夹
+   - 设备断电重启，点击开始升级，等待升级完成
 
-![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg)
+   ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg)
 
 4. 升级完成后，关闭电源，将烧录开关向下拨动后(从 DFU 模式退出)，重新上电。
 
@@ -186,6 +211,70 @@ U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用�
 Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在显示器上输出系统桌面，如下图：
 
 ![image-desktop_display.jpg](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display_s100.jpg)
+
+## **使用ubuntu系统笔记本遇到的问题**
+1. **ubuntu系统笔记本连接开发板后，串口出现乱码**
+    1. 下载官方串口驱动 [CH340N驱动](https://www.wch.cn/downloads/CH341SER_LINUX_ZIP.html)
+    2. 修改`ch341_tty_driver->name = "ttyUSB";`
+    3. 重新编译并安装驱动
+
+2. **ubuntu24.04系统需要安装驱动**
+    1. 执行如下脚本
+      ```bash
+      #!/bin/bash
+
+      set -e
+
+      echo "[INFO] Updating APT package list..."
+      sudo apt update
+
+      echo "[INFO] Installing required packages..."
+      sudo apt install -y dfu-util libusb-1.0-0-dev
+
+      echo "[INFO] Writing udev rules to /etc/udev/rules.d/99-drobotics.rules..."
+
+      sudo tee /etc/udev/rules.d/99-drobotics.rules > /dev/null <<EOF
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6610", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6615", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6620", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6625", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="6631", MODE="0666"
+      SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666"
+      EOF
+
+      echo "[INFO] Reloading and triggering udev rules..."
+      sudo udevadm control --reload
+      sudo udevadm trigger
+
+      echo "[INFO] Setup complete. Please replug your devices or reboot if necessary."
+      ```
+    2. 或者依次执行如下命令
+      ```bash
+      # 更新APT源
+      sudo apt update
+
+      # 安装DFU工具和libusb
+      sudo apt install -y dfu-util libusb-1.0-0-dev
+
+      # 设定开发板接口权限
+      sudo tee /etc/udev/rules.d/99-drobotics.rules > /dev/null <<EOF
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6610", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6615", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6620", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="3652", ATTR{idProduct}=="6625", MODE="0666"
+      SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="6631", MODE="0666"
+      SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666"
+      EOF
+
+      # 重载udev
+      sudo udevadm control --reload
+      sudo udevadm trigger
+      ```
+    3. 使用Type-C线连接电脑和开发板的Type-C口（靠近DC电源接头位置）
+    4. 点击[下载](https://archive.d-robotics.cc/downloads/software_tools/download_tools/)最新的D-Navigation，例如`D-navigation-linux-x64-v2.4.tar.gz`
+    5. 解压缩，并在解压缩后的文件夹中开启`Terminal`
+    6. 执行`sudo ./D-navigation --no-sandbox`，启动烧录工具。
+
 
 ## **常见问题**
 

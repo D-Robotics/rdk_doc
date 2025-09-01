@@ -15,6 +15,62 @@ S100 Adc 有一个Adc硬件，包含chennel0-channel13和channel15共15个通道
 - Adc用户接口的使用需要确保上电自检结束后进行。
 
 
+## 软件驱动
+
+代码中实际上存在着两套ADC驱动，区别如下
+
+- 标准ADC驱动（Main ADC Driver）
+    - 位于 McalCdd/Adc 目录下, 包含完整的ADC模块实现，文件包括 Adc.h、Adc.c、Adc_Lld.h、Adc_Lld.c 等
+    - 提供完整的ADC功能
+
+- 私有ADC驱动（Private ADC Driver）
+    - 位于 McalCdd/Adc 目录下，包含 Adc_Private.h 和 Adc_Private.c
+    - 提供特定于内部使用的简化接口
+
+### 使用流程
+
+- 标准ADC驱动的一般使用流程：
+    ```c
+    // 1. 初始化ADC模块
+    Adc_Init(&Adc_Config);
+    // 2. 设置结果缓冲区
+    Adc_SetupResultBuffer(AdcGroup_0, dataBuffer);
+    // 3. 启动转换
+    Adc_StartGroupConversion(AdcGroup_0);
+    // 4. 读取结果
+    Adc_ReadGroup(AdcGroup_0, dataBuffer);
+    // 5. 停止转换
+    Adc_StopGroupConversion(AdcGroup_0);
+    // 6. 反初始化
+    Adc_DeInit();
+    ```
+
+- 私有ADC驱动使用流程：
+    ```c
+    // 1. 初始化ADC硬件
+    Adc_Private_Init(0);
+    // 2. 读取特定通道结果
+    Adc_Private_ReadChannelResult(0, channel, &result);
+    // 3. 反初始化
+    Adc_Private_DeInit(0);
+    ```
+
+### 主要区别
+
+| 特性         | 标准ADC驱动                              | 私有ADC驱动                          |
+|--------------|----------------------------------------|-------------------------------------|
+| 复杂度       | 完整的ADC驱动实现，功能丰富              | 简化的接口，功能有限         |
+| 配置方式     | 使用完整的配置结构体（包括Adc_GroupsCfg） | 直接操作硬件寄存器         |
+| API丰富度    | 提供完整的ADC功能API                     | 只提供最基本的初始化和读取功能   |
+| 中断支持     | 完整的中断和回调机制                     | 不使用中断                 |
+| 转换模式     | 单次转换和多次转换                  | 仅支持单次转换                  |
+| 触发模式     | 硬件触发和软件触发                  | 仅支持软件触发                  |
+| 阈值检查     | 软件阈值检查和硬件阈值检查                    |  不支持阈值检查                   |
+| 是否支持注入转换      | 支持注入转换和正常转换                 |  仅支持正常转换                  |
+| 错误处理     | 完整的错误检测和报告机制                  | 简单的错误处理                  |
+
+
+
 ## 代码路径
 
 | **文件路径**                                  | **作用**                                                                 |
@@ -30,16 +86,19 @@ S100 Adc 有一个Adc硬件，包含chennel0-channel13和channel15共15个通道
 | `Config/McalCdd/gen_s100_sip_B_mcu1/Adc/inc/Adc_PBcfg.h`          | 定义板级外设配置参数（如通道、采样率等）。               |
 | `Config/McalCdd/gen_s100_sip_B_mcu1/Adc/inc/Adc_Cfg.h`            | 提供通用配置宏或默认配置参数（如最大通道数、中断优先级）。|
 | `Config/McalCdd/gen_s100_sip_B_mcu1/Adc/src/Adc_PBcfg.c`          | 实现板级配置数据（如通道映射、硬件参数）。               |
-| `samples/Adc/src/Adc_Cmd.c`                   | ADC sample 代码                                                       |
+| `samples/Adc/src/Adc_Cmd.c`                   | ADC 软件触发单次采样的sample代码，通过Adc_Private的实现，简单场景可以直接使用。     |
+| `samples/Adc/src/Adc_SoftTrigerContinuous.c`  | ADC 软件触发连续采样的sample代码，通过标准函数实现，适用于复杂场景。          |
+
 
 
 ## 应用sample
 
-`AdcTest` 命令用于对设备执行 ADC（模数转换器）采样测试。它可以读取特定通道或多个通道的的ADC值，取值并显示结果（以原始值和毫伏 (mv) 格式）。
+### ADC 软件触发单次转换应用
+
+`AdcTest`应用用于对设备执行 ADC 单次采样测试，通过Adc_Private的实现，能够读取特定通道或多个通道的 ADC 值，获取这些值并以原始值和毫伏 (mv) 格式显示结果。
 
 
-
-### 使用示例
+#### 使用示例
 
 
 - 语法
@@ -102,6 +161,144 @@ D-Robotics:/$ Adc_Test
 
 ```
 
+### ADC 软件触发连续转换应用
+
+
+ADC 软件触发连续采样的应用基于标准ADC驱动实现 。其特点为自动重复转换，完成一次转换后立即开始下一次转换，无需额外触发， 适用于需要持续监控信号的场景，但由于持续工作，功耗相对较高。
+
+
+#### 关键配置
+```c
+// McalCdd/gen_s100_sip_B_mcu1/Adc/src/Adc_PBcfg.c
+static const Adc_GroupCfg Adc_GroupsCfg[] =
+{
+    /**< @brief Group0 -- Logical Unit Id 0 -- Hardware Unit ADC0 */
+    {
+        /**< @brief Index of group */
+        0U, /* GroupId */
+        /**< @brief ADC Logical Unit Id that the group belongs to */
+        (uint8)0, /* UnitId */
+        /**< @brief Access mode */
+        ADC_ACCESS_MODE_SINGLE, /* AccessMode */
+        /**< @brief Conversion mode */
+        ADC_CONV_MODE_CONTINUOUS, /* Mode */  //使用连续转换方式
+        /**< @brief Conversion type */
+        ADC_NORMAL_CONV, /* Type */ // 可选择正常转换和注入转换
+#if (ADC_PRIORITY_IMPLEMENTATION != ADC_PRIORITY_NONE)
+        /**< @brief Priority configured */
+        (Adc_GroupPriorityType)ADC_GROUP_PRIORITY(0), /* Priority */
+#endif /* ADC_PRIORITY_IMPLEMENTATION != ADC_PRIORITY_NONE */
+        /**< @brief Trigger source configured */
+        ADC_TRIGG_SRC_SW, /* TriggerSource */  // 软件触发
+#if (STD_ON == ADC_HW_TRIGGER_API)
+        /**< @brief Hardware trigger source for the group */
+        0U, /* HwTriggerSource */
+#endif /* (STD_ON == ADC_HW_TRIGGER_API) */
+#if (STD_ON == ADC_GRP_NOTIF_CAPABILITY)
+        /**< @brief Notification function */
+        Adc_TestNormal_Notification_0, /* Notification */ // 通知函数，用于通知上层应用转换已经完成
+#endif /* (STD_ON == ADC_GRP_NOTIF_CAPABILITY) */
+    ............
+        /**< @brief Enables or Disables the ADC and DMA interrupts */
+        (uint8)(STD_ON), /* AdcWithoutInterrupt */  // STD_ON：非中断方式; STD_OFF: 中断方式;S100默认使用非中断方式
+#if (ADC_ENABLE_LIMIT_CHECK == STD_ON)
+        /**< @brief Enables or disables the usage of limit checking for an ADC group. */
+        (boolean)FALSE, /* AdcGroupLimitcheck */
+#endif /* (STD_ON == ADC_ENABLE_LIMIT_CHECK) */
+        { { 0x3FFFU } }, /* AssignedChannelMask */
+#if (ADC_SET_ADC_CONV_TIME_ONCE == STD_OFF)
+        &AdcLldGroupConfig_0 /* AdcLldGroupConfigPtr */
+#endif /* (ADC_SET_ADC_CONV_TIME_ONCE == STD_OFF) */
+    }
+};
+```
+
+#### 使用示例
+
+- 语法
+
+```
+Adc_TestNormal [Ation]
+```
+
+##### 非中断方式
+:::tip
+注意将Adc_GroupsCfg中的 AdcWithoutInterrupt 字段配置为STD_ON
+:::
+
+step1：启动ADC连续采集
+```
+D-Robotics:/$ Adc_TestNormal start
+[0129.823385 0]Adc test running...
+```
+
+step2：读取采集结果
+```
+D-Robotics:/$ Adc_TestNormal read noirq
+[0112.002331 0]not use irq
+[0112.002480 0]##############################
+[0112.002970 0] ResultBuffer0[0]: 1103 : 484 mv
+[0112.003502 0] ResultBuffer0[1]: 2346 : 1031 mv
+[0112.004044 0] ResultBuffer0[2]: 1728 : 759 mv
+[0112.004576 0] ResultBuffer0[3]: 1704 : 749 mv
+[0112.005108 0] ResultBuffer0[4]: 828 : 363 mv
+[0112.005629 0] ResultBuffer0[5]: 3411 : 1499 mv
+[0112.006171 0] ResultBuffer0[6]: 3180 : 1397 mv
+[0112.006713 0] ResultBuffer0[7]: 3051 : 1341 mv
+[0112.007256 0] ResultBuffer0[8]: 2935 : 1290 mv
+[0112.007798 0] ResultBuffer0[9]: 2820 : 1239 mv
+[0112.008341 0] ResultBuffer0[10]: 2731 : 1200 mv
+[0112.008894 0] ResultBuffer0[11]: 2645 : 1162 mv
+[0112.009448 0] ResultBuffer0[12]: 1854 : 814 mv
+[0112.009990 0] ResultBuffer0[13]: 1798 : 790 mv
+[0112.010533 0]==============================
+
+```
+
+step3：停止ADC连续采集
+```
+D-Robotics:/$ Adc_TestNormal stop
+[0268.403214 0]Adc test exit.
+```
+
+
+##### 中断方式
+:::tip
+注意将Adc_GroupsCfg中的 AdcWithoutInterrupt 字段配置为STD_OFF
+:::
+
+step1：启动ADC连续采集
+```
+D-Robotics:/$ Adc_TestNormal start
+[0129.823385 0]Adc test running...
+```
+
+step2：读取采集结果
+```
+D-Robotics:/$ Adc_TestNormal read irq
+[0195.226347 0]##############################
+[0195.228233 0] ResultBuffer0[0]: 1103 : 484 mv
+[0195.230181 0] ResultBuffer0[1]: 2346 : 1031 mv
+[0195.232191 0] ResultBuffer0[2]: 1727 : 759 mv
+[0195.234261 0] ResultBuffer0[3]: 1705 : 749 mv
+[0195.236271 0] ResultBuffer0[4]: 827 : 363 mv
+[0195.238261 0] ResultBuffer0[5]: 3396 : 1492 mv
+[0195.240231 0] ResultBuffer0[6]: 3229 : 1419 mv
+[0195.242241 0] ResultBuffer0[7]: 3076 : 1352 mv
+[0195.244292 0] ResultBuffer0[8]: 2953 : 1298 mv
+[0195.246263 0] ResultBuffer0[9]: 2841 : 1248 mv
+[0195.248331 0] ResultBuffer0[10]: 2735 : 1202 mv
+[0195.250341 0] ResultBuffer0[11]: 2657 : 1167 mv
+[0195.252392 0] ResultBuffer0[12]: 1856 : 815 mv
+[0195.254442 0] ResultBuffer0[13]: 1799 : 790 mv
+[0195.256431 0]==============================
+```
+
+step3：停止ADC连续采集
+```
+D-Robotics:/$ Adc_TestNormal stop
+[0268.403214 0]Adc test exit.
+```
 
 ### 应用程序接口
 

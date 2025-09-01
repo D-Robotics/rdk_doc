@@ -186,6 +186,8 @@ Options:
 <div class="note">
 <strong>注意：</strong> <br />
 使用 dummy Sensor 进行回灌，无需实际接入硬件设备。程序会将raw图进行回灌isp，并使用对应的 ISP 效果库进行调校。<br />
+dummy Sensor 的配置参数路径：/app/multimedia_samples/vp_sensors/dummy_sensor/dummy_sensor.c<br />
+在使用 dummy sensor 进行图像调试或 ISP 回灌时，请根据实际采集到的raw图，正确配置 sensor_param 中的 bayer_start 和 bayer_pattern 字段。配置错误可能导致图像出现反色或颜色异常。<br />
 </div>
 
 以 imx219 sensor 为例，执行 `./isp_feedback  -f handle_34661_chn0_1920x1080_stride_2400_frameid_1_ts_5752227762025.raw -F raw10 -H 1080 -W 1920` 。

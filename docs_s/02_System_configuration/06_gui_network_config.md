@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 2.6 GUI 界面配置网络流程 （待更新图片）
+# 2.6 GUI 界面配置网络流程
 
 本章节介绍在`Ubuntu`系统内通过 GUI 界面对 ETH 网络进行静态 `IP`、`DNS`、`Proxy` 配置的方法。
 
@@ -12,13 +12,13 @@ sidebar_position: 6
 
 ![image-show-app](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/gui_network_config/image-show-app.jpg)
 
-2. `Realtek Ethernet` 和`Mircochip Ethernet`分别对应不同的物理网口配置，配置与实物对应如下:
+2. `Ethernet (eth0)` 和`Ethernet (eth1)`分别对应不同的物理网口配置，配置与实物对应如下:
 
 ![image-phy-eth](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/gui_network_config/image-phy-eth.png)
 
 ![image-sel-eth](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/gui_network_config/image-sel-eth.png)
 
-3. 以修改`Reltek Ethernet` 为例,点击修改 eth1 选项中的齿轮，在跳出来的界面中选择`IPV4`, 选择`Manual`手动配置，在下方`Addresser`栏中写入`IP`地址，掩码和网关。
+3. 以修改`Ethernet (eth1)` 为例,点击修改按钮右侧选项中的齿轮，在跳出来的界面中选择`IPV4`, 选择`Manual`手动配置，在下方`Addresser`栏中写入`IP`地址，掩码和网关。
 
 ![image_set_static_ip](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/gui_network_config/image_set_static_ip.png)
 
@@ -26,7 +26,7 @@ sidebar_position: 6
 
 ![image_set_static_dns](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/gui_network_config/image_set_static_dns.png)
 
-5. 完成配置后注意选中`eth1`出现`√`选项
+5. 一个网卡配置多个ip地址，以`Ethernet (eth1)`为例，点击右侧的加号，配置ip地址和步骤3、4一致，完成配置后注意选中`netplan-eth1`出现`√`选项
 
 ![image-sel_ok](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/gui_network_config/image-sel_ok.jpg)
 

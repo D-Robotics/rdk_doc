@@ -47,12 +47,12 @@ sidebar_position: 3
 串口压测支持输入后缀 -h 查看命令参数的说明 ，例如：
 
 ```shell
-root@buildroot:/app/chip_base_test/03_uart_test# ./uartstress.sh -h
+sunrise@ubuntu:/app/chip_base_test/03_uart_test$ ./uartstress.sh -h
 Usage: ./uartstress.sh [options]
 
 Options:
   -b <baudrate>    Set the UART baud rate (default: 115200).
-  -d <device>      Set the UART device (default: /dev/ttyS1).
+  -d <device>      Set the UART device (default: /dev/ttyS2).
   -c <count>       Set the stress count (default: 100).
   -o <directory>   Set the output directory for logs (default: ../log).
   -h               Show this help message and exit.
@@ -66,7 +66,7 @@ Options:
 - `-o <directory>`：设置日志输出目录，默认值为 ../log。
 
 **示例：**
-例如，使用命令： `./uartstress.sh -b 115200 -d /dev/ttyS2 -c 50 -o /app/multimedia_samples/chip_base_test` 自定义波特率为 115200 ，串口设备为 ttyS2( 与实际使用 uart 对应 )，循环次数为 50 次，输出目录为 /app/multimedia_samples/chip_base_test 。
+例如，使用命令： `./uartstress.sh -b 115200 -d /dev/ttyS2 -c 50 -o /app/chip_base_test` 自定义波特率为 115200 ，串口设备为 ttyS2( 与实际使用 uart 对应 )，循环次数为 50 次，输出目录为 /app/chip_base_test 。
 
 ### 执行程序使用说明
 
@@ -97,7 +97,7 @@ Options:
 之后将 uart2_rx 与 uart2_tx 通过 ttl 串口转接模块连接至 pc 端，打开串口工具即可接收发送内容。
 
 ```shell
-Test uart device:/dev/ttyS1
+Test uart device:/dev/ttyS2
 Test size: 2 KBytes, baudrate: 115200
 Performing uart send...
 Starting send thread
@@ -154,9 +154,10 @@ index 504b21b..8d72794 100644
 **4.** 确认在 /app/chip_base_test/03_uart_test 路径下存在 `uartstress.sh`、`uart_test.c`、`uart_test` 三个文件。
 
 ```shell
-(base) root@DESKTOP-BD9DR0J:/app/chip_base_test/03_uart_test# tree
+sunrise@ubuntu:/app/chip_base_test/03_uart_test$ tree
 .
-├── uart_test
+├── Makefile
+├── Readme.md
 ├── uart_test.c
 └── uartstress.sh
 ```
@@ -177,7 +178,7 @@ gcc -o uart_test uart_test.c
 运行一段时间后，日志打印结果如下：
 
 ```shell
-root@buildroot:/app/chip_base_test/03_uart_test# ./uartstress.sh
+sunrise@ubuntu:/app/chip_base_test/03_uart_test# ./uartstress.sh
 Uart test starting...
 Test configuration:
   Baudrate: 115200
@@ -190,7 +191,7 @@ Test configuration:
 此时发现日志中没有打印其他信息，可直接在 /app/chip_base_test/log/ 路径下，查看日志。
 
 ```shell
-root@buildroot:# cat /app/chip_base_test/log/uart_test_log2.txt
+sunrise@ubuntu:# cat /app/chip_base_test/log/uart_test_log2.txt
 Test uart device:/dev/ttyS2
 Test size: 512 KBytes, baudrate: 115200
 Performing uart recv...

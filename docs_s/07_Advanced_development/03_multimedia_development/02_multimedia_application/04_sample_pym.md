@@ -40,7 +40,7 @@ Options:
 - h: 输入 YUV 图像的高度
 - f: 指定pym运行的模式， 默认按照Vflow的方式运行
 ### 运行效果
-以输入分辨率为 1920 x 1080 的 YUV 图片为例，执行 `./sample_pym -i  ../resource/nv12_1920x1080.yuv -w 1920 -h 1080`。
+以输入分辨率为 1920 x 1080 的 YUV 图片为例，执行 `./sample_pym -i /app/res/assets/nv12_1920x1080.yuv -w 1920 -h 1080`。
 
 把一张 YUV 图像送入 PYM，并且初始化6个通道，分别进行 1、1/2、1/4、1/8、1/16、1/32 倍率的缩小操作，并且把处理后的图像保存为 yuv 图像：
 
@@ -54,8 +54,8 @@ Options:
 输出 log 如下:
 ```
 pym vnode work mode: vflow
-Using input file:../resource/nv12_1920x1080.yuv, input:1920x1080
-(read_yuvv_nv12_file):file read(../resource/nv12_1920x1080.yuv), y-size(2073600)
+Using input file:/app/res/assets/nv12_1920x1080.yuv, input:1920x1080
+(read_yuvv_nv12_file):file read(/app/res/assets/nv12_1920x1080.yuv), y-size(2073600)
 
 pym config:
         ichn input width = 1920, height = 1080

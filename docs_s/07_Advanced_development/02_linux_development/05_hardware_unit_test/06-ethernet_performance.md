@@ -37,23 +37,23 @@ sidebar_position: 6
 在本测试中配置如下：
 
 - **连接方式 ：** `开发板`- `电脑`直连。
-- **服务器（PC）：** IP 地址为 `192.168.1.195`
-- **客户端（开发板）：** IP 地址为 `192.168.1.10`
+- **服务器（PC）：** IP 地址为 `192.168.127.195`
+- **客户端（开发板）：** IP 地址为 `192.168.127.10`
 
 执行命令测试 PC 和开发板的以太网连通性：
 
 ```bash
-ping -I eth0 192.168.1.195
+ping -I eth0 192.168.127.195
 ```
 
 执行结果：
 
 ```bash
-PING 192.168.1.195 (192.168.1.195) from 192.168.1.10 eth0: 56(84) bytes of data.
-64 bytes from 192.168.1.195: icmp_seq=1 ttl=128 time=1.54 ms
-64 bytes from 192.168.1.195: icmp_seq=2 ttl=128 time=1.28 ms
-64 bytes from 192.168.1.195: icmp_seq=3 ttl=128 time=1.57 ms
-64 bytes from 192.168.1.195: icmp_seq=4 ttl=128 time=1.40 ms
+PING 192.168.127.195 (192.168.127.195) from 192.168.127.10 eth0: 56(84) bytes of data.
+64 bytes from 192.168.127.195: icmp_seq=1 ttl=128 time=1.54 ms
+64 bytes from 192.168.127.195: icmp_seq=2 ttl=128 time=1.28 ms
+64 bytes from 192.168.127.195: icmp_seq=3 ttl=128 time=1.57 ms
+64 bytes from 192.168.127.195: icmp_seq=4 ttl=128 time=1.40 ms
 ```
 
 ## 测试方法
@@ -79,11 +79,19 @@ Server listening on 5002
 客户端连接成功后的日志：
 
 ```bash
-PING 192.168.1.195 (192.168.1.195) from 192.168.1.10 eth0: 56(84) bytes of data.
-64 bytes from 192.168.1.195: icmp_seq=1 ttl=128 time=0.439 ms
-64 bytes from 192.168.1.195: icmp_seq=2 ttl=128 time=0.532 ms
-64 bytes from 192.168.1.195: icmp_seq=3 ttl=128 time=0.554 ms
-64 bytes from 192.168.1.195: icmp_seq=4 ttl=128 time=0.596 ms
+Accepted connection from 192.168.127.10, port 51592
+[  5] local 192.168.127.195 port 5002 connected to 192.168.127.10 port 51598
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   112 MBytes   937 Mbits/sec
+[  5]   1.00-2.01   sec   113 MBytes   940 Mbits/sec
+[  5]   2.01-3.01   sec   112 MBytes   941 Mbits/sec
+[  5]   3.01-4.01   sec   113 MBytes   942 Mbits/sec
+[  5]   4.01-5.01   sec   112 MBytes   941 Mbits/sec
+[  5]   5.01-6.01   sec   113 MBytes   942 Mbits/sec
+[  5]   6.01-7.01   sec   112 MBytes   942 Mbits/sec
+[  5]   7.01-8.01   sec   112 MBytes   941 Mbits/sec
+[  5]   8.01-9.00   sec   111 MBytes   941 Mbits/sec
+[  5]   8.01-9.00   sec   111 MBytes   941 Mbits/sec
 ```
 
 ### 步骤二：启动客户端
@@ -93,7 +101,7 @@ PING 192.168.1.195 (192.168.1.195) from 192.168.1.10 eth0: 56(84) bytes of data.
 执行命令：
 
 ```bash
-iperf3 -c 192.168.1.195 -i 1 -t 600 -p 5002
+iperf3 -c 192.168.127.195 -i 1 -t 600 -p 5002
 ```
 
 <!-- 命令参数说明： `iperf3 -c [server 端 IP 地址] -i [数据打印间隔时间] -t [总运行时间] -p [对应端口号]`。 -->
@@ -108,8 +116,8 @@ iperf3 -c 192.168.1.195 -i 1 -t 600 -p 5002
 执行日志：
 
 ```bash
-Connecting to host 192.168.1.195, port 5002
-[  5] local 192.168.1.10 port 40564 connected to 192.168.1.195 port 5002
+Connecting to host 192.168.127.195, port 5002
+[  5] local 192.168.127.10 port 51598 connected to 192.168.127.195 port 5002
 [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
 [  5]   0.00-1.00   sec   115 MBytes   965 Mbits/sec    0    381 KBytes
 [  5]   1.00-2.00   sec   113 MBytes   947 Mbits/sec    0    402 KBytes

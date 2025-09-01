@@ -153,14 +153,14 @@ Example:
 - `h, --help`: 显示帮助信息并退出脚本。
 
 **示例：**
-例如，使用命令 `./stress_test.sh -t 24h -m 200 -i 8 -b 80` 来运行一个 24 小时的压力测试，使用 200MB 内存， 8 个 I/O 线程， 80% 的 BPU 负载。
+例如，使用命令 `sudo ./stress_test.sh -t 24h -m 200 -i 8 -b 80` 来运行一个 24 小时的压力测试，使用 200MB 内存， 8 个 I/O 线程， 80% 的 BPU 负载。
 
 确保已完成准备工作后，运行测试命令：
 
 ```shell
 cd /app/chip_base_test/01_cpu_bpu_ddr/scripts
 
-./stress_test.sh
+sudo ./stress_test.sh
 ```
 
 压测脚本通过 `hrut_somstatus` 命令来监控 **stressapptest** 的运行情况，运行脚本启动时的日志如下：
