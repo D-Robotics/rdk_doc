@@ -12,44 +12,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          fetch-depth: 0   # 拉取完整历史，保证可以 push
 
       - name: Setup Git
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-      - name: Detect Docusaurus build directory
-        id: detect-dir
+      - name: Add Gitee remote
         run: |
-          if [ -d "build" ]; then
-            echo "dir=build" >> $GITHUB_OUTPUT
-          elif [ -d "website/build" ]; then
-            echo "dir=website/build" >> $GITHUB_OUTPUT
-          else
-            echo "❌ No Docusaurus build directory found!"
-            exit 1
-          fi
-
-      - name: Publish to Gitee gh-pages
-        run: |
-          BUILD_DIR="${{ steps.detect-dir.outputs.dir }}"
-
-          echo "Using build dir: $BUILD_DIR"
-
-          # 1. 拷贝构建产物到临时目录
-          rm -rf /tmp/gh-pages
-          mkdir -p /tmp/gh-pages
-          cp -r $BUILD_DIR/* /tmp/gh-pages/
-
-          # 2. 新建临时 Git 仓库，只保留最新内容
-          cd /tmp/gh-pages
-          git init
-          git checkout -b gh-pages
-          git add -A
-          git commit -m "Deploy site"
-
-          # 3. 推送到 Gitee gh-pages 分支，覆盖旧内容
+          git remote remove gitee 2>/dev/null || true
           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
-          git push gitee gh-pages --force
+
+      - name: Push gh-pages to Gitee
+        run: git push gitee gh-pages --force
