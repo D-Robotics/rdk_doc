@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">1.2.1 RDK S100 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" property="og:title" content="1.2.1 RDK S100 | RDK DOC"><meta data-rh="true" name="description" content="- 禁止带电时拔插除 USB、HDMI 和网线之外的任何设备"><meta data-rh="true" property="og:description" content="- 禁止带电时拔插除 USB、HDMI 和网线之外的任何设备"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Quick_start/install_os/rdk_s100" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"1. 快速开始","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start"},{"@type":"ListItem","position":2,"name":"1.2 系统烧录","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/02_install_os"},{"@type":"ListItem","position":3,"name":"1.2.1 RDK S100","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/Quick_start/install_os/rdk_s100"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.0fbd7d27.css">
-<script src="/rdk_doc/assets/js/runtime~main.2f1f7802.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.7039a525.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.610ddddf.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.d6772427.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -29,6 +29,8 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="驱动下载"><strong>驱动下载</strong><a href="#驱动下载" class="hash-link" aria-label="驱动下载的直接链接" title="驱动下载的直接链接">​</a></h3>
 <p>安装USB  驱动
 对于Windows操作系统，在使用adb和fastboot功能前，需要首先确认是否安装对应的驱动程序。</p>
+<p>开发板进入uboot命令行模式（即命令行输出<code>Hobot$</code>）：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">开发板重新上电，长按任意键进入uboot命令行模式</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  或</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">开发板上电后reboot，长按任意键进入uboot命令行模式</span><br></span></code></pre></div></div>
 <p>在开发板的uboot命令行下输入fastboot 0，让开发板进入fastboot模式：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Warning: eth1 (eth0) using random MAC address - 9a:07:de:92:a2:c5</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">eth0: eth1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">system_slot: 0 adc_boardinfo: 6a84</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">strap_pin = 0x45bc0 bootinfo = 0x0 bootcount = 0x1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">boot_block_device [1]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">flash boot</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">success!</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Hit any key to stop autoboot:  0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Hobot$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Hobot$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Hobot$ fastboot 0</span><br></span></code></pre></div></div>
 <p>此时，设备管理器会提示存在USB download gadget的未知设备。</p>
@@ -41,19 +43,20 @@
 <p>成功安装驱动后，设备管理器会显示Android Device设备，如下图：</p>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png" alt="" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="系统烧录">系统烧录<a href="#系统烧录" class="hash-link" aria-label="系统烧录的直接链接" title="系统烧录的直接链接">​</a></h2>
-<p>RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌面图形化交互。</p>
+<p>RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌 面图形化交互。</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p><strong>RDK S100</strong>出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color="Red">建议参考本文档完成最新版本系统镜像的烧写</font>。</p></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="img_download">镜像下载<a href="#img_download" class="hash-link" aria-label="镜像下载的直接链  接" title="镜像下载的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="镜像下载">镜像下载<a href="#镜像下载" class="hash-link" aria-label="镜像下载的直接链接" title="镜像下载的直接链接">​</a></h3>
 <p>参考<a href="/rdk_doc/rdk_s/Quick_start/download">1.6 资源汇总</a>章节。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="系统烧录-1">系统烧录<a href="#系统烧录-1" class="hash-link" aria-label="系统烧录的直接链接" title="系统烧录的直接链接">​</a></h3>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>目前<strong>需要将 SW3 拨至 ↑ 位置</strong>，使用板载 eMMC 来启动，暂时不支持从 M.2 NVMe 固态硬盘启动。</p></div></div>
-<p>RDK S100 开发套件可借助 PC 端工具 D-Navigation 来完成 Ubuntu 系统的烧录工作。当前，该烧录过程支持两种 USB 下载模式，用户可在烧录工具的 “下载选取” 界面里的 “下载模式” 选项处进行选择。这两种模式的具体区别如下：</p>
+<p>RDK S100 开发套件可借助 PC 端工具 D-Navigation 来完成 Ubuntu 系统的烧录工作。当前，该烧录过程支持两种 USB 下载模式，用户可在烧录工具的 “下载选取” 界面里的 “  下载模式” 选项处进行选择。这两种模式的具体区别如下：</p>
 <ul>
 <li><strong>U-Boot 烧录方式：</strong> 此模式依赖 RDK S100 进入 U-Boot 的烧录模式（即 fastboot 模式），在日常的烧录场景中使用较为频繁，能满足大多数常规的系统烧录需求。</li>
 <li><strong>USB 烧录方式：</strong> 该模式基于 DFU 协议，当 RDK S100 遇到无法进入 U-Boot 模式，或者系统损坏导致设备变砖等特殊情况时，使用此模式帮助恢复系统。</li>
 </ul>
 <p>下面给出使用 PC 工具 D-Navigation 烧录的具体烧录步骤。</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>在烧录 Ubuntu 系统镜像前，需要做如下准备：</p><ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>windows pc 上 D-Navigation需要在<a href="#%E9%A9%B1%E5%8A%A8%E4%B8%8B%E8%BD%BD">驱动安装</a>成功后才能使用，使用前请确保驱动安装成功。</p></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>在烧录 Ubuntu 系统镜像前，需要做如下  准备：</p><ul>
 <li>
 <p>准备一根 Type-C 数据线，数据线的一端与板子的 Type-C 接口相连接，另一端与 PC 相连接。</p>
 </li>
@@ -71,23 +74,29 @@ sudo ./D-Navigation --no-sandbox</p>
 </li>
 <li>
 <p>MacOS 版本启动(目前支持 M 芯片)：</p>
-<p>双击打开D-Navigation.exe</p>
+<p>xattr -cr D-navigation.app # App 解除隔离，在终端执行
+双击打开D-Navigation.exe</p>
 </li>
 </ul>
 </li>
 </ul></div></div>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="uboot-烧录">uboot 烧录<a href="#uboot-烧录" class="hash-link" aria-label="uboot 烧录的直接链接" title="uboot 烧录的直接链接">​</a></h4>
 <ol>
-<li>准备 RDKS100 镜像包，结构如下所示</li>
+<li>
+<p>准备 RDKS100 镜像包</p>
+<ol>
+<li>从网页上<a href="#%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD">下载</a>镜像包
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/download_web.png" alt="" class="img_ev3q"></li>
+<li>解压后得到 product 文件夹，结构如下所示，确保同一个文件夹内有<code>img_packages</code>文件夹和<code>xmodem_tools</code>文件
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png" alt="" class="img_ev3q"></li>
 </ol>
-<p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png" alt="" class="img_ev3q"></p>
-<ol start="2">
-<li>开发板上电</li>
-</ol>
+</li>
+<li>
+<p>开发板上电</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>U-Boot 方式需要占用串口，须保证串口没有被其它设备或应用占用。</p></div></div>
-<ol start="3">
-<li>打开地瓜芯片工具 D-Navigation，完成如下操作：</li>
-</ol>
+</li>
+<li>
+<p>打开地瓜芯片工具 D-Navigation，完成如下操作：</p>
 <ul>
 <li>选择产品型号：S100</li>
 <li>下载模式：uboot；介质存储 emmc；类型：secure</li>
@@ -96,19 +105,27 @@ sudo ./D-Navigation --no-sandbox</p>
 <li>点击开始升级(升级过程中，如有&#x27;Need manual reset&#x27;提示，请重新上电)</li>
 </ul>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download.png" alt="image-S100-download" class="img_ev3q"></p>
-<ol start="4">
-<li>待升级完成后重新上电</li>
+</li>
+<li>
+<p>待升级完成后重新上电</p>
+</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="usb-烧录空片烧录或烧挂重新烧录">USB 烧录(空片烧录或烧挂重新烧录)<a href="#usb-烧录空片烧录或烧挂重新烧录" class="hash-link" aria-label="USB 烧录(空片烧录或烧挂重新烧录)的直接链接" title="USB 烧录(空片烧录或烧挂重新烧录)的直接链接">​</a></h4>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>SW1、SW2等说明可查看<a href="/rdk_doc/rdk_s/Quick_start/hardware_introduction/rdk_s100#%E5%BC%80%E5%85%B3%E6%8C%89%E9%94%AE%E5%92%8C%E7%81%AF%E5%85%89%E8%AF%B4%E6%98%8E">1.1.1章节开关、按键和灯光说明内容</a></p></div></div>
 <ol>
-<li>准备 RDKS100 镜像包，结构如下所示</li>
+<li>
+<p>准备 RDKS100 镜像包</p>
+<ol>
+<li>从网页上<a href="#%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD">下载</a>镜像包
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/download_web.png" alt="" class="img_ev3q"></li>
+<li>解压后得到 product 文件夹，结构如下所示，确保同一个文件夹内有<code>img_packages</code>文件夹和<code>xmodem_tools</code>文件
+<img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png" alt="" class="img_ev3q"></li>
 </ol>
-<p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png" alt="" class="img_ev3q"></p>
-<ol start="2">
+</li>
 <li>
 <p>将设备切换到 DFU 模式，具体步骤：</p>
 <ol>
-<li> 将 SW1 拨码至 ↑，关闭电源</li>
+<li>将 SW1 拨码至 ↑，关闭电源</li>
 <li>将 SW2 拨码至 ↑，进入 Download 模式</li>
 <li>将 SW1 拨码至 ▽，开启电源</li>
 <li>如果<code>DOWNLOAD</code>灯亮，则进入 DFU 模式，否则按下<code>K1</code>复位系统。
@@ -117,8 +134,6 @@ sudo ./D-Navigation --no-sandbox</p>
 </li>
 <li>
 <p>打开地瓜芯片工具 D-Navigation，完成如下操作</p>
-</li>
-</ol>
 <ul>
 <li>选择产品型号：S100</li>
 <li>下载模式：usb；介质存储 emmc；类型：secure</li>
@@ -126,8 +141,10 @@ sudo ./D-Navigation --no-sandbox</p>
 <li>设备断电重启，点击开始升级，等待升级完成</li>
 </ul>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg" alt="image-S100-download" class="img_ev3q"></p>
-<ol start="4">
-<li>升级完成后，关闭电源，将烧录开关向下拨动后(从 DFU 模式退出)，重新上电。</li>
+</li>
+<li>
+<p>升级完成后，关闭电源，将烧录开关向下拨动后(从 DFU 模式退出)，重新上电。</p>
+</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="启动系统">启动系统<a href="#启动系统" class="hash-link" aria-label="启动系统的直接链接" title="启动系统的直接链接">​</a></h3>
 <p>首先保持开发板断电，并通过 HDMI 线缆连接开发板与显示器，最后给开发板上电。</p>
@@ -135,9 +152,37 @@ sudo ./D-Navigation --no-sandbox</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>开发板指示灯说明</div><div class="admonitionContent_BuS1"><ul>
 <li><strong><font color="Green">绿色</font></strong> 指示灯：点亮代表硬件上电正常</li>
 </ul><p>如果开发板上电后长时间没有显示输出（2 分钟以上），说明开发板启动异常。需要通过串口线进行调试，查看开发板是否正常。</p></div></div>
-<p>Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在显示器上输出系统桌面，如下图：</p>
+<p>Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在显示器上输 出系统桌面，如下图：</p>
 <p><img decoding="async" loading="lazy" src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-desktop_display_s100.jpg" alt="image-desktop_display.jpg" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="使用ubuntu系统笔记本遇到的问题"><strong>使用ubuntu系统笔记本遇到的问题</strong><a href="#使用ubuntu系统笔记本遇到的问题" class="hash-link" aria-label="使用ubuntu系统笔记本遇到的问题的直接链接" title="使用ubuntu系统笔记本遇到的问题的直接链接">​</a></h2>
+<ol>
+<li>
+<p><strong>ubuntu系统笔记本连接开发板后，串口出现乱码</strong></p>
+<ol>
+<li>下载官方串口驱动 <a href="https://www.wch.cn/downloads/CH341SER_LINUX_ZIP.html" target="_blank" rel="noopener noreferrer">CH340N驱动</a></li>
+<li>修改<code>ch341_tty_driver-&gt;name = &quot;ttyUSB&quot;;</code></li>
+<li>重新编译并安装驱动</li>
+</ol>
+</li>
+<li>
+<p><strong>ubuntu24.04系统需要安装驱动</strong></p>
+<ol>
+<li>执行如下脚本</li>
+</ol>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">#!/bin/bash</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">set -e</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;[INFO] Updating APT package list...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;[INFO] Installing required packages...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt install -y dfu-util libusb-1.0-0-dev</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;[INFO] Writing udev rules to /etc/udev/rules.d/99-drobotics.rules...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo tee /etc/udev/rules.d/99-drobotics.rules &gt; /dev/null &lt;&lt;EOF</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6610&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6615&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6620&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6625&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;18d1&quot;, ATTR{idProduct}==&quot;6631&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;tty&quot;, ATTRS{idVendor}==&quot;1a86&quot;, ATTRS{idProduct}==&quot;7523&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;[INFO] Reloading and triggering udev rules...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo udevadm control --reload</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo udevadm trigger</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;[INFO] Setup complete. Please replug your devices or reboot if necessary.&quot;</span><br></span></code></pre></div></div>
+<ol start="2">
+<li>或者依次执行如下命令</li>
+</ol>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 更新APT源</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 安装DFU工具和libusb</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt install -y dfu-util libusb-1.0-0-dev</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 设定开发板接口权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo tee /etc/udev/rules.d/99-drobotics.rules &gt; /dev/null &lt;&lt;EOF</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6610&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6615&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6620&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;3652&quot;, ATTR{idProduct}==&quot;6625&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;18d1&quot;, ATTR{idProduct}==&quot;6631&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SUBSYSTEM==&quot;tty&quot;, ATTRS{idVendor}==&quot;1a86&quot;, ATTRS{idProduct}==&quot;7523&quot;, MODE=&quot;0666&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 重载udev</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo udevadm control --reload</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo udevadm trigger</span><br></span></code></pre></div></div>
+<ol start="3">
+<li>使用Type-C线连接电脑和开发板的Type-C口（靠近DC电源接头位置）</li>
+<li>点击<a href="https://archive.d-robotics.cc/downloads/software_tools/download_tools/" target="_blank" rel="noopener noreferrer">下载</a>最新的D-Navigation，例如<code>D-navigation-linux-x64-v2.4.tar.gz</code></li>
+<li>解压缩，并在解压缩后的文件夹中开启<code>Terminal</code></li>
+<li>执行<code>sudo ./D-navigation --no-sandbox</code>，启动烧录工具。</li>
+</ol>
+</li>
+</ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="常见问题"><strong>常见问题</strong><a href="#常见问题" class="hash-link" aria-label="常见问题的直接链接" title="常见问题的直接链接">​</a></h2>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>更多问题的处理，可以查阅 <a href="/rdk_doc/rdk_s/FAQ/hardware_and_system">常见问题</a> 章节，同时可 以访问 <a href="https://developer.d-robotics.cc/forum" target="_blank" rel="noopener noreferrer">D-Robotics 开发者官方论坛</a> 获得帮助。</p></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-09-01T13:11:56.000Z" itemprop="dateModified">2025年9月1日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/rdk_s/02_install_os"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">1.2 系统烧录</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/rdk_s/03_configuration_wizard"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1.3 入门配置</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#烧录准备" class="table-of-contents__link toc-highlight">烧录准备</a><ul><li><a href="#供电" class="table-of-contents__link toc-highlight"><strong>供电</strong></a></li><li><a href="#存储" class="table-of-contents__link toc-highlight"><strong>存储</strong></a></li><li><a href="#显示" class="table-of-contents__link toc-highlight"><strong>显示</strong></a></li><li><a href="#网络连接" class="table-of-contents__link toc-highlight"><strong>网络连接</strong></a></li><li><a href="#驱动下载" class="table-of-contents__link toc-highlight"><strong>驱动下载</strong></a></li></ul></li><li><a href="#系统烧录" class="table-of-contents__link toc-highlight">系统烧录</a><ul><li><a href="#img_download" class="table-of-contents__link toc-highlight">镜像下载</a></li><li><a href="#系统烧录-1" class="table-of-contents__link toc-highlight">系统烧录</a><ul><li><a href="#uboot-烧录" class="table-of-contents__link toc-highlight">uboot 烧录</a></li><li><a href="#usb-烧录空片烧录或烧挂重新烧录" class="table-of-contents__link toc-highlight">USB 烧录(空片烧录或烧挂重新烧录)</a></li></ul></li><li><a href="#启动系统" class="table-of-contents__link toc-highlight">启动系统</a></li></ul></li><li><a href="#常见问题" class="table-of-contents__link toc-highlight"><strong>常见问题</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_BuS1"><p>更多问题的处理，可以查阅 <a href="/rdk_doc/rdk_s/FAQ/hardware_and_system">常见问题</a> 章节，同时可以访问 <a href="https://developer.d-robotics.cc/forum" target="_blank" rel="noopener noreferrer">D-Robotics 开发者官方论坛</a> 获得帮助。</p></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-09-01T16:34:19.000Z" itemprop="dateModified">2025年9月1日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/rdk_s/02_install_os"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">1.2 系统烧录</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/rdk_s/03_configuration_wizard"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">1.3 入门配置</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#烧录准备" class="table-of-contents__link toc-highlight">烧录准备</a><ul><li><a href="#供电" class="table-of-contents__link toc-highlight"><strong>供电</strong></a></li><li><a href="#存储" class="table-of-contents__link toc-highlight"><strong>存储</strong></a></li><li><a href="#显示" class="table-of-contents__link toc-highlight"><strong>显示</strong></a></li><li><a href="#网络连接" class="table-of-contents__link toc-highlight"><strong>网络连接</strong></a></li><li><a href="#驱动下载" class="table-of-contents__link toc-highlight"><strong>驱动下载</strong></a></li></ul></li><li><a href="#系统烧录" class="table-of-contents__link toc-highlight">系统烧录</a><ul><li><a href="#镜像下载" class="table-of-contents__link toc-highlight">镜像下载</a></li><li><a href="#系统烧录-1" class="table-of-contents__link toc-highlight">系统烧录</a><ul><li><a href="#uboot-烧录" class="table-of-contents__link toc-highlight">uboot 烧录</a></li><li><a href="#usb-烧录空片烧录或烧挂重新烧录" class="table-of-contents__link toc-highlight">USB 烧录(空片烧录或烧挂重新烧录)</a></li></ul></li><li><a href="#启动系统" class="table-of-contents__link toc-highlight">启动系统</a></li></ul></li><li><a href="#使用ubuntu系统笔记本遇到的问题" class="table-of-contents__link toc-highlight"><strong>使用ubuntu系统笔记本遇到的问题</strong></a></li><li><a href="#常见问题" class="table-of-contents__link toc-highlight"><strong>常见问题</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
