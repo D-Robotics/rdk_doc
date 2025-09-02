@@ -760,13 +760,13 @@ $ ls
 
 ### 程序功能
 
-`sample_vdec_basic` 实现最基础解码功能，读取本地`H264`/`H265`/`MJPEG`文件，进行解码保存`NV12`结果
+`sample_vdec_basic` 实现最基础解码功能，读取本地`H264`/`H265`/`JPEG`文件，进行解码保存`NV12`结果
 
-`sample_venc_basic` 实现最基础编码功能，读取`NV12`图像，编码为`H264`（或`H265`或`MJPEG`），并保存为本地文件
+`sample_venc_basic` 实现最基础编码功能，读取`NV12`图像，编码为`H264`（或`H265`或`JPEG`），并保存为本地文件
 
-`sample_vdec_two_channel` 面向需要多通道同时解码的场景，在`sample_vdec_basic` 基础上增加一路解码通道，实现双通道解码功能。读取本地`H264`/`H265`/`MJPEG`文件，两路同时进行解码分别保存`NV12`文件。
+`sample_vdec_two_channel` 面向需要多通道同时解码的场景，在`sample_vdec_basic` 基础上增加一路解码通道，实现双通道解码功能。读取本地`H264`/`H265`/`JPEG`文件，两路同时进行解码分别保存`NV12`文件。
 
-`sample_venc_two_channel` 面向需要多通道同时编码的场景，在`sample_venc_basic` 基础上增加一路编码通道，实现双通道编码功能。读取本地`NV12`文件，两路同时进行解码分别保存`H264`（或`H265`或`MJPEG`）。
+`sample_venc_two_channel` 面向需要多通道同时编码的场景，在`sample_venc_basic` 基础上增加一路编码通道，实现双通道编码功能。读取本地`NV12`文件，两路同时进行解码分别保存`H264`（或`H265`或`JPEG`）。
 
 ### 程序开发
 
@@ -816,7 +816,7 @@ example_vdec_two_channel  example_venc_two_channel  README.md  sample_vdec_basic
 
 height为为图像高所包含的像素格式
 
-encode_type可以为h264\h265\mjpeg
+encode_type可以为h264\h265\jpeg
 
 file为要解码的文件名
 
@@ -830,7 +830,7 @@ file为要解码的文件名
 
 height为为图像高所包含的像素格式
 
-ecode_type可以为h264\h265\mjpeg
+ecode_type可以为h264\h265\jpeg
 
 file0为要编码的文件名需要为NV12格式
 
@@ -847,7 +847,7 @@ file1为要编码的文件名需要为NV12格式，其width和height需要和fil
 
 height为为图像高所包含的像素格式
 
-encode_type可以为h264\h265\mjpeg
+encode_type可以为h264\h265\jpeg
 
 file为要解码的文件名
 
@@ -861,7 +861,7 @@ file为要解码的文件名
 
 height为为图像高所包含的像素格式
 
-ecode_type可以为h264\h265\mjpeg
+ecode_type可以为h264\h265\jpeg
 
 file0为要编码的文件名需要为NV12格式
 
