@@ -275,6 +275,48 @@ Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在�
     5. 解压缩，并在解压缩后的文件夹中开启`Terminal`
     6. 执行`sudo ./D-navigation --no-sandbox`，启动烧录工具。
 
+## **使用MacOS系统笔记本串口乱码问题**
+
+以MacOs 版本15.0(芯片M3)为例，MACOS系统默认串口驱动以921600波特率连接CH340N会出现乱码，需要安装最新的CH340N的驱动，操作如下：
+1. 默认的CH340N驱动插上设备显示为`tty.usbserial*`，说明此时为MACOS默认串口驱动，需要更新：
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-ttyusb.png)
+
+2. 安装流程：(以下安装流程参考[CH340N最新驱动发布页面](https://github.com/WCHSoftGroup/ch34xser_macos?tab=readme-ov-file)下的README.md文档编写)
+   1. 在[CH340N最新驱动发布页面](https://github.com/WCHSoftGroup/ch34xser_macos?tab=readme-ov-file)点击下载压缩包
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install1.png)
+   2. 解压并使用pkg包进行驱动安装
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install2.png)
+   3. 点击继续
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install3.png)
+   4. 点击安装并输入密码
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install4.png)
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install5.png)
+   5. 点击安装，打开系统设置
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install6.png)
+   6. 授权允许并输入密码
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install7.png)
+   7. 弹框显示安装成功
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-install8.png)
+   8. **<font color='red'>重启电脑</font>**
+   9. 检查是否安装成功，识别到tty.wch* 表示驱动安装成功
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-ttywch.png)
+3. 连接设备验证
+   :::warning 注意
+
+      CH340N最新官方驱动仍不支持MACOS系统自带的screen工具以921600波特率通讯，需使用`minicom`工具。
+
+   :::
+   1. 以上图为例，一般编号小的为ACore串口，编号大的为MCU串口，如上图显示`/dev/tty.wchusbserial1220`是ACore串口，`/dev/tty.wchusbserial1230`是MCU串口，连接ACore串口命令是：`minicom -D /dev/tty.wchusbserial1220 -b 921600 -8`; 连接MCU串口命令是：`minicom -D /dev/tty.wchusbserial1230 -b 921600 -8`，请根据实际设备编号 **/dev/tty.wchusbserial** 替换命令中的设备路径
+   2. `minicom`连接ACore串口命令如下(`minicom -D /dev/tty.wchusbserial1220 -b 921600 -8`）
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-minicom.png)
+   3. 连接开发板验证
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-minicom-success.png)
+
+4. FAQ
+
+   1. Q1：之前已安装或使用官网下载的CH340N驱动后，串口查看还是乱码。
+      - A：如果已经从官网安装驱动，但是查看到设备仍为`tty.usbserial*`，需要把CH34xVCPDriverApp放到废纸篓里，清空废纸篓，**<font color='red'>重启电脑</font>**，根据[上面的步骤](#使用macos系统笔记本串口乱码问题)重新安装。
+
 
 ## **常见问题**
 

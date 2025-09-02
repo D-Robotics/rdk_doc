@@ -18,6 +18,8 @@ sidebar_position: 4
 
 ## 串口登录{#login_uart}
 
+### **win连接串口**
+
 参考视频: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
 
 在使用串口登录前，需要确认开发板串口线跟电脑正确连接，连接方法可参考对应开发板的调试串口章节：
@@ -84,6 +86,24 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
+### **mac连接串口**
+
+macos系统下，使用minicom工具连接串口，步骤如下：
+1. 使用minicom命令连接串口验证(`minicom -D /dev/tty.wchusbserial* -b 921600 -8`）
+      ```bash
+      minicom  # 启动 minicom 终端工具，用于串口通信
+      -D       # 指定要使用的串口设备（device）
+      -b       # 设置串口波特率（baud rate）
+      -8       # 设置 数据位数为 8 位（data bits）
+      ```
+      ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-minicom.png)
+2. 连接开发板验证
+   ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-minicom-success.png)
+
+:::tip
+
+使用minicom连接出现乱码，请查看[使用macos系统笔记本串口乱码](../01_Quick_start/02_install_os/rdk_s100.md#使用macos系统笔记本串口乱码问题)
+:::
 
 ## 网络状态确认{#network_config}
 
