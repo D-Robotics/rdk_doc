@@ -70,16 +70,6 @@ jupyter lab --allow-root --ip 10.112.148.68
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
 
-## 模块介绍
-
-RDK 系列 Model Zoo总体分为如下模块（这部分以RDK X5为例，请根据实际情况跳转自对应分支）：
-
-1. **[大模型](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/llm)**
-2. **[图像分类](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/classification)**
-3. **[目标检测](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/detect)**
-4. **[实例分割](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/Instance_Segmentation)**
-
-开发者可跳转至对应的模块，体验模型在RDK 系列开发板的部署。
 
 ## 使用指南
 
