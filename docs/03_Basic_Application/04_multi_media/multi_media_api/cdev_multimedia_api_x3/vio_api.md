@@ -162,7 +162,7 @@ sidebar_position: 1
 - `crop_y`：裁剪区域的左上角y坐标集合，当`proc_mod`没有设置裁剪功能时，传入`NULL`
 - `crop_width`：裁剪区域的宽度，当`proc_mod`没有设置裁剪功能时，传入`NULL`
 - `crop_height`：裁剪区域的高度，当`proc_mod`没有设置裁剪功能时，传入`NULL`
-- `rotate`：旋转角度集合，目前支持`ROTATION_90` 90°、`ROTATION_180` 180°和`ROTATION_270` 270°，当`proc_mod`没有设置旋转功能时，传入`NULL`
+- `rotate`：旋转角度集合（仅支持 X3），目前支持`ROTATION_90` 90°、`ROTATION_180` 180°和`ROTATION_270` 270°，当`proc_mod`没有设置旋转功能时，传入`NULL`
 
 :::info 注意！
 
