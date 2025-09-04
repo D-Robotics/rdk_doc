@@ -112,7 +112,7 @@ Camera.open_vps(pipe_id, proc_mode, src_width, src_height, dst_width, dst_height
 | dst_width  | 图像输出宽度 | 输入宽度的`1/8~1.5`倍 |
 | dst_height | 图像输出高度 | 输入高度的`1/8~1.5`倍 |
 | crop_rect  | 裁剪区域的宽高，输入格式[x, y] | 不超过输入图像尺寸 |
-| rotate     | 旋转角度，最多支持两个通道旋转 | 范围0~3，分别表示`不旋转`、`90度` `180度`、`270度` |
+| rotate     | 旋转角度（仅支持 X3），最多支持两个通道旋转 | 范围0~3，分别表示`不旋转`、`90度` `180度`、`270度` |
 |    src_size | 保留参数 | 默认不需要配置 |
 |    dst_size | 保留参数 | 默认不需要配置 |
 
