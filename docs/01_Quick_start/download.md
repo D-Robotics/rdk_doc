@@ -81,13 +81,16 @@ sidebar_position: 6
 ### ⚙️ Buildroot 系统资源
 
 :::warning Buildroot 系统说明
-**即将释放!!**
 **适用用户：** 有一定嵌入式Linux开发经验，基于RDK X5 Module eMMC版本，进行内核定制、驱动适配、系统构建等方面的开发，对系统底层开放度和灵活性有要求的用户。
 
 **系统特点：**
 1. 基于Buildroot构建Linux发行版，不支持图形桌面操作
 2. 新增功能组件需要源码编译，自主定制系统镜像
 3. 提供HBRE C接口，完整支持芯片图像多媒体、AI推理底层能力
+:::
+
+:::tip SDK总仓
+📁 [SDK总仓](https://archive.d-robotics.cc/downloads/sdk/) - 包含所有SDK相关资料
 :::
 
 <div class="table-wrapper">
@@ -102,18 +105,28 @@ sidebar_position: 6
   <tbody>
     <tr>
       <td>📦 **SDK源码包**</td>
-      <td><a href="#">RDK X5 Module SDK</a></td>
-      <td>完整的Buildroot源码包，支持内核定制、驱动开发、系统构建</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/platform_source_code.tar.gz">RDK X5 Module SDK源码包</a></td>
+      <td>完整的Buildroot源码包，支持内核定制、驱动开发、系统构建（约3.1GB）</td>
     </tr>
     <tr>
       <td>💾 **eMMC预编译镜像**</td>
-      <td><a href="#">RDK X5 MD eMMC镜像</a></td>
-      <td>基于Buildroot构建的eMMC版本预编译系统镜像</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_non-secure_release.zip">非安全版本固件</a> / <a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_secure_release.zip">安全版本固件</a></td>
+      <td>基于Buildroot构建的eMMC版本预编译系统镜像，支持DDR自动检测</td>
     </tr>
     <tr>
-      <td>📚 **芯片用户手册**</td>
-      <td><a href="#">RDK X5 芯片手册</a></td>
-      <td>芯片底层技术手册，包含硬件规格、寄存器定义、开发指南</td>
+      <td>📚 **用户手册**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/user_manual/user_manual_v1.1.0.zip">SDK用户手册</a></td>
+      <td>包含buildroot编译指南、开发环境配置、API参考等完整文档（约163MB）</td>
+    </tr>
+    <tr>
+      <td>📋 **发布说明**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/release_note_and_change_log/LNX6.1.83_PL5.1_V1.1.0%20ReleaseNotes.pdf">ReleaseNotes</a></td>
+      <td>SDK版本更新说明、功能特性、已知问题和解决方案</td>
+    </tr>
+    <tr>
+      <td>🛠️ **烧录工具**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/software_tools/download_tools/">xburn下载工具</a></td>
+      <td>支持Linux、macOS、Windows的专业烧录工具，用于固件刷写</td>
     </tr>
   </tbody>
 </table>

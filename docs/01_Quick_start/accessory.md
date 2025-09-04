@@ -107,6 +107,7 @@ sidebar_position: 7
 | MIPI | 微雪 | OV5647摄像头 | OV5647传感器，500W像素，FOV 对角160度 | 1920x1080@30fps(default), 640x480@60fps, 1280x960@30fps, 2592x1944@15fps(max) | [购买链接](https://www.waveshare.net/shop/RPi-Camera-G.htm)  |
 | MIPI | 微雪 | IMX219摄像头 | 效果库优化，IMX219传感器，800W像素，FOV 对角160度| 1920x1080@30fps(default), 640x480@30fps, 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://www.waveshare.net/shop/IMX219-160-Camera.htm)  |
 | MIPI | 微雪 | IMX477摄像头 | IMX477传感器，1230W像素，FOV 对角160度 | 1920x1080@50fps(default), 1280x960@120fps, 2016x1520@40fps, 4000x3000@10fps(max) | [购买链接](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm)  |
+| MIPI | 第三方 | IMX415摄像头 | IMX415传感器，800W像素，FOV 对角123度，22PIN无需转接板 | 待测试 | [购买链接](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn)  |
 | MIPI | 亚博 | IMX219摄像头 | IMX219传感器，800W像素，FOV 对角77度 | 1920x1080@30fps(default), 640x480@30fps, 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=710344235988&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.110.4df82edcjJ7wap)  |
 | USB | 亚博 | USB摄像头 | 免驱USB麦克风摄像头，720p | 1280x720@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=633040443710&rn=ed9c7f0eecc103e742248e32a32ba62e&spm=a1z10.5-b-s.w4011-22651484606.152.c3406a83G6l62o)  |
 | USB | 轮趣 | USB摄像头 | 免驱USB摄像头，金属外壳，1080p | 1920x1080@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=12&id=666156389569&ns=1&spm=a230r.1.14.1.13e570f3eFF1sJ&skuId=4972914294771)  |

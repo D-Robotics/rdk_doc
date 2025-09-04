@@ -80,13 +80,16 @@ This document summarizes the download resources related to the D-Robotics RDK su
 ### ⚙️ Buildroot System Resources
 
 :::warning Buildroot System Description
-**Coming Soon!!**
 **Target Users:** Users with embedded Linux development experience, focused on kernel customization, driver adaptation, and system building based on RDK X5 Module eMMC version, requiring system-level openness and flexibility.
 
 **System Features:**
 1. Linux distribution built on Buildroot, no graphical desktop operation support
 2. New functional components require source code compilation and custom system image building
 3. Provides HBRE C interface with complete support for chip image multimedia and AI inference capabilities
+:::
+
+:::tip SDK Main Repository
+📁 [SDK Main Repository](https://archive.d-robotics.cc/downloads/sdk/) - Includes all SDK-related materials.
 :::
 
 <div class="table-wrapper">
@@ -101,18 +104,28 @@ This document summarizes the download resources related to the D-Robotics RDK su
   <tbody>
     <tr>
       <td>📦 **SDK Source Package**</td>
-      <td><a href="#">RDK X5 Module SDK</a></td>
-      <td>Complete Buildroot source package supporting kernel customization, driver development, and system building</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/platform_source_code.tar.gz">RDK X5 Module SDK Source</a></td>
+      <td>Complete Buildroot source package supporting kernel customization, driver development, and system building (approx. 3.1GB)</td>
     </tr>
     <tr>
       <td>💾 **eMMC Precompiled Images**</td>
-      <td><a href="#">RDK X5 MD eMMC Images</a></td>
-      <td>Precompiled system images for eMMC version built on Buildroot</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_non-secure_release.zip">Non-secure Firmware</a> / <a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_secure_release.zip">Secure Firmware</a></td>
+      <td>Precompiled system images for eMMC version built on Buildroot with DDR auto-detection support</td>
     </tr>
     <tr>
-      <td>📚 **Chip User Manual**</td>
-      <td><a href="#">RDK X5 Chip Manual</a></td>
-      <td>Chip-level technical manual including hardware specifications, register definitions, and development guides</td>
+      <td>📚 **User Manual**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/user_manual/user_manual_v1.1.0.zip">SDK User Manual</a></td>
+      <td>Comprehensive documentation including buildroot compilation guide, development environment setup, API reference (approx. 163MB)</td>
+    </tr>
+    <tr>
+      <td>📋 **Release Notes**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/release_note_and_change_log/LNX6.1.83_PL5.1_V1.1.0%20ReleaseNotes.pdf">ReleaseNotes</a></td>
+      <td>SDK version updates, feature descriptions, known issues and solutions</td>
+    </tr>
+    <tr>
+      <td>🛠️ **Flashing Tool**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/software_tools/download_tools/">xburn Download Tools</a></td>
+      <td>Professional flashing tools supporting Linux, macOS, and Windows for firmware installation</td>
     </tr>
   </tbody>
 </table>
