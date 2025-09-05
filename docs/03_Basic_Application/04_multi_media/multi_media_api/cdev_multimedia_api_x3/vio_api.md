@@ -153,7 +153,7 @@ sidebar_position: 1
 - `obj`： 已经初始化的`VIO`对象指针
 - `pipe_id`：支持多次打开，通过`pipe_id`进行区分。
 - `chn_num`：设置输出图像数量，最大为5，与设置的目标高宽数组大小有关
-- `proc_mod`：处理模式，当前支持：`SP_VPS_SCALE` 仅缩放、`SP_VPS_SCALE_CROP` 缩放并裁剪、`SP_VPS_SCALE_ROTATE` 缩放并旋转、`SP_VPS_SCALE_ROTATE_CROP` 缩放之后旋转并裁剪
+- `proc_mod`：处理模式，当前支持：`SP_VPS_SCALE` 仅缩放、`SP_VPS_SCALE_CROP` 缩放并裁剪、`SP_VPS_SCALE_ROTATE` 缩放并旋转、`SP_VPS_SCALE_ROTATE_CROP` 缩放之后旋转并裁剪, X5仅支持缩放和裁剪
 - `src_width`：原始帧宽度
 - `src_height`：原始帧高度
 - `dst_width`：配置目标输出宽度的数组地址
@@ -162,7 +162,7 @@ sidebar_position: 1
 - `crop_y`：裁剪区域的左上角y坐标集合，当`proc_mod`没有设置裁剪功能时，传入`NULL`
 - `crop_width`：裁剪区域的宽度，当`proc_mod`没有设置裁剪功能时，传入`NULL`
 - `crop_height`：裁剪区域的高度，当`proc_mod`没有设置裁剪功能时，传入`NULL`
-- `rotate`：旋转角度集合（仅支持 X3），目前支持`ROTATION_90` 90°、`ROTATION_180` 180°和`ROTATION_270` 270°，当`proc_mod`没有设置旋转功能时，传入`NULL`
+- `rotate`：旋转角度集合（仅X3支持），目前支持`ROTATION_90` 90°、`ROTATION_180` 180°和`ROTATION_270` 270°，当`proc_mod`没有设置旋转功能时，传入`NULL`
 
 :::info 注意！
 
