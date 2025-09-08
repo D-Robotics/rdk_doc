@@ -270,6 +270,12 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td>-</td>
       <td>官方电源适配器规格和电气要求</td>
     </tr>
+    <tr>
+      <td>📡 **IMU规格书**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20IMU.pdf">RDK X5 IMU规格书</a></td>
+      <td>-</td>
+      <td>惯性测量单元(IMU)技术规格和使用说明</td>
+    </tr>
   </tbody>
 </table>
 </div>
