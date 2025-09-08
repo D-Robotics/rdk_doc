@@ -104,7 +104,7 @@ sidebar_position: 1
 
 :::info 注意！
 
-`IMX477`从`1080P`的分辨率切换至其它分辨率需要进行手动复位，可以在板端执行`hobot_reset_camera.py`完成复位操作。
+`IMX477`从`1080P`的分辨率切换至其它分辨率需要进行手动复位，使用 RDK X3 时可以在板端执行`hobot_reset_camera.py`完成复位操作。
 
 :::
 
