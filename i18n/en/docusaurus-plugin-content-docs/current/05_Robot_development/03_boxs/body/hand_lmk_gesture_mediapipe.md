@@ -124,7 +124,7 @@ export CAM_TYPE=usb
 ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 ```
 
-**使用本地图片回灌**
+**Use local image**
 
 ```bash
 # Configure the tros.b environment
