@@ -7,14 +7,29 @@ This chapter mainly introduces the complete deployment method of the D-Robotics 
 
 ## Instructions for Using Deliverables {#deliverables_instructions}
 
-Before deploying the algorithm toolchain environment, please download the [**Embedded Application Development Sample Delivery Package**](https://pan.horizon.ai/index.php/s/iZwyzXoJLs8Btme) provided by D-Robotics to the Linux development machine environment.
-
-### Description of the Directory Structure of the Sample Package Source Code
+Before deploying the algorithm toolchain environment, please download the **Embedded Application Development Sample Delivery Package** provided by D-Robotics to the Linux development machine environment.
 
 Unpack the SDK source code package of the algorithm toolchain:
 
 ```bash
-  tar -xvf Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X.tar.xz
+// The sample version is v1.0.0
+
+wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+
+// More model conversion examples, available for download as needed!
+// wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
+tar -xvf Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X.tar.xz
+```
+
+
+### Description of the Directory Structure of the Sample Package Source Code
+
+Extract the algorithm toolchain SDK source code package:
+
+```bash
+  // The sample version is v1.0.0
+
+  tar -xvf Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz
 ```
 
 The directory structure after unpacking is as follows:
