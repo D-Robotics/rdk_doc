@@ -158,7 +158,7 @@ sidebar_position: 6
   <tbody>
     <tr>
       <td>📄 **规格书**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_Product_Brief_V1.0.pdf">RDK X5 规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module 规格书</a></td>
@@ -224,7 +224,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
   <tbody>
     <tr>
       <td>📄 **开发板规格书**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_Product_Brief_V1.0.pdf">RDK X5 产品规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 产品规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 产品规格书</a></td>
       <td>开发板详细技术规格和产品说明</td>
     </tr>
