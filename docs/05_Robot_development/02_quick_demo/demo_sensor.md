@@ -543,6 +543,36 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     - 检查硬件连接
     - 是否设置 tros.b 环境
     - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+4. 由于同时如果两路图像向同一个topic发送图像，导致图像冲突，因此启动第二路图像需要重映射topic，启动第二个相机的指令（仅限X5和S100）：
+    <Tabs groupId="tros-distro">
+    <TabItem value="foxy" label="Foxy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/setup.bash
+    ```
+
+    </TabItem>
+
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
+    # run 方式启动
+    ros2 run mipi_cam mipi_cam --ros-args --remap /image_raw:=/image_raw_alias
+    # 或者launch 方式启动
+    ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
+    ```
+
+
 
 ## 双目MIPI图像采集
 
@@ -552,8 +582,8 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 类型 | 型号 | 规格 | 支持平台 |
 | ------ | ------ | ------ | ------ |
-| 摄像头| SC230ai | 200W | RDK X5, RDK X5 Module |
-| 摄像头| SC230ai | 200W | RDK S100, RDK S100P |
+| 摄像头| SC230ai | 200W | RDK X5, RDK X5 Module, RDK S100, RDK S100P |
+| 摄像头| SC132gs | 200W | RDK X5, RDK X5 Module, RDK S100, RDK S100P |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
