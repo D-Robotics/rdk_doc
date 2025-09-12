@@ -230,7 +230,9 @@ cd /opt/tros/${TROS_DISTRO}/share/orb_slam3
 # 解压词袋库
 tar -xvf ./Vocabulary/ORBvoc.txt.tar.gz
 # 启动 ORB-SLAM3单目处理节点
-ros2 run orb_slam3_example_ros2 mono ./ORBvoc.txt ./Examples/Monocular/RealSense_D435i.yaml 
+ros2 run orb_slam3_example_ros2 mono ./ORBvoc.txt ./Examples/Monocular/RealSense_D435i.yaml
+# 由于realsense 话题名发生变化，如果算法长时间无帧率打印，则需要重新映射话题名
+ros2 run orb_slam3_example_ros2 mono ./ORBvoc.txt ./Examples/Monocular/RealSense_D435i.yaml --ros-args --remap /camera/infra1/image_rect_raw:=/camera/camera/infra1/image_rect_raw
 ```
 
 RDK端的视觉SLAM节点启动并接收到相机图像数据后开始打印当前处理帧率“fps”。
