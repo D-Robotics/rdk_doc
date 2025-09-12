@@ -169,3 +169,59 @@ make distclean
 make mrproper
 ```
 
+## 修改内核dts
+
+本节介绍 RDK 产品的 DTS（Device Tree Source）文件结构，以及如何进行修改，以指导用户开展二次开发。
+
+内核dts文件位于`x5-rdk-gen/source/kernel/arch/arm64/boot/dts/hobot/`目录下。
+
+:::info 注意
+- DTS 文件用于描述硬件资源分配（如 GPIO、I²C、SPI、中断号、内存地址等）。错误修改可能导致设备无法启动、驱动加载失败，甚至造成硬件损坏。
+- 错误配置可能导致编译失败、系统无法正常引导，甚至需要重新刷写系统镜像恢复。
+:::
+
+### Kernel 设备树
+
+| dts文件 | 作用 |
+| ------- | ---------- |
+| pinmux-func.dtsi | 定义各个 PIN 的功能组。 |
+| pinmux-gpio.dtsi | 定义 GPIO 组。 |
+| x5.dtsi | 定义 X5 平台上所有模块的默认配置，作为底层功能描述，不建议用户修改里面配置。 |
+| x5-rdk.dtsi | 定义了不同 SDK 硬件版本间的通用配置项，包含 x5.dtsi 的默认配置。 |
+| x5-板级产品.dts | 板级产品设备树文件，包含 x5.dtsi 的默认配置，同时完成功能模块的启用 / 禁用和与硬件强相关外设的定义。 |
+
+### 调用关系
+
+`x5-板级产品.dts` -> `x5-rdk.dtsi` -> `x5.dtsi` -> `(pinmux-func.dtsi and pinmux-gpio.dtsi)`
+
+### 板级dts介绍
+
+硬件编号可以通过板卡上的丝印确认，也可以通过`hrut_boardid`命令获取`board_id`来辨认。
+
+| 硬件编号 | board_id | dts文件 |
+| ------- | ---------- | ----------- |
+| RDK X5 V0.1 | 0x301 | x5-rdk.dts |
+| RDK X5 V1.0 | 0x302 | x5-rdk-v1p0.dts |
+| RDK X5 MD V0.1 | 0x501 | x5-md-v0p1.dts |
+| RDK X5 MD V0.2 | 0x502 | x5-md-v0p2.dts |
+| RDK X5 MD V0.3 | 0x503 | x5-md-v0p2.dts |
+| RDK X5 MD V1.0 | 0x504 | x5-md-v0p2.dts |
+| RDK X5 MD V1.1 | 0x505 | x5-md-v0p2.dts |
+
+### 编译
+
+`x5-rdk-gen`目录下编译脚本为`mk_kernel.sh`，执行该脚本即可编译内核。
+
+```
+sudo ./mk_kernel.sh
+```
+
+编译完成后，会在`x5-rdk-gen/deploy/kernel/dtb/`目录下生成dtb文件，可以拷贝到板端的`/boot/hobot/`目录下，系统启动时会自动加载。
+
+也可以执行以下命令把内核dtb文件打包成deb包，供系统安装使用。
+
+```
+sudo ./mk_debs.sh hobot-dtb
+```
+
+生成的deb包位于`x5-rdk-gen/deploy/deb_pkgs/hobot-dtb_version-data_arm64.deb`
