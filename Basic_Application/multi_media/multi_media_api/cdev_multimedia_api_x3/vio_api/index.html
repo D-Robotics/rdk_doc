@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">VIO（视频输入）API | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/vio_api"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="VIO（视频输入）API | RDK DOC"><meta data-rh="true" name="description" content="VIO 模块提供操作 MIPI 摄像头和操作图像处理的功能。"><meta data-rh="true" property="og:description" content="VIO 模块提供操作 MIPI 摄像头和操作图像处理的功能。"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/vio_api"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/vio_api" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/vio_api" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/vio_api" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"3. 基础应用开发","item":"https://developer.d-robotics.cc/rdk_doc/Basic_Application"},{"@type":"ListItem","position":2,"name":"VIO（视频输入）API","item":"https://developer.d-robotics.cc/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/vio_api"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.0fbd7d27.css">
-<script src="/rdk_doc/assets/js/runtime~main.fd3ee8a6.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.886eb987.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.fa48422a.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.e6fae7bf.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -103,6 +103,29 @@
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>注意！</div><div class="admonitionContent_BuS1"><p><code>X3</code>芯片对于<code>VPS</code>输出的宽度是有对齐需求的，如果您设置的宽度不满足<strong>32</strong>对齐，则会自动向上取整。例如您设置了<br>
 <!-- -->宽度为<code>720</code>，高度为<code>480</code>的输出，实际<code>VPS</code>输出的宽度会是<code>736</code>。<strong>绑定情况</strong>下这种情况会在调用库里面<strong>自动</strong>处理<br>
 <!-- -->对于<strong>非绑定情况</strong>下手动处理帧buffer时就要注意宽度对齐问题，以及在这种非对齐情况下将帧传给显示模块时会出现<strong>花屏、绿线</strong>的情况。</p></div></div>
+<p><code>X3</code>芯片<code>VPS</code>尺寸限制可以参考<a href="https://developer.d-robotics.cc/rdk_doc/Advanced_development/multimedia_development/video_processing" target="_blank" rel="noopener noreferrer">视频处理-功能描述</a>。</p>
+<p><code>X5</code>芯片<code>VPS</code>通道特性如下：</p>
+<ul>
+<li>最大处理能力: 3840x2160@60fps</li>
+<li>支持输入裁剪，分别在水平和垂直方向上进行缩放，并且对色度和亮度分量进行单独处理</li>
+<li>5个 downscale 通道</li>
+<li>
+<ul>
+<li>最大分辨率支持分别为 4K/1080P/1080P/720P/720P</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>最小分辨率为 64x64，支持任意 downscale factor</li>
+</ul>
+</li>
+<li>1个 upscale 通道</li>
+<li>
+<ul>
+<li>最大分辨率支持 4K，最大放大倍数 4X, 放大倍数支持 0 - 4</li>
+</ul>
+</li>
+</ul>
 <p><strong>【返回类型】</strong></p>
 <p>成功返回 0，失败返回 -1</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="sp_vio_close">sp_vio_close<a href="#sp_vio_close" class="hash-link" aria-label="sp_vio_close的直接链接" title="sp_vio_close的直接链接">​</a></h2>
@@ -112,7 +135,7 @@
 <p>根据传入的 <code>obj</code> 是打开的 <code>camera</code> 还是 <code>vps</code>决定关闭camera还是vps模块。</p>
 <p><strong>【参数】</strong></p>
 <ul>
-<li><code>obj</code>： 已经初始化的<code>VIO</code>对象指针</li>
+<li><code>obj</code>： 已经初始化的<code>VIO</code>对 象指针</li>
 </ul>
 <p><strong>【返回类型】</strong></p>
 <p>成功返回 0，失败返回 -1</p>
@@ -123,7 +146,7 @@
 <p>获取指定分辨率的图像帧数据（分辨率在打开模块时需要传入，否则会获取失败）。返回数据格式为 <code>NV12</code> 的 <code>YUV</code> 图像。</p>
 <p><strong>【参数】</strong></p>
 <ul>
-<li><code>obj</code>： 已经初始化的<code>VIO</code>对象 指针</li>
+<li><code>obj</code>： 已经初始化的<code>VIO</code>对象指针</li>
 <li><code>frame_buffer</code>：已经预分配内存的buffer指针，用于保存获取出来的图片，目前获取到的图像都是<code>NV12</code>格式，所以预分配内存大小可以由公式<code>高 * 宽 * 3 / 2 </code>，也可以利用提供的宏定义 <code>FRAME_BUFFER_SIZE(w, h)</code>进行内存大小计算</li>
 <li><code>width</code>：<code>image_buffer</code>保存图片的宽，必须是在<code>sp_open_camera</code>或者<code>sp_open_vps</code>配置好的输出宽</li>
 <li><code>height</code>：<code>image_buffer</code>保存图片的高，必须是在<code>sp_open_camera</code>或者<code>sp_open_vps</code>配置好的输出高</li>
@@ -168,11 +191,11 @@
 <p>在使用<code>vps</code>模块功能时，源数据需要通过调用本接口送入，<code>frame_buffer</code>里面的数据必须是 <code>NV12</code> 格式的图像数据，分辨率必须和调用<code>sp_open_vps</code>接口是的原始帧分辨率一致。</p>
 <p><strong>【参数】</strong></p>
 <ul>
-<li><code>obj</code>： 已经初始化 的<code>VIO</code>对象指针</li>
+<li><code>obj</code>： 已经初始化的<code>VIO</code>对象指针</li>
 <li><code>image_buffer</code>：需要处理的图像帧数据，必须是 <code>NV12</code> 格式的图像数据，分辨率必须和调用<code>sp_open_vps</code>接口是的原始帧分辨率一致。</li>
 <li><code>size</code>: 帧大小</li>
 </ul>
 <p><strong>【返回类型】</strong></p>
-<p>成功返回 0，失败返回 -1</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-09-15T02:00:08.000Z" itemprop="dateModified">2025年9月15日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/Basic_Application/multi_media/multi_media_api/pydev_multimedia_api_x3/pydev_api_demo"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">接口使用示例</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/encoder_api"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">ENCODER（编码模块）API</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#sp_init_vio_module" class="table-of-contents__link toc-highlight">sp_init_vio_module</a></li><li><a href="#sp_release_vio_module" class="table-of-contents__link toc-highlight">sp_release_vio_module</a></li><li><a href="#sp_open_camera" class="table-of-contents__link toc-highlight">sp_open_camera</a></li><li><a href="#sp_open_camera_v2" class="table-of-contents__link toc-highlight">sp_open_camera_v2</a></li><li><a href="#sp_open_vps" class="table-of-contents__link toc-highlight">sp_open_vps</a></li><li><a href="#sp_vio_close" class="table-of-contents__link toc-highlight">sp_vio_close</a></li><li><a href="#sp_vio_get_frame" class="table-of-contents__link toc-highlight">sp_vio_get_frame</a></li><li><a href="#sp_vio_get_raw" class="table-of-contents__link toc-highlight">sp_vio_get_raw</a></li><li><a href="#sp_vio_get_yuv" class="table-of-contents__link toc-highlight">sp_vio_get_yuv</a></li><li><a href="#sp_vio_set_frame" class="table-of-contents__link toc-highlight">sp_vio_set_frame</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+<p>成功返回 0，失败返回 -1</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-09-15T07:18:02.000Z" itemprop="dateModified">2025年9月15日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/Basic_Application/multi_media/multi_media_api/pydev_multimedia_api_x3/pydev_api_demo"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">接口使用示例</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/Basic_Application/multi_media/multi_media_api/cdev_multimedia_api_x3/encoder_api"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">ENCODER（编码模块）API</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#sp_init_vio_module" class="table-of-contents__link toc-highlight">sp_init_vio_module</a></li><li><a href="#sp_release_vio_module" class="table-of-contents__link toc-highlight">sp_release_vio_module</a></li><li><a href="#sp_open_camera" class="table-of-contents__link toc-highlight">sp_open_camera</a></li><li><a href="#sp_open_camera_v2" class="table-of-contents__link toc-highlight">sp_open_camera_v2</a></li><li><a href="#sp_open_vps" class="table-of-contents__link toc-highlight">sp_open_vps</a></li><li><a href="#sp_vio_close" class="table-of-contents__link toc-highlight">sp_vio_close</a></li><li><a href="#sp_vio_get_frame" class="table-of-contents__link toc-highlight">sp_vio_get_frame</a></li><li><a href="#sp_vio_get_raw" class="table-of-contents__link toc-highlight">sp_vio_get_raw</a></li><li><a href="#sp_vio_get_yuv" class="table-of-contents__link toc-highlight">sp_vio_get_yuv</a></li><li><a href="#sp_vio_set_frame" class="table-of-contents__link toc-highlight">sp_vio_set_frame</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
