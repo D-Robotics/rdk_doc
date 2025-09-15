@@ -123,6 +123,18 @@ crop_rect [x, y, w, h]详细解释
 - `w`：裁剪区域的宽度
 - `h`：裁剪区域的高度
 
+`X3`芯片`VPS`尺寸限制可以参考[视频处理-功能描述](https://developer.d-robotics.cc/rdk_doc/Advanced_development/multimedia_development/video_processing)。
+
+`X5`芯片`VPS`通道特性如下：
+
+- 最大处理能力: 3840x2160@60fps
+- 支持输入裁剪，分别在水平和垂直方向上进行缩放，并且对色度和亮度分量进行单独处理
+- 5个 downscale 通道
+- - 最大分辨率支持分别为 4K/1080P/1080P/720P/720P
+- - 最小分辨率为 64x64，支持任意 downscale factor
+- 1个 upscale 通道
+- - 最大分辨率支持 4K，最大放大倍数 4X, 放大倍数支持 0 - 4
+
 <font color='Blue'>【使用方法】</font> 
 
 ```python
