@@ -12,7 +12,7 @@ sidebar_position: 3
 **A:**
 * **板端直接安装：** 如果第三方库提供了适用于ARM架构的预编译包（例如 `.deb` 文件），或者可以通过包管理器（如 `apt`）直接安装，那么可以在RDK板卡上直接进行安装。对于Python库，如果Pypi上有对应的arm64 wheels包，也可以直接 `pip install`。
 * **交叉编译：** 如果第三方库需要从源码编译，推荐在PC开发主机上进行交叉编译，然后将编译产物部署到RDK板卡上。
-    * **环境部署：** 详细的交叉编译环境搭建步骤，请参考地平线开发者社区的教程：[交叉编译环境部署](https://developer.d-robotics.cc/forumDetail/112555549341653662)
+    * **环境部署：** 详细的交叉编译环境搭建步骤，请参考地瓜开发者社区的教程：[交叉编译环境部署](https://developer.d-robotics.cc/forumDetail/112555549341653662)
     * **编译步骤：** 通常需要配置CMake Toolchain文件，指定交叉编译器、目标系统Sysroot等。
 
 ### Q2: 在编译大型程序（如C++项目、ROS功能包）的过程中，如果系统提示编译进程被“kill”或出现内存不足相关的错误日志，应该如何解决？
@@ -51,7 +51,7 @@ swapon --show
 **参考教程：** [Swap使用教程](https://developer.d-robotics.cc/forumDetail/98129467158916281)
 
 ### Q3: 如何运行GC4633 MIPI摄像头的示例程序？
-**A:** 地平线官方通常会提供基于常见MIPI摄像头（如F37、GC4663）的AI算法示例（例如FCOS目标检测）。这些示例一般会自动检测连接的摄像头型号并进行算法推理。
+**A:** 地瓜机器人官方通常会提供基于常见MIPI摄像头（如F37、GC4663）的AI算法示例（例如FCOS目标检测）。这些示例一般会自动检测连接的摄像头型号并进行算法推理。
 
 **运行步骤示例 (以 `/app/ai_inference/03_mipi_camera_sample` 为例)：**
 1.  确保GC4663（或其他兼容的MIPI摄像头）已正确连接到RDK板卡的MIPI CSI接口，并且板卡已上电。
@@ -84,12 +84,12 @@ swapon --show
         * **发送压缩格式图像：** 考虑在RDK板卡端将原始图像（如RGB888）压缩为JPEG或PNG等格式后再通过ROS话题发布。这会显著减小每帧图像的数据量。您可以在PC端订阅压缩图像话题，并由`rqt_image_view`（或自定义节点）进行解压显示。
         * **降低分辨率或帧率：** 如果应用允许，适当降低发布图像的分辨率或帧率也能有效减少网络负担。
 
-### Q5: 地平线提供的Linux镜像（特指经过最小裁剪的系统，非完整Ubuntu Desktop/Server）是否支持在板卡端直接进行编译操作？
-**A:** 地平线为RDK提供的部分Linux镜像，特别是那些为嵌入式部署而经过最小化裁剪的rootfs（根文件系统），可能**不包含**完整的编译工具链（如GCC, G++, make, CMake等）和开发所需的头文件、库文件。
+### Q5: 地瓜机器人提供的Linux镜像（特指经过最小裁剪的系统，非完整Ubuntu Desktop/Server）是否支持在板卡端直接进行编译操作？
+**A:** 地瓜机器人为RDK提供的部分Linux镜像，特别是那些为嵌入式部署而经过最小化裁剪的rootfs（根文件系统），可能**不包含**完整的编译工具链（如GCC, G++, make, CMake等）和开发所需的头文件、库文件。
 * **结论：** 这类最小化Linux镜像通常**无法支持或不适合**在板卡端直接进行复杂的源码编译工作。
 * **推荐做法：** 对于需要在RDK上运行的应用程序，推荐采用**交叉编译**的方式。即在PC开发主机（如Ubuntu PC）上配置好针对RDK目标平台的交叉编译环境，在PC上完成编译后，再将生成的可执行文件和相关依赖部署到RDK板卡上运行。
 
-### Q6: 在地平线提供的最小化Linux镜像上如何运行官方手册中提供的示例（这些示例通常以Ubuntu系统环境为例）？
+### Q6: 在地瓜机器人提供的最小化Linux镜像上如何运行官方手册中提供的示例（这些示例通常以Ubuntu系统环境为例）？
 **A:** 官方手册中的示例（尤其是TROS/ROS相关的示例）通常是在功能更完整的Ubuntu系统环境下演示的。要在最小化的Linux镜像（可能没有预装Python解释器或完整的ROS环境）上运行这些示例（特别是C++编写的ROS节点），需要做一些调整：
 
 * **Ubuntu系统与Linux镜像启动示例的差异：**
@@ -274,7 +274,7 @@ find /opt/tros/ -name dnn_node_example.launch.py
 **A:** 完整编译tros.b的所有package确实需要较长时间（例如，在8核CPU、32GB内存的PC上可能需要20分钟左右）。以下是两种加速编译的方法：
 
 1.  **使用最小化编译脚本：**
-    * 地平线提供的tros.b编译脚本中，通常除了`all_build.sh`（完整编译）之外，还会提供一个`minimal_build.sh`（最小化编译）的选项。
+    * 地瓜机器人提供的tros.b编译脚本中，通常除了`all_build.sh`（完整编译）之外，还会提供一个`minimal_build.sh`（最小化编译）的选项。
     * 最小化编译通常会跳过编译算法示例（examples）和测试用例（tests）等非核心功能包，从而显著减少编译时间。
     * **使用方法：** 在您进行交叉编译配置的步骤中，将原本调用`./robot_dev_config/all_build.sh`的命令替换为调用`./robot_dev_config/minimal_build.sh`。
 
@@ -298,7 +298,7 @@ find /opt/tros/ -name dnn_node_example.launch.py
 
 ### Q9: RDK板卡上安装了官方的tros.b之后，是否还支持安装和使用其他版本的ROS（如ROS1或不同发行版的ROS2）？
 **A:** **支持。**
-* 在RDK板卡上安装了地平线的tros.b（例如基于ROS2 Humble）之后，您仍然可以尝试安装其他版本的ROS，包括ROS1（如Noetic, Melodic）或其他ROS2发行版（如Foxy, Galactic等，如果它们支持ARM64架构且您能找到或自行编译安装包）。
+* 在RDK板卡上安装了地瓜机器人的tros.b（例如基于ROS2 Humble）之后，您仍然可以尝试安装其他版本的ROS，包括ROS1（如Noetic, Melodic）或其他ROS2发行版（如Foxy, Galactic等，如果它们支持ARM64架构且您能找到或自行编译安装包）。
 * 不同的ROS版本可以共存于系统中，它们通常安装在不同的路径下（例如ROS1在`/opt/ros/noetic/`，ROS2 Humble在`/opt/ros/humble/`，tros.b可能在`/opt/tros/humble/`）。
 
     :::caution **重要注意事项**
@@ -309,7 +309,7 @@ find /opt/tros/ -name dnn_node_example.launch.py
     :::
 
 * **tros.b与ROS2 Foxy/Humble的兼容性：**
-    * 地平线的tros.b通常是基于某个ROS2 LTS版本（如Foxy或Humble）进行构建和优化的，并与之保持API接口兼容。这意味着，如果您的tros.b是基于Humble的，那么您通常可以直接使用为标准ROS2 Humble开发的工具和库，而无需再单独安装一遍ROS2 Humble（除非您需要标准ROS2 Desktop完整版中的某些特定工具，而tros.b中未包含）。
+    * 地瓜机器人的tros.b通常是基于某个ROS2 LTS版本（如Foxy或Humble）进行构建和优化的，并与之保持API接口兼容。这意味着，如果您的tros.b是基于Humble的，那么您通常可以直接使用为标准ROS2 Humble开发的工具和库，而无需再单独安装一遍ROS2 Humble（除非您需要标准ROS2 Desktop完整版中的某些特定工具，而tros.b中未包含）。
 
 ### Q10: 使用`colcon build`命令编译ROS2 package时报错 `AttributeError: module 'pyparsing' has no attribute 'operatorPrecedence'`，如何解决？
 **A:** 这个错误 `AttributeError: module 'pyparsing' has no attribute 'operatorPrecedence'` 通常是由于系统中安装的`python3-catkin-pkg`（一个用于解析ROS package.xml文件的Python库）版本过低，而它依赖的`pyparsing`库版本与其不兼容，或者`python3-catkin-pkg`自身的功能不完备导致的。
@@ -374,7 +374,7 @@ Apt-Sources: [http://archive.d-robotics.cc/ubuntu-ports](http://archive.d-roboti
 Date: 2023
 ```
 
-### Q12: 地平线tros.b的1.x版本和2.x版本（及更新版本）之间有什么主要说明和差异？
+### Q12: 地瓜机器人tros.b的1.x版本和2.x版本（及更新版本）之间有什么主要说明和差异？
 **A:**
 * **和系统版本、RDK平台硬件对应关系：**
     * **2.x版本tros.b (及后续如3.x等)：**
@@ -396,7 +396,7 @@ Date: 2023
 
 * **功能差异：**
     * 基础的ROS2核心功能在兼容版本间是相同的。
-    * 地平线针对其硬件特性优化的功能、新增的特定package以及最新的AI算法支持等，通常会优先或仅在2.x及更新版本的tros.b中提供。
+    * 地瓜机器人针对其硬件特性优化的功能、新增的特定package以及最新的AI算法支持等，通常会优先或仅在2.x及更新版本的tros.b中提供。
 * **安装包管理方式不同：**
     * **1.x版本tros.b：** 可能采用一个较大的整体安装包文件。
     * **2.x版本tros.b (及更新版本)：** 通常会根据功能模块将tros.b拆分为多个更细粒度的Debian软件包（如`tros-ros-base`, `tros-dnn-node`, `tros-mipi-cam`等），用户可以按需安装。对于开发者而言，通过`apt install tros`（元包）或`apt install <specific_tros_package>`来安装，使用体验上差异不大。
@@ -480,10 +480,10 @@ Date: 2023
     *
     这些环境变量的详细说明可以参考ROS2官方文档或Fast DDS的文档，例如：
     * [ROS 2 using Fast DDS middleware](https://fast-dds.docs.eprosima.com/en/latest/fastdds/ros2/ros2.html)
-    * 地平线官方`hobot_shm`包的README：[hobot_shm README_cn.md](https://github.com/D-Robotics/hobot_shm/blob/develop/README_cn.md) (请访问最新的官方链接)
+    * 地瓜机器人官方`hobot_shm`包的README：[hobot_shm README_cn.md](https://github.com/D-Robotics/hobot_shm/blob/develop/README_cn.md) (请访问最新的官方链接)
 
 2.  **启动支持零拷贝的ROS节点：**
-    * 发布数据的节点（Publisher）和订阅数据的节点（Subscriber）都需要在其代码中支持并使用借贷消息API。地平线官方提供的部分TROS包（如`mipi_cam`、`hobot_codec`等）可能已经适配了零拷贝。
+    * 发布数据的节点（Publisher）和订阅数据的节点（Subscriber）都需要在其代码中支持并使用借贷消息API。地瓜机器人官方提供的部分TROS包（如`mipi_cam`、`hobot_codec`等）可能已经适配了零拷贝。
     * 例如，启动`mipi_cam`节点发布共享内存图像：
         ```bash
         # 先source TROS Humble环境
