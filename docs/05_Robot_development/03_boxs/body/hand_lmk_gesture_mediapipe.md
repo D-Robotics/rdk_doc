@@ -70,19 +70,10 @@ import TabItem from '@theme/TabItem';
 
 **使用MIPI摄像头发布图片**
 
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
-
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
-</TabItem>
-
-</Tabs>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -98,19 +89,10 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **使用USB摄像头发布图片**
 
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
-
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
-</TabItem>
-
-</Tabs>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -130,10 +112,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
 
 ```bash
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -175,4 +153,4 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py publish_image_sour
 
 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
-![](image/hand_lmk_web.jpg)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg)

@@ -70,19 +70,10 @@ The gesture recognition package (hand_landmarks_mediapipe) subscribes to the han
 
 **Use MIPI Camera to Publish Images**
 
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
-
 ```bash
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
-
-</TabItem>
-
-</Tabs>
 
 ```shell
 # Copy the configuration file required for running the example from the installation path of tros.b.
@@ -98,19 +89,10 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **Use USB Camera to Publish Images**
 
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
-
 ```bash
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
-
-</TabItem>
-
-</Tabs>
 
 ```shell
 # Copy the configuration file required for running the example from the installation path of tros.b.
@@ -130,10 +112,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
 
 ```bash
 # Copy the configuration file required for running the example from the installation path of tros.b.
@@ -175,4 +153,4 @@ The output log shows that the program runs successfully, with a single inference
 
 Enter http://IP:8000 in a PC browser to view the images and algorithm rendering effects (IP is the RDK's IP address):
 
-![](image/hand_lmk_web.jpg)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg)
