@@ -12,6 +12,7 @@ The certified accessories list refers to third-party accessories that have been 
 | -------- | -------- | ------------------- | ---------------------------------- | --------------------------------------------------------------- |
 | Power    | Waveshare | PSU-27W-USB-C-CN     | Type-C interface 5V/5A custom power | [Buy Link](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)   |
 | Wi-Fi Antenna | Waveshare | ORD-CM4-ANTENNA       | SMA antenna supports 2.4G/5G Wi-Fi  | [Buy Link](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)    |
+| 4G Communication Module | Waveshare | SIM7600G-H 4G DTU | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Buy Link](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm) |
 
 ## Cameras
 

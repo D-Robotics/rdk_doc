@@ -19,6 +19,7 @@ The Certified Accessories List refers to third-party accessories that are offici
 | Cooler | Weishi | N/A | Fan expansion board for cooling | [Buy Now](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | Cooler | Yabo | N/A | Mainboard fan with OLED display support | [Buy Now](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |
 | Wi-Fi Antenna | Weishi | ORD-CM4-ANTENNA | SMA antenna supporting 2.4G/5G WiFi bands | [Buy Now](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G Communication Module | Waveshare | SIM7600G-H 4G DTU | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Buy Now](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 
 ### Cameras
