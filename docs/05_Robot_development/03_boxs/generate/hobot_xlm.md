@@ -23,11 +23,16 @@ import TabItem from '@theme/TabItem';
 
 ## 算法信息
 
-| 模型 | 参数量 | 平台 | prefill eval (tokens/s) | eval (tokens/s) |
-| ---- | ---- | ---- | ------------ | ---- |
-| Deepseek-R1 | 1.5B | S100 | 648.10 | 13.61 |
-| Deepseek-R1 | 1.5B | S100P | 914.29 | 20.80 |
-| Deepseek-R1 | 7B | S100P | 404.42 | 5.89 |
+| 模型 | 参数量 | Token长度 | 量化方式 | 平台 | prefill eval (tokens/s) | eval (tokens/s) |
+| ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
+| Deepseek-R1 | 1.5B | 1024 | Q8 | S100 | 635.24 | 17.05 |
+| Deepseek-R1 | 1.5B | 1024 | Q4 | S100 | 805.03 | 22.73 |
+| Deepseek-R1 | 1.5B | 4096 | Q8 | S100 | 473.20 | 14.63 |
+| Deepseek-R1 | 7B | 1024 | Q8 | S100 | 279.17 | 3.72 |
+| Deepseek-R1 | 1.5B | 1024 | Q8 | S100P | 1326.40 | 26.52 |
+| Deepseek-R1 | 1.5B | 1024 | Q4 | S100P | 2327.27 | 34.61 |
+| Deepseek-R1 | 1.5B | 4096 | Q8 | S100P | 1113.04 | 23.06 |
+| Deepseek-R1 | 7B | 1024 | Q8 | S100P | 468.86 | 6.68 |
 
 ## 准备工作
 
@@ -40,16 +45,16 @@ import TabItem from '@theme/TabItem';
 
 运行程序前，需要下载模型文件，命令如下：
 
-- DeepSeek_R1_Distill_Qwen_1.5B
+#### DeepSeek_R1_Distill_Qwen_1.5B
 
 ```shell
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm_v0.9.0/DeepSeek_R1_Distill_Qwen_1.5B_4096.hbm --ftp-password=Oeftp~123$%
+wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_1.5B_1024.hbm --ftp-password=Oeftp~123$%
 ```
 
-- DeepSeek_R1_Distill_Qwen_7B
+#### DeepSeek_R1_Distill_Qwen_7B
 
 ```shell
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm_v0.9.0/DeepSeek_R1_Distill_Qwen_7B_1024.hbm --ftp-password=Oeftp~123$%
+wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_7B_1024.hbm --ftp-password=Oeftp~123$%
 ```
 
 ### 系统配置
@@ -61,7 +66,7 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm_v0.9.0/DeepSeek_R1_Distill_Qwen_7B_
 reboot
 ```
 
-- 设置性能模式
+- 设置性能模式 `注意：仅RDK S100P 支持性能模式`
 ```shell
 devmem 0x2b047000 32 0x99
 devmem 0x2b047004 32 0x99
@@ -81,6 +86,8 @@ source /opt/tros/humble/setup.bash
 ```bash
 lib=/opt/tros/humble/lib/hobot_xlm/lib
 export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
+# config中为示例使用的模型配置文件
+cp -r install/lib/hobot_xlm/config/ .
 ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
 ```
 
@@ -98,6 +105,10 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
     ```
 
     ```bash
+    lib=/opt/tros/humble/lib/hobot_xlm/lib
+    export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
+    # config中为示例使用的模型配置文件
+    cp -r install/lib/hobot_xlm/config/ .
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
@@ -164,48 +175,52 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 [DNN]: 3.6.1_(4.2.7post0.dev202307211111+6aaae37 HBRT)
 [WARN] [1757949705.795194210] [xlm_node]: model init successed!
 板端大模型多轮对话交互demo，请输入你的问题并按下回车
-- 退出请输入exit
+- 退出请输入Ctrl C
 - 清除缓存请输入reset
-[User] <<< 1258+1485x3等于多少？
+[User] <<< 简单描述人工智能的发展
 [Assistant] >>> ...
 
-**Step 1: Identify the Components**
+人工智能（AI）的发展可以分为几个主要阶段：
 
-First, identify the numbers and operations in the expression:
-1258 + 1485 × 3
+1. **早期AI**：
+   - **人工智能**：最初用于特定任务，如游戏和客服。
+   - **机器学习**：1950年代，计算机开始学习，如自动识别和语音识别。
+   - **专家系统**：1970年代，如“维基”系统，模拟人类专家。
 
-**Step 2: Perform the Multiplication**
+2. **计算机视觉**：
+   - **图像识别**：1980年代，计算机识别简单的图像，如手写数字。
+   - **自然语言处理**：1990年代，如维基百科的自动搜索和编辑。
 
-Next, perform the multiplication part of the expression:
-1485 × 3 = 4455
+3. **深度学习**：
+   - **神经网络**：1980年代，神经网络用于处理复杂数据。
+   - **卷积神经网络（CNN）**：1990年代，用于图像识别，如自动驾驶汽车。
+   - **深度学习**：2010年代，如GPT和BERT，用于自然语言处理。
 
-**Step 3: Add the Result to 1258**
+4. **强化学习**：
+   - **机器人控制**：1980年代，机器人学习动作。
+   - **自动驾驶**：2010年代，如自动驾驶汽车。
 
-Finally, add the result of the multiplication to 1258:
-1258 + 4455 = 5713
+5. **深度学习和神经网络**：
+   - **图像识别**：如分类、分割和生成。
+   - **自然语言处理**：如文本生成、翻译和对话。
+   - **语音识别**：如转录和语音合成。
 
-**Final Answer:**
-The result of 1258 + 1485 × 3 is 5713.
-</think>
+6. **AI应用**：
+   - **医疗**：如诊断和药物研发。
+   - **交通**：如自动驾驶和交通管理系统。
+   - **教育**：如智能学习系统。
+   - **金融**：如自动交易和风险管理。
 
-**Solution:**
+7. **伦理和挑战**：
+   - **隐私问题**：数据泄露和隐私侵犯。
+   - **伦理争议**：如算法偏见和隐私问题。
 
-We need to evaluate the expression:
-\[ 1258 + 1485 \times 3 \]
+8. **未来展望**：
+   - **AI芯片**：用于训练和推理。
+   - **边缘AI**：在设备上运行，减少数据传输。
+   - **多模态AI**：结合视觉、听觉等多模态数据。
+   - **人类助手**：如聊天机器人和生命支持系统。
 
-**Step 1: Perform the Multiplication**
-
-First, calculate the multiplication part of the expression:
-\[ 1485 \times 3 = 4455 \]
-
-**Step 2: Add the Result to 1258**
-
-Next, add the result of the multiplication to 1258:
-\[ 1258 + 4455 = 5713 \]
-
-**Final Answer:**
-\[
-\boxed{5713}
-\]
-Performance prefill: 941.18tokens/s    decode: 22.63tokens/s
+AI将继续在多个领域发展，推动技术进步和社会变革。
+Performance prefill: 1113.04tokens/s    decode: 20.22tokens/s
 ```
