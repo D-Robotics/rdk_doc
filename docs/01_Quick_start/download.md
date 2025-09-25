@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# 1.6 下载资源汇总
+# 1.7 下载资源汇总
 
 本文汇总了 D-Robotics RDK 套件的相关下载资源，旨在为用户提供便捷、全面的资源获取渠道。涵盖了 RDK X3（旭日 X3 派）、RDK X3 Module（旭日 X3 模组）、RDK X5、RDK X5 Module 以及 RDK Ultra 等系列产品的各类相关资源下载目录。
 
