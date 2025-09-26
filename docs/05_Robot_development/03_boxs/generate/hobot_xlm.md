@@ -87,7 +87,7 @@ source /opt/tros/humble/setup.bash
 lib=/opt/tros/humble/lib/hobot_xlm/lib
 export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
 # config中为示例使用的模型配置文件
-cp -r install/lib/hobot_xlm/config/ .
+cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
 ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
 ```
 
@@ -108,7 +108,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
     lib=/opt/tros/humble/lib/hobot_xlm/lib
     export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
     # config中为示例使用的模型配置文件
-    cp -r install/lib/hobot_xlm/config/ .
+    cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
