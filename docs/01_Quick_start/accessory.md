@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
-# 1.7 配件清单
+# 1.8 配件清单
 
 本章节汇总了经过D-Robotics官方认证，可以适配RDK系列开发板的第三方配件清单。按照不同板卡类型进行分类，包含基础配件(电源、外壳、散热器)、摄像头、显示屏、转接板等类别，并提供详细的分辨率支持信息。配件清单内容会不定期更新，逐步添加更多的配件型号。
 
@@ -117,13 +117,27 @@ sidebar_position: 7
 
 ### 显示屏
 
+理论上所有支持 HDMI 接口的屏幕都可以使用，以下是已实际测试过的几款小分辨率屏幕型号：
+
 | 类型 | 供应商 | 型号 | 描述 | 分辨率 | 购买链接 |
 | --- | --------- | -------- | --------------- | --------- | --------- |
 | HDMI | 微雪 | 5英寸触控屏  | 分辨率800×480，钢化玻璃面板，支持触控 | 800×480 | [购买链接](https://www.waveshare.net/shop/5inch-HDMI-LCD-H.htm)  |
 | HDMI | 微雪 | 7英寸触控屏 | 分辨率1024x600，钢化玻璃面板，支持触控 | 1024×600 | [购买链接](https://www.waveshare.net/shop/7inch-HDMI-LCD-H.htm)  |
 | HDMI | 微雪 | 10英寸触控屏 | 分辨率1280x800，钢化玻璃面板，高色域触控屏 | 1280×800 | [购买链接](https://www.waveshare.net/shop/10.1HP-CAPLCD-Monitor.htm)  |
 | HDMI | 微雪 | 13.3英寸触控屏 | 分辨率1920x1080，钢化玻璃面板，高色域触控屏 | 1920×1080 | [购买链接](https://www.waveshare.net/shop/13.3inch-HDMI-LCD-H-with-Holder-V2.htm)  |
-| MIPI | 微雪 | 4.3英寸MIPI LCD | 分辨率800×480，IPS广视角，MIPI DSI接口  | 800×480 | [购买链接](https://www.waveshare.net/shop/4.3inch-DSI-LCD.htm)  |
+
+MIPI DSI 屏幕在使用前需要驱动适配，已支持的MIPI DSI屏幕型号如下：
+
+| 类型 | 供应商 | 型号 | 描述 | 分辨率 | 购买链接 | 使用指南 |
+| --- | --------- | -------- | --------------- | --------- | --------- | --------- |
+| MIPI | 微雪 | 2.8英寸MIPI LCD | IPS全贴合电容触控屏 | 480×640 | [购买链接](https://www.waveshare.net/shop/2.8inch-DSI-LCD.htm)  | [2.8inch DSI LCD](display_use/display_rdkx5#28inch-dsi-lcd) |
+| MIPI | 微雪 | 3.4英寸MIPI LCD | 圆形电容触控屏 IPS显示面板 十点触控 | 800×800 | [购买链接](https://www.waveshare.net/shop/3.4inch-DSI-LCD-C.htm)  | [3.4inch DSI LCD](display_use/display_rdkx5#34inch-dsi-lcd) |
+| MIPI | 微雪 | 4.3英寸MIPI LCD | 电容触控屏 IPS广视角 | 800×480 | [购买链接](https://www.waveshare.net/shop/4.3inch-DSI-LCD.htm)  | [4.3inch DSI LCD](display_use/display_rdkx5#43inch-dsi-lcd) |
+| MIPI | 微雪 | 7英寸MIPI LCD | 电容触控屏 IPS广视角 | 1024×600 | [购买链接](https://www.waveshare.net/shop/7inch-DSI-LCD-C.htm)  | [7inchC DSI LCD](display_use/display_rdkx5#7inchc-dsi-lcd) |
+| MIPI | 微雪 | 7.9英寸MIPI LCD | 电容触控屏 IPS广视角 超长屏幕 | 400×1280 | [购买链接](https://www.waveshare.net/shop/7.9inch-DSI-LCD.htm)  | [7.9inch DSI LCD](display_use/display_rdkx5#79inch-dsi-lcd) |
+| MIPI | 微雪 | 8英寸MIPI LCD | 电容触控屏 IPS广视角 | 1280×800 | [购买链接](https://www.waveshare.net/shop/8inch-DSI-LCD-C.htm)  | [8inch DSI LCD](display_use/display_rdkx5#8inch-dsi-lcd) |
+| MIPI | 微雪 | 10.1英寸MIPI LCD | 电容触控屏 IPS广视角 | 1280×800 | [购买链接](https://www.waveshare.net/shop/10.1inch-DSI-LCD-C.htm)  | [10.1inch DSI LCD](display_use/display_rdkx5#101inch-dsi-lcd) |
+
 
 ### 转接板
 
