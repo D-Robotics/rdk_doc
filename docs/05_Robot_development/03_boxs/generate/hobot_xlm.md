@@ -26,12 +26,8 @@ import TabItem from '@theme/TabItem';
 | 模型 | 参数量 | Token长度 | 量化方式 | 平台 | prefill eval (tokens/s) | eval (tokens/s) |
 | ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
 | Deepseek-R1 | 1.5B | 1024 | Q8 | S100 | 635.24 | 17.05 |
-| Deepseek-R1 | 1.5B | 1024 | Q4 | S100 | 805.03 | 22.73 |
-| Deepseek-R1 | 1.5B | 4096 | Q8 | S100 | 473.20 | 14.63 |
 | Deepseek-R1 | 7B | 1024 | Q8 | S100 | 279.17 | 3.72 |
 | Deepseek-R1 | 1.5B | 1024 | Q8 | S100P | 1326.40 | 26.52 |
-| Deepseek-R1 | 1.5B | 1024 | Q4 | S100P | 2327.27 | 34.61 |
-| Deepseek-R1 | 1.5B | 4096 | Q8 | S100P | 1113.04 | 23.06 |
 | Deepseek-R1 | 7B | 1024 | Q8 | S100P | 468.86 | 6.68 |
 
 ## 准备工作
@@ -142,7 +138,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 ```bash
 [UCP]: log level = 3
-[UCP]: UCP version = 3.6.1
+[UCP]: UCP version = 3.7.3
 [VP]: log level = 3
 [DNN]: log level = 3
 [HPL]: log level = 3
