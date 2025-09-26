@@ -23,8 +23,8 @@ The supported gesture recognition categories and their corresponding values in t
 | Mute       | mute gesture | 4     |
 | Palm       | Palm          | 5     |
 | Okay       | OK gesture    | 11    |
-| ThumbLeft  | Thumb left    | 12    |
-| ThumbRight | Thumb right   | 13    |
+| ThumbLeft  | Thumb pointing to screen left    | 12    |
+| ThumbRight | Thumb pointing to screen right   | 13    |
 | Awesome    | "666" gesture | 14    |
 
 2. Dynamic Gesture

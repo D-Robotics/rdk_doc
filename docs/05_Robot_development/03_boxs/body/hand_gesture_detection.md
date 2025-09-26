@@ -23,8 +23,8 @@ import TabItem from '@theme/TabItem';
 | Mute       | “嘘”手势   | 4    |
 | Palm       | 手掌       | 5    |
 | Okay       | OK手势     | 11   |
-| ThumbLeft  | 大拇指向左 | 12   |
-| ThumbRight | 大拇指向右 | 13   |
+| ThumbLeft  | 大拇指朝向屏幕左侧 | 12   |
+| ThumbRight | 大拇指朝向屏幕右侧 | 13   |
 | Awesome    | 666手势    | 14   |
 
 2. 动态手势
