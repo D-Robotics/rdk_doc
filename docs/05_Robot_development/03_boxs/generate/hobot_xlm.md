@@ -133,7 +133,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
     ```
 
     ```bash
-    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""1258+1485x3等于多少？""}"
+    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""简单描述人工智能的发展""}"
     ```
 
 消息发送后，可以在订阅输出结果终端查看输出结果。
