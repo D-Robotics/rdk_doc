@@ -529,6 +529,35 @@ Take the F37 as an example to introduce the method of acquiring and previewing i
 	- Check the hardware connections.
 	- Make sure you have set up the tros.b environment.
 	- Verify the parameters are correct, for more details refer to the Hobot_Sensors README.md file.
+  
+4. Due to image conflicts caused by two image streams sending images to the same topic simultaneously, the topic needs to be remapped when starting the second image stream, and an instruction to start the second camera (only for X5 and S100):
+    <Tabs groupId="tros-distro">
+    <TabItem value="foxy" label="Foxy">
+
+    ```bash
+    # Configure the tros.b environment
+    source /opt/tros/setup.bash
+    ```
+
+    </TabItem>
+
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # Configure the tros.b environment
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+    ```shell
+    # run mode
+    ros2 run mipi_cam mipi_cam --ros-args --remap /image_raw:=/image_raw_alias
+    # launch mode
+    ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
+    ```   
 
 ## RealSense Image Capture
 
