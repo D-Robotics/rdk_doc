@@ -10,6 +10,56 @@ sidebar_position: 1
 > - After updating the system, please use the `rdk-miniboot-update` command to update the NAND firmware to the latest version.  
 > - Official new images are released regularly, containing the latest feature optimizations and bug fixes. Users can either download and install the latest image or update the system online.
 
+### Version: 3.3.3
+
+#### Version Information
+
+- **System Version**: RDKOS V3.3.3
+- **Release Date**: October 2025
+- **Platform**: RDK X5
+
+#### Version Update Overview
+
+**(1) System and Driver Updates**
+
+- **Added YuGuang-SC132GS stereo camera module driver**
+- **srpi-config functionality enhancement**: Supports automatic interface pin multiplexing, added MIPI screen selection
+- **GPU desktop stability improvements**
+- **Wi-Fi driver upgraded to 2025_0410**, improving wireless connection stability
+- **Flash connection interface enhancements**:
+  - Supports usage on macOS systems
+  - Added RDK Studio USB connection functionality
+- **Multiple bug fixes and performance optimizations**
+
+**(2) Documentation Optimizations**
+
+- **V4L2 usage documentation optimized**, added examples and descriptions
+- **Display screen usage documentation optimized**, improved typical screen configuration descriptions
+- **Other documentation detail optimizations and structural adjustments**
+
+**(3) Ecosystem Support**
+
+The following ecosystem libraries have been released to PyPI:
+
+| Library Name | Version | Update Content |
+|--------------|---------|----------------|
+| hobot-dnn-rdkx5 | 3.0.6 | Added dependency numpy >= 1.26.4 |
+| hobot-vio-rdkx5 | 3.0.6 | Fixed cropping not taking effect; sp_open_camera interface default output size is 1920×1080 |
+
+#### TROS Update Notes (V2.4.3)
+
+- **Monocular MIPI image acquisition**: Supports starting multiple image acquisition channels
+- **Stereo MIPI image acquisition**: Added support for SC132GS stereo camera
+
+#### How to Obtain
+
+RDK X5 V3.3.3 version has been synchronized to:
+
+- D-Robotics Developer Community Download Center, download and upgrade
+- `sudo apt update && sudo apt upgrade`; direct local upgrade
+
+---
+
 ### TROS Algorithm Upgrade & Version: 3.2.3
 
 #### Image Updates
