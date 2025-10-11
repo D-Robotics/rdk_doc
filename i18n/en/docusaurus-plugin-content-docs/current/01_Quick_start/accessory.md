@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
-# 1.7 Accessory List
+# 1.8 Accessory List
 
 This section summarizes the third-party accessory list officially certified by D-Robotics, which is compatible with RDK series development boards. Classified by different board types, it includes basic accessories (power supply, case, heat sink), cameras, displays, adapter boards and other categories, and provides detailed resolution support information. The accessory list will be updated from time to time to gradually add more accessory models.
 
