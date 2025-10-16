@@ -710,6 +710,12 @@ MCU侧的修改需要注意 PRODUCT\_IMAGE宏的影响，详细内容请参考�
   TimeSyncCtrl 6
 ```
 
+其中，打开MCU侧日志打印命令如下：
+
+```
+TimeSyncCtrl 1
+```
+
 :::tip
 MCU默认不启动时间同步服务。如果配置默认启动，除了修改以上描述的配置，另外需要增加初始化的动作，参考如下：
 
@@ -729,6 +735,7 @@ Acore执行如下命令，第一条命令设置log等级，允许输出打印到
 第三条命令将网卡时间同步到Linux系统时间；第五条命令启动时间同步程序，将Acore网卡时间同步给MCU侧Rtc。
 
 ```
+export LOGLEVEL=15
 ptp4l -i eth0 -f /usr/hobot/lib/pkgconfig/automotive-slave.cfg -m -l 7 > ptp4l.log &
 phc2sys -s eth0 -c CLOCK_REALTIME --transportSpecific=1 -m --step_threshold=1000 -w > phc2sys.log &
 cd /app/timesync_demo/sample_timesync

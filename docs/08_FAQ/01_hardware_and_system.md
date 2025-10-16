@@ -983,3 +983,10 @@ sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 sudo systemctl restart docker
 ```
+
+### Q46：RDK S100 时区设置
+RDK S100系统默认使用上海时区（UTC+8），该配置通过`/etc/systemd/system.conf`文件中的以下参数实现：
+```bash
+DefaultEnvironment="TZ=CST-08:00"
+```
+如果需要手动配置，请注释掉`DefaultEnvironment="TZ=CST-08:00"`，然后`reboot`重启设备使配置生效。

@@ -35,13 +35,6 @@ RDK S100 开发板支持以太网、Wi-Fi 两种网络接口，用户可通过�
 安装USB驱动
 对于Windows操作系统，在使用adb和fastboot功能前，需要首先确认是否安装对应的驱动程序。
 
-开发板进入uboot命令行模式（即命令行输出`Hobot$`）：
-```bash
-开发板重新上电，长按任意键进入uboot命令行模式
-  或
-开发板上电后reboot，长按任意键进入uboot命令行模式
-```
-
 在开发板的uboot命令行下输入fastboot 0，让开发板进入fastboot模式：
 
 ```bash
@@ -89,7 +82,7 @@ RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌面
 
 参考[1.6 资源汇总](../../01_Quick_start/download.md)章节。
 
-### 系统烧录
+### 整机系统烧录
 
 :::info 注意
 
@@ -133,7 +126,7 @@ windows pc 上 D-Navigation需要在[驱动安装](#驱动下载)成功后才能
 
     :::
 
-#### uboot 烧录
+#### Uboot 烧录
 
 1. 准备 RDKS100 镜像包
 
@@ -193,6 +186,20 @@ SW1、SW2等说明可查看[1.1.1章节开关、按键和灯光说明内容](../
    ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg)
 
 4. 升级完成后，关闭电源，将烧录开关向下拨动后(从 DFU 模式退出)，重新上电。
+
+### Miniboot及文件系统升级
+D-Navigation工具支持对S100进行[Miniboot镜像](/rdk_s/Advanced_development/rdk_gen#765-自定义分区说明)更新，在客户需要保留根文件系统修改（例如自行安装的python/deb包）时，可以在板端使用`sudo apt update && sudo apt upgrade`进行文件系统升级后，使用D-Navigation工具进行Miniboot镜像升级。
+
+Miniboot系统烧录整体流程与[整机系统烧录](#整机系统烧录)一致，需要额外配置：
+1. 点击“其他配置”最右边的箭头；
+2. 点击并选中“分区选择”；
+3. 去掉勾选“emmc”；
+
+- Uboot烧录示例如下图：
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_uboot_miniboot.png)
+
+- USB烧录示例配置如下图：
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_dfu_miniboot.png)
 
 ### 启动系统
 

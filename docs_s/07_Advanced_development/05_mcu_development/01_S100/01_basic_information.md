@@ -221,46 +221,10 @@ fastboot oem interface:mtd
 fastboot flash MCU_a "xxx/MCU_S100_SIP_V2.0.img"
 fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
 ```
-#### 空片烧录或烧挂重新烧录
-1. 通过编译RDKS100-acore或者[官方下载链接](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)获取RDKS100镜像包，结构如下所示，确保同一个文件夹内有`img_packages`及`xmodem_tools`两个文件夹即可正常烧录：
 
-  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/acore_product.png)
+#### 空板烧录
+**空板烧录请参考以下工具烧录**
 
-2. 烧录第一步：进入dfu模式，按照下图拨key即可(烧录完，记得拨回去！！！)
-
-a. 左下角有两个按键，在旁边有箭头丝印，箭头的方向表示实现对应功能的拨码方向
-b. 电源开关：向下拨动，给板子上电
-c. 烧录开关：向上拨动，给板子烧录
-d. 上述操作完成后，按图片中按键1，同时2处的灯变为红色
-
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
-
-3. 烧录第二步：在你解压的镜像文件夹下执行下面的指令，即dfu下载进入uboot(sec版本)
-```c
-dfu-util.exe -d 3652:6610 -a 0 -D xmodem_tools/sec/out/s100/cmd_load_hsmfw
-dfu-util.exe -d 3652:6610 -a 0 -D xmodem_tools/sec/out/s100/hsmfw_se.pkg
-dfu-util.exe -d 3652:6610 -a 0 -D xmodem_tools/sec/out/s100/cmd_exit_hsmfw
-dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/fpt.img
-dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/keyimage.img
-dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/SBL.img
-dfu-util.exe -d 3652:6615 -a 0 -R -D xmodem_tools/sec/out/s100/hsmrca.pkg
-dfu-util.exe -d 3652:6620 -a 0 -R -D xmodem_tools/sec/out/s100/spl.img
-dfu-util.exe -d 3652:6620 -a 0 -R -D xmodem_tools/sec/out/s100/MCU_S100_V1.0.img
-# mcu启动可能费时比较久
-dfu-util.exe -d 3652:6625 -a 0 -D xmodem_tools/sec/out/s100/acore_cfg.img
-dfu-util.exe -d 3652:6625 -a 1 -D xmodem_tools/sec/out/s100/bl31.img
-dfu-util.exe -d 3652:6625 -a 2 -D xmodem_tools/sec/out/s100/optee.img
-dfu-util.exe -d 3652:6625 -a 3 -R -D xmodem_tools/sec/out/s100/uboot.img
-```
-4. 烧录第三步：整体烧录命令如下：
-```c
-fastboot.exe oem interface:mtd
-fastboot.exe flash hb_vspiflash img_packages/disk/miniboot_flash_nose.img
-
-fastboot.exe oem interface:blk
-fastboot.exe oem bootdevice:scsi
-fastboot.exe flash 0x0 img_packages/disk/emmc_disk.simg
-```
 ### 工具烧录
 1. 能够正常进入Uboot时，按如下配置：
    1. “下载模式”选择“uboot”；
@@ -366,3 +330,15 @@ int main(void)
     for(;;){};
 }
 ```
+## MCU Log简介
+MCU提供了基础的日志（Log）输出功能，主要用于调试与运行状态记录。当前版本的Log模块支持通过格式化字符串的方式输出信息，便于开发者在调试过程中快速定位问题和查看变量状态。
+
+目前，MCU Log支持的格式化输出类型包括：
+- %s —— 字符串
+- %d —— 十进制有符号整数
+- %u —— 十进制无符号整数
+- %x —— 十六进制小写格式
+- %X —— 十六进制大写格式
+- %c —— 单个字符
+
+除以上类型外的其他格式化输出暂不支持，后续版本将逐步扩展更多的数据类型与格式支持，以满足更丰富的调试需求。

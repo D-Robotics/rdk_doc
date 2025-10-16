@@ -49,6 +49,16 @@ network:
 
 修改完成后，`sudo netplan apply`让配置生效。
 
+Netplan配置文件详解请参考：[Ubuntu Manpage: netplan](https://manpages.ubuntu.com/manpages/jammy/man5/netplan.5.html)。
+
+:::tip 提示
+RDKS100的桌面版本默认使用NetworkManager+Netplan作为网络管理框架。用户通过NetworkManager（GUI或者nmcli命令）保存网络连接配置后，会在`/etc/NetworkManager/system-connections`文件夹下生成对应的配置文件。
+
+Ubuntu系统启动时会根据`/etc/netplan/`文件夹内的Netplan配置文件在`/run/NetworkManager/system-connections`文件夹下生成对应的网络连接配置文件。Ubuntu默认`/run/NetworkManager/system-connections`文件夹下的连接配置文件优先级**高于**`/etc/NetworkManager/system-connections`文件夹下的连接配置文件。
+
+所以如果用户想要通过NetworkManager（GUI或者nmcli命令）配置的网络连接属性生效，需要先行将`/etc/netplan/`下配置文件的对应配置属性**删除**。
+:::
+
 ## 无线网络
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=12

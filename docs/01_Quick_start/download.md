@@ -30,7 +30,7 @@ sidebar_position: 7
 
 **系统特点：**
 1. Ubuntu 22.04系统，支持图形桌面操作
-2. 新增功能组件支持在线deb安装，省去源码交叉编译过程  
+2. 新增功能组件支持在线deb安装，省去源码交叉编译过程
 3. 提供Python接口，简化图像处理、AI推理开发难度
 :::
 
@@ -207,7 +207,7 @@ sidebar_position: 7
 
 ### RDK 系列配件及扩展规格书
 
-:::info 配件及扩展文档说明  
+:::info 配件及扩展文档说明
 RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的技术参数和使用说明。
 :::
 
@@ -502,11 +502,11 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
   .table-wrapper {
     margin: 10px -20px;
   }
-  
+
   .no-wrap-table {
     min-width: 600px;
   }
-  
+
   .no-wrap-table th,
   .no-wrap-table td {
     padding: 8px 6px;
@@ -602,6 +602,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
       <th>♻️ **RoHS**</th>
+      <th>♻️ **RoHS**</th>
     </tr>
   </thead>
   <tbody>
@@ -614,6 +615,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3**</td>
@@ -624,6 +626,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td>
       <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3 Module**</td>
@@ -631,6 +634,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C02-%202402T78342E-RF%20C2%20EMC%20210115.pdf">📄 CE EMC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/FCC/D-ROBOTICS%202BGUG-RDKX3M%20FCC%20Grant%20-%20DTS.PDF">📄 FCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
+      <td>-</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>

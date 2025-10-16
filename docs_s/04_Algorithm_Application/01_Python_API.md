@@ -45,18 +45,97 @@ hbm_runtime是基于pybind11的Python绑定接口，用于访问和操作libhbuc
 | scikit-build-core | ≥ 0.7 | 构建 wheel 包时使用（仅源码构建）                    |
 | 地平线基础库 | 根据平台 | 如 libdnn.so、libucp.so 等，通常由 BSP 提供           |
 
+### 构建wheel包
+构建wheel包的方式有三种下面分别介绍。
+#### 安装deb时构建
+在hobot-dnn包的安装过程中添加了hbm_runtime的wheel构建，deb包安装完成后就会生成hbm-runtime的whl包。
+  ```bash
+  #通过源安装
+  sudo apt-get install hobot-dnn
+
+  #通过本地deb包安装（注意不同时间编译的包名称，以实际情况为准）
+  dpkg -i hobot-dnn_4.0.4-20250909195426_arm64.deb
+
+  #安装完成后可在板端的/tmp目录下找到wheel包
+  ls /tmp
+
+  #注意不同版本号whl包名称不同，xxx代表版本
+  #hbm_runtime-x.x.x-cp310-cp310-manylinux_2_34_aarch64.whl
+  ```
+
+#### 编译系统软件时构建
+在系统软件的镜像编译时会安装hobot-dnn的deb，安装的过程中会构建hbm-runtime的whl包，并转存到`out/product/deb_packages`目录
+  ```bash
+  sudo ./pack_image.sh
+
+  ls out/product/deb_packages
+
+  #注意不同版本号whl包名称不同，xxx代表版本
+  #hbm_runtime-x.x.x-cp310-cp310-manylinux_2_34_aarch64.whl
+  ```
+
+#### 在端侧构建
+  ```bash
+  #进入hbm_runtime的源码库
+  cd /usr/hobot/lib/hbm_runtime
+
+  #运行构建命令
+  ./build.sh
+
+  #查看构建好的wheel包
+  ls dist/
+
+  #注意不同版本号whl包名称不同，xxx代表版本
+  #hbm_runtime-x.x.x-cp310-cp310-manylinux_2_34_aarch64.whl
+  ```
+
 ### 安装方式
-- 安装 hobot-dnn 包
-    ```python
-    sudo apt update
-    sudo apt install hobot-dnn
-    ```
+
+#### 使用 wheel 包
+使用wheel 安装的方式有两种，选其一即可
+- 通过本地 wheel 包安装
+  - 找到通过“构建wheel包”小节中构建的whl文件。
+
+  ```bash
+  #示例：使用 pip 安装本地whl包(注意不同版本号whl包名称不同，xxx代表版本)
+  pip install hbm_runtime-x.x.x-cp310-cp310-manylinux_2_34_aarch64.whl
+  ```
+
+- 从pypi源安装
+  ```bash
+  pip install hbm_runtime
+  ```
+
+#### 使用 .deb 包安装
+  使用deb安装的方式有两种，选其一即可
+- 通过本地 DEB 包安装
+  ```bash
+  # 示例：安装 DEB 包（注意不同时间编译的包名称，以实际情况为准）
+  sudo dpkg -i hobot-dnn_4.0.2-20250714201215_arm64.deb
+  ```
+
+- 通过apt源安装
+
+  ```bash
+  sudo apt-get install hobot-dnn
+  ```
+
+- 常见问题
+  - 如果 .deb 安装后文件未生效，检查是否有其他依赖阻止其覆盖（如已有老版本 hobot-spdev）。
+  - 可使用 dpkg -L hobot-dnn 查看文件是否成功部署。
+
+
 
 ### 卸载说明
-- 卸载安装的包：
-    ```python
-    sudo apt remove hobot-dnn
-    ```
+- 卸载 pip 安装的包：
+  ```bash
+  pip uninstall hbmruntime
+  ```
+
+- 卸载 .deb 安装的包：
+  ```bash
+  sudo apt remove hobot-dnn
+  ```
 
 ## 快速开始（Quick Start）
   本节介绍如何使用hbm_runtime进行模型加载和推理。只需几行代码，即可运行模型并获取输出结果。

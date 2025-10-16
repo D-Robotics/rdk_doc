@@ -252,33 +252,38 @@ RDK S100的分区定义文件保存在`source/bootloader/device/rdk/s100/partiti
 		"AB_part_b": "_b",
 		"BAK_part_bak": "_bak"
 	},
-	"fpt": "fpt_common",                   // 从这一行开始为Flash上的分区
-	"recovery": "recovery_common",
-	"misc": "misc_common",
-	"HB_APDP":"HB_APDP_common",
-	"keystorage": "keystorage_common",
-	"HSM_FW": "HSM_FW_common",
-	"HSM_RCA": "HSM_RCA_common",
-	"keyimage": "keyimage_common",
-	"SBL": "SBL_common",
-	"scp": "scp_common",
-	"spl": "spl_common",
-	"MCU": "MCU_common",
+	"fpt": "fpt_common",                //------------------//
+	"recovery": "recovery_common",      //                  //
+	"misc": "misc_common",              //                  //
+	"HB_APDP":"HB_APDP_common",         //                  //
+	"keystorage": "keystorage_common",  //                  //
+	"HSM_FW": "HSM_FW_common",          //  miniboot_flash  //
+	"HSM_RCA": "HSM_RCA_common",        //                  //
+	"keyimage": "keyimage_common",      //                  //
+	"SBL": "SBL_common",                //                  //
+	"scp": "scp_common",                //                  //
+	"spl": "spl_common",                //                  //
+	"MCU": "MCU_common",                //------------------//
 
-	"quickboot": "quickboot_common",    // 从这一行开始为eMMC/UFS上的分区
-	"veeprom": "veeprom_common",
-	"ubootenv": "ubootenv_common",
-	"acore_cfg": "acore_cfg_common",
-	"bl31": "bl31_common",
-	"optee": "optee_common",
-	"uboot": "uboot_common",
-	"boot": "boot_common",
-	"ota": "ota_common",
-	"log": "log_common",
-	"userdata": "userdata_common",
-	"system": "system_common"
+	"quickboot": "quickboot_common",    //------------------// //------------------//
+	"veeprom": "veeprom_common",        //                  // //                  //
+	"ubootenv": "ubootenv_common",      //                  // //                  //
+	"acore_cfg": "acore_cfg_common",    //   miniboot_emmc  // //                  //
+	"bl31": "bl31_common",              //                  // //                  //
+	"optee": "optee_common",            //                  // //                  //
+	"uboot": "uboot_common",            //------------------// //     emmc_disk    //
+	"boot": "boot_common",                                     //                  //
+	"ota": "ota_common",                                       //                  //
+	"log": "log_common",                                       //                  //
+	"userdata": "userdata_common",                             //                  //
+	"system": "system_common"                                  //------------------//
 }
 ```
+### 默认镜像及分区介绍
+1. miniboot_flash：保存在S100 Nor Flash上的基础启动镜像，包括HSM/MCU0等系统组件的镜像；
+2. miniboot_emmc：保存在S100 eMMC上的基础启动镜像，包括BL31/Uboot等系统组件的镜像；
+3. emmc_disk：S100 eMMC上的完整镜像，会包含miniboot_emmc，编译时会自动转换为安卓Sparse镜像（[安卓Sparse镜像说明（第三方网站，仅供参考）](https://www.2net.co.uk/tutorial/android-sparse-image-format)）以减小系统储存空间占用；
+
 ### 配置文件说明
 整体分区表的配置分为全局共享配置和分区单独配置，其中全局共享配置放在“global”字段中，这是对所有分区都有效的配置。
 **支持的全局参数：**

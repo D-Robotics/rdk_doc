@@ -1970,7 +1970,7 @@ static void do_sync_encoding(void *arg) {
                     printf("There is no more input data!\n");
                     inputBuffer.vframe_buf.frame_end = TRUE;
                     noMoreInput = 1;
-                } 
+                }
                 ret = hb_mm_mc_queue_input_buffer(context, &inputBuffer, 100);
                 if (ret) {
                     printf("Queue input buffer fail.\n");
@@ -2896,7 +2896,7 @@ static int check_and_init_test(MediaCodecTestContext *ctx) {
     EXPECT_NE(ctx, nullptr);
     EXPECT_NE(ctx->context, nullptr);
     if (ctx == NULL || ctx->context == NULL) {
-        return -1;  
+        return -1;
     }
     inputFileName = ctx->inputFileName;
     outputFileName = ctx->outputFileName;
@@ -2937,7 +2937,7 @@ static int check_and_init_test(MediaCodecTestContext *ctx) {
     if (ctx->context->encoder == TRUE) {
         printf("%s[%d:%d] Thread use %s buffer mode, %d rc mode\n", TAG, getpid(), gettid(),
         ctx->context->video_enc_params.external_frame_buf ?
-        "external" : "internal", 
+        "external" : "internal",
         ctx->context->video_enc_params.rc_params.mode);
         if (ctx->context->video_enc_params.external_frame_buf) {
             ctx->exFb = (ExternalFrameBuffer *) malloc(
@@ -3147,7 +3147,7 @@ static int read_input_streams(MediaCodecTestContext *ctx,
             return -1;
         }
         bufPtr = (void *)ctx->exBs[srcIdx].buf.virt_addr;
-        if (ctx->context->video_dec_params.feed_mode == 
+        if (ctx->context->video_dec_params.feed_mode ==
             MC_FEEDING_MODE_FRAME_SIZE) {
             avalBufSize = ctx->exBs[srcIdx].buf.size;
         } else {
@@ -3161,7 +3161,7 @@ static int read_input_streams(MediaCodecTestContext *ctx,
         (hb_u8 *)ctx->exBs[srcIdx].buf.virt_addr;
     } else {
         bufPtr = (void *)inputBuffer->vstream_buf.vir_ptr;
-        if (ctx->context->video_dec_params.feed_mode == 
+        if (ctx->context->video_dec_params.feed_mode ==
             MC_FEEDING_MODE_FRAME_SIZE) {
             avalBufSize = inputBuffer->vstream_buf.size;
         } else {
@@ -5780,6 +5780,7 @@ RDKS100。
 
 ###### 帮助菜单
 
+使用`./sample_codec --help`可以获取帮助菜单，如下所示：
 ```
 Usage: ./sample_codec
         -m --samplemode sample mode, default encoder, {0-encoder, 1-decoder}
@@ -5997,7 +5998,7 @@ Usage: ./sample_codec
 解码两路 3840x2160 的 h264 视频, 生成 yuv 图像
 
 ```
-/app/multimedia_demo/codec_demo/sample_venc_vdec/sample_codec -m 1 -n 2 -i
+/app/multimedia_demo/codec_demo/sample_venc_vdec/sample_codec -m 1 -n 2
 ```
 
 解码四路 1920x1080 的 h265 视频, 生成 yuv 图像
