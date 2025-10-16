@@ -23,7 +23,7 @@ Audio Driver HAT REV2 是由微雪电子生产的一款音频转接板，采用 
 <Tabs groupId="rdk-type">
 <TabItem value="rdk-x3-pi" label="RDK-X3-PI">
 
-1. 按照下图方式，将转接板接入 RDK X3 的 40pin header。  
+1. 按照下图方式，将转接板接入 RDK X3 的 40pin header。
 ![image-audio-driver-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
 
 </TabItem>
@@ -46,7 +46,7 @@ Audio Driver HAT REV2 是由微雪电子生产的一款音频转接板，采用 
 1. 使用 `srpi-config` 配置音频板
 进入 `3 Interface Options`->`I5 Audio`
 选择 `Audio Driver HAT V2`：
-![image-audio-driver-hat-config00](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config00.png)  
+![image-audio-driver-hat-config00](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-config00.png)
 
 2. 运行命令 `sync && reboot` 重启开发板，如 `ls /dev/snd` 下出现如下设备节点，说明转接板安装成功。
     ```shell

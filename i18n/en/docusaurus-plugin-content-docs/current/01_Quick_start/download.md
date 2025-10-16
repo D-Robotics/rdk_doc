@@ -7,7 +7,7 @@ sidebar_position: 7
 This document summarizes the download resources related to the D-Robotics RDK suite, aiming to provide users with convenient and comprehensive access to resources. It covers various resource download directories for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module, RDK X5, RDK X5 Module, and RDK Ultra series.
 
 :::tip Quick Navigation
-- 📦 [System & Manual Resources](#system-and-manual-resources-summary) 
+- 📦 [System & Manual Resources](#system-and-manual-resources-summary)
 - 🔧 [Hardware Design Materials](#specifications-schematics-and-design-resources-summary)
 - 🛠️ [Development Tool Resources](#development-resources-and-tools)
 - 📋 [Certification Materials](#certification-resources)
@@ -501,11 +501,11 @@ Providing comprehensive hardware design support materials for module customers t
   .table-wrapper {
     margin: 10px -20px;
   }
-  
+
   .no-wrap-table {
     min-width: 600px;
   }
-  
+
   .no-wrap-table th,
   .no-wrap-table td {
     padding: 8px 6px;
@@ -601,6 +601,7 @@ Providing comprehensive hardware design support materials for module customers t
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
       <th>♻️ **RoHS**</th>
+      <th>♻️ **RoHS**</th>
     </tr>
   </thead>
   <tbody>
@@ -613,6 +614,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3**</td>
@@ -623,6 +625,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td>
       <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3 Module**</td>
@@ -630,6 +633,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C02-%202402T78342E-RF%20C2%20EMC%20210115.pdf">📄 CE EMC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/FCC/D-ROBOTICS%202BGUG-RDKX3M%20FCC%20Grant%20-%20DTS.PDF">📄 FCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
+      <td>-</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
