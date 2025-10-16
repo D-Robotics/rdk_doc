@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
-# 1.7 配件清单
+# 1.8 配件清单
 
 本章节汇总了经过D-Robotics官方认证，可以适配RDK系列开发板的第三方配件清单。按照不同板卡类型进行分类，包含基础配件(电源、外壳、散热器)、摄像头、显示屏、转接板等类别，并提供详细的分辨率支持信息。配件清单内容会不定期更新，逐步添加更多的配件型号。
 
@@ -19,6 +19,7 @@ sidebar_position: 7
 | 散热器 | 微雪 | N/A | 散热风扇扩展板 | [购买链接](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | 散热器 | 亚博 | N/A | 主板风扇，支持OLED显示 | [购买链接](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 ### 摄像头
 
@@ -60,6 +61,7 @@ sidebar_position: 7
 | 散热器     | 微雪   | CM4-HEATSINK-B           | 散热器                       | [购买链接](https://www.waveshare.net/shop/CM4-HEATSINK-B.htm) |
 | 散热器     | 微雪   | CM4-HEATSINK             | 散热器带风扇                 | [购买链接](https://www.waveshare.net/shop/CM4-FAN-3007-5V.htm) |
 | Wi-Fi天线  | 微雪   | ORD-CM4-ANTENNA          | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm) |
+| 4G通信模块 | 微雪   | SIM7600G-H 4G DTU        | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm) |
 | 板级连接器 | 广濑   | DF40C-100DS-0.4V(51)     | 接口板连接器                 | N/A                                                          |
 
 ### 摄像头
@@ -98,6 +100,7 @@ sidebar_position: 7
 | --- | --------- | -------- | --------------- | --------- |
 | 电源 | 微雪 | PSU-27W-USB-C-CN | Type-C接口 5V/5A 定制电源 | [购买链接](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 ### 摄像头
 
@@ -107,11 +110,14 @@ sidebar_position: 7
 | MIPI | 微雪 | OV5647摄像头 | OV5647传感器，500W像素，FOV 对角160度 | 1920x1080@30fps(default), 640x480@60fps, 1280x960@30fps, 2592x1944@15fps(max) | [购买链接](https://www.waveshare.net/shop/RPi-Camera-G.htm)  |
 | MIPI | 微雪 | IMX219摄像头 | 效果库优化，IMX219传感器，800W像素，FOV 对角160度| 1920x1080@30fps(default), 640x480@30fps, 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://www.waveshare.net/shop/IMX219-160-Camera.htm)  |
 | MIPI | 微雪 | IMX477摄像头 | IMX477传感器，1230W像素，FOV 对角160度 | 1920x1080@50fps(default), 1280x960@120fps, 2016x1520@40fps, 4000x3000@10fps(max) | [购买链接](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm)  |
+| MIPI | 第三方 | IMX415摄像头 | IMX415传感器，800W像素，FOV 对角123度，22PIN无需转接板 | 待测试 | [购买链接](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn)  |
 | MIPI | 亚博 | IMX219摄像头 | IMX219传感器，800W像素，FOV 对角77度 | 1920x1080@30fps(default), 640x480@30fps, 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=710344235988&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.110.4df82edcjJ7wap)  |
 | USB | 亚博 | USB摄像头 | 免驱USB麦克风摄像头，720p | 1280x720@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=633040443710&rn=ed9c7f0eecc103e742248e32a32ba62e&spm=a1z10.5-b-s.w4011-22651484606.152.c3406a83G6l62o)  |
 | USB | 轮趣 | USB摄像头 | 免驱USB摄像头，金属外壳，1080p | 1920x1080@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=12&id=666156389569&ns=1&spm=a230r.1.14.1.13e570f3eFF1sJ&skuId=4972914294771)  |
 
 ### 显示屏
+
+理论上所有支持 HDMI 接口的屏幕都可以使用，以下是已实际测试过的几款小分辨率屏幕型号：
 
 | 类型 | 供应商 | 型号 | 描述 | 分辨率 | 购买链接 |
 | --- | --------- | -------- | --------------- | --------- | --------- |
@@ -119,7 +125,19 @@ sidebar_position: 7
 | HDMI | 微雪 | 7英寸触控屏 | 分辨率1024x600，钢化玻璃面板，支持触控 | 1024×600 | [购买链接](https://www.waveshare.net/shop/7inch-HDMI-LCD-H.htm)  |
 | HDMI | 微雪 | 10英寸触控屏 | 分辨率1280x800，钢化玻璃面板，高色域触控屏 | 1280×800 | [购买链接](https://www.waveshare.net/shop/10.1HP-CAPLCD-Monitor.htm)  |
 | HDMI | 微雪 | 13.3英寸触控屏 | 分辨率1920x1080，钢化玻璃面板，高色域触控屏 | 1920×1080 | [购买链接](https://www.waveshare.net/shop/13.3inch-HDMI-LCD-H-with-Holder-V2.htm)  |
-| MIPI | 微雪 | 4.3英寸MIPI LCD | 分辨率800×480，IPS广视角，MIPI DSI接口  | 800×480 | [购买链接](https://www.waveshare.net/shop/4.3inch-DSI-LCD.htm)  |
+
+MIPI DSI 屏幕在使用前需要驱动适配，已支持的MIPI DSI屏幕型号如下：
+
+| 类型 | 供应商 | 型号 | 描述 | 分辨率 | 购买链接 | 使用指南 |
+| --- | --------- | -------- | --------------- | --------- | --------- | --------- |
+| MIPI | 微雪 | 2.8英寸MIPI LCD | IPS全贴合电容触控屏 | 480×640 | [购买链接](https://www.waveshare.net/shop/2.8inch-DSI-LCD.htm)  | [2.8inch DSI LCD](display_use/display_rdkx5#28inch-dsi-lcd) |
+| MIPI | 微雪 | 3.4英寸MIPI LCD | 圆形电容触控屏 IPS显示面板 十点触控 | 800×800 | [购买链接](https://www.waveshare.net/shop/3.4inch-DSI-LCD-C.htm)  | [3.4inch DSI LCD](display_use/display_rdkx5#34inch-dsi-lcd) |
+| MIPI | 微雪 | 4.3英寸MIPI LCD | 电容触控屏 IPS广视角 | 800×480 | [购买链接](https://www.waveshare.net/shop/4.3inch-DSI-LCD.htm)  | [4.3inch DSI LCD](display_use/display_rdkx5#43inch-dsi-lcd) |
+| MIPI | 微雪 | 7英寸MIPI LCD | 电容触控屏 IPS广视角 | 1024×600 | [购买链接](https://www.waveshare.net/shop/7inch-DSI-LCD-C.htm)  | [7inchC DSI LCD](display_use/display_rdkx5#7inchc-dsi-lcd) |
+| MIPI | 微雪 | 7.9英寸MIPI LCD | 电容触控屏 IPS广视角 超长屏幕 | 400×1280 | [购买链接](https://www.waveshare.net/shop/7.9inch-DSI-LCD.htm)  | [7.9inch DSI LCD](display_use/display_rdkx5#79inch-dsi-lcd) |
+| MIPI | 微雪 | 8英寸MIPI LCD | 电容触控屏 IPS广视角 | 1280×800 | [购买链接](https://www.waveshare.net/shop/8inch-DSI-LCD-C.htm)  | [8inch DSI LCD](display_use/display_rdkx5#8inch-dsi-lcd) |
+| MIPI | 微雪 | 10.1英寸MIPI LCD | 电容触控屏 IPS广视角 | 1280×800 | [购买链接](https://www.waveshare.net/shop/10.1inch-DSI-LCD-C.htm)  | [10.1inch DSI LCD](display_use/display_rdkx5#101inch-dsi-lcd) |
+
 
 ### 转接板
 
@@ -187,7 +205,7 @@ sidebar_position: 7
 
 :::tip 💡 使用提示
 
-1. **分辨率切换**: IMX477从1080P分辨率切换至其它分辨率需要进行手动复位，可以在板端执行`hobot_reset_camera.py`完成复位操作。
+1. **分辨率切换**: IMX477从1080P分辨率切换至其它分辨率需要进行手动复位，使用 RDK X3 时可以在板端执行`hobot_reset_camera.py`完成复位操作。
 
 2. **多路输出**: 支持摄像头多组不同分辨率输出，最多支持4组缩小，1组放大，缩放区间为摄像头原始分辨率的1/8~1.5倍之间。
 

@@ -183,3 +183,61 @@ make distclean
 make mrproper
 ```
 
+## Modifying the Kernel DTS
+
+This section introduces the DTS (Device Tree Source) file structure of the RDK product and explains how to modify it to support secondary development.
+
+The kernel DTS files are located in
+`x5-rdk-gen/source/kernel/arch/arm64/boot/dts/hobot/`.
+
+:::info Note
+- DTS files describe hardware resource allocations (such as GPIO, I²C, SPI, interrupt numbers, memory addresses, etc.). Incorrect modifications may cause the device to fail to boot, drivers to fail to load, or even damage the hardware.
+- Misconfigurations may also lead to kernel build failures or prevent the system from booting properly. In severe cases, you may need to re-flash the system image to recover.
+:::
+
+### Kernel Device Tree
+
+| DTS File | Purpose |
+| --------- | ---------- |
+| pinmux-func.dtsi | Defines the functional groups of each pin. |
+| pinmux-gpio.dtsi | Defines GPIO groups. |
+| x5.dtsi | Defines the default configuration of all modules on the X5 platform. It serves as the base hardware description and is not recommended for user modification. |
+| x5-rdk.dtsi | Defines common configuration items for different SDK hardware versions. It includes the default configuration from x5.dtsi. |
+| x5-board.dts | Board-level device tree file. It includes the default configuration from x5.dtsi and defines enabling/disabling of functional modules as well as hardware-specific peripheral configurations. |
+
+### Inclusion Hierarchy
+
+`x5-board.dts` → `x5-rdk.dtsi` → `x5.dtsi` → `(pinmux-func.dtsi and pinmux-gpio.dtsi)`
+
+### Board-Level DTS Files
+
+The hardware version can be identified from the silkscreen on the board, or by running the `hrut_boardid` command and checking the `board_id`.
+
+| Hardware Version | board_id | DTS File |
+| ------- | ---------- | ----------- |
+| RDK X5 V0.1 | 0x301 | x5-rdk.dts |
+| RDK X5 V1.0 | 0x302 | x5-rdk-v1p0.dts |
+| RDK X5 MD V0.1 | 0x501 | x5-md-v0p1.dts |
+| RDK X5 MD V0.2 | 0x502 | x5-md-v0p2.dts |
+| RDK X5 MD V0.3 | 0x503 | x5-md-v0p2.dts |
+| RDK X5 MD V1.0 | 0x504 | x5-md-v0p2.dts |
+| RDK X5 MD V1.1 | 0x505 | x5-md-v0p2.dts |
+
+### Build
+
+In the `x5-rdk-gen` directory, use the `mk_kernel.sh` script to build the kernel:
+
+```
+sudo ./mk_kernel.sh
+```
+
+After compilation, the DTB files will be generated in the `x5-rdk-gen/deploy/kernel/dtb/` directory.
+You can copy them to the `/boot/hobot/` directory on the board, and the system will automatically load them on boot.
+
+Alternatively, you can run the following command to package the kernel DTB files into a .deb package for system installation.
+
+```
+sudo ./mk_debs.sh hobot-dtb
+```
+
+The generated .deb file will be located at`x5-rdk-gen/deploy/deb_pkgs/hobot-dtb_version-date_arm64.deb`

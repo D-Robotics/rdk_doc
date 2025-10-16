@@ -12,6 +12,7 @@ sidebar_position: 7
 | Heat Sink | Waveshare | CM4-HEATSINK-B           | Heat Sink                     | [Purchase Link](https://www.waveshare.net/shop/CM4-HEATSINK-B.htm) |
 | Heat Sink | Waveshare | CM4-HEATSINK             | Heat Sink with Fan            | [Purchase Link](https://www.waveshare.net/shop/CM4-FAN-3007-5V.htm) |
 | Wi-Fi Antenna | Waveshare | ORD-CM4-ANTENNA          | SMA Antenna for 2.4G/5G WiFi  | [Purchase Link](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm) |
+| 4G Communication Module | Waveshare | SIM7600G-H 4G DTU | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Purchase Link](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm) |
 | Board Connector | Guasei | DF40C-100DS-0.4V(51)     | Board Connector               | N/A                                                          |
 
 ## <span id="camera"/>Camera

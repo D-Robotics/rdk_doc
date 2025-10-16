@@ -6,6 +6,13 @@ sidebar_position: 6
 
 ## tros-humble
 
+### 版本号：2.4.3 (2025-9-15)
+
+新增功能（`RDK X5`平台）：
+
+- [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持启动多路图像采集。
+- [双目MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持`sc132gs`双目相机。
+
 ### 版本号：2.4.2 (2025-8-29)
 
 新增功能（`RDK S100`平台）：

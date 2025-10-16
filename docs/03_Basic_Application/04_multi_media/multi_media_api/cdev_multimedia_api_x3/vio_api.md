@@ -104,7 +104,7 @@ sidebar_position: 1
 
 :::info 注意！
 
-`IMX477`从`1080P`的分辨率切换至其它分辨率需要进行手动复位，可以在板端执行`hobot_reset_camera.py`完成复位操作。
+`IMX477`从`1080P`的分辨率切换至其它分辨率需要进行手动复位，使用 RDK X3 时可以在板端执行`hobot_reset_camera.py`完成复位操作。
 
 :::
 
@@ -153,7 +153,7 @@ sidebar_position: 1
 - `obj`： 已经初始化的`VIO`对象指针
 - `pipe_id`：支持多次打开，通过`pipe_id`进行区分。
 - `chn_num`：设置输出图像数量，最大为5，与设置的目标高宽数组大小有关
-- `proc_mod`：处理模式，当前支持：`SP_VPS_SCALE` 仅缩放、`SP_VPS_SCALE_CROP` 缩放并裁剪、`SP_VPS_SCALE_ROTATE` 缩放并旋转、`SP_VPS_SCALE_ROTATE_CROP` 缩放之后旋转并裁剪
+- `proc_mod`：处理模式，当前支持：`SP_VPS_SCALE` 仅缩放、`SP_VPS_SCALE_CROP` 缩放并裁剪、`SP_VPS_SCALE_ROTATE` 缩放并旋转、`SP_VPS_SCALE_ROTATE_CROP` 缩放之后旋转并裁剪, X5仅支持缩放和裁剪
 - `src_width`：原始帧宽度
 - `src_height`：原始帧高度
 - `dst_width`：配置目标输出宽度的数组地址
@@ -162,7 +162,7 @@ sidebar_position: 1
 - `crop_y`：裁剪区域的左上角y坐标集合，当`proc_mod`没有设置裁剪功能时，传入`NULL`
 - `crop_width`：裁剪区域的宽度，当`proc_mod`没有设置裁剪功能时，传入`NULL`
 - `crop_height`：裁剪区域的高度，当`proc_mod`没有设置裁剪功能时，传入`NULL`
-- `rotate`：旋转角度集合，目前支持`ROTATION_90` 90°、`ROTATION_180` 180°和`ROTATION_270` 270°，当`proc_mod`没有设置旋转功能时，传入`NULL`
+- `rotate`：旋转角度集合（仅X3支持），目前支持`ROTATION_90` 90°、`ROTATION_180` 180°和`ROTATION_270` 270°，当`proc_mod`没有设置旋转功能时，传入`NULL`
 
 :::info 注意！
 
@@ -171,6 +171,19 @@ sidebar_position: 1
 对于**非绑定情况**下手动处理帧buffer时就要注意宽度对齐问题，以及在这种非对齐情况下将帧传给显示模块时会出现**花屏、绿线**的情况。
 
 :::
+
+`X3`芯片`VPS`尺寸限制可以参考[视频处理-功能描述](https://developer.d-robotics.cc/rdk_doc/Advanced_development/multimedia_development/video_processing)。
+
+`X5`芯片`VPS`通道特性如下：
+
+- 最大处理能力: 3840x2160@60fps
+- 支持输入裁剪，分别在水平和垂直方向上进行缩放，并且对色度和亮度分量进行单独处理
+- 5个 downscale 通道
+- - 最大分辨率支持分别为 4K/1080P/1080P/720P/720P
+- - 最小分辨率为 64x64，支持任意 downscale factor
+- 1个 upscale 通道
+- - 最大分辨率支持 4K，最大放大倍数 4X, 放大倍数支持 0 - 4
+
 
 **【返回类型】**  
 

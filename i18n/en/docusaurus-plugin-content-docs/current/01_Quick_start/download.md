@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# 1.6 Download Resources Summary
+# 1.7 Download Resources Summary
 
 This document summarizes the download resources related to the D-Robotics RDK suite, aiming to provide users with convenient and comprehensive access to resources. It covers various resource download directories for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module, RDK X5, RDK X5 Module, and RDK Ultra series.
 
@@ -20,6 +20,17 @@ This document summarizes the download resources related to the D-Robotics RDK su
 :::info Version Notes
 - **System Images < 3.0.0**: Based on Ubuntu 20.04
 - **System Images >= 3.0.0**: Based on Ubuntu 22.04
+:::
+
+### 🖥️ Ubuntu System Resources
+
+:::tip Ubuntu System Description
+**Target Users:** Users familiar with Raspberry Pi development boards, focusing on application layer development with quick hands-on experience using RDK X3/X5 development boards.
+
+**System Features:**
+1. Ubuntu 22.04 system with graphical desktop operation support
+2. New functional components support online deb installation, eliminating source code cross-compilation
+3. Provides Python interfaces to simplify image processing and AI inference development complexity
 :::
 
 <div class="table-wrapper">
@@ -66,6 +77,60 @@ This document summarizes the download resources related to the D-Robotics RDK su
 </table>
 </div>
 
+### ⚙️ Buildroot System Resources
+
+:::warning Buildroot System Description
+**Target Users:** Users with embedded Linux development experience, focused on kernel customization, driver adaptation, and system building based on RDK X5 Module eMMC version, requiring system-level openness and flexibility.
+
+**System Features:**
+1. Linux distribution built on Buildroot, no graphical desktop operation support
+2. New functional components require source code compilation and custom system image building
+3. Provides HBRE C interface with complete support for chip image multimedia and AI inference capabilities
+:::
+
+:::tip SDK Main Repository
+📁 [SDK Main Repository](https://archive.d-robotics.cc/downloads/sdk/) - Includes all SDK-related materials.
+:::
+
+<div class="table-wrapper">
+<table className="no-wrap-table">
+  <thead>
+    <tr>
+      <th>📦 Resource Category</th>
+      <th>RDK X5 Module</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 **SDK Source Package**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/platform_source_code.tar.gz">RDK X5 Module SDK Source</a></td>
+      <td>Complete Buildroot source package supporting kernel customization, driver development, and system building (approx. 3.1GB)</td>
+    </tr>
+    <tr>
+      <td>💾 **eMMC Precompiled Images**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_non-secure_release.zip">Non-secure Firmware</a> / <a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_secure_release.zip">Secure Firmware</a></td>
+      <td>Precompiled system images for eMMC version built on Buildroot with DDR auto-detection support</td>
+    </tr>
+    <tr>
+      <td>📚 **User Manual**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/user_manual/user_manual_v1.1.0.zip">SDK User Manual</a></td>
+      <td>Comprehensive documentation including buildroot compilation guide, development environment setup, API reference (approx. 163MB)</td>
+    </tr>
+    <tr>
+      <td>📋 **Release Notes**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/release_note_and_change_log/LNX6.1.83_PL5.1_V1.1.0%20ReleaseNotes.pdf">ReleaseNotes</a></td>
+      <td>SDK version updates, feature descriptions, known issues and solutions</td>
+    </tr>
+    <tr>
+      <td>🛠️ **Flashing Tool**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/software_tools/download_tools/">xburn Download Tools</a></td>
+      <td>Professional flashing tools supporting Linux, macOS, and Windows for firmware installation</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 ---
 
 ## Specifications, Schematics, and Design Resources Summary
@@ -93,9 +158,9 @@ This document summarizes the download resources related to the D-Robotics RDK su
     <tr>
       <td>📄 **Specifications**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Datasheet%20V1P0_0526.pdf">RDK X5 Module Specifications</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_Product_Brief.pdf">RDK X3-2.0 Specifications</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK_X3_Module_Product_Brief.pdf">RDK X3 Module Specifications</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK_X3_Module_Carrier_Board_Product_Brief.pdf">Carrier Board Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf">Development Kit Specifications</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf">Module Specifications</a></td>
       <td>Product specifications, features, dimensions, and model details</td>
     </tr>
@@ -110,7 +175,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
     </tr>
     <tr>
       <td>📐 **Mechanical Drawings**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_TOP.dxf">Module Structure (TOP)</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_BOTTOM.dxf">Module Structure (BOTTOM)</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>Not Currently Available</td>
@@ -119,7 +184,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
     </tr>
     <tr>
       <td>🎯 **3D Models**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
       <td>Coming Soon</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
       <td>Not Currently Available</td>
@@ -139,46 +204,76 @@ This document summarizes the download resources related to the D-Robotics RDK su
 </table>
 </div>
 
-### RDK X5 Accessory Specifications
+### RDK Series Product & Expansion Specifications
 
-:::info Additional RDK X5 Component Documentation
-Complete specifications for RDK X5 accessories and modules are available in English.
+:::info RDK X3/X5 Product & Expansion Documentation
+Complete specification materials for RDK X3/X5 related products, accessories and expansion modules, providing detailed technical parameters and usage instructions.
 :::
 
 <div class="table-wrapper">
 <table className="no-wrap-table">
   <thead>
     <tr>
-      <th>📦 **Component**</th>
-      <th>📋 **Specification Document**</th>
+      <th>📦 **Product Type**</th>
+      <th>🔵 **RDK X5 Series**</th>
+      <th>🟠 **RDK X3 Series**</th>
       <th>📝 **Description**</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>📄 **Development Board Specifications**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
+      <td>Development board detailed technical specifications and product description</td>
+    </tr>
+    <tr>
+      <td>📄 **Module Specifications**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module</a></td>
+      <td>Core computing module detailed technical specifications and product description</td>
+    </tr>
+    <tr>
       <td>📷 **Camera Module**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 Camera Module Specifications</a></td>
-      <td>Single camera module technical specifications and interface details</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 Camera Module</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3%20Camera%20Module%20RS800w.pdf">RS800w</a> / <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3%20Camera%20Module%20RS400w.pdf">RS400w</a></td>
+      <td>Camera module technical specifications and interface details</td>
     </tr>
     <tr>
       <td>👁️ **Stereo Camera Module**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK Stereo Camera Module Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK Stereo Camera Module</a></td>
+      <td>-</td>
       <td>Dual camera module for stereo vision applications</td>
     </tr>
     <tr>
-      <td>🔌 **PoE Module**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE Module Specifications</a></td>
-      <td>Power over Ethernet module for network-powered applications</td>
+      <td>🔌 **Camera Adapter**</td>
+      <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3%20Camera%20Adapter.pdf">RDK X3 Camera Adapter</a></td>
+      <td>Camera adapter board circuit schematics and connection instructions</td>
+    </tr>
+    <tr>
+      <td>🔌 **PoE Expansion Module**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE Module</a></td>
+      <td>-</td>
+      <td>Power over Ethernet expansion module for network-powered applications</td>
     </tr>
     <tr>
       <td>🛡️ **Protective Case**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 Case Specifications</a></td>
-      <td>Protective enclosure dimensions and mounting specifications</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 Case</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3%20Case.pdf">RDK X3 Case</a></td>
+      <td>Protective case dimensions and installation specifications</td>
     </tr>
     <tr>
       <td>🔋 **Power Adapter**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 Power Adapter Specifications</a></td>
-      <td>Official power supply specifications and electrical requirements</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 Power Adapter</a></td>
+      <td>-</td>
+      <td>Official power adapter specifications and electrical requirements</td>
+    </tr>
+    <tr>
+      <td>📄 **Module Specifications**</td>
+      <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module</a></td>
+      <td>Module detailed technical specifications and product description</td>
     </tr>
   </tbody>
 </table>
@@ -203,7 +298,7 @@ Providing comprehensive hardware design support materials for module customers t
       <p><strong>Content:</strong>Provides detailed technical parameters including electrical characteristics, interface specifications, dimensional definitions, and operating environment.</p>
       <p><strong>Use Case:</strong>Helps customers comprehensively understand module performance metrics for selection evaluation or system planning.</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Datasheet%20V1P0_0526.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
+        <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/RDK%20X5%20MD.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
       </div>
     </div>
   </div>

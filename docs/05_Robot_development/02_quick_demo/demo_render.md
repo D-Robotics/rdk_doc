@@ -212,8 +212,14 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 | 平台     | 运行方式     | 示例功能                       |
 | -------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module, | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过HDMI展示图像 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过HDMI展示图像 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过HDMI展示图像 |
+
+:::caution **注意**
+HDMI展示**EOL**说明：
+- `RDK X3`和`RDK X3 Module`平台支持到`2.1.0`版本，对应TROS版本`2.2.0 (2024-04-11)`。
+- `RDK X5`和`RDK X5 Module`平台支持到`2.4.2`版本，对应TROS版本`2.3.1 (2024-11-20)`。
+:::
 
 ### 准备工作
 

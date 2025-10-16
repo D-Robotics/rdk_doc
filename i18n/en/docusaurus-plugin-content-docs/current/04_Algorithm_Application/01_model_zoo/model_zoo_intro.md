@@ -70,16 +70,7 @@ After running the command, you will see the above log. Hold Ctrl and left-click 
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
 
-## Module Introduction
 
-The RDK Model Zoo is divided into the following modules (using RDK X5 as an example; please switch to the corresponding branch as needed):
-
-1. **[Large Models](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/llm)**
-2. **[Image Classification](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/classification)**
-3. **[Object Detection](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/detect)**
-4. **[Instance Segmentation](https://github.com/D-Robotics/rdk_model_zoo/tree/main/demos/Instance_Segmentation)**
-
-Developers can jump to the corresponding module to experience model deployment on RDK series development boards.
 
 ## User Guide
 

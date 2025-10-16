@@ -151,6 +151,12 @@ Code Repository:  (https://github.com/D-Robotics/hobot_hdmi)
 | -------- | ------------ | ----------------------------------- |
 | RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera and display image through HDMI |
 
+:::caution
+HDMI `EOL` Description:
+- The `RDK X3` and `RDK X3 Module` platforms are supported up to version `2.1.0`, corresponding to TROS version `2.2.0 (2024-04-11)`.
+- The `RDK X5` and `RDK X5 Module` platforms are supported up to version `2.4.2`, corresponding to TROS version `2.3.1 (2024-11-20)`.
+:::
+
 ### Preparation
 
 #### RDK

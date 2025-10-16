@@ -22,13 +22,13 @@ block  crypto  drivers        fs        init     Kconfig  lib     mm        net 
 
 ## 使用示例
 
-我们用一个简单的 `Hello World` 内核模块的开发介绍如果使用内核头文件。步骤概要如下：
+我们用一个简单的 `Hello World` 内核模块的开发介绍如何使用内核头文件。步骤概要如下:
 
 - 准备程序代码
-- 编写Makefile，完成驱动模块的编译
-- 对驱动模块进行签名
+- 编写Makefile,完成驱动模块的编译
+- (可选)对驱动模块进行签名(仅旧版本需要)
 - 测试加载、卸载模块
-- （可选）配置开机自动加载
+- (可选)配置开机自动加载
 
 ### 编写Hello World程序
 打开你熟悉的编辑器（比如VIM），创建文件 `hello.c`，输入下面的内容：
@@ -89,12 +89,21 @@ make[1]: Leaving directory '/usr/src/linux-headers-6.1.83'
 ```
 
 ### 模块签名
-编译好的驱动模块文件，需要进行签名后才能加载到RDK X3的内核里，命令如下：
+
+:::info 注意
+- **RDK X5**: 没有启用内核模块签名机制,驱动模块可以直接加载
+- **RDK X3**: 自系统版本3.0.1开始已取消内核模块签名机制,驱动模块可以直接加载
+- **RDK X3 旧版本** (3.0.1之前): 需要使用`hobot-sign-file`命令对驱动模块进行签名后才能加载
+:::
+
+对于当前版本的RDK X5和RDK X3,编译好的驱动模块可以直接加载使用,无需额外的签名步骤。
+
+如果你使用的是RDK X3旧版本(3.0.1之前),需要对模块进行签名:
 ```bash
 root@ubuntu:~# hobot-sign-file hello.ko
 Sign Kernel Module File Done.
 ```
-如果不对驱动模块文件签名而直接加载，则会报以下错误:
+未签名的模块在旧版本系统上加载时会报错:
 ```
 insmod: ERROR: could not insert module hello.ko: Required key not available
 ```

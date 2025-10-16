@@ -27,7 +27,7 @@ We will use a simple `Hello World` kernel module to demonstrate how to use the k
 
 - Prepare program code
 - Write Makefile to compile the driver module
-- Sign the driver module
+- (Optional) Sign the driver module (only required for older versions)
 - Test loading and unloading the module
 - (Optional) Configure automatic loading at startup
 
@@ -92,12 +92,21 @@ make[1]: Leaving directory '/usr/src/linux-headers-4.14.87'
 ```
 
 ### Module Signing
-After compiling the driver module file, it needs to be signed before it can be loaded into the RDK X3 kernel. The command is as follows:
+
+:::info Note
+- **RDK X5**: Kernel module signing is not enabled, driver modules can be loaded directly
+- **RDK X3**: Kernel module signing has been disabled since system version 3.0.1, driver modules can be loaded directly
+- **RDK X3 Older Versions** (before 3.0.1): Requires using the `hobot-sign-file` command to sign driver modules before loading
+:::
+
+For current versions of RDK X5 and RDK X3, compiled driver modules can be loaded directly without any additional signing steps.
+
+If you are using an older version of RDK X3 (before 3.0.1), you need to sign the module:
 ```bash
 root@ubuntu:~# hobot-sign-file hello.ko
 Sign Kernel Module File Done.
 ```
-If the driver module file is not signed and loaded directly, the following error will occur:
+Unsigned modules will fail to load on older systems with the following error:
 ```
 insmod: ERROR: could not insert module hello.ko: Required key not available
 ```

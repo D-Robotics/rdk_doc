@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# 1.6 下载资源汇总
+# 1.7 下载资源汇总
 
 本文汇总了 D-Robotics RDK 套件的相关下载资源，旨在为用户提供便捷、全面的资源获取渠道。涵盖了 RDK X3（旭日 X3 派）、RDK X3 Module（旭日 X3 模组）、RDK X5、RDK X5 Module 以及 RDK Ultra 等系列产品的各类相关资源下载目录。
 
@@ -21,6 +21,17 @@ sidebar_position: 6
 :::info 版本说明
 - **系统镜像 < 3.0.0**: 基于 Ubuntu 20.04
 - **系统镜像 >= 3.0.0**: 基于 Ubuntu 22.04
+:::
+
+### 🖥️ Ubuntu 系统资源
+
+:::tip Ubuntu 系统说明
+**适用用户：** 熟悉树莓派开发板使用，基于RDK X3/X5开发板，快速上手体验，聚焦应用层开发的用户。
+
+**系统特点：**
+1. Ubuntu 22.04系统，支持图形桌面操作
+2. 新增功能组件支持在线deb安装，省去源码交叉编译过程  
+3. 提供Python接口，简化图像处理、AI推理开发难度
 :::
 
 <div class="table-wrapper">
@@ -67,6 +78,60 @@ sidebar_position: 6
 </table>
 </div>
 
+### ⚙️ Buildroot 系统资源
+
+:::warning Buildroot 系统说明
+**适用用户：** 有一定嵌入式Linux开发经验，基于RDK X5 Module eMMC版本，进行内核定制、驱动适配、系统构建等方面的开发，对系统底层开放度和灵活性有要求的用户。
+
+**系统特点：**
+1. 基于Buildroot构建Linux发行版，不支持图形桌面操作
+2. 新增功能组件需要源码编译，自主定制系统镜像
+3. 提供HBRE C接口，完整支持芯片图像多媒体、AI推理底层能力
+:::
+
+:::tip SDK总仓
+📁 [SDK总仓](https://archive.d-robotics.cc/downloads/sdk/) - 包含所有SDK相关资料
+:::
+
+<div class="table-wrapper">
+<table className="no-wrap-table">
+  <thead>
+    <tr>
+      <th>📦 资源类别</th>
+      <th>RDK X5 Module</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📦 **SDK源码包**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/platform_source_code.tar.gz">RDK X5 Module SDK源码包</a></td>
+      <td>完整的Buildroot源码包，支持内核定制、驱动开发、系统构建（约3.1GB）</td>
+    </tr>
+    <tr>
+      <td>💾 **eMMC预编译镜像**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_non-secure_release.zip">非安全版本固件</a> / <a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/board_support_package/firmwares/product_ddr_auto_detect_secure_release.zip">安全版本固件</a></td>
+      <td>基于Buildroot构建的eMMC版本预编译系统镜像，支持DDR自动检测</td>
+    </tr>
+    <tr>
+      <td>📚 **用户手册**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/user_manual/user_manual_v1.1.0.zip">SDK用户手册</a></td>
+      <td>包含buildroot编译指南、开发环境配置、API参考等完整文档（约163MB）</td>
+    </tr>
+    <tr>
+      <td>📋 **发布说明**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/release_note_and_change_log/LNX6.1.83_PL5.1_V1.1.0%20ReleaseNotes.pdf">ReleaseNotes</a></td>
+      <td>SDK版本更新说明、功能特性、已知问题和解决方案</td>
+    </tr>
+    <tr>
+      <td>🛠️ **烧录工具**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/sdk/LNX6.1.83_PL5.1_V1.1.0/software_tools/download_tools/">xburn下载工具</a></td>
+      <td>支持Linux、macOS、Windows的专业烧录工具，用于固件刷写</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 ---
 
 ## 规格书、原理图与设计资料汇总
@@ -93,10 +158,10 @@ sidebar_position: 6
   <tbody>
     <tr>
       <td>📄 **规格书**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_Product_Brief_V1.0.pdf">RDK X5 规格书</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Datasheet%20V1P0_0526.pdf">RDK X5 Module 规格书</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_Product_Brief.pdf">RDK X3-2.0 规格书</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK_X3_Module_Product_Brief.pdf">RDK X3 Module 规格书</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK_X3_Module_Carrier_Board_Product_Brief.pdf">载板规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module 规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf">开发套件规格书</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf">Module规格书</a></td>
       <td>产品规格、特色、尺寸及型号等详细信息</td>
     </tr>
@@ -111,7 +176,7 @@ sidebar_position: 6
     </tr>
     <tr>
       <td>📐 **机械尺寸图**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X%_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_TOP.dxf">模组结构图 (TOP)</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_BOTTOM.dxf">模组结构图 (BOTTOM)</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>暂不开放</td>
@@ -120,7 +185,7 @@ sidebar_position: 6
     </tr>
     <tr>
       <td>🎯 **3D图**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/X5_RDK_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X%_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
       <td>即将发布</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
       <td>暂不开放</td>
@@ -140,46 +205,76 @@ sidebar_position: 6
 </table>
 </div>
 
-### RDK X5 配件规格书
+### RDK 系列配件及扩展规格书
 
-:::info RDK X5 配件文档说明  
-RDK X5 相关配件的完整规格书资料，提供详细的技术参数和使用说明。
+:::info 配件及扩展文档说明  
+RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的技术参数和使用说明。
 :::
 
 <div class="table-wrapper">
 <table className="no-wrap-table">
   <thead>
     <tr>
-      <th>📦 **配件类型**</th>
-      <th>📋 **规格书文档**</th>
+      <th>📦 **产品类型**</th>
+      <th>🔵 **RDK X5 系列**</th>
+      <th>🟠 **RDK X3 系列**</th>
       <th>📝 **说明**</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>📄 **开发板规格书**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 产品规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 产品规格书</a></td>
+      <td>开发板详细技术规格和产品说明</td>
+    </tr>
+    <tr>
+      <td>📄 **Module 规格书**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module</a></td>
+      <td>核心计算模组详细技术规格和产品说明</td>
+    </tr>
+    <tr>
       <td>📷 **摄像头模组**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 摄像头模组规格书</a></td>
-      <td>单摄像头模组技术规格和接口详细说明</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20Camera%20Module.pdf">RDK X5 摄像头模组</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3%20Camera%20Module%20RS800w.pdf">RS800w</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3%20Camera%20Module%20RS400w.pdf">RS400w</a></td>
+      <td>摄像头模组技术规格和接口详细说明</td>
     </tr>
     <tr>
       <td>👁️ **双目摄像头模组**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK 双目摄像头模组规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK 双目摄像头模组</a></td>
+      <td>-</td>
       <td>用于立体视觉应用的双摄像头模组</td>
     </tr>
     <tr>
-      <td>🔌 **PoE 模组**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE 模组规格书</a></td>
-      <td>网络供电模组，用于通过网线供电的应用场景</td>
+      <td>🔌 **摄像头转接板**</td>
+      <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3%20Camera%20Adapter.pdf">RDK X3 摄像头转接板</a></td>
+      <td>摄像头转接板电路原理图和连接说明</td>
+    </tr>
+    <tr>
+      <td>🔌 **PoE 扩展模组**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20PoE%20Module.pdf">RDK X5 PoE 模组</a></td>
+      <td>-</td>
+      <td>网络供电扩展模组，用于通过网线供电的应用场景</td>
     </tr>
     <tr>
       <td>🛡️ **保护外壳**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 外壳规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20X5%20Case.pdf">RDK X5 外壳</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3%20Case.pdf">RDK X3 外壳</a></td>
       <td>保护外壳尺寸和安装规格说明</td>
     </tr>
     <tr>
       <td>🔋 **电源适配器**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 电源适配器规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5%20Power%20Adapter.pdf">RDK X5 电源适配器</a></td>
+      <td>-</td>
       <td>官方电源适配器规格和电气要求</td>
+    </tr>
+    <tr>
+      <td>📡 **IMU规格书**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20IMU.pdf">RDK X5 IMU规格书</a></td>
+      <td>-</td>
+      <td>惯性测量单元(IMU)技术规格和使用说明</td>
     </tr>
   </tbody>
 </table>
@@ -204,7 +299,7 @@ RDK X5 相关配件的完整规格书资料，提供详细的技术参数和使�
       <p><strong>内容简介：</strong>提供模组的详细技术参数，包括电气特性、接口规范、尺寸定义、工作环境等关键信息。</p>
       <p><strong>适用场景：</strong>便于客户全面了解模组性能指标，进行选型评估或系统方案规划。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Datasheet%20V1P0_0526.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
       </div>
     </div>
   </div>

@@ -111,9 +111,19 @@ sudo srpi-config
   ![image-20231123103758686](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123103758686.png)
 
 - **Configure Wi-Fi antenna**
-  切换Wi-Fi天线模式，支持设置使用板载还是外置天线。
+  切换Wi-Fi天线模式，支持设置使用板载还是外置天线。Onboard 板载天线 External 外置天线。
 
-> 当前仅 RDK X3 V2.1 RDK X5 版本支持。
+> RDK X3（V2.1） RDK X5（V0.1 V1.0） RDK X5 MD（小于V1.1）支持。
+
+  ![img-20250903-163740](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/img-20250903-163740.png)
+
+  确认天线状态 
+  
+  ```shell
+  cat /boot/config.txt
+  ```
+
+  `antenna_option=trace` 表示 板载天线，`antenna_option=cable` 表示 外置天线。
 
 - **Audio**
  安装和卸载音频转接板

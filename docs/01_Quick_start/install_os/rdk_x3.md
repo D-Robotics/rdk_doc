@@ -187,80 +187,40 @@ Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD�
 RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
 - **使用SD卡**：如需烧录系统到SD上（不从eMMC模式启动），系统烧录步骤与RDK X3相同；
-- **使用eMMC**：需要使用D-Robotics `hbupdate`烧录工具。（**以下主要介绍该方法**）
+- **使用eMMC**：使用UMS方式烧录系统镜像（**以下主要介绍该方法**）
 
-`hbupdate`工具支持Windows、Linux两种版本，分别以 `hbupdate_win64`、 `hbupdate_linux` 开头，工具下载链接：[hbupdate](https://archive.d-robotics.cc/downloads/hbupdate/)。
+#### 硬件连接
 
-:::tip 注意事项
 
-  - 解压工具压缩包，注意解压路径中不要包含**空格、中文、特殊字符**等内容。
-  - 工具通过USB口跟RDK X3模组通讯，需要提前安装USB驱动，具体方法见下文描述。
-:::
+   （1）使用跳线帽将RDK X3载板切换到3.3V供电。    
+   ![image-X3MD-3v3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/X3MD-3v3.PNG)  
 
-1. 对于使用Windows系统的PC，在使用刷机工具前，需要确认是否安装过fastboot驱动程序，请按照如下步骤进行确认：
+   （2）将载板的Micro USB接口（调试串口）与电脑通过USB线连接，接口位置参考下图。 
+   ![image-X3MD-MicroUSB](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/X3MD-MicroUSB.PNG)   
 
-   （1）使用跳线帽将RDK X3载板的`Boot`管脚接地，管脚位置参考下图。    
-   ![image-carrier-board-bootstrap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png)  
-
-   （2）将载板的Micro USB接口与电脑通过USB线连接，接口位置参考下图。  
+   （3）将载板的Micro USB接口（烧录口）与电脑通过USB线连接，接口位置参考下图。  
    ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)  
 
-   （3）给设备上电，然后观察电脑设备管理器端口状态，如出现`USB download gadget`未知设备时，需要更新设备驱动，否则可跳过下述步骤。  
-   ![image-usb-driver1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png)  
+#### 系统烧录
 
-   （4）下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip) 。
+   （1）在 PC 上通过串口工具连接设备，波特率设置为 921600。启动设备时，长按空格键即可进入 U-Boot 命令行界面。
+   ![imagex3md-ums1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums1.PNG)  
 
-   （5）进入解压后的目录，以管理员身份运行 `5-runasadmin_register-CA-cer.cmd`，完成驱动程序的注册。
+   （2）在 U-Boot 中执行 watchdog off 关闭看门狗，防止设备重启，执行 ums 0 mmc 0 ，将板载 eMMC 设备（设备号 0）通过 USB OTG 接口 0 映射为 USB Mass Storage 设备，使得主机系统可以将其识别为标准 U盘，从而进行直接读写或烧录操作。
 
-   （6）双击`USB download gadget`未知设备，选择驱动包解压目录，然后点击下一步。   
-   ![image-usb-driver2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png)
+  ```shell
+    watchdog off
+    ums 0 mmc 0
+  ```
 
-   （7）驱动安装完成后，设备管理器会显示fastboot设备`Android Device`。   
-   ![image-usb-driver3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
+   ![imagex3md-ums2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums2.png) 
 
-   
+   （3）PC识别到标准 U盘就是RDK X3 Module的EMMC分区。
+   ![imagex3md-ums3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums3.png) 
 
-2. 确认PC设备管理器显示fastboot设备`Android Device`后，运行`hbupdate.exe`打开烧录工具，按照以下步骤进行烧录：
+   （4）打开Rufus工具，在“设备”下拉框中选择对应的盘符作为目标设备，完成镜像烧录。
+   ![imagex3md-ums4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums4.png) 
 
-   ![image-flash-system1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system1.png)
-
-   （1）选择开发板型号，必选项。
-
-   - RDK_X3_2GB： RDK X3（旭日X3派），2GB内存版本，仅支持烧写最小系统镜像
-
-   - RDK_X3_4GB： RDK X3（旭日X3派），4GB内存版本，仅支持烧写最小系统镜像
-
-   - RDK_X3_MD_2GB： RDK X3 Module，2GB内存版本
-
-   - RDK_X3_MD_4GB： RDK X3 Module，4GB内存版本
-
-   ![image-flash-system2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system2.png)
-
-   （2）点击`Browse`按钮选择将要烧录的镜像文件，必选项。
-
-   ![image-flash-system3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system3.png)
-
-   （3）点击`Start`按钮开始刷机，根据弹窗提示开始烧录：
-
-   ![image-flash-system4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system4.png)
-
-   - 烧录镜像时，需要通过跳线帽将`BOOT`管脚接地，管脚位置参考[功能控制接口](/hardware_development/rdk_x3_module/interface#功能控制接口)
-
-   - 将Micro USB接口连接到电脑，电脑设备管理器中会识别出`Android Device`的设备，如上一节安装USB下载驱动所描述
-
-   - 烧录完毕断开电源，断开和电脑的连接线，将BOOT管脚跳线帽拔下，重新上电即可
-
-   - 如果启动正常，在硬件上的`ACT LED`灯会进入`两次快闪一次慢闪`的状态
-
-   （4）检查升级结果
-
-   - 镜像烧录成功时，工具提示如下：
-
-   ![image-flash-system6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system6.png)
-
-   - 镜像烧录失败时，工具提示如下，此时需要确认PC设备管理器是否存在`Android Device`设备
-
-   ![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)
 
 </TabItem>
 

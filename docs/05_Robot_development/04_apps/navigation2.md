@@ -119,6 +119,10 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
    ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
    ```
 
+   :::info
+   如果启动失败，并且报错`[ERROR] [gzclient-2]: process has died`，请执行命令`source /usr/share/gazebo/setup.sh`后再启动。
+   :::
+
    仿真环境如下图所示：
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png)

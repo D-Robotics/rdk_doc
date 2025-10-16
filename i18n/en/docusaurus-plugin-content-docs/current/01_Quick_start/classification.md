@@ -1,7 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
-# 1.5 Image Classification Algorithm Example
+# 1.6 Image Classification Algorithm Example
 
 Video: https://www.youtube.com/watch?v=lGFel8uabLY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=3
 

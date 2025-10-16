@@ -9,6 +9,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
+## 默认登录账户
+
+在进行系统配置前，您需要先登录系统。RDK S100 系统提供了两个默认账户：
+
+- **普通用户：** 用户名 `sunrise`，密码 `sunrise`
+- **超级用户 (root)：** 用户名 `root`，密码 `root`
+
 ## 连接 Wi-Fi
 
 <Tabs groupId="rdk-type">

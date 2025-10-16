@@ -13,6 +13,7 @@ sidebar_position: 2
 | --- | --------- | -------- | --------------- | --------- |
 | 电源 | 微雪 | PSU-27W-USB-C-CN | Type-C接口 5V/5A 定制电源 | [购买链接](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 
 
