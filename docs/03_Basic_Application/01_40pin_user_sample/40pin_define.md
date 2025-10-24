@@ -33,7 +33,7 @@ sudo srpi-config
 
 选择 `3 Interface Options` -> `I3 Peripheral bus config` 进到如下总线配置界面
 
-![image-20240817195940261](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_guide/image-20240817195940261.png)
+![image-20240817195940261](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20240817195940261.png)
 
 
 
@@ -67,10 +67,10 @@ sudo srpi-config
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-![image-20220828203147852](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_guide/image-20220828203147852.png)
+![image-20220828203147852](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20220828203147852.png)
 
 开发板40PIN接口位置提供了丝印网表，方便用户对照操作，PIN1、PIN40位置如下：
-![image-20220828203207798](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_guide/image-20220828203207798.png)
+![image-20220828203207798](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20220828203207798.png)
 
 </TabItem>
 
@@ -82,13 +82,13 @@ sudo srpi-config
 
 <TabItem value="ultra" label="RDK Ultra">
 
-![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_guide/image-20230830194924570.png)
+![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20230830194924570.png)
 
 </TabItem>
 
 <TabItem value="rdkx5" label="RDK X5">
 
-![image-20241217-202319](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_guide/image-20241217-202319.png)
+![image-20241217-202319](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20241217-202319.png)
 
 </TabItem>
 
