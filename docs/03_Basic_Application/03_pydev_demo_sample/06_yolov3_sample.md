@@ -110,7 +110,7 @@ YOLOv3 目标检测示例的软件架构包含以下几个核心部分：
 6. 结果保存：将可视化结果保存为图像文件
 
 <center>
-![software_arch](../../../static/img/tmp/pydev_06_yolov3_sample_software_arch.png)
+![software_arch](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_pydev_demo_sample/image/pydev_06_yolov3_sample_software_arch.png)
 </center>
 
 ### API 流程说明
