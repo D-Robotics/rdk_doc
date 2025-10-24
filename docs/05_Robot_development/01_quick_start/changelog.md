@@ -6,6 +6,16 @@ sidebar_position: 6
 
 ## tros-humble
 
+### 版本号：2.4.4 (2025-10-24)
+
+新增功能（`RDK S100`平台）：
+
+- 板端算法推理框架 [`dnn_node`](https://github.com/D-Robotics/hobot_dnn.git) 新增 `ROI` 推理模式，输出的 `output tensor` 数量为 `output_size x roi_size`。
+- 新增[人体检测和跟踪(Ultralytics YOLO Pose)](/docs/05_Robot_development/03_boxs/body/mono2d_yolo_pose.md)算法示例。
+- 新增[人体实例跟踪](/docs/05_Robot_development/03_boxs/body/reid.md)算法示例，基于`reid`模型提取人体特征，通过`SQlite`数据库存储、管理、查询特征。 launch 文件中关闭了人体检测和跟踪节点 `mono2d_body_detection` 基于 `ROI` 的人体跟踪方式；限制输入的 `ROI` 尺寸小于 3.5 倍实际模型输入尺寸。
+- 新增[人手关键点及手势识别(mediapipe)](/docs/05_Robot_development/03_boxs/body/hand_lmk_gesture_mediapipe.md)算法示例。实现手掌检测基本功能，前后处理以及发送 `ai msg` ；支持mipi相机、usb相机、本地回灌图片的方式；支持零拷贝和非零拷贝方式获取图片。
+- 新增[DeepSeek大语言模型](/docs/05_Robot_development/03_boxs/generate/hobot_xlm.md)算法示例。支持人机对话；`RDK S100`, `RDK S100P` 新增支持 `DeepSeek_R1_Distill_Qwen_1.5B` 模型, `DeepSeek_R1_Distill_Qwen_7B` 模型。
+
 ### 版本号：2.4.3 (2025-9-15)
 
 新增功能（`RDK X5`平台）：
