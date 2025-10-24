@@ -13,6 +13,7 @@ sidebar_position: 7
 | 散热器     | 微雪   | CM4-HEATSINK-B           | 散热器                       | [购买链接](https://www.waveshare.net/shop/CM4-HEATSINK-B.htm) |
 | 散热器     | 微雪   | CM4-HEATSINK             | 散热器带风扇                 | [购买链接](https://www.waveshare.net/shop/CM4-FAN-3007-5V.htm) |
 | Wi-Fi天线  | 微雪   | ORD-CM4-ANTENNA          | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm) |
+| 4G通信模块 | 微雪   | SIM7600G-H 4G DTU        | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm) |
 | 板级连接器 | 广濑   | DF40C-100DS-0.4V(51)     | 接口板连接器                 | N/A                                                          |
 
 ## <span id="camera"/>摄像头

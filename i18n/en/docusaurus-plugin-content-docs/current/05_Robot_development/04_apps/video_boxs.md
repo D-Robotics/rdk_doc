@@ -31,11 +31,9 @@ Code Repository:  (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
 ## Preparation
 
-### RDK
-
 1. RDK has been flashed with the Ubuntu 22.04 system image provided by D-Robotics.
 
-2. TogetheROS.Bot has been successfully installed on RDK.
+2. TogetheROS.Bot has been successfully installed on RDK, as[5.1.2 apt installation and upgrade](../01_quick_start/install_tros.md).
 
 
 3. Get IPC devices that support RTSP stream of H264/H265，and configure IP addresses for the same network segment.
@@ -52,11 +50,13 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 6. When run more pipeline, set 1G of ion_size.refor
    to [srpi-config](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config)
 
+
+
 ## Usage
 
-### RDK
+### multiple pipeline start
 
-**Start Pipeline with web**
+channel 1 (Terminal 1):
 
 <Tabs groupId="tros-distro">
 
@@ -69,26 +69,6 @@ export ROS_DOMAIN_ID=101
 
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
-```
-
-</TabItem>
-
-</Tabs>
-
-**Start Pipeline of component**
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
-
-```shell
-source /opt/tros/humble/setup.bash
-
-export ROS_DOMAIN_ID=103
-
-cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
-
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
 ```
 
@@ -97,7 +77,7 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 </Tabs>
 
 
-**Start Pipeline without web**
+channel 2 (Terminal 2):
 
 <Tabs groupId="tros-distro">
 
@@ -106,23 +86,45 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 ```shell
 source /opt/tros/humble/setup.bash
 
-export ROS_DOMAIN_ID=105
+export ROS_DOMAIN_ID=102
 
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-ros2 launch hobot_rtsp_client hobot_rtsp_client_ai.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'
+ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.58:554/0' hobot_transport_0:='udp'  websocket_channel:=1
 ```
 
 </TabItem>
 
 </Tabs>
 
-
 **attention**
 
-1. ROS_SOMAIN-ID must be configured.when start multiple pipeline in a local area network.
-2. The launch with "_plugin" is component mode.
-3. When start multiple pipeline with "_websocket", Don't view multiple channel stream on web.
+1. Set different ROS_DOMAIN_ID and websocket_channel for different channels.
+2. The method of activating the two channels mentioned above can be used to activate other channels 3 to 8, etc., according to the relevant method.
+3.  Launch scripts with "_plugin" will be launched in component mode; such as hobot_rtsp_client_ai_websocket_plugin.launch.py and hobot_rtsp_client_ai_plugin.launch.py
+4.  The launch script with "_websocket" can enable web browsing; examples include hobot_rtsp_client_ai_websocketTo enhance the capacity of connection channels, it is necessary to reduce frames in multiple video streams and configure the frame rate from the IPC.
+
+## Algorithm model switching
+The default algorithm in the launch script is yolov8;
+
+
+Please refer to the hobot_rtsp_client_ai_websocket_plugin.launch.py，
+```shell
+    ComposableNode(
+        package='dnn_node_example',
+        plugin='DnnExampleNode',
+        name='dnn_example',
+        parameters=[
+            {"config_file": 'config/yolov8workconfig.json'},
+            {"dump_render_img": 0},
+            {"feed_type": 1},
+            {"is_shared_mem_sub": 0},
+            {"msg_pub_topic_name": "/hobot_dnn_detection"}
+        ],
+        extra_arguments=[{'use_intra_process_comms': True}],
+    ) 
+```
+If referencing the YOLOv5 algorithm, please modify the config.FILE to "config/YOLOv5xworkconfig. json", refer to [YOLO] (../03-box/detection/YOLO. md),
 
 ## Result Analysis
 
@@ -155,7 +157,10 @@ Among them, `/rtsp_image_ch_0` is h264/h265 stream from IPC through RTSP protoco
 algorithm message published by the RDK which contains the human body and face detection results, and `/image_decode` is
 from h264 decoded to NV12 image,`/image_mjpeg` is from nv12 coded to jpeg image.
 
-In the PC's browser, enter `http://IP:8000`, and the body detection frame, keypoints, and pose detection results will be
+In the PC's browser, enter `http://IP:8000`, and configure split screen:
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
+
+The body detection frame, keypoints, and pose detection results will be
 displayed in the web interface (IP refers to the IP address of the RDK):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)

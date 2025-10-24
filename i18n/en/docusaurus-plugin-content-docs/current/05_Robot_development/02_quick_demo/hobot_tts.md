@@ -29,7 +29,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 
 1. RDK has been flashed with  Ubuntu 20.04/22.04 system image provided by D-Robotics.
 2. TogetheROS.Bot has been successfully installed on RDK.
-3. An audio driver board compatible with D-Robotics has been obtained, and the environment has been set up according to [Smart Voice section](/i18n/en/docusaurus-plugin-content-docs/current/05_Robot_development/03_boxs/function/hobot_audio.md)
+3. An audio driver board compatible with D-Robotics has been obtained, and the environment has been set up according to [Smart Voice section](../03_boxs/audio/hobot_audio.md)
 4. Connect the audio board's headphone interface with headphones or speakers.
 
 ## Usage

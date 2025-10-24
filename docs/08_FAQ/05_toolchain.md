@@ -10,10 +10,10 @@ sidebar_position: 5
 
 :::
 
-本节主要解答与地平线RDK平台上AI模型部署、算法开发、以及算法工具链使用相关的常见疑问。
+本节主要解答与地瓜机器人RDK平台上AI模型部署、算法开发、以及算法工具链使用相关的常见疑问。
 
 ### Q1: 使用算法工具链遇到问题，在提问时需要提供哪些信息？
-**A:** 当您在使用地平线算法工具链遇到问题并寻求技术支持时，为了帮助快速定位问题，请尽量提供以下完整信息：
+**A:** 当您在使用地瓜机器人算法工具链遇到问题并寻求技术支持时，为了帮助快速定位问题，请尽量提供以下完整信息：
 1.  **目标RDK硬件平台及处理器架构：** 例如 RDK X3 (BPU Bernoulli2), RDK Ultra (BPU Bayes), RDK X5 (BPU Bayes-e), Super100 (BPU Nash-e), Super100P (BPU Nash-m)。
 2.  **算法工具链转换环境信息：**
     * `horizon_nn` 包版本 (通过 `pip list | grep horizon` 查看)。
@@ -43,7 +43,7 @@ sidebar_position: 5
     * 通用入口：[https://developer.d-robotics.cc/rdk_doc/04_toolchain_development](https://developer.d-robotics.cc/rdk_doc/04_toolchain_development) (请以官方最新文档为准)
 2.  **RDK Model Zoo (模型仓库)：** 官方提供的模型示例库，包含了多种常见AI模型在RDK平台上的移植、优化、量化和部署示例代码及教程。
     * GitHub仓库：[https://github.com/D-Robotics/rdk_model_zoo](https://github.com/D-Robotics/rdk_model_zoo)
-3.  **地平线开发者社区 - 资源中心：** 社区的资源中心板块通常会汇总各类开发资源，包括工具链、SDK、示例代码、技术文档、教程视频等。
+3.  **地瓜开发者社区 - 资源中心：** 社区的资源中心板块通常会汇总各类开发资源，包括工具链、SDK、示例代码、技术文档、教程视频等。
     * 社区资源中心入口：[https://developer.d-robotics.cc/resource](https://developer.d-robotics.cc/resource)
 
 ### Q3: RDK X3（旭日X3派）平台有哪些社区算法资源和工具链手册？
@@ -69,11 +69,11 @@ sidebar_position: 5
 
 ### Q6: 算法工具链的Docker镜像是基于Ubuntu 20.04制作的，这会影响转换产物（如.bin或.hbm模型文件）在RDK板端Ubuntu 22.04系统上运行吗？
 **A:** 通常**不会影响**。
-地平线OpenExplorer提供的算法工具链Docker镜像虽然可能基于Ubuntu 20.04制作，但其主要作用是提供一个隔离的、包含所有必要转换工具和依赖库的**模型转换环境**。
+地瓜机器人OpenExplorer提供的算法工具链Docker镜像虽然可能基于Ubuntu 20.04制作，但其主要作用是提供一个隔离的、包含所有必要转换工具和依赖库的**模型转换环境**。
 它生成的模型文件（如`.bin`用于PTQ，`.hbm`用于QAT）是针对RDK板卡上特定BPU架构的二进制指令和权重数据。这些模型文件本身与运行它们的RDK板卡操作系统的Ubuntu版本（无论是20.04还是22.04）是解耦的，只要板卡上的Runtime库（如`libdnn.so`等BPU驱动和推理库）与模型转换时使用的工具链版本兼容即可。
 
 ### Q7: 如何在RDK平台上部署YOLO系列模型（如YOLOv5, YOLOv8, YOLOv10）？
-**A:** 地平线官方和社区提供了丰富的YOLO系列模型在RDK平台上的部署教程和示例。
+**A:** 地瓜机器人官方和社区提供了丰富的YOLO系列模型在RDK平台上的部署教程和示例。
 
 * **YOLOv5 在RDK X3平台的部署：**
     * **全流程部署教程：** [YOLOv5在RDK X3上的全流程部署](https://developer.d-robotics.cc/forumDetail/198686198578007656)
@@ -100,7 +100,7 @@ sidebar_position: 5
 **A:** 这通常是由于ONNX模型的输出头结构与板端后处理代码的预期不匹配。
 * **可能原因1：输出头未按BPU要求修改。**
     * 较高版本的YOLOv5（例如tag 2.0以上）官方导出的ONNX模型，其输出层可能包含了特征解码部分（例如直接输出检测框坐标和类别得分），或者没有将大、中、小三个特征图的输出分开。
-    * 地平线RDK BPU部署通常要求ONNX模型的输出是原始的特征图，并且这三个特征图是作为独立的输出节点。
+    * 地瓜机器人RDK BPU部署通常要求ONNX模型的输出是原始的特征图，并且这三个特征图是作为独立的输出节点。
     * **示例图（上为错误，下为部分正确但仍需调整）：**
         ![YOLOv5错误输出头示例](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/3.png)
         ![YOLOv5错误输出头示例](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/4.jfif) 
@@ -117,7 +117,7 @@ sidebar_position: 5
 **A:**
 * **可能原因：输出维度与后处理不匹配。**
     * 如果您使用的YOLOv5模型（例如公版的tag 2.0以下版本）在导出ONNX时，每个输出头的维度是5维的（例如 `[batch, num_anchors, grid_h, grid_w, (x,y,w,h,conf+classes)]` 或者是 `[batch, num_anchors* (5+num_classes), grid_h, grid_w]` 展平的形式）。
-    * 而地平线BPU工具链在编译这类模型时，如果直接使用，可能会因为维度处理或后处理代码的预期，导致将某个维度截断或错误解析，从而出现周期性排列的异常检测框。
+    * 而地瓜机器人BPU工具链在编译这类模型时，如果直接使用，可能会因为维度处理或后处理代码的预期，导致将某个维度截断或错误解析，从而出现周期性排列的异常检测框。
     * **示例图：**
         ![YOLOv5周期性异常检测框示例](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/AI_toolchain/5.png) * **解决方法：**
     * 推荐的做法是在导出ONNX模型时，将输出转换为明确的四维张量（例如NHWC格式：`[batch, grid_h, grid_w, num_anchors*(5+num_classes)]`），并且在板端的后处理代码中，再根据这个NHWC的输出格式进行正确的解析和解码（例如，将其reshape回5维或进行相应的anchors计算）。
@@ -157,7 +157,7 @@ sidebar_position: 5
 1.  **数据预处理 (Preprocessing) 检查：**
     * **与训练时是否一致：** 这是最关键的一点。确保部署时的预处理操作（如resize方式、归一化参数、均值方差、颜色空间转换如RGB/BGR、letterbox的padding方式和颜色等）与模型训练时所用的预处理**完全一致**。任何细微的差异都可能导致模型性能急剧下降。
     * **可视化预处理结果：** 将预处理后的图像数据保存下来（例如，如果输入是图片，就保存处理后的图片；如果是numpy数组，就将其可视化），与训练时送入模型的数据进行对比，看是否一致。
-    * **工具链`yaml`配置：** 在使用地平线工具链进行模型转换（PTQ）时，`yaml`配置文件中会有预处理相关的参数（如`norm_type`, `mean_value`, `std_value`等）。确保这些参数的设置能够正确地“抵消”掉您在将校准数据送入工具链之前所做的预处理，使得工具链看到的校准数据与模型训练时第一层卷积前的输入分布一致。
+    * **工具链`yaml`配置：** 在使用地瓜机器人工具链进行模型转换（PTQ）时，`yaml`配置文件中会有预处理相关的参数（如`norm_type`, `mean_value`, `std_value`等）。确保这些参数的设置能够正确地“抵消”掉您在将校准数据送入工具链之前所做的预处理，使得工具链看到的校准数据与模型训练时第一层卷积前的输入分布一致。
 
 2.  **模型转换过程检查：**
     * **工具链版本：** 使用官方推荐的最新稳定版算法工具链。
@@ -185,11 +185,11 @@ sidebar_position: 5
     * **逐模块验证：** 如果可能，将整个Pipeline拆分成预处理、模型推理、后处理等模块，对每个模块的输入输出进行单独验证。
 
 ### Q15: 板端`hrt_*`系列性能分析工具（如`hrt_model_exec`, `hrt_bpu_monitor`等）如何获取？
-**A:** 地平线RDK的系统镜像中，或者随算法工具链/SDK发布的包中，通常会包含一些用于板端模型执行、性能分析和调试的命令行工具，它们一般以 `hrt_` (Horizon Robotics Tool) 开头。
+**A:** 地瓜机器人RDK的系统镜像中，或者随算法工具链/SDK发布的包中，通常会包含一些用于板端模型执行、性能分析和调试的命令行工具，它们一般以 `hrt_` (Horizon Robotics Tool) 开头。
 * **查找位置：**
     * 这些工具可能预装在RDK系统镜像的 `/usr/bin` 或 `/opt/hobot/bin` 等路径下。
     * 也可能包含在您下载的算法工具链包（解压后）的某个子目录中（例如 `ddk/package/board/<target_os>/bin/` 或类似路径），您需要将这些工具手动拷贝到板卡的某个可执行路径下（如 `/usr/local/bin`）或直接在板卡上指定其完整路径运行。
-* **官方资源帖：** 地平线开发者社区通常会有专门的帖子或文档说明这些板端工具的获取方式和使用方法。例如，此帖曾提供相关信息：
+* **官方资源帖：** 地瓜开发者社区通常会有专门的帖子或文档说明这些板端工具的获取方式和使用方法。例如，此帖曾提供相关信息：
     [板端hrt_*工具下载及使用说明](https://developer.d-robotics.cc/forumDetail/228559182180396599) (请确认链接及内容的最新有效性)
 * **常用工具：**
     * `hrt_model_exec`: 用于在板端执行转换好的 `.bin` 模型，进行推理验证和性能测试。

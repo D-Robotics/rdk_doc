@@ -18,6 +18,7 @@ sidebar_position: 3
 | 散热器 | 微雪 | N/A | 散热风扇扩展板 | [购买链接](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | 散热器 | 亚博 | N/A | 主板风扇，支持OLED显示 | [购买链接](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 
 

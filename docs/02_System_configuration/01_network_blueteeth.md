@@ -249,6 +249,13 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
     wpa_passphrase=12345678
     ```
 
+      - RDK X5 可以配置5G的热点，请在`hostapd.conf`文件修改`hw_mode`和`channel`字段：
+
+    ```shell
+    channel=36
+    hw_mode=a
+    ```
+
 3. 配置`isc-dhcp-server`文件，步骤如下：
 
     - 执行 `sudo vim /etc/default/isc-dhcp-server`修改`isc-dhcp-server`文件，添加如下定义的网络接口：
@@ -355,6 +362,34 @@ Station模式下，开发板作为客户端，接入路由器无线热点进行�
     # 连接热点,，具体操作可以查看上一章节 “无线网络”
     wifi_connect "WiFi-Test" "12345678"
     ```
+
+### Soft AP模式（NetworkManager）：RDK X5（>= 3.3.0）RDK X3（>= 3.0.2）
+
+新版本系统也可以使用NetworkManager来建立您的wifi热点。
+
+点击桌面右上角的无线网络图标，选择`Edit Connections...`
+
+![image-wifi1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi1.png)
+
+点击左下角+号，Connection Type选择`Wi-Fi`
+
+![image-wifi2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi2.png)
+
+`Wi-Fi`标签下，填写SSID Mode Band
+
+SSID填写您希望的热点名称
+
+Mode选择`Hotspot`
+
+Band 可以选择`Automatic`,`A(5 GHz)`或 `B/G（2.4 GHz)`
+
+![image-wifi3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi3.png)
+
+`Wi-Fi Security`标签下，选择加密方式，填写密码
+
+![image-wifi4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi4.png)
+
+重启板卡，或者`restart_network`让配置生效
 
 ## DNS服务
 

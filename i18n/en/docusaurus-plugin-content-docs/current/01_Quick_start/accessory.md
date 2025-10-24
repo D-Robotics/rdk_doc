@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
-# 1.7 Accessory List
+# 1.8 Accessory List
 
 This section summarizes the third-party accessory list officially certified by D-Robotics, which is compatible with RDK series development boards. Classified by different board types, it includes basic accessories (power supply, case, heat sink), cameras, displays, adapter boards and other categories, and provides detailed resolution support information. The accessory list will be updated from time to time to gradually add more accessory models.
 
@@ -19,6 +19,7 @@ This section summarizes the third-party accessory list officially certified by D
 | Heat Sink | Waveshare | N/A | Cooling fan expansion board | [Purchase Link](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | Heat Sink | YAHBOOM | N/A | Motherboard fan with OLED display | [Purchase Link](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |
 | Wi-Fi Antenna | Waveshare | ORD-CM4-ANTENNA | SMA antenna supporting 2.4G/5G WiFi bands | [Purchase Link](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G Communication Module | Waveshare | SIM7600G-H 4G DTU | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Purchase Link](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 ### Cameras
 
@@ -60,6 +61,7 @@ This section summarizes the third-party accessory list officially certified by D
 | Heat Sink     | Waveshare   | CM4-HEATSINK-B           | Heat sink                       | [Purchase Link](https://www.waveshare.net/shop/CM4-HEATSINK-B.htm) |
 | Heat Sink     | Waveshare   | CM4-HEATSINK             | Heat sink with fan                 | [Purchase Link](https://www.waveshare.net/shop/CM4-FAN-3007-5V.htm) |
 | Wi-Fi Antenna  | Waveshare   | ORD-CM4-ANTENNA          | SMA antenna supporting 2.4G/5G WiFi bands | [Purchase Link](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm) |
+| 4G Communication Module | Waveshare   | SIM7600G-H 4G DTU        | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Purchase Link](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm) |
 | Board Connector | Hirose   | DF40C-100DS-0.4V(51)     | Carrier board connector                 | N/A                                                          |
 
 ### Cameras
@@ -98,6 +100,7 @@ This section summarizes the third-party accessory list officially certified by D
 | --- | --------- | -------- | --------------- | --------- |
 | Power | Waveshare | PSU-27W-USB-C-CN | Type-C interface 5V/5A custom power supply | [Purchase Link](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)  |
 | Wi-Fi Antenna | Waveshare | ORD-CM4-ANTENNA | SMA antenna supporting 2.4G/5G WiFi bands | [Purchase Link](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
+| 4G Communication Module | Waveshare | SIM7600G-H 4G DTU | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Purchase Link](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 
 ### Cameras
 

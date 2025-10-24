@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
-# 1.5 算法体验
+# 1.6 算法体验
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=17
 

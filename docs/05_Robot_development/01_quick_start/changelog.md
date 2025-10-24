@@ -16,6 +16,12 @@ sidebar_position: 6
 - 新增[人手关键点及手势识别(mediapipe)](/docs/05_Robot_development/03_boxs/body/hand_lmk_gesture_mediapipe.md)算法示例。实现手掌检测基本功能，前后处理以及发送 `ai msg` ；支持mipi相机、usb相机、本地回灌图片的方式；支持零拷贝和非零拷贝方式获取图片。
 - 新增[DeepSeek大语言模型](/docs/05_Robot_development/03_boxs/generate/hobot_xlm.md)算法示例。支持人机对话；`RDK S100`, `RDK S100P` 新增支持 `DeepSeek_R1_Distill_Qwen_1.5B` 模型, `DeepSeek_R1_Distill_Qwen_7B` 模型。
 
+### 版本号：2.4.3 (2025-9-15)
+
+新增功能（`RDK X5`平台）：
+
+- [MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持启动多路图像采集。
+- [双目MIPI图像采集](/docs/05_Robot_development/02_quick_demo/demo_sensor.md)支持`sc132gs`双目相机。
 
 ### 版本号：2.4.2 (2025-8-29)
 
