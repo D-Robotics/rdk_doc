@@ -15,7 +15,7 @@ bpu 示例中支持两个场景，一种是带摄像头的 , 固定是使用的 
 
 ![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_bpu_running_yolo5v.png)
 
-如下是使用摄像头搭配 fcos 进行推理的效果，显示器上显示的是使用 h264 文件作为输入数据，进行推理的效果。
+如下是使用 fcos 进行推理的效果，显示器上显示的是使用 h264 文件作为输入数据，进行推理的效果。
 
 ![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_bpu_running_fcos.png)
 
@@ -65,8 +65,54 @@ root@ubuntu:/app/cdev_demo/bpu/src/bin# tree
 ### 执行效果
 
 (1) 搭配摄像头进行 yolov5 的推理
+在 `root@ubuntu:/app/cdev_demo/bpu/src/bin#` 目录使用 `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0 ` 命令。
+```
+root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0
+Opened DRM device: /dev/dri/card0
+[BPU_PLAT]BPU Platform Version(1.3.6)!
+[HBRT] set log level as 0. version = 3.15.55.0
+[DNN] Runtime version = 1.24.5_(3.15.55 HBRT)
+[A][DNN][packed_model.cpp:247][Model](2025-10-25,23:45:13.56.570) [HorizonRT] The model builder version = 1.23.5
+[W][DNN]bpu_model_info.cpp:491][Version](2025-10-25,23:45:13.222.713) Model: yolov5s_v2_672x672_bayese_nv12. Inconsistency between the hbrt library version 3.15.55.0 and the model build version 3.15.47.0 detected, in order to ensure correct model results, it is recommended to use compilation tools and the BPU SDK from the same OpenExplorer package.
+Model info:
+model_name: yolov5s_v2_672x672_bayese_nv12Input count: 1input[0]: tensorLayout: 2 tensorType: 1 validShape:(1, 3, 672, 672, ), alignedShape:(1, 3, 672, 672, )
+Output count: 3Output[0]: tensorLayout: 0 tensorType: 13 validShape:(1, 84, 84, 255, ), alignedShape:(1, 84, 84, 255, )
+Output[1]: tensorLayout: 0 tensorType: 13 validShape:(1, 42, 42, 255, ), alignedShape:(1, 42, 42, 255, )
+Output[2]: tensorLayout: 0 tensorType: 13 validShape:(1, 21, 21, 255, ), alignedShape:(1, 21, 21, 255, )
+2025/10/25 23:45:13.229 !INFO [OpenCamera][0447]hbn module
+set camera fps: -1,width: 1920,height: 1080
+Camera 0:
+        mipi_host: 0
+......
+......
+......
+
+```
+
+就能看到文档开头时候展示的图片一样的效果：
+![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_bpu_running_yolo5v.png)
 
 (2) 解码 h264 之后，通过 fcos 模型进行推理
+在 `root@ubuntu:/app/cdev_demo/bpu/src/bin#` 目录使用 `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080 ` 命令。
+```
+root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080
+Opened DRM device: /dev/dri/card0
+[BPU_PLAT]BPU Platform Version(1.3.6)!
+[HBRT] set log level as 0. version = 3.15.55.0
+[DNN] Runtime version = 1.24.5_(3.15.55 HBRT)
+[A][DNN][packed_model.cpp:247][Model](2025-10-25,23:46:08.985.465) [HorizonRT] The model builder version = 1.23.5
+[W][DNN]bpu_model_info.cpp:491][Version](2025-10-25,23:46:09.127.913) Model: fcos_efficientnetb0_512x512_nv12. Inconsistency between the hbrt library version 3.15.55.0 and the model build version 3.15.47.0 detected, in order to ensure correct model results, it is recommended to use compilation tools and the BPU SDK from the same OpenExplorer package.
+Model info:
+model_name: fcos_efficientnetb0_512x512_nv12Input count: 1input[0]: tensorLayout: 2 tensorType: 1 validShape:(1, 3, 512, 512, ), alignedShape:(1, 3, 512, 512, )
+Output count: 15Output[0]: tensorLayout: 0 tensorType: 14 validShape:(1, 64, 64, 80, ), alignedShape:(1, 64, 64, 80, )
+......
+......
+......
+
+```
+
+就能看到文档开头时候展示的图片一样的效果：
+![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_bpu_running_fcos.png)
 
 
 ## 详细是介绍
@@ -95,12 +141,12 @@ root@ubuntu:/app/cdev_demo/bpu/src/bin#
 
 ```
 其中 \
--d 代表打印 debug 信息。
--f 代表模型的位置
--i 代表输入给程序的视频文件路径，注意这里是没有使用摄像头的时候才输入，运行有摄像头的示例时候，不需要输入。
--m 代表选择的模型
--w 代表输出视频的宽度
--h 代表输出视频的高度
+-d 代表打印 debug 信息。\
+-f 代表模型的位置\
+-i 代表输入给程序的视频文件路径，注意这里是没有使用摄像头的时候才输入，运行有摄像头的示例时候，不需要输入。\
+-m 代表选择的模型\
+-w 代表输出视频的宽度\
+-h 代表输出视频的高度\
 -? 代表打印帮助信息
 
 
