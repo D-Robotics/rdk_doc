@@ -57,7 +57,7 @@ root@ubuntu:/app/cdev_demo/rtsp2display# tree
 ```
 root@ubuntu:/app/cdev_demo/rtsp2display# cp /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 ./
 root@ubuntu:/app/cdev_demo/rtsp2display# cp /app/pydev_demo/08_decode_rtsp_stream/live555MediaServer ./
-root@ubuntu:/app/cdev_demo/rtsp2display# LIVE555 Media Server
+root@ubuntu:/app/cdev_demo/rtsp2display# ./live555MediaServer &
         version 1.01 (LIVE555 Streaming Media library version 2020.07.09).
 Play streams from this server using the URL
         rtsp://192.168.127.10/<filename>
@@ -84,8 +84,11 @@ See http://www.live555.com/mediaServer/ for additional documentation.
 root@ubuntu:/app/cdev_demo/rtsp2display# 
 ```
 
+执行上述命令后，我们相当于打开了流媒体服务器，接下来就是通过 rtsp2display 来获取通过 rtsp 传输过来的 h264 文件。
 
-然后我们使用 sudo ./rtsp2display -i rtsp://127.0.0.1/1920x1080.h264 -t tcp 命令，默认的执行结果是将 rtsp 传输过来的 h264 文件，进行解码，然后显示到连接的显示器上
+同样的，我们还是要 通过 `systemctl stop lightdm` 命令来关闭显示服务，达到最佳显示效果。
+
+然后我们使用 `sudo ./rtsp2display -i rtsp://127.0.0.1/1920x1080.h264 -t tcp` 命令，将通过 rtsp 传输过来的 h264 文件，进行解码，然后显示到连接的显示器上。执行效果如下：
 ```
 root@ubuntu:/app/cdev_demo/rtsp2display# systemctl stop lightdm
 root@ubuntu:/app/cdev_demo/rtsp2display# sudo ./rtsp2display -i rtsp://127.0.0.1/1920x1080.h264 -t tcp
