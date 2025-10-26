@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 3.4.1 参考示例（python）
+# 3.6.2 参考示例（python）
 
 本章节将通过视频流解码等示例程序，介绍 D-Robotics Python 语言的 `hobot_vio` 图像多媒体库的使用方法，包括视频拉流、缩放及编解码等操作。
 

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 3.3.3 PWM应用
+# 3.1.3 PWM应用
 
 Hobot.GPIO 库仅在带有附加硬件 PWM 控制器的引脚上支持 PWM。与 RPi.GPIO 库不同，Hobot.GPIO 库不实现软件模拟 PWM。RDK X3、RDK X5 和 RDK Ultra 都支持 2 个 PWM 通道。
 

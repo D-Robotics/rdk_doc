@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 3.1.2 USB摄像头使用
+# 3.4.2 USB摄像头使用
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=18
 

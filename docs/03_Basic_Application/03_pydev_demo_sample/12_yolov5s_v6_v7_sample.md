@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 3.2.7 yolov5s_v6_v7 示例介绍
+# 3.3.7 yolov5s_v6_v7 示例介绍
 
 ## 示例简介
 YOLOv5s v6/v7 目标检测示例是一个位于 `/app/pydev_demo/12_yolov5s_v6_v7_sample/` 中的 **Python 接口** 开发代码示例，用于演示如何使用 YOLOv5s 模型的不同版本（ v6 和 v7 ）进行目标检测任务。该示例展示了如何加载和使用不同版本的 YOLOv5s 模型，让开发者能够比较不同版本在检测精度和性能上的差异。

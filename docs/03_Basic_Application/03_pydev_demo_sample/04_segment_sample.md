@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 3.2.2 segment 模型示例介绍
+# 3.3.2 segment 模型示例介绍
 
 ## 示例简介
 图像分割示例是一个位于 `/app/pydev_demo/04_segment_sample/` 中的 **Python 接口** 开发代码示例，用于演示如何使用 MobileNet-UNet 模型进行语义分割任务。该示例展示了如何对输入图像进行像素级分类，将图像中的不同对象分割出来，并以可视化方式展示分割结果。

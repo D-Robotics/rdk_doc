@@ -1,8 +1,8 @@
 {
-  "label": "3.2.2 RDK X5",
+  "label": "3.5.2 RDK X5",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "slug": "03_Basic_Application/02_audio/rdk_x5"
+    "slug": "03_Basic_Application/05_audio/rdk_x5"
   }
 }
