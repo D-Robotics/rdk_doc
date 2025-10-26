@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 3.3.5 I2C应用
+# 3.1.5 I2C应用
 
 RDK X3 在 40PIN 上默认使能 I2C0，物理管脚号 3 和 5，IO电压3.3V。
 

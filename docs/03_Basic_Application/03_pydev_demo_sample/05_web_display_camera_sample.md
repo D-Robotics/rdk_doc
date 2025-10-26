@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# 3.2.10 web 显示摄像头示例介绍
+# 3.3.10 web 显示摄像头示例介绍
 
 ## 示例简介
 Web 显示摄像头示例是一个位于 `/app/pydev_demo/05_web_display_camera_sample/` 中的 **Python 接口** 开发代码示例，用于演示如何将 MIPI 摄像头的视频流和目标检测结果通过 Web 服务实时推送到浏览器端显示。该示例结合了 MIPI 摄像头采集、 AI 目标检测、视频编码和 WebSocket 实时传输等技术，提供了一个完整的 Web 视频监控解决方案。

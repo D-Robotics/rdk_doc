@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 3.2.5 yolov5x 模型示例介绍
+# 3.3.5 yolov5x 模型示例介绍
 
 ## 示例简介
 YOLOv5X 目标检测示例是一个位于 `/app/pydev_demo/09_yolov5x_sample/` 中的 **Python 接口** 开发代码示例，用于演示如何使用 YOLOv5X 模型进行高精度目标检测任务。 YOLOv5X 是 YOLOv5 系列中最大、最精确的模型变体，相比 YOLOv5s 具有更高的检测精度，适用于对检测准确性要求更高的应用场景。

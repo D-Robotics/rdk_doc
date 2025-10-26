@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 3.3.2 GPIO应用
+# 3.1.2 GPIO应用
 
 开发板预置了 GPIO Python 库 `Hobot.GPIO`，用户可以通过如下命令导入GPIO库。
 

@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 3.2.6 centernet 示例介绍
+# 3.3.6 centernet 示例介绍
 
 ## 示例简介
 CenterNet 目标检测示例是一个位于 `/app/pydev_demo/11_centernet_sample/` 中的 **Python 接口** 开发代码示例，用于演示如何使用 CenterNet 模型进行高效的目标检测任务。 CenterNet 是一种基于中心点预测的目标检测算法，相比传统的锚框 -based 方法，具有更简洁的架构和更高的检测精度，特别适合需要精确定位和识别小目标的场景。

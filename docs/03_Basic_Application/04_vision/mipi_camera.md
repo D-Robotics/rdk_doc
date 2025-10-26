@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 3.1.1 MIPI摄像头使用
+# 3.4.1 MIPI摄像头使用
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
 

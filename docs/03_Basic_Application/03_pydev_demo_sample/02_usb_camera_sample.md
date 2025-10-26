@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# 3.2.8 usb 摄像头示例介绍
+# 3.3.8 usb 摄像头示例介绍
 
 ## 示例简介
 USB 摄像头示例包含两个位于 /app/pydev_demo/02_usb_camera_sample/ 中的 **Python** 接口开发代码示例，用于演示如何使用 USB 摄像头进行图像采集和处理。这两个示例分别展示了：
