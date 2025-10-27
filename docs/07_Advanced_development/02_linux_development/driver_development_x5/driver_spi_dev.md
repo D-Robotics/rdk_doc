@@ -7,7 +7,7 @@ sidebar_position: 8
 ## SPI硬件支持
 
 X5共支持7路SPI控制器，其中6路(spi0-spi5)位于LSIO子系统，1路(spi6)位于DSP子系统。 所有SPI控制器均支持主/从模式。
-RDK X5 上留出来的引脚主要是在 40pin 中，分别是**SPI1**和**SPI2**，可以参考RDK X5 [40pin介绍](/rdk_doc/Basic_Application/03_40pin_user_guide/40pin_define#40pin_define)
+RDK X5 上留出来的引脚主要是在 40pin 中，分别是**SPI1**和**SPI2**，可以参考RDK X5 [40pin介绍](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md#40pin-管脚定义40pin_define)
 其他的 SPI 口并不在 40pin 上。
 
 ## Linux SPI驱动框架介绍
