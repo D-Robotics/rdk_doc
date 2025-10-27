@@ -137,6 +137,14 @@ The development board includes a debug serial port (No. 4) for serial login and 
 To connect, use a Micro USB cable to link the board's Interface 4 to your PC.  
 For first-time use, you may need to install the CH340 driver on your computer. Search for `CH340 serial port driver` to download and install it.
 
+During the kernel boot stage, the baud rate configuration is defined in the `/boot/boot.cmd` file.
+
+After modifying the serial port settings, you need to regenerate the boot.scr file using the following command:
+
+```bash
+mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
+
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
@@ -150,6 +158,14 @@ The development board includes a debug serial port (No. 22) for serial login and
 
 To connect, use a Micro USB cable to link the board's Interface 4 to your PC.  
 For first-time use, you may need to install the CH340 driver on your computer. Search for `CH340 serial port driver` to download and install it.
+
+During the kernel boot stage, the baud rate configuration is defined in the `/boot/boot.cmd` file.
+
+After modifying the serial port settings, you need to regenerate the boot.scr file using the following command:
+
+```bash
+mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
 
 </TabItem>
 </Tabs>

@@ -131,6 +131,13 @@ When connecting the UART, the DuPont wire needs to be connected to Interface 3 o
 
 ![image-20220612121707048](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
+During the kernel boot stage, the baud rate configuration is defined in the `/boot/boot.cmd` file.
+
+After modifying the serial port settings, you need to regenerate the boot.scr file using the following command:
+
+```bash
+mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
 
 </TabItem>
 
@@ -145,6 +152,14 @@ The RDK X3 Module carrier board provides one debugging interface (Interface 15).
 - Flow Control: None
 
 Typically, when users use this interface for the first time, they need to install the CH340 driver on the computer. Users can search for the keyword `CH340 serial port driver` for downloading and installation.
+
+During the kernel boot stage, the baud rate configuration is defined in the `/boot/boot.cmd` file.
+
+After modifying the serial port settings, you need to regenerate the boot.scr file using the following command:
+
+```bash
+mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
 
 </TabItem>
 
