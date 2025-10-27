@@ -30,21 +30,9 @@ jobs:
           git add -A
           git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M:%S')"
 
-      - name: Configure Gitee remote
+      - name: Add Gitee remote and force push
         run: |
           git remote remove gitee 2>/dev/null || true
           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
-
-      - name: Delete remote gh-pages branch
-        run: |
-          # 先删除 Gitee 上的 gh-pages 分支，清理历史数据
-          git push gitee --delete gh-pages || echo "Branch does not exist or already deleted"
-        continue-on-error: true
-
-      - name: Wait for Gitee to process deletion
-        run: sleep 10
-
-      - name: Push clean branch to Gitee
-        run: |
-          # 推送干净的无历史分支到 Gitee
+          # 强制推送到 gh-pages，完全替换 Gitee 上的分支
           git push gitee gh-pages-clean:gh-pages --force
