@@ -130,6 +130,10 @@ RDK X3 Module载板通过DC接口供电，推荐使用认证配件清单中推�
 串口连接时，需要将杜邦线接入开发板接口3，串口USB转接板接入电脑。连接完成后如下图：
 ![debug_uart_x3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/debug_uart_x3.jpg)
 
+在内核启动阶段，波特率的配置位于 `/boot/boot.cmd` 文件中；
+
+修正串口配置后，需要重新生成 boot.scr 文件，命令如下：`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
+
 </TabItem>
 
 <TabItem value="x3md" label="RDK X3 Module">
@@ -143,6 +147,10 @@ RDK X3 Module载板提供一路调试（接口15），硬件上通过`CH340`芯�
 - 流控（Flow Control）：无
 
 通常情况下，用户第一次使用该接口时需要在电脑上安装CH340驱动，用户可搜索`CH340串口驱动`关键字进行下载、安装。
+
+在内核启动阶段，波特率的配置位于 `/boot/boot.cmd` 文件中；
+
+修正串口配置后，需要重新生成 boot.scr 文件，命令如下：`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
 
 </TabItem>
 

@@ -144,6 +144,10 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 
 串口连接时，需要将通过 Micro-USB 线，连接开发板接口 4 与 PC。
 
+在内核启动阶段，波特率的配置位于 `/boot/boot.cmd` 文件中；
+
+修正串口配置后，需要重新生成 boot.scr 文件，命令如下：`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
+
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
@@ -156,6 +160,10 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 - 流控（Flow Control）：无
 
 串口连接时，需要将通过 Micro-USB 线，连接开发板接口22 与 PC。
+
+在内核启动阶段，波特率的配置位于 `/boot/boot.cmd` 文件中；
+
+修正串口配置后，需要重新生成 boot.scr 文件，命令如下：`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
 
 </TabItem>
 </Tabs>
