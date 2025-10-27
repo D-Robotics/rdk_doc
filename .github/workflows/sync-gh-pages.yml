@@ -16,23 +16,17 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: gh-pages
-          fetch-depth: 1   # 只拉取最新版本，减小仓库体积
+          fetch-depth: 0   # 拉取完整历史，保证可以 push
 
       - name: Setup Git
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-      - name: Create orphan branch to remove history
-        run: |
-          # 创建一个无历史的孤立分支，只包含当前内容
-          git checkout --orphan gh-pages-clean
-          git add -A
-          git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M:%S')"
-
-      - name: Add Gitee remote and force push
+      - name: Add Gitee remote
         run: |
           git remote remove gitee 2>/dev/null || true
           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
-          # 强制推送到 gh-pages，完全替换 Gitee 上的分支
-          git push gitee gh-pages-clean:gh-pages --force
+
+      - name: Push gh-pages to Gitee
+        run: git push gitee gh-pages --force
