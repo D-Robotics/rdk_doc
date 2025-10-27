@@ -217,7 +217,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=5
 
 ### 接入USB串口转接板
 
-开发板USB Type A接口(接口5和6)，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/03_40pin_user_guide/uart.md#40pin_uart_usage) 章节对串口进行使用。
+开发板USB Type A接口(接口5和6)，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/01_40pin_user_sample/uart.md#314-串口应用) 章节对串口进行使用。
 
 </TabItem>
 
@@ -492,7 +492,7 @@ RDK X3 2.0 & Module 外扩40PIN管脚及其定义如下：
 
 ![image-X3-PI-40Pin_Index](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-X3-PI-40Pin_Index.jpg)
 
-40PIN各功能的使用方法请查看 [40PIN 功能使用](../../03_Basic_Application/03_40pin_user_guide/40pin_define.md) 章节。
+40PIN各功能的使用方法请查看 [40PIN 功能使用](../../03_Basic_Application/01_40pin_user_sample/40pin_define.md) 章节。
 
 </TabItem>
 
