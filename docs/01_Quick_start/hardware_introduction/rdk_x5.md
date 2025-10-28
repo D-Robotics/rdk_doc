@@ -228,7 +228,7 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 
 ### 接入 USB 串口转接板
 
-开发板USB Type A接口，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/01_40pin_user_sample/uart.md#40pin_uart_usage) 章节对串口进行使用。
+开发板USB Type A接口，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/01_40pin_user_sample/uart.md) 章节对串口进行使用。
 
 ### USB 摄像头
 
