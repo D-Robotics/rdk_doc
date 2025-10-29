@@ -144,7 +144,9 @@ frequency=1000000
 
 ## X5 CPU频率
 
-有关`CPU`调度方式的说明请查阅 [X5 CPU频率管理](frequency_management#cpu频率管理-1)，这里仅介绍config.txt的配置方法。
+有关`CPU`调度方式的说明请查阅 [X5 CPU频率管理](frequency_management#cpu频率管理-1)，若计划进行超频，请务必先阅读文档中`CPU 超频`一节，全面了解风险与注意事项。
+
+本处仅介绍通过`config.txt`进行的 配置方法，不包含调度策略或超频原理相关内容。
 
 ### arm_boost
 

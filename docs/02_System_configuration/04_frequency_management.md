@@ -290,6 +290,27 @@ echo 0 >/sys/devices/system/cpu/cpufreq/boost
 
 :::
 
+:::info 注意
+仅 X5H 支持超频， X5M 不可用超频。 芯片类型可通过以下命令查看，例如以下查询的芯片是X5M
+
+```bash
+cat /sys/class/socinfo/soc_name
+X5M
+```
+
+若芯片类型识别为 `X5U`（即 `X5 UNKNOWN`），通常表示该芯片为早期出厂版本，其 eFUSE 中尚未烧录对应标识位，因此无法通过软件读取准确的芯片型号，需要根据芯片丝印信息进行人工识别。
+
+![image-20251029-114153](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20251029-114153.png)
+
+对于该类芯片，未启用超频限制，理论上可以执行超频配置，但需注意：
+
+- 超频后功耗将显著上升
+- 系统稳定性无法保证，可能存在异常运行或寿命缩短风险
+
+建议仅在研发阶段测试使用，量产不推荐依赖超频特性。
+
+:::
+
 可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
 
 ![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)
