@@ -203,4 +203,4 @@ sudo srpi-config
 
 ![image-20231123110246286](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110246286.png)
 
-完成更改后选中 `Finish` 按钮。系统将询问您是否要重新启动。首次使用时，最好重新启动。
+完成更改后，请点击 `Finish` 按钮。如果您所做的修改需要重启才能生效，系统将提示您是否立即重新启动。
