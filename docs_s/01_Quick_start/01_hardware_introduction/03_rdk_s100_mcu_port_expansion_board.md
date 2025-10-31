@@ -104,7 +104,7 @@ MCU 扩展板提供了一个千兆以太网接口。
 
 :::warning 注意
 
-1. 当系统处于 light sleep 和 deep sleep 模式时，VDD_5V，VDD_3V3，VDD_1V8 电源保持供电。
+1. 当系统处于 light sleep 和 deep sleep 模式时，VDD_5V，VDD_3V3，VDD_1V8 电源保持供电，最大输出电流分别为 300mA，600mA，300mA。
 2. I2C9_SDA_3V3，I2C9_SCL_3V3 信号作为 GPIO 使用时不允许接外部下拉电阻。
 
 :::
