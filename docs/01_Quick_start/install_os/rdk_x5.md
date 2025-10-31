@@ -235,3 +235,140 @@ Ubuntu Desktop 版本系统启动完成后，会通过 HDMI 接口在显示器�
 更多问题的处理，可以查阅 [常见问题](../../08_FAQ/01_hardware_and_system.md) 章节，同时可以访问 [D-Robotics 开发者官方论坛](https://developer.d-robotics.cc/forum) 获得帮助。
 
 :::
+
+##  NAND 固件烧录
+
+RDK 最小系统存储于 `NAND Flash` 中，包含 `Bootloader（Miniboot、U-Boot）` 等关键启动组件。
+
+设备出厂时已预装与硬件匹配的最新 NAND 固件。
+
+为确保兼容性与设备稳定性，严禁降级刷入旧版本固件，否则可能导致设备无法正常启动。
+
+若您已遇到设备无法启动的情况，请按照以下步骤重新烧录 NAND 固件。
+
+### 下载 NAND 固件
+
+下载最新的 `product_发布日期.zip`，解压后得到 `product` 文件夹，作为后续烧录的镜像所在目录。
+
+-下载地址：https://archive.d-robotics.cc/downloads/miniboot/rdk_x5/
+
+![image-20251031-170821](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20251031-170821.png)
+
+### 下载安装烧录工具
+
+`XBurn`是官方提供的镜像烧录工具，可以用于烧录RDK X5 NAND固件。它提供了直观的图形界面，用户只需点击几步即可完成镜像烧录，非常便捷。
+
+- 下载地址：https://archive.d-robotics.cc/downloads/software_tools/download_tools/
+
+![image-20251031-194712](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20251031-194712.png)
+
+windows 系统下载 `XBurn-gui_版本号_x64-setup.exe`。
+
+Ubuntu 系统下载 `XBurn-gui_版本号_x64-setup.deb`。
+
+MAC 系统下载 `XBurn-gui_版本号_x64-setup.dmg`。
+
+#### windows 系统下安装与启动 XBurn
+
+1. 双击安装包 `xburn-gui_1.1.5_x64-setup.exe` 即可进行安装
+2. 安装完成后，`XBurn-gui`界面随后会自动打开：
+
+![image-202510311956](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-202510311956.png)
+
+3. 后续可以直接双击桌面上的 `XBurn.exe` 图标即可启动软件。
+
+#### Ubuntu 系统下安装与启动 XBurn
+
+在安装包目录中执行 `sudo dpkg -i xburn-gui_1.1.5_amd64.deb` 命令即可等待完成安装，安装示例如下：
+
+```shell
+(base) hobot@hobot-ThinkPad-T14-Gen-1:~/tools$ sudo dpkg -i xburn-gui_1.1.5_amd64.deb 
+[sudo] hobot 的密码： 
+正在选中未选择的软件包 xburn-gui。
+(正在读取数据库 ... 系统当前共安装有 494898 个文件和目录。)
+准备解压 xburn-gui_1.1.5_amd64.deb  ...
+正在解压 xburn-gui (1.1.5) ...
+正在设置 xburn-gui (1.1.5) ...
+Udev rules installed and activated
+User nobody added to plugdev group
+User hobot added to plugdev group
+User snapd-range-524288-root added to plugdev group
+User snap_daemon added to plugdev group
+User xpj added to plugdev group
+正在处理用于 mailcap (3.70+nmu1ubuntu1) 的触发器 ...
+正在处理用于 gnome-menus (3.36.0-1ubuntu3) 的触发器 ...
+正在处理用于 desktop-file-utils (0.26-1ubuntu3) 的触发器 ...
+正在处理用于 hicolor-icon-theme (0.17-2) 的触发器 ...
+```
+
+然后执行 `sudo xburn-gui` 命令或者在应用菜单中点击 `xburn-gui` 图标（会弹出输入密码的提示），输入密码即可打开烧录工具界面。
+
+#### MAC 系统下安装与启动 XBurn
+
+双击安装包 `xburn-gui_1.1.5_universal.dmg` 即可进行安装，具体安装步骤如下：
+
+1. 随即会出现一个弹窗，单击并按住 `xburn-gui` 图标拖到 `Applications` 图标中：
+
+![XBurn_mac_install_1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/XBurn_mac_install_1.png)
+
+2. `xburn-gui` 便装完成，此时可以双击 `xburn-gui` 的图标来打开该程序：
+
+3. 安装过程中若遇到提示缺少一些依赖，需要先安装相应的依赖。
+
+### 检查驱动
+
+首次使用，需要检查驱动是否安装正确。打开工具，切换到驱动界面，如果提示驱动未安装，则需点击“安装驱动”按钮，根据提示安装驱动。
+
+![image-bf4b-43f0-8ae0-25f3c6ddbd3c](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-bf4b-43f0-8ae0-25f3c6ddbd3c.png)
+
+该界面用于查看和管理驱动程序的状态。
+- 驱动名称：列出已安装的驱动程序名称（例如 USB Driver (ADB, Fastboot, DFU) 和 USB to Serial Driver (CH341)）。
+- 当前版本：显示驱动程序的当前版本。
+- 操作：提供安装和卸载驱动程序的按钮。
+- 扫描驱动：提供扫描驱动程序的按钮，用于检测和安装新的驱动程序。
+
+### 连接设备
+
+连接串口到PC，Micro-USB；
+
+连接烧录口到PC，USB Type C；
+
+连接电源线，USB Type C,使用支持5V/5A的电源适配器；
+
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
+
+![1d9a837c-c3a9-400d-a74b-23ee20f5ec44](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/1d9a837c-c3a9-400d-a74b-23ee20f5ec44.png)
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+![image_2025-10-31_201701_994](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image_2025-10-31_201701_994.png)
+
+</TabItem>
+</Tabs>
+
+### 烧录
+
+![6443f0bb-da94-4a52-8abb-480bcea2bdd9](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/6443f0bb-da94-4a52-8abb-480bcea2bdd9.png)
+
+1. 产品类型： 选择 `X5` 
+2. 连接类型： 选择 `Serial+USB`
+3. 下载模式： 选择 `xmodem_fastboot`
+4. 镜像文件目录：请选择要烧录的镜像文件所在的目录。
+5. 批量烧录数量：设置同时烧录的设备数量。根据电脑性能、硬件连接类型的带宽等因素，合理设置烧录设备数量。建议最多同时烧录 8 台设备。
+6. 波特率： `RDK X5` 选择`115200`，`RDK X5 Module` 选择 `921600`。
+
+点击开始升级，看到提示后插拔电源；
+
+如果插拔电源后，串口丢失，可以先不上电，看到提示后给板卡上电；
+
+![d785a399-9e2e-40c5-a0c8-222a515f35f0](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/d785a399-9e2e-40c5-a0c8-222a515f35f0.png)
+
+开始升级
+
+![267d637b-f67e-42a7-981f-2e45278bd877](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/267d637b-f67e-42a7-981f-2e45278bd877.png)
+
+升级结束
+
+![078e4c6a-fca1-467b-bc93-c5a7ca73f8b7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/078e4c6a-fca1-467b-bc93-c5a7ca73f8b7.png)
