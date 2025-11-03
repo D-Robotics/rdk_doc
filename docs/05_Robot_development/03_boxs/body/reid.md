@@ -25,12 +25,14 @@ Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
 
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
 | ---- | ---- | ------------ | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | X5 | 1x3x256x128 | 19.44 |
+| [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S100 | 1x3x256x128 | 407.66 |
 
 ## 准备工作
 
