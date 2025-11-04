@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs_s docs-version-current docs-doc-page docs-doc-id-Release_Note/v4_0_4" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">RDKS100_LNX_SDK_V4.0.4 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/rdk_s/Release_Note/v4_0_4"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs_s-current"><meta data-rh="true" property="og:title" content="RDKS100_LNX_SDK_V4.0.4 | RDK DOC"><meta data-rh="true" name="description" content="发布日期： 2025-10-24"><meta data-rh="true" property="og:description" content="发布日期： 2025-10-24"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Release_Note/v4_0_4"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Release_Note/v4_0_4" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/rdk_s/Release_Note/v4_0_4" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/rdk_s/Release_Note/v4_0_4" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"RDKS100_LNX_SDK_V4.0.4","item":"https://developer.d-robotics.cc/rdk_doc/rdk_s/Release_Note/v4_0_4"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.0fbd7d27.css">
+<script src="/rdk_doc/assets/js/runtime~main.e4a1b519.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.c5336654.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/rdk_doc/img/logo.png" alt="地瓜机器人社区 logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/rdk_doc/img/logo.png" alt="地瓜机器人社区 logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">D-Robotics</b></a><a class="navbar__item navbar__link" href="/rdk_doc/RDK">RDK X3 / X5</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rdk_doc/rdk_s/RDK">RDK S100</a><a href="https://developer.d-robotics.cc/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>CN</a><ul class="dropdown__menu"><li><a href="/rdk_doc/rdk_s/Release_Note/v4_0_4" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh-Hans">CN</a></li><li><a href="/rdk_doc/en/rdk_s/Release_Note/v4_0_4" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">EN</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rdk_doc/rdk_s/RDK">D-Robotics RDK 套件</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Quick_start">1. 快速开始</a><button aria-label="展开侧边栏分类 &#x27;1. 快速开始&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/System_configuration">2. 系统配置</a><button aria-label="展开侧边栏分类 &#x27;2. 系统配置&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Basic_Application">3. 基础应用开发</a><button aria-label="展开侧边栏分类 &#x27;3. 基础应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Basic_Development">4. 算法应用开发</a><button aria-label="展开侧边栏分类 &#x27;4. 算法应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Robot_development">5. 机器人应用开发</a><button aria-label="展开侧边栏分类 &#x27;5. 机器人应用开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Application_case">6. 应用开发指南</a><button aria-label="展开侧边栏分类 &#x27;6. 应用开发指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Advanced_development">7. 进阶开发</a><button aria-label="展开侧边栏分类 &#x27;7. 进阶开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/FAQ">8. 常见问题</a><button aria-label="展开侧边栏分类 &#x27;8. 常见问题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/rdk_doc/rdk_s/Appendix">9. 附录</a><button aria-label="展开侧边栏分类 &#x27;9. 附录&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rdk_doc/rdk_s/Release_Note/roadmap">10. 版本  发布</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/rdk_s/Release_Note/roadmap">版本规划</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rdk_doc/rdk_s/Release_Note/v4_0_4">RDKS100_LNX_SDK_V4.0.4</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/rdk_s/Release_Note/v4_0_3">RDKS100_LNX_SDK_V4.0.3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rdk_doc/rdk_s/Release_Note/v4_0_2">RDKS100_LNX_SDK_V4.0.2</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/rdk_doc/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">10. 版本发布</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">RDKS100_LNX_SDK_V4.0.4</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>RDKS100_LNX_SDK_V4.0.4</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="发布日期-2025-10-24"><strong>发布日期：</strong> 2025-10-24<a href="#发布日期-2025-10-24" class="hash-link" aria-label="发布日期-2025-10-24的直接链接" title="发布日期-2025-10-24的直接链接">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-主要信息">1. 主要信息<a href="#1-主要信息" class="hash-link" aria-label="1. 主要信息的直接链接" title="1. 主要信息的直接链接">​</a></h2>
+<p><strong>RDK S100 V4.0.4</strong> 发布内容包括：</p>
+<ul>
+<li><strong>Linux Kernel：</strong> 6.1.112-rt43</li>
+<li><strong>Bootloader：</strong> U-Boot 2022.04</li>
+<li><strong>Root File System：</strong> Based on Ubuntu 22.04 (Jammy)，基于 Multistrap 构建</li>
+<li><strong>支持的 Host 系统：</strong>
+<ul>
+<li>编译环境：Ubuntu 20.04 (x64)</li>
+<li>烧录环境：Ubuntu 18.04 / 20.04 / 22.04 (x64)</li>
+</ul>
+</li>
+<li><strong>交叉编译工具链：</strong> arm-gnu-toolchain-11.3.rel1 (aarch64)</li>
+<li><strong>其他组件：</strong> D-Robotics 驱动、必要固件、工具链及实用工具</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-新增内容">2. 新增内容<a href="#2-新增内容" class="hash-link" aria-label="2. 新增内容的直接链接" title="2. 新增内容的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="21-main-domain-外设">2.1 Main-Domain 外设<a href="#21-main-domain-外设" class="hash-link" aria-label="2.1 Main-Domain 外设的直接链接" title="2.1 Main-Domain 外设的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="211-camera">2.1.1 Camera<a href="#211-camera" class="hash-link" aria-label="2.1.1 Camera的直接链接" title="2.1.1 Camera的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="2111-gmsl-模组">2.1.1.1 GMSL 模组<a href="#2111-gmsl-模组" class="hash-link" aria-label="2.1.1.1 GMSL 模组的直接链接" title="2.1.1.1 GMSL 模组的直接链接">​</a></h5>
+<ul>
+<li>支持 OV2312 LC031 模组</li>
+<li>支持 ISX031 LC032 模组</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="2112-pym">2.1.1.2 PYM<a href="#2112-pym" class="hash-link" aria-label="2.1.1.2 PYM的直接链接" title="2.1.1.2 PYM的直接链接">​</a></h5>
+<ul>
+<li>支持根据设置的输出格式，自动选择最合适的输入尺寸</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="22-ethercat">2.2 EtherCAT<a href="#22-ethercat" class="hash-link" aria-label="2.2 EtherCAT的直接链接" title="2.2 EtherCAT的直接链接">​</a></h3>
+<ul>
+<li>支持 EtherCAT IgH 主站构建及 deb 安装</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="23-bpu">2.3 BPU<a href="#23-bpu" class="hash-link" aria-label="2.3 BPU的直接链接" title="2.3 BPU的直接链接">​</a></h3>
+<ul>
+<li>hbm-runtime 支持 pypi 源直接安装</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="24-sample">2.4 Sample<a href="#24-sample" class="hash-link" aria-label="2.4 Sample的直接链接" title="2.4 Sample的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="241-bpu">2.4.1 BPU<a href="#241-bpu" class="hash-link" aria-label="2.4.1 BPU的直接链接" title="2.4.1 BPU的直接链接">​</a></h4>
+<ul>
+<li>支持 C++ BPU 例程：<!-- -->
+<ul>
+<li>新增 RTSP 运行 YOLOV5X 的 C/C++ sample</li>
+<li>新增视频解码后 yolov5x 推理的 C/C++ Sample</li>
+<li>新增 mipi camera 读图后 yolov5x 推理的 C/C++ Sample</li>
+<li>新增 USB camera 读图后 yolov5x 推理的 C/C++ Sample</li>
+<li>新增 paddleOCR 模型推理的 C/C++ Sample</li>
+<li>新增 ASR 模型推理的 C/C++ Sample</li>
+<li>新增 LaneNet 模型推理的 C/C++ Sample</li>
+<li>新增 yoloe11 图像分割模型推理的 C/C++ Sample</li>
+<li>新增 yolo11 位姿检查模型推理的 C/C++ Sample</li>
+<li>新增 yolo11 图像分割模型推理的 C/C++ Sample</li>
+<li>新增 unet_mobilenet 模型推理的 C/C++ Sample</li>
+<li>新增 yolo11 目标检测模型推理的 C/C++ Sample</li>
+<li>新增 yolov5x 目标检测模型推理的 C/C++ Sample</li>
+<li>新增 Mobilenetv2 图像分类模型推理的 C/C++ Sample</li>
+<li>新增 resnet18 图像分类模型推理的 C/C++ Sample</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="242-can">2.4.2 CAN<a href="#242-can" class="hash-link" aria-label="2.4.2 CAN的直接链接" title="2.4.2 CAN的直接链接">​</a></h4>
+<ul>
+<li>CAN 透传 Sample 支持拓展帧</li>
+<li>优化 CAN 透传 Sample 时间戳，统一使用微秒为单位以满足性能统计需求</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="243-spdev">2.4.3 SPDEV<a href="#243-spdev" class="hash-link" aria-label="2.4.3 SPDEV的直接链接" title="2.4.3 SPDEV的直接链接">​</a></h5>
+<ul>
+<li>显示渲染框架优化：<!-- -->
+<ul>
+<li>优化显示渲染框架效率</li>
+<li>优化显示渲染框架退出后的资源释放逻辑</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="25-mcu-domain">2.5 MCU-Domain<a href="#25-mcu-domain" class="hash-link" aria-label="2.5 MCU-Domain的直接链接" title="2.5 MCU-Domain的直接链接">​</a></h3>
+<ul>
+<li>CAN<!-- -->
+<ul>
+<li>支持拓展帧透传</li>
+<li>优化时间戳，统一使用微秒为单位以满足性能统计需求</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-重点问题修复">3. 重点问题修复<a href="#3-重点问题修复" class="hash-link" aria-label="3. 重点问题修复的直接链接" title="3. 重点问题修复的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="31-root-file-system">3.1 Root File System<a href="#31-root-file-system" class="hash-link" aria-label="3.1 Root File System的直接链接" title="3.1 Root File System的直接链接">​</a></h3>
+<ul>
+<li>优化 Ubuntu 应用在 S100 平台的稳定性</li>
+<li>修复 hobot-configs 会覆盖 netplan 配置的问题</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="32-main-domain-外设">3.2 Main-Domain 外设<a href="#32-main-domain-外设" class="hash-link" aria-label="3.2 Main-Domain 外设的直接链接" title="3.2 Main-Domain 外设的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="321-camera">3.2.1 Camera<a href="#321-camera" class="hash-link" aria-label="3.2.1 Camera的直接链接" title="3.2.1 Camera的直接链接">​</a></h4>
+<ul>
+<li>修复由于内核开启 RTC 自动更新导致的 camera 同步帧时间戳跳变问题，关闭了内核自动同步 RTC 时间</li>
+<li>修复 OVX3C 模组出现重复触发时间戳问题</li>
+<li>解决 GDC buffer 释放后未置空导致的链表问题</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="322-wifibluetooth">3.2.2 WiFi/Bluetooth<a href="#322-wifibluetooth" class="hash-link" aria-label="3.2.2 WiFi/Bluetooth的直接链接" title="3.2.2 WiFi/Bluetooth的直接链接">​</a></h4>
+<ul>
+<li>优化 WiFi 及蓝牙驱动稳定性</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="33-mcu-domain">3.3 MCU-Domain<a href="#33-mcu-domain" class="hash-link" aria-label="3.3 MCU-Domain的直接链接" title="3.3 MCU-Domain的直接链接">​</a></h3>
+<ul>
+<li>修复若干稳定性问题</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-已知问题">4. 已知问题<a href="#4-已知问题" class="hash-link" aria-label="4. 已知问题的直接链接" title="4. 已知问题的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="41-软件已知问题">4.1 软件已知问题<a href="#41-软件已知问题" class="hash-link" aria-label="4.1 软件已知问题的直接链接" title="4.1 软件已知问题的直接链接">​</a></h3>
+<ul>
+<li>RDK Linux<!-- -->
+<ul>
+<li>RTC YSN8130E 软件暂未支持</li>
+<li>部分 Ubuntu 应用在 GPU 加速下因页大小不匹配崩溃</li>
+<li>CAN 透传多通道代码的时间戳单位与 Main-Domain 中间件时间戳单位不符，Main-Domain 中间件会有报错打印，但是不影响数据传输</li>
+<li>在不插入 HDMI 的情况下冷启动时，RDK S100 的桌面系统(GDM3)会默认回退为 X11 渲染，S100 目前不支持 X11 的 GPU 加速，回退后会使用 CPU 渲染，导致 CPU 占用升高。建议用户在设备启动前插入 HDMI，避免桌面渲染效率下降。</li>
+</ul>
+</li>
+<li>MCU SDK<!-- -->
+<ul>
+<li>目前 MCU 系统有部分稳定性问题</li>
+<li>MCU 子板的 BMI088 IMU 软件未支持</li>
+<li>目前不支持锁步解锁</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-升级方式">5. 升级方式<a href="#5-升级方式" class="hash-link" aria-label="5. 升级方式的直接链接" title="5. 升级方式的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="51-重新烧录">5.1 重新烧录<a href="#51-重新烧录" class="hash-link" aria-label="5.1 重新烧录的直接链接" title="5.1 重新烧录的直接链接">​</a></h3>
+<p>用户可以通过重新烧录完整镜像实现升级：</p>
+<ul>
+<li>下载镜像：<a href="https://archive.d-robotics.cc/downloads/os_images/rdk_s100/RDKS100-V4.0.4-Beta/RDK_LNX_SDK/firmwares/product.zip" target="_blank" rel="noopener noreferrer">RDK_LNX_SDK V4.0.4-Beta</a></li>
+<li>参考<a href="/rdk_doc/rdk_s/01_Quick_start/02_install_os/rdk_s100">1.2 系统烧录</a>章节完成烧录</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="52-直接升级">5.2 直接升级<a href="#52-直接升级" class="hash-link" aria-label="5.2 直接升级的直接链接" title="5.2 直接升级的直接链接">​</a></h3>
+<p>为了保留现有根文件系统修改，可以使用如下方式进行升级</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class="admonitionContent_BuS1"><p>本次升级需要通过工具单独升级 miniboot</p></div></div>
+<ul>
+<li>
+<p>下载新版本烧录工具：<a href="https://archive.d-robotics.cc/downloads/software_tools/download_tools/" target="_blank" rel="noopener noreferrer">D-Navigation V2.4.1</a></p>
+</li>
+<li>
+<p>下载最新镜像：<a href="https://archive.d-robotics.cc/downloads/os_images/rdk_s100/RDKS100-V4.0.4-Beta/RDK_LNX_SDK/firmwares/product.zip" target="_blank" rel="noopener noreferrer">RDK_LNX_SDK V4.0.4-Beta</a></p>
+</li>
+<li>
+<p>参考<a href="/rdk_doc/rdk_s/01_Quick_start/02_install_os/rdk_s100">1.2 系统烧录</a>章节 uboot/usb 烧录章节进行基础配置</p>
+</li>
+<li>
+<p>在上述配置中更改部分选项：</p>
+<ul>
+<li>升级配置：分区选择<!-- -->
+<ul>
+<li>仅勾选：miniboot_flash，miniboot_emmc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>更新完成后重启设备</p>
+</li>
+<li>
+<p>执行命令获取更新内容：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sudo apt upgrade</span><br></span></code></pre></div></div>
+</li>
+<li>
+<p>再次重启设备，完成系统更新</p>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2025-11-04T12:41:05.000Z" itemprop="dateModified">2025年11月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/rdk_s/Release_Note/roadmap"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">版本规划</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/rdk_doc/rdk_s/Release_Note/v4_0_3"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">RDKS100_LNX_SDK_V4.0.3</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#发布日期-2025-10-24" class="table-of-contents__link toc-highlight"><strong>发布日期：</strong> 2025-10-24</a></li><li><a href="#1-主要信息" class="table-of-contents__link toc-highlight">1. 主要信息</a></li><li><a href="#2-新增内容" class="table-of-contents__link toc-highlight">2. 新增内容</a><ul><li><a href="#21-main-domain-外设" class="table-of-contents__link toc-highlight">2.1 Main-Domain 外设</a><ul><li><a href="#211-camera" class="table-of-contents__link toc-highlight">2.1.1 Camera</a><ul><li><a href="#2111-gmsl-模组" class="table-of-contents__link toc-highlight">2.1.1.1 GMSL 模组</a></li><li><a href="#2112-pym" class="table-of-contents__link toc-highlight">2.1.1.2 PYM</a></li></ul></li></ul></li><li><a href="#22-ethercat" class="table-of-contents__link toc-highlight">2.2 EtherCAT</a></li><li><a href="#23-bpu" class="table-of-contents__link toc-highlight">2.3 BPU</a></li><li><a href="#24-sample" class="table-of-contents__link toc-highlight">2.4 Sample</a><ul><li><a href="#241-bpu" class="table-of-contents__link toc-highlight">2.4.1 BPU</a></li><li><a href="#242-can" class="table-of-contents__link toc-highlight">2.4.2 CAN</a><ul><li><a href="#243-spdev" class="table-of-contents__link toc-highlight">2.4.3 SPDEV</a></li></ul></li></ul></li><li><a href="#25-mcu-domain" class="table-of-contents__link toc-highlight">2.5 MCU-Domain</a></li></ul></li><li><a href="#3-重点问题修复" class="table-of-contents__link toc-highlight">3. 重点问题修复</a><ul><li><a href="#31-root-file-system" class="table-of-contents__link toc-highlight">3.1 Root File System</a></li><li><a href="#32-main-domain-外设" class="table-of-contents__link toc-highlight">3.2 Main-Domain 外设</a><ul><li><a href="#321-camera" class="table-of-contents__link toc-highlight">3.2.1 Camera</a></li><li><a href="#322-wifibluetooth" class="table-of-contents__link toc-highlight">3.2.2 WiFi/Bluetooth</a></li></ul></li><li><a href="#33-mcu-domain" class="table-of-contents__link toc-highlight">3.3 MCU-Domain</a></li></ul></li><li><a href="#4-已知问题" class="table-of-contents__link toc-highlight">4. 已知问题</a><ul><li><a href="#41-软件已知问题" class="table-of-contents__link toc-highlight">4.1 软件已知问题</a></li></ul></li><li><a href="#5-升级方式" class="table-of-contents__link toc-highlight">5. 升级方式</a><ul><li><a href="#51-重新烧录" class="table-of-contents__link toc-highlight">5.1 重新烧录</a></li><li><a href="#52-直接升级" class="table-of-contents__link toc-highlight">5.2 直接升级</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 D-Robotics.</div></div></div></footer></div>
+</body>
+</html>
