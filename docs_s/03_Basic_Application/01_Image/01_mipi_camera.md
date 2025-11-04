@@ -9,6 +9,7 @@ sidebar_position: 1
 ## 环境准备
 
   - 将MIPI摄像头模组连接到开发板MIPI CSI接口，具体连接方法可以参考-[硬件简介-MIPI接口](../../Quick_start/hardware_introduction/rdk_s100_camera_expansion_board)
+  - 目前该sample仅支持MIPI sensor: IMX219, SC230AI
   - 通过HDMI线缆连接开发板和显示器
 
 ## 运行方式

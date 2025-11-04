@@ -8,7 +8,7 @@ sidebar_position: 6
 
 | 名称                                                                                   | 最新版本    | 上传日期   | 说明文档                                                             |
 | -------------------------------------------------------------------------------------- | ----------- | ---------- | -------------------------------------------------------------------- |
-| [系统镜像](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)                | V4.0.3-beta | 2025-09-01 | 系统镜像。                                                           |
+| [系统镜像](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)                | V4.0.4-beta | 2025-10-24 | 系统镜像。                                                           |
 | [D-Navigation](https://archive.d-robotics.cc/downloads/software_tools/download_tools/) | V2.4.1      | 2025-09-01 | 系统镜像烧录工具，包含 windows-x64、linux-x64 和 darwin-arm64 版本。 |
 
 ## 硬件资料

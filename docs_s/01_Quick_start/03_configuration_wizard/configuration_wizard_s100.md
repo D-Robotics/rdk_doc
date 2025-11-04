@@ -168,25 +168,35 @@ dpkg -i nomachine_*_arm64.deb
 
 **配置启动**
 
-配置服务器以允许远程连接
+1. 配置服务器以允许远程连接
 
-```shell
-sudo systemctl start nxserver
-```
+    ```shell
+    sudo systemctl start nxserver
+    ```
 
-设置`NoMachine`为开机启动：
+2. 设置`NoMachine`为开机启动：
 
-```shell
-sudo systemctl enable nxserver
-```
+    ```shell
+    sudo systemctl enable nxserver
+    ```
 
-重启`NoMachine`服务:
+3. 设置`EGL Capture` 为`yes`，这是`NoMachine`提供的一个屏幕捕获功能，主要用于改善在特定显示服务器环境下的远程桌面体验：
 
-```shell
-sudo systemctl restart nxserver
-```
+    ```shell
+    sudo /etc/NX/nxserver --eglcapture yes
+    ```
+    该命令重启后生效，可使用以下命令二次确认，当出现`EGL Capture has been enabled`则表示该功能已写入配置文件。
+    ```shell
+    if [ -f "/usr/lib/systemd/user/org.gnome.Shell@wayland.service" ] && grep -q "nxpreload.sh" "/usr/lib/systemd/user/org.gnome.Shell@wayland.service" && [ -f "/usr/share/applications/org.gnome.Shell.desktop" ] && grep -q "nxpreload.sh" "/usr/share/applications/org.gnome.Shell.desktop" && [ -f "/usr/NX/etc/node.cfg" ] && grep -q "EnableEGLCapture 1" "/usr/NX/etc/node.cfg"; then echo "EGL Capture has been enabled"; else echo "Not enabled"; fi
+    ```
 
-**重启**
+4. 重启`NoMachine`服务:
+
+    ```shell
+    sudo systemctl restart nxserver
+    ```
+
+**重启S100**
 
 由于`NXServer`的配置问题，完成上述操作后直接连接会黑屏，需要重启后使用。
 
