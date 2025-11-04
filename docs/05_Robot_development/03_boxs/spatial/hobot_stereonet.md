@@ -55,12 +55,12 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ### 系统和功能包版本
 
-|                                       | 版本             | 查询方法                                        |
-| ------------------------------------- | ---------------- | ----------------------------------------------- |
-| RDK X5系统镜像版本                    | 3.3.1及以上      | `cat /etc/version`                              |
+|                                       | 版本            | 查询方法                                        |
+| ------------------------------------- |---------------| ----------------------------------------------- |
+| RDK X5系统镜像版本                    | 3.3.3及以上      | `cat /etc/version`                              |
 | RDK S100系统镜像版本                  | 4.0.2-Beta及以上 | `cat /etc/version`                              |
 | tros-humble-hobot-stereonet功能包版本 | 2.4.4及以上      | `apt list \| grep tros-humble-hobot-stereonet/` |
-| tros-humble-mipi-cam功能包版本        | 2.3.11及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
+| tros-humble-mipi-cam功能包版本        | 2.3.13及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
 | tros-humble-hobot-zed-cam功能包版本   | 2.3.3及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
 
 - 如果系统版本不符合要求，请参考文档对应章节进行镜像烧录
@@ -85,7 +85,7 @@ sudo apt upgrade
 
 双目深度算法支持多款相机，启动命令有一些区别，具体启动命令如下：
 
-### (1) 搭配RDK官方230AI MIPI双目相机启动
+### (1) 搭配RDK官方SC230AI MIPI双目相机启动
 
 - RDK官方MIPI双目相机如图所示：
 
@@ -271,7 +271,190 @@ save_image_all:=True save_freq:=4 save_dir:=./online_result save_total:=10
 
 ![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
-### (2) 本地图片离线回灌
+### (2) 搭配RDK官方SC132GS MIPI双目相机启动
+
+- RDK官方MIPI双目相机如图所示：
+
+![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
+
+- 安装方式如图所示，接线请勿接反，会导致左右图对调，双目算法运行错误：
+
+![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
+
+- 确认相机连接是否正常，通过ssh连接RDK，执行以下命令，如果输出0x32、0x33、0x50等地址，则代表相机连接正常：
+
+```bash
+# RDK X5
+i2cdetect -r -y 4
+i2cdetect -r -y 6
+
+# RDK S100
+i2cdetect -r -y 1
+i2cdetect -r -y 2
+```
+
+![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+
+- 通过不同的launch文件，启动相应版本的双目算法，通过ssh连接RDK X5，执行以下命令：
+
+<Tabs groupId="stereo-version">
+<TabItem value="V2.0" label="V2.0">
+
+```bash
+# 只支持RDK X5
+
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.0.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+```
+
+</TabItem>
+<TabItem value="V2.1" label="V2.1">
+
+```bash
+# 支持RDK X5和RDK X100
+
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.1.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+uncertainty_th:=0.1
+```
+
+</TabItem>
+<TabItem value="V2.2" label="V2.2">
+
+```bash
+# 只支持RDK X5
+
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.2.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+```
+
+</TabItem>
+<TabItem value="V2.3" label="V2.3">
+
+```bash
+# 只支持RDK X5
+
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.3.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+```
+
+</TabItem>
+<TabItem value="V2.4" label="V2.4">
+
+```bash
+# RDK X5运行如下指令：
+
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# int16版本，启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.4_int16.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+
+# int8版本，启动双目模型launch文件，其包含了算法和双目相机节点的启动
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.4_int8.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+
+# RDK S100运行如下指令：
+
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 启动双目模型launch文件，其包含了算法和双目相机节点的启动
+
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.4.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+uncertainty_th:=0.1
+```
+
+</TabItem>
+</Tabs>
+
+参数含义如下：
+
+| 名称                 | 参数值      | 说明                                                                       |
+| -------------------- | ----------- | -------------------------------------------------------------------------- |
+| mipi_image_width     | 设置为640   | MIPI相机的输出分辨率是640*352                                              |
+| mipi_image_height    | 设置为352   | MIPI相机的输出分辨率是640*352                                              |
+| mipi_lpwm_enable     | 设置为True  | MIPI相机开启硬件同步                                                       |
+| mipi_image_framerate | 设置为30.0  | MIPI相机输出帧率为30.0FPS                                                  |
+| need_rectify         | 设置为False | 因为官方相机出厂自带标定参数，会自动矫正，不需要加载自定义标定文件进行矫正 |
+| height_min           | 设置为-10.0 | 点云最小高度为-10.0m                                                       |
+| height_max           | 设置为10.0  | 点云最大高度为10.0m                                                        |
+| pc_max_depth         | 设置为5.0   | 点云最大距离为5.0m                                                         |
+| uncertainty_th       | 设置为0.1   | 置信度设置，用于过滤噪声点，建议设置为0.1，置信度越小过滤越严格            |
+
+- 出现如下日志表示双目算法启动成功，`fx/fy/cx/cy/base_line`是相机内参，如果深度图正常，但估计出来的距离有偏差，可能是相机内参存在问题：
+
+![stereonet_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
+
+- 通过网页端查看深度图，在浏览器输入 http://ip:8000 (图中RDK ip是192.168.1.100)：
+
+![web_depth_visual](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
+
+- 通过rviz2查看点云，RDK可直接安装rviz2查看，注意rviz2中需要做如下配置：
+
+```bash
+# 安装rviz2
+sudo apt install ros-humble-rviz2
+# 启动rviz2
+source /opt/tros/humble/setup.bash
+rviz2
+```
+
+![stereonet_rviz](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
+
+- 如果用户想保存深度估计结果，可以添加如下参数实现，`save_image_all`打开保存开关，`save_freq`控制保存频率，`save_dir`控制保存的目录（如果目录不存在会自动创建），`save_total`控制保存的总数。程序运行将会保存**相机内参、左右图、视差图、深度图、可视化图**：
+
+```bash
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+# 这里以V2.0版本的算法为例，其它版本的算法类似加入对应参数即可
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.0.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0  mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+save_image_all:=True save_freq:=4 save_dir:=./online_result save_total:=10
+```
+
+参数含义如下：
+
+| 名称           | 参数值               | 说明                                       |
+| -------------- | -------------------- | ------------------------------------------ |
+| save_image_all | 设置为True           | 保存图像开关                               |
+| save_freq      | 设置为4              | 每隔4帧保存一次，可修改为任意正数          |
+| save_dir       | 设置为保存图像的目录 | 可根据需要设置保存位置                     |
+| save_total     | 设置为10             | 总共保存10张图像，设置为-1则代表为一直保存 |
+
+![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
+
+![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
+
+
+### (3) 本地图片离线回灌
 
 - 如果想利用本地图片评估算法效果，可以使用下列命令指定算法运行模式、图像数据地址以及相机内参，同时要保证图像数据经过**去畸变、极线对齐**。图片的格式如下图所示，第一张左目图像的命名为left000000.png，第二张左目图像的命名为left000001.png，以此类推。对应的第一张右目图像的命名为right000000.png，第二张右目图像的命名为right000001.png，以此类推。算法按序号遍历图像，直至图像全部计算完毕：
 
@@ -313,7 +496,7 @@ save_image_all:=True save_dir:=./offline_result
 
 - 算法运行成功后，同样可以通过网页端和rviz2显示结果数据，参考上文对应的设置
 
-### (3) 搭配ZED双目摄像头启动
+### (4) 搭配ZED双目摄像头启动
 
 - ZED双目摄像头如图所示：
 

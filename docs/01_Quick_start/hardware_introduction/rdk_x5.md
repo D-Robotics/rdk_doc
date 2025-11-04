@@ -144,6 +144,10 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 
 串口连接时，需要将通过 Micro-USB 线，连接开发板接口 4 与 PC。
 
+在内核启动阶段，波特率的配置位于 `/boot/boot.cmd` 文件中；
+
+修正串口配置后，需要重新生成 boot.scr 文件，命令如下：`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
+
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
@@ -156,6 +160,10 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 - 流控（Flow Control）：无
 
 串口连接时，需要将通过 Micro-USB 线，连接开发板接口22 与 PC。
+
+在内核启动阶段，波特率的配置位于 `/boot/boot.cmd` 文件中；
+
+修正串口配置后，需要重新生成 boot.scr 文件，命令如下：`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
 
 </TabItem>
 </Tabs>
@@ -220,7 +228,7 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 
 ### 接入 USB 串口转接板
 
-开发板USB Type A接口，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/03_40pin_user_guide/uart.md#40pin_uart_usage) 章节对串口进行使用。
+开发板USB Type A接口，支持USB串口转接板功能，可自动检测USB串口转接板接入并创建设备节点`/dev/ttyUSB*` 或者 `/dev/ttyACM*`（星号代表0开始的数字）。用户可参考 [使用串口](../../03_Basic_Application/01_40pin_user_sample/uart.md) 章节对串口进行使用。
 
 ### USB 摄像头
 
