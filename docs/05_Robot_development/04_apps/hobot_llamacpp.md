@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
-| RDK S100 | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
 
 ## 准备工作
 
