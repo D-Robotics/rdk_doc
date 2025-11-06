@@ -106,6 +106,8 @@ The desktop graphical system supports four login modes:
 3. Character terminal, automatically log in.
 4. Character Terminal, User Manual Login
 
+The X5 series boards currently do not support Character terminal.
+
 Open `RDK Configuration` through the menu bar. Select System Options -> Boot / Auto Login to enter the following configuration options. Select the corresponding options according to your needs.
 
 ![image-20231127112703844](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127112703844.png)
