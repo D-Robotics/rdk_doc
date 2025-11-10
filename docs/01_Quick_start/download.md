@@ -241,10 +241,15 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td>摄像头模组技术规格和接口详细说明</td>
     </tr>
     <tr>
-      <td>👁️ **双目摄像头模组**</td>
+      <td rowspan="2">👁️ **双目摄像头模组**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK 双目摄像头模组</a></td>
       <td>-</td>
       <td>用于立体视觉应用的双摄像头模组</td>
+    </tr>
+    <tr>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_stereo_camera_gs130w_zh_v1_0.pdf">RDK 双目摄像头 GS130W</a></td>
+      <td> - </td>
+      <td>用于机器人视觉、机器视觉检测和实时运动监测等场景</td>
     </tr>
     <tr>
       <td>🔌 **摄像头转接板**</td>

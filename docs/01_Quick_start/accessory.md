@@ -115,6 +115,13 @@ sidebar_position: 8
 | USB | 亚博 | USB摄像头 | 免驱USB麦克风摄像头，720p | 1280x720@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=633040443710&rn=ed9c7f0eecc103e742248e32a32ba62e&spm=a1z10.5-b-s.w4011-22651484606.152.c3406a83G6l62o)  |
 | USB | 轮趣 | USB摄像头 | 免驱USB摄像头，金属外壳，1080p | 1920x1080@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=12&id=666156389569&ns=1&spm=a230r.1.14.1.13e570f3eFF1sJ&skuId=4972914294771)  |
 
+### 双目摄像头
+
+| 类型 | 供应商 | 型号 | 描述 | 支持分辨率 | 购买链接 |
+| --- | --------- | -------- | --------------- | --------- | --------- |
+| MIPI | 地瓜机器人 | RDK Stereo Camera GS130W | SC132GS全局快门传感器，130W像素，FOV 对角178度，双目间距80mm | 1280×1080@120fps |  [购买链接](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197)  |
+
+
 ### 显示屏
 
 理论上所有支持 HDMI 接口的屏幕都可以使用，以下是已实际测试过的几款小分辨率屏幕型号：
