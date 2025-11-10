@@ -5,7 +5,7 @@ sidebar_position: 9
 # 3.3.9 mipi camera 示例介绍
 
 ## 示例简介
-MIPI 摄像头示例是一个位于 `/app/pydev_demo/` 中的 **Python 接口** 开发代码示例，用于演示如何使用板载 MIPI 摄像头进行实时目标检测。该示例使用 FCOS 目标检测模型对 MIPI 摄像头采集的视频流进行实时推理，并将检测结果通过 HDMI 显示，同时输出检测框信息和 FPS 性能数据。
+MIPI 摄像头示例是一个位于 `/app/pydev_demo/03_mipi_camera_sample` 中的 **Python 接口** 开发代码示例，用于演示如何使用板载 MIPI 摄像头进行实时目标检测。该示例使用 FCOS 目标检测模型对 MIPI 摄像头采集的视频流进行实时推理，并将检测结果通过 HDMI 显示，同时输出检测框信息和 FPS 性能数据。
 
 ## 效果展示
 
@@ -24,7 +24,7 @@ MIPI 摄像头示例是一个位于 `/app/pydev_demo/` 中的 **Python 接口** 
 ## 快速开始
 
 ### 代码以及板端位置
-MIPI 摄像头示例文件位于 `/app/pydev_demo/mipi_camera.py`：
+MIPI 摄像头示例文件位于 `/app/pydev_demo/03_mipi_camera_sample/mipi_camera.py`：
 
 ### 编译以及运行
 Python 示例无需编译，直接运行即可：
