@@ -57,12 +57,12 @@ python3 mipi_camera_web.py
 
 ### 执行效果
 
-运行后，程序会启动 Web 服务，可以通过浏览器访问开发板的 IP 地址查看实时视频流和目标检测结果：
+运行后，程序会启动 Web 服务，可以通过浏览器访问开发板的 IP 地址查看实时视频流和目标检测结果。
 
-```
-```
+在浏览器中访问 http:// 开发板 IP ，默认的是 http://192.168.127.10。
+![pydev_05_wb_disp_web_img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_pydev_demo_sample/image/pydev_05_wb_disp_web_img.png)
 
-在浏览器中访问 http:// 开发板 IP 即可看到实时视频流和目标检测结果。默认的是 http://192.168.127.10
+点击浏览器中显示的 `web Display` ，即可看到实时视频流和目标检测结果，效果可以查看文章开头的 [效果展示小节](#效果展示)
 
 ## 详细介绍
 
