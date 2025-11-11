@@ -114,6 +114,13 @@ This section summarizes the third-party accessory list officially certified by D
 | USB | YAHBOOM | USB Camera | Driver-free USB microphone camera, 720p | 1280x720@30fps | [Purchase Link](https://detail.tmall.com/item.htm?abbucket=2&id=633040443710&rn=ed9c7f0eecc103e742248e32a32ba62e&spm=a1z10.5-b-s.w4011-22651484606.152.c3406a83G6l62o)  |
 | USB | Weiqu | USB Camera | Driver-free USB camera, metal case, 1080p | 1920x1080@30fps | [Purchase Link](https://detail.tmall.com/item.htm?abbucket=12&id=666156389569&ns=1&spm=a230r.1.14.1.13e570f3eFF1sJ&skuId=4972914294771)  |
 
+### Stereo Cameras
+
+| Type | Supplier | Model | Description | Supported Resolutions | Purchase Link |
+| --- | --------- | -------- | --------------- | --------- | --------- |
+| MIPI | D-Robotics | RDK Stereo Camera GS130W | SC132GS Global Shutter Sensor, 1.3MP, FOV diagonal 178° ,Interpupillary distance 80mm| 1280×1080@120fps |[Purchase Link](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197) |
+
+
 ### Displays
 
 | Type | Supplier | Model | Description | Resolution | Purchase Link |
