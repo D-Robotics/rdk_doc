@@ -3,7 +3,26 @@ sidebar_position: 3
 ---
 # 3.3.3 Use PWM
 
-The Hobot.GPIO library only supports PWM on pins with additional hardware PWM controllers. Unlike the RPi.GPIO library, the Hobot.GPIO library does not implement software simulated PWM. The RDK X3 and RDK Ultra both support 2 PWM channels.
+The Hobot.GPIO library only supports PWM on pins with additional hardware PWM controllers. Unlike the RPi.GPIO library, the Hobot.GPIO library does not implement software simulated PWM. 
+
+The RDK X3 RDK Ultra both support 2 PWM channels.
+
+RDK X5 supports four PWM groups, with two output channels per group, providing a total of eight PWM outputs, as shown in the table below:
+
+| PMW Group | PWM Channel | 40PIN Pin |
+| --- | ---- | ---- |
+| PWM0 | LSIO_PWM_OUT0 | 29 |
+| PWM0 | LSIO_PWM_OUT1 | 31 |
+| PWM1 | LSIO_PWM_OUT2 | 37 |
+| PWM1 | LSIO_PWM_OUT3 | 24 |
+| PWM2 | LSIO_PWM_OUT4 | 28 |
+| PWM2 | LSIO_PWM_OUT5 | 27 |
+| PWM3 | LSIO_PWM_OUT6 | 32 |
+| PWM3 | LSIO_PWM_OUT7 | 33 |
+
+By default, PWM3 is enabled on the RDK X5. Additional PWM groups can be enabled via the `srpi-config` system configuration tool, which will remap the corresponding pins for PWM output. The configuration takes effect after reboot.
+
+Select `3 Interface Options` → `I3 Peripheral Bus Config`, then choose the corresponding PWM group and set it to okay.
 
 Refer to `/app/40pin_samples/simple_pwm.py` for detailed information on how to use PWM channels.
 
