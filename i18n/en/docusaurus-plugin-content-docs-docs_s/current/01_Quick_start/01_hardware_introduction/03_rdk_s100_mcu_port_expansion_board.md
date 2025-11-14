@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ![image-rdk_100_mcu_port_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mcu_port_expansion_board.png)
 
-The RDK S100 MCU Port Expansion Board (including the accompanying FPC) is a core expansion module of the Digua Robotics RDK S100 series developer kit, primarily designed to extend MCU interface capabilities, supporting Ethernet, CAN_FD, ADC, and more.
+The RDK S100 MCU Port Expansion Board (including the accompanying FPC) is a core expansion module of the D-Robotics RDK S100 series developer kit, primarily designed to extend MCU interface capabilities, supporting Ethernet, CAN_FD, ADC, and more.
 
 :::warning
 

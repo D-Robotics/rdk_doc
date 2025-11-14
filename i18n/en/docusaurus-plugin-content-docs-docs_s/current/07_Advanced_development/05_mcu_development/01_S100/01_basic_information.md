@@ -212,7 +212,9 @@ The information shown in the images may vary with version updates. The examples 
 
 5. MCU serial log retrieval:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log.png)6. Obtain MCU CPU loads, as shown below:
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log.png)  
+
+6. Obtain MCU CPU loads, as shown below:
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/cpuload.jpg)
 

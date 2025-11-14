@@ -198,7 +198,9 @@ This function allows you to periodically check whether an event has occurred sin
 GPIO.add_event_detect(channel, GPIO.RISING)
 if GPIO.event_detected(channel):
     print("Rising edge event detected")
-```You can detect events of `GPIO.RISING`, `GPIO.FALLING`, or `GPIO.BOTH`.
+```
+
+You can detect events of `GPIO.RISING`, `GPIO.FALLING`, or `GPIO.BOTH`.
 
 ### Run a callback function when an edge event is detected
 

@@ -11,7 +11,7 @@ This example is based on the Ultralytics YOLO11 model and performs object detect
 
     Ultralytics YOLO11 is a lightweight anchor-based object detection model that integrates both anchor-free and anchor-based concepts, offering fast inference and precise localization. During the regression phase, this model employs discrete regression bins combined with softmax classification and a decoding mechanism to enhance localization accuracy. Ultralytics YOLO11 is suitable for deploying small models in real-time scenarios, such as security surveillance and industrial inspection.
 
-- **HBM Model Name**: `yolo11n_detect_nashe_640x640_nv12.hbm`
+- **HBM Model Name**: yolo11n_detect_nashe_640x640_nv12.hbm
 
 - **Input Format**: NV12 format, sized 640x640 (separated Y and UV planes)
 

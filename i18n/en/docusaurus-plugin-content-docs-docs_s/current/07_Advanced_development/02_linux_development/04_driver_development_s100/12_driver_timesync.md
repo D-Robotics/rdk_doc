@@ -594,7 +594,8 @@ The time synchronization workflow illustrated above can be summarized as follows
 
 Feature Notes:
 
-- The RTC supports hardware timestamping for CIM and CAN modules shown in the diagram.- The Acore NIC can generate PPS to trigger LPWM for exposure synchronization.
+- The RTC supports hardware timestamping for CIM and CAN modules shown in the diagram.
+-  The Acore NIC can generate PPS to trigger LPWM for exposure synchronization.
 
 #### Code Location and Directory Structure
 
@@ -637,7 +638,7 @@ On the board, navigate to the `/app/timesync_demo/sample_timesync` directory and
 
 #### Compilation Environment
 
-The MCU-side sample uses the build tools from the MCU codebase. Please refer to: [MCU Compilation](../../05_mcu_development/01_S100/01_basic_information.md#Development Environment).
+The MCU-side sample uses the build tools from the MCU codebase. Please refer to: [MCU编译](../../05_mcu_development/01_S100/01_basic_information.md).
 
 Build the FreeRTOS image version. Note:
 

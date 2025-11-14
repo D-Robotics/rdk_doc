@@ -190,7 +190,9 @@ TX | 01 02 03 04 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
 RX | 01 02 03 04 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __  |....|
 ```
 
-### SPI External Loopback TestSPI external loopback test refers to connecting an SPI Master to an SPI Slave.
+### SPI External Loopback Test
+
+SPI external loopback test refers to connecting an SPI Master to an SPI Slave.
 
 The Master can be selected as SPI1, and the SPI Slave should be an external SPI device (chosen by the customer).
 

@@ -197,7 +197,6 @@ SECTIONS {
           __interrupts_end__ = .;
           . = ALIGN(4);
      } > FLASH
-``````c
      __VECTOR_RAM = __VECTOR_TABLE;
      __RAM_VECTOR_TABLE_SIZE = 0x0;
      __VECTOR_TABLE_COPY_END = __VECTOR_TABLE + __RAM_VECTOR_TABLE_SIZE;

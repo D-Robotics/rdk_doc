@@ -5,8 +5,7 @@ sidebar_position: 15
 # Video Decoding and YOLOv5x Inference
 
 This example demonstrates an end-to-end pipeline on platforms such as the RDK S100, combining SP decoding/display/VIO with BPU to achieve:
-Local H.264 file → Hardware decoding (NV12) → YOLOv5x inference → Overlay bounding boxes onto the display layer.  
-The example code is located in the `/app/cdev_demo/bpu/11_decode_yolov5x_display_sample` directory.
+Local H.264 file → Hardware decoding (NV12) → YOLOv5x inference → Overlay bounding boxes onto the display layer.The example code is located in the `/app/cdev_demo/bpu/11_decode_yolov5x_display_sample` directory.
 
 ## Functionality Overview
 

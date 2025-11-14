@@ -11,7 +11,7 @@ This example demonstrates how to run the YOLOv11 instance segmentation model on 
 
     Ultralytics YOLO11 is a lightweight object detection and instance segmentation model based on the YOLO series, integrating both anchor-free and anchor-based design concepts along with distributional regression strategies. This variant is tailored for instance segmentation and simultaneously outputs bounding boxes, class probabilities, and high-quality pixel-level masks, making it suitable for real-time multi-object detection and segmentation tasks.
 
-- **HBM Model Name**: `yolo11n_seg_nashe_640x640_nv12.hbm`
+- **HBM Model Name**: yolo11n_seg_nashe_640x640_nv12.hbm
 
 - **Input Format**: NV12 format image (separate Y/UV planes), resolution 640x640
 

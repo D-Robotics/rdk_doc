@@ -12,7 +12,7 @@ This example runs the LaneNet model on the BPU to perform instance segmentation 
 
     LaneNet is a semantic segmentation model designed for real-time lane detection. It employs normalization and standardization during image preprocessing, making it suitable for road scene analysis in autonomous driving and ADAS systems. This example uses the quantized model `lanenet256x512.hbm`, which supports BPU inference acceleration.
 
-- HBM Model Name: `lanenet256x512.hbm`
+- HBM Model Name: lanenet256x512.hbm
 
 - Input Format: RGB, sized 256x512, normalized to [0,1] and then standardized
 

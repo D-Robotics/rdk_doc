@@ -12,7 +12,7 @@ This example demonstrates how to perform image object detection on the BPU using
 
     Ultralytics YOLOv5x is a high-performance object detection model. The name "YOLO" stands for "You Only Look Once," enabling simultaneous object localization and classification in a single forward pass. Among the YOLOv5 variants, YOLOv5x is the largest, featuring more network parameters and delivering high detection accuracy, making it suitable for scenarios demanding high precision. The Ultralytics YOLOv5x model divides the input image into multiple grids, with each grid predicting multiple anchors' class probabilities and bounding boxes. This model has been quantized into the HBM format compatible with the BPU chip and accepts NV12 input images of size 672×672.
 
-- HBM Model Name: `yolov5x_672x672_nv12.hbm`
+- HBM Model Name: yolov5x_672x672_nv12.hbm
 
 - Input Format: NV12, size 672x672 (separate Y and UV planes)
 

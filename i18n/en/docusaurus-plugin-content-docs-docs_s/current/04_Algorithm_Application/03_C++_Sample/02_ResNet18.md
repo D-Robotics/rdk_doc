@@ -11,7 +11,7 @@ This example demonstrates how to deploy the `ResNet18` model using `C/C++` for i
 
   ResNet (Residual Network) is a deep convolutional neural network architecture proposed by Microsoft Research. Its core idea is the introduction of "residual connections," which alleviate the vanishing gradient problem in deep networks through shortcut connections across layers, enabling effective training of networks with dozens or even hundreds of layers. The ResNet18 used in this example is a lightweight variant with an 18-layer structure, widely applied in tasks such as image classification and feature extraction.
 
-- **HBM Model Name**: `resnet18_224x224_nv12.hbm`
+- **HBM Model Name**: resnet18_224x224_nv12.hbm
 
 - **Input Format**: NV12, size 224x224
 

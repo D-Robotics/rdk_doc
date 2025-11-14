@@ -11,7 +11,7 @@ This example demonstrates how to perform image classification using a BPU-deploy
 
     MobileNetV2 is a lightweight convolutional neural network introduced by Google in 2018, designed for efficient image recognition on mobile devices. It incorporates the Inverted Residual and Linear Bottleneck structures to reduce computational cost while improving performance. MobileNetV2 is highly suitable for deployment on edge devices and in resource-constrained scenarios for tasks such as image classification and detection. The MobileNetV2 model used in this example accepts 224×224 input and is a BPU quantized model supporting the NV12 format.
 
-- **HBM Model Name**: `mobilenetv2_224x224_nv12.hbm`
+- **HBM Model Name**: mobilenetv2_224x224_nv12.hbm
 
 - **Input Format**: NV12, size 224x224 (separated Y and UV planes)
 

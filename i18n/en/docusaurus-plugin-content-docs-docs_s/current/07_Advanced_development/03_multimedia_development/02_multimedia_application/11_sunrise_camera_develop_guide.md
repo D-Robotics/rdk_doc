@@ -193,7 +193,9 @@ None
         └── utils_log.c
 ```
 
-### Platform Module#### Overview
+### Platform Module  
+
+#### Overview
 
 The module mainly includes: video encoding, ISP control, image control, snapshot capture, video output, algorithm processing, etc.
 

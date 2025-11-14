@@ -133,7 +133,7 @@ ipc_instance6: ipc_instance6 {
 
 - Instances 3–8 have 1 MB of data space pre-allocated by default: 0.5 MB for Acore and 0.5 MB for MCU. Therefore, (number of channels × number of buffers per channel × buffer size) must be ≤ 0.5 MB.
 - Instances 3–8 have 5 KB of control space pre-allocated: 2.5 KB for Acore and 2.5 KB for MCU, used to store ring buffer control and status information. Thus, ((number of buffers + 2) × 16 × number of channels + 8) must be ≤ 2.5 KB.
-- Instances 5–6 are used internally by Digua Robotics for testing; users may adopt the above configuration and modify the device tree nodes accordingly. // TODO: Consider fully opening these to customers.
+- Instances 5–6 are used internally by D-Robotics for testing; users may adopt the above configuration and modify the device tree nodes accordingly. // TODO: Consider fully opening these to customers.
 - The number of channels per instance must be ≤ 32, and the number of buffers per channel must be ≤ 1024, while also satisfying the two constraints above.
 - Using different channels within the same instance or using different instances has minimal impact on transmission performance. The main considerations are whether `buf_size`/`buf_num` are appropriate and whether the design facilitates development and maintenance.
 - Mailbox interrupt allocation at the hardware level is not configurable.

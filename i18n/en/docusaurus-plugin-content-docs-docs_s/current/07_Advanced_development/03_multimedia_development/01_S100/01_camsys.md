@@ -184,7 +184,7 @@ All transformation types share three common parameters: **Pan**, **Tilt**, and *
         | double strengthY        | Transformation strength along the Y-axis (non-negative parameter) |
         | double angle (rotation) | Image rotation angle: 0°/90°/180°/270°                           |
 
-        **strengthX** adjustment effect: transformation strength along the X-axis, with values in the range (0, +∞), as shown below:![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-7.png)
+        strength x adjustment effect: transformation strength along the X-axis, with values in the range (0, +∞), as shown below:![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-7.png)
 
         strength y debugging effect: the transformation intensity along the Y-axis, with a value range of (0, +∞). As shown below:
         ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-8.png)
@@ -527,17 +527,18 @@ Configuration file content as follows:
         "colourspace": "yuv"
     }
     ```
+
     Input image with transformation mesh shown below:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-27.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-27.png)
+
 
     Output image shown below:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-28.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-28.png)
 
 
-4. Equisolid  
-Configuration file content as follows:
+4. Equisolid Configuration file content as follows:
 
     ```json
     {
@@ -588,15 +589,15 @@ Configuration file content as follows:
     ```
     Input image with transformation grid as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-29.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-29.png)
+
 
     Output image as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-30.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-30.png)
 
 
-5. Equisolid (cylinder)  
-Configuration file content as follows:
+5. Equisolid (cylinder) Configuration file content as follows:
 
     ```json
     {
@@ -647,14 +648,13 @@ Configuration file content as follows:
     ```
     Input image with transformation grid as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-31.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-31.png)
 
     Output image as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-32.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-32.png)
 
-6. Equidistant  
-Configuration file content as follows:
+6. Equidistant Configuration file content as follows:
 
     ```json
     {
@@ -712,14 +712,13 @@ Configuration file content as follows:
 
     Input image with transformation grid as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-33.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-33.png)
 
     Output image as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-34.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-34.png)
 
-7. Custom  
-Input resolution: 1280x720, output resolution: 560x258. Configuration file content as follows:
+7. Custom Input resolution: 1280x720, output resolution: 560x258. Configuration file content as follows:
 
     ```json
     {
@@ -770,15 +769,14 @@ Input resolution: 1280x720, output resolution: 560x258. Configuration file conte
 
     Input image with transformation grid as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-35.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-35.png)
 
     Output image as follows:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-36.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-36.png)
 
 
-8. Keystone + dewarping  
-Configuration file content as follows:
+8. Keystone + dewarping Configuration file content as follows:
 
     ```json
     {"inputRes": [
@@ -837,11 +835,11 @@ Configuration file content as follows:
 
     Input image with transformation grid is shown below:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-37.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-37.png)
 
     Output image is shown below:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-38.png)
+    ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-38.png)
 
 
 ##### GDC Bin Related API Reference
@@ -867,8 +865,7 @@ The following APIs are used for GDC BIN generation. For GDC module control APIs,
     - Failure: E_NOT_OK: Fail, return error code; range: [-10000, -1]
 
     【Function Description】
-
-    Generates the BIN file required for GDC module operation.
+        Generates the BIN file required for GDC module operation.
 
 2. hb_vio_set_gdc_cfg
 
@@ -985,7 +982,8 @@ The following APIs are used for GDC BIN generation. For GDC module control APIs,
 6. typedef enum gdc_transformation transformation_t
 
     | Name               | Type  | Min Value | Max Value | Default | Description                                                                                           | Required |
-    |--------------------|-------|-----------|-----------|---------|-------------------------------------------------------------------------------------------------------|----------|| PANORAMIC         | enum  |       |       |       | Panoramic transformation                                                             ||
+    |--------------------|-------|-----------|-----------|---------|-------------------------------------------------------------------------------------------------------|----------|
+    | PANORAMIC         | enum  |       |       |       | Panoramic transformation                                                             ||
     | CYLINDRICAL       | enum  |       |       |       |     NA                                                                   ||
     | STEREOGRAPHIC     | enum  |       |       |       | Same as distortion correction and panoramic transformation, but the output image is a cylindrical panorama instead of a planar image       ||
     | UNIVERSAL         | enum  |       |       |       | Equidistant transformation                                                ||
@@ -1087,7 +1085,7 @@ After RDK-S100 connects to cameras, the data flows through subsequent processing
 - **MIPI RX**: 3 CDPHY lanes, each supporting either DPHY up to 4.5 Gbps/lane × 4 lanes or CPHY up to 3.5 Gbps/trio × 3 trios. Each lane supports 4 virtual channels (VCs), theoretically allowing up to 12 camera inputs.
 
 | RDK-S100 software is expected to support up to 6 cameras: RX4 can connect up to 4 cameras via SerDes, while RX0 and RX1 each connect to 1 camera. For non-standard configurations, please consult an FAE for confirmation. |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
 :::tip
@@ -1166,31 +1164,33 @@ Failure: Negative error code
 
 Creates a camera handle based on the configuration provided in `camera_config_t`.
 
-【Notes】The API will check the sensor lib. If the sensor driver code does not comply with the HBN framework specification, an error will be reported during the check.
+【Notes】
+
+The API will check the sensor lib. If the sensor driver code does not comply with the HBN framework specification, an error will be reported during the check.
 
 The API will check cam_config. If the configuration does not match the IP hardware capabilities, an error will be reported during the check.
 
 2. **hbn_camera_destroy**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_destroy(camera_handle_t cam_fd)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: The camera operation handle created by hbn_camera_create;
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
 Failure: Negative error code for exceptions
 
-[Function Description]
+【Function Description】
 
 Destroy the corresponding software resources based on the camera handle.
 
-[Notes]
+【Notes】
 
 hbn_camera_destroy must be used in pair with hbn_camera_create.
 
@@ -1200,51 +1200,51 @@ Internally, hbn_camera_destroy calls hbn_camera_detach_from_vin, which triggers 
 
 3. **hbn_camera_attach_to_vin**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_attach_to_vin(camera_handle_t cam_fd, vpf_handle_t vin_fd)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
 [IN] vpf_handle_t vin_fd: VIN node handle created by the hbn_vnode_open interface.
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
 Failure: Negative error code for exceptions
 
-[Function Description]
+【Function Description】
 
 Bind the camera and VIN node together within the VPF framework using their respective handles, and perform hardware initialization for the camera.
 
-[Notes]
+【Notes】
 
 The same camera must not repeatedly call hbn_camera_attach_to_vin; otherwise, an "attach error" will be reported.
 
 4. **hbn_camera_detach_from_vin**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_detach_from_vin(camera_handle_t cam_fd)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
 Failure: Negative error code for exceptions
 
-[Function Description]
+【Function Description】
 
 Unbind the camera from the VIN node and perform de-initialization.
 
-[Notes]
+【Notes】
 
 hbn_camera_detach_from_vin must be used in pair with hbn_camera_attach_to_vin.
 
@@ -1252,11 +1252,11 @@ hbn_camera_destroy internally calls hbn_camera_detach_from_vin, so after calling
 
 5. **hbn_camera_attach_to_deserial**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_attach_to_deserial(camera_handle_t cam_fd, deserial_handle_t des_fd, camera_des_link_t link)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
@@ -1264,17 +1264,17 @@ int32_t hbn_camera_attach_to_deserial(camera_handle_t cam_fd, deserial_handle_t 
 
 [IN] camera_des_link_t link: The linking method between camera and deserializer, determined by which link the camera is connected to.
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
 Failure: Negative error code for exceptions
 
-[Function Description]
+【Function Description】
 
 Bind the camera and deserializer using their handles, and perform hardware initialization for both the deserializer and camera.
 
-[Notes]
+【Notes】
 
 This interface should only be called when a deserializer exists in the hardware.
 
@@ -1282,25 +1282,25 @@ After calling hbn_camera_attach_to_deserial, there is no need to call hbn_camera
 
 6. **hbn_camera_detach_from_deserial**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_detach_from_deserial(camera_handle_t cam_fd)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
 Failure: Negative error code for exceptions
 
-[Function Description]
+【Function Description】
 
 Unbind the camera from the deserializer and perform de-initialization.
 
-[Notes]
+【Notes】
 
 hbn_camera_detach_from_deserial must be used in pair with hbn_camera_attach_to_deserial.
 
@@ -1308,15 +1308,15 @@ Before calling this API, hbn_deserial_detach_from_vin must be called first.
 
 7. **hbn_camera_start**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_start(camera_handle_t cam_fd)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
@@ -1326,39 +1326,41 @@ Failure: Negative error code for exceptions
 
 Configure camera registers and start streaming.
 
-[Notes]
+【Notes】
 
 If the camera handle has been attached to a vflow, this interface may not need to be called. If it is called, hbn_vflow_start must be called first, followed by hbn_camera_start.
 
 8. **hbn_camera_stop**
 
-[Function Declaration]
+【Function Declaration】
 
 int32_t hbn_camera_stop(camera_handle_t cam_fd)
 
-[Parameter Description]
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
-[Return Value]
+【Return Value】
 
 Success: RET_OK 0
 
 Failure: Negative error code for exceptions
 
-[Function Description]
+【Function Description】
 
 Stop the camera stream.
 
-[Notes]
+【Notes】
 
 Must be used in pair with hbn_camera_start.
 
 9. **hbn_camera_reset**
 
-[Function Declaration]
+【Function Declaration】
 
-int32_t hbn_camera_reset(camera_handle_t cam_fd)【Parameter Description】
+int32_t hbn_camera_reset(camera_handle_t cam_fd)
+
+【Parameter Description】
 
 [IN] camera_handle_t cam_fd: Camera handle created by hbn_camera_create;
 
@@ -1484,7 +1486,7 @@ This API creates cameras by parsing a JSON configuration file, which differs fro
 :::tip
 The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
 
-**Commercial Version Access Procedure:**
+Commercial Version Access Procedure:
 1. **Complete a questionnaire**: Submit basic information about your organization and intended use case.
 2. **Sign a Non-Disclosure Agreement (NDA)**: We will contact you based on your submission, and both parties will sign the NDA upon mutual confirmation.
 3. **Content release**: After the NDA is signed, we will provide access to the commercial version materials through a private channel.
@@ -1554,7 +1556,9 @@ hbn_deserial_destroy must be used in pair with hbn_deserial_create.
 【Function Declaration】
 
 int32_t hbn_deserial_attach_to_vin(deserial_handle_t des_fd, camera_des_link_t  
-link, vpf_handle_t vin_fd)【Parameter Description】
+link, vpf_handle_t vin_fd)
+
+【Parameter Description】
 
 [IN] deserial_handle_t des_fd: Deserializer handle, created by hbn_deserial_create;
 
@@ -1751,7 +1755,8 @@ hbn_txser_detach_from_vin must be used in pair with hbn_txser_attach_to_vin.
 | width                        | uint32_t      | 0             | 8192                        | 0                 | Sensor output image width (in pixels).                                                                                                                                                                                                                                                                                                                                                                           | Yes          |
 | height                       | uint32_t      | 0             | 4096                        | 0                 | Sensor output image height (in pixels).                                                                                                                                                                                                                                                                                                                                                                          | Yes          |
 | format                       | uint32_t      | –             | –                           | –                 | Sensor data format. Common values include:                                                                                                                                                                                                                                                                                                                                                                       | Yes          |
-|                              |               |               |                             |                   | RAW8: 0x2A;                                                                                                                                                                                                                                                                                                                                                                                                      |              ||                              |               |            |                             |            | RAW10: 0x2B;                                                                                                                                                                                                                                                                                                                                                                                             |          |
+|                              |               |               |                             |                   | RAW8: 0x2A;                                                                                                                                                                                                                                                                                                                                                                                                      |              |
+|                              |               |            |                             |            | RAW10: 0x2B;                                                                                                                                                                                                                                                                                                                                                                                             |          |
 |                              |               |            |                             |            | RAW12: 0x2C;                                                                                                                                                                                                                                                                                                                                                                                             |          |
 |                              |               |            |                             |            | YUV422 8-bit: 0x1E                                                                                                                                                                                                                                                                                                                                                                                        |          |
 | flags                        | uint32_t      | 0          | \-                          | 0          | Optional features: diagnostics, recovery, debug, etc.                                                                                                                                                                                                                                                                                                                                                     | No       |
@@ -1969,8 +1974,7 @@ hobot_status hbn_vnode_set_attr_ex(hbn_vnode_handle_t vnode_fd, void \*attr)
 
 [IN] hbn_vnode_handle_t vnode_fd: vnode handle of the module;
 
-[IN] void  
-\*attr: Pointer to the extended attribute structure of the module. The extended attribute structure can be vin_attr_ex_t, etc.—any attribute structure named with the module name followed by _attr_ex_t;
+[IN] void \*attr: Pointer to the extended attribute structure of the module. The extended attribute structure can be vin_attr_ex_t, etc.—any attribute structure named with the module name followed by _attr_ex_t;
 
 【Return Value】
 
@@ -2026,8 +2030,7 @@ ochn_id, void \*attr)
 
 [IN] uint32_t ochn_id: Output channel ID of the module; refer to the module channel description for valid channel IDs;
 
-[IN] void  
-\*attr: Pointer to the output channel attribute structure of the module. The output channel attribute can be vin_ochn_attr_t, isp_ochn_attr_t, etc.—any attribute structure named with the module name followed by _ochn_attr_t;
+[IN] void \*attr: Pointer to the output channel attribute structure of the module. The output channel attribute can be vin_ochn_attr_t, isp_ochn_attr_t, etc.—any attribute structure named with the module name followed by _ochn_attr_t;
 
 【Return Value】
 
@@ -2056,8 +2059,7 @@ ochn_id, void \*attr)
 
 [IN] uint32_t ochn_id: Output channel ID of the module; refer to the module channel description for valid channel IDs;
 
-[OUT] void  
-\*attr: Pointer to the output channel attribute structure of the module. The output channel attribute can be vin_ochn_attr_t, isp_ochn_attr_t, etc.—any attribute structure named with the module name followed by _ochn_attr_t;
+[OUT] void \*attr: Pointer to the output channel attribute structure of the module. The output channel attribute can be vin_ochn_attr_t, isp_ochn_attr_t, etc.—any attribute structure named with the module name followed by _ochn_attr_t;
 
 【Return Value】
 
@@ -2086,8 +2088,7 @@ ochn_id, void \*attr)
 
 [IN] uint32_t ochn_id: Output channel ID of the module; refer to the module channel description for valid channel IDs;
 
-[IN] void  
-\*attr: Pointer to the extended output channel attribute structure of the module. The extended output channel attribute can be pym_ochn_attr_ex_t, etc.—any attribute structure named with the module name followed by _ochn_attr_ex_t;
+[IN] void \*attr: Pointer to the extended output channel attribute structure of the module. The extended output channel attribute can be pym_ochn_attr_ex_t, etc.—any attribute structure named with the module name followed by _ochn_attr_ex_t;
 
 【Return Value】
 
@@ -2116,8 +2117,7 @@ ichn_id, void \*attr)
 
 [IN] uint32_t ichn_id: Input channel ID of the module; refer to the module channel description for valid channel IDs;
 
-[IN] void  
-\*attr: Pointer to the input channel attribute structure of the module. The input channel attribute can be vin_ichn_attr_t, isp_ichn_attr_t, etc.—any attribute structure named with the module name followed by _ichn_attr_t;
+[IN] void \*attr: Pointer to the input channel attribute structure of the module. The input channel attribute can be vin_ichn_attr_t, isp_ichn_attr_t, etc.—any attribute structure named with the module name followed by _ichn_attr_t;
 
 【Return Value】
 
@@ -2144,8 +2144,7 @@ ichn_id, void \*attr)
 
 [IN] hbn_vnode_handle_t vnode_fd: vnode handle of the module;[IN] uint32_t ichn_id: Input channel ID of the module; refer to the module channel description for channel IDs.
 
-[OUT] void  
-*attr: Pointer to the input channel attribute structure of the module. The input channel attributes can be vin_ichn_attr_t, isp_ichn_attr_t, etc.—any attribute ending with the module name followed by _ichn_attr_t.
+[OUT] void *attr: Pointer to the input channel attribute structure of the module. The input channel attributes can be vin_ichn_attr_t, isp_ichn_attr_t, etc.—any attribute ending with the module name followed by _ichn_attr_t.
 
 【Return Value】
 
@@ -2333,7 +2332,8 @@ ochn_id, hbn_vnode_image_group_t *img)
 
 [IN] hbn_vnode_handle_t vnode_fd: vnode handle of the module;
 
-[IN] uint32_t ochn_id: Output channel ID of the module; refer to the module channel description for channel IDs;[IN] hbn_vnode_image_t \*img: Address of the image buffer structure;
+[IN] uint32_t ochn_id: Output channel ID of the module; refer to the module channel description for channel IDs;  
+[IN] hbn_vnode_image_t \*img: Address of the image buffer structure;
 
 【Return Value】
 
@@ -2531,7 +2531,8 @@ hobot_status hbn_vflow_start(hbn_vflow_handle_t vflow_fd)
 
 【Return Value】
 
-Success: HBN_STATUS_SUCCESS 0Failure: Exception indicated by a negative error code; refer to the return value description.
+Success: HBN_STATUS_SUCCESS 0  
+Failure: Exception indicated by a negative error code; refer to the return value description.
 
 【Function Description】
 
@@ -2908,7 +2909,8 @@ chn_ctrl_t
 pym_cfg_t
 
 | Name                 | Type       | Description                                                                                                                                                 | Max     | Min | Default | Required |
-|----------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----|---------|----------|| hw_id                | uint8_t    | pym hardware module ID (0, 1, 4)                                                                                                                     | \-        | \-     | \-     | Yes      |
+|----------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----|---------|----------|
+| hw_id                | uint8_t    | pym hardware module ID (0, 1, 4)                                                                                                                     | \-        | \-     | \-     | Yes      |
 | pym_mode             | uint8_t    | pym operation mode: *1*: Manual mode, online link, with preceding module as SW trigger; 2: Single-channel Online mode (direct hardware connection between preceding module and PYM); 3: Offline mode (input: YUV420SP, output: YUV420SP) | \<= 3     | \>= 1  | \-     | Yes      |
 | slot_id              | uint8_t    | pym hardware channel ID                                                                                                                              | 7         | 0      | \-     | No       |
 | out_buf_noinvalid    | uint8_t    | Whether the module's output buffer internally performs an "invalidate cache" operation                                                               | 1         | 0      | 1      | Yes      |
@@ -3104,7 +3106,8 @@ stitch_ch_attr
 | 60         | HBN_STATUS_RGN_OPEN_FILE_FAIL       | RGN module file open failed                                                 |
 | 128        | HBN_STATUS_ERR_UNKNOW               | Unknown error                                                               |
 
-## V4L2Some modules of the S100 Camsys have already been integrated with V4L2, allowing acquisition of Camsys data streams through standard V4L2 programming and open-source tools.
+## V4L2  
+Some modules of the S100 Camsys have already been integrated with V4L2, allowing acquisition of Camsys data streams through standard V4L2 programming and open-source tools.
 
 ### Usage
 
@@ -3305,7 +3308,7 @@ static isp_cfg_t imx219_isp_config = {
                 .height = 0,
             },
         },
-```.out_buf_noinvalid = 1,
+    .out_buf_noinvalid = 1,
         .out_buf_noncached = 0,
         .output_raw_level = 0, //ISP_OUTPUT_RAW_LEVEL_SENSOR_DATA
         .stream_output_mode = 0, //convert_isp_stream_output(1),
@@ -3465,6 +3468,7 @@ hbn_vnode_set_attr(isp_node_handle, &isp_config->isp_attr);
 hbn_vnode_set_ichn_attr(isp_node_handle, 0, &isp_config->ichn_attr);
 hbn_vnode_set_ochn_attr(isp_node_handled, 0, &isp_config->ochn_attr);
 
+  
 // pym initialization
 hbn_vnode_open(HB_PYM, pym_cfg->hw_id, AUTO_ALLOC_ID, &pym_node_handle);
 hbn_vnode_set_attr(pym_node_handle, pym_cfg);
@@ -3497,7 +3501,7 @@ fill_image_frame_from_vnode_image_group(frame, ochn_id);
 memcpy(frame_buffer, frame.data[0], frame.data_size[0]); // frame_buffer is the obtained complete image
 if (frame.plane_count > 1)
     memcpy(frame_buffer + frame.data_size[0], frame.data[1], frame.data_size[1]);
-hbn_vnode_releaseframe_group(pym_node_handle, 0, out_image_group);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+hbn_vnode_releaseframe_group(pym_node_handle, 0, out_image_group);                                                                                                                                                                                          |
 ```
 
 ### 0820c + 96712 deserializer + MIPI + CIM + PYM:
@@ -4102,7 +4106,7 @@ struct stitch_base_attr sth_base_attr = {
 			  .uv_en = 0,
 			  .src0_index = 0,
 			  .src1_index = 0,
-```.margin = 0,
+              .margin = 0,
 			  .margin_inv = 0,
 			  .gain_src0_yuv = {0, 0, 0},
 			  .gain_src1_yuv = {0, 0, 0}
@@ -4209,7 +4213,8 @@ struct stitch_ch_attr sth_och_attr = {
 			},
 		  }
 };
-```
+```  
+
 
 Create a vflow pipeline:
 ```c
@@ -4481,7 +4486,8 @@ Continuously fetch frames, send them to the CODEC for encoding, then retrieve en
 	}
 ```
 
-## V4L2 Sample### imx219 + MIPI + CIM + ISP + PYM:
+## V4L2 Sample  
+### imx219 + MIPI + CIM + ISP + PYM:
 ```c
 v4l2-ctl -d 0 --set-fmt-video=width=1920,height=1080,pixelformat=NV12 --stream-mmap --stream-count=120 --stream-to=/userdata/test.yuv
 ```

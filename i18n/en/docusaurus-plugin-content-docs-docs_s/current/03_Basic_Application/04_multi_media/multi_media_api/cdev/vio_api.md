@@ -64,8 +64,7 @@ None
 
 **[Description]**  
 
-Initializes the MIPI camera connected to the RDK S100.  
-Supports configuring output resolutions—up to 6 different resolution sets—and only downscaling is supported. The downscaling ratio range is [1, 1/64).
+Initializes the MIPI camera connected to the RDK S100.Supports configuring output resolutions—up to 6 different resolution sets—and only downscaling is supported. The downscaling ratio range is [1, 1/64).
 
 **[Parameters]**
 
@@ -197,7 +196,9 @@ Acquires image frame data at the specified resolution (the resolution must have 
 - `frame_buffer`: Pointer to a pre-allocated memory buffer for storing the retrieved image. Since the acquired image is always in `NV12` format, the required buffer size can be calculated using the formula `height * width * 3 / 2`, or by using the provided macro `FRAME_BUFFER_SIZE(w, h)`.
 - `width`: Width of the image to be stored in `frame_buffer`. Must match one of the output widths configured in `sp_open_camera` or `sp_open_vps`.
 - `height`: Height of the image to be stored in `frame_buffer`. Must match one of the output heights configured in `sp_open_camera` or `sp_open_vps`.
-- `timeout`: Timeout for frame acquisition, in milliseconds (`ms`). Typically set to `2000`.**[Return Type]**
+- `timeout`: Timeout for frame acquisition, in milliseconds (`ms`). Typically set to `2000`.
+  
+**[Return Type]**
 
 Returns 0 on success, -1 on failure.
 

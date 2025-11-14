@@ -178,10 +178,8 @@ cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
 1500000 2000000
 ```
 
-> **Note**: Supported frequency points may vary across different chip types.
-
+ **Note**: Supported frequency points may vary across different chip types.
 The Linux kernel used in the RDK S100 system supports the following CPU frequency scaling governors:
-
 - **performance**: Always runs the CPU at the highest supported frequency (maximum performance and power consumption).
 - **ondemand**: Dynamically adjusts frequency based on system load.
 - **userspace**: Allows users to manually set the CPU frequency.
@@ -200,4 +198,6 @@ Or to lock the CPU to a fixed frequency (e.g., 1.5 GHz):
 ```shell
 echo userspace >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 1500000 >/sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed
-```You can use the `sudo hrut_somstatus` command to check the current chip's operating frequency, temperature, and other status information:
+```
+
+You can use the `sudo hrut_somstatus` command to check the current chip's operating frequency, temperature, and other status information:

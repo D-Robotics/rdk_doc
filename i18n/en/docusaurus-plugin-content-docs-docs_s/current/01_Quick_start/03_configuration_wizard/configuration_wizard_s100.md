@@ -197,7 +197,8 @@ dpkg -i nomachine_*_arm64.deb
     sudo systemctl restart nxserver
     ```
 
-**Reboot the RDK S100**Due to a configuration issue with `NXServer`, directly connecting after performing the above steps will result in a black screen; a reboot is required before use.
+**Reboot the RDK S100**
+Due to a configuration issue with `NXServer`, directly connecting after performing the above steps will result in a black screen; a reboot is required before use.
 
 For instructions on using `NoMachine`, please refer to [Remote Login - NoMachine Login](../remote_login#Nomachine-login).
 

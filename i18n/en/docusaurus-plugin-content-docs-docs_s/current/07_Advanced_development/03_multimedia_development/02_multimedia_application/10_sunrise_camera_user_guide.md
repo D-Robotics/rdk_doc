@@ -196,7 +196,9 @@ This scheme provides the following features:
   - Supports RTSP streams as input.
   - Supports scaling decoded video before re-encoding.
   - Supports control over bitrate and frame rate.
-- Execution of specified algorithms.### Parameter Description
+- Execution of specified algorithms.  
+ 
+ ### Parameter Description
 
 The intelligent analytics box solution has the following adjustable parameters:
 

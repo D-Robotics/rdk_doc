@@ -394,7 +394,9 @@ The JPU (JPEG Processing Unit) is primarily used to perform JPEG/MJPEG encoding 
 
 ##### Encoding Status
 
-Encoding Debug Information```c
+Encoding Debug Information  
+
+```c
 cat /sys/kernel/debug/jpu/jenc
 root@ubuntu:~# cat /sys/kernel/debug/jpu/jenc
 ----encode param----
@@ -593,7 +595,8 @@ GOP Preset 8
 ![gop15](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/gop15.png)
 
 ![gop16](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/gop16.png)
-```GOP Preset 9
+  
+  GOP Preset 9
 
 - Contains only I-frames and P-frames;
 - Each P-frame references one forward reference frame;
@@ -603,15 +606,21 @@ GOP Preset 8
 
 ![gop18](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/gop18.png)
 
+
+
 #### Long-term Reference Frames
 
 Users can specify the interval for long-term reference frames and the interval at which frames reference long-term reference frames, as shown in the figure below:
 
 ![reference_frame](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/reference_frame.png)
 
+
+
 #### Intra Refresh
 
 Intra Refresh mode enhances error resilience by periodically inserting intra-coded MBs/CTUs within non-I frames. It provides the decoder with more recovery points to prevent image corruption caused by temporal errors. Users can specify the number of consecutive rows, columns, or step size of MBs/CTUs to force the encoder to insert intra-coded units. Additionally, users may specify the size of intra-coded units, allowing the encoder to internally determine which blocks require intra coding.
+
+
 
 #### Rate Control
 
@@ -626,6 +635,8 @@ For CBR and AVBR, the encoder internally determines an appropriate QP value for 
 - Frame-level control calculates a single QP per frame based on the target bitrate to ensure bitrate stability.  
 - CTU/MB-level control assigns a QP to each 64×64 CTU or 16×16 MB according to its target bitrate, achieving finer bitrate control, though frequent QP adjustments may cause visual quality instability.  
 - subCTU/subMB-level control assigns a QP to each 32×32 subCTU or 8×8 subMB. Complex blocks receive higher QP values, while static blocks receive lower QP values—since the human eye is more sensitive to static regions than complex ones. Detection of complex vs. static regions relies on internal hardware modules. This level aims to improve subjective visual quality while maintaining bitrate stability, resulting in higher SSIM scores but potentially lower PSNR scores.
+
+
 
 #### ROI
 
@@ -644,6 +655,8 @@ where:
 - RQP is the QP determined by the encoder’s internal rate control,  
 - ROIAvgQP is the average QP value across the entire ROI map.
 
+
+
 #### Input/Output Buffer Management
 
 MediaCodec uses two types of buffers: input and output. Typically, these buffers are allocated uniformly by MediaCodec via the ION interface, so users do not need to manage allocation directly. Instead, users should call `dequeue` to obtain an available buffer before use and `queue` to return it after processing.  
@@ -654,15 +667,21 @@ Note: Even when providing external input buffers, users must still perform `dequ
 
 ![buffer](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/buffer.png)
 
+
+
 #### Frame Rate Control
 
 MediaCodec does not currently support internal frame rate control.  
 - If users do **not** enable direct VIO–MediaCodec interaction via `hb_mm_mc_set_camera`, they must manually control the input buffer frame rate.  
 - If VIO–MediaCodec interaction **is** enabled, users only manage output buffers; input buffering is handled automatically. In this mode, MediaCodec performs no frame rate control on input buffers. If encoding stalls or the input buffer queue becomes full, MediaCodec will wait until space becomes available before proceeding.
 
+
+
 #### Frame Skip Configuration
 
 Users can call `hb_mm_mc_skip_pic` to set the next queued input frame to "skip" mode. This mode applies only to non-I frames. In skip mode, the encoder ignores the input frame and instead generates the reconstructed frame by reusing the previous frame’s reconstruction, encoding the current input as a P-frame.
+
+
 
 #### JPEG Codec Limitations
 
@@ -711,7 +730,7 @@ const media_codec_descriptor_t* hb_mm_mc_get_descriptor(media_codec_id_t codec_i
 
 【Parameters】
 
-- \[IN\] media_codec_id_t codec_id: Specifies the codec type.
+- [IN] media_codec_id_t codec_id: Specifies the codec type.
 
 【Return Value】
 
@@ -743,9 +762,9 @@ hb_s32 hb_mm_mc_get_default_context(media_codec_id_t codec_id, hb_bool encoder, 
 
 【Parameters】
 
-- \[IN\] media_codec_id_t codec_id: Specifies the codec type.
-- \[IN\] hb_bool encoder: Indicates whether the codec is an encoder (`true`) or decoder (`false`).
-- \[OUT\] media_codec_context_t *context: Receives the default context for the specified codec.
+- [IN] media_codec_id_t codec_id: Specifies the codec type.
+- [IN] hb_bool encoder: Indicates whether the codec is an encoder (`true`) or decoder (`false`).
+- [OUT] media_codec_context_t *context: Receives the default context for the specified codec.
 
 【Return Value】
 
@@ -775,11 +794,11 @@ int main(int argc, char *argv[])
 
 【Function Declaration】
 
-hb_s32 hb_mm_mc_initialize(media_codec_context_t *context);
+hb_s32 hb_mm_mc_initialize(media_codec_context_t *context)
 
 【Parameters】
 
-- \[IN\] media_codec_context_t *context: Context configuration for the codec.
+- [IN] media_codec_context_t *context: Context configuration for the codec.
 
 【Return Values】
 
@@ -819,7 +838,7 @@ typedef struct AsyncMediaCtx {
     int32_t duration;
 } AsyncMediaCtx;
 static void on_encoder_input_buffer_available(hb_ptr userdata,
-```media_codec_buffer_t *inputBuffer) {
+media_codec_buffer_t *inputBuffer) {
     AsyncMediaCtx *asyncCtx = (AsyncMediaCtx *)userdata;
     Int noMoreInput = 0;
     hb_s32 ret = 0;
@@ -1016,7 +1035,9 @@ const media_codec_callback_t *callback, hb_ptr userdata)
 
 【Function Description】
 
-Sets the callback function pointers. After calling this function, MediaCodec enters asynchronous operation mode.【Example Code】
+Sets the callback function pointers. After calling this function, MediaCodec enters asynchronous operation mode.  
+
+【Example Code】
 
 Refer to [hb_mm_mc_initialize](#hb_mm_mc_initialize)
 
@@ -1028,7 +1049,7 @@ hb\_s32 hb\_mm\_mc\_configure(media\_codec\_context\_t \*context)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type
 
 【Return Values】
 
@@ -1056,9 +1077,8 @@ mc\_av\_codec\_startup\_params\_t \*info)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
-- \[IN\] mc\_av\_codec\_startup\_params\_t  
-  \*info: Startup parameters for audio/video encoding or decoding  
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type  
+- [IN] mc\_av\_codec\_startup\_params\_t *info: Startup parameters for audio/video encoding or decoding  
 
 【Return Values】
 
@@ -1085,7 +1105,7 @@ hb\_s32 hb\_mm\_mc\_stop(media\_codec\_context\_t \*context)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type
 
 【Return Values】
 
@@ -1110,7 +1130,7 @@ hb\_s32 hb\_mm\_mc\_pause(media\_codec\_context\_t \*context)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type
 
 【Return Values】
 
@@ -1160,7 +1180,7 @@ hb\_s32 hb\_mm\_mc\_release(media\_codec\_context\_t \*context)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type
 
 【Return Values】
 
@@ -1186,8 +1206,8 @@ media\_codec\_state\_t \*state)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
-- \[OUT\] media\_codec\_state\_t \*state: Current state of MediaCodec  
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type  
+- [OUT] media\_codec\_state\_t \*state: Current state of MediaCodec  
 
 【Return Values】
 
@@ -1214,8 +1234,10 @@ mc\_inter\_status\_t \*status)
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
-- \[OUT\] mc\_inter\_status\_t \*status: Current internal status of MediaCodec【Return Value】
+- [IN] media\_codec\_context\_t \*context: Context specifying the codec type  
+- [OUT] mc\_inter\_status\_t \*status: Current internal status of MediaCodec  
+ 
+【Return Value】
 
 - 0: Operation succeeded  
 - HB\_MEDIA\_ERR\_UNKNOWN: Unknown error  
@@ -1414,7 +1436,7 @@ int main(int argc, char *argv[])
     hb_s32 ret = 0;
     char outputFileName[MAX_FILE_PATH] = "./tmp.yuv";
     char inputFileName[MAX_FILE_PATH] = "./output.stream";
-```mc_video_codec_enc_params_t *params;
+    mc_video_codec_enc_params_t *params;
     media_codec_context_t context;
     memset(&context, 0x00, sizeof(media_codec_context_t));
     context.codec_id = MEDIA_CODEC_ID_H265;
@@ -1614,7 +1636,7 @@ typedef struct MediaCodecTestContext {
     mc_video_longterm_ref_mode_t ref_mode;
     mc_rate_control_params_t rc_params;
     mc_video_intra_refresh_params_t intra_refr;
-```mc_video_deblk_filter_params_t deblk_filter;
+    mc_video_deblk_filter_params_t deblk_filter;
     mc_h265_sao_params_t sao;
     mc_h264_entropy_params_t entropy;
     mc_video_vui_params_t vui;
@@ -1892,7 +1914,7 @@ hb_mm_mc_get_vui_timing_config(context, &ctx->vui_timing);
         hb_u32 length = sizeof(uuid)/sizeof(uuid[0]);
         ret = hb_mm_mc_insert_user_data(context, uuid, length);
     }
-    if (ctx->message & ENC_CONFIG_3DNR) {
+if (ctx->message & ENC_CONFIG_3DNR) {
         hb_mm_mc_get_3dnr_enc_config(context, &ctx->noise_reduction);
         ret = hb_mm_mc_set_3dnr_enc_config(context, &ctx->noise_reduction);
     }
@@ -2274,7 +2296,7 @@ hb\_s32 hb\_mm\_mc\_set\_deblk\_filter\_config(media\_codec\_context\_t
 【Parameter Description】
 
 - \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
-- \[IN\] const mc\_video\_deblk\_filter\_params\_t  
+- \[IN\] const mc\_video\_deblk\_filter\_params\_t 
   \*params: Deblocking filter parameters  
 
 【Return Values】
@@ -2352,8 +2374,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_get\_entropy\_config(media\_codec\_context\_t  
-\*context, mc\_h264\_entropy\_params\_t \*params);
+hb\_s32 hb\_mm\_mc\_get\_entropy\_config(media\_codec\_context\_t \*context, mc\_h264\_entropy\_params\_t \*params);
 
 【Parameter Description】
 
@@ -2380,8 +2401,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-extern hb\_s32 hb\_mm\_mc\_set\_entropy\_config(media\_codec\_context\_t  
-\*context, const mc\_h264\_entropy\_params\_t \*params);
+extern hb\_s32 hb\_mm\_mc\_set\_entropy\_config(media\_codec\_context\_t \*context, const mc\_h264\_entropy\_params\_t \*params);
 
 【Parameter Description】
 
@@ -2414,7 +2434,10 @@ hb\_s32 hb\_mm\_mc\_get\_vui\_timing\_config(media\_codec\_context\_t
 【Parameter Description】
 
 - \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
-- \[OUT\] mc\_video\_vui\_timing\_params\_t \*params: VUI Timing parameters【Return Value】
+- \[OUT\] mc\_video\_vui\_timing\_params\_t \*params: VUI Timing parameters  
+
+
+【Return Value】
 
 - 0: Operation succeeded  
 - HB\_MEDIA\_ERR\_UNKNOWN: Unknown error  
@@ -2433,8 +2456,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_set\_vui\_timing\_config(media\_codec\_context\_t  
-\*context, const mc\_video\_vui\_timing\_params\_t \*params)
+hb\_s32 hb\_mm\_mc\_set\_vui\_timing\_config(media\_codec\_context\_t \*context, const mc\_video\_vui\_timing\_params\_t \*params)
 
 【Parameter Description】
 
@@ -2461,8 +2483,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_get\_slice\_config(media\_codec\_context\_t  
-\*context, mc\_video\_slice\_params\_t \*params)
+hb\_s32 hb\_mm\_mc\_get\_slice\_config(media\_codec\_context\_t \*context, mc\_video\_slice\_params\_t \*params)
 
 【Parameter Description】
 
@@ -2488,8 +2509,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_set\_slice\_config(media\_codec\_context\_t  
-\*context, const mc\_video\_slice\_params\_t \*params)
+hb\_s32 hb\_mm\_mc\_set\_slice\_config(media\_codec\_context\_t \*context, const mc\_video\_slice\_params\_t \*params)
 
 【Parameter Description】
 
@@ -2516,8 +2536,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_insert\_user\_data(media\_codec\_context\_t \*  
-context, hb\_u8 \*data, hb\_u32 length)
+hb\_s32 hb\_mm\_mc\_insert\_user\_data(media\_codec\_context\_t \*context, hb\_u8 \*data, hb\_u32 length)
 
 【Parameter Description】
 
@@ -2544,8 +2563,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_request\_idr\_frame(media\_codec\_context\_t  
-\*context)
+hb\_s32 hb\_mm\_mc\_request\_idr\_frame(media\_codec\_context\_t \*context)
 
 【Parameter Description】
 
@@ -2570,8 +2588,7 @@ Refer to [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
 
 【Function Declaration】
 
-hb\_s32 hb\_mm\_mc\_skip\_pic(media\_codec\_context\_t  
-\*context, hb\_s32 src\_idx)
+hb\_s32 hb\_mm\_mc\_skip\_pic(media\_codec\_context\_t \*context, hb\_s32 src\_idx)
 
 【Parameter Description】
 
@@ -2611,7 +2628,8 @@ hb\_mm\_mc\_get\_smart\_bg\_enc\_config(media\_codec\_context\_t
 【Return Value】
 
 - 0: Operation succeeded  
-- HB\_MEDIA\_ERR\_UNKNOWN: Unknown error- HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance  
+- HB\_MEDIA\_ERR\_UNKNOWN: Unknown error
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance  
 - HB\_MEDIA\_ERR\_INVALID\_PARAMS: Invalid parameters  
 
 【Function Description】
@@ -2836,7 +2854,7 @@ hb\_s32 hb\_mm\_mc\_get\_mode\_decision\_config(media\_codec\_context\_t
 
 【Function Description】
 
-Retrieve mode decision parameters. This function applies to H.265.
+Retrieve mode decision parameters. This function applies to H265.
 
 【Example Code】
 
@@ -2852,8 +2870,7 @@ hb\_s32 hb\_mm\_mc\_set\_mode\_decision\_config(media\_codec\_context\_t
 【Parameter Description】
 
 - \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
-- \[IN\] const mc\_video\_mode\_decision\_params\_t  
-  \*params: Mode decision parameters  
+- \[IN\] const mc\_video\_mode\_decision\_params\_t \*params: Mode decision parameters  
 
 【Return Values】
 
@@ -3009,7 +3026,7 @@ static int check_and_init_test(MediaCodecTestContext *ctx) {
         ctx->videoIndex = av_find_best_stream(ctx->avContext, AVMEDIA_TYPE_VIDEO, -1, -1, NULL, 0);
         EXPECT_GE(ctx->videoIndex, 0);
         if (ctx->videoIndex < 0) {
-```return -1;
+            return -1;
         }
         av_init_packet(&ctx->avpacket);
     } else {
@@ -3555,16 +3572,16 @@ int main(int argc, char *argv[])
 
 #### hb_mm_mc_release_user_data
 
-**[Function Declaration]**
+【Function Declaration】
 
 hb_s32 hb_mm_mc_release_user_data(media_codec_context_t *context, const mc_user_data_buffer_t * params)
 
-**[Parameter Description]**
+【Parameter Description】
 
 - [IN] media_codec_context_t *context: Context specifying the codec type
 - [IN] const mc_user_data_buffer_t * params: User data
 
-**[Return Values]**
+【Return Values】
 
 - 0: Operation succeeded
 - HB_MEDIA_ERR_UNKNOWN: Unknown error
@@ -3572,37 +3589,37 @@ hb_s32 hb_mm_mc_release_user_data(media_codec_context_t *context, const mc_user_
 - HB_MEDIA_ERR_INVALID_INSTANCE: Invalid instance
 - HB_MEDIA_ERR_INVALID_PARAMS: Invalid parameters
 
-**[Function Description]**
+【Function Description】
 
 Releases user data from the decoded stream. Applicable to H.264/H.265.
 
-**[Example Code]**
+【Example Code】
 
 Refer to [hb_mm_mc_get_user_data](#hb_mm_mc_get_user_data)
 
 #### hb_mm_mc_get_mjpeg_config
 
-**[Function Declaration]**
+【Function Declaration】
 
 hb_s32 hb_mm_mc_get_mjpeg_config(media_codec_context_t *context, mc_mjpeg_enc_params_t *params)
 
-**[Parameter Description]**
+【Parameter Description】
 
 - [IN] media_codec_context_t *context: Context specifying the codec type
 - [OUT] mc_mjpeg_enc_params_t *params: MJPEG encoding parameters
 
-**[Return Values]**
+【Return Values】
 
 - 0: Operation succeeded
 - HB_MEDIA_ERR_UNKNOWN: Unknown error
 - HB_MEDIA_ERR_INVALID_INSTANCE: Invalid instance
 - HB_MEDIA_ERR_INVALID_PARAMS: Invalid parameters
 
-**[Function Description]**
+【Function Description】
 
 Retrieves MJPEG encoding parameters. Applicable to MJPEG.
 
-**[Example Code]**
+【Example Code】
 
 ```# include "hb_media_codec.h"
 # include "hb_media_error.h"
@@ -3802,10 +3819,12 @@ int main(int argc, char *argv[])
 hb\_s32 hb\_mm\_mc\_set\_jpeg\_config(media\_codec\_context\_t
 \*context, const mc\_jpeg\_enc\_params\_t \*params)
 
-【Parameter Description】- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
+【Parameter Description】  
+
+- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type  
 - \[IN\] const mc\_jpeg\_enc\_params\_t \*params: JPEG encoding parameters  
 
-**Return Values**
+【Return Values】
 
 - 0: Operation succeeded  
 - HB\_MEDIA\_ERR\_UNKNOWN: Unknown error  
@@ -3813,11 +3832,11 @@ hb\_s32 hb\_mm\_mc\_set\_jpeg\_config(media\_codec\_context\_t
 - HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance  
 - HB\_MEDIA\_ERR\_INVALID\_PARAMS: Invalid parameters  
 
-**Function Description**
+【Function Description】
 
 Sets JPEG encoding parameters. These parameters are dynamic and applicable to JPEG encoding.
 
-**Example Code**
+【Example Code】
 
 Refer to [hb_mm_mc_get_jpeg_config](#hb_mm_mc_get_jpeg_config)
 
@@ -4001,7 +4020,7 @@ static void do_poll_encoding(void *arg) {
             }
         }
     }while(!noMoreInput && !ctx->abnormal);
-```pthread_join(thread_id, &retVal);
+    pthread_join(thread_id, &retVal);
 
     hb_mm_mc_stop(context);
 
@@ -4063,17 +4082,17 @@ int main(int argc, char *argv[])
 
 #### hb\_mm\_mc\_close\_fd
 
-**[Function Declaration]**
+【Function Declaration】
 
 hb\_s32 hb\_mm\_mc\_close\_fd(media\_codec\_context\_t \* context,
 hb\_s32 fd)
 
-**[Parameter Description]**
+**【Parameter Description】
 
 - \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
 - \[IN\] hb\_s32 fd: File descriptor of the device node
 
-**[Return Values]**
+【Return Values】
 
 - 0: Operation succeeded
 - HB\_MEDIA\_ERR\_UNKNOWN: Unknown error
@@ -4081,28 +4100,28 @@ hb\_s32 fd)
 - HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance
 - HB\_MEDIA\_ERR\_INVALID\_PARAMS: Invalid parameters
 
-**[Function Description]**
+【Function Description】
 
 Closes the device node.
 
-**[Example Code]**
+【Example Code】
 
 Refer to [hb_mm_mc_get_fd](#hb_mm_mc_get_fd)
 
 #### hb\_mm\_mc\_set\_camera
 
-**[Function Declaration]**
+【Function Declaration】
 
 hb\_s32 hb\_mm\_mc\_set\_camera(media\_codec\_context\_t \*context,
 hb\_s32 pipeline, hb\_s32 channel\_port\_id)
 
-**[Parameter Description]**
+【Parameter Description】
 
 - \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
 - \[IN\] hb\_s32 pipeline: Pipeline
 - \[IN\] hb\_s32 channel\_port\_id: Channel port ID
 
-**[Return Values]**
+【Return Values】
 
 - 0: Operation succeeded
 - HB\_MEDIA\_ERR\_UNKNOWN: Unknown error
@@ -4110,11 +4129,11 @@ hb\_s32 pipeline, hb\_s32 channel\_port\_id)
 - HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance
 - HB\_MEDIA\_ERR\_INVALID\_PARAMS: Invalid parameters
 
-**[Function Description]**
+【Function Description】
 
 Sets VIO camera information. This parameter is static and applicable to H.264/H.265.
 
-**[Example Code]**
+【Example Code】
 
 ```
 #include "hb_media_codec.h"
@@ -4163,34 +4182,32 @@ int main(int argc, char *argv[])
 
 #### hb\_mm\_mc\_get\_vui\_config
 
-**[Function Declaration]**
+【Function Declaration】
 
 hb\_s32 hb\_mm\_mc\_get\_vui\_config(media\_codec\_context\_t \*context,
 mc\_video\_vui\_params\_t \*params)
 
-**[Parameter Description]**
+【Parameter Description】
 
 - \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
 - \[OUT\] mc\_video\_vui\_ params\_t \*params: VUI parameters
 
-**[Return Values]**
+【Return Values】
 
 - 0: Operation succeeded
 - HB\_MEDIA\_ERR\_UNKNOWN: Unknown error
 - HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance
 - HB\_MEDIA\_ERR\_INVALID\_PARAMS: Invalid parameters
 
-**[Function Description]**
+【Function Description】
 
 Retrieves VUI parameters.
 
-**[Additional Notes]**
-
-**[Other Notes]**
+【Additional Notes】
 
 Currently, during video encoding, the default color range in the header information is set to full range mode. To set it to limited range, you must explicitly call the hb\_mm\_mc\_set\_vui\_config interface.
 
-**[Example Code]**
+【Example Code】
 
 ```
 #include "hb_media_codec.h"
@@ -4198,7 +4215,7 @@ Currently, during video encoding, the default color range in the header informat
 typedef enum ENC_CONFIG_MESSAGE {
     ENC_CONFIG_NONE = (0 << 0),
     ENC_CONFIG_LONGTERM_REF = (1 << 0),
-```ENC_CONFIG_INTRA_REFRESH = (1 << 1),
+    ENC_CONFIG_INTRA_REFRESH = (1 << 1),
     ENC_CONFIG_RATE_CONTROL = (1 << 2),
     ENC_CONFIG_DEBLK_FILTER = (1 << 3),
     ENC_CONFIG_SAO = (1 << 4),
@@ -4793,11 +4810,9 @@ hb\_s32 hb\_mm\_mc\_request\_idr\_header(media\_codec\_context\_t
   > 1 : Forced header before IDR frame
   >
   > 2 : Forced header before I frame for H.264, or forced header before CRA and IDR frames for H.265
-  >hb_s32 hb_mm_mc_unregister_audio_decoder(hb_s32 handle)
-
-【Parameter Description】
-
-- \[IN\] hb_s32 handle: Decoder handle
+  <!-- >hb_s32 hb_mm_mc_unregister_audio_decoder(hb_s32 handle)
+    【Parameter Description】
+  \[IN\] hb_s32 handle: Decoder handle -->
 
 【Return Values】
 
@@ -4813,7 +4828,13 @@ Unregister an audio decoder, applicable to Audio.
 
 【Example Code】
 
-Refer to [hb_mm_mc_register_audio_decoder](#hb_mm_mc_register_audio_decoder)hb\_s32 hb\_mm\_mc\_unregister\_audio\_decoder(hb\_s32 handle)
+Refer to [hb_mm_mc_register_audio_decoder]  
+
+#### hb_mm_mc_unregister_audio_decoder  
+
+【Function Declaration】  
+
+hb\_s32 hb\_mm\_mc\_unregister\_audio\_decoder(hb\_s32 handle)
 
 **[Parameter Description]**
 
@@ -4833,7 +4854,8 @@ Unregisters an audio decoder. Applicable to Audio.
 
 **[Example Code]**
 
-Refer to [hb_mm_mc_register_audio_decoder](#hb_mm_mc_register_audio_decoder)
+Refer to [hb_mm_mc_register_audio_decoder]
+<!-- (#hb_mm_mc_register_audio_decoder) -->
 
 #### hb\_mm\_mc\_get\_explicit\_header\_config
 
@@ -5021,7 +5043,7 @@ typedef enum _media_codec_id {
     MEDIA_CODEC_ID_MLP,
     MEDIA_CODEC_ID_ATRAC1,
     MEDIA_CODEC_ID_IMC,
-```MEDIA_CODEC_ID_EAC,
+    MEDIA_CODEC_ID_EAC,
     MEDIA_CODEC_ID_MP1,
     MEDIA_CODEC_ID_SIPR,
     MEDIA_CODEC_ID_OPUS,
@@ -5418,7 +5440,9 @@ typedef struct _mc_video_codec_dec_params {
 } mc_video_codec_dec_params_t;
 ```
 
-#### mc\_audio\_codec\_enc\_params\_t【Description】
+#### mc\_audio\_codec\_enc\_params\_t  
+
+【Description】
 
 Defines the encoding parameters for an audio codec.
 

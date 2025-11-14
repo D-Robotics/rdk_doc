@@ -191,10 +191,11 @@ root@ubuntu:~#
 
 Take pin `sensor8_err` as an example: by examining `drobot-s100-pinctrl.dtsi`, we find that `sensor8_err` corresponds to GPIO chip `video_port0: gpio@360b0000` with an offset of 13.  
 Checking `/sys/kernel/debug/gpio`, we see that `video_port0: gpio@360b0000` has a base of 439.  
-Thus, the kernel GPIO index for `sensor8_err` is: 439 + 13 = 452.### Check drobot-s100-pinctrl.dtsi to obtain offset and base
+Thus, the kernel GPIO index for `sensor8_err` is: 439 + 13 = 452.
 
-From the device tree below, we can see that `sensor8_err` corresponds to `video_sensor8_err`, and its associated GPIO chip is `"video_port0: gpio@360b0000"`.  
-The offset of `video_gnss_int` is 0, and offsets increment sequentially; therefore, the offset of `video_sensor8_err` is 13.
+### Check drobot-s100-pinctrl.dtsi to obtain offset and base
+
+From the device tree below, we can see that `sensor8_err` corresponds to `video_sensor8_err`, and its associated GPIO chip is `"video_port0: gpio@360b0000"`.The offset of `video_gnss_int` is 0, and offsets increment sequentially; therefore, the offset of `video_sensor8_err` is 13.
 
 ``` {.shell}
 pinctrl_video: pinctrl@36090000 {
@@ -229,8 +230,8 @@ pinctrl_video: pinctrl@36090000 {
 }
 ```
 
-For example, in this line: `gpiochip3: GPIOs 439-455, parent: platform/360b0000.gpio`,  
-`"GPIOs 439-455"` indicates that the base is 439.
+For example, in this line: gpiochip3: GPIOs 439-455, parent: platform/360b0000.gpio,  
+360b0000.gpio:"GPIOs 439-455" indicates that the base is 439.
 
 ``` {.shell}
 cat /sys/kernel/debug/gpio

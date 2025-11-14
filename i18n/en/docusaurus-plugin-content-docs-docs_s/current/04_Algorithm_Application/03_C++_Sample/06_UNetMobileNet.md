@@ -11,7 +11,7 @@ This example demonstrates how to run the UNet-MobileNet semantic segmentation mo
 
     UNet is a classic semantic segmentation network architecture that adopts an encoder-decoder structure and excels in fields such as medical image analysis. In this example, MobileNet is used as the encoder backbone to reduce model complexity and accelerate inference speed, making it suitable for real-time segmentation tasks on edge devices. The model outputs a class label for each pixel, enabling applications like urban street scene segmentation.
 
-- **HBM Model Name**: `unet_mobilenet_1024x2048_nv12.hbm`
+- **HBM Model Name**: unet_mobilenet_1024x2048_nv12.hbm
 
 - **Input Format**: NV12, with resolution 1024x2048 (separate Y and UV planes)
 

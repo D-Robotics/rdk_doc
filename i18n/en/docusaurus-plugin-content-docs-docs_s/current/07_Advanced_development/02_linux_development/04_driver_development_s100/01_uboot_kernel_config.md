@@ -90,7 +90,7 @@ After saving the configuration, you can run `diff .config configs/hobot_s100_def
 
 If the modifications are correct, run `cp .config configs/hobot_s100_defconfig` to replace the default configuration file.
 
-Clean up files such as `.config` in the source directory; otherwise, during a full system rebuild, you may see a warning like "xxx is not clean, please run 'make mrproper'".
+Clean up files such as `.config` in the source directory; otherwise, during a full system rebuild, you may see a warning like xxx is not clean, please run 'make mrproper'.
 
 ```bash
 make distclean

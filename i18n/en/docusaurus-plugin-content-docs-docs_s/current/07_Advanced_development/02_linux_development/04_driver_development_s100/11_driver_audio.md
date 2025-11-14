@@ -194,7 +194,9 @@ echo "8 4 1 7" > /proc/sys/kernel/printk
 echo -n "file hobot-cpudai-super.c +p" > /sys/kernel/debug/dynamic_debug/control
 echo -n "file hobot-i2s-super.c +p" > /sys/kernel/debug/dynamic_debug/control
 echo -n "file hobot-platform-super.c +p" > /sys/kernel/debug/dynamic_debug/control
-```#### ALSA procfs Node Description
+```
+
+#### ALSA procfs Node Description
 
 procfs is a Linux filesystem that provides interfaces to kernel data structures. It is mounted at /proc.
 
@@ -285,7 +287,7 @@ Specific device file:
 tinycap /dev/null
 ```
 
-> **Note**: The above methods only help determine if I/O latency causes xrun; they are not solutions to fix xrun.
+**Note**: The above methods only help determine if I/O latency causes xrun; they are not solutions to fix xrun.
 
 - Optimize application testing:
 

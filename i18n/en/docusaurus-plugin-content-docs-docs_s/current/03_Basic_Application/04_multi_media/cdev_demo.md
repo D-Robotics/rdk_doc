@@ -125,8 +125,7 @@ Example flow diagram:
   - With the development board powered off, connect the `MIPI` camera to the board. Currently, this sample only supports MIPI sensors: IMX219, SC230AI.
   - Power on the development board and log in via the command line.
 
-- **Execution Method:** Run the program using the following commands.  
-  The example code is provided in source form and must be compiled using the `make` command before running. Follow these steps:
+- **Execution Method:** Run the program using the following commands. The example code is provided in source form and must be compiled using the `make` command before running. Follow these steps:
 
   ```bash
   sunrise@ubuntu:~$ cd /app/cdev_demo/vio2encoder
@@ -197,7 +196,7 @@ Example flow diagram:
   - `-w`: Width of the video file  
   - `-i`: Path to the video file  
 
-- **Expected Result:**After the program runs correctly, the video画面 will be output through the development board's `HDMI` interface, and users can preview the video画面 on a monitor. The runtime log is as follows:
+- **Expected Result:** After the program runs correctly, the video will be output through the development board's `HDMI` interface, and users can preview the video on a monitor. The runtime log is as follows:
 ```bash
 sunrise@ubuntu:/app/cdev_demo/decode2display$ ./decoder2display -w 1920 -h 1080 -i /app/res/assets/1080P_test.h264
 [UCP]: log level = 3
@@ -218,7 +217,7 @@ sp_start_display success!
 
 ## RTSP Stream Pulling and Decoding
 
-This example, `rtsp2display`, implements the functionality of pulling an `rtsp` stream, decoding it, and outputting the video画面 via `HDMI`, allowing users to preview the画面 on a monitor.
+This example, `rtsp2display`, implements the functionality of pulling an `rtsp` stream, decoding it, and outputting the video via `HDMI`, allowing users to preview the on a monitor.
 
 Example workflow diagram:
 
@@ -251,7 +250,7 @@ Example workflow diagram:
   - `-t`: Transport type, options are `tcp` / `udp`
 
 - **Expected Result:**
-  After the program runs correctly, the video画面 will be output through the development board's `HDMI` interface, and users can preview the video画面 on a monitor. The runtime log is as follows:
+  After the program runs correctly, the video will be output through the development board's `HDMI` interface, and users can preview the video on a monitor. The runtime log is as follows:
 
   ```
   sunrise@ubuntu:/app/cdev_demo/rtsp2display$ ./rtsp2display -i rtsp://127.0.0.1/assets/1080P_test.h264 -t tcp

@@ -11,7 +11,7 @@ This example runs a speech recognition model based on the BPU inference engine t
 
     The ASR (Automatic Speech Recognition) model converts audio signals into text. The input is a single-channel audio waveform (after sample rate conversion and normalization), and the output is a character-level token sequence. When used together with a vocabulary (`vocab`) file, it supports Chinese speech transcription. This example uses a quantized `.hbm` model.
 
-- **HBM Model Name**: `asr.hbm`
+- **HBM Model Name**: asr.hbm
 
 - **Input Format**: Audio waveform, single-channel, sampled at 16kHz, with a maximum length of 30,000 samples.
 

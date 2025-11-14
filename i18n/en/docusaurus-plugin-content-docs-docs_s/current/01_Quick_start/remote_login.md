@@ -26,7 +26,7 @@ Before logging in remotely over the network, ensure the development board is con
 
 ### **Connecting via Serial on Windows**
 
-Reference video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
+<!-- Reference video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2 -->
 
 Before logging in via serial, ensure the development board’s serial cable is correctly connected to your PC. For connection instructions, refer to the debugging serial port section of your specific development board:
 
@@ -119,7 +119,7 @@ If you encounter garbled characters when using `minicom`, see [Garbled Character
 
 ## Network Status Verification {#network_config}
 
-Reference: https://www.bilibili.com/video/BV1rm4y1E73q/?p=3
+<!-- Reference: https://www.bilibili.com/video/BV1rm4y1E73q/?p=3 -->
 
 Before remote login, ensure network communication between your PC and the development board is functional. If you cannot `ping` the board, follow these steps to verify:
 

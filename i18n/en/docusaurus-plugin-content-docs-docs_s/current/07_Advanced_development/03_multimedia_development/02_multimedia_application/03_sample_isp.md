@@ -197,7 +197,7 @@ Using index:5  sensor_name:dummy  config_file:dummy_sensor.c
 Creating camera with config: width=1920, height=1080, format=10
 [INFO] Create isp node handle: 100197
 isp process one frame cost:  2187075 ns
-```isp(100197) dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800 frame id: 0, timestamp: 0  
+isp(100197) dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800 frame id: 0, timestamp: 0  
 isp process one frame cost:  2128900 ns  
 isp(100197) dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800 frame id: 0, timestamp: 0  
 isp process one frame cost:  2115925 ns  
@@ -216,6 +216,7 @@ isp process one frame cost:  2112775 ns
 isp(100197) dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800 frame id: 0, timestamp: 0  
 isp process one frame cost:  2114200 ns  
 isp(100197) dump yuv 1920x1080(stride:1920), buffer size: 2073600 + 1036800 frame id: 0, timestamp: 0  
+```
 
 The program starts running and saves the following calibrated YUV images in the current directory by default, looping back 10 times and calculating the processing time for each loop:
 

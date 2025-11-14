@@ -167,7 +167,7 @@ The power indicator LED is located next to the DC power input jack.
 | :-------- | :------------------------------ | :------------------ |
 | J2000     | HC-PBB05-2-100-M-H4.0-G1-R-P-04 | Huacan Tianlu       |
 | J2001     | ZX-DC-WC2.56.3                  | Zhaoxing Precision  |
-| J2100     | 112038-161410                   | Xinhan Precision    |
+| J2100     | 112038-161410                   | Synconn    |
 | J2200     | AFC01-S22FCA-00                 | Jushuo Electronics  |
 | J2201     | AFC01-S22FCA-00                 | Jushuo Electronics  |
 

@@ -201,7 +201,9 @@ Note: Non-root users need to prepend commands with "sudo".
 
 ### Pin Information Query
 
-#### /sys/kernel/debug/pinctrl/pinctrl-devicesCheck which pinctrl devices exist in the system and whether they use the pinmux and pinconf modules.
+#### /sys/kernel/debug/pinctrl/pinctrl-devices
+
+Check which pinctrl devices exist in the system and whether they use the pinmux and pinconf modules.
 
 ```shell
 root@ubuntu:~# cat /sys/kernel/debug/pinctrl/pinctrl-devices
@@ -400,7 +402,7 @@ View pin configurations within each pin group. On the S100, each individual pin 
 root@ubuntu:~# cat /sys/kernel/debug/pinctrl/39ff5000.pinctrl-peri/pingroups
 registered pin groups:
 group: peri_ufs_ref_clk
-```pin 0 (UFS_REF_CLK)
+pin 0 (UFS_REF_CLK)
 
 group: peri_ufs_rsto
 pin 1 (UFS_RSTO)
@@ -599,7 +601,9 @@ pin 36 (PCM0_BCLK): (MUX UNCLAIMED) (GPIO UNCLAIMED)
 pin 37 (PCM0_FSYNC): (MUX UNCLAIMED) (GPIO UNCLAIMED)
 pin 38 (PCM0_DATA0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
 pin 39 (PCM0_DATA1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
-```#### /sys/kernel/debug/\<pinctrl_dev>/pinmux-select
+```
+
+#### /sys/kernel/debug/\<pinctrl_dev>/pinmux-select
 
 You can query the required group and function for each pin via the `pinmux-functions` node,  
 and configure pinmux via the `pinmux-select` node using the parameters `group name` and `func name`.  

@@ -393,7 +393,7 @@ Run command:
 
 ```bash
 # Enter /app/multimedia_samples/sample_gdc/4-gdc_stress_test directory
-```sh test.sh
+sh test.sh
 ```
 
 Running log:
@@ -589,7 +589,8 @@ Parameter options for `gdc_transformation`:
 
 Run the following command to perform transformation validation on a static image:
 
-```bash# Enter /app/multimedia_samples/sample_gdc/6-gdc_transformation directory
+```bash  
+# Enter /app/multimedia_samples/sample_gdc/6-gdc_transformation directory
 ./gdc_transformation -i gdc_res/test_building_1920x1080.yuv --ix 1920 --iy 1080
 ```
 

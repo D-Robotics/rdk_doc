@@ -176,7 +176,9 @@ uint16_t ar0820_trigger_gpio_setting[][8] = {
 };
 ```
 
-In practice, enable synchronization functionality according to the `config_index` (requires corresponding implementation in the sensor library).:::info Note
+In practice, enable synchronization functionality according to the `config_index` (requires corresponding implementation in the sensor library).  
+
+:::info Note
 
 The above is only an example for AR0820; other cameras are similar. The camera synchronization function mainly requires the following configurations:
 

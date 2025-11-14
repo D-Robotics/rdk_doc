@@ -14,9 +14,9 @@ This example runs the PaddleOCR model on the BPU inference engine for text detec
 
 - HBM Model Names:
 
-- Detection Model: `cn_PP-OCRv3_det_infer-deploy_640x640_nv12.hbm`
+- Detection Model: cn_PP-OCRv3_det_infer-deploy_640x640_nv12.hbm
 
-- Recognition Model: `cn_PP-OCRv3_rec_infer-deploy_48x320_rgb.hbm`
+- Recognition Model: cn_PP-OCRv3_rec_infer-deploy_48x320_rgb.hbm
 
 - Input Format:
 

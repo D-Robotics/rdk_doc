@@ -194,7 +194,9 @@ echo 0 > /sys/kernel/debug/dw_i2c0/fifodump_en
 
 **fifodump Interface**
 
-Temporarily stores I2C data. When `fifodump_en` is enabled, the stored data can be printed using `cat`.Transmission normal:
+Temporarily stores I2C data. When `fifodump_en` is enabled, the stored data can be printed using `cat`.
+
+Transmission normal:
 
 ``` {.text}
 root@ubuntu:~# i2cdump -f -y 0 0x28

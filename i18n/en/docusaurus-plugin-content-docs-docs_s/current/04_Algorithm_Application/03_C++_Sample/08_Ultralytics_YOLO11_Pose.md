@@ -11,7 +11,7 @@ This example demonstrates how to run the Ultralytics YOLO11 pose estimation mode
 
     Ultralytics YOLO11 Pose is an efficient, lightweight human keypoint detection model capable of simultaneous object detection and pose estimation (multi-keypoint prediction). It integrates Distribution Focal Loss (DFL) to enhance the localization accuracy of bounding boxes and keypoints, making it suitable for real-time multi-person pose estimation tasks.
 
-- **HBM Model Name**: `yolo11n_pose_nashe_640x640_nv12.hbm`
+- **HBM Model Name**: yolo11n_pose_nashe_640x640_nv12.hbm
 
 - **Input Format**: NV12 format image (separated Y and UV planes), with resolution 640×640
 

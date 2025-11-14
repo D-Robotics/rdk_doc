@@ -197,6 +197,8 @@ None
 
 <font color='Blue'>【Notes】</font> 
 
-This interface must be used after calling `Encoder.encode()` to create an encoding channel.<font color='Blue'>【Reference Code】</font>  
+This interface must be used after calling `Encoder.encode()` to create an encoding channel.
+
+<font color='Blue'>【Reference Code】</font>  
 
 None

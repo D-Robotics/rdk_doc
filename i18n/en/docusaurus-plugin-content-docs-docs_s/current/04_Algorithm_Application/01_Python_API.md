@@ -106,7 +106,7 @@ Choose one of the following two methods:
   pip install hbm_runtime-x.x.x-cp310-cp310-manylinux_2_34_aarch64.whl
   ```
 
-- **Install from PyPI**
+- **Install from pypi**
   ```bash
   pip install hbm_runtime
   ```
@@ -313,9 +313,9 @@ All attributes listed below are read-only.
   - Structure:
     - str: Version number string.
     - Example:
-```python
-print("Version:", HB_HBMRuntime.version)
-```
+        ```python
+        print("Version:", HB_HBMRuntime.version)
+        ```
 - model_names: List[str]
   - Description:
     - List of loaded model names.
@@ -439,7 +439,7 @@ print("Version:", HB_HBMRuntime.version)
             print(f"    quantize_axis: {info.axis}")
             print(f"    scale_data: {info.scale.tolist()}")
             print(f"    zero_point_data: {info.zero_point.tolist()}")
-  ```
+    ```
 
 - input_strides: Dict[str, Dict[str, List[int]]]
   - Functionality:

@@ -119,9 +119,7 @@ Returns 0 on success; returns -1 on failure.
 
 **[Description]**  
 
-Feeds encoded stream data into an opened decoding channel.  
-For H264 or H265 streams, you must first send 3–5 frames to allow the decoder to fill its internal frame buffers before retrieving decoded frames.  
-For H264 streams, the first frame sent must contain SPS and PPS header information; otherwise, the decoder will report an error and exit.
+Feeds encoded stream data into an opened decoding channel.For H264 or H265 streams, you must first send 3–5 frames to allow the decoder to fill its internal frame buffers before retrieving decoded frames.For H264 streams, the first frame sent must contain SPS and PPS header information; otherwise, the decoder will report an error and exit.
 
 **[Parameters]**
 

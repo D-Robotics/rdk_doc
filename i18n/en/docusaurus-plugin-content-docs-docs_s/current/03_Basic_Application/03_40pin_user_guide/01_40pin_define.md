@@ -31,7 +31,7 @@ Pins labeled as `40PIN_GPIO[x]_3V3` in the pinout are GPIOs provided by an I2C-e
 The pins mentioned below are for illustrative purposes only. Port numbers may vary across different platforms—please verify against your actual hardware. Alternatively, you can directly use the code under the `/app/40pin_samples/` directory, which has been validated on the actual board.
 :::
 
-Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
+<!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16 -->
 
 The development board includes pre-built functional test scripts for various pins under `/app/40pin_samples/`, covering GPIO input/output, PWM, I2C, SPI, UART, and more. All test programs are written in Python; refer to other sections of this chapter for detailed information.
 

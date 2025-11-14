@@ -61,7 +61,7 @@ Therefore, if you wish configurations made via NetworkManager (GUI or `nmcli`) t
 
 ## Wireless Network
 
-Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=12
+<!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=12 -->
 
 The development board integrates a 2.4GHz Wi-Fi module, supporting both Soft AP and Station modes, and runs in Station mode by default. The following sections describe how to use both modes.
 
@@ -264,7 +264,7 @@ Continuously being updated....
 
 ## DNS Service
 
-Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=13
+<!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=13 -->
 
 DNS (Domain Name Server) is a server that translates domain names into their corresponding IP addresses.
 
@@ -347,7 +347,7 @@ Bluetooth configuration for RDK S100 is currently unavailable.
 Continuously being updated....
 :::
 
-Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9
+<!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9 -->
 
 ### Initialization
 
@@ -396,7 +396,9 @@ Next, test active Bluetooth scanning. In the `bluetoothctl` interactive interfac
 
 ![image-20220601154131158](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154131158.png)
 
-![image-20220601154253947](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154253947.png)Then comes pairing with other Bluetooth devices:
+![image-20220601154253947](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601154253947.png)
+
+Then comes pairing with other Bluetooth devices:
 
 - Pairing command: `pair [targetMAC]`. After entering this command, type `yes` when prompted, and select the `Pair` option on the remote Bluetooth device to complete pairing.
 

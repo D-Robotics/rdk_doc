@@ -27,8 +27,8 @@ Camera.open_cam(pipe_id, video_index, fps, width, height, raw_height, raw_width)
 | fps            | Camera output frame rate                 | Depends on camera model; default: 30 |
 | width          | Final output image width of the camera   | Depends on camera model; default: 1920 |
 | height         | Final output image height of the camera  | Depends on camera model; default: 1080 |
-| raw_height     | Original RAW image output height of the camera | Depends on camera model; default: 1080 |
-| raw_width      | Original RAW image output width of the camera  | Depends on camera model; default: 1920 |
+| raw_height     | Original RAW image output height of the camera | Depends on camera model; default: 1920 |
+| raw_width      | Original RAW image output width of the camera  | Depends on camera model; default: 1080 |
 
 <font color='Blue'>【Usage】</font> 
 
@@ -78,6 +78,7 @@ Switching the `IMX477` camera from `1080P` resolution to another resolution requ
 The `S100` chip has alignment requirements for `VPS` output:  
 - Output width must be aligned to 16 bytes.  
 - Output height must be aligned to 2 bytes.  
+
 If your configured width or height does not meet these alignment requirements, an error will be reported.
 
 :::
@@ -140,7 +141,8 @@ ret = camera.open_vps(1, 1, 1920, 1080, 512, 512)
 
 The `S100` chip has alignment requirements for `VPS` output:  
 - Output width must be aligned to 16 bytes.  
-- Output height must be aligned to 2 bytes.  
+- Output height must be aligned to 2 bytes. 
+ 
 If your configured width or height does not meet these alignment requirements, an error will be reported.
 
 :::
@@ -201,8 +203,9 @@ img = cam.get_img(2)
 | -1           | Failure     |
 
 <font color='Blue'>【Notes】</font> 
+This method must be called **after** `open_cam` or `open_vps`.
 
-This method must be called **after** `open_cam` or `open_vps`.<font color='Blue'>【Reference Code】</font>  
+<font color='Blue'>【Reference Code】</font>  
 
 ```python
 import sys, os, time

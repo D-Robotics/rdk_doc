@@ -11,7 +11,7 @@ This example demonstrates how to run the Ultralytics YOLOE11 instance segmentati
 
     Ultralytics YOLOE11 is a high-performance on-device instance segmentation model suitable for open-vocabulary object detection and segmentation tasks. Through multi-scale feature extraction, dense classification, and prototype mask generation, this model effectively identifies objects in images and outputs precise instance segmentation results. This example uses a lightweight version of Ultralytics YOLOE11, which takes 640x640 input images and supports generalized object classification and segmentation across 4,585 categories.
 
-- HBM Model Name: `yoloe_11s_seg_pf_nashe_640x640_nv12.hbm`
+- HBM Model Name: yoloe_11s_seg_pf_nashe_640x640_nv12.hbm
 
 - Input Format: NV12, resolution 640x640
 

@@ -200,7 +200,9 @@ Prepare an RDK_S100 development board and wire out the four SPI lines. The Maste
 
 ![SPI_wiring_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/SPI_wiring_diagram.png)
 
-Ensure that the SPI baud rate and transfer mode settings match between Master and Slave. On the Slave device side, first execute the data reception test command;```shell
+Ensure that the SPI baud rate and transfer mode settings match between Master and Slave. On the Slave device side, first execute the data reception test command;
+
+```shell
 ./spidev_tc -D /dev/spidev0.0 -s 12000000 -I 1 -e 2 -S 32 -v
 bits per word: 8
 max speed: 1000000 Hz (1000 KHz)
