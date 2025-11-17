@@ -131,8 +131,8 @@ tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
 # 设置喇叭音量
 tinymix -D 0 set 'Speaker DC Volume' 3
 tinymix -D 0 set 'Speaker AC Volume' 3
-tinymix -D 0 set 'Speaker Playback Volume' 127,127
-tinymix -D 0 set 'Playback Volume' 255,255
+tinymix -D 0 set 'Speaker Playback Volume' 127, 127
+tinymix -D 0 set 'Playback Volume' 255, 255
 
 # 再次确保输出开关已打开
 tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
