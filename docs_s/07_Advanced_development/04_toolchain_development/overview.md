@@ -34,7 +34,7 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-doc.zip --ftp-pass
 
 #### S100 1.0.0 大模型工具链
 
-**开发工具包下载地址**： 
+**开发工具包下载地址** 
 ```bash 
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0.tar.gz --ftp-password=Oeftp~123$%
 ```
