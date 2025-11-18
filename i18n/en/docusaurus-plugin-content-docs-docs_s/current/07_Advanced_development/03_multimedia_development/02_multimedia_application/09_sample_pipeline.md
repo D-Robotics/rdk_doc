@@ -602,7 +602,7 @@ Pipeline Connect Param:
                 pym [hw:1] [slot_id:5] [mode:1]  
 
 INFO: ISP channel info:  
-```input info: [mipi_rx: 1] [is_online: 1]
+        input info: [mipi_rx: 1] [is_online: 1]
         isp channel info: [hw_id: 1] [slot_id: 4] [mode:1]
 
 pym config:

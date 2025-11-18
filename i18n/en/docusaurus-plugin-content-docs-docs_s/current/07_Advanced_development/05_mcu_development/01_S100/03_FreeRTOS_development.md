@@ -399,7 +399,9 @@ The diagram shows the relative task priorities of each function and the calling 
 ### Boot
 **AcoreBootProc**: Place in a low-priority task. This function includes necessary initializations for Acore boot-up, including initialization of the critical Housekeeping feature `Housekeeping_WriteMagicNum`. If this function is not properly initialized, Acore accesses to MCU registers will cause Acore exceptions.
 
-**Integration Note**: This must be handled on MCU0. AcoreBoot requires flash access, so flash resource conflicts must be avoided. It should be placed in the same low-priority task as the OTA functionality described below.### OTA  
+**Integration Note**: This must be handled on MCU0. AcoreBoot requires flash access, so flash resource conflicts must be avoided. It should be placed in the same low-priority task as the OTA functionality described below.  
+
+### OTA  
 OtaFlash_MainFunction: Place in a low-priority task, as it involves OTA-related processing logic.
 
 Integration Note: This must be handled on MCU0. The OTA feature requires flash, IPC, and crypto functionalities. To avoid conflicts caused by concurrent flash operations, it is recommended to place all flash-related operations into a single low-priority task for serialized access. For example, the previously mentioned AcoreBootProc runs in the same low-priority task.

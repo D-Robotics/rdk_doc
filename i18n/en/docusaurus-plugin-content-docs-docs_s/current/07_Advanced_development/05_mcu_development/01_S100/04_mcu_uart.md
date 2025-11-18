@@ -198,7 +198,7 @@ Return value: Std_ReturnType
 Description: Set the number of stop bits for a UART channel.
 
 Parameters (in)
-```Channel: Uart Channel
+    Channel: Uart Channel
     Stopbit: Desired Stopbit
 Parameters(inout)
     None

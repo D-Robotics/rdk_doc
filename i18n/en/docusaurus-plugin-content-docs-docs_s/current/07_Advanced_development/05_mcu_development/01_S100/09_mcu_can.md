@@ -197,7 +197,8 @@ static const Can_HwFilterType Can_aHwFilter_Object7[4U] =
 
 This type allows matching against two independent IDs:
 - `id1`: First matching ID  
-- `id2`: Second matching ID```c
+- `id2`: Second matching ID  
+```c
 if (Received_ID == id1 || Received_ID == id2)
     // Receive this message
 else
@@ -399,7 +400,7 @@ static const Can_BaudrateConfigType Can_aBaudrateConfig_Ctrl5[6U]=
             (uint8)1U // Synchronization Jump Width (SJW)
         },
         /* Data bit rate */ // Data segment configuration
-```{
+    {
             (uint8)3U,
             (uint8)3U,
             (uint8)1U,
@@ -605,7 +606,7 @@ int main(int argc, char *argv[])
 
     pthread_join(send_thread, NULL);
     pthread_join(rx_threads[i], NULL);
-```canDeInit();
+    canDeInit();
 }
 ```
 
@@ -803,7 +804,8 @@ export CAN_HAL_DEBUG_LEVEL=6 // Set CAN HAL debug level; setting to 6 disables a
 ./can_multi_ch
 ```
 Or run with parameters:
-```bash./can_multi_ch -t 2 -l 64 -n 5
+```bash  
+./can_multi_ch -t 2 -l 64 -n 5
 ```
 
 ##### Log Analysis
@@ -1001,7 +1003,9 @@ Parameters(inout)
 Parameters(out)
     versioninfo: Pointer to where to store the version information of this module.
 Return value: None
-```#### void Can_DeInit(void)
+```  
+
+#### void Can_DeInit(void)
 
 ```shell
 Description: This function de-initializes the module.

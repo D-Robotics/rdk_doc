@@ -76,9 +76,9 @@ PYM (Pyramid) is a hardware acceleration module that processes input images in p
 ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image.png)
 
 - The S100 has three PYM modules: PYM0, PYM1, and PYM4.
-- **SRC layer**: Represents the source image layer.
-- **BL layer**: Represents bilinear downsampled layers; BL Base 0~4 correspond to 1/2, 1/4, 1/8, 1/16, and 1/32 of the source image, respectively.
-- **DS layer**: Output layer; each layer can arbitrarily select an input layer (SRC or BL0~4), perform downsampling and ROI processing, and then output to DDR.
+- SRC layer: Represents the source image layer.
+- BL layer: Represents bilinear downsampled layers; BL Base 0~4 correspond to 1/2, 1/4, 1/8, 1/16, and 1/32 of the source image, respectively.
+- DS layer: Output layer; each layer can arbitrarily select an input layer (SRC or BL0~4), perform downsampling and ROI processing, and then output to DDR.
 - Maximum input width and height: 4096; minimum input width and height: 32.
 - Downscaling ratio: (1/2, 1]; upscaling is not supported.
 - Performance: PYM0/1 support 4K@120fps; PYM4 supports 4K@90fps but does not support online input.
@@ -133,7 +133,7 @@ All transformation types share three common parameters: **Pan**, **Tilt**, and *
     Horizontally offsets the transformation grid by a given number of pixels within the range (-1280, +1280), as shown below:  
     ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-1.png)
 
-* **Tilt**
+* **Tile**
 
     Vertically offsets the transformation grid by a given number of pixels within the range (-720, +720), as shown below:  
     ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-2.png)

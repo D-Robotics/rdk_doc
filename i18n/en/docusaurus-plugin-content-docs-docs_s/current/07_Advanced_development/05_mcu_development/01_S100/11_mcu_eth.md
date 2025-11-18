@@ -197,7 +197,8 @@ Parameters (out)
 Return value: None
 ```
 
-#### void Eth_SetPhysAddr(uint8 CtrlIdx, const uint8* PhysAddrPtr)```
+#### void Eth_SetPhysAddr(uint8 CtrlIdx, const uint8* PhysAddrPtr)  
+```
 Description: Sets the physical source address used by the indexed controller.
 
 Sync/Async: Synchronous

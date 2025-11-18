@@ -148,7 +148,7 @@ QPMAP allows specifying QP values for each block within a frame: 32x32 for H.265
 
 #### Encoding Quality Tuning
 
-In current customer usage scenarios involving video encoding with the codec, CBR mode is commonly selected. In complex scenes, hardware automatically increases bitrate to maintain video quality, resulting in larger-than-expected output files. To balance video quality and actual bitrate, settings for bit_rate and max_qp_I/P must be coordinated. Below shows actual bitrate and QP under all-I-frame mode with a target bitrate of 15000 kbps across different scene complexities and max_qp_I values (data仅供参考 due to varying scene complexity):
+In current customer usage scenarios involving video encoding with the codec, CBR mode is commonly selected. In complex scenes, hardware automatically increases bitrate to maintain video quality, resulting in larger-than-expected output files. To balance video quality and actual bitrate, settings for bit_rate and max_qp_I/P must be coordinated. Below shows actual bitrate and QP under all-I-frame mode with a target bitrate of 15000 kbps across different scene complexities and max_qp_I values (data due to varying scene complexity):
 
 | Scene & Parameters                         | Outdoor Daytime Complex Scene bitrate(15000) max_qp_I(35) | Outdoor Daytime Complex Scene bitrate(15000) max_qp_I(38) | Outdoor Daytime Complex Scene bitrate(15000) max_qp_I(39) |
 | ------------------------------------------ | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
@@ -4764,7 +4764,6 @@ int main(int argc, char *argv[])
     do_sync_encoding(&ctx);
 }
 ```
-
 #### hb\_mm\_mc\_set\_3dnr\_enc\_config
 
 【Function Declaration】
@@ -4774,24 +4773,25 @@ hb\_s32 hb\_mm\_mc\_set\_3dnr\_enc\_config(media\_codec\_context\_t
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
-- \[IN\] const mc\_video\_3dnr\_enc\_params\_t \*params: 3DNR parameters
+- \[IN\] media\_codec\_context\_t \*context：Context specifying the codec type
+- \[IN\] const mc\_video\_3dnr\_enc\_params\_t \*params：3DNR parameters
 
 【Return Values】
 
-- 0: Operation succeeded
-- HB\_MEDIA\_ERR\_UNKNOWN: Unknown error
-- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED: Operation not allowed
-- HB\_MEDIA\_ERR\_INVALID\_INSTANCE: Invalid instance
-- HB\_MEDIA\_ERR\_INVALID\_PARAMS: Invalid parameters
+- 0：Operation succeeded
+- HB\_MEDIA\_ERR\_UNKNOWN： Unknown error
+- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED：Operation not allowed
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE：Invalid instance
+- HB\_MEDIA\_ERR\_INVALID\_PARAMS：Invalid parameters
+
 
 【Function Description】
 
-Sets 3DNR parameters. These parameters are dynamic and applicable to H.265.
+Set the 3DNR parameters. This parameter is a dynamic one and is applicable to H265.
 
 【Example Code】
 
-Refer to [hb_mm_mc_get_3dnr_enc_config](#hb_mm_mc_get_3dnr_enc_config)
+Refer to  [hb_mm_mc_get_3dnr_enc_config](#hb_mm_mc_get_3dnr_enc_config)
 
 #### hb\_mm\_mc\_request\_idr\_header
 
@@ -4802,33 +4802,212 @@ hb\_s32 hb\_mm\_mc\_request\_idr\_header(media\_codec\_context\_t
 
 【Parameter Description】
 
-- \[IN\] media\_codec\_context\_t \*context: Context specifying the codec type
-- \[IN\] hb\_u32 force\_header:
+- \[IN\] media\_codec\_context\_t \*context：Context specifying the codec type
+- \[IN\] hb\_u32 force\_header：
 
-  > 0 : No forced header (VPS/SPS/PPS)
+  > 0 : No froced header(VPS/SPS/PPS)
   >
   > 1 : Forced header before IDR frame
   >
-  > 2 : Forced header before I frame for H.264, or forced header before CRA and IDR frames for H.265
-  <!-- >hb_s32 hb_mm_mc_unregister_audio_decoder(hb_s32 handle)
-    【Parameter Description】
-  \[IN\] hb_s32 handle: Decoder handle -->
+  > 2 : Forced header before I frame for H264 or forced header before
+  > CRA and IDR frame for H265
+  >
 
 【Return Values】
 
-- 0: Operation succeeded  
-- HB_MEDIA_ERR_UNKNOWN: Unknown error  
-- HB_MEDIA_ERR_OPERATION_NOT_ALLOWED: Operation not allowed  
-- HB_MEDIA_ERR_INVALID_INSTANCE: Invalid instance  
-- HB_MEDIA_ERR_INVALID_PARAMS: Invalid parameters  
+- 0：Operation succeeded
+- HB\_MEDIA\_ERR\_UNKNOWN： Unknown error
+- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED：Operation not allowed
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE：Invalid instance
+- HB\_MEDIA\_ERR\_INVALID\_PARAMS：Invalid parameters
 
 【Function Description】
 
-Unregister an audio decoder, applicable to Audio.
+Request the IDR frame header information of the frame header ID, applicable to H264/H265.
 
 【Example Code】
 
-Refer to [hb_mm_mc_register_audio_decoder]  
+参考 [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
+
+#### hb\_mm\_mc\_enable\_idr\_frame
+
+【Function Declaration】
+
+hb\_s32 hb\_mm\_mc\_enable\_idr\_frame(media\_codec\_context\_t
+\*context, hb\_bool enable)
+
+【Parameter Description】
+
+- \[IN\] media\_codec\_context\_t \*context：Context specifying the codec type
+- \[IN\] hb\_bool enable：0: Disable；1: Enable；
+
+【Return Values】
+
+- 0：Operation succeeded
+- HB\_MEDIA\_ERR\_UNKNOWN： Unknown error
+- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED：Operation not allowed
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE：Invalid instance
+- HB\_MEDIA\_ERR\_INVALID\_PARAMS：Invalid parameters
+
+【Function Description】
+
+Enable IDR frames, applicable for H264/H265.
+
+【Example Code】
+
+Refer to  [hb_mm_mc_get_longterm_ref_mode](#hb_mm_mc_get_longterm_ref_mode)
+
+#### hb\_mm\_mc\_register\_audio\_encoder
+
+【Function Declaration】
+
+hb\_s32 hb\_mm\_mc\_register\_audio\_encoder(hb\_s32 \*handle,
+mc\_audio\_encode\_param\_t \*encoder)
+
+【Parameter Description】
+
+- \[IN\] hb\_s32 \*handle：Encoder handle
+- \[IN\] mc\_audio\_encode\_param\_t \*encoder：audio编码器描述符；
+
+【Return Values】
+
+- 0：Operation succeeded
+- HB\_MEDIA\_ERR\_UNKNOWN： Unknown error
+- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED：Operation not allowed
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE：Invalid instance
+- HB\_MEDIA\_ERR\_INVALID\_PARAMS：Invalid parameters
+
+【Function Description】
+
+Register the audio encoder, applicable for Audio.
+
+【Example Code】
+
+```
+#include "hb_media_codec.h"
+#include "hb_media_error.h"
+#include "include/aac.h"
+int main(int argc, char *argv[])
+{
+    mc_audio_codec_enc_params_t *params;
+    media_codec_context_t context;
+    memset(&context, 0x00, sizeof(media_codec_context_t));
+    context.codec_id = MEDIA_CODEC_ID_AAC;
+    context.encoder = TRUE;
+    params = &context.audio_enc_params;
+    params->bit_rate = 128000;
+    params->frame_buf_count = 5;
+    params->packet_count = 5;
+    params->sample_fmt = MC_AV_SAMPLE_FMT_S16;
+    params->sample_rate = MC_AV_SAMPLE_RATE_16000;
+    params->channel_layout = MC_AV_CHANNEL_LAYOUT_STEREO;
+    params->channels = 2;
+    mc_aac_enc_config_t config;
+    config.profile = MC_AAC_PROFILE_LOW;
+    config.type = MC_AAC_DATA_TYPE_ADTS;
+    params->enc_config = &config;
+    int ret;
+    int handle;
+    mc_audio_encode_param_t encoder;
+    encoder.ff_type = MEDIA_CODEC_ID_AAC;
+    snprintf(encoder.ff_codec_name, sizeof(encoder.ff_codec_name), "aacenc");
+    encoder.ff_audio_open_encoder = ff_audio_aac_open_encoder;
+    encoder.ff_audio_encode_frame = ff_audio_aac_encode_frm;
+    encoder.ff_audio_close_encoder = ff_audio_aac_close_encoder;
+    ret = hb_mm_mc_register_audio_encoder(&handle, &encoder);
+    printf("handle = %d\n", handle);
+    ASSERT_EQ(ret, 0);
+    ret = hb_mm_mc_unregister_audio_encoder(handle);
+    ASSERT_EQ(ret, 0);
+}
+```
+#### hb\_mm\_mc\_unregister\_audio\_encoder
+
+【Function Declaration】
+
+hb\_s32 hb\_mm\_mc\_unregister\_audio\_encoder(hb\_s32 handle)
+
+【Parameter Description】
+
+- \[IN\] hb\_s32 \*handle：encoder handle
+
+【Return Values】
+
+- 0：Operation succeeded
+- HB\_MEDIA\_ERR\_UNKNOWN： Unknown error
+- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED：Operation not allowed 
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE：Invalid instance 
+- HB\_MEDIA\_ERR\_INVALID\_PARAMS：Invalid parameters  
+
+
+【Function Description】
+
+Unregister the audio encoder, applicable for Audio.
+
+【Example Code】
+
+参考 [hb_mm_mc_register_audio_encoder](#hb_mm_mc_register_audio_encoder)
+
+#### hb\_mm\_mc\_register\_audio\_decoder
+
+【Function Declaration】
+
+hb\_s32 hb\_mm\_mc\_register\_audio\_decoder(hb\_s32 \*handle,
+mc\_audio\_decode\_param\_t \*decoder)
+
+【Parameter Description】
+
+- \[IN\] hb\_s32 \*handle：Decoder handle
+- \[IN\] mc\_audio\_decode\_param\_t \*decoder：Audio decoder descriptor
+
+【Return Values】
+
+- 0：Operation succeeded
+- HB\_MEDIA\_ERR\_UNKNOWN： Unknown error
+- HB\_MEDIA\_ERR\_OPERATION\_NOT\_ALLOWED：Operation not allowed
+- HB\_MEDIA\_ERR\_INVALID\_INSTANCE：Invalid instance
+- HB\_MEDIA\_ERR\_INVALID\_PARAMS： Invalid parameters
+
+【Function Description】
+
+Register the audio decoder, applicable for Audio.
+
+【Example Code】
+
+```
+#include "hb_media_codec.h"
+#include "hb_media_error.h"
+#include "include/aac.h"
+int main(int argc, char *argv[])
+{
+    mc_audio_codec_dec_params_t *params;
+    media_codec_context_t context;
+    memset(&context, 0x00, sizeof(media_codec_context_t));
+    context.codec_id = MEDIA_CODEC_ID_AAC;
+    context.encoder = FALSE;
+    params = &context.audio_dec_params;
+    params->feed_mode = MC_FEEDING_MODE_FRAME_SIZE;
+    params->packet_buf_size = 1024;
+    params->packet_count = 5;
+    params->frame_cache_size = 5;
+    params->frame_buf_count = 5;
+    mc_aac_dec_config_t config;
+    config.sample_rate = MC_AV_SAMPLE_RATE_8000;
+    config.channels = 1;
+    config.sample_fmt = MC_AV_SAMPLE_FMT_S16;
+    params->dec_config = &config;
+    mc_audio_decode_param_t decoder;
+    decoder.ff_type = MEDIA_CODEC_ID_AAC;
+    snprintf(decoder.ff_codec_name, sizeof(decoder.ff_codec_name), "aacdec");
+    decoder.ff_audio_open_decoder = ff_audio_aac_open_decoder;
+    decoder.ff_audio_decode_frame = ff_audio_aac_decode_frm;
+    decoder.ff_audio_close_decoder = ff_audio_aac_close_decoder;
+    ret = hb_mm_mc_register_audio_decoder(&handle, &decoder);
+    ASSERT_EQ(ret, 0);
+    ret = hb_mm_mc_unregister_audio_decoder(handle);
+    ASSERT_EQ(ret, 0);
+}
+``` 
 
 #### hb_mm_mc_unregister_audio_decoder  
 
@@ -4854,8 +5033,7 @@ Unregisters an audio decoder. Applicable to Audio.
 
 **[Example Code]**
 
-Refer to [hb_mm_mc_register_audio_decoder]
-<!-- (#hb_mm_mc_register_audio_decoder) -->
+Refer to [hb_mm_mc_register_audio_decoder](#hb_mm_mc_register_audio_decoder)
 
 #### hb\_mm\_mc\_get\_explicit\_header\_config
 

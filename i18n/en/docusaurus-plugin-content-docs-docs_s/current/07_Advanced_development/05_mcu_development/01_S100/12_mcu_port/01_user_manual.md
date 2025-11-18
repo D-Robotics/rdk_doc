@@ -198,7 +198,7 @@ Refer to `samples/Gpio/src/Gpio_sample.c` for usage examples. The basic usage lo
 ```C
     /* Configure the "PinIdx" PIN as a GPIO function */
     RetVal = Port_SetGpioByIndex(PinIdx);
-```/* Configure the direction of "PinIdx" PIN as OUTPUT and set the output level to Level */
+    /* Configure the direction of "PinIdx" PIN as OUTPUT and set the output level to Level */
     RetVal = Port_GpioDirectionOutput(PinIdx, Level);
 
     /* Configure the direction of "PinIdx" PIN as INPUT */
@@ -208,7 +208,8 @@ Refer to `samples/Gpio/src/Gpio_sample.c` for usage examples. The basic usage lo
     RetVal = Port_GpioGetValue(PinIdx);
 
 ...
-
+```  
+```
 :::info Note
 
     - The value returned by the "Port_GpioGetValue" function may vary when the external PIN is floating, as it is affected by the PinCtrl configuration;
@@ -229,5 +230,6 @@ Refer to `samples/Gpio/src/Gpio_sample.c` for usage examples. The basic usage lo
             AON_PIN_NUM(0),  /* S100 debug uart rx */
             AON_PIN_NUM(12), /* S100 Power related pins */
         };
-        ```
+       
 :::
+```

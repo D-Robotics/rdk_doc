@@ -197,7 +197,7 @@ static const Adc_GroupCfg Adc_GroupsCfg[] =
         Adc_TestNormal_Notification_0, /* Notification */ // Notification function to inform upper layer that conversion is complete
 #endif /* (STD_ON == ADC_GRP_NOTIF_CAPABILITY) */
     ............
-```/**< @brief Enables or Disables the ADC and DMA interrupts */
+        /**< @brief Enables or Disables the ADC and DMA interrupts */
         (uint8)(STD_ON), /* AdcWithoutInterrupt */  // STD_ON: non-interrupt mode; STD_OFF: interrupt mode; S100 uses non-interrupt mode by default
 #if (ADC_ENABLE_LIMIT_CHECK == STD_ON)
         /**< @brief Enables or disables the usage of limit checking for an ADC group. */
@@ -397,7 +397,7 @@ Parameters(in)
     Group: Numeric ID of the requested ADC channel group.
 Parameters(inout)
     None
-```Parameters(out)  
+    Parameters(out)  
     DataBufferPtr: ADC results of all channels of the selected group are stored  
                    in the data buffer addressed with the pointer.  
 Return value: None  

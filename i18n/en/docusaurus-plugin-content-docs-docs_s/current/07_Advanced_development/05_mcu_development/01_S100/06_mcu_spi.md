@@ -200,7 +200,7 @@ Robotics:/$ SpiTest_Mul_cs 4 4 1 8 10 1
 [get_spi_status 98] [INFO]: SPI status: SPI_IDLE
 [SpiTest_Mul_cs 450] [INFO]: ####################### test_case_num: 4 #######################
 ############################# Loop Times: 1 #############################
-```[Spi_Trans_Test 231] [INFO]: data_tx: 0xcbccc40, data_rx: 0xcbcca40  
+[Spi_Trans_Test 231] [INFO]: data_tx: 0xcbccc40, data_rx: 0xcbcca40  
 [Spi_Trans_Test 238] [INFO]: len = 10, check_data_len = 10  
 [get_spi_sequence_result 122] [INFO]: SPI result: SPI_SEQ_PENDING  
 TX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __   
@@ -209,8 +209,8 @@ RX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
 [Spi_Interrupt_Async_Transfer_Test 353] [INFO]: Transfer success.  
 [SpiTest_Mul_cs 474] [INFO]: Test case pass.  
 [SpiTest_Mul_cs 479] [INFO]: #####################################################################
+```  
 
-```
 ### Application Programming Interface
 
 #### void Spi_Init(const Spi_ConfigType* ConfigPtr)
@@ -399,7 +399,7 @@ Return value: Spi_StatusType
 ```
 
 #### void Spi_Cancel(Spi_SequenceType Sequence)
-``````shell
+```shell
 Description: Service cancels the specified on-going sequence transmission.
 
 Sync/Async: Synchronous
