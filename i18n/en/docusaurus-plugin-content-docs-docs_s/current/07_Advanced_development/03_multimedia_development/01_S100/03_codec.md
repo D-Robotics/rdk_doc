@@ -4867,7 +4867,7 @@ mc\_audio\_encode\_param\_t \*encoder)
 【Parameter Description】
 
 - \[IN\] hb\_s32 \*handle：Encoder handle
-- \[IN\] mc\_audio\_encode\_param\_t \*encoder：audio编码器描述符；
+- \[IN\] mc\_audio\_encode\_param\_t \*encoder：Audio encoder descriptor
 
 【Return Values】
 
