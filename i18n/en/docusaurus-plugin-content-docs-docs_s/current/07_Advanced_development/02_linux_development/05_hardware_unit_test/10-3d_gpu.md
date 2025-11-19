@@ -202,7 +202,7 @@ Higher FPS (frames per second) values in the test results indicate better GPU pe
 
 ```bash
 float   : 10.81
-```float2  : 11.32  
+float2  : 11.32  
 float4  : 11.44  
 float8  : 9.91  
 float16 : 4.91  

@@ -196,7 +196,7 @@ voltage-->
 	VDD2H_DDR2 : 1030.0 (mV)
 	VDD_DDR2 : 737.0 (mV)
 	VDDIO_TOP2_1V8 : 1780.0 (mV)
-```VDD_BPU  : 731.0 (mV)
+        VDD_BPU  : 731.0 (mV)
 	VDDIO_TOP0_1V8 : 1790.0 (mV)
 	PLL_TOP0_VDDHV : 1768.0 (mV)
 	CMN_PVTC1_V27 : 0.0 (mV)

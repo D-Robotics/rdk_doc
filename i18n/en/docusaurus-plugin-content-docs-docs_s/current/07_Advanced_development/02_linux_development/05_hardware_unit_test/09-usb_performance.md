@@ -63,7 +63,7 @@ The `lsblk` command identifies the USB flash drive as `/dev/sda1`:
 root@ubuntu:~# lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda            8:0    1 117.2G  0 disk
-`-sda1         8:1    1 117.2G  0 part
+-sda1         8:1    1 117.2G  0 part
 mmcblk0      179:0    0  58.2G  0 disk
 |-mmcblk0p1  179:1    0     1M  0 part
 |-mmcblk0p2  179:2    0     1M  0 part
@@ -188,7 +188,7 @@ usb-gadget start succeed.
 
 On the PC, open the network configuration panel and you should see a network adapter labeled `Remote RNDIS Compatible Device`, as shown below:
 
-![RNIS_Device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/RNIS_Device.png)
+![RNIS_Device](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/RNIS_Device-en.png)
 
 **3.** Use the following command to configure the IP address of the `usb0` network interface so that it resides in the same subnet as the PC-side remote network adapter:
 
@@ -196,7 +196,9 @@ On the PC, open the network configuration panel and you should see a network ada
 ifconfig usb0 192.168.1.110
 ```
 
-PC-side remote network adapter IP configuration is shown below:![NETWORK_CONFIG](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/NETWORK_CONFIG.png)
+PC-side remote network adapter IP configuration is shown below:  
+
+![NETWORK_CONFIG](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/NETWORK_CONFIG-en.png)
 
 ## Test Method
 

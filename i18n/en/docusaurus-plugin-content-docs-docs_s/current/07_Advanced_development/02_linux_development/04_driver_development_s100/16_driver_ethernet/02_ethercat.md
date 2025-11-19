@@ -56,7 +56,7 @@ sidebar_position: 2
 ## EtherCAT Development Guide
 
 ### Software Stack
-The Digua RDK S100 provides the EtherCAT-IgH v1.5 software stack by default. The [EtherCAT-IgH software stack](https://docs.etherlab.org/ethercat/1.5/pdf/ethercat_doc.pdf) is currently the mainstream open-source EtherCAT master protocol implementation.
+The D-Robotics RDK S100 provides the EtherCAT-IgH v1.5 software stack by default. The [EtherCAT-IgH software stack](https://docs.etherlab.org/ethercat/1.5/pdf/ethercat_doc.pdf) is currently the mainstream open-source EtherCAT master protocol implementation.
 
 EtherCAT official website: [EtherLab | EtherCAT](https://etherlab.org/en_GB/ethercat)  
 EtherCAT open-source code repository: [Gitlab | EtherLab - EtherCAT](https://gitlab.com/etherlab.org/ethercat)

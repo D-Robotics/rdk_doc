@@ -454,15 +454,15 @@ The following workflow is based on the implementation in `ota_tool` (developers 
 
 - Preparation Phase:
 
-    ![ota_tool_sequence_step1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step1.png)
+    ![ota_tool_sequence_step1](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step1-en.jpg)
 
 - Upgrade Phase:
 
-    ![ota_tool_sequence_step2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step2.png)
+    ![ota_tool_sequence_step2](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step2-en.jpg)
 
 - Verification Phase:
 
-    ![ota_tool_sequence_step3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step3.png)
+    ![ota_tool_sequence_step3](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_tool_sequence_step3-en.jpg)
 
 ### OTA State Machine
 
@@ -482,7 +482,7 @@ typedef enum otahl_update_result {
 } otahl_update_result_e;
 ```
 
-![ota_package_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_package_state.png)
+![ota_package_state](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_package_state-en.jpg)
 
 #### OTA Upgrade Process States
 The state is stored in veeprom. Below is the state flow description:
@@ -495,12 +495,12 @@ typedef enum ota_update_flag {
 } ota_update_flag_e;
 ```
 
-![ota_upgrade_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_upgrade_state.png)
+![ota_upgrade_state](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_upgrade_state-en.jpg)
 
 #### misc (AB State Machine)
 1. Region Allocation
 
-    Digua uses the Android A/B mechanism for A/B system implementation. The following information describes parts of this mechanism’s principles. For detailed principles, please refer to: https://source.android.google.cn/docs/core/ota?hl=en
+    D-Robotics uses the Android A/B mechanism for A/B system implementation. The following information describes parts of this mechanism’s principles. For detailed principles, please refer to: https://source.android.google.cn/docs/core/ota?hl=en
 
     `bootloader_message_ab` occupies a total of 4KB. Within this structure, the `bootloader_control` used by A/B is located at `struct bootloader_message_ab->slot_suffix` and occupies 32 bytes.
     ```c
@@ -625,7 +625,7 @@ The OTA state machine is stored in this region. Below is how OTA utilizes this r
 
 ### Boot Slot Switching
 The following diagram illustrates how A/B slots switch during a normal boot (this process applies regardless of whether an OTA update is present or not):
-    ![boot_slot_select](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/boot_slot_select.png)
+    ![boot_slot_select](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/boot_slot_select-en.jpg)
 
 - During boot, the ROM boot count is automatically incremented (this counter resides in the AON domain and resets upon power-off).
 
@@ -638,7 +638,7 @@ The following diagram illustrates how A/B slots switch during a normal boot (thi
 
 ### Reboot Verification and Rollback
 In the S100 reference implementation, after an OTA update completes and the system reboots, the kernel triggers a systemd OTA service to perform a reboot check, thereby completing the full OTA process (this essentially executes `ota_tool -b`).
-    ![ota_boot_check_state](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_boot_check_state.png)
+    ![ota_boot_check_state](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_boot_check_state-en.jpg)
 
 ### Partition Flashing Methods
 OTA updates are performed on a per-partition basis. Each partition to be updated has its own image, and the update process primarily involves writing this image to the corresponding partition in external storage. Image types are categorized into full images and differential images.
@@ -692,7 +692,7 @@ OTA supports verification of fpt/GPT partition files within the image by compari
 
 10. Call `otaClearFlags` to clear update flags and finalize the update process.
 
-    ![otaservice](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otaservice.png)
+    ![otaservice](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otaservice-en.jpg)
 
 ## OTA Update Client Introduction
 
@@ -832,7 +832,7 @@ err:
 
 5. If the upgrade result from `otaGetResult` is `OTA_UPGRADE_SUCCESS`, the upgrade is considered successful. Then, call `otaSetPartition` to switch the AB slot to the opposite slot and reboot the SoC.
 
-    ![otatool-ota_update_all_img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_update_all_img.png)
+    ![otatool-ota_update_all_img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_update_all_img-en.jpg)
 
 After the system reboots following the OTA upgrade process, run `ota_tool -b` to verify the upgrade result and perform subsequent operations.
 
@@ -905,7 +905,7 @@ exit:
 
 7. Call `otaPartitionSync` to synchronize the AB partitions and BAK partitions.
 
-    ![otatool-ota_boot_check](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_boot_check.png)
+    ![otatool-ota_boot_check](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/otatool-ota_boot_check-en.jpg)
 
 
 ## OTA API Introduction

@@ -386,7 +386,7 @@ For example, the MCU1 image is controlled by SConstruct_Lite_FRtos_S100_sip_B.
 ## Introduction to MCU FreeRTOS System
 The MCU system includes several key functionalities, as illustrated below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/freertos_system.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/FreeRTOS_development/freertos_system-en.jpg)
 
 The diagram shows the relative task priorities of each function and the calling sequence within the same task. When integrating, customers must maintain the relative priorities, assigned core, and calling order within each task. Descriptions and important notes for each function are provided below:
 

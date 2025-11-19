@@ -21,7 +21,7 @@ sunrise camera is an official application developed to facilitate rapid evaluati
 
 The overall connection diagram is shown below:
 
-![hardware_connection_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/hardware_connection_diagram.png)
+![hardware_connection_diagram](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/hardware_connection_diagram-en.jpg)
 
 ### Network Connection Requirements
 
@@ -98,7 +98,7 @@ After successfully launching sunrise camera, open Chrome and enter the device’
 
 The interface after successful login appears as follows:
 
-![home_page](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/home_page.png)
+![home_page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/home_page-en.jpg)
 
 Detailed descriptions of the interface elements are as follows:
 
@@ -119,7 +119,7 @@ Detailed descriptions of the interface elements are as follows:
 
 #### Intelligent Camera Configuration
 
-![camera_page](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/camera_page.png)
+![camera_page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/camera_page-en.jpg)
 
 Configuration steps:
 
@@ -137,7 +137,7 @@ Configuration steps:
 
 #### Intelligent Analysis Box Configuration
 
-![box_page](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/box_page.png)
+![box_page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/box_page-en.jpg)
 
 Configuration steps:
 
@@ -153,7 +153,7 @@ Configuration steps:
 
 The Intelligent Camera scheme implements image capture, processing, encoding, RTSP streaming, and intelligent computation from Camera sensors, enabling users to quickly evaluate multimedia imaging and algorithm performance. The functional block diagram is shown below:
 
-![camera_solution](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/camera_solution.png)
+![camera_solution](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/camera_solution-en1.jpg)
 
 This scheme provides the following features:
 
@@ -187,7 +187,7 @@ When using the Intelligent Camera scheme, please note:
 
 The Intelligent Analysis Box scheme supports decoding, stitching, encoding, RTSP streaming, and intelligent computation for single-channel or four-channel 1080p video. Users can preview results via the web interface, HDMI output, or stream pulling. The functional block diagram is shown below:
 
-![box_solution](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/box_solution.png)
+![box_solution](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/box_solution-en.jpg)
 
 This scheme provides the following features:
 
@@ -241,7 +241,7 @@ Open VLC player, select the **Media** menu, then choose **Open Network Stream**.
 
 In the **Open Media** dialog box, enter the URL address and click the **Play** button to start playback, as shown below:
 
-![vlc_play_method](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_play_method.png)
+![vlc_play_method](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_play_method-en.jpg)
 
 The RTSP stream URL can be found in the device information section of the web interface. The default supported stream URL is: `rtsp://192.168.1.10/stream_chn0.h264`
 
@@ -251,12 +251,12 @@ The RTSP stream URL can be found in the device information section of the web in
 
 2. **VLC buffer_size setting**: Modify VLC’s receive buffer—default is 250000; it is recommended to increase it to 1200000.
 
-![vlc_rtsp_buffer_size](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_rtsp_buffer_size.png)
+![vlc_rtsp_buffer_size](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_rtsp_buffer_size-en.png)
 
 3. Using **HTTP mode** can effectively resolve screen corruption caused by frame drops during playback.
 
-![vlc_http_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_http_mode.png)
+![vlc_http_mode](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_http_mode-en.png)
 
 4. Disable clock synchronization in advanced settings.
 
-![vlc_disable_clock_sync](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_disable_clock_sync.png)
+![vlc_disable_clock_sync](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/vlc_disable_clock_sync-en.png)

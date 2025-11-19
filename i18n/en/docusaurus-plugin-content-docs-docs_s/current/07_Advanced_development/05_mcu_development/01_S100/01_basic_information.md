@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Scope
 
-This section provides an overview of the RDK-S100 MCU system, aiming to help readers quickly understand and master the relevant content to facilitate MCU1 development. Since MCU0 handles functions such as booting the Acore, MCU1, and power management, it is not recommended for customers to modify this part. The source code for MCU0 is not released by default; instead, pre-validated binary files from Digua are provided. This chapter only briefly describes parts that might conflict with MCU1, helping users avoid resource contention issues between MCU0 and MCU1 during development.
+This section provides an overview of the RDK-S100 MCU system, aiming to help readers quickly understand and master the relevant content to facilitate MCU1 development. Since MCU0 handles functions such as booting the Acore, MCU1, and power management, it is not recommended for customers to modify this part. The source code for MCU0 is not released by default; instead, pre-validated binary files from D-Robotics are provided. This chapter only briefly describes parts that might conflict with MCU1, helping users avoid resource contention issues between MCU0 and MCU1 during development.
 
 ## Basic Information
 
@@ -21,7 +21,7 @@ MCU0 is the starting point of board initialization and is critically important, 
 
 MCU1 is implemented via Linux's remoteproc framework. The Acore controls MCU1's startup and shutdown by sending notifications to MCU0 through sysfs. Additionally, during RDK-S100's sleep mode, the Acore notifies MCU0 to manage MCU1, enabling low-power sleep functionality.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_frame.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_frame-en.jpg)
 
 ## Development Environment
 
@@ -93,7 +93,7 @@ MCU1 startup and shutdown are controlled by the Acore through the remoteproc fra
 
 #### MCU1 Startup Principle
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_start.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_start-en.jpg)
 
 #### MCU1 Startup Steps
 
@@ -124,7 +124,7 @@ MCU-side serial log:
 
 #### MCU1 Shutdown Principle
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_stop.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu1_stop-en.jpg)
 
 #### MCU1 Shutdown Steps
 
@@ -251,11 +251,11 @@ fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
    6. Set "Baud Rate" to "921600";
    7. Click the small arrow next to "Other Settings", then click "Partition Selection" and check only "miniboot_flash".
 
-  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot.png)
+  ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot-en.png)
 
 2. If you cannot enter U-Boot normally, select "USB" for download mode—no need to specify UART port or baud rate. Keep all other settings consistent with the U-Boot scenario:
 
-  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb.png)
+  ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb-en.png)
 
 ## MCU1 Undefined/Abort Exception Handling Principle
 
@@ -263,7 +263,7 @@ Under normal circumstances, when the system enters an Undefined/Abort exception,
 
 Specific principle: When an Undefined/Abort exception occurs, the system also ends up in an infinite loop. By using Acore’s sysfs interface to perform a software power-down of MCU1—i.e., notifying MCU1 to enter WFI mode—MCU1 will perform a software reboot upon the next start, thus achieving the intended recovery.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_exception.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/MCU_exception-en.jpg)
 
 Taking the Undefined exception as an example: when it occurs, the UART outputs the log “EL1_Undefined_Handler” and eventually enters the `S100_Exception_Handler` function, where it loops indefinitely based on the `exception_on` variable. When Acore stops MCU1 via the remoteproc framework, an inter-processor interrupt modifies the `exception_on` variable, disables the periodic tick interrupt, and puts MCU1 into WFI mode (STANDBY mode):
 

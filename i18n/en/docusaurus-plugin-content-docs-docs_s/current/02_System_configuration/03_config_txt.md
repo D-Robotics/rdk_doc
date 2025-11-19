@@ -143,7 +143,7 @@ lrwxrwxrwx 1 root root 15 Jun  4 22:17 /dev/block/platform/by-name/userdata -> /
 ```
 
 ## Custom config.txt Guide
-Digua U-Boot automatically determines the default partition containing the configuration file based on the current boot storage medium and partition.
+D-Robotics U-Boot automatically determines the default partition containing the configuration file based on the current boot storage medium and partition.
 
 Users can customize the storage medium and partition for the configuration file used on the next boot via U-Boot environment variables, as follows:
   1. Halt the boot process and enter the U-Boot command line;

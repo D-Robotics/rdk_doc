@@ -19,7 +19,7 @@ FreeRtos_mcu1
 ```
 
 ## Build Process Overview
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/MCU_build_system/build_freertos.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/MCU_build_system/build_freertos-en.jpg)
 
 ## Key File Relationships in the Build Process
 `build_freertos.py` serves as the overall entry point for the build. However, when actually invoking SCons, the following methods influence the SCons build environment and process:
@@ -36,9 +36,9 @@ FreeRtos_mcu1
 | LOG_SHARE_Reserved    | 0x0CDDB000    | 8K       | Space reserved for MCU1 logs (logs are overwritten cyclically) |
 | SCMI_IPC_Reserved     | 0x0CDDD000    | 12K      | Space required for SCMI IPC communication (used for buffers and critical data) |
 
-In the above SRAM layout, customers are **strongly discouraged** from modifying the `SCMI_IPC_Reserved` region and any regions that follow. These areas are critical for other domains and modifications may lead to system malfunctions. If modification is absolutely necessary, please consult Diguasupport personnel first.
+In the above SRAM layout, customers are **strongly discouraged** from modifying the `SCMI_IPC_Reserved` region and any regions that follow. These areas are critical for other domains and modifications may lead to system malfunctions. If modification is absolutely necessary, please consult D-Roboticssupport personnel first.
 
-Below is the linker script from the Digua version, which explains the purpose of several variables provided in the linker script:
+Below is the linker script from the D-Robotics version, which explains the purpose of several variables provided in the linker script:
 ```c
 MEMORY
 {
@@ -355,7 +355,7 @@ MPU_Init:
 
           //.....remaining parts omitted
 ```
-4. Important MPU regions in the Digua version are described below:
+4. Important MPU regions in the D-Robotics version are described below:
 
 :::caution
 The background region defined by ARM R52 differs from the actual memory map implemented on the RDK-S100 chip.
@@ -364,7 +364,7 @@ For example, address 0x2200_0000 is classified as normal memory by default in AR
 
 Therefore, for any memory regions where the chip's actual implementation differs from the ARM background region, you must configure the MPU to ensure the memory type matches the RDK-S100 chip's actual implementation before accessing them; otherwise, access exceptions will occur.
 
-These regions are essential for normal MCU operation. Missing their configuration may lead to runtime exceptions. Customers must maintain the same memory attribute configuration for these address spaces as provided in Digua's reference code. For the SRAM region, customers may partition it differently according to their project requirements.
+These regions are essential for normal MCU operation. Missing their configuration may lead to runtime exceptions. Customers must maintain the same memory attribute configuration for these address spaces as provided in D-Robotics's reference code. For the SRAM region, customers may partition it differently according to their project requirements.
 :::
 
 | MPU region | Start Address | End Address | Memory Type | Description |

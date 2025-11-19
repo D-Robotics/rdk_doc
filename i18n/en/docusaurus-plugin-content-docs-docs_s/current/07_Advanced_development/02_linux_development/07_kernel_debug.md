@@ -191,7 +191,7 @@ python3 parse-cpu-contexts.py cpu-contexts.bin >./coreregs.txt
 crash 9.0.0
 Copyright (C) 2002-2025  Red Hat, Inc.
 Copyright (C) 2004, 2005, 2006, 2010  IBM Corporation
-```Copyright (C) 1999-2006  Hewlett-Packard Co  
+Copyright (C) 1999-2006  Hewlett-Packard Co  
 Copyright (C) 2005, 2006, 2011, 2012  Fujitsu Limited  
 Copyright (C) 2006, 2007  VA Linux Systems Japan K.K.  
 Copyright (C) 2005, 2011, 2020-2024  NEC Corporation  

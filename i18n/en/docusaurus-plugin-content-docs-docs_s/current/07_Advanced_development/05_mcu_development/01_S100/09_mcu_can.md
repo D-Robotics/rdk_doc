@@ -47,11 +47,11 @@ Key features of this solution:
 
 - CAN bus pins are located on the S100 MCU expansion board, providing 5 CAN interfaces via green screw-type 3-pin connectors. Pin 1 (marked with a triangle) is GND, the middle pin is CAN_L, and the remaining pin is CAN_H.
 
-![MCU CAN Physical Diagram](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can_phy.png)
+![MCU CAN Physical Diagram](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can_phy-en.jpg)
 
 - The MCU daughterboard uses 2-pin jumpers to optionally connect a 120-ohm resistor between CAN_H and CAN_L. Inserting the jumper connects the resistor, providing the termination impedance required for closed-loop networks; removing the jumper disconnects the termination resistor, suitable for open-loop networks or repeater node scenarios.
 
-![MCU CAN Schematic Diagram](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can_sche.png)
+![MCU CAN Schematic Diagram](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_can_sche-en.jpg)
 
 Using two 120-ohm resistors in a CAN closed-loop network is the standard CAN bus configuration. Below are examples using the S100 to illustrate correct resistor placement:
 

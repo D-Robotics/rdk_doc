@@ -390,7 +390,7 @@ To make the Bluetooth device discoverable by nearby devices, run `discoverable o
 
 At this point, scanning with a smartphone or computer will reveal a Bluetooth device named `ubuntu`:
 
-![image-20220601175322650](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601175322650.png)
+![image-20220601175322650](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-20220601175322650-en.jpg)
 
 Next, test active Bluetooth scanning. In the `bluetoothctl` interactive interface, type `scan on` to start active scanning. The system will periodically print nearby devices—in this case, my smartphone has been detected. Use `scan off` to stop scanning and display a summary of discovered Bluetooth devices:
 

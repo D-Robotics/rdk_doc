@@ -48,7 +48,7 @@ root@ubuntu:~# lspci -v -s 04:00.0
 
 ## Module Driver Code
 
-The driver code for the AW-XM612 module is provided by the module vendor and integrated by Digua. The integrated code resides in the following directory:  
+The driver code for the AW-XM612 module is provided by the module vendor and integrated by D-Robotics. The integrated code resides in the following directory:  
 `source/kernel/drivers/net/wireless/broadcom/brcm80211/`.
 
 ## Kernel Configuration for the Module

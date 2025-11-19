@@ -198,7 +198,7 @@ seedcrc          : 0xe9f5
 [2]crcstate      : 0x8e3a
 [3]crcstate      : 0x8e3a
 [4]crcstate      : 0x8e3a
-```[5]crcstate      : 0x8e3a  
+[5]crcstate      : 0x8e3a  
 [6]crcstate      : 0x8e3a  
 [7]crcstate      : 0x8e3a  
 [0]crcfinal      : 0x4983  

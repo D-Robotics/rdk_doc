@@ -22,7 +22,7 @@ Ethernet performance testing relies on data transmission between a client and a 
 
 ## Preparation
 
- ![Ethernet_usage_diagram.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Ethernet_usage_diagram.png)
+ ![Ethernet_usage_diagram.png](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/Ethernet_usage_diagram-en.png)
 
 1. **Select Connection Method:** Direct connection between `development board` and `PC`, or direct connection between two `development boards`.
 2. **Identify Server and Client:** The development board can act as either client or server; the peer device can be a personal computer (PC) or another development board.

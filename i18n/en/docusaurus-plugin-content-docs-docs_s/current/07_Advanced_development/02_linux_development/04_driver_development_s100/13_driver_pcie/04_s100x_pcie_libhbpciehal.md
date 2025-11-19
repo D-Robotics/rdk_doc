@@ -5,7 +5,7 @@ sidebar_position: 4
 
 ## Introduction
 
-The High Level API (`libhbpciehl.so`) is built upon the Low Level API (`libhbpcie.so`), abstracting generic topic/subscribe/publish concepts and hiding hardware differences across various Diguachip series. This enables users to utilize PCIe for data communication more conveniently.
+The High Level API (`libhbpciehl.so`) is built upon the Low Level API (`libhbpcie.so`), abstracting generic topic/subscribe/publish concepts and hiding hardware differences across various D-Robotics chip series. This enables users to utilize PCIe for data communication more conveniently.
 
 Key supported features include:
 

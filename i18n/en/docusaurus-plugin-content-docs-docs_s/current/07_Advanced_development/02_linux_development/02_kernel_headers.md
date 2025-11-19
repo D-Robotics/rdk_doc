@@ -209,7 +209,7 @@ cat << EOF > drobot-sign-file.sh
 #!/bin/bash
 
 signing_ko=\$1
-```output_f=\$2
+output_f=\$2
 
 if [ ! -f "\${signing_ko}" ];then
 	echo "\${signing_ko} not found!"
@@ -281,9 +281,9 @@ sudo echo hello > /lib/modules-load.d/hello.conf
 :::info
 **Disclaimer**:
 
-- Digua assumes no responsibility for the development/maintenance of any third-party driver modules.
+- D-Robotics assumes no responsibility for the development/maintenance of any third-party driver modules.
 
-- Digua is not liable for any issues arising from running third-party source code on the Digua platform.
+- D-Robotics is not liable for any issues arising from running third-party source code on the D-Robotics platform.
 :::
 
 #### PCAN
@@ -310,7 +310,7 @@ sudo echo hello > /lib/modules-load.d/hello.conf
     ./pcan-kernel-version.sh
     ```
     :::info
-    Digua RDK Super series only supports Linux kernel version 6.1.
+    D-Robotics RDK Super series only supports Linux kernel version 6.1.
     :::
 3. Download the PCAN driver:
     ```shell

@@ -220,7 +220,7 @@ All transformation types share three common parameters: **Pan**, **Tilt**, and *
 
         rotation debugging effect: value range (-180, +180). As shown below:
 
-        ![alt text](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-12.png)
+        ![alt text](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/image-12-en.png)
 
 
         :::info Note!
@@ -1028,7 +1028,7 @@ The Stitch hardware supports maximum input and output resolutions of 4096x4096.
 
 Here, the "LUT table" refers to the buffer storing blending weight parameters.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch_work.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch_work-en.jpg)
 
 **Hardware Stitching Diagram**
 
@@ -1040,7 +1040,7 @@ By using the two source ROIs shown in the image with different blend modes, the 
 The hardware stitching function can merge and blend multiple images into a single output image. Designed flexibly, it uses ROIs as the basic processing unit and employs the alpha blending algorithm. Different ROI partitions and configurations can be defined via configuration parameters to generate various stitching schemes. Additionally, LUT tables are used to optimize transition zones during stitching. In autonomous driving and ADAS Automated Parking Assist (APA) scenarios, this hardware can stitch four IPM (Inverse Perspective Mapping) images—already distortion-corrected from four cameras—into a single 360-degree surround-view image for parking space detection, allowing users to easily view parking lines and surroundings.
 
 **Typical Scenario**  
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch1.png)  
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch1-en.jpg)  
 In an APA scenario with four surround-view cameras, GDC fetches four back-projected images and reference points (CFG BIN) from DDR, outputs four IPM images after distortion correction, and then uses the STITCH hardware module with a pre-defined stitching configuration (CPG PARAM) to generate a bird's-eye-view output.
 
 **Placement Layout**  
@@ -1851,13 +1851,13 @@ In software, the Camera uses a dedicated set of APIs. Modules downstream of the 
 Multiple vnodes form a vflow (similar to a pipeline). The Camera and VIN are bound together via the attach interface.  
 Users only need to call HBN APIs to initialize and bind modules. Once the vflow is created and started, users do not need to manage frame data transfer—the SDK internally passes frames from upstream to downstream.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/28afb7cb9d1a5de6c889657a0e548e82.jpg)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/28afb7cb9d1a5de6c889657a0e548e82-en.jpg)
 
 A vflow consists of one or more vnodes. Each vnode has one input channel and one or more output channels.
 
 Example API usage:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/492ed46bde119b791326f621b9f5b064.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/492ed46bde119b791326f621b9f5b064-en.jpg)
 
 ### API Reference
 
@@ -3772,7 +3772,7 @@ Final stitched output image:
 
 Corresponding ROI region division for stitching:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch9.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/sample_stitch9-en.jpg)
 
   |ROI   |Range                              | SRC0     | Start Point | Size        | SRC1     | Start Point | Size        | Destination Start | Mode           | Direction    |
   |----- |-----------------------------------| ---------| -----------| ------------| ---------| -----------| ------------| ------------------| ---------------| --------|

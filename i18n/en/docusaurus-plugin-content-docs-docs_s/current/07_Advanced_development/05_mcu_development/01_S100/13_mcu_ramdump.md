@@ -20,7 +20,7 @@ If MCU0 encounters an exception, the system will reboot. During the reboot proce
 
 The exception handling flow is illustrated below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_ramdump_flowchart.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu_ramdump_flowchart-en.jpg)
 
 The exception handling flows for MCU0 and MCU1 are largely similar, with the only difference being that MCU0 triggers a system reboot after handling the exception.
 

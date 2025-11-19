@@ -56,6 +56,6 @@ MCU
 |   ├── Memmap           # Memmap configuration for modules
 |   └── Schm             # Exclusive area definitions possibly used in module drivers; customers may need to select and populate these
 ├── samples              # Usage examples, including drivers for CAN, IPC, Ethernet, etc.
-├── Service              # Proprietary middleware services developed by Digua, such as power management, OTA management, Log/Shell, etc.
+├── Service              # Proprietary middleware services developed by D-Robotics, such as power management, OTA management, Log/Shell, etc.
 └── Target               # Core system code, e.g., startup-related, task definitions, interrupt handling, etc.
 ```

@@ -205,7 +205,7 @@ The number of channels (`config_num`) can be increased in the JSON file, along w
         "log_level": 0, # Log level (optional)
         "config_num": 4, # Number of configured channels
         "config_num_max":256, # Maximum number of configurable channels
-```"config_0": { # Configuration channel
+        "config_0": { # Configuration channel
                 "name": "cpu2mcu_ins7ch0", # Channel name
                 "instance": 7, # Instance ID
                 "channel": 0, # Channel ID
@@ -406,7 +406,7 @@ IPCF_HAL_E_TIMEOUT (-11): Expired the time out
 IPCF_HAL_E_REINIT (-12): Re initilize
 
 IPCF_HAL_E_BUSY (-13): Busy
-```IPCF_HAL_E_CHANNEL_INVALID (-14): Channel is invalid
+IPCF_HAL_E_CHANNEL_INVALID (-14): Channel is invalid
 
 =====================test OK=======================
 
@@ -446,11 +446,11 @@ Acore and MCU IPC communication uses MCU MDMA to transfer data between DDR and M
 
 ### MCU Sending Data to Acore
 
-![MCU sending data to Acore](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imager52a78.png)
+![MCU sending data to Acore](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imager52a78-en.jpg)
 
 ### Acore Sending Data to MCU
 
-![Acore sending data to MCU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imagea78r52.png)
+![Acore sending data to MCU](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_s100/imagea78r52-en.png)
 
 ### IPCFHAL API Usage Sequence
 
@@ -609,7 +609,7 @@ int32_t wdump;/**< =chan_id: enable TX dump for this channel; otherwise, disable
 // Method 1: Direct sysfs node operation
 // After channel initialization but before sending data, enable dump
 echo 0 > /sys/kernel/debug/ipcdrv-ins-5/wdump
-```// During data transmission, the transmitted data will be printed  
+// During data transmission, the transmitted data will be printed  
 // After data transmission/reception ends and the channel has not been de-initialized, get  
 cat /sys/kernel/debug/ipcdrv-ins-5/wdump
 

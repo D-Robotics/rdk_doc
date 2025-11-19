@@ -33,7 +33,7 @@ This example demonstrates how to prepare input images using a custom transformat
 
 ### Development and Usage Workflow
 
-![S100-gdc](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/02_multimedia_application/sample_gdc/S100-gdc.jpg)
+![S100-gdc](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/02_multimedia_application/sample_gdc/S100-gdc-en.jpg)
 
 Use the `generate_custom_config.py` script on a PC to generate GDC calibration configuration parameters.
 

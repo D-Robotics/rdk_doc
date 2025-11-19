@@ -11,7 +11,7 @@ sidebar_position: 2
 This section provides an overview of the RDK-S100 camera bring-up process, helping readers quickly understand and master the RDK-S100 camera framework, how to rapidly add new camera configurations, and successfully bring up the camera.
 
 This documentation uses the RDK-S100 development board with an imx219 camera module as an example for configuration instructions. For other hardware platforms or camera modules, please refer to actual hardware specifications.  
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_01.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_01-en.jpg)
 
 ### Preparation
 

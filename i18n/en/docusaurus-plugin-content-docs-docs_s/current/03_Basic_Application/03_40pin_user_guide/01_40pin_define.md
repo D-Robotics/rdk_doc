@@ -19,7 +19,7 @@ To be updated
 
 The RDKS100 provides a 40-pin header for user peripheral expansion, with digital I/O pins designed for 3.3V logic levels. The pinout is defined as follows:
 
-![image-rdk_100_mainboard_40pin](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mainboard_40pin.png)
+![image-rdk_100_mainboard_40pin](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_mainboard_40pin-en.png)
 
 :::info
 Pins labeled as `40PIN_GPIO[x]_3V3` in the pinout are GPIOs provided by an I2C-expander IC. These pins are **not managed** by the SoC's Pinctrl controller, **cannot be multiplexed** to other functions, **do not require Pinmux configuration** in the device tree source (DTS), and can **only be used as GPIOs**.

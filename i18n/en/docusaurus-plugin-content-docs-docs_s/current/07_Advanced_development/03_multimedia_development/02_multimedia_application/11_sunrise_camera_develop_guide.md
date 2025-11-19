@@ -14,7 +14,7 @@ The kernel version includes standard driver libraries as well as the system BSP.
 
 The software block diagram is shown below:
 
-![software_framwork](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/software_framework.png)
+![software_framwork](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/software_framework-en.png)
 
 ### Microkernel Design
 
@@ -284,7 +284,7 @@ The current basic submodule startup sequence is as follows. Note that the startu
 
 #### Execution Flow
 
-![main_flow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/main_flow.png)
+![main_flow](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/main_flow-en.jpg)
 
 ### WebServer
 
@@ -304,7 +304,7 @@ This module handles algorithm model loading, data pre-processing, inference, pos
 
 The module's runtime sequence is as follows:
 
-![bpu_flow](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/bpu_flow.png)
+![bpu_flow](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/bpu_flow-en.jpg)
 
 ### Adding a New Model
 

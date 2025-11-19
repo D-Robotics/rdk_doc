@@ -55,7 +55,7 @@ At this point, Device Manager will indicate an unknown device named "USB downloa
 
 If the driver is not installed, Device Manager will show an unknown "USB download gadget" device, as shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png)
 
 Download the USB driver ([click here to download](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/)).
 
@@ -66,7 +66,7 @@ Download the `sunrise5_winusb.zip` archive and install the driver by following t
 
 After successful driver installation, Device Manager will display an "Android Device," as shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg)
 
 ## System Flashing
 
@@ -149,7 +149,7 @@ Before flashing the Ubuntu system image, prepare the following:
    - Select the serial port connected to the RDK S100 (baud rate: 921600)
    - Click **Start Upgrade** (if a "Need manual reset" prompt appears during the upgrade, power-cycle the board)
 
-   ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download.png)
+   ![image-S100-download](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download-en.jpg)
 
 4. After the upgrade completes, power-cycle the board.
 
@@ -173,7 +173,7 @@ For descriptions of SW1, SW2, etc., refer to section [1.1.1 Switches, Buttons, a
    2. Set SW2 to ↑ to enter Download mode.
    3. Set SW1 to ▽ and turn on power.
    4. If the `DOWNLOAD` LED lights up, the board has entered DFU mode. Otherwise, press the `K1` button to reset the system.  
-      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1.png)
+      ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/board_dfu1-en.jpg)
 
 3. Open the D-Navigation tool and perform the following operations:
 
@@ -182,7 +182,7 @@ For descriptions of SW1, SW2, etc., refer to section [1.1.1 Switches, Buttons, a
    - Click **Browse** and select the `product` folder containing the firmware
    - Power-cycle the device, click **Start Upgrade**, and wait for the process to complete
 
-   ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu.jpg)
+   ![image-S100-download](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-download_dfu-en.png)
 
 4. After the upgrade completes, power off the device, switch the flashing jumper back down (to exit DFU mode), and then power on again.
 
@@ -196,10 +196,12 @@ The Miniboot flashing process is identical to the [Full System Flashing](#full-s
 2. Click and enable “Partition Selection.”
 3. Uncheck “emmc.”
 
-- Example of U-Boot flashing configuration is shown below:![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_uboot_miniboot.png)
+- Example of U-Boot flashing configuration is shown below:  
+
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_uboot_miniboot-en.png)
 
 - An example USB flashing configuration is shown in the figure below:
-  ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_dfu_miniboot.png)
+  ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_dfu_miniboot-en.png)
 
 ### Booting the System
 

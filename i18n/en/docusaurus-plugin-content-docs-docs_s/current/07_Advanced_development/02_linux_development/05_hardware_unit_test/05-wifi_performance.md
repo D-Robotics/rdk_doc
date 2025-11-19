@@ -21,7 +21,7 @@ This chapter provides detailed steps and guidelines for performing Wi-Fi perform
 
 Performance test schematic:
 
-![WiFi_usage_diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/WiFi_usage_diagram.png)
+![WiFi_usage_diagram](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/images_to_upload/WiFi_usage_diagram-en.jpg)
 
 Before conducting Wi-Fi performance tests, ensure the following preparations are complete:
 1. **Enable Wi-Fi on the board:** Ensure the development board has Wi-Fi enabled and is connected to the router.

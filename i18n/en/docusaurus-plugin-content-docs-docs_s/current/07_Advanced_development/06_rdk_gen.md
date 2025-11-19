@@ -7,7 +7,7 @@ This section is primarily intended for users who need to customize the RDK build
 
 Basic usage instructions:
 ``` bash
-# Online image building: download required deb packages from Digua and third-party APT repositories
+# Online image building: download required deb packages from D-Robotics and third-party APT repositories
 sudo ./pack_image.sh
 
 # Offline image building: only install deb packages under out/product/deb_packages.
@@ -44,7 +44,7 @@ Key differences from `debootstrap` include:
    3. Attempt to download specified packages per the configuration
    4. Decompress specified packages per the configuration
 
-In Digua's provided `multistrap` build script, based on practical experience, we implement package configuration using `binfmt-support + chroot` under `sudo` privileges, enabling users to directly flash the generated root filesystem onto the board for immediate use.
+In D-Robotics's provided `multistrap` build script, based on practical experience, we implement package configuration using `binfmt-support + chroot` under `sudo` privileges, enabling users to directly flash the generated root filesystem onto the board for immediate use.
 
 #### Configuration File Introduction
 `multistrap` supports both single-file and multi-file configurations. In multi-file mode, the `include` field allows including all content from a base configuration file, enabling version-specific customization—greatly simplifying maintenance across multiple filesystem variants.
@@ -62,7 +62,7 @@ samplefs/configs/
 ```
 
 ##### Basic Format Introduction
-For detailed field descriptions, please refer to the official documentation. Here, we focus on explaining key configurations used in Digua's setup.
+For detailed field descriptions, please refer to the official documentation. Here, we focus on explaining key configurations used in D-Robotics's setup.
 
 1. **Field format**: `key1=value1` defines the value of field "key1" as "value1".
 2. **Field sets (stanzas/sections)**: Defined by `[Some-Section]`, grouping all fields from that line until the next `[Next-Section]` into a single "Section".
@@ -115,13 +115,13 @@ For example, if you create a new config `new-desktop.conf`, place it in `samplef
 `sudo ./make_ubuntu_samplefs.sh build new-desktop.conf`
 
 Build workflow diagram:
-![samplefs_flowchart](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/06_rdk_gen/samplefs_flowchart.png)
+![samplefs_flowchart](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/06_rdk_gen/samplefs_flowchart-en.jpg)
 
 #### Methods for Trimming/Customizing the Root Filesystem
 :::info Tip
 The **Priority** field in APT source (deb package control info) determines trimming/customization behavior.  
 By default, `multistrap` installs all packages with Priority "**Required**".  
-Digua also ensures packages marked as "**important**" are installed.
+D-Robotics also ensures packages marked as "**important**" are installed.
 :::
 
 ##### Trimming/Customizing Packages Not Marked "important" or "required"
@@ -136,13 +136,13 @@ Steps:
 
 ## 7.6.3 RDK S100 Deb Package Build Process
 ### Introduction
-RDK S100 manages Digua-customized user-space features as deb packages. Source code for building these deb packages is stored under the SDK's `source/` directory.
+RDK S100 manages D-Robotics-customized user-space features as deb packages. Source code for building these deb packages is stored under the SDK's `source/` directory.
 
 ### Build Script Introduction
 The entry script for building debs is `mk_debs.sh`, located in the SDK root directory. Users can build repository-contained deb packages via this script.
 
 ### Deb Package Source Directory Structure
-All directories under `source/`, except `bootloader`, `kernel`, and `hobot-drivers`, contain source code for Digua-customized deb packages. Directories like `hobot-spdev`, `hobot-camera`, and `hobot-io` include source code for corresponding dynamic libraries; compiling these packages via `mk_debs.sh` triggers compilation of their source code.
+All directories under `source/`, except `bootloader`, `kernel`, and `hobot-drivers`, contain source code for D-Robotics-customized deb packages. Directories like `hobot-spdev`, `hobot-camera`, and `hobot-io` include source code for corresponding dynamic libraries; compiling these packages via `mk_debs.sh` triggers compilation of their source code.
 
 Basic structure of a deb source directory (using `hobot-configs` as an example):
 ```bash
@@ -179,7 +179,7 @@ hobot-camera/
 ├── lib -> ../hobot-multimedia/debian/usr/hobot/lib # Symlink for easier compilation
 ├── sensor_calibration       # Sensor tuning library (example only; actual libs may vary)
 │   └── lib_imx219_linear.so
-└── tuning_tool              # Digua-provided sensor tuning tool
+└── tuning_tool              # D-Robotics-provided sensor tuning tool
     ├── bin
     ├── cfg
     ├── control_tool
@@ -189,7 +189,7 @@ hobot-camera/
 
 ### Build Process Overview
 For full details, refer to the `mk_debs.sh` script implementation. Simplified workflow:
-![mk_debs_flowchart](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/06_rdk_gen/mk_debs_flowchart.png)
+![mk_debs_flowchart](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/06_rdk_gen/mk_debs_flowchart-en.jpg)
 
 ### Custom Deb Package Creation Guide
 1. Create a new directory under `source/` named after your package (e.g., `new_package`).
@@ -307,7 +307,7 @@ The overall partition table configuration consists of global shared settings and
 **Supported Global Parameters:**
 - `antirollbackUpdate_host`: Whether to update the host's anti-rollback version (true or false);
 - `antirollbackUpdate_hsm`: Whether to update the HSM's anti-rollback version (true or false);
-- `ab_sync`: Reserved field for Digua;
+- `ab_sync`: Reserved field for D-Robotics;
 - `backup_dir`: HSM backup directory;
 - `AB_part_a`: Suffix for the A partition in AB partitioning;
 - `AB_part_b`: Suffix for the B partition in AB partitioning;
@@ -379,7 +379,7 @@ Individual partition configurations follow the format `"partition_name": "partit
 :::
 
 ### Partition Modification Instructions
-S100X supports modifying partitions on eMMC/UFS by simply adding, deleting, or modifying the corresponding partition fields in the partition configuration. For modifications to flash partitions, please contact Digua.
+S100X supports modifying partitions on eMMC/UFS by simply adding, deleting, or modifying the corresponding partition fields in the partition configuration. For modifications to flash partitions, please contact D-Robotics.
 
 :::warning Partition Modification Notes
 1. In the partition table, partitions up to and including `log` are boot partitions, and modifications are generally not recommended.

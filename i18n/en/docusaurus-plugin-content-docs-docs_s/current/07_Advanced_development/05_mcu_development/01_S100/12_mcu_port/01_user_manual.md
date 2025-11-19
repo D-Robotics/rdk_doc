@@ -121,7 +121,7 @@ The meanings of each column in the table below are as follows:
 | 105        | WAKEUP_IO     | GPIO_AON[12]      |
 
 ## Port_Func Module
-The Port_Func module is provided by Digua to initialize and configure all PINs belonging to a specific functional module, as well as to operate GPIOs for that module.
+The Port_Func module is provided by D-Robotics to initialize and configure all PINs belonging to a specific functional module, as well as to operate GPIOs for that module.
 
 ### Example: Configuring PIN Functions Using the Port_Func Module
 #### Code Example
@@ -139,7 +139,7 @@ Refer to `samples/Spi/SPI_sample/Spi_sample.c` for usage examples. The basic usa
 ```
 
 #### Peripheral Configurations Provided by the Port_Func Module
-The default peripheral PIN configurations provided by Digua are defined in the file `McalCdd/Port/inc/Port_Func.h` using an enum type:
+The default peripheral PIN configurations provided by D-Robotics are defined in the file `McalCdd/Port/inc/Port_Func.h` using an enum type:
 ```C
 ...
 
