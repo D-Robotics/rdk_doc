@@ -85,7 +85,7 @@ sudo apt upgrade
 
 双目深度算法支持多款相机，启动命令有一些区别，具体启动命令如下：
 
-### (1) 搭配RDK官方SC230AI MIPI双目相机启动
+### (1) 搭配 RDK Stereo Camera Module 启动
 
 - RDK官方MIPI双目相机如图所示：
 
@@ -271,7 +271,7 @@ save_image_all:=True save_freq:=4 save_dir:=./online_result save_total:=10
 
 ![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
-### (2) 搭配RDK官方SC132GS MIPI双目相机启动
+### (2) 搭配 RDK Stereo Camera GS130W 启动
 
 - RDK官方MIPI双目相机如图所示：
 
