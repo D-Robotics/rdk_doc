@@ -6,8 +6,8 @@ sidebar_position: 2
 
 The X5 has two types of controllers: one is the standard PWM, with 4 groups, each having 2 output channels, for a total of 8 PWM outputs. The other is LPWM, with 2 groups, each having 4 PWM outputs, primarily used for supporting synchronized exposure of sensors.
 
-- The default supported frequency range for PWM is from 0.05Hz to 100MHz, and the duty cycle register (RATIO) has a precision of 16 bits. The period valid time ranges from 10ns to 21s, and the duty cycle valid time ranges from 10ns to 21s.
-- The default supported frequency range for LPWM is from 1Hz to 500KHz, with no duty cycle register. There is only a high-level duration register (HIGH), where the HIGH register configuration unit is in microseconds (us), and the duty cycle valid time ranges from 1us to 4ms.
+- PWM supports a default frequency range of 0.05 Hz to 1 MHz.The duty-cycle register RATIO has 16-bit precision.The effective period range is 1 μs to 20 s, and the effective duty-cycle width is 10 ns to 20 s.
+- LPWM supports a default frequency range of 1 Hz to 1 MHz,with an output pulse-width range of 1 μs to 4 ms.
 - LPWM is designed for sensor synchronization and is not a general-purpose PWM. **For pure PWM functionality, it is recommended to use PWM.**
 
 ## Driver Code

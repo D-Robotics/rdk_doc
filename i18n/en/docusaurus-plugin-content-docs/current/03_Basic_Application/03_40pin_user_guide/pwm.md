@@ -45,6 +45,7 @@ def main():
     GPIO.setmode(GPIO.BOARD)
     # Supported frequency range for RDK X3: 48KHz ~ 192MHz
     # Supported frequency range for RDK Ultra: 1Hz ~ 12MHz
+    # Supported frequency range for RDK X5: 1Hz ~ 12MHz
     p = GPIO.PWM(output_pin, 48000)
     # Initial duty cycle of 25%. Increase by 5% every 0.25 seconds until 100% is reached, then decrease by 5% every 0.25 seconds
     val = 25
