@@ -30,7 +30,7 @@ sidebar_position: 7
 
 **系统特点：**
 1. Ubuntu 22.04系统，支持图形桌面操作
-2. 新增功能组件支持在线deb安装，省去源码交叉编译过程  
+2. 新增功能组件支持在线deb安装，省去源码交叉编译过程
 3. 提供Python接口，简化图像处理、AI推理开发难度
 :::
 
@@ -176,7 +176,7 @@ sidebar_position: 7
     </tr>
     <tr>
       <td>📐 **机械尺寸图**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X%_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_TOP.dxf">模组结构图 (TOP)</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_BOTTOM.dxf">模组结构图 (BOTTOM)</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>暂不开放</td>
@@ -185,7 +185,7 @@ sidebar_position: 7
     </tr>
     <tr>
       <td>🎯 **3D图**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X%_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
       <td>即将发布</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
       <td>暂不开放</td>
@@ -207,7 +207,7 @@ sidebar_position: 7
 
 ### RDK 系列配件及扩展规格书
 
-:::info 配件及扩展文档说明  
+:::info 配件及扩展文档说明
 RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的技术参数和使用说明。
 :::
 
@@ -241,10 +241,15 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td>摄像头模组技术规格和接口详细说明</td>
     </tr>
     <tr>
-      <td>👁️ **双目摄像头模组**</td>
+      <td rowspan="2">👁️ **双目摄像头模组**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK 双目摄像头模组</a></td>
       <td>-</td>
       <td>用于立体视觉应用的双摄像头模组</td>
+    </tr>
+    <tr>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_stereo_camera_gs130w_zh_v1_0.pdf">RDK 双目摄像头 GS130W</a></td>
+      <td> - </td>
+      <td>用于机器人视觉、机器视觉检测和实时运动监测等场景</td>
     </tr>
     <tr>
       <td>🔌 **摄像头转接板**</td>
@@ -502,11 +507,11 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
   .table-wrapper {
     margin: 10px -20px;
   }
-  
+
   .no-wrap-table {
     min-width: 600px;
   }
-  
+
   .no-wrap-table th,
   .no-wrap-table td {
     padding: 8px 6px;
@@ -602,6 +607,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
       <th>♻️ **RoHS**</th>
+      <th>♻️ **RoHS**</th>
     </tr>
   </thead>
   <tbody>
@@ -614,6 +620,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3**</td>
@@ -624,6 +631,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td>
       <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
     </tr>
     <tr>
       <td>**RDK X3 Module**</td>
@@ -631,6 +639,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C02-%202402T78342E-RF%20C2%20EMC%20210115.pdf">📄 CE EMC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/FCC/D-ROBOTICS%202BGUG-RDKX3M%20FCC%20Grant%20-%20DTS.PDF">📄 FCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
+      <td>-</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>

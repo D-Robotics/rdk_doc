@@ -14,7 +14,7 @@ This section introduces how to use apt to install TogetheROS.Bot on RDK.
 
 Prerequisites
 
-- The environment preparation in section 1.1 has been completed.
+- The [Environment Setup](./preparation.md) has been completed.
 - The RDK system has been installed.
 - The RDK can access the internet normally.
 - The RDK can be accessed remotely via SSH.
@@ -132,7 +132,8 @@ It can be seen that the current version of tros.b has been upgraded to version 2
 ## X86 Platform Setup
 
 ### Prerequisites:
-- Completed the environment preparation as described in Section 2.1.
+
+- The [Environment Setup](./preparation.md) has been completed.
 - The system is Ubuntu 20.04 with active internet access.
 
 ---

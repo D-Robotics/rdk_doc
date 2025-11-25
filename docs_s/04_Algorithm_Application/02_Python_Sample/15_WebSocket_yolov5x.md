@@ -45,6 +45,11 @@ sidebar_position: 15
     pip install websockets==15.0.1 protobuf==3.20.3
     ```
 
+## 硬件环境
+- mipi camera的接口使用的自动检测模式，该sample运行时只能接入一个mipi摄像头（任意mipi接口都可以），同时接入多个会报错。
+- 目前该sample仅支持MIPI sensor: IMX219, SC230AI
+- mipi摄像头的安装方法可参考[相机扩展板-MIPI 相机接口](../../01_Quick_start/01_hardware_introduction/02_rdk_s100_camera_expansion_board.md)部分。
+
 ## 目录结构
 ```text
 .

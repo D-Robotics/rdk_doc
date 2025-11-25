@@ -871,18 +871,196 @@ file1为要编码的文件名需要为NV12格式，其width和height需要和fil
 
 #### sample_vdec_basic
 
-在当前运行目录下生成decode.nv12，该文件内容随着解码内容更新
+```bash
+root@ubuntu:/app/multimedia_samples/sample_video_codec# ./sample_vdec_basic -w 1920 -h 1080 -t h264 -f 1080P.h264
+mmzAlloc paddr = 0x1769a000, vaddr = 0x7fa49ac000 i = 0
+mmzAlloc paddr = 0x17b8d000, vaddr = 0x7fa44b9000 i = 1
+mmzAlloc paddr = 0x18080000, vaddr = 0x7fa42be000 i = 2
+mmzAlloc paddr = 0x1827b000, vaddr = 0x7fa40c3000 i = 3
+mmzAlloc paddr = 0x18634000, vaddr = 0x7f97790000 i = 4
+try open
+do while
+[pstStream] pts:0, vir_ptr:548222451712, size:71225
+feed raw data
+do while
+[pstStream] pts:1, vir_ptr:548217262080, size:29880
+feed raw data
+do while
+vdec 1, 1920x1080
+[pstStream] pts:2, vir_ptr:548215185408, size:20136
+feed raw data
+
+......
+......
+......
+
+
+do while
+[pstStream] pts:146, vir_ptr:548064448512, size:14653
+feed raw data
+do while
+[pstStream] pts:147, vir_ptr:548062371840, size:14555
+feed raw data
+do while
+[pstStream] pts:148, vir_ptr:548057182208, size:15637
+feed raw data
+do while
+[pstStream] pts:149, vir_ptr:548051447808, size:15966
+feed raw data
+do while
+There is no more input data, 0!
+mmzFree paddr = 0x1769a000, vaddr = 0x7fa016d000 i = 0
+mmzFree paddr = 0x17b8d000, vaddr = 0x7f9b2fd000 i = 1
+mmzFree paddr = 0x18080000, vaddr = 0x7f9b102000 i = 2
+mmzFree paddr = 0x1827b000, vaddr = 0x7f9ac0f000 i = 3
+mmzFree paddr = 0x18634000, vaddr = 0x7f9a697000 i = 4
+[ERROR]["vdec"][video/src/hb_vdec.c:743] [540.920523]HB_VDEC_GetFrame[743]: [HB_VDEC] HB_VDEC_GetFrame:743 Failed  VdChn = 0 s32Ret = -269024268
+
+HB_VDEC_GetFrame failed:-269024268
+vp exit ok!
+Done
+The program exited normally. If you encounter a Get_Frame error, it may be because the file has already been read. Please check.
+
+
+```
+输出 log 显示不断在将逐帧处理，最后的 LOG 打印也显示程序正常退出 ， 末尾附近出现的 `HB_VDEC_GetFrame Failed` 代表已经读不到输入的数据了，说明可能到了文件末尾。
+
+该程序执行完成之后，在当前运行目录会生成 decode.nv12 文件，该文件内容随着解码内容更新。
 
 #### sample_venc_basic
 
-在当前运行目录下生成sample_venc.h264/sample_venc.h265/sample_venc.jpg。H264/H265文件内容为交替显示是file1和file2
+```bash
+root@ubuntu:/app/multimedia_samples/sample_video_codec# ./sample_venc_basic -w 1920 -h 1080 -t h265 -f 1080P_file1.nv12  -g 1080P_file2.nv12
+feed encode data thread running
+ m_VencChnAttr.stRcAttr.enRcMode = 5 mmmmmmmmmmmmmmmmmm
+ u32VbvBufferSize = 10 mmmmmmmmmmmmmmmmmm
+buf:y: vaddr = 0x7f983e5000 paddr = 0x173da000; uv: vaddr = 0x7f982e7000, paddr = 0x178cd000
+get encode data thread running
+buf:y: vaddr = 0x7f915dc000 paddr = 0x18fdd000; uv: vaddr = 0x7f980e8000, paddr = 0x191d8000
+
+
+^C[ERROR]["multimedia"][src/vdi/linux/vdi_osal.c:174] [ERROR][7838.68423][7015:7021][TASK] MCTaskDequeueOutputBufferLocked The component(stream_reader) has been terminated!
+[ERROR]["venc"][video/src/hb_venc.c:982] [7838.689759]HB_VENC_GetStream[982]: [HB_VENC] HB_VENC_GetStream:982 Failed  VeChn = 0 s32Ret = -268958720
+
+HB_VENC_GetStream failed. ret=-268958720
+Done
+root@ubuntu:/app/multimedia_samples/sample_video_codec#
+
+```
+上述效果我们可以看到使用命令 `./sample_venc_basic -w 1920 -h 1080 -t h265 -f 1080P_file1.nv12  -g 1080P_file2.nv12` 将 1080P_file1.nv12 和 1080P_file2.nv12 的图像编码成 h265 文件， 按下 `ctrl+c` 之后停止运行，中止循环编码过程，`HB_VENC_GetStream` 会获取不到数据，抛出应有的 LOG 打印。
+
+程序结束之后，在当前运行目录下生成sample_venc.h264/sample_venc.h265/sample_venc.jpg。H264/H265文件内容为交替显示是file1和file2
 #### sample_vdec_two_channel
 
-在当前运行目录下生成sample_decode_ch0.nv12和sample_decode_ch1.nv12，该文件内容随着解码内容更新。
+```
+root@ubuntu:/app/multimedia_samples/sample_video_codec# ./sample_vdec_two_channel -w 1920 -h 1080 -t h264 -f 1920x1080.h264
+mmzAlloc paddr = 0x173a2000, vaddr = 0x7f935f5000 i = 0
+mmzAlloc paddr = 0x17895000, vaddr = 0x7f93102000 i = 0
+mmzAlloc paddr = 0x18080000, vaddr = 0x7f92c0f000 i = 1
+mmzAlloc paddr = 0x18573000, vaddr = 0x7f92424000 i = 1
+mmzAlloc paddr = 0x18d5e000, vaddr = 0x7f91c39000 i = 2
+mmzAlloc paddr = 0x19117000, vaddr = 0x7f916c1000 i = 2
+mmzAlloc paddr = 0x19312000, vaddr = 0x7f914c6000 i = 3
+mmzAlloc paddr = 0x1950d000, vaddr = 0x7f912cb000 i = 3
+mmzAlloc paddr = 0x19852000, vaddr = 0x7f910d0000 i = 4
+mmzAlloc paddr = 0x19c0b000, vaddr = 0x7f90d17000 i = 4
+try open
+try open
+[pstStream] pts:0, vir_ptr:547928154112, size:40
+feed raw data
+[pstStream] pts:0, vir_ptr:547933343744, size:40
+feed raw data
+[pstStream] pts:1, vir_ptr:547914661888, size:110529
+feed raw data
+[pstStream] pts:1, vir_ptr:547922964480, size:110529
+feed raw data
+[pstStream] pts:2, vir_ptr:547900624896, size:54178
+feed raw data
+[pstStream] pts:2, vir_ptr:547906359296, size:54178
+feed raw data
+[pstStream] pts:3, vir_ptr:547896471552, size:9596
+feed raw data
+[pstStream] pts:3, vir_ptr:547898548224, size:9596
+......
+......
+......
+feed raw data
+[pstStream] pts:29, vir_ptr:547890491392, size:2444
+feed raw data
+[pstStream] pts:29, vir_ptr:547894394880, size:2444
+feed raw data
+[pstStream] pts:30, vir_ptr:547928154112, size:33999
+feed raw data
+[pstStream] pts:30, vir_ptr:547933343744, size:33999
+feed raw data
+[pstStream] pts:31, vir_ptr:547914661888, size:8696
+feed raw data
+[pstStream] pts:31, vir_ptr:547922964480, size:8696
+feed raw data
+[pstStream] pts:32, vir_ptr:547900624896, size:3833
+feed raw data
+[pstStream] pts:32, vir_ptr:547906359296, size:3833
+feed raw data
+[pstStream] pts:33, vir_ptr:547896471552, size:1214
+feed raw data
+[pstStream] pts:33, vir_ptr:547898548224, size:1214
+feed raw data
+^CmmzFree paddr = 0x17895000, vaddr = 0x7f93102000 i = 0
+mmzFree paddr = 0x18573000, vaddr = 0x7f92424000 i = 1
+mmzFree paddr = 0x173a2000, vaddr = 0x7f935f5000 i = 0
+mmzFree paddr = 0x19117000, vaddr = 0x7f916c1000 i = 2
+mmzFree paddr = 0x18080000, vaddr = 0x7f92c0f000 i = 1
+mmzFree paddr = 0x1950d000, vaddr = 0x7f912cb000 i = 3
+mmzFree paddr = 0x18d5e000, vaddr = 0x7f91c39000 i = 2
+mmzFree paddr = 0x19c0b000, vaddr = 0x7f90d17000 i = 4
+mmzFree paddr = 0x19312000, vaddr = 0x7f914c6000 i = 3
+mmzFree paddr = 0x19852000, vaddr = 0x7f910d0000 i = 4
+[ERROR]["vdec"][video/src/hb_vdec.c:743] [1636.753595]HB_VDEC_GetFrame[743]: [HB_VDEC] HB_VDEC_GetFrame:743 Failed  VdChn = 0 s32Ret = -269024268
+
+HB_VDEC_GetFrame failed:-269024268
+[ERROR]["vdec"][video/src/hb_vdec.c:743] [1636.756613]HB_VDEC_GetFrame[743]: [HB_VDEC] HB_VDEC_GetFrame:743 Failed  VdChn = 1 s32Ret = -269024268
+
+HB_VDEC_GetFrame failed:-269024268
+vp exit ok!
+Done
+root@ubuntu:/app/multimedia_samples/sample_video_codec#
+
+```
+在 h264 文件符合要求的情况下，我们执行类似 `./sample_vdec_two_channel -w 1920 -h 1080 -t h264 -f 1920x1080.h264` 这样的命令，可以看到 LOG 显示，一直在解码，程序会通过两个解码通道分别执行，在按下 `ctrl + c` 之后，程序结束，并且会在当前运行目录下生成sample_decode_ch0.nv12和sample_decode_ch1.nv12，该文件内容随着解码内容更新。
 
 #### sample_venc_two_channel
 
-在当前运行目录下生成sample_venc_ch0.h264（sample_venc_ch0.h265/sample_venc_ch0.jpg）和sample_venc_ch1.h264（sample_venc_ch1.h265/sample_venc_ch1.jpg）。H264/H265文件内容为交替显示是file1和file2
+```
+
+root@ubuntu:/app/multimedia_samples/sample_video_codec# ./sample_venc_two_channel -w 1920 -h 1080 -t h264 -f 1080P_file1.nv12 -g 1080P_file2.nv12
+feed encode data thread running
+ m_VencChnAttr.stRcAttr.enRcMode = 5 mmmmmmmmmmmmmmmmmm
+ u32VbvBufferSize = 10 mmmmmmmmmmmmmmmmmm
+get encode data thread running
+buf:y: vaddr = 0x7f90005000 paddr = 0x176d2000; uv: vaddr = 0x7f8a3da000, paddr = 0x17bc5000
+feed encode data thread running
+ m_VencChnAttr.stRcAttr.enRcMode = 5 mmmmmmmmmmmmmmmmmm
+ u32VbvBufferSize = 10 mmmmmmmmmmmmmmmmmm
+buf:y: vaddr = 0x7f88087000 paddr = 0x1830b000; uv: vaddr = 0x7f7b6f2000, paddr = 0x18af6000
+get encode data thread running
+buf:y: vaddr = 0x7f78758000 paddr = 0x1ac18000; uv: vaddr = 0x7f7845f000, paddr = 0x1b00e000
+buf:y: vaddr = 0x7f7855d000 paddr = 0x1ae13000; uv: vaddr = 0x7f78361000, paddr = 0x1b10c000
+
+
+^C[ERROR]["multimedia"][src/vdi/linux/vdi_osal.c:174] [ERROR][2770.31880][5508:5520][TASK] MCTaskDequeueOutputBufferLocked The component(stream_reader) has been terminated!
+[ERROR]["multimedia"][src/vdi/linux/vdi_osal.c:174] [ERROR][2770.31897][5508:5514][TASK] MCTaskDequeueOutputBufferLocked The component(stream_reader) has been terminated!
+[ERROR]["venc"][video/src/hb_venc.c:982] [2770.325412]HB_VENC_GetStream[982]: [HB_VENC] HB_VENC_GetStream:982 Failed  VeChn = 0 s32Ret = -268958720
+
+HB_VENC_GetStream failed. ret=-268958720
+[ERROR]["venc"][video/src/hb_venc.c:982] [2770.327741]HB_VENC_GetStream[982]: [HB_VENC] HB_VENC_GetStream:982 Failed  VeChn = 1 s32Ret = -268958720
+
+HB_VENC_GetStream failed. ret=-268958720
+Done
+root@ubuntu:/app/multimedia_samples/sample_video_codec#
+
+```
+上述效果我们可以看到使用命令 `./sample_venc_two_channel -w 1920 -h 1080 -t h264 -f 1080P_file1.nv12 -g 1080P_file2.nv12` 将 1080P_file1.nv12 和 1080P_file2.nv12 编码成 h265 文件，按下 `ctrl + c` 会结束编码，结束期间，会出现 `HB_VENC_GetStream` 的打印。\
+程序结束后会在当前运行目录下生成 sample_venc_ch0.h264（sample_venc_ch0.h265/sample_venc_ch0.jpg） 和 sample_venc_ch1.h264（sample_venc_ch1.h265/sample_venc_ch1.jpg）两个通道的文件。H264/H265文件内容为交替显示是file1和file2。
 
 ## sample_vot 使用说明{#sample_vot}
 

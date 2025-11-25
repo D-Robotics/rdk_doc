@@ -4,17 +4,18 @@ sidebar_position: 2
 
 # Camera点亮
 
-## 范围
+## HBN sensor 点亮
+
+### 范围
 
 本章节概述了 RDK-S100 camera bring up 的过程，用于帮助读者快速了解并掌握
 RDK-S100 camera 框架，如何快速的新增 camera 配置，并点亮 camera。
 
 该部分内容以 RDK-S100 开发板 + imx219 camera
 模组为例，进行配置讲解，其他硬件平台或者 camera 模组以实际情况为准。
-
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_01.png)
 
-## 准备工作
+### 准备工作
 
 硬件资源：RDK-S100 开发板、camera 模组。
 
@@ -34,14 +35,14 @@ RDK-S100 开发板 camera 相关硬件资源如下：
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_02.png)
 
 
-## 添加新 sensor 点亮步骤
+### 添加新 sensor 点亮步骤
 
 RDK-S100 平台进行**新硬件**和**新 camera** 适配时，需要修改平台设备树
 dts，camera 驱动库及相关配置文件即可，系统库一般无需改动。
 
-### dts 修改
+#### dts 修改
 
-#### sensor gpio 配置
+##### sensor gpio 配置
 
 确保新硬件使用的 sensor gpio 在 drobot-s100-pinctrl.dtsi --\> pinctrl_video --\>
 video_gpio节点中有配置，这样在开机启动时，系统才会将对应的 pin 设置为
@@ -69,7 +70,7 @@ gpio。请根据硬件连接的实际情况配置，该相关信息可以从原�
 };
 ```
 
-#### sensor i2c 配置
+##### sensor i2c 配置
 
 I2C bus number 需要在 dts vcon 中与 MIPI RX
 端口进行绑定，请根据硬件连接的实际情况配置，该相关信息可以从原理图中获取。
@@ -86,12 +87,12 @@ I2C bus number 需要在 dts vcon 中与 MIPI RX
 };
 ```
 
-#### mclk 配置
+##### mclk 配置
 
 RDK-S100 底座硬件暂时不支持 SOC 输出的 mclk 连接到 sensor
 模组，目前只支持外带晶振的模组。
 
-#### dts 修改验证
+##### dts 修改验证
 
 一般 dts 配置正确，硬件正确连接后，保证 sensor 供电及 mclk 正常 ，便可以使用 i2cdetect 检测到模组的 i2c 地址。
 通过 echo 命令进行控制 sensor 上电或者 reset （注：该说明使用 imx219模组无需操作 gpio）
@@ -109,7 +110,7 @@ echo 502 > /sys/class/gpio/unexport
 |--------------------------------------|--------------------------------------|
 
 
-### sensor 驱动文件添加
+#### sensor 驱动文件添加
 
 不同厂家的 sensor，都会搭配风格各异的 driver 和 setting。因此需要将原厂 sensor
 驱动，转换成 RDK-S100 camera 驱动代码，并编译生成 so 库，然后将 so
@@ -293,12 +294,12 @@ out/deploy/rootfs/usr/hobot/lib/sensor 中。
 一般代码结构没有问题，即使 tuning_data 参数配置有不当的地方，框架也能正常加载 sensor驱动。如果 logcat 有 sensor so check 失败或者加载失败，则需要检查代码结构，是否按照 HBN 框架来编写。
 
 
-### 用户程序
+#### 用户程序
 
 参考 SDK 已有的用户程序，包含 CIM、ISP 的参数配置，这些配置需要根据具体的 sensor
 的分辨率，帧率，数据格式进行配置。下面列出文件中需要单独配置的部分，其余部分可保持默认值，无需关注。
 
-#### mipi 配置
+##### mipi 配置
 
 | 字段                              | 描述                                                                                                               |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -328,7 +329,7 @@ out/deploy/rootfs/usr/hobot/lib/sensor 中。
 问卷链接：https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
 :::
 
-#### camera sensor 配置
+##### camera sensor 配置
 
 | 字段                         | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -346,7 +347,7 @@ out/deploy/rootfs/usr/hobot/lib/sensor 中。
 | calib_lname                  | sensor 效果库路径，默认路径为 /usr/hobot/lib/sensor                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | end_flag                     | 固定为 CAMERA_CONFIG_END_FLAG                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-#### vio 配置
+##### vio 配置
 
 | 字段1 | 字段2                | 字段3                                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-------|----------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -372,11 +373,11 @@ out/deploy/rootfs/usr/hobot/lib/sensor 中。
 |       |                      | algo_state                            | 2a 的开关参数                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |       | output channel       | stream_output_mode 和 axi_output_mode | isp 模式                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-### 板端运行程序
+#### 板端运行程序
 
 执行对应的测试程序
 
-### isp 图像预览
+#### isp 图像预览
 
 **SDK 代码添加 tuning 程序**
 
@@ -412,7 +413,7 @@ connect 则可以看到实时视频流。实时预览操作示意如图所示。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
 
-## 错误码
+### 错误码
 
 下面是 sensor 常见的错误码及简单的排查方向：
 
@@ -424,7 +425,7 @@ connect 则可以看到实时视频流。实时预览操作示意如图所示。
 | 217    | HB_CAM_SENSOR_POWERON_FAIL  | sensor 上电失败，可能是 sensor gpio 配置错误。                  |
 | 218    | HB_CAM_SENSOR_POWEROFF_FAIL | sensor 下电失败，可能是 sensor gpio 配置错误。                  |
 
-## FAQ
+### FAQ
 
 **control-tool 使用说明**
 
@@ -445,3 +446,439 @@ connect 则可以看到实时视频流。实时预览操作示意如图所示。
 修改通信地址示意图
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_09.png)
+
+## V4L2 sensor 点亮
+
+### V4L2 sensor驱动编写说明
+S100 Camsys sensor v4l2 驱动软件框架为标准的v4l2 sub device驱动。
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_10.png)
+下面以IMX219驱动为例，介绍MIPI直连sensor v4l2 驱动开发流程，imx219驱动源码位于：kernel/drivers/media/i2c/imx219.c
+####定义sensor私有结构体
+imx219私有结构体如下：
+```c
+struct imx219 {
+        struct v4l2_subdev sd;
+        struct media_pad pad;
+        struct i2c_client *i2c_client;
+        ...
+        struct v4l2_ctrl *xxx_ctrl;
+        ...
+};
+```
+sd: v4l2 sub device 句柄，用于操作subdev ops；
+pad: media pad，用于和后级模块建立media链接关系；
+i2c_client: i2c client 句柄，用来通过i2c总线与sensor交互；
+xxx_ctrl: v4l2控制属性，例如exposure、flip、blank控制，非必须实现；
+
+#### V4L2回调函数实现
+
+符合v4l2标准的sensor驱动需要实现一些ops函数，V4L2框架会通过ops函数控制sensor
+```c
+static const struct v4l2_subdev_ops imx219_subdev_ops = {
+        .core = &imx219_core_ops,
+        .video = &imx219_video_ops,
+        .pad = &imx219_pad_ops,
+};
+```
+实现v4l2 subdev ops回调，其中包含core ops、video ops、pad ops。
+```c
+static const struct v4l2_subdev_pad_ops imx219_pad_ops = {
+        .enum_mbus_code = imx219_enum_mbus_code,
+        .get_fmt = imx219_get_pad_format,
+        .set_fmt = imx219_set_pad_format,
+        .enum_frame_size = imx219_enum_frame_size,
+};
+```
+pad ops定义了一些格式配置、格式协商的回调接口，必须实现。
+```c
+static const struct v4l2_subdev_video_ops imx219_video_ops = {
+        .s_stream = imx219_set_stream,
+};
+```
+video ops主要定义了sensor开关流的接口，必须实现。
+```c
+static const struct v4l2_subdev_core_ops imx219_core_ops = {
+        .subscribe_event = v4l2_ctrl_subdev_subscribe_event,
+        .unsubscribe_event = v4l2_event_subdev_unsubscribe,
+};
+```
+
+core ops定义了一些如ioctl event实现等，可选实现。
+```c
+static const struct v4l2_subdev_internal_ops imx219_internal_ops = {
+        .open = imx219_open,
+};
+```
+internal ops主要定义了一些ops用于管理子设备的生命周期，按需实现open、close、release等回调。
+
+#### sensor probe函数
+```c
+static int imx219_probe(struct i2c_client *client)
+{
+        imx219 = devm_kzalloc(&client->dev, sizeof(*imx219), GFP_KERNEL); // 1
+        if (!imx219)
+                return -ENOMEM;
+        ...        
+        v4l2_i2c_subdev_init(&imx219->sd, client, &imx219_subdev_ops);  // 2
+
+        imx219->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE |
+                        ┆   V4L2_SUBDEV_FL_HAS_EVENTS;
+        imx219->sd.entity.function = MEDIA_ENT_F_CAM_SENSOR;
+        imx219->pad.flags = MEDIA_PAD_FL_SOURCE;
+        ret = media_entity_pads_init(&imx219->sd.entity, 1, &imx219->pad);  // 3
+
+        ret = v4l2_async_register_subdev_sensor(&imx219->sd);  // 4
+        
+        ...
+}
+```
+1. 初始化sensor结构体，分配内存；
+2. 初始化一个 v4l2 subdev，并绑定到 I2C client；
+3. 初始化 media entity 的 pad 信息，让media controller知道当前sensor有一个输出pad，可以连接到后级模块；
+4. 异步注册，把当前sensor subdev注册到v4l2框架；
+
+#### sensor device tree
+S100默认加载imx219设备树，设备树组织格式如下面所示，如果接入其他的mipi sensor，需要以dts overlay的方式覆盖掉imx219的dts。
+```c
+&i2c1 {
+        status = "okay";
+
+        imx219@10 {
+                status = "okay";
+                compatible = "sony,imx219";
+                ...
+                reg = <0x10>; // sensor i2c地址
+                ...
+                port {
+                        cam_to_mipi_csi0: endpoint {  // MIPI 相关属性
+                                remote-endpoint = <&rdk_s100_mipi_csi0_from_cam>;  // 对接到mipi RX0
+                                clock-lanes = <0>;
+                                data-lanes = <1 2>;
+                                link-frequencies =
+                                        /bits/ 64 <456000000>;
+                                virtual-channel = <0>;
+                        };
+                };
+        };
+};
+
+&mipi_host0 {
+        ports {
+                port@0 {
+                        rdk_s100_mipi_csi0_from_sensor0: endpoint {
+                                remote-endpoint = <&sensor0_to_mipi_csi0>;
+                                clock-lanes = <0>;
+                                data-lanes = <1 2>;    // mipi data lane 为 2lane
+                                lane-rate = <1728>;    // mipi 速率
+                                vc_id = <0>;            // sensor 输出的 virtual channel
+                                emb-en = <1>;            // sensor 输出是否包含 embedded data
+                        };
+                };
+        };
+};
+```
+
+
+
+
+### V4L2 GMSL SerDes接口调用说明
+S100 Camsys支持接入美信加串器的sensor，camera子板默认搭载美信解串器MAX96712。GMSL sensor同样作为一个v4l2 subdev接入v4l2框架，这里加串器及解串器驱动为gmsl sensor驱动提供操作函数集，不实现为v4l2 subdev。
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_11.png)
+
+
+serdes 相关的一些数据结构及回调函数定义在 kernel/include/media/i2c/serdes_core.h，需要包含该头文件，#include \<media/i2c/serdes_core.h\>
+本小结以0820C GMSL sensor为例，介绍camsys gmsl sensor开发。
+####sensor结构体新增成员
+```c
+struct ar0820 {
+        ...
+        struct serdes_device *ser_dev;
+        struct serdes_device *dser_dev;
+        struct serdes_ctx g_ctx;
+        ..
+};
+```
+
+sensor驱动需要包含ser_dev与dser_dev两个结构体，用来操作加串和解串;
+需要包含serdes contex g_ctx成员，用来保存serdes相关属性，其中主要使用的结构体成员说明如下：
+```c
+struct serdes_ctx {
+        u32 serdes_csi_link;    // 在 sensor 驱动中保存解串器的port 值
+        u32 ser_reg;            //加串器i2c地址映射目标值
+        u32 sdev_reg;            // sensor 实际i2c地址
+        u32 sdev_def;            // sensor i2c地址映射目标值
+        struct device *sen_dev;
+        u32 lane_num;            // 在 sensor 驱动中保存 sensor与加串器连接的mipi data lane数
+        u32 data_type;           // 在 sensor 驱动中保存 sensor输出的数据类型
+        u32 dst_vc;               // 在 sensor 驱动中保存 sensor输出的virtual channel
+};
+```
+
+#### serdes回调函数
+加串器与解串器都提供了下面的回调函数，供sensor driver中调用，调用需要使用SERDES_OP宏
+```c
+/* 默认返回值大于等于 0 代表操作成功，返回值小于 0 则代表操作失败 */
+struct serdes_ops {
+        /* 加串器和解串器做初始化用，只下一些基础配置 */
+        int (*init)(struct serdes_device *serdes_dev);
+        /* 目前是给 d457 -> max9295a 做额外初始化用，将 max929a 4个 pipe 都使能 */
+        int (*init_ex)(struct serdes_device *serdes_dev);
+        /* 预留 */
+        int (*reset)(struct serdes_device *dev);
+        /* 将解析的 dts 值，通过 serdes_ctx 传递给加串器和解串器 */
+        int (*set_ctx)(struct serdes_device *serdes_dev,
+                ┆      struct serdes_ctx *ctx);
+        /* 用于解串器建立 link 使用，默认 setting 是没有使能 link，在该ops 中会使能 link */
+        int (*setup_link)(struct serdes_device *serdes_dev,
+                        ┆ struct device *sen_dev);
+        /* remote_contrl_get -> map_addr -> remote_contrl_put 配套使用，在 sensor/加串器 地址重映射期间，保证 sensor/加串器 的稳定性 */
+        int (*remote_contrl_get)(struct serdes_device *serdes_dev,
+                                ┆struct device *sen_dev);
+        int (*remote_contrl_put)(struct serdes_device *serdes_dev);
+        /* 加串器调用，重新映射加串器和sensor 的i2c 地址 */
+        int (*map_addr)(struct serdes_device *serdes_dev);
+        /* 加串器拉高某个 mfp */
+        int (*enable_mfp)(struct serdes_device *serdes_dev, uint8_t gpio_index);
+        /* 加串器拉低某个 mfp */
+        int (*clear_mfp)(struct serdes_device *serdes_dev, uint8_t gpio_index);
+        /* 解串器打开 mipi tx，开始出流，加串器默认是打开的，所以无需主动调用 */
+        int (*set_stream)(struct serdes_device *serdes_dev,
+                        struct device *sen_dev, int enable);
+        /* 解串器和加串器配置 gmsl video pipe 属性，属性由 dts 解析得到，默认配置加串器/解串器 pipe-z */
+        int (*set_pipe)(struct serdes_device *serdes_dev,
+                        struct device *sen_dev);
+        /* 针对复杂场景，解串器和加串器配置 gmsl video pipe 数据，可根据每个 pipe 灵活配置 */
+        int (*set_pipe_ex)(struct serdes_device *serdes_dev, struct device *sen_dev,
+                        uint8_t pipe, uint8_t vc_id, uint8_t data_type);
+        /* 通过 virtual channel 值，查看解串器是否还有空余的 pipe，返回空余的 pipe id(0-3)，
+           d457 sensor 在出流前使用，与 release_pipe_id 配套使用 */
+        int (*get_pipe_id)(struct serdes_device *serdes_dev,
+                        uint8_t vc_id);
+        /* 使用完解串器 video pipe，释放对应的 video pipe*/
+        int (*release_pipe_id)(struct serdes_device *serdes_dev,
+                        uint8_t pipe_id);
+};
+```
+
+1. 在sensor probe中需要调用一些serdes的ops来做一些软件初始化，解析 dts 值，并通过 set_ctx 分别传递给加串器和解串器驱动。
+```c
+ret = SERDES_OP(priv->ser_dev, set_ctx, priv->ser_dev, &priv->g_ctx);
+ret = SERDES_OP(priv->dser_dev, set_ctx, priv->dser_dev, &priv->g_ctx);
+```
+分别调用加串器和解串器的set_ctx函数与加解串器建立软件上的链接关系；
+```c
+        ret = SERDES_OP(priv->dser_dev, init, priv->dser_dev);
+        ret = SERDES_OP(priv->dser_dev, setup_link, priv->dser_dev, sen_dev);
+        ret = SERDES_OP(priv->dser_dev, remote_contrl_get, priv->dser_dev,
+        ret = SERDES_OP(priv->ser_dev, map_addr, priv->ser_dev);
+        ret = SERDES_OP(priv->dser_dev, remote_contrl_put, priv->dser_dev);
+        ret = SERDES_OP(priv->ser_dev, init, priv->ser_dev);
+        ret = SERDES_OP(priv->ser_dev, set_pipe, priv->ser_dev, sen_dev);
+        ret = SERDES_OP(priv->dser_dev, set_pipe, priv->dser_dev, sen_dev);
+        ret = SERDES_OP(priv->ser_dev, clear_mfp, priv->ser_dev,
+                        priv->mfp_reset);
+        ret = SERDES_OP(priv->ser_dev, enable_mfp, priv->ser_dev,
+                        priv->mfp_reset);
+```
+
+调用ops做一些加解串器link、addr、pipe、mfp等初始化；
+2. 在s_stream中配置解串器开流，加串器mfp使能等：
+```c
+SERDES_OP(priv->ser_dev, enable_mfp, priv->ser_dev,priv->mfp_trigger);
+SERDES_OP(priv->dser_dev, set_stream, priv->dser_dev, sen_dev, 1);
+```
+
+#### sensor device tree
+S100 v4l2 gmsl sensor默认加载0820c的dts，gmsl sensor设备树组织格式如下面所示：
+```c
+ar0820@11 {
+                compatible="d-robotics,ar0820";
+                reg = <0x11>;     // map后的地址
+                addr = <0x10>;    // sensor i2c实际地址
+                ......
+                mfp-reset = <0>;  // reset连接到加串器的mfp
+                mfp-trigger = <7>;// trigger pin链接到加串器的mfp
+                d-robotics,serdes-ser-device = <&ser_a>;  // 链接至linkA上的加串
+                d-robotics,serdes-dser-device = <&dser>;  // 接入deserial
+                status = "okay";
+
+                port {
+                        cam_0_to_mipi_csi4: endpoint {    // 接入mipi rx4
+                                remote-endpoint = <&mipi_csi4_from_cam_0>;
+                                virtual-channel = <0>;
+                        };
+                };
+};
+```
+
+### Sensor dtbo 文件编写配置说明
+S100 uboot 支持 DTB Overlay 功能，可以在不修改当前启动使用的dts文件的情况下，通过编写配置对应的dtbo文件。对当前启动使用的dtb文件进行增/改（不支持删减）的功能
+#### sensor dtbo 文件生成
+1. 编写dtso文件
+```c
+#include <dt-bindings/gpio/gpio.h>
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    fragment@1 {
+        target-path = "/soc/i2c@39450000/";
+            __overlay__ {
+                status = "okay";
+                d457@11 {
+                    compatible="intel,d4xx";
+                    reg = <0x11>;
+                    def-addr = <0x10>;
+                    width = <640>;
+                    height = <480>;
+                    cam-type = "Depth";
+                    data_type = <0x2e>;
+                    lane_num = <2>;
+                    vc_id = <0>;
+                    d-robotics,serdes-ser-device = <&ser_a>;
+                    d-robotics,serdes-dser-device = <&dser>;
+                    status = "okay";
+
+                    port {
+                        sensor_0_to_mipi_csi4: endpoint {
+                            remote-endpoint = <&mipi_csi4_from_sensor_0>;
+                            virtual-channel = <0>;
+                        };
+                    };
+                };
+           };
+      };
+};
+```
+2. 在板端编译生成dtbo
+  - 安装dtc 工具
+```c
+sudo apt install device-tree-compiler -y
+```
+  - 预处理dtso 文件
+```c
+#当编写的dtso中include 头文件 或者 有定义时，才需要用以下命令预处理dtso文件
+
+#获取dts 头文件路径
+HEADER_DIR=$(find /usr/src -maxdepth 1 -type d -name "linux-headers-*" | sort -Vr | head -n 1)
+DTS_HEAD_PATH="$HEADER_DIR/include"
+
+
+#将编写的dtso文件预处理生成dtbi文件
+cpp -nostdinc -I "$DTS_HEAD_PATH" sample.dtso > sample.dtbi
+```
+  - 编译生成dtbo 文件
+    如果有dtbi文件，则通过dtbi文件生成最终的dtbo文件
+```c
+dtc -q -@ -I dts -O dtb -o sample.dtbo sample.dtbi
+```
+    如果没有dtbi文件，则通过编写的dtso文件生成最终的dtbo文件
+```c
+dtc -q -@ -I dts -O dtb -o sample.dtbo sample.dtso
+```
+#### sensor dtbo 开机自动生效配置
+1. 将编译生成的dtbo 文件放置到 /boot/overlays 目录下
+  若板端没有/boot/overlays目录，用户可自行添加/boot/overlays 目录， 或者通过安装hobot-camera.deb
+来获取/boot/overlays 目录 和 d457 sensor dtbo 文件
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_12.png)
+
+2. 修改config.txt 文件，配置要添加的dtbo文件
+若该位置没有config.txt文件， 用户可自行添加config.txt 文件
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_13.png)
+  按照下面的方法，修改config.txt
+dtbo_file_path=/overlays/v0p5_d457_2v_depth_color.dtbo
+
+3. 重启板子，使能配置的dtbo文件。在debug 版本的uboot log中，可以检查加载dtbo 的情况
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_14.png)
+  
+### Sensor gain LUT表编写说明
+RAW格式的sensor，对接到S100 ISP图像系统，除了编写sensor v4l2 驱动，另外需要制作一个so，存放sensor增益lut转换表，包括again lut、dgain lut等。人眼对亮度的感知更接近对数尺度而非线性尺度，dB单位更符合这种感知，S100 ISP这里sensor增益lut表存放的gain数组，需要存放db单位连续的sensor gain 寄存器配置值，供ISP调节sensor增益时找到对应的sensor寄存器值，下发到sensor。下面以imx219为例，介绍v4l2 sensor lut so如何制作。
+
+imx219 sensor gain lut表制作目录在sdk中位于hobot-camera/v4l2/v4l2_helper/imx219_v4l2;
+
+1. 添加\<sensor_name\>_camera_helper.c文件、Makefile及版本文件version.mk
+```c
+imx219_v4l2
+├── imx219_camera_helper.c
+├── Makefile
+└── version.mk
+```
+
+2. 在xxx_helper.c文件中，制作again lut表及dgain lut表，lut表为一个uint32类型的数组，最多256个成员，每个成员为gain寄存器的配置值，相邻成员对应的db要连续，以imx219为例：
+```c
+static uint32_t imx219_again_lut[] = {
+        0x00,   // 0db
+        0x05,   // 约0.2db
+        0x0B,   // 约0.4db
+        0x0F,   // 约0.6db
+        0x15,   // 约0.8db
+        ......
+        0xE7,   // 约20.4db
+        0xE8,   // 约20.6db
+        0xffff, // end flag
+};
+
+static uint32_t imx219_dgain_lut[] = {
+        0x0100,  // 0db
+        0x0106,  // 约0.2db
+        0x010c,  // 约0.4db
+        0x0112,  // 约0.6db
+        ......
+        0x0f53,  // 约23.6db
+        0x0fa9,  // 约23.8db
+        0x0fd9,  // 约24.0db
+        0xffff,  // end flag
+};
+```
+lut表最后一个成员固定为0xffff。
+
+3. 编写again index to reg、dgain index to reg callback函数，及获取callback的接口，复用219的即可：
+```c
+typedef uint32_t (*AGainIndexToReg_t)(uint8_t);  // 传入uint8 index，获得uint32 sensor寄存器配置值
+typedef uint32_t (*DGainIndexToReg_t)(uint8_t);  // 同上
+
+typedef struct {
+        AGainIndexToReg_t again_index_to_reg_callback;
+        DGainIndexToReg_t dgain_index_to_reg_callback;
+} Callbacks;   // callback结构体，不需要更改
+
+uint32_t again_index_to_reg_function(uint8_t isp_index) 
+{
+        if (isp_index >= sizeof(imx219_again_lut)/sizeof(uint32_t))
+                isp_index = sizeof(imx219_again_lut)/sizeof(uint32_t) - 1;
+        return imx219_again_lut[isp_index];
+}
+
+uint32_t dgain_index_to_reg_function(uint8_t isp_index) 
+{
+        if (isp_index >= sizeof(imx219_dgain_lut)/sizeof(uint32_t))
+                isp_index = sizeof(imx219_dgain_lut)/sizeof(uint32_t) - 1;
+
+        return imx219_dgain_lut[isp_index];
+}
+
+Callbacks cb = {again_index_to_reg_function,
+                dgain_index_to_reg_function,};
+
+//get_index_to_reg_callbacks
+Callbacks* get_index_to_reg_callbacks() {
+        return &cb;
+}
+```
+
+生成的so命名为lib\<sensor_name\>_v4l2.so，运行时会自动匹配并dlopen该so，调用符号最终获取到lut表。
+
+### 曝光同步sensor驱动说明
+S100 camsys serdes提供了trigger相关接口，sensor驱动中可以调用来配置lpwm硬件、使能lpwm。
+硬件同步曝光目前仅支持gmsl sensor，sensor dts中需要配置正确的trigger mfp管脚。
+```c
+SERDES_OP(priv->dser_dev, trigger_cfg, priv->dser_dev, sen_dev, period, duty);
+```
+在sensor的初始化配置format格式中调用trigger_cfg，下发lpwm配置
+period单位为ns，计算方式为（1000000/fps)*1000
+duty单位为ns，没有特殊要求可以配置为10000
+```c
+SERDES_OP(priv->dser_dev, trigger_enable, priv->dser_dev, sen_dev, enable);
+```
+在stream开关流时，调用trigger_enable打开或关闭lpwm输出

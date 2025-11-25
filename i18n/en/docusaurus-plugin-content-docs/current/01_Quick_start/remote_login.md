@@ -96,7 +96,7 @@ Before using remote login, it is necessary to confirm that the computer and deve
 
 Configure the IP address of the computer to be on the same subnet as the development board. For example, the development board: `192.168.1.10` and the computer: `192.168.1.100`. Assigning an IP address depends on the Operating System of the computer. Taking the WIN10 system as an example, the method to modify the static IP of the computer is as follows:
 
-![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
+![image-setstaticip-en](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-setstaticip-en.png)
 
 If you want to configure the wired network of the development board to obtain IP dynamically via DHCP mode, please refer to the [Wired Network](../02_System_configuration/01_network_blueteeth.md) chapter for configuration.
 

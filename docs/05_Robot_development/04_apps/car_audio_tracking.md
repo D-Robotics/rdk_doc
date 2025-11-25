@@ -35,7 +35,8 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X5, RDK X5 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过Gazebo展示追踪效果 |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过Gazebo展示追踪效果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过Gazebo展示追踪效果 |
 
 **注意：仅支持RDK X3，RDK X3 Module暂不支持。**
 

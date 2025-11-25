@@ -108,6 +108,8 @@ VNC 的使用请查看 [远程登录 - VNC登录](./remote_login#vnc登录)。
 3. 字符终端，自动登录
 4. 字符终端，用户手动登录
 
+X5系列板卡暂时不支持字符终端登录模式。
+
 通过菜单栏找到`RDK Configuration` 项，点击打开。选择 System Options -> Boot / Auto Login 项进入如下配置项。根据需求选择对应项。
 
 ![image-20231127112703844](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/image-20231127112703844.png)

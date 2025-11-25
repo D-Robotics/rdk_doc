@@ -18,7 +18,7 @@ sidebar_position: 0
 - RDK X3 Module（旭日 X3 模组）
 - RDK X5
 - RDK Ultra
-- RDK S100
+- RDK S100 系列
 
 搭配 TogetheROS.Bot 机器人中间件，RDK 套件可以帮助发者快速搭建机器人原型，开展评测和验证工作。
 
@@ -26,7 +26,7 @@ sidebar_position: 0
 
 ## 产品介绍
 
-**RDK S100** 是一款高性能开发套件，具有 80Tops 端侧推理算力与 6 核 ARM A78AE 处理能力，支持 2 路 MIPI Camera 接入，4 路 USB3.0 接口，2 路 PCIe3.0 接口，充分满足各类场景的使用需求。
+**RDK S100 系列** 是一款高性能开发套件，具有 80/128 TOPS 端侧推理算力与 6 核 ARM A78AE 处理能力，支持 2 路 MIPI Camera 接入，4 路 USB3.0 接口，2 路 PCIe3.0 接口，充分满足各类场景的使用需求。
 
 ![image-rdks100-serials](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/image-rdks100-serials.png)
 

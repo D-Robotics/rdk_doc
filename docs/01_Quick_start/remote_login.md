@@ -109,7 +109,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=3
 - 找到Internet协议版本4选项并双击打开
 - 在下图红框位置填入对应的网络参数，点击确定
 
-![image-20220416110242445](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416110242445.png)
+![image-setstaticip](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-setstaticip.png)
 
 如需将开发板有线网络配置为动态获取DHCP模式，可参考[有线网络](../02_System_configuration/01_network_blueteeth.md)章节进行配置。
 

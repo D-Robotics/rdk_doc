@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 前提
 
-- 已完成1.1章节环境准备工作
+- 已完成[环境准备](./preparation.md)章节工作
 - RDK已安装2.x版本系统
 - RDK能够正常访问互联网
 - RDK能够远程ssh
@@ -157,7 +157,7 @@ Description: TogetheROS Bot
 
 前提：
 
-- 已完成2.1章节环境准备工作
+- 已完成[环境准备](./preparation.md)章节工作
 - Ubuntu系统为Ubuntu 20.04，且能够正常访问互联网
 
 1. 设置locale和启用universe软件源

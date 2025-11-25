@@ -96,18 +96,28 @@ typedef struct Can_HwFilterType
 - 配置举例：
     - 这是CAN 7 的过滤器配置，拥有两个过滤器
     - 过滤器0的第一个元素的高2位为01，属于范围过滤方式
-    - 过滤器0和过滤1为"或"关系，即如果至少有一个过滤元件满足匹配标准，则CAN消息内容将被传输到增强型RX FIFO存储器
+    - 扩展帧和标准帧的过滤相互独立，互不影响
+    - 标准帧的所有过滤器，如下面的例子过滤器0和过滤1为"或"关系，即如果至少有一个过滤元件满足匹配标准，则CAN消息内容将被传输到增强型RX FIFO存储器
+    - 同理，扩展帧的所有过滤器，如下面的例子过滤器2和过滤3为"或"关系，即如果至少有一个过滤元件满足匹配标准，则CAN消息内容将被传输到增强型RX FIFO存储器
 
 ```c
 // Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
-static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+static const Can_HwFilterType Can_aHwFilter_Object7[4U]=
 {
-    {   // 接收id为0x0~0x7ff的消息
-        (uint32)0x400007ffU,
+    { /* Standard frame configuration */
+        (uint32)0x400007ffU,    // 标准帧配置：接收id为0x0~0x7ff的消息
         (uint32)0x00000000U
     },
-    {   // 接收id为0x600~0x7ff的消息
-        (uint32)0x400007ffU,
+    { /* Standard frame configuration */
+        (uint32)0x400007ffU,   // 标准帧配置：接收id为0x600~0x7ff的消息
+        (uint32)0x00000600U
+    },
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x0~0x1fffffff的消息
+        (uint32)0x00000000U
+    },
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x600~0x1fffffff的消息
         (uint32)0x00000600U
     }
 };
@@ -123,17 +133,25 @@ else
     // 丢弃该消
 ```
 
-举例代码如下：
+以标准帧过滤器0配置为例，代码如下：
 ```c
 // Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
-static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+static const Can_HwFilterType Can_aHwFilter_Object7[4U]=
 {
-    {
+    { /* Standard frame configuration */
         (uint32)0x00000400U,  // 只接收id = 0x400&0x7ff = 0x400 消息
         (uint32)0x000007ffU
     },
-    {   // 范围过滤方式，支持混用
-        (uint32)0x400007ffU,
+    {  /* Standard frame configuration */
+        (uint32)0x400007ffU,  // 范围过滤方式，支持混用
+        (uint32)0x00000600U
+    }
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x0~0x1fffffff的消息
+        (uint32)0x00000000U
+    },
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x600~0x1fffffff的消息
         (uint32)0x00000600U
     }
 };
@@ -150,17 +168,25 @@ if (id1 <= Received_ID <= id2)
 else
     // 丢弃该消息
 ```
-这也是S100mcu的默认模式;举例代码如下：
+这也是S100 MCU默认的过滤方式，也是最常用的过滤方式;举例代码如下：
 ```c
 // Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
-static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+static const Can_HwFilterType Can_aHwFilter_Object7[4U]=
 {
-    {   // 接收id为0x0~0x7ff的消息
-        (uint32)0x400007ffU,
+    { /* Standard frame configuration */
+        (uint32)0x00000400U,  // 只接收id = 0x400&0x7ff = 0x400 消息
+        (uint32)0x000007ffU
+    },
+    {  /* Standard frame configuration */
+        (uint32)0x400007ffU,  // 范围过滤方式，支持混用
+        (uint32)0x00000600U
+    }
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x0~0x1fffffff的消息
         (uint32)0x00000000U
     },
-    {   // 接收id为0x600~0x7ff的消息
-        (uint32)0x400007ffU,
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x600~0x1fffffff的消息
         (uint32)0x00000600U
     }
 };
@@ -179,26 +205,34 @@ else
     // 丢弃该消息
 ```
 
-举例代码如下：
+以标准帧过滤器0配置为例，代码如下：
 ```c
 // Config/McalCdd/gen_s100_sip_B_mcu1/Can/src/Can_PBcfg.c
-static const Can_HwFilterType Can_aHwFilter_Object7[2U]=
+static const Can_HwFilterType Can_aHwFilter_Object7[4U]=
 {
-    {
+    { /* Standard frame configuration */
         (uint32)0x80000404U,// 只接收id为404的消息
         (uint32)0x00000303U // 只接收id为303的消息
     },
-    {   // 范围过滤方式，支持混用
-        (uint32)0x400007ffU,
+    { /* Standard frame configuration */
+        (uint32)0x400007ffU,  // 范围过滤方式，支持混用
+        (uint32)0x00000600U
+    }
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x0~0x1fffffff的消息
+        (uint32)0x00000000U
+    },
+    { /* Extended frame configuration */
+        (uint32)0x5fffffffU,   // 扩展帧配置：接收id为0x600~0x1fffffff的消息
         (uint32)0x00000600U
     }
 };
 ```
 
 :::tip
-1. RDK S100软硬件支持同时接收扩展帧和标准帧，而不需要修改配置
-2. RDK S100硬件支持对扩展帧和标准帧分别过滤，软件暂不支持对扩展帧的过滤
-3. 扩展帧的id长度最高为11位，即最大为0x7FF
+1. RDK S100软硬件支持收发扩展帧和标准帧，而不需要修改配置
+2. RDK S100软硬件支持对扩展帧和标准帧分别过滤
+3. 注意id的长度配置，超出规定长度将发生截断，扩展帧的id长度最高为29位，即最大为0x1FFFFFFF，标准帧的id长度最高为11位，即最大为0x7FF
 :::
 
 
@@ -397,41 +431,21 @@ RDK S100默认配置了6组参数，用户可以通过修改Can_aControllerConfi
 
 ### 使用指南
 
-MCU侧CAN2IPC源码目录：mcu/Service/HouseKeeping/can_ipc/src/hb_CAN2IPC.c
-
-- 源码中hb_CAN2IPC_MainFunction函数被OS周期性调用，其内部通过调用hb_CAN2IPC_Proc 函数将指定的CAN控制器数据通过IPC转发到Acore。
-- hb_CAN2IPC_Proc 函数中三个传入参数分别为：CAN控制器、ipc instance、ipc 指定instance下的虚拟chennel。
-
-S100 默认将CAN5~CAN9 转发给ACORE，示例如下
-```C
-void hb_CAN2IPC_MainFunction(void) {
-hb_CAN2IPC_Proc(CANTRANS_INS0CH5_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, IpcConf_IpcInstance_0_IpcChannel_4);
-//CAN4 for chassis,map to ipc channel 4 and 5，for Acore vechileio and pnc
-hb_CAN2IPC_Proc(CANTRANS_INS0CH6_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, IpcConf_IpcInstance_0_IpcChannel_6);
-//CAN6 for radar, map to ipc channel 6
-hb_CAN2IPC_Proc(CANTRANS_INS0CH7_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, IpcConf_IpcInstance_0_IpcChannel_7);
-//CAN7 for radar, map to ipc channel 7
-hb_CAN2IPC_Proc(CANTRANS_INS0CH8_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, IpcConf_IpcInstance_0_IpcChannel_2);
-//CAN8 for radar, map to ipc channel 2
-hb_CAN2IPC_Proc(CANTRANS_INS0CH9_CONTROLLER, IpcConf_IpcInstance_IpcInstance_0, IpcConf_IpcInstance_0_IpcChannel_3);
-//CAN9 for radar, map to ipc channel 3
-}
-```
-
-Acore canhal使用可参考sample源码目录：`source/hobot-io-samples/debian/app/Can`，可以在S100的`/app/Can`目录下直接make编译使用。
+Acore canhal使用可参考sample源码目录：source/hobot-io-samples/debian/app/Can，可以在S100的/app/Can目录下直接make编译使用。
 
 以多路透传为例，目录结构如下：
 ```bash
 $ tree /app/Can/can_multi_ch
 .
-├── Makefile
-├── config
-│   ├── channels.json
-│   ├── ipcf_channel.json
-│   └── nodes.json
-├── main.cpp
-├── readme.md
-└── run.sh
+├── Makefile // 主编译脚本
+├── config  // 配置文件目录
+│   ├── channels.json // 通道映射配置文件
+│   ├── ipcf_channel.json // IPCF通道映射配置文件
+│   └── nodes.json // Can虚拟设备映射配置文件
+├── main.cpp // 主程序
+├── readme.md // 说明文件
+├── can_multich_log.h // 日志头文件
+└── run.sh // 运行脚本
 
 ```
 json文件配置主要包括3个json配置文件：node.json、ipcf_channel.json、channels.json。目前为了支持多进程，各个进程都会去当前路径下的config目录下寻找这3个配置文件。
@@ -531,27 +545,60 @@ Acore应用程序通过CANHAL获取MCU侧CAN帧的流程伪代码如下：
 ```c
 void send_frame_data(void *arg)
 {
-    for (int count = 1000; count > 0; count--) {
-        canSendMsgFrame(test_params->target, &frame[0], &pack);
+    ... do
+    {
+        ret = canSendMsgFrame(test_params->target, &frame[0], &pack);
+        if (ret > 0) { /* 发送成功 */
+            send_count++;
+            PRINT_DEBUG("Send length %d\n", ret);
+            break;
+        } else if (ret == -CAN_TRY_AGAIN && /* 由于IPC或者其他资源不足，重试 */
+                   retry++ < MAX_RETRY) {
+            usleep(2);
+            continue;
+        } else { /* 发送失败 */
+            PRINT_ERR("Send failed after retries, exiting...\n");
+            break;
+        }
     }
+    while (1)
+        ;
 }
 
 void *recv_frame_data(void *arg)
 {
     while (!exit_flag) {
-        canRecvMsgFrame(target, frame, &pack); // non blocking
+        ret = canRecvMsgFrame(target, frame, &pack); // non blocking
+        if (ret < 0) {
+            if (ret == -CAN_TRY_AGAIN) { /* 由于IPC或者其他资源不足，重试 */
+                PRINT_DEBUG("canRecvMsgFrame try again\n");
+                continue;
+            } else {
+                PRINT_ERR("canRecvMsgFrame failed ret: %d\n", ret);
+                gettimeofday(&current_time, NULL);
+                double elapsed =
+                        difftime(current_time.tv_sec, last_recv_time.tv_sec);
+                if (elapsed > RECV_TIMEOUT) { /* 超时退出 */
+                    PRINT_INFO(
+                            "No data received for %d seconds. Exiting thread.\n",
+                            RECV_TIMEOUT);
+                    goto can_recv_exit;
+                }
+                continue;
+            }
+        }
     }
 }
 
 int main(int argc, char *argv[])
 {
-	ret = canInit();
+    ret = canInit();
     pthread_create(&send_thread, NULL, send_frame_data, &tx_params);
     pthread_create(&rx_threads[i], NULL, recv_frame_data, &rx_params[i])
 
-    pthread_join(send_thread, NULL);
+            pthread_join(send_thread, NULL);
     pthread_join(rx_threads[i], NULL);
-	canDeInit();
+    canDeInit();
 }
 ```
 
@@ -560,6 +607,10 @@ int main(int argc, char *argv[])
 - pack信息包含这一包数据的信息，包括can帧数量、mcu侧的时间戳以及acore侧的monotic时间戳等信息。
 - canhal会从这一包ipc数据中解析出can帧，用户通过frame指针读取出所有can帧。
 - 最后执行canDeInit()释放资源。
+
+:::tip
+can的接收和发送函数依赖IPC的资源，当传输速率过快时会出现资源耗尽的情况，此时可以进行降速和重传。
+:::
 
 ### ACORE侧实例说明
 
@@ -655,7 +706,7 @@ Send end, send package total: 1 frame total: 1
 #### 多通道传输
 
 ##### 目录介绍
-```
+```bash
 // /app/Can/can_multi_ch
 .
 ├── Makefile // 主编译脚本
@@ -665,6 +716,7 @@ Send end, send package total: 1 frame total: 1
 │   └── nodes.json // Can虚拟设备映射配置文件
 ├── main.cpp // 主程序
 ├── readme.md // 说明文件
+├── can_multich_log.h // 日志头文件
 └── run.sh // 运行脚本
 ```
 
@@ -674,17 +726,19 @@ Send end, send package total: 1 frame total: 1
 - **接收线程**：为每个通道创建独立线程接收数据并验证数据正确性。
 
 发送策略：
-- 相隔固定时间通过CAN发送数据，可通过修改延时调整发送频率，目前测试4路CAN的收发，每路CAN的最高发送频率为1000Hz，大于时会出现丢包情况。
-- 数据内容：通过CANFD发送扩展帧(64bytes)的数据。
-- 目标通道：CAN6~CAN9轮询发送
+- 相隔固定时间通过Can发送数据，可通过修改延时调整发送频率，频率过高可能会出现丢包。
+- 目标通道：控制CAN5~CAN9广播数据
 
 接收策略:
-- 被动接收数据，不进行数据处理
-- 超过5s未收到数据则退出程序
+- 被动接收数据，验证接收数据的计数器和计算传输时延
+- 超过100秒未收到数据则退出程序（代码中定义的超时时间）
 
 ##### 依赖
-- `pthread`线程库
-- `hobot_can_hal` CAN接口库
+- `pthread`: 线程库
+- `hobot_can_hal `: CAN接口库
+- `hb_ipcf_hal`: IPCF接口库
+- `alog`: Android日志库
+
 
 ##### 通道映射关系
 
@@ -700,22 +754,148 @@ Send end, send package total: 1 frame total: 1
 ##### DEBUG开关
 
 ```C
+// can_multich_log.h
 #define VERBOSE 0 //修改为1时打印调试信息
 ```
+也可以使用logcat查看更多日志
+
+##### 发送端
+
+发送策略：
+- 相隔固定时间通过Can发送数据，可通过修改延时调整发送频率，频率过高可能会出现丢包。
+- 数据内容：通过CANFD发送扩展帧(64bytes)的数据。
+- 目标通道：CAN5~CAN9每个通道都发送数据
+
+##### 接收端
+
+接收策略:
+- 被动接收数据，验证接收数据的计数器和计算传输时延
+- 超过100秒未收到数据则退出程序（代码中定义的超时时间）
+
+##### 注意事项
+- 程序退出时会自动释放CAN设备资源
+- 按Ctrl+C可中断程序运行
+- 支持命令行参数配置发送帧数、CAN帧类型和数据长度
+
 ##### 编译命令
 ```bash
 make # 编译
 make clean # 清除编译文件
 ```
-##### 运行命令
+##### 命令行参数
+程序支持以下命令行参数来自定义运行参数：
+```bash
+-n <can_tran_num>                 指定要发送的帧数 (默认: 1)
+-t <can_type>                     指定CAN帧类型 (0: 标准帧, 1: 扩展帧, 2: FD标准帧, 3: FD扩展帧) (默认: 2)
+-l <can_length>                   指定CAN帧长度 (8: 8字节, 64: 64字节) (默认: 64)
+-h, --help                        显示帮助信息
 ```
+
+##### 运行命令
+```bash
+export CAN_HAL_DEBUG_LEVEL=6 //  设置CAN接口库调试等级，不打印任何日志;打印较多的情况下会影响发送频率
 ./can_multi_ch
 ```
-观察log可以看到收发数据的基本情况
+或者使用参数运行：
+```bash
+./can_multi_ch -t 2 -l 64 -n 5
+```
 
-:::tip
-持续更新中
-:::
+##### 日志分析
+
+以运行 `./can_multi_ch -t 2 -l 64 -n 5 `为例:
+
+- 当前默认参数配置:
+    ```bash
+    [param_config_display 389] [INFO]: Current parameter configuration:
+    [param_config_display 390] [INFO]:   CAN Transmit Number: 1
+    [param_config_display 391] [INFO]:   CAN Type: CAN_FD_STANDARD
+    [param_config_display 392] [INFO]:   CAN Length: 64
+    ```
+
+- 使用的硬件配置，CAN控制器，IPC的实例和通道
+    ```
+    group name is can6_ins0ch6
+    group name is can7_ins0ch7
+    group name is can8_ins0ch2
+    group name is can9_ins0ch3
+    group name is can5_ins0ch4
+    ```
+
+- 使用的硬件配置，CAN控制器，IPC的实例和通道
+    ```
+    group name is can6_ins0ch6
+    group name is can7_ins0ch7
+    group name is can8_ins0ch2
+    group name is can9_ins0ch3
+    group name is can5_ins0ch4
+    ```
+
+- 通道初始化信息
+    ```bash
+    [INFO][hb_ipcf_hal.cpp:282] [channel] can6_ins0ch6 [ins] 0 [id] 6 init success.
+    [INFO][hb_ipcf_hal.cpp:333] [channel] can6_ins0ch6 [ins] 0 [id] 6 config success.
+    [INFO][hb_ipcf_hal.cpp:282] [channel] can7_ins0ch7 [ins] 0 [id] 7 init success.
+    [INFO][hb_ipcf_hal.cpp:333] [channel] can7_ins0ch7 [ins] 0 [id] 7 config success.
+    [INFO][hb_ipcf_hal.cpp:282] [channel] can8_ins0ch2 [ins] 0 [id] 2 init success.
+    [INFO][hb_ipcf_hal.cpp:333] [channel] can8_ins0ch2 [ins] 0 [id] 2 config success.
+    [INFO][hb_ipcf_hal.cpp:282] [channel] can9_ins0ch3 [ins] 0 [id] 3 init success.
+    [INFO][hb_ipcf_hal.cpp:333] [channel] can9_ins0ch3 [ins] 0 [id] 3 config success.
+    [INFO][hb_ipcf_hal.cpp:282] [channel] can5_ins0ch4 [ins] 0 [id] 4 init success.
+    [INFO][hb_ipcf_hal.cpp:333] [channel] can5_ins0ch4 [ins] 0 [id] 4 config success.
+    ```
+
+- 发送线程发送的数据打印，可以看到发到成功将多少帧数据转发到MCU，速率如何
+    ```
+    [send_frame_data 266] [INFO]: Target can5_ins0ch4 Time: 0.005230s
+    [send_frame_data 268] [INFO]: Send success count: 5 Total:5
+    [send_frame_data 271] [INFO]: 61185.468750 byte/s -> 59.751434kb/s
+    [send_frame_data 274] [INFO]: Sending FPS: 956.02 frames/s
+    [send_frame_data 276] [INFO]: Send end, send package total: 5 frame total: 5
+    [send_frame_data 278] [INFO]: Send thread exiting...
+    [send_frame_data 266] [INFO]: Target can6_ins0ch6 Time: 0.005074s
+    [send_frame_data 268] [INFO]: Send success count: 5 Total:5
+    [send_frame_data 271] [INFO]: 63066.613281 byte/s -> 61.588490kb/s
+    [send_frame_data 274] [INFO]: Sending FPS: 985.42 frames/s
+    [send_frame_data 276] [INFO]: Send end, send package total: 5 frame total: 5
+    [send_frame_data 278] [INFO]: Send thread exiting...
+    [send_frame_data 266] [INFO]: Target can7_ins0ch7 Time: 0.004979s
+    .....
+    ```
+
+- 接收超时,起接收线程后会等待接收数据，长时间没有接收错误会报-303错误，可根据实际情况判断是否存在异常，当超过100s时候，会退出线程
+    ```
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 307] [ERR]: canRecvMsgFrame failed ret: -303
+    [recv_frame_data 314] [INFO]: No data received for 100 seconds. Exiting thread.
+
+    ```
+
+- 按ctrl+c退出后可以看到各个接收线程中收到包的数量，接收的最大延迟(仅CAN FD支持)，由于CAN5没有接设备，所以接收到的包数量为0
+    ```
+    Target :can7_ins0ch7 recv frame num: 5 Total recv frame num: 5 Maximum transmission time:32209 us
+    Target :can6_ins0ch6 recv frame num: 5 Total recv frame num: 5 Maximum transmission time:41182 us
+    Target :can8_ins0ch2 recv frame num: 5 Total recv frame num: 5 Maximum transmission time:22676 us
+    Target :can9_ins0ch3 recv frame num: 5 Total recv frame num: 5 Maximum transmission time:11395 us
+    Target :can5_ins0ch4 recv frame num: 0 Total recv frame num: 5 Maximum transmission time:0 us
+    ```
+- 资源释放
+    ```
+    [INFO][hb_ipcf_hal.cpp:553] [channel] can5_ins0ch4 [ins] 0 [id] 4 deinit success.
+    [INFO][hb_ipcf_hal.cpp:553] [channel] can8_ins0ch2 [ins] 0 [id] 2 deinit success.
+    [INFO][hb_ipcf_hal.cpp:553] [channel] can9_ins0ch3 [ins] 0 [id] 3 deinit success.
+    [INFO][hb_ipcf_hal.cpp:553] [channel] can7_ins0ch7 [ins] 0 [id] 7 deinit success.
+    [INFO][hb_ipcf_hal.cpp:553] [channel] can6_ins0ch6 [ins] 0 [id] 6 deinit success.
+    ```
 
 #### 多can组网传输
 
