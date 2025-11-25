@@ -4,6 +4,18 @@ sidebar_position: 2
 
 # 5.5.2 模型推理
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+## 支持平台
+
+| 平台    | 运行方式     |
+| ------- | ------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+
 ## 模型推理开发
 
 ### 功能背景
@@ -26,24 +38,39 @@ sidebar_position: 2
 
 3 可以通过网络访问RDK的PC。
 
-关于`hobot_dnn)的详细使用说明可以参考`hobot_dnn)代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
+关于`hobot_dnn`的详细使用说明可以参考`hobot_dnn`代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg)
 
-在不了解`hobot_dnn)使用流程的情况下，用户也可以按照本章节流程使用`hobot_dnn)开发出模型推理示例。
-
-:::info
-本章节以下内容使用tros.b Foxy版本举例说明，如果您使用的是tros.b Humble版本，只需将`source /opt/tros/setup.bash`命令替换为`source /opt/tros/humble/setup.bash`。
-:::
+在不了解`hobot_dnn`使用流程的情况下，用户也可以按照本章节流程使用`hobot_dnn`开发出模型推理示例。
 
 ### 任务内容
 
 #### 1 创建package
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+
 ```shell
 mkdir -p ~/dev_ws/src
 cd ~/dev_ws/src
-source /opt/tros/setup.bash
 ros2 pkg create --build-type ament_cmake cpp_dnn_demo --dependencies rclcpp sensor_msgs hbm_img_msgs ai_msgs dnn_node hobot_mot
 cd cpp_dnn_demo
 touch src/body_det_demo.cpp
@@ -354,7 +381,7 @@ MOT算法引擎头文件，用于对检测出的人体框进行目标跟踪。
 
 **创建算法推理输出数据结构**
 
-继承`hobot_dnn)中的`DnnNodeOutput`基类，添加消息头信息成员，用于表示推理输出对应的图片信息。
+继承`hobot_dnn`中的`DnnNodeOutput`基类，添加消息头信息成员，用于表示推理输出对应的图片信息。
 
 ```C++
 struct FasterRcnnOutput : public hobot::dnn_node::DnnNodeOutput {
@@ -364,7 +391,7 @@ struct FasterRcnnOutput : public hobot::dnn_node::DnnNodeOutput {
 
 **创建算法推理Node**
 
-继承`hobot_dnn)中的`DnnNode`虚基类，定义算法推理节点`BodyDetNode`，实现`DnnNode`中定义的虚接口。
+继承`hobot_dnn`中的`DnnNode`虚基类，定义算法推理节点`BodyDetNode`，实现`DnnNode`中定义的虚接口。
 
   `int SetNodePara()`：配置模型参数。
 
@@ -476,7 +503,7 @@ int BodyDetNode::SetNodePara() {
 
 **实现图片订阅结果回调**
 
-创建`DNNInput`类型的模型输入数据。订阅到的消息中包含图片信息（图片的编码方式、内容数据和分辨率等信息），使用`hobot_dnn)中的算法模型输入图片处理接口`hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img`，将订阅到的`nv12`格式的图片按照模型输入分辨率（`model_input_width_`和`model_input_height_`，在`BodyDetNode`的构造函数中通过`GetModelInputSize`接口从加载的模型中查询得到）转成模型输入的数据类型。接口定义如下：
+创建`DNNInput`类型的模型输入数据。订阅到的消息中包含图片信息（图片的编码方式、内容数据和分辨率等信息），使用`hobot_dnn`中的算法模型输入图片处理接口`hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img`，将订阅到的`nv12`格式的图片按照模型输入分辨率（`model_input_width_`和`model_input_height_`，在`BodyDetNode`的构造函数中通过`GetModelInputSize`接口从加载的模型中查询得到）转成模型输入的数据类型。接口定义如下：
 
 ```c++
 //   - [in] in_img_data 图片数据
@@ -844,11 +871,28 @@ ament_package()
 
 在安装了tros.b的RDK上，执行以下命令编译pkg：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+
 ```shell
 cd ~/dev_ws
-
-# 配置tros.b环境
-source /opt/tros/setup.bash
 
 # 编译pkg
 colcon build --packages-select cpp_dnn_demo
@@ -962,14 +1006,31 @@ RDK上的运行4个node，其中算法推理为本示例。
 系统启动流程如下：
 
 （1）RDK上打开终端1，启动算法推理node
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
 ```shell
 cd ~/dev_ws
 
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 配置cpp_dnn_demo环境
-source ./install/setup.bash
+source ./install/local_setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 # 模型文件
@@ -1053,10 +1114,27 @@ def generate_launch_description():
 ```
 
 使用启动脚本：
-```shell
-# 配置tros.b环境
-source /opt/tros/setup.bash
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 启动图像发布、编码和展示node
 ros2 launch cpp_dnn_demo.launch.py
 ```
@@ -1101,8 +1179,26 @@ root@ubuntu:~/dev_ws# ros2 run cpp_dnn_demo cpp_dnn_demo
 
 在RDK上使用ros2命令查询并输出推理Node发布的`/cpp_dnn_demo`话题消息内容：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-root@ubuntu:~# source /opt/tros/setup.bash
+root@ubuntu:~# source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+root@ubuntu:~# source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 root@ubuntu:~# ros2 topic list
 /cpp_dnn_demo
 /hbmem_img08172824022201080202012021072315
@@ -1202,7 +1298,7 @@ disappeared_targets: []
 
 本章节介绍了如何使用D-Robotics提供的模型，基于`hobot_dnn`创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在PC端浏览器上实时渲染展示图片和算法推理结果。
 
-用户可以参考`hobot_dnn)中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
+用户可以参考`hobot_dnn`中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
 
 ## 算法wokflow构建
 
@@ -1240,9 +1336,27 @@ TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，�
 
 RDK上打开一个终端启动图像发布Node，从F37摄像头采集图像数据并发布，用于算法推理使用：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-# 配置tros.b环境
-source /opt/tros/setup.bash
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+
+```shell
 # 启动Node
 ros2 run mipi_cam mipi_cam --ros-args -p out_format:=nv12 -p image_width:=960 -p image_height:=544 -p video_device:=F37 -p io_method:=shared_mem --log-level warn
 ```
@@ -1253,9 +1367,26 @@ RDK上打开一个终端启动人手框检测算法Node，订阅数据采集Node
 
 启动命令中指定了发布的Topic为`hobot_hand_detection`。
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-# 配置tros.b环境
-source /opt/tros/setup.bash
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 # 启动Node
@@ -1268,9 +1399,26 @@ RDK上打开一个终端启动人手关键点检测算法Node，订阅数据采�
 
 启动命令中指定了发布消息的Topic为`hobot_hand_lmk_detection`，订阅消息的Topic为`hobot_hand_detection`。
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-# 配置tros.b环境
-source /opt/tros/setup.bash
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 # 启动Node
@@ -1285,9 +1433,26 @@ RDK上打开一个终端使用ROS2命令查看算法推理Node发布的Topic消�
 
 查询命令：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-# 配置tros.b环境
-source /opt/tros/setup.bash
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 启动Node
 ros2 topic echo /hobot_hand_detection
 ```
@@ -1324,9 +1489,26 @@ disappeared_targets: []
 
 查询命令：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-# 配置tros.b环境
-source /opt/tros/setup.bash
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 启动Node
 ros2 topic echo /hobot_hand_lmk_detection
 ```
@@ -1430,9 +1612,26 @@ disappeared_targets: []
 
 RDK上打开一个终端使用ROS2命令查看运行时设备的Node和Topic信息：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
 ```shell
-# 配置tros.b环境
-root@ubuntu:~# source /opt/tros/setup.bash
+root@ubuntu:~# source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+root@ubuntu:~# source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 查询Node信息
 root@ubuntu:~# ros2 node list
 /hand_lmk_det
