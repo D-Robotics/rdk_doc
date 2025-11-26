@@ -10,7 +10,7 @@ sidebar\_position: 4
 
 **A:** The Pull up/down column in the Pinlist Excel file describes the default pull-up or pull-down state of the interface signal at power-on.  
 
-### Q2：RCan the input voltage range of the RDK S100 power JACK exceed 20V or be lower than 12V?  
+### Q2：Can the input voltage range of the RDK S100 power JACK exceed 20V or be lower than 12V?  
 
 **A:** Exceeding 20V will damage the RDK S100 development board; being lower than 12V may cause startup abnormalities, such as power-on failure or failure to boot into the kernel.  
 
