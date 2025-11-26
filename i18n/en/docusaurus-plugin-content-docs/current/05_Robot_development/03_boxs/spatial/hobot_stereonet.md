@@ -85,7 +85,7 @@ sudo apt upgrade
 
 The stereo depth algorithm supports multiple cameras, and the startup commands vary. The specific startup commands are as follows:
 
-### (1) Startup with RDK Official 230AI MIPI Stereo Camera
+### (1) Startup with RDK Stereo Camera Module
 
 - The RDK official MIPI stereo camera is shown below:
 

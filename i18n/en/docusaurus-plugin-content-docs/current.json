@@ -96,7 +96,7 @@
     "description": "The label for category 4.1 模型仓库示例 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5. 机器人应用开发": {
-    "message": "5. Robotics Application Development",
+    "message": "5. Robotics Application",
     "description": "The label for category 5. 机器人应用开发 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5. 机器人应用开发.link.generated-index.description": {
