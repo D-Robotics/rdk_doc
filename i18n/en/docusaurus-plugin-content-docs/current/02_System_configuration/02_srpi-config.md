@@ -4,7 +4,7 @@ sidebar_position: 2
 # 2.2 srpi-config Configuration Tool User Guide
 
 :::info Note
-The `srpi-config` configuration tool is only applicable to the `RDK X3` and `RDK X3 Module` development boards and is not suitable for the `RDK Ultra` development board.
+The `srpi-config` configuration tool is only applicable to the `RDK X3`、`RDK X5` and `RDK X3 Module` development boards and is not suitable for the `RDK Ultra` development board.
 :::
 
 ## Introduction
@@ -23,7 +23,7 @@ If you are using a desktop system, you can find the `RDK Configuration` applicat
 
 ![image-20231123102024074](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160737.jpg)
 
-![image-20231123172041480](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160809.jpg)
+<!-- ![image-20231123172041480](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/20250507-160809.jpg) -->
 
 ## System Options
 
@@ -65,13 +65,14 @@ The System Options menu allows you to configure changes to various parts such as
  
   Supports setting the HDMI display resolution in `Server` system and `console` mode.
 
-[Only X5 supports]
 
-![image-20240113163313195](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)
 
 - **Dsiplay Chose DSI or HDMI**
   
   Support switching between `DSI` and `HDMI` display.
+[Only X5 supports]
+
+![image-20240113163313195](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20240819160611000.png)  
 
 ## Interface Options
  
@@ -92,12 +93,11 @@ The System Options menu allows you to configure changes to various parts such as
 - **Peripheral bus config**
  
   Enable/disable SPI, I2C, Serial Port, I2S and other interfaces on the 40-pin interface. This configuration directly modifies the `status` of the corresponding bus in the device tree file and takes effect after reboot.
-  [X5] 
-  X5 has added a PWM interface;
+  [RDK X5] has added a PWM interface;
   In the table below, each row of interfaces uses the same pins and can only have one function in effect. When all interfaces in a row are dsiable, the pins are gpio function pins
 
 
-  | fun1 | fun2 | 
+| fun1 | fun2 | 
 | ---- | ---- |
 | serial3 | i2c5 |
 | i2c0 | pwm2 |
@@ -111,7 +111,18 @@ The System Options menu allows you to configure changes to various parts such as
   
   Switch Wi-Fi antenna mode, supports setting to use onboard or external antenna.
 
-> Currently supported in RDK X3 V2.1 RDK X5.
+> Currently supported in RDK X3 (V2.1) RDK X5 (V0.1 V1.0) RDK X5 MD (less than V1.1).
+
+
+![img-20250903-163740](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/img-20250903-163740.png)
+
+  Confirm antenna status 
+  
+  ```shell
+  cat /boot/config.txt
+  ```
+
+  `antenna_option=trace` indicates the onboard antenna, `antenna_option=cable` indicates the external antenna.  
 
 - **Audio**
   Install and uninstall audio adapter board
@@ -127,7 +138,10 @@ The System Options menu allows you to configure changes to various parts such as
  ![image-20231123104234000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123104234000.png)
  - **CPU frequency**
 
-  Use this tool to overclock the CPU of the RDK. It is generally not recommended to enable this option, but you can try modifying it if sufficient cooling measures are in place.
+  Use this tool to overclock the CPU of the RDK. It is generally not recommended to enable this option, but you can try modifying it if sufficient cooling measures are in place.  
+
+
+ For an explanation of the `CPU` scheduling method in the `X5 series`, please refer to [X5 CPU Frequency Management](frequency_management). If you plan to overclock, be sure to read the `CPU Overclocking` section in the documentation to fully understand the risks and precautions.  
 
   ![image-20231123104553727](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123104553727.png)
 
@@ -145,11 +159,11 @@ Localisation options provide the following choices: local language, time zone, a
 
 - **Locale**
 
-  Select a locale, such as configuring Chinese environment `zh_CN.UTF-8`. Restart to take effect.
+  Select a locale, such as configuring English environment `en_US.UTF-8`. Restart to take effect.
 
 - **Time Zone**
 
-  Select your local time zone, starting from the region, for example, Asia, and then choose a city, like Shanghai. Type a letter to jump to that point in the alphabet.
+  Select your local time zone, starting from the region, for example, Asia, and then choose a city, like Tokyo. Type a letter to jump to that point in the alphabet.
 
 - **Keyboard**
 
@@ -173,7 +187,7 @@ Advanced options allow you to configure disk expansion, network proxy settings, 
 
 - **Boot Order**
 
-  The RDK X3 module supports booting the system from eMMC and SD cards. This option is used to switch the boot mode.
+  The RDK X3 module and RDK X5 Module support booting the system from eMMC and SD cards. This option is used to switch the boot mode.
   
 ## Update
 
@@ -191,4 +205,4 @@ Choosing this option will display the following information:
 
 ![image-20231123110246286](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110246286.png)
 
-After making the changes, select the `Finish` button. The system will ask if you want to restart. It is recommended to restart when using it for the first time.
+After making the changes, select the `Finish` button. If the modifications you made require a restart to take effect, the system will prompt you to restart immediately.
