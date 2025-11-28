@@ -1098,7 +1098,7 @@ The commercial version offers more comprehensive feature support, deeper hardwar
 
 If you wish to access the commercial version, please complete the questionnaire below. We will contact you within 3–5 business days:  
 
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre  
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg  
 :::
 
 - **CIM**: Receives input from RX and can output online to ISP0/ISP1 (RAW) or PYM0/PYM1 (YUV), or store offline to DDR for subsequent modules to access via DDR.
@@ -1493,7 +1493,7 @@ Commercial Version Access Procedure:
 
 If you wish to obtain the commercial version, please fill out the questionnaire below. We will contact you within 3–5 business days:
 
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
 :::
 
 14. **hbn_deserial_create**

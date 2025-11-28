@@ -57,7 +57,7 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 | Interface | Function               | Interface   | Function                              |
 | :-------- | :--------------------- | ----------- | ------------------------------------- |
-| J2000     | 100-Pin Interface      | J2200       | MIPI Camera Interface 1               |
+| J2000     | 100-Pin Connector      | J2200       | MIPI Camera Interface 1               |
 | D2000     | Power Indicator LED    | J2201       | MIPI Camera Interface 2               |
 | J2001     | DC Power Input         | SW2200      | MIPI Camera Interface Function Switch |
 | J2100     | GMSL Camera Interface  | SW2201      | MIPI Camera Interface Voltage Switch  |
@@ -134,7 +134,7 @@ The Camera Expansion Board features two 4-lane MIPI CSI D-PHY interfaces, suppor
 
 :::
 
-### MIPI Interface Voltage Selection (SW2201)
+### MIPI Camera Interface Voltage Switch (SW2201)
 
 The control signals of the MIPI camera interfaces support switching between 1.8V and 3.3V logic levels to accommodate different camera modules. Switch the DIP switch SW2201 to select the desired logic voltage.
 
@@ -143,7 +143,7 @@ The control signals of the MIPI camera interfaces support switching between 1.8V
 | 1 (Right)| MIPI Cam 1   | MIPI Camera 1 interface uses 3.3V logic level    | MIPI Camera 1 interface uses 1.8V logic level    |
 | 2        | MIPI Cam 2   | MIPI Camera 2 interface uses 3.3V logic level    | MIPI Camera 2 interface uses 1.8V logic level    |
 
-### MIPI Interface Function Selection (SW2200)
+### MIPI Camera Interface Function Switch (SW2200)
 
 Pin 5 of the MIPI camera interface connectors supports switching between LPWM and MCLK (24MHz) functions to meet varying development needs. Switch the DIP switch SW2200 to select the desired function.
 
@@ -152,7 +152,7 @@ Pin 5 of the MIPI camera interface connectors supports switching between LPWM an
 | 1 (Right)| MIPI Cam 1   | Pin 5 of MIPI Camera 1 interface outputs LPWM signal  | Pin 5 of MIPI Camera 1 interface outputs MCLK signal  |
 | 2        | MIPI Cam 2   | Pin 5 of MIPI Camera 2 interface outputs LPWM signal  | Pin 5 of MIPI Camera 2 interface outputs MCLK signal  |
 
-## Power Indicator (D2000)
+## Power Indicator LED (D2000)
 
 The power indicator LED is located next to the DC power input jack.
 
