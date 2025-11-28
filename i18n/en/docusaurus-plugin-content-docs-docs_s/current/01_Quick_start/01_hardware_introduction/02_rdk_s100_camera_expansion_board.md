@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png)
 
-The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the Digu Robot RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
+The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the D-Robotics RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
 
 :::warning
 
@@ -117,7 +117,7 @@ The Camera Expansion Board integrates the MAX96712 deserializer chip, supporting
 
 1. When the total 12V current draw of GMSL cameras is ≤700mA, no external 12V adapter is needed—the 12V power is supplied by the RDK S100. If the current draw exceeds 700mA, an external 12V adapter must be connected to ensure stable power delivery.
 2. The Camera Expansion Board can supply up to 550mA@12V per GMSL channel. Exceeding this limit may result in unstable camera operation.
-3. The GMSL interface uses a mini Fakra 4-in-1 Z-code connector. Use cables and cameras recommended by Digu Robotics to ensure stable high-speed GMSL signal transmission.
+3. The GMSL interface uses a mini Fakra 4-in-1 Z-code connector. Use cables and cameras recommended by D-Robotics to ensure stable high-speed GMSL signal transmission.
 
 :::
 

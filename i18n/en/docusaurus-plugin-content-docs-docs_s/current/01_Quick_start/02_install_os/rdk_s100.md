@@ -35,7 +35,7 @@ The RDK S100 development board supports both Ethernet and Wi-Fi network interfac
 **Install USB Driver**  
 For Windows operating systems, before using adb and fastboot functionalities, you must first confirm whether the corresponding drivers are installed.
 
-Enter `fastboot 0` in the U-Boot command line of the development board to put it into fastboot mode:
+Enter `fastboot 0` in the Uboot command line of the development board to put it into fastboot mode:
 
 ```bash
 Warning: eth1 (eth0) using random MAC address - 9a:07:de:92:a2:c5
@@ -91,8 +91,8 @@ Currently, **SW3 must be set to the ↑ position** to boot from the onboard eMMC
 
 The RDK S100 development kit uses the PC-based tool **D-Navigation** to flash the Ubuntu system. This flashing process currently supports two USB download modes, which can be selected in the “Download Mode” option under the “Download Selection” interface of the flashing tool. The differences between these two modes are as follows:
 
-- **U-Boot Flashing Mode:** This mode requires the RDK S100 to enter U-Boot’s flashing mode (i.e., fastboot mode). It is commonly used in everyday flashing scenarios and meets most standard system flashing requirements.
-- **USB Flashing Mode:** This mode is based on the DFU protocol and is used when the RDK S100 cannot enter U-Boot mode or when the system is corrupted (e.g., “bricked” device), helping to recover the system.
+- **Uboot Flashing Mode:** This mode requires the RDK S100 to enter Uboot’s flashing mode (i.e., fastboot mode). It is commonly used in everyday flashing scenarios and meets most standard system flashing requirements.
+- **USB Flashing Mode:** This mode is based on the DFU protocol and is used when the RDK S100 cannot enter Uboot mode or when the system is corrupted (e.g., “bricked” device), helping to recover the system.
 
 Below are the detailed steps for flashing using the PC tool D-Navigation.
 
@@ -118,14 +118,14 @@ Before flashing the Ubuntu system image, prepare the following:
         xhost +
         sudo ./D-Navigation --no-sandbox
 
-  - **macOS version (currently supports Apple Silicon M-series chips):**
+  - **MacOS version (currently supports Apple Silicon M-series chips):**
 
          xattr -cr D-navigation.app # Remove app quarantine (run in terminal)
          Double-click to open D-Navigation.app
 
     :::
 
-#### U-Boot Flashing
+#### Uboot Flashing
 
 1. Prepare the RDK S100 image package:
 
@@ -138,7 +138,7 @@ Before flashing the Ubuntu system image, prepare the following:
 
    :::tip
 
-   The U-Boot method requires exclusive access to the serial port. Ensure the serial port is not occupied by other devices or applications.
+   The Uboot method requires exclusive access to the serial port. Ensure the serial port is not occupied by other devices or applications.
    :::
 
 3. Open the D-Navigation tool and perform the following operations:
@@ -196,7 +196,7 @@ The Miniboot flashing process is identical to the [Full System Flashing](#full-s
 2. Click and enable “Partition Selection.”
 3. Uncheck “emmc.”
 
-- Example of U-Boot flashing configuration is shown below:  
+- Example of Uboot flashing configuration is shown below:  
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-s100-download_uboot_miniboot-en.png)
 
@@ -291,11 +291,11 @@ After the Ubuntu Desktop system finishes booting, it outputs the desktop interfa
    5. Extract the archive and open a `Terminal` inside the extracted folder.
    6. Run `sudo ./D-navigation --no-sandbox` to launch the flashing tool.
 
-## **Garbled Serial Output on macOS-Based Laptops**
+## **Garbled Serial Output on MacOS-Based Laptops**
 
-Taking macOS version 15.0 (M3 chip) as an example: the default macOS serial driver connects to the CH340N at 921600 baud rate but produces garbled output. You must install the latest CH340N driver as follows:
+Taking MacOS version 15.0 (M3 chip) as an example: the default MacOS serial driver connects to the CH340N at 921600 baud rate but produces garbled output. You must install the latest CH340N driver as follows:
 
-1. With the default CH340N driver, the connected device appears as `tty.usbserial*`, indicating macOS is using its built-in driver. This driver must be updated:
+1. With the default CH340N driver, the connected device appears as `tty.usbserial*`, indicating MacOS is using its built-in driver. This driver must be updated:
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-ttyusb.png)
 
 2. Installation procedure (based on the README.md from the [CH340N Latest Driver Release Page](https://github.com/WCHSoftGroup/ch34xser_macos?tab=readme-ov-file)):
@@ -323,7 +323,7 @@ Taking macOS version 15.0 (M3 chip) as an example: the default macOS serial driv
 
    :::warning Note
 
-   Even with the latest official CH340N driver, macOS’s built-in `screen` utility still cannot communicate at 921600 baud rate. You must use the `minicom` tool instead.
+   Even with the latest official CH340N driver, MacOS’s built-in `screen` utility still cannot communicate at 921600 baud rate. You must use the `minicom` tool instead.
 
    :::
 

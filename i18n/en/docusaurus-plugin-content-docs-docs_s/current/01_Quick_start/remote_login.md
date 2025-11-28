@@ -94,7 +94,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-### **Connecting via Serial on macOS**
+### **Connecting via Serial on MacOS**
 
 On macOS, use the `minicom` tool to connect via serial, following these steps:
 
@@ -114,7 +114,7 @@ On macOS, use the `minicom` tool to connect via serial, following these steps:
    ![image-S100-download](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-minicom-success.png)
 
 :::tip
-If you encounter garbled characters when using `minicom`, see [Garbled Characters with Serial Connection on macOS](../01_Quick_start/02_install_os/rdk_s100.md#garbled-characters-with-serial-connection-on-macos).
+If you encounter garbled characters when using `minicom`, see [Garbled Characters with Serial Connection on MacOS](../01_Quick_start/02_install_os/rdk_s100.md#garbled-characters-with-serial-connection-on-macOS).
 :::
 
 ## Network Status Verification {#network_config}

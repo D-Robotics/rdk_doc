@@ -287,7 +287,7 @@ The implementation principle consists mainly of the following two processes:
 
 2. **Execution Process**  
    - The MCU runs a persistent thread that continuously checks whether the queue contains data. If data is present, it validates and parses the data, identifies the CMD command, and executes it.
-   - The CMD application in FreeRTOS is similar to U-Boot’s CMD framework. This approach allows users to easily customize their own applications. In this scenario, the executed CMD reads the ADC value and returns it to Acore via IPC.
+   - The CMD application in FreeRTOS is similar to Uboot’s CMD framework. This approach allows users to easily customize their own applications. In this scenario, the executed CMD reads the ADC value and returns it to Acore via IPC.
 
 ![Architecture Diagram of CAN Data Transparent Transmission between Acore and MCU](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/mcu-runcmd.jpg)
 

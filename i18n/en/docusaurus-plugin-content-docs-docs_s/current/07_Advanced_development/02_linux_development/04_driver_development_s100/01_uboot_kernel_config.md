@@ -2,17 +2,17 @@
 sidebar_position: 1
 ---
 
-# Configure U-Boot and Kernel Option Parameters
+# Configure Uboot and Kernel Option Parameters
 
-In system software development, it is often necessary to configure feature options for U-Boot and the kernel. This chapter introduces several commonly used configuration methods for user reference.
+In system software development, it is often necessary to configure feature options for Uboot and the kernel. This chapter introduces several commonly used configuration methods for user reference.
 
-## Configure U-Boot Option Parameters
+## Configure Uboot Option Parameters
 
 :::info Note
 
 The following instructions use modifying the `hobot_s100_defconfig` configuration file as an example.
 
-The specific U-Boot configuration file in use can be found by checking the value of the `HR_UBOOT_CONFIG_FILE` variable in the board-level configuration file `bootloader/device/.board_config.mk` after running `./xbuild.sh lunch`.
+The specific Uboot configuration file in use can be found by checking the value of the `HR_UBOOT_CONFIG_FILE` variable in the board-level configuration file `bootloader/device/.board_config.mk` after running `./xbuild.sh lunch`.
 
 :::
 
@@ -28,13 +28,13 @@ First, navigate to the `source/bootloader` directory. The directory structure is
 └── uboot # U-Boot source code
 ```
 
-The main build script is `build/xbuild.sh`, which provides the following command to assist users in configuring U-Boot options. This command automatically uses the U-Boot configuration file specified in the board-level configuration file and, upon completion, automatically performs `savedefconfig` and saves the changes:
+The main build script is `build/xbuild.sh`, which provides the following command to assist users in configuring Uboot options. This command automatically uses the Uboot configuration file specified in the board-level configuration file and, upon completion, automatically performs `savedefconfig` and saves the changes:
 
 ```
 ./xbuild.sh uboot menuconfig
 ```
 
-Upon successful execution, a graphical U-Boot configuration interface will open. In this interactive interface, you can configure options, such as disabling unnecessary features and enabling required ones.
+Upon successful execution, a graphical Uboot configuration interface will open. In this interactive interface, you can configure options, such as disabling unnecessary features and enabling required ones.
 
 ![image-20220518111319607](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/driver_development_x5/screenshot-20241120-201418.png)
 
@@ -66,7 +66,7 @@ The expanded command becomes:
 make -f ./scripts/Makefile.build obj=scripts/kconfig hobot_s100_defconfig
 ```
 
-After executing this command, a `.config` file will be generated in the root directory of the U-Boot source code.
+After executing this command, a `.config` file will be generated in the root directory of the Uboot source code.
 
 ```bash
 make ARCH=arm64 hobot_s100_defconfig
@@ -82,7 +82,7 @@ make ARCH=arm64 hobot_s100_defconfig
 #
 ```
 
-You can then run `make ARCH=arm64 menuconfig` to open the graphical configuration interface for configuring U-Boot options.
+You can then run `make ARCH=arm64 menuconfig` to open the graphical configuration interface for configuring Uboot options.
 
 After completing your configuration in the menuconfig interface, select `Exit` to quit. Follow the prompt to choose `Yes` or `No` to save your modifications to the `.config` file.
 
@@ -135,7 +135,7 @@ cp defconfig <kernel configuration file specified in the board-level configurati
 
 ### Manual Configuration
 
-Configuring the kernel via `menuconfig` follows the same process as configuring U-Boot. The command execution steps are as follows:
+Configuring the kernel via `menuconfig` follows the same process as configuring Uboot. The command execution steps are as follows:
 
 First, navigate to the `source/kernel` directory, then configure kernel options using the steps below:
 

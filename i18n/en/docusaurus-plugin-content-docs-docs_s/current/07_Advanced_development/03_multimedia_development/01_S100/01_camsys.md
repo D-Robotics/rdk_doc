@@ -109,7 +109,7 @@ GDC Tool is a PC-based utility that enables offline simulation of GDC processing
     - **Launch the application**: In the command prompt, navigate to the tool directory and run `node.exe app.js`. Then open Chrome and go to http://localhost:3000/.
 
 2. **Unix Environment**
-    - **Installation prerequisites** (macOS): Run `brew install node`.
+    - **Installation prerequisites** (MacOS): Run `brew install node`.
     - **Install dependencies**: In the tool directory, run `npm install --production`.
     - **Launch the application**: Run `node app.js` and open http://localhost:3000/ in your browser.
 
