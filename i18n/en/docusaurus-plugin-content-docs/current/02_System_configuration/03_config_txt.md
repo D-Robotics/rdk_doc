@@ -9,7 +9,7 @@ RDK uses the configuration file `config.txt` to set system configurations during
 
 :::info Note
 
-1. The `config.txt` configuration file is only applicable to the `RDK X3` and `RDK X3 Module` development boards and not for the `RDK Ultra` development board.
+1. The `config.txt` configuration file is only applicable to the `RDK X3`、`RDK X5` and `RDK X3 Module` development boards and not for the `RDK Ultra` development board.
 
 2. The system version must be at least `2.1.0`.
 
@@ -23,7 +23,7 @@ RDK uses the configuration file `config.txt` to set system configurations during
 
 ### dtdebug
 
-If `dtdebug` is non-zero, it will output configuration logs during the device tree configuration process in the `uboot` stage.
+If `dtdebug` is non-zero, it will output configuration logs during the device tree configuration process in the `uboot` stage.`dtdebug` must be configured before `dtoverlay`.
 
 ```
 dtdebug=1
@@ -33,13 +33,13 @@ dtdebug=1
 
 Supports device tree overlays, providing a more flexible way to adjust the device tree.
 
-[X5 not supported] For example, to adjust the size of `ION` memory using `ion_resize`, the following configuration will modify the `ION` memory size to `1GB`.
+[RDK X3] For example, to adjust the size of `ION` memory using `ion_resize`, the following configuration will modify the `ION` memory size to `1GB`.
 
 ```Shell
 dtoverlay=ion_resize,size=0x40000000
 ```
 
-[Only X5 supports] Use dtoverlay_spi5_spidev to add /dev/spidev5.0（Note: The CAN device has also received SPI5, so Spidev and CAN can only choose one from the other）
+[RDK X5] Use dtoverlay_spi5_spidev to add /dev/spidev5.0（Note: The CAN device has also received SPI5, so Spidev and CAN can only choose one from the other）
 
 ```Shell
 dtoverlay=dtoverlay_spi5_spidev
@@ -47,7 +47,7 @@ dtoverlay=dtoverlay_spi5_spidev
 
 ### [Only X5 supports]ion
 
-use ion_reserved_size ion_carveout_size ion_cma_size  to modify the ION partition size
+use ion_reserved_size、 ion_carveout_size 、ion_cma_size  to modify the ION partition size.
 
 | boot name       | dts name        | dts compatible | size |
 | ----------------- | ------------ | ----------------- | ---- |
@@ -65,9 +65,25 @@ ion=ion_cma_size=0x08000000
 
 Supports enabling and disabling buses such as uart, i2c, spi, i2s, etc.
 
-Currently supported options: uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
+Currently supported options:   
+[RDK X3]: uart3, spi0, spi1, spi2, i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2s0, i2s1
 
-[X5] uart0, uart1, uart5, spi1, spi5, i2c0, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, dw_i2s0, dw_i2s1
+[RDK X5]: uart1, uart2, uart3, uart6，spi1, spi2, i2c0, i2c1, i2c5, i2c4, i2c5, dw_i2s1  
+
+
+:::info Note
+
+The RDK X5 needs to pay attention to the pin multiplexing relationship. When all interfaces in a row are disabled, the pin functions as a GPIO pin.
+
+  | Function 1 | Function 2 | 
+  | ---- | ---- |
+  | uart3 | i2c5 |
+  | i2c0 | pwm2 |
+  | spi2 | pwm0 |
+  | spi2 | pwm1 |
+  | i2c1 | pwm3 |
+
+:::  
 
 For example, to disable uart3:
 
@@ -117,7 +133,9 @@ frequency=1000000
 ```
 ## X5 CPU Frequency
 
-For details about `CPU` scheduling methods, please refer to [X5 CPU Frequency Management](frequency_management#cpu频率管理-1). This section focuses on configuring `config.txt`.
+For details about `CPU` scheduling methods, please refer to [X5 CPU Frequency Management](frequency_management#cpu频率管理-1). If you plan to `overclock`, be sure to read the section on CPU Overclocking in the document to fully understand the risks and precautions.  
+
+This section only introduces the configuration method via `config.txt` and does not include content related to scheduling policies or the principles of overclocking.
 
 ---
 
@@ -128,8 +146,27 @@ When set to `1`, overclocking is enabled, increasing the maximum frequency of th
 ```bash
 cat /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies
 
+```  
+### governor
+
+The scheduling method for CPU frequency can be selected from `conservative ondemand userspace powersave performance schedutil`. The available modes can be obtained by running `cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors`.
+
+For example, to set the `CPU` to run in performance mode:
+
+```
+governor=performance
 ```
 
+### frequency
+
+When the `governor` is set to `userspace`, this option can be used to set the `CPU` to run at a fixed frequency. Currently, frequencies such as `300000 600000 1200000 1500000` can generally be set. The specific list of available frequencies can be obtained by running `cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies`.
+
+For example, to set the `CPU` to run at a reduced frequency of `1.2GHz`:  
+
+```
+governor=userspace
+frequency=1200000
+```
 
 ## IO Initialization
 
@@ -186,11 +223,23 @@ gpio=6=op,dl,pu
 
 ### throttling_temp
 
-The temperature point at which the system CPU and BPU will throttle. When the temperature exceeds this point, the CPU and BPU will reduce their operating frequency to reduce power consumption. The CPU can go as low as 240MHz, while the BPU can go as low as 400MHz.
+The temperature point at which the system CPU and BPU will throttle. When the temperature exceeds this point, the CPU and BPU will reduce their operating frequency to reduce power consumption. The CPU can go as low as 240MHz, while the BPU can go as low as 400MHz.  
+
+For example, set the downclock temperature to `86℃`：
+
+```
+throttling_temp=86000
+```
 
 ### shutdown_temp
 
-Shutdown temperature point of the system. If the temperature exceeds this point, the system will automatically shut down to protect the chip and hardware. It is recommended to perform heat dissipation treatment on the device to avoid system shutdown, as the device will not restart automatically after shutdown.
+Shutdown temperature point of the system. If the temperature exceeds this point, the system will automatically shut down to protect the chip and hardware. It is recommended to perform heat dissipation treatment on the device to avoid system shutdown, as the device will not restart automatically after shutdown.  
+
+For example, set the shutdown temperature to  `112℃`：
+
+```
+shutdown_temp=112000
+```
 
 ## Option Filtering
 

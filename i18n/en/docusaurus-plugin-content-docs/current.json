@@ -282,5 +282,49 @@
   "sidebar.tutorialSidebar.category.10. 版本发布": {
     "message": "10. Version release",
     "description": "The label for category 10. 版本发布 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3. 基础应用开发 ": {
+    "message": "3. Basic Application Development",
+    "description": "The label for category 3. 基础应用开发  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3. 基础应用开发 .link.generated-index.description": {
+    "message": " Includes system introductory applications covering image input, audio input, and interface development, among which the system introductory applications include C dev interface examples (/app/cdev) and Python dev interface examples (/app/pydev).",
+    "description": "The generated-index page description for category 3. 基础应用开发  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.1 40PIN管脚应用": {
+    "message": "3.1 40-pin GPIO Pin Application",
+    "description": "The label for category 3.1 40PIN管脚应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2 C DEV 接口示例 ": {
+    "message": "3.2 C DEV Interface Examples",
+    "description": "The label for category 3.2 C DEV 接口示例  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.3 python dev 接口示例 ": {
+    "message": "3.3 Python dev Interface Examples",
+    "description": "The label for category 3.3 python dev 接口示例  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.4 视觉方案": {
+    "message": "3.4 Visual Solution",
+    "description": "The label for category 3.4 视觉方案 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.5 声觉方案": {
+    "message": "3.5 Acoustic Solution",
+    "description": "The label for category 3.5 声觉方案 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.5.1 RDK X3 && RDK X3 Module": {
+    "message": "3.5.1 RDK X3 && RDK X3 Module",
+    "description": "The label for category 3.5.1 RDK X3 && RDK X3 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.5.2 RDK X5": {
+    "message": "3.5.2 RDK X5",
+    "description": "The label for category 3.5.2 RDK X5 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.6 SP_dev API 说明 ": {
+    "message": "3.6 SP_dev API Documentation",
+    "description": "The label for category 3.6 SP_dev API 说明  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.6.3 多媒体接口使用说明": {
+    "message": "3.6.3 Multimedia Interface Usage Instructions",
+    "description": "The label for category 3.6.3 多媒体接口使用说明 in sidebar tutorialSidebar"
   }
 }

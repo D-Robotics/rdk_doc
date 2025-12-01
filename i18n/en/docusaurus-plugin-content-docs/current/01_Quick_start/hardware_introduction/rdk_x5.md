@@ -27,7 +27,7 @@ RDK X5 provides various functional interfaces, including Ethernet, USB, camera, 
 
 | No. | Function                       | No. | Function                  | No. | Function                  |
 | --- | ------------------------------ | --- | ------------------------- | --- | ------------------------- |
-| 1   | Power Interface (USB Type C)   | 2   | RTC Battery Interface     | 3   | Easy Connect Port (USB Type C) |
+| 1   | Power Interface (USB Type C)   | 2   | RTC Battery Interface     | 3   | QuickLink Port (USB Type C) |
 | 4   | Debug Serial Port (Micro USB)  | 5   | Dual MIPI Camera Ports    | 6   | Gigabit Ethernet Port with PoE |
 | 7   | 4 USB 3.0 Type A Ports         | 8   | High-Speed CAN FD Interface | 9   | 40-pin GPIO Interface           |
 | 10  | HDMI Display Interface         | 11  | Multi-standard Headphone Jack | 12 | Onboard Wi-Fi Antenna     |
@@ -107,7 +107,7 @@ Module installation steps:
 <Tabs groupId="rdk-type">
 <TabItem value="x5" label="RDK X5">
 
-The development board provides a USB Type C interface (No. 1) as the power interface. It requires a **5V/5A** power adapter for supplying power to the board. Once the adapter is connected, the **green power indicator** and the **orange indicator** will light up, indicating normal power supply.
+The development board provides a USB Type C interface (No. 1) as the power interface. It requires a **5V/5A** power adapter for supplying power to the board. Once the adapter is connected, the **green power indicator** and the **orange indicator** will blink, indicating normal power supply.
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
@@ -263,9 +263,50 @@ The development board provides two MIPI CSI interfaces (No. 5) for connecting up
 | 2   | OV5647  | 5 MP       |     |                    |
 | 2   | IMX477  | 12 MP      |     |                    |
 
-Connect the camera module to the board using an FFC (Flat Flex Cable) with the blue side facing upwards.  
-After installation, use the `i2cdetect` command to check if the I2C address of the module can be detected.
+ 
 
+The camera module is connected to the development board via a 22-pin same-direction flexible cable, with the metal side of the cable inserted into the connector facing away from the black buckle.
+
+After installation, users can use the i2cdetect command to confirm whether the module's I2C address can be detected normally.
+
+Query the I2C device address of the Camera Sensor on the mipi_host0 interface near the Ethernet port:   
+
+```shell
+echo 353 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio353/direction
+echo 0 > /sys/class/gpio/gpio353/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio353/value
+
+i2cdetect -y -r 6
+```
+
+Query the I2C device address of the Camera Sensor on the mipi_host2 interface far from the network port:  
+
+```shell
+echo 351 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio351/direction
+echo 0 > /sys/class/gpio/gpio351/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio351/value
+
+i2cdetect -y -r 4
+```
+
+When the I2C device address of the Camera Sensor is successfully detected, the following print can be seen (taking the detection of IMX219 on the interface mipi_host2 as an example, it can be observed that the address 10 is printed):  
+
+```shell
+root@ubuntu:~# i2cdetect -y -r 4
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --    
+```
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
