@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 ---
-# 3.3.6 Using SPI
+# 3.1.6 Using SPI
 
 The RDK X3 exposes the `SPI2` bus of the Sunrise X3M chip on physical pins `19, 21, 23, 24` of the 40-pin header, supporting one chip select and operating at 3.3V IO voltage.
 

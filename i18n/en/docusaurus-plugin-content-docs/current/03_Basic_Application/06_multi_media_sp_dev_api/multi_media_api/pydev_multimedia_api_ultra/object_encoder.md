@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-## encode
+## Encoder Object
 
 <font color='Blue'>【Function Description】</font>
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# 3.1.1 Using MIPI Camera
+# 3.4.1 Using MIPI Camera
 
 Video: https://www.youtube.com/watch?v=nabpS2CUkjY&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=18
 

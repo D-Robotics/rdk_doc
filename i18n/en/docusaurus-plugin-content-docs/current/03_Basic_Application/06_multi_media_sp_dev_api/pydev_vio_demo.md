@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# 3.4.1 Reference Examples (python)
+# 3.6.2 Reference Examples (python)
 
 In this chapter, we will introduce the usage of the `hobot_vio` image and multimedia library in D-Robotics Python language through examples such as video stream decoding. This includes operations such as video streaming, scaling, and encoding/decoding.
 

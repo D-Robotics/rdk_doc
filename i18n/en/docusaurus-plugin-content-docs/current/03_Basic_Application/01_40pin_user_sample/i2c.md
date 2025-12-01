@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 3.3.5 Using I2C
+# 3.1.5 Using I2C
 
 By default, RDK X3 enables I2C0 on pin 40, with physical pin numbers 3 and 5, and IO voltage of 3.3V.
 

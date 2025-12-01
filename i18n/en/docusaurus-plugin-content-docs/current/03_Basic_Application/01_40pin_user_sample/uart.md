@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 3.3.4 UART_usage
+# 3.1.4 UART_usage
 
 RDK X3 enables UART3 by default on the 40-pin connector, with physical pin numbers 8 and 10, and IO voltage of 3.3V.
 

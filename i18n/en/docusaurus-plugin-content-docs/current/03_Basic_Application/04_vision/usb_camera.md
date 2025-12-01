@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# 3.1.2 Using USB Camera
+# 3.4.2 Using USB Camera
 
 Video: https://www.youtube.com/watch?v=7xNgU1i2xsk&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=2
 

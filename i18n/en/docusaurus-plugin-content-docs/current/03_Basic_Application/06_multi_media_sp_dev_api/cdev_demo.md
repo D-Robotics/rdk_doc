@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# 3.4.2  Reference Example （C++）
+# 3.6.1  Reference Example （C++）
 
 This chapter introduces various functional examples for multimedia library development, including camera image capture, video encoding and decoding, video display, algorithm inference, and more.
 
