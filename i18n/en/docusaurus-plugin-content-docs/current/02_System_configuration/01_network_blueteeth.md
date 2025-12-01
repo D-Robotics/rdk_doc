@@ -5,11 +5,11 @@ sidebar_position: 1
 
 This section mainly introduces the methods for modifying the wired and wireless network configurations of the development board.
 
-## Wired Network {#config_ethnet}
+## Wired Network: RDK X5（>= 3.3.0）RDK X3（>= 3.0.2） {#config_ethnet}
 
 Video: https://www.youtube.com/watch?v=omaAU6sab2A&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=8
 
-The default wired network configuration of the development board uses static IP configuration, and the initial IP address is `192.168.1.10`. Users can switch between static and DHCP modes by the following methods.
+The default wired network configuration of the development board uses static IP configuration, and the initial IP address is `192.168.127.10`. Users can switch between static and DHCP modes by the following methods.
 
 ### Modifying Static IP Configuration
 The development board's static network configuration is saved in the `/etc/network/interfaces` file. By modifying the `address`, `netmask`, `gateway`, and other fields, the static IP configuration can be modified. `metric` is the network priority configuration, setting it to `700` is to lower the priority of the wired network. When both wired and wireless networks are enabled, the wireless network will be prioritized. For example:
@@ -24,7 +24,7 @@ sudo vim /etc/network/interfaces
 source-directory /etc/network/interfaces.d
 auto eth0
 iface eth0 inet static
-    address 192.168.1.10
+    address 192.168.127.10
     netmask 255.255.255.0
     gateway 192.168.1.1 
     metric 700
@@ -161,7 +161,14 @@ By default, the development board's wireless network runs in Station mode. To us
     wpa_key_mgmt=WPA-PSK
     rsn_pairwise=CCMP
     wpa_passphrase=12345678
-    ```
+    ```  
+- The RDK X5 can be configured as a 5G hotspot. Please modify the `hw_mode` and `channel` fields in the hostapd.conf file:
+
+    ```shell
+    channel=36
+    hw_mode=a
+    ```  
+
 3. Configure the `isc-dhcp-server` file as follows:
 
     - Execute `sudo vim /etc/default/isc-dhcp-server` to modify the `isc-dhcp-server` file and add the following definition for the network interface:
@@ -192,6 +199,7 @@ By default, the development board's wireless network runs in Station mode. To us
 4. Stop the `wpa_supplicant` service and restart `wlan0`
 
     ```bash
+    systemctl mask wpa_supplicant  
     systemctl stop wpa_supplicant
 
     ip addr flush dev wlan0
@@ -228,7 +236,10 @@ By default, the development board's wireless network runs in Station mode. To us
 
     ![image-20220601203025803](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/network/image-20220601203025803.png)  
 
-7. If you need to switch back to `Station` mode, you can do it as follows:
+7. If you need to switch back to `Station` mode, you can do it as follows:  
+   
+    [RDK X5]
+
     ```bash
     # Stop hostapd
     killall -9 hostapd
@@ -241,11 +252,64 @@ By default, the development board's wireless network runs in Station mode. To us
     ifconfig wlan0 up
     
     # Restart wpa_supplicant
+    systemctl unmask wpa_supplicant
+    systemctl restart wpa_supplicant
+
+    # Reinstall the WiFi driver  
+    rmmod aic8800_fdrv 
+    modprobe aic8800_fdrv
+
+    # Connect to the hotspot. for specific operations, refer to the previous section "Wireless Network"  
+    wifi_connect "WiFi-Test" "12345678"
+    ```  
+    [Other]  
+    ```bash
+    # Stop hostapd
+    killall -9 hostapd
+    
+    # Clear the address of wlan0
+    ip addr flush dev wlan0
+    sleep 0.5
+    ifconfig wlan0 down
+    sleep 1
+    ifconfig wlan0 up
+    
+    # Restart wpa_supplicant  
+    systemctl unmask wpa_supplicant
     systemctl restart wpa_supplicant
     
     # Connect to the hotspot, for specific operation, please refer to the previous section "Wireless Network"
     wifi_connect "WiFi-Test" "12345678"
     ```
+
+
+### Soft AP Mode（NetworkManager）：RDK X5（>= 3.3.0）RDK X3（>= 3.0.2）
+
+Newer system versions can also use NetworkManager to set up your Wi-Fi hotspot.
+
+Click the wireless network icon in the upper-right corner of the desktop and select`Edit Connections...`  
+
+![image-wifi1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi1.png)
+
+Click the`+`button at the bottom left, and under Connection Type, select `Wi-Fi`
+
+![image-wifi2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi2.png)
+
+  Under the `Wi-Fi`tab, fill in the SSID, Mode, and Band.
+
+- SSID: Enter your desired hotspot name.
+
+- Mode: Select `Hotspot`.
+
+- Band: Choose Automatic, `A (5 GHz)`, or `B/G (2.4 GHz)`.
+
+![image-wifi3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi3.png)
+
+Under the `Wi-Fi Security` tab, select the encryption method and enter the password.  
+
+![image-wifi4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-wifi4.png)
+
+Restart the board or run `restart_network` to apply the configuration.  
 
 ## DNS Server
 
@@ -305,13 +369,9 @@ Video: https://www.youtube.com/watch?v=Ov8mL8P_yUY&list=PLSxjn4YS2IuFUWcLGj2_uuC
 
 The Bluetooth function of the development board X3 is not enabled by default, while X5 has it enabled. You need to execute the `/usr/bin/startbt6212.sh` script to initialize it. The script completes the following tasks:
 
-- Reset the Bluetooth
-- Create the `messagebus` user and group, which are required for the operation of the `dbus-daemon` program
-- Run `brcm_patchram_plus` to load the Bluetooth driver and firmware
-- Continuously check if the `/sys/class/bluetooth/hci0` directory exists to confirm that the Bluetooth driver is running properly
-- The appearance of **Done setting line discpline** indicates that the Bluetooth has been successfully enabled
+- Bluetooth initialization completed
 - Execute `hciconfig hci0 up` to bring up the Bluetooth Link
-- Execute `hciconfig hci0 piscan` to perform Bluetooth scanning (this step can be excluded depending on the situation)
+- Execute `hciconfig hci0 piscan` to perform Bluetooth scanning
 
 The log after the successful execution of the script is as follows:
 
@@ -325,6 +385,49 @@ ps ax | grep "/usr/bin/dbus-daemon\|/usr/lib/bluetooth/bluetoothd"
 
 /usr/lib/bluetooth/bluetoothd
 ```
+
+
+### Communication Interfaces  
+
+To fully leverage the expansion capabilities of the development board, the current hardware design integrates a variety of interfaces and peripheral resources.
+
+Limited by the interface layout and hardware resource allocation, the development board does not fully replicate all the communication interfaces of the Bluetooth module.
+
+Currently, only the `BT_RX` and `BT_TX` two-wire mode is provided, which can meet basic functions such as AT command interaction and data transmission that do not require real-time performance.
+
+For UART-based Bluetooth modules, the different interface connection methods and their corresponding functions are as follows:
+
+- Basic Communication Mode (UART Only)
+
+    - Interface Pins: `BT_RX`, `BT_TX`
+
+    - Features: UART-based asynchronous serial data communication (e.g., AT command interaction, low-rate data transmission). Lacks flow control mechanism. Risks data packet loss and buffer overflow during baud rate overload or sustained high-volume data transfer.
+
+- Enhanced Transmission Mode (with Hardware Flow Control)
+
+    - Interface Pins: `BT_RX`, `BT_TX`, `BT_CTS`, `BT_RTS`
+
+    - Features: Effectively prevents data packet loss and buffer overflow risks. Supports A2DP high-fidelity unidirectional audio stream transmission.
+
+- Voice Communication Mode (PCM Synchronous Interface)
+
+    - Interface Pins: `PCM_SYNC`, `PCM_DIN`, `PCM_CLK`, `PCM_DOUT`
+
+    - Features: Supports real-time bidirectional audio transmission based on SCO links, such as HFP/HSP.
+
+### USB Bluetooth
+For in-depth use of Bluetooth functions—such as achieving high-speed and stable communication in `SPP (Bluetooth Virtual Serial Port)` mode, ensuring bandwidth quality in `PAN (Bluetooth Virtual Network Card)` mode, or avoiding audio interruptions in `A2DP (High-Fidelity Unidirectional Audio Stream)` mode—it is recommended to prioritize using a `USB interface Bluetooth module`.
+
+The development board comes pre-integrated with drivers for common Bluetooth dongles like `USB2.0-BT` and `CSR8510 A10`, and can directly support most firmware-free USB Bluetooth modules.
+
+![image-USB2.0-BT](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-USB2.0-BT.png)
+
+![image-CSR8510](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-CSR8510.png)
+
+![image-hci1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/hardware_interface/image-hci1.png)
+
+For `Realtek` series Bluetooth modules, additional `firmware` support is required. Please obtain the firmware adapted for the Linux platform from the module manufacturer and place it in the specified directory before normal use can be achieved. 
+
 
 ### Network Configuration and Connection
 

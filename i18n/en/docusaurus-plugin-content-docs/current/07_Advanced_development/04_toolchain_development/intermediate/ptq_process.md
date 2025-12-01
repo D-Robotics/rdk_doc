@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Principles and Steps of PTQ
 
-### Introduction `{`#PTQ_introduction`}`
+### Introduction {#PTQ_introduction}
 
 Model conversion refers to the process of converting the original floating-point model to the Heterogeneous Line model. The original floating-point model (also referred to as the floating-point model in some places in this article) refers to the model you trained using DL frameworks such as TensorFlow/PyTorch, with a computational precision of float32. The Heterogeneous Line model is a model format that is suitable for running on the Heterogeneous Line processor.
 This chapter will repeatedly use these two model terms. To avoid misunderstandings, please understand this concept before reading further.
@@ -26,7 +26,7 @@ The complete development process of the model with the Heterogeneous Line algori
 
 
 
-### Model Preparation `{`#model_preparation`}`
+### Model Preparation {#model_preparation}
 
 
 The floating-point model obtained from publicly available DL frameworks is the input for the Heterogeneous Line model conversion tool. Currently, the conversion tool supports the following DL frameworks:
@@ -73,7 +73,7 @@ For the conversion from different frameworks to ONNX, there are currently corres
   - Do not include ``post-processing operators`` in floating-point models, such as NMS operators.
 :::
 
-### Model Validation `{`#model_check`}`
+### Model Validation {#model_check}
 
 Before formally converting the model, please use the ``hb_mapper checker`` tool to validate the model and ensure that it complies with the constraints supported by the D-Robotics processor.
 
@@ -180,7 +180,7 @@ After using ``hb_mapper checker`` to check this model, you will get the followin
 :::
 
 
-#### Interpretation of the check results`{`#check_result`}`
+#### Interpretation of the check results{#check_result}
 
 If there is no ERROR, then the check is successful. The ``hb_mapper checker`` tool will directly output the following information:
 
@@ -386,7 +386,7 @@ For example: If the shape of the input node of the original float model is ?x3x2
 :::
 
 
-#### Convert the Model Using the hb_mapper makertbin Tool`{`#makertbin`}`
+#### Convert the Model Using the hb_mapper makertbin Tool{#makertbin}
 
 hb_mapper makertbin provides two modes, with and without the ``fast-perf`` mode enabled.When the "fast-perf" mode is enabled, it will generate a bin model that can run at the highest performance on the board during the conversion process. The tool mainly performs the following operations:
 
@@ -407,17 +407,17 @@ Without enabling the "fast-perf" mode:
 
 ```bash
 
-  hb_mapper makertbin --config $`{`config_file`}`  \
-                      --model-type  $`{`model_type`}`
+  hb_mapper makertbin --config ${config_file}  \
+                      --model-type  ${model_type}
 ```
 
 With the "fast-perf" mode enabled:
 
 ```bash
 
-  hb_mapper makertbin --fast-perf --model $`{`caffe_model/onnx_model`}` --model-type $`{`model_type`}` \
-                      --proto $`{`caffe_proto`}` \
-                      --march $`{`march`}`
+  hb_mapper makertbin --fast-perf --model ${caffe_model/onnx_model`}` --model-type $`{`model_type`}` \
+                      --proto ${caffe_proto} \
+                      --march ${march}
 ```
 
 Explanation of hb_mapper makertbin parameters:
@@ -453,10 +453,10 @@ Microarchitecture of BPU. Set it to "bernoulli2" if using "RDK X3", and set it t
 
 :::
 
-#### Explanation of Parameters in Model Conversion YAML Configuration `{`#yaml_config`}`
+#### Explanation of Parameters in Model Conversion YAML Configuration {#yaml_config}
 
 :::info Note
-Either a Caffe model or an ONNX model can be used, that is, either ``caffe_model`` + ``prototxt`` or ``onnx_model`` can be chosen.
+Either a Caffe model or an ONNX model can be used, that is, either `caffe_model` + `prototxt` or `onnx_model` can be chosen.
 In other words, either a Caffe model or an ONNX model can be used.
 :::
 
@@ -543,10 +543,10 @@ calibration_parameters:
   # max_percentile: 1.0
 
   # Force the OP to run on CPU, generally not needed, can be enabled during model accuracy tuning phase for precision optimization
-  # run_on_cpu:  `{`OP_name`}`
+  # run_on_cpu:  {OP_name}
 
   # Force the OP to run on BPU, generally not needed, can be enabled during model performance tuning phase for performance optimization
-  # run_on_bpu:  `{`OP_name`}`
+  # run_on_bpu:  {OP_name}
 
   # Specify whether to calibrate for each channel
   # per_channel: False
@@ -569,7 +569,7 @@ compiler_parameters:
   optimize_level: 'O3'
 
   # Specify the input data source as 'pyramid' for the input named 'data'
-  #input_source: `{`"data": "pyramid"`}`
+  #input_source: {"data": "pyramid"}
 
   # Specify the maximum continuous execution time for each function call in the model
   #max_time_per_fc: 1000
@@ -591,7 +591,7 @@ The configuration file mainly includes four parameter groups: model parameter gr
 
 In your configuration file, all four parameter groups need to exist, and specific parameters can be optional or mandatory. Optional parameters can be omitted.
 
-The specific format for setting parameters is: ``param_name:  'param_value'`` ;
+The specific format for setting parameters is: `param_name:  'param_value'` ;
 If there are multiple values for a parameter, separate each value with the ``';'`` symbol: ``param_name:  'param_value1; param_value2; param_value3'`` ;
 For specific configuration methods, please refer to: ``run_on_cpu: 'conv_0; conv_1; conv12'`` .
 
@@ -1124,112 +1124,112 @@ Perf result:
 The information obtained from the console only provides an overview. The node_profiler.log file generated by setting the "profile_path" parameter records more abundant model performance information:
 
 ```bash
-`{`
-  "perf_result": `{`
+{
+  "perf_result": {
     "FPS": 244.20471681410527,
     "average_latency": 4.003105640411377
-  `}`,
-  "running_condition": `{`
+  },
+  "running_condition": {
     "core_id": 0,
     "frame_count": 200,
     "model_name": "mobilenetv1_224x224_nv12",
     "run_time": 818.985,
     "thread_num": 1
-  `}`
-`}`
+  }
+}
 ***
-`{`
-  "chip_latency": `{`
-    "BPU_inference_time_cost": `{`
+{
+  "chip_latency": {
+    "BPU_inference_time_cost": {
       "avg_time": 3.42556,
     
-  "model_latency": `{`
-    "BPU_MOBILENET_subgraph_0": `{`
+  "model_latency": {
+    "BPU_MOBILENET_subgraph_0": {
       "avg_time": 3.42556,
       "max_time": 3.823,
       "min_time": 3.057
-    `}`,
-    "Dequantize_fc7_1_HzDequantize": `{`
+    },
+    "Dequantize_fc7_1_HzDequantize": {
       "avg_time": 0.12307,
-```"max_time": 0.274,
+    "max_time": 0.274,
       "min_time": 0.044
-    `}`,
-    "MOBILENET_subgraph_0_output_layout_convert": `{`
+    },
+    "MOBILENET_subgraph_0_output_layout_convert": {
       "avg_time": 0.025945,
       "max_time": 0.069,
       "min_time": 0.012
-    `}`,
-    "Preprocess": `{`
+    },
+    "Preprocess": {
       "avg_time": 0.009245,
       "max_time": 0.027,
       "min_time": 0.003
-    `}`,
+    },
     "Softmax_prob": `{`
       "avg_time": 0.13366999999999998,
       "max_time": 0.338,
       "min_time": 0.042
-    `}`
-  `}`,
-  "task_latency": `{`
-    "TaskPendingTime": `{`
+    }
+  },
+  "task_latency": {
+    "TaskPendingTime": {
       "avg_time": 0.04952,
       "max_time": 0.12,
       "min_time": 0.009
-    `}`,
-    "TaskRunningTime": `{`
+    },
+    "TaskRunningTime": {
       "avg_time": 3.870965,
       "max_time": 4.48,
       "min_time": 3.219
-    `}`
-  `}`
-`}`  "max_time": 3.823,
+    }
+  }
+}  "max_time": 3.823,
       "min_time": 3.057
-    `}`,
-    "CPU_inference_time_cost": `{`
+    },
+    "CPU_inference_time_cost": {
       "avg_time": 0.29193,
       "max_time": 0.708,
       "min_time": 0.101
-    `}`
-  `}`,
-  "model_latency": `{`
-    "BPU_MOBILENET_subgraph_0": `{`
+    }
+  },
+  "model_latency": {
+    "BPU_MOBILENET_subgraph_0": {
       "avg_time": 3.42556,
       "max_time": 3.823,
       "min_time": 3.057
-    `}`,
-    "Dequantize_fc7_1_HzDequantize": `{`
+    },
+    "Dequantize_fc7_1_HzDequantize": {
       "avg_time": 0.12307,
       "max_time": 0.274,
-      "min_time": 0.044`}`,
-    "MOBILENET_subgraph_0_output_layout_convert": `{`
+      "min_time": 0.044},
+    "MOBILENET_subgraph_0_output_layout_convert": {
       "avg_time": 0.025945,
       "max_time": 0.069,
       "min_time": 0.012
-    `}`,
-    "Preprocess": `{`
+    },
+    "Preprocess": {
       "avg_time": 0.009245,
       "max_time": 0.027,
       "min_time": 0.003
-    `}`,
-    "Softmax_prob": `{`
+    },
+    "Softmax_prob": {
       "avg_time": 0.13366999999999998,
       "max_time": 0.338,
       "min_time": 0.042
-    `}`
-  `}`,
-  "task_latency": `{`
-    "TaskPendingTime": `{`
+    }
+  },
+  "task_latency": {
+    "TaskPendingTime": {
       "avg_time": 0.04952,
       "max_time": 0.12,
       "min_time": 0.009
-    `}`,
-    "TaskRunningTime": `{`
+    },
+    "TaskRunningTime": {
       "avg_time": 3.870965,
       "max_time": 4.48,
       "min_time": 3.219
-    `}`
-  `}`
-`}`
+    }
+  }
+}
 ```
 The above log corresponds to the bin visualization diagram in the [**Estimating Performance using hb_perf**](#hb_perf) section of the BIN Model Structure. Each node in the diagram has a corresponding node in the profiler.log file, which can be matched by the "name". Additionally, the profiler.log file also records the execution time of each node, providing reference for optimizing model operators. Since the BPU nodes in the model have special requirements for input and output, such as special layout and padding alignment requirements, the input and output data of BPU nodes need to be processed.
 
@@ -1383,7 +1383,7 @@ if __name__ == '__main__':
   output_names = [output.name for output in sess.get_outputs()]
   # or
   output_names = sess.output_names
-```# Prepare model input data
+  # Prepare model input data
 feed_dict = prepare_input_dict(input_names)
 # Start model inference, the return value of inference is a list, which corresponds to the specified names in output_names one by one
 # The input image type range is (RGB/BGR/NV12/YUV444/GRAY)
@@ -1794,7 +1794,8 @@ Return:
   'Gemm_15': `{`'cosine-similarity': '0.9999847687207736', 'mse': '0.00041888411550854263'`}`, 
   'MaxPool_12': `{`'cosine-similarity': '0.9999853235024673', 'mse': '0.0004039733791544747'`}`, 
   'Conv_10': `{`'cosine-similarity': '0.999985763659844', 'mse': '0.0004040437432614943'`}`, 
-  'Gemm_17': `{`'cosine-similarity': '0.9999913985912616', 'mse': '0.0002379088904350423'`}``}` ...`}`
+  'Gemm_17': `{`'cosine-similarity': '0.9999913985912616', 'mse': '0.0002379088904350423'`}``}` ...}
+
 ```  
 
 
