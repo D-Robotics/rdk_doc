@@ -11,11 +11,12 @@ import TabItem from '@theme/TabItem';
 
 ## 功能背景
 
-通信是机器人开发引擎的基础功能，原生ROS2 Foxy进行大数据量通信时存在时延较大、系统负载较高等问题。TogetheROS.Bot Foxy基于RDK系统软件库hbmem实现了“zero-copy”功能，数据跨进程传输零拷贝，可大大减少大块数据传输延时和系统资源占用。本节介绍如何使用tros.b Foxy和Humble创建publisher和subscriber node进行大块数据传输，并计算传输延时。
+通信是机器人开发引擎的基础功能，原生ROS2 Foxy进行大数据量通信时存在时延较大、系统负载较高等问题。TogetheROS.Bot Foxy基于RDK系统软件库hbmem实现了“zero-copy”功能，数据跨进程传输零拷贝，可大大减少大块数据传输延时和系统资源占用。本节介绍如何使用tros.b Foxy/Humble/Jazzy创建publisher和subscriber node进行大块数据传输，并计算传输延时。
 
 :::info
 - tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。
-- tros.b Humble版本使用的是ROS2 Humble的“zero-copy”功能，具体使用方法请参考ROS2官方[文档](https://docs.ros.org/en/humble/Tutorials/Advanced/FastDDS-Configuration.html#)和[代码](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/src/topics/talker_loaned_message.cpp)。
+- tros.b Humble以及之后的版本使用的是ROS2的“zero-copy”功能，具体使用方法请参考ROS2官方[文档](https://docs.ros.org/en/humble/Tutorials/Advanced/FastDDS-Configuration.html#)和[代码](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/src/topics/talker_loaned_message.cpp)。
+- tros.b Humble之后的版本使用方式和Humble版本一致，参考本章节的Humble版本示例。
 :::
 
 ## 前置条件
@@ -34,6 +35,7 @@ ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev
 <TabItem value="foxy" label="Foxy">
 
 ```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
 ```
 
@@ -41,11 +43,21 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html)。
 
@@ -574,6 +586,21 @@ ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+# 运行talker node:
+ros2 run hbmem_pubsub talker
+```
+
+</TabItem>
 </Tabs>
 
 
@@ -610,6 +637,20 @@ cd ~/dev_ws
 . install/setup.bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+ros2 run hbmem_pubsub listener
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
 ros2 run hbmem_pubsub listener
@@ -661,6 +702,15 @@ ros2 run hbmem_pubsub listener
 - **运行**程序前，使用export命令在运行终端下配置零拷贝环境。
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+如果你已经掌握ROS2的publisher和subscriber使用方式，那么很容易切换到使用零拷贝的publisher和subscriber，使用时只需要做以下改动：
+
+- **publisher**发送消息前要先调用**borrow_loaned_message**获取消息，然后**确认消息是否可用**，若可用，再进行赋值，发送
+- **subscription**在回调函数中处理接收到的消息，且**接收到的消息只能在回调函数中使用**，回调函数执行完，该消息就会释放
+- **运行**程序前，使用export命令在运行终端下配置零拷贝环境。
+
+</TabItem>
 </Tabs>
 
 ## 使用限制
@@ -669,7 +719,7 @@ ros2 run hbmem_pubsub listener
 
 - QOS History只支持KEEPLAST，不支持KEEPALL，且KEEPLAST不能设置太大，有内存限制，目前设置为最大占用256M内存
 - 传输的消息大小是固定的，即消息的`sizeof`值是不变的，不能包含可变长度类型数据，例如：string，动态数组
-- 对于TROS Humble版本，推荐QOS Reliability使用RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT（建议直接使用rclcpp::SensorDataQoS()设置QOS），RMW_QOS_POLICY_RELIABILITY_RELIABLE在多种通信方式下存在稳定性问题。
+- 对于TROS Humble以及之后版本，推荐QOS Reliability使用RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT（建议直接使用rclcpp::SensorDataQoS()设置QOS），RMW_QOS_POLICY_RELIABILITY_RELIABLE在多种通信方式下存在稳定性问题。
 - 只能用于同一设备进程间通信，不可跨设备传输
 - publisher消息要先获取再赋值发送，且要判断是否获取成功
 - subscriber收到的消息有效期仅限回调函数中，不能在回调函数之外使用

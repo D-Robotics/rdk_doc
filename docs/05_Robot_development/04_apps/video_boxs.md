@@ -27,11 +27,12 @@ import TabItem from '@theme/TabItem';
 | RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ## 准备工作
 
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK安装TogetheROS.Bot参照[5.1.2 apt安装与升级](../01_quick_start/install_tros.md)。
 
@@ -55,12 +56,34 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 channle 1（终端1）:
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 设置不同的域
 export ROS_DOMAIN_ID=101
 
@@ -71,19 +94,37 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
 ```
 
-</TabItem>
-
-</Tabs>
-
 channle 2（终端2）:
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 设置不同的域
 export ROS_DOMAIN_ID=102
 
@@ -93,10 +134,6 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 # 启动launch文件
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.58:554/0' hobot_transport_0:='udp'  websocket_channel:=1
 ```
-
-</TabItem>
-
-</Tabs>
 
 ...
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-本章节介绍如何在RDK S100系列平台体验端侧 Large Language Model (LLM)。
+本章节介绍如何在RDK S100/S600系列平台体验端侧 Large Language Model (LLM)。
 
 代码仓库： (https://github.com/D-Robotics/hobot_xlm.git)
 
@@ -20,6 +20,7 @@ import TabItem from '@theme/TabItem';
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 端侧大语言模型体验 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 端侧大语言模型体验 |
 
 ## 算法信息
 
@@ -34,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
 ### 系统准备
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 2. RDK已成功安装TogetheROS.Bot。
 
 ### 模型下载
@@ -74,10 +75,33 @@ devmem 0x2b047004 32 0x99
 
 #### 终端交互体验
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
 ```bash
 lib=/opt/tros/humble/lib/hobot_xlm/lib
@@ -95,10 +119,33 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 1. 启动 hobot_llm
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+   <Tabs groupId="tros-distro">
+   <TabItem value="foxy" label="Foxy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+
 
     ```bash
     lib=/opt/tros/humble/lib/hobot_xlm/lib
@@ -112,10 +159,33 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 2. 新开一个终端订阅输出结果topic
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+   <Tabs groupId="tros-distro">
+   <TabItem value="foxy" label="Foxy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+
 
     ```bash
     ros2 topic echo /tts_text
@@ -123,10 +193,33 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 3. 新开一个终端发布消息
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+   <Tabs groupId="tros-distro">
+   <TabItem value="foxy" label="Foxy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+
 
     ```bash
     ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""简单描述人工智能的发展""}"

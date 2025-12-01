@@ -33,7 +33,7 @@ import TabItem from '@theme/TabItem';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -48,10 +48,33 @@ import TabItem from '@theme/TabItem';
 
 **使用MIPI摄像头发布图片**
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -66,10 +89,33 @@ ros2 launch face_age_detection body_det_face_age_det.launch.py
 
 **使用USB摄像头发布图片**
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。

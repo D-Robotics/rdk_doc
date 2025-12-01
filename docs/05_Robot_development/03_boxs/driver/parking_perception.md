@@ -59,7 +59,7 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -80,28 +80,32 @@ package对外发布包含语义分割和目标检测信息的算法msg，用户�
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# 配置MIPI摄像头
-export CAM_TYPE=mipi
-
-# 启动launch文件
-ros2 launch parking_perception parking_perception.launch.py 
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
@@ -111,38 +115,37 @@ export CAM_TYPE=mipi
 # 启动launch文件
 ros2 launch parking_perception parking_perception.launch.py 
 ```
-
-</TabItem>
-
-</Tabs>
 
 **使用usb摄像头发布图片**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 从tros的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# 配置USB摄像头
-export CAM_TYPE=usb
-
-# 启动launch文件
-ros2 launch parking_perception parking_perception.launch.py 
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
@@ -152,38 +155,38 @@ export CAM_TYPE=usb
 # 启动launch文件
 ros2 launch parking_perception parking_perception.launch.py 
 ```
-
-</TabItem>
-
-</Tabs>
 
 **使用单张回灌图片**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 从tros的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# 配置回灌图片
-export CAM_TYPE=fb
-
-# 启动launch文件
-ros2 launch parking_perception parking_perception.launch.py 
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
@@ -194,9 +197,6 @@ export CAM_TYPE=fb
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
-</TabItem>
-
-</Tabs>
 
 ### X86平台
 

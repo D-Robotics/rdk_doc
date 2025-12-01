@@ -36,7 +36,7 @@ EfficientNet_Det是从  (https://github.com/HorizonRobotics-Platform/ModelZoo/tr
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -55,102 +55,111 @@ EfficientNet_Det目标检测算法示例订阅sensor package发布的图片，�
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 配置MIPI摄像头
-export CAM_TYPE=mipi
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
 
 # 启动launch文件
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
-
-</TabItem>
-
-</Tabs>
 
 #### 使用USB摄像头发布图片
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 配置USB摄像头
-export CAM_TYPE=usb
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+```shell
 # 配置USB摄像头
 export CAM_TYPE=usb
 
 # 启动launch文件
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
-
-</TabItem>
-
-</Tabs>
 
 #### 使用本地图片回灌
 
 EfficientNet_Det目标检测算法示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image:=config/target.jpg
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image:=config/target.jpg
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
+```shell
+# 启动launch文件
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image:=config/target.jpg
+```
 
 ## 结果分析
 

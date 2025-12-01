@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 前提：已成功安装TogetheROS.Bot
 
-tros.b和ROS2 Foxy/Humble版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 image-transport为例介绍如何在tros.b中使用ROS package。
+tros.b和ROS2 Foxy/Humble/Jazzy版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 image-transport为例介绍如何在tros.b中使用ROS package。
 
 ## 安装ROS2 package
 
@@ -48,6 +48,14 @@ sudo apt install ros-humble-image-transport-plugins
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt install ros-jazzy-image-transport
+sudo apt install ros-jazzy-image-transport-plugins
+```
+
+</TabItem>
 </Tabs>
 
 ## 使用ROS2 package
@@ -67,6 +75,14 @@ ros2 run image_transport list_transports
 
 ```bash
 source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
 ros2 run image_transport list_transports
 ```
 

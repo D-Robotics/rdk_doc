@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
+TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
 
 接下来分别介绍RDK和X86平台环境准备详情。
 
@@ -17,7 +17,7 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 
 ### 系统安装
 
-安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu 20.04/Ubuntu 22.04镜像烧录方法：
+安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu镜像烧录方法：
 
 <Tabs groupId="tros-distro">
 <TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">

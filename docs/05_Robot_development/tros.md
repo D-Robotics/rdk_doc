@@ -13,7 +13,7 @@ TogetheROS.Bot源码托管在GitHub [D-Robotics组织](https://github.com/D-Robo
 
 ## Communication通信组件
 
-Communication是在ROS2 Foxy和Humble版本通信核心组件基础上进行的功能优化和扩展。
+Communication是在ROS2 Foxy/Humble/Jazzy版本通信核心组件基础上进行的功能优化和扩展。
 
 主要特性如下：
 
@@ -26,7 +26,7 @@ Communication是在ROS2 Foxy和Humble版本通信核心组件基础上进行的�
 - 提供“hobot Render”Web端和HDMI动态可视化功能，实时渲染算法结果（仅限Web端），便于展示与调试
 - 增加“zero-copy”进程间零拷贝通信机制，降低数据传输时延，减少系统资源消耗
 - 丰富中间件软件调试以及性能调优工具，提升问题定位效率，方便系统性能优化
-- 与ROS2 Foxy/Humble版本接口保持完全兼容，便于复用ROS丰富工具包，加快原型验证
+- 与ROS2 Foxy/Humble/Jazzy版本接口保持完全兼容，便于复用ROS丰富工具包，加快原型验证
 - 支持最小化和模块化剪裁，方便根据需要部署在资源受限的嵌入式产品中
 
 ## Boxs算法仓库

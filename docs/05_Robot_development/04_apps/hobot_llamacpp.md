@@ -21,13 +21,14 @@ import TabItem from '@theme/TabItem';
 | ------------------------------- | ------------ | ------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 视觉语音盒子体验 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 视觉语音盒子体验 |
 
 ## 准备工作
 
 ### RDK平台
 
 1. RDK为4GB内存版本
-2. RDK已烧录好Ubuntu 22.04系统镜像。
+2. RDK已烧录好RDK OS系统。
 3. RDK已成功安装TogetheROS.Bot。
 4. 安装ASR模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2`。
 
@@ -55,17 +56,13 @@ by-path  controlC1  pcmC1D0c  pcmC1D0p  timer
 
 ### 使用说明
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
 <Tabs groupId="tros-distro">
 <TabItem value="x5" label="RDK X5">
 
 **使用MIPI摄像头发布图片**
 
 ```shell
+source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
@@ -75,6 +72,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 **使用USB摄像头发布图片**
 
 ```shell
+source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置USB摄像头
 export CAM_TYPE=usb
@@ -92,9 +90,36 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 
 </TabItem>
 
-<TabItem value="s100" label="RDK S100">
+<TabItem value="s100/s600" label="RDK S100/S600">
 
 **使用MIPI摄像头发布图片**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
@@ -105,6 +130,33 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **使用USB摄像头发布图片**
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置USB摄像头
@@ -113,6 +165,33 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 ```
 
 **使用本地回灌图片**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
@@ -139,10 +218,33 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 功能包本身除了支持视觉语言大模型能力, 同时支持单独使用纯语言模型进行对话：
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .

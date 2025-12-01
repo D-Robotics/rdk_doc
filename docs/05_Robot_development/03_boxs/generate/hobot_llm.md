@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 ### RDK平台
 
 1. RDK为4GB内存版本
-2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+2. RDK已烧录好Ubuntu系统镜像。
 3. RDK已成功安装TogetheROS.Bot。
 4. 安装transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`。
 
@@ -44,24 +44,33 @@ import TabItem from '@theme/TabItem';
 
 运行程序前，需要下载模型文件并解压，命令如下：
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
- ```bash
- # 配置tros.b环境
- source /opt/tros/setup.bash
- ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
- ```bash
- # 配置tros.b环境
- source /opt/tros/humble/setup.bash
- ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
 ```bash
 # 下载模型文件
@@ -93,7 +102,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -102,8 +110,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```bash
 ros2 run hobot_llm hobot_llm_chat
@@ -124,7 +140,6 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
     </TabItem>
-
     <TabItem value="humble" label="Humble">
 
     ```bash
@@ -133,15 +148,22 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
 
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
+
 
     ```bash
     ros2 run hobot_llm hobot_llm
     ```
 
 2. 新开一个终端订阅输出结果topic
-
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -151,7 +173,6 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
     </TabItem>
-
     <TabItem value="humble" label="Humble">
 
     ```bash
@@ -160,15 +181,22 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
 
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
+
 
     ```bash
     ros2 topic echo /text_result
     ```
 
 3. 新开一个终端发布消息
-
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -178,7 +206,6 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
     </TabItem>
-
     <TabItem value="humble" label="Humble">
 
     ```bash
@@ -187,8 +214,16 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
 
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
+
 
     ```bash
     ros2 topic pub --once /text_query std_msgs/msg/String "{data: ""中国的首都是哪里""}"

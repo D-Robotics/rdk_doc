@@ -36,7 +36,7 @@ mono_mobilesam package 是基于 Mobile SAM 量化部署的使用示例。图像
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -49,13 +49,34 @@ package对外发布包含语义分割和目标检测信息的算法msg, 用户�
 **mipi摄像头发布图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_mobilesam/config/ .
 
@@ -66,20 +87,37 @@ export CAM_TYPE=mipi
 ros2 launch mono_mobilesam sam.launch.py 
 ```
 
-</TabItem>
-
-</Tabs>
-
 **使用usb摄像头发布图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_mobilesam/config/ .
 
@@ -90,20 +128,37 @@ export CAM_TYPE=usb
 ros2 launch mono_mobilesam sam.launch.py 
 ```
 
-</TabItem>
-
-</Tabs>
-
 **使用单张回灌图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_mobilesam/config/ .
 
@@ -113,10 +168,6 @@ export CAM_TYPE=fb
 # 启动launch文件
 ros2 launch mono_mobilesam sam.launch.py 
 ```
-
-</TabItem>
-
-</Tabs>
 
 ## 结果分析
 

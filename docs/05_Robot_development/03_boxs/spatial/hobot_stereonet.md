@@ -27,6 +27,7 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | --------------------- | --------------------- | ------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
 | RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动双目相机，推理出深度结果，并在Web端显示 |
 
 ## 算法版本信息
 
@@ -40,14 +41,14 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | X5 | V2.3 | int8 | 640x352x3x2 | 27 | 帧率进一步提升 |
 | X5 | V2.4 | int16 | 640x352x3x2 | 15 | 加入更多数据训练 |
 | X5 | V2.4 | int8 | 640x352x3x2 | 23 | 加入更多数据训练 |
-| S100 | V2.1 | int16 | 640x352x3x2 | 53 | 有置信度输出 |
-| S100 | V2.4 | int16 | 640x352x3x2 | 53 | 有置信度输出，加入更多数据训练|
+| S100/S600 | V2.1 | int16 | 640x352x3x2 | 53 | 有置信度输出 |
+| S100/S600 | V2.4 | int16 | 640x352x3x2 | 53 | 有置信度输出，加入更多数据训练|
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像
+1. RDK已烧录好RDK OS系统
 2. RDK已成功安装TogetheROS.Bot
 3. 如果需要实时在线推理，请准备好双目相机，目前支持官方MIPI相机、ZED mini/2i USB相机
 4. 如果需要离线推理，请准备好<strong style={{ color: 'red' }}>矫正后</strong>的双目图像数据

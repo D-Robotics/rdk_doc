@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 
 1 RDK开发板，并且已安装好相关软件，包括：
 
-- Ubuntu 20.04/Ubuntu 22.04系统镜像。
+- Ubuntu系统镜像。
 
 - tros.b软件包。
 
@@ -1315,7 +1315,7 @@ TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，�
 
 1 RDK开发板，并且已安装好相关软件，包括：
 
-- Ubuntu 20.04/Ubuntu 22.04系统镜像。
+- Ubuntu系统镜像。
 
 - tros.b软件包。
 
@@ -1323,7 +1323,7 @@ TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，�
 
 3 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
-  - Ubuntu 20.04/Ubuntu 22.04系统
+  - Ubuntu系统
 
   - [ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 

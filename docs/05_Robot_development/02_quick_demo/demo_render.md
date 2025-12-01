@@ -23,6 +23,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
 | RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头，并通过Web展示图像 |
 | RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI摄像头，并通过Web展示图像 |
 | X86     | Ubuntu 20.04 (Foxy) | 启动USB摄像头，并通过Web展示图像 |
 
@@ -68,10 +69,18 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
-    ```shell
+   ```bash
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37
     ```
 
@@ -95,12 +104,21 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
-    ```shell
-    ros2 launch hobot_codec hobot_codec_encode.launch.py
-    ```
+
+   ```bash
+   ros2 launch hobot_codec hobot_codec_encode.launch.py
+   ```
 
     c. 启动websocket
 
@@ -122,12 +140,20 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
-    ```shell
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
-    ```
+   ```bash
+   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
+   ```
 
 2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像，IP为RDK IP地址。
 
@@ -137,58 +163,20 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 1. 启动hobot_usb_cam节点
 
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
-
    ```bash
    # 配置tros.b环境
    source /opt/tros/setup.bash
+   # usb_video_device需要更改为实际usb摄像头video节点
+   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
    ```
-
-   </TabItem>
-
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   </Tabs>
-
-    ```shell
-    # usb_video_device需要更改为实际usb摄像头video节点
-    ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
-    ```
 
 2. 启动websocket节点
 
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
-
    ```bash
    # 配置tros.b环境
    source /opt/tros/setup.bash
+   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
    ```
-
-   </TabItem>
-
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   </Tabs>
-
-    ```shell
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-    ```
 
 3. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像效果，IP为PC IP地址，若在本机访问，也可使用localhost。
 
@@ -225,7 +213,7 @@ HDMI展示**EOL**说明：
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -254,6 +242,18 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
 使用RDK X5时, 需要额外使用下面命令:
 ```bash
 # 关闭桌面显示
@@ -261,10 +261,6 @@ sudo systemctl stop lightdm
 # 复制运行依赖
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_hdmi/config/ .
 ```
-
-</TabItem>
-
-</Tabs>
 
 ```shell
 # HDMI图像渲染
@@ -289,7 +285,7 @@ ros2 launch hobot_hdmi hobot_hdmi.launch.py device:=F37
 
 ### 功能介绍
 
-TogetheROS.Bot兼容ROS2 foxy/humble版本，为了方便预览图像效果，可以通过RViz2获取图像。
+TogetheROS.Bot兼容ROS2 foxy/humble/jazzy版本，为了方便预览图像效果，可以通过RViz2获取图像。
 
 ### 支持平台
 
@@ -297,13 +293,14 @@ TogetheROS.Bot兼容ROS2 foxy/humble版本，为了方便预览图像效果，�
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装tros.b。
 
@@ -334,6 +331,14 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -372,6 +377,14 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -481,6 +494,14 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # 配置tros.b环境
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
       </Tabs>
 
@@ -516,7 +537,7 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装tros.b。
 
@@ -552,6 +573,14 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
@@ -576,6 +605,14 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -653,6 +690,14 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # 配置tros.b环境
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
       </Tabs>
 
@@ -692,6 +737,7 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
@@ -732,6 +778,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 
@@ -758,6 +812,14 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

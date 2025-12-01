@@ -27,6 +27,7 @@ import TabItem from '@theme/TabItem';
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -39,7 +40,7 @@ RDK Ultra不支持将H.264视频解码为NV12格式，因此H.264视频发布功
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
+1. RDK已烧录好Ubuntu系统镜像
 
 2. RDK已成功安装tros.b
 
@@ -72,6 +73,14 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -128,10 +137,19 @@ source /opt/tros/setup.bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
 </TabItem>
 
 </Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的图片文件
@@ -143,29 +161,10 @@ ros2 launch hobot_image_publisher hobot_image_publisher_videolist_demo.launch.py
 
 #### X86平台
 
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
 ```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-```
 
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-
-```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的图片文件
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
 
@@ -289,7 +288,7 @@ struct Config {
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 

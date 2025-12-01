@@ -44,7 +44,7 @@ RDK X3平台请注意：
 | 2.x系统镜像 |       x     |       √     |
 
 </TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+<TabItem value="RDK S100/S600" label="RDK S100/S600">
 
 </TabItem>
 </Tabs>
@@ -75,6 +75,14 @@ sudo apt install tros
 ```bash
 sudo apt update
 sudo apt install tros-humble
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt update
+sudo apt install tros-jazzy
 ```
 
 </TabItem>
@@ -151,6 +159,25 @@ Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tro
 Download-Size: 5,546 B
 APT-Manual-Installed: yes
 APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk jammy/main arm64 Packages
+Description: TogetheROS Bot
+
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+root@ubuntu:~# apt show tros-jazzy
+Package: tros-jazzy
+Version: 2.2.0-noble.20240410.221258
+Priority: optional
+Section: misc
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
+Installed-Size: 44.0 kB
+Depends: hobot-models-basic, tros-jazzy-ai-msgs, tros-jazzy-audio-control, tros-jazzy-audio-msg, tros-jazzy-   audio-tracking, tros-jazzy-base, tros-jazzy-body-tracking, tros-jazzy-dnn-benchmark-example, tros-jazzy-dnn-   node, tros-jazzy-dnn-node-example, tros-jazzy-dnn-node-sample, tros-jazzy-elevation-net, tros-jazzy-gesture-   control, tros-jazzy-hand-gesture-detection, tros-jazzy-hand-lmk-detection, tros-jazzy-hbm-img-msgs, tros-humb   le-hobot-audio, tros-jazzy-hobot-chatbot, tros-jazzy-hobot-codec, tros-jazzy-hobot-cv, tros-jazzy-hobot-fall   down-detection, tros-jazzy-hobot-hdmi, tros-jazzy-hobot-image-publisher, tros-jazzy-hobot-llm, tros-jazzy-ho   bot-mot, tros-jazzy-hobot-shm, tros-jazzy-hobot-tts, tros-jazzy-hobot-usb-cam, tros-jazzy-hobot-vio, tros-hu   mble-hobot-visualization, tros-jazzy-img-msgs, tros-jazzy-imu-sensor, tros-jazzy-line-follower-model, tros-hu   mble-line-follower-perception, tros-jazzy-mipi-cam, tros-jazzy-mono2d-body-detection, tros-jazzy-mono2d-trash   -detection, tros-jazzy-mono3d-indoor-detection, tros-jazzy-parking-perception, tros-jazzy-parking-search, tro   s-jazzy-rgbd-sensor, tros-jazzy-websocket, tros-jazzy-ros-workspace
+Download-Size: 5,546 B
+APT-Manual-Installed: yes
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk noble/main arm64 Packages
 Description: TogetheROS Bot
 
 ```

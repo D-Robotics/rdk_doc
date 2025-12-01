@@ -23,72 +23,93 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装tros.b。
 
 3. tros.b成功安装后，安装Nav2。
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-   ```shell
-   sudo apt update 
-   sudo apt install ros-foxy-navigation2
-   sudo apt install ros-foxy-nav2-bringup
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   ```shell
-   sudo apt update 
-   sudo apt install ros-humble-navigation2
-   sudo apt install ros-humble-nav2-bringup
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+```shell
+sudo apt update 
+sudo apt install ros-${ROS_DISTRO}-navigation2
+sudo apt install ros-${ROS_DISTRO}-nav2-bringup
+```
 
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
-4. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
+4. 和RDK在同一网段的PC，PC已安装Ubuntu系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+```bash
+source /opt/ros/foxy/setup.bash
+```
 
-    ```bash
-    sudo apt-get install ros-foxy-gazebo-*
-    sudo apt install ros-foxy-turtlebot3*
-    sudo apt install ros-foxy-navigation2
-    sudo apt install ros-foxy-nav2-bringup
-    ```
+Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-    ```bash
-    sudo apt-get install ros-humble-gazebo-*
-    sudo apt install ros-humble-turtlebot3*
-    sudo apt install ros-humble-navigation2
-    sudo apt install ros-humble-nav2-bringup
-    ```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
- </TabItem>
- </Tabs>
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
+</Tabs>
+
+PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+
+```bash
+sudo apt-get install ros-${ROS_DISTRO}-gazebo-*
+sudo apt install ros-${ROS_DISTRO}-turtlebot3*
+sudo apt install ros-${ROS_DISTRO}-navigation2
+sudo apt install ros-${ROS_DISTRO}-nav2-bringup
+```
 
 ## 使用介绍
 
@@ -101,16 +122,23 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-   ```shell
-   source /opt/ros/foxy/setup.bash
-   ```
+```bash
+source /opt/ros/foxy/setup.bash
+```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-   ```shell
-   source /opt/ros/humble/setup.bash
-   ```
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
 
 </TabItem>
 </Tabs>
@@ -130,47 +158,68 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
 1. **RDK**启动导航功能
 
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
    ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
    ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
    ```
 
-   </TabItem>
-
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-   ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
-   ```
-
-   </TabItem>
-
-   </Tabs>
 
 2. **PC端**启动Rviz2工具
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-   ```shell
-   source /opt/ros/foxy/setup.bash
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-   ```shell
-   source /opt/ros/humble/setup.bash
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
 </TabItem>
 </Tabs>
+
 
    ```shell
    ros2 launch nav2_bringup rviz_launch.py

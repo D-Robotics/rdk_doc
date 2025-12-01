@@ -27,7 +27,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 :::info
 - tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。
-- tros.b Humble版本使用的是ROS2 Humble的“zero-copy”功能。
+- tros.b Humble版本以及之后版本使用的是ROS2的“zero-copy”功能。
 :::
 
 ### 支持平台
@@ -36,6 +36,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 :::caution
 ***RDK Ultra平台支持零拷贝数据通信，暂未提供零拷贝性能指标测试安装包。***
@@ -70,6 +71,13 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    sudo apt update
    sudo apt install tros-humble-performance-test
    ```
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   sudo apt update
+   sudo apt install tros-jazzy-performance-test
+   ```
 
    </TabItem>
    </Tabs>
@@ -99,6 +107,15 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     source /opt/tros/humble/setup.bash
     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
 
  </TabItem>
  </Tabs>
@@ -164,6 +181,14 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     export ROS_DISABLE_LOANED_MESSAGES=0
     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
 
  </TabItem>
  </Tabs>

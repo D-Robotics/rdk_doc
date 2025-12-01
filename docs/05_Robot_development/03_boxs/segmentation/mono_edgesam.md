@@ -26,6 +26,7 @@ mono_edgesam package 是基于 [EdgeSAM](https://github.com/chongzhou96/EdgeSAM)
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示/保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示/保存在本地 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示/保存在本地 |
 
 ## 算法信息
 
@@ -38,7 +39,7 @@ mono_edgesam package 是基于 [EdgeSAM](https://github.com/chongzhou96/EdgeSAM)
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -51,13 +52,34 @@ package对外发布包含语义分割和目标检测信息的算法msg, 用户�
 **mipi摄像头发布图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
 
@@ -65,20 +87,37 @@ export CAM_TYPE=mipi
 ros2 launch mono_edgesam sam.launch.py 
 ```
 
-</TabItem>
-
-</Tabs>
-
 **使用usb摄像头发布图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 配置USB摄像头
 export CAM_TYPE=usb
 
@@ -86,30 +125,44 @@ export CAM_TYPE=usb
 ros2 launch mono_edgesam sam.launch.py 
 ```
 
-</TabItem>
-
-</Tabs>
 
 **使用单张回灌图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```shell
 # 配置回灌图片
 export CAM_TYPE=fb
 
 # 启动launch文件
 ros2 launch mono_edgesam sam.launch.py 
 ```
-
-</TabItem>
-
-</Tabs>
 
 ## 结果分析
 

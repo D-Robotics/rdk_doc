@@ -26,6 +26,7 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 | ------- | ------------ | ------------------------------ |
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 
 ## 算法信息
 
@@ -38,7 +39,7 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -56,7 +57,14 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 YOLOv8-Seg实例分割示例订阅sensor package发布的图片, 经过推理后发布算法msg。默认不保存渲染图片, 如需保存, 需要在运行时设置 dnn_example_dump_render_img 为1, 会在运行路径下自动保存渲染后的图片，命名方式为render_frameid_时间戳秒_时间戳纳秒.jpg。
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -65,8 +73,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```shell
 # 配置MIPI摄像头
@@ -79,7 +95,14 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 ##### 使用USB摄像头发布图片
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -88,7 +111,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 ```shell
@@ -104,7 +134,14 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 YOLOv8-Seg分割示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -113,7 +150,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 

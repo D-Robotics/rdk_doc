@@ -44,7 +44,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -142,24 +142,32 @@ RDK平台启动程序：
 
 1. 拷贝音频配置文件和加载音频驱动
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
 
     ```shell
     # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -172,26 +180,32 @@ RDK平台启动程序：
 
 3. 启动程序
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
-    </TabItem>
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    <TabItem value="humble" label="Humble">
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
-    </Tabs>
+</TabItem>
+</Tabs>
 
     ```shell
     # 启动launch文件，并指定小车正前方对应的语音DOA角度，以90为例
