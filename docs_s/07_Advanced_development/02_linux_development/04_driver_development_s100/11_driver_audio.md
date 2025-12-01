@@ -358,7 +358,7 @@ echo "8 4 1 7" > /proc/sys/kernel/printk
 echo -n "file pcm_lib.c +p" > /sys/kernel/debug/dynamic_debug/control
 ```
 
-出现```write error (DMA or IRQ trouble?)``打印，说明没有中断。需要检查寄存器配置以及硬件链接情况
+出现```write error (DMA or IRQ trouble?)```打印，说明没有中断。需要检查寄存器配置以及硬件链接情况
 
 - pcm_read/pcm_write返回异常值为-32
 

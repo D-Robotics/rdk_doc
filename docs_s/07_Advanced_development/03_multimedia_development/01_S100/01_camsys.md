@@ -1068,6 +1068,7 @@ BIN)通过畸变矫正输出4张IPM图，然后通过STITCH硬件拼接模块使
 PARAM)进行硬件拼接输出鸟瞰图。
 
 **摆放位置**
+
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/stitch2.png)
 1. 四张IPM图通过copy模式放到指定输出地址的指定位置
 2. 没有重合的区域可以使用直接拷贝模式

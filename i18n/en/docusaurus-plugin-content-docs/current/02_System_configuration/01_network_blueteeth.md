@@ -9,7 +9,7 @@ This section mainly introduces the methods for modifying the wired and wireless 
 
 Video: https://www.youtube.com/watch?v=omaAU6sab2A&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=8
 
-The default wired network configuration of the development board uses static IP configuration, and the initial IP address is `192.168.1.10`. Users can switch between static and DHCP modes by the following methods.
+The default wired network configuration of the development board uses static IP configuration, and the initial IP address is `192.168.127.10`. Users can switch between static and DHCP modes by the following methods.
 
 ### Modifying Static IP Configuration
 The development board's static network configuration is saved in the `/etc/network/interfaces` file. By modifying the `address`, `netmask`, `gateway`, and other fields, the static IP configuration can be modified. `metric` is the network priority configuration, setting it to `700` is to lower the priority of the wired network. When both wired and wireless networks are enabled, the wireless network will be prioritized. For example:
@@ -24,7 +24,7 @@ sudo vim /etc/network/interfaces
 source-directory /etc/network/interfaces.d
 auto eth0
 iface eth0 inet static
-    address 192.168.1.10
+    address 192.168.127.10
     netmask 255.255.255.0
     gateway 192.168.1.1 
     metric 700

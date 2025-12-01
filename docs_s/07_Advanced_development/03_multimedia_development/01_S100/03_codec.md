@@ -4184,8 +4184,6 @@ mc\_video\_vui\_params\_t \*params)
 
 【其他说明】
 
-【其它说明】
-
 目前video编码时设置头信息中的默认color range为full
 range模式，如果设置limit
 range需要显式调用hb\_mm\_mc\_set\_vui\_config接口。

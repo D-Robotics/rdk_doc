@@ -1383,7 +1383,7 @@ if __name__ == '__main__':
   output_names = [output.name for output in sess.get_outputs()]
   # or
   output_names = sess.output_names
-```# Prepare model input data
+  # Prepare model input data
 feed_dict = prepare_input_dict(input_names)
 # Start model inference, the return value of inference is a list, which corresponds to the specified names in output_names one by one
 # The input image type range is (RGB/BGR/NV12/YUV444/GRAY)
@@ -1794,7 +1794,8 @@ Return:
   'Gemm_15': `{`'cosine-similarity': '0.9999847687207736', 'mse': '0.00041888411550854263'`}`, 
   'MaxPool_12': `{`'cosine-similarity': '0.9999853235024673', 'mse': '0.0004039733791544747'`}`, 
   'Conv_10': `{`'cosine-similarity': '0.999985763659844', 'mse': '0.0004040437432614943'`}`, 
-  'Gemm_17': `{`'cosine-similarity': '0.9999913985912616', 'mse': '0.0002379088904350423'`}``}` ...`}`
+  'Gemm_17': `{`'cosine-similarity': '0.9999913985912616', 'mse': '0.0002379088904350423'`}``}` ...}
+
 ```  
 
 

@@ -4,6 +4,11 @@ sidebar_position: 1
 
 # 5.1.1 环境准备
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
 
 接下来分别介绍RDK和X86平台环境准备详情。
@@ -12,14 +17,27 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 
 ### 系统安装
 
-安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu 20.04/Ubuntu 22.04镜像烧录方法：[Ubuntu镜像烧录方法](/install_os/)
+安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu 20.04/Ubuntu 22.04镜像烧录方法：
 
-如果已经安装镜像，可以通过命令`sudo apt update`和`sudo apt upgrade`完成升级。
+<Tabs groupId="tros-distro">
+<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+
+[Ubuntu镜像烧录方法](/install_os/)
 
 :::caution **注意**
-- **如果您安装的是1.x版本系统，需要将系统升级到2.x版本。**
+- **如果您使用的是RDK X3，并且安装的是1.x版本系统，需要将系统升级到2.x版本。**
 - **系统版本号查看方法以及详细说明，请查看[FAQs](/docs/08_FAQ/03_applications_and_examples.md)。**
 :::
+
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
+
+[Ubuntu镜像烧录方法](/rdk_s/02_install_os)
+
+</TabItem>
+</Tabs>
+
+如果已经安装镜像，可以通过命令`sudo apt update`和`sudo apt upgrade`完成升级。
 
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
@@ -33,7 +51,20 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 为方便后续顺利安装和使用tros.b，请使用**root**账户进行登录。
 :::
 
-体验和开发过程中经常需要使用scp/ssh等命令通过IP地址访问RDK，因此这里推荐使用动态配置，参考[网络配置](/docs/02_System_configuration/01_network_blueteeth.md)
+体验和开发过程中经常需要使用scp/ssh等命令通过IP地址访问RDK，因此这里推荐使用动态配置，参考：
+
+<Tabs groupId="tros-distro">
+<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+
+[网络配置](/docs/02_System_configuration/01_network_blueteeth.md)
+
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
+
+[网络配置](/rdk_s/System_configuration/network_bluetooth)
+
+</TabItem>
+</Tabs>
 
 尝试ping百度服务器
 
