@@ -338,7 +338,9 @@ sudo apt full-upgrade
 
 ```bash
 sudo reboot
-```
+```  
+
+## 蓝牙配置  
 
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9
 

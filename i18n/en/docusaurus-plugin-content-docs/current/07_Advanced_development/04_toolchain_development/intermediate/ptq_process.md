@@ -436,7 +436,7 @@ Explanation of hb_mapper makertbin parameters:
 
   If you enable the fast-perf mode, you also need to configure the following:
 
-  ``--model``<br/>
+  --model<br/>
   Caffe or ONNX floating-point model file.--proto
 Used to specify the prototxt file of the Caffe model.
 
@@ -1784,7 +1784,7 @@ When verbose=True, the print result is as follows:
 
 Return:
 ```
-`{`'Conv_3': `{`'cosine-similarity': '0.999009567957658', 'mse': '0.027825591154396534'`}`, 
+{'Conv_3': `{`'cosine-similarity': '0.999009567957658', 'mse': '0.027825591154396534'`}`, 
   'MaxPool_2': `{`'cosine-similarity': '0.9993462241612948', 'mse': '0.017706592209064044'`}`, 
   'Conv_6': `{`'cosine-similarity': '0.9998359175828787', 'mse': '0.004541242333988731'`}`, 
   'MaxPool_5': `{`'cosine-similarity': '0.9998616805443397', 'mse': '0.0038416787014844325'`}`, 
@@ -1794,7 +1794,7 @@ Return:
   'Gemm_15': `{`'cosine-similarity': '0.9999847687207736', 'mse': '0.00041888411550854263'`}`, 
   'MaxPool_12': `{`'cosine-similarity': '0.9999853235024673', 'mse': '0.0004039733791544747'`}`, 
   'Conv_10': `{`'cosine-similarity': '0.999985763659844', 'mse': '0.0004040437432614943'`}`, 
-  'Gemm_17': `{`'cosine-similarity': '0.9999913985912616', 'mse': '0.0002379088904350423'`}``}` ...}
+  'Gemm_17': `{`'cosine-similarity': '0.9999913985912616', 'mse': '0.0002379088904350423'`}`} ...}
 
 ```  
 

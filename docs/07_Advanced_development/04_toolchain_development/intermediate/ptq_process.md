@@ -446,13 +446,13 @@ hb_mapper makertbin参数解释：
 
   如您开启了fast-perf模式，还需要进行如下配置：
 
-  ``--model``<br/>
+  --model<br/>
   Caffe或ONNX浮点模型文件。
 
-  ``--proto``<br/>
+  --proto<br/>
   用于指定Caffe模型prototxt文件。
 
-  ``--march``<br/>
+  --march<br/>
   BPU的微架构。若使用 ``RDK X3`` 则设置为 ``bernoulli2``，若使用 ``RDK Ultra`` 则设置为 ``bayes``，若使用 ``RDK X5`` 则设置为 ``bayes-e``。
 
 

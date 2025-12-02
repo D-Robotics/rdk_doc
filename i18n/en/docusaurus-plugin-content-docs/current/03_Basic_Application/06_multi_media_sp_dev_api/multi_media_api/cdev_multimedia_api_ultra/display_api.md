@@ -1,116 +1,159 @@
 ---
 sidebar_position: 4
 ---
-# DECODER（Decoding Module）API
+# DISPLAY (Display Module) API
 
 The `DECODER` module provides interfaces for handling video decoding tasks. The available functions are as follows:
 
 | Function                     | Description                                               |
 |------------------------------|-----------------------------------------------------------|
-| sp_init_decoder_module        | **Initialize the decoder module object**                  |
-| sp_release_decoder_module     | **Destroy the decoder module object**                     |
-| sp_start_decode               | **Create a video decoding channel**                       |
-| sp_stop_decode                | **Close the video decoding channel**                      |
-| sp_decoder_get_image          | **Retrieve decoded image frame from the decoding channel**|
-| sp_decoder_set_image          | **Send encoded stream data to the decoding channel**      |
+| sp_init_display_module        | **Initialize display module object**                  |
+| sp_release_display_module     | **Destroy display module object**                     |
+| sp_start_display               | **Create video display channel**                       |
+| sp_stop_display                | **Close video display channel**                      |
+| sp_display_set_image          | **Send image to video display channel**|
+| sp_display_draw_rect          | **Draw rectangle on display channel**      |
+| sp_display_draw_string          | **Draw string on display channel**|
+| sp_get_display_resolution          | **Get display resolution**      |
 
-> **Note**: RDK Ultra **does not support H264 encoding/decoding**.
 
-## sp_init_decoder_module
+## sp_init_display_module
 
 **Function Declaration**  
-`void *sp_init_decoder_module()`
+`void *sp_init_display_module()`
 
 **Description**  
-Initializes the decoder module and creates an operation handle. This function must be called before using the decoding module. The module supports decoding video streams in H264, H265, and MJPEG formats.
+Initialize display module object. This module supports displaying video image data to monitors connected via the `HDMI` interface, and provides functionality to draw rectangles and text on the display screen.
 
 **Parameters**  
 None
 
 **Return Type**  
-- Returns a pointer to the `DECODER` object on success.  
-- Returns `NULL` on failure.
+- Returns pointer to `DISPLAY` object on success, NULL on failure..
 
-## sp_release_decoder_module
+## sp_release_display_module
 
 **Function Declaration**  
-`void sp_release_decoder_module(void *obj)`
+`void sp_release_display_module(void *obj)`
 
 **Description**  
-Releases the decoder module object.
+Destroy `DISPLAY` object..
 
 **Parameters**  
-- `obj`: The pointer to the `DECODER` object obtained from initialization.
+- `obj`: Pointer to initialized `DISPLAY` object
 
 **Return Type**  
 None
 
-## sp_start_decode
+## sp_start_display
 
 **Function Declaration**  
-`int sp_start_decode(void *decoder_object, const char *stream_file, int32_t type, int32_t width, int32_t height)`
+`int32_t sp_start_display(void *obj, int32_t width, int32_t height)`
 
 **Description**  
-Creates a decoding channel and sets the stream type and image frame resolution for decoding.
+Create a display channel. The RDK Ultra development board supports maximum resolution of `1920 x 1080` and maximum frame rate of `60fps`.
 
 **Parameters**  
-- `obj`: The pointer to the initialized `DECODER` object.
-- `stream_file`: If provided as a stream file (e.g., `stream.h265`), it will decode the stream from this file. If an empty string is provided, the stream data will be passed through `sp_decoder_set_image`.
-- `type`: The stream type to be decoded, which can be `SP_ENCODER_H265` or `SP_ENCODER_MJPEG`.
-- `width`: The decoded image width.
-- `height`: The decoded image height.
+- `obj`: The pointer to the initialized `DISPLAY` object.
+- `width`: Display output resolution - width.
+- `height`: Display output resolution - height.
 
 **Return Type**  
 - Returns `0` on success.  
 - Returns `-1` on failure.
 
-## sp_stop_decode
+## sp_stop_display
 
 **Function Declaration**  
-`int32_t sp_stop_decode(void *obj)`
+`int32_t sp_stop_display(void *obj)`
 
 **Description**  
-Closes the decoding channel.
+Close display channel.
 
 **Parameters**  
-- `obj`: The pointer to the initialized `DECODER` object.
+- `obj`: The pointer to the initialized `DISPLAY` object.
 
 **Return Type**  
 - Returns `0` on success.  
 - Returns `-1` on failure.
 
-## sp_decoder_get_image
+## sp_display_set_image
 
 **Function Declaration**  
-`int32_t sp_decoder_get_image(void *obj, char *image_buffer)`
+`int32_t sp_display_set_image(void *obj, char *addr, int32_t size)`
 
 **Description**  
-Retrieves the decoded image frame data from the decoding channel. The image is returned in `NV12` YUV format.
+Send one frame of image to display module. Only `NV12` format `YUV` images are supported.
 
 **Parameters**  
-- `obj`: The pointer to the initialized `DECODER` object.
-- `image_buffer`: The buffer where the decoded image frame will be stored. The buffer size is `width * height * 3 / 2` for `NV12` format.
+- `obj`: The pointer to the initialized `DISPLAY` object.
+- `addr`: Image data (only NV12 format supported)
+- `size`: Image data size, calculated as: width * height * 3 / 2
 
 **Return Type**  
 - Returns `0` on success.  
 - Returns `-1` on failure.
 
-## sp_decoder_set_image
+## sp_display_draw_rect
 
 **Function Declaration**  
-`int32_t sp_decoder_set_image(void *obj, char *image_buffer, int32_t size, int32_t eos)`
+`int32_t sp_display_draw_rect(void *obj, int32_t x0, int32_t y0, int32_t x1, int32_t y1, int32_t flush, int32_t color, int32_t line_width)`
 
 **Description**  
-Sends stream data to an already opened decoding channel.  
-- For H264 or H265 decoding, send 3–5 frames initially to allow the decoder to cache the frames before retrieving decoded frames.
-- For H264, the first frame should contain the SPS and PPS descriptors; otherwise, the decoder will return an error and stop.
+Draw rectangle on the graphics layer of the display module.
 
 **Parameters**  
-- `obj`: The pointer to the initialized `DECODER` object.
-- `image_buffer`: The pointer to the stream data.
-- `size`: The size of the stream data.
-- `eos`: A flag indicating whether this is the last frame (`1` for last frame, `0` otherwise).
+- `obj`: The pointer to the initialized `DISPLAY` object
+- `x0`: X-coordinate of first point of rectangle
+- `y0`: Y-coordinate of first point of rectangle
+- `x1`: X-coordinate of second point of rectangle
+- `y1`: Y-coordinate of second point of rectangle
+- `flush`: Whether to clear current graphics layer buffer
+- `color`: Rectangle color (ARGB8888 format)
+- `line_width`: Rectangle line width
 
 **Return Type**  
 - Returns `0` on success.  
 - Returns `-1` on failure.
+
+## sp_display_draw_string
+
+**Function Declaration**  
+`int32_t sp_display_draw_string(void *obj, int32_t x, int32_t y, char *str, int32_t flush, int32_t color, int32_t line_width)`
+
+**Description**  
+Draw string on the graphics layer of the display module.
+
+**Parameters**  
+- `obj`: The pointer to the initialized `DISPLAY` object
+- `x`: X-coordinate of starting point for string drawing
+- `y`: Y-coordinate of starting point for string drawing
+- `str`: String to draw (must be GB2312 encoded)
+- `flush`: Whether to clear current graphics layer buffer
+- `color`: Text color (ARGB8888 format)
+- `line_width`: Text line width
+
+**Return Type**  
+- Returns `0` on success.  
+- Returns `-1` on failure.
+
+## sp_get_display_resolution
+
+**Function Declaration**  
+`void sp_get_display_resolution(int32_t *width, int32_t *height)`
+
+**Description**  
+Get resolution of currently connected display.
+
+**Parameters**  
+- `width`: Resolution width to obtain
+- `height`: Resolution height to obtain
+
+**Return Type**  
+None  
+
+:::note
+
+Currently only 1920x1080@60Fps format is supported
+
+:::
