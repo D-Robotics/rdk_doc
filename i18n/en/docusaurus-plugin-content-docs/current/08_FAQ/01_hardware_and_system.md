@@ -13,7 +13,7 @@ Many issues can be resolved through system updates. For related download resourc
 For certified accessories and purchase links, please refer to the [Certified Accessories List](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x3/accessory).
 
 ### Q1: What is the D-Robotics RDK Kit?
-**A:** D-Robotics Developer Kits, abbreviated as [D-Robotics RDK Kits](https://developer.d-robotics.cc/rdk_doc/), are robot developer kits based on D-Robotics intelligent chips. The main series currently include **RDK X3 (Sunrise X3 Pi)**, **RDK X3 Module**, **RDK X5**, and **RDK Ultra**.
+**A:** D-Robotics Developer Kits, abbreviated as [D-Robotics RDK Kits](https://developer.d-robotics.cc/rdk_doc/), are robot developer kits based on D-Robotics intelligent chips. The main series currently include **RDK X3 (Sunrise X3 Pi)**, **RDK X3 Module**, **RDK X5**, **RDK X5 Module**, **RDK Ultra** and **RDK S100**.
 
 ### Q2: How to check the system version of an RDK board?
 **A:** After logging into the RDK board, you can use the following commands:

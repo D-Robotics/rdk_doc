@@ -199,7 +199,7 @@ Information about `srpi-config`
 
 Choosing this option will display the following information:
 
-![image-20231123110127905](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110127905.png)
+![image-20231123110127905](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110127905-en.png)
 
 ## Finish button
 

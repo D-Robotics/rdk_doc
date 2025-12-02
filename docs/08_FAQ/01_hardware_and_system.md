@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 ### Q1: 什么是D-Robotics RDK套件？
-**A:** D-Robotics Developer Kits，简称[D-Robotics RDK套件](https://developer.d-robotics.cc/rdk_doc/)，是基于D-Robotics智能芯片打造的机器人开发者套件，目前主要包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK X5**、**RDK Ultra**、**RDK S100**等系列。
+**A:** D-Robotics Developer Kits，简称[D-Robotics RDK套件](https://developer.d-robotics.cc/rdk_doc/)，是基于D-Robotics智能芯片打造的机器人开发者套件，目前主要包括**RDK X3（旭日X3派）**、**RDK X3 Module（旭日X3模组）**、**RDK X5**、**RDK X5 Module（旭日X5模组）**、**RDK Ultra**、**RDK S100**等系列。
 
 ### Q2: 如何查看RDK板卡的系统版本号？
 **A:** 登录到RDK板卡的系统后，您可以使用以下命令：

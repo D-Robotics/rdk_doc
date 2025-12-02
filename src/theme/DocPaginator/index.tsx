@@ -44,6 +44,7 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/Quick_start$/, title: '1. Quick Start' },
       { pattern: /^\/rdk_doc\/en\/System_configuration$/, title: '2. System Configuration'},
       { pattern: /^\/rdk_doc\/en\/hardware_introduction$/, title: '1.1 Hardware Introduction' },
+      { pattern: /^\/rdk_doc\/en\/install_os$/, title: '1.2 Install Operating System' },
       { pattern: /^\/rdk_doc\/en\/display_use$/, title: '1.5 Display Usage' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/40pin_define$/, title: '3.1.1 Pin Configuration and Definition' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/gpio$/, title: '3.1.2 Using GPIO' },
@@ -52,7 +53,6 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/uart$/, title: '3.1.4 UART_usage' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/i2c$/, title: '3.1.5 Using I2C' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/spi$/, title: '3.1.6 Using SPI' },
-
 
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/cdev_demo_sample\/bpu$/, title: '3.2.1 BPU Sample Introduction' },
       { pattern: /^\/rdk_doc\/en\/03_Basic_Application\/02_cdev_demo_sample$/, title: '3.2 C DEV Interface Examples' },
@@ -75,20 +75,14 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/pydev_demo_sample\/web_display_camera_sample$/, title: '3.3.10 Web Display Camera Example Introduction' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/pydev_demo_sample\/decode_rtsp_stream$/, title: '3.3.11 RTSP Stream Decoding Example Introduction' },
 
-
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/vision\/mipi_camera$/, title: '3.4.1 Using MIPI Camera' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/vision\/usb_camera$/, title: '3.4.2 Using USB Camera' },
-
-
-
-
 
       { pattern: /^\/rdk_doc\/en\/03_Basic_Application\/02_audio$/, title: '3.5 Acoustic Solution' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/audio\/rdk_x5\/in_board_es8326$/, title: 'On-board Earphone Audio Port' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/audio\/rdk_x5\/audio_driver_hat2_rev2$/, title: 'Waveshare Audio Driver HAT REV2' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/audio\/rdk_x5\/wm8960_audio_hat$/, title: 'Waveshare WM8960 Audio HAT' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/audio\/rdk_x5\/hiwonder_rasb5$/, title: 'Hiwonder Carrier Board' },
-
 
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/cdev_demo$/, title: '3.6.1  Reference Example （C++）' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/pydev_vio_demo$/, title: '3.6.2 Reference Examples (python)' },
@@ -99,15 +93,12 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/pydev_multimedia_api_x3\/object_display$/, title: 'Display Object' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/pydev_multimedia_api_x3\/pydev_api_demo$/, title: 'Interface Usage Examples' },
 
-
-
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_x3\/vio_api$/, title: 'VIO(Camera Input) API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_x3\/encoder_api$/, title: 'ENCODER (Encoder Module) API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_x3\/decoder_api$/, title: 'DECODER API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_x3\/display_api$/, title: 'DISPLAY API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_x3\/bpu_api$/, title: 'BPU (Algorithm Inference Module) API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_x3\/sys_api$/, title: 'VSYS (Module Binding) API' },
-
 
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/pydev_multimedia_api_ultra$/, title: 'RDK Ultra Multimedia Interface Description' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/pydev_multimedia_api_ultra\/object_camera$/, title: 'Camera Object' },
@@ -121,8 +112,6 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_ultra\/display_api$/, title: 'DISPLAY Module API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_ultra\/bpu_api$/, title: 'BPU (Algorithm Inference Module) API' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/multi_media_api\/cdev_multimedia_api_ultra\/sys_api$/, title: 'SYS (Module Binding) API' },
-
-
      
       { pattern: /^\/rdk_doc\/en\/Robot_development$/, title: '5. Robotics Application' },
       { pattern: /^\/rdk_doc\/en\/Robot_development\/boxs\/generate\/hobot_xlm$/, title: 'DeepSeek large language model' },
