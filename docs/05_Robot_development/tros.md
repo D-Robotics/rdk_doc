@@ -74,8 +74,11 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10006; | &#10004; | &#10004; | &#10004; |
 | 分割一切 [mono_mobilesam](./03_boxs/segmentation/mono_mobilesam.md) | &#10006; | &#10004; | &#10006; | &#10006; |
-| [人体检测](./03_boxs/body/mono2d_body_detection.md)、[人手关键点](./03_boxs/body/hand_lmk_detection.md)、[手势识别](./03_boxs/body/hand_gesture_detection.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)、[人脸106关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应APP示例 | &#10004; | &#10004; | &#10006; | &#10006; |
+| 人体检测 | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
+| 人手关键点 | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) |
+| 手势识别 | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) |
+| [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)以及对应APP示例 | &#10004; | &#10004; | &#10006; | &#10006; |
+| [人脸106关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应APP示例 | &#10004; | &#10004; | &#10006; | &#10006; |
 | [人体跟随](./03_boxs/body/reid.md) | &#10006; | &#10004; | &#10004; | &#10004; |
 | [BEV](./03_boxs/driver/hobot_bev.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 激光雷达目标检测算法[CenterPoint](./03_boxs/driver/hobot_centerpoint.md) | &#10006; | &#10004; | &#10004; | &#10006; |
