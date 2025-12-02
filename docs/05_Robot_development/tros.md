@@ -64,22 +64,22 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 图像编解码 [hobot_codec](./02_quick_demo/hobot_codec.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 图像处理加速 [hobot_cv](./02_quick_demo/demo_cv.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 数据通信 [zero-copy](./02_quick_demo/demo_communication.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; | &#10004; | &#10004; | &#10006; |
 | 图像发布工具 [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 |
+| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 | &#10006; |
 | 开放词汇目标检测 [YOLO-World](./03_boxs/detection/hobot_yolo_world.md) | &#10006; | &#10004; | &#10006; | &#10006; |
-| 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10006; | &#10004; | &#10004; | &#10004; |
-| 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10006; | &#10004; | &#10004; | &#10006; |
+| 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; | &#10004; | &#10004; | &#10006; |
+| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; | &#10004; | &#10004; | &#10006; |
+| 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 分割一切 [mono_mobilesam](./03_boxs/segmentation/mono_mobilesam.md) | &#10006; | &#10004; | &#10006; | &#10006; |
-| 人体检测 | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
-| 人手关键点 | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) |
-| 手势识别 | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) |
+| 人体检测 | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) | &#10006; |
+| 人手关键点 | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | &#10006; |
+| 手势识别 | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | &#10006; |
 | [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)以及对应APP示例 | &#10004; | &#10004; | &#10006; | &#10006; |
 | [人脸106关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应APP示例 | &#10004; | &#10004; | &#10006; | &#10006; |
-| [人体跟随](./03_boxs/body/reid.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| [人体跟随](./03_boxs/body/reid.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | [BEV](./03_boxs/driver/hobot_bev.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 激光雷达目标检测算法[CenterPoint](./03_boxs/driver/hobot_centerpoint.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; | &#10004; | &#10004; | &#10006; |
@@ -87,10 +87,10 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10006; | &#10004; | &#10006; | &#10006; |
 | 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; | &#10004; | &#10006; | &#10006; |
 | 智能语音 [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10006; | &#10004; | &#10004; | &#10004; |
-| 视觉语言模型 [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10004; |
-| DeepSeek大语言模型 [hobot_xlm](./03_boxs/generate/hobot_xlm.md) | &#10006; | &#10006; | &#10004; | &#10004; |
+| 视觉语言模型 [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10006; |
+| DeepSeek大语言模型 [hobot_xlm](./03_boxs/generate/hobot_xlm.md) | &#10006; | &#10006; | &#10004; | &#10006; |
 | 文本图片特征检索 [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 光流估计 [mono_pwcnet](./03_boxs/function/mono_pwcnet.md)  | &#10006; | &#10004; | &#10006; | &#10006; |
 | [2D Lidar SLAM](./04_apps/slam.md) <br /> [Navigation2](./04_apps/navigation2.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | [智能盒子](./04_apps/video_boxs.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| [视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| [视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10006; |
