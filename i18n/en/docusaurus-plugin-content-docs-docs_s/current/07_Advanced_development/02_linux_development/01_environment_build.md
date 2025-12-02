@@ -31,5 +31,5 @@ The commercial edition provides more comprehensive feature support, deeper hardw
 
 If you wish to obtain the commercial edition, please complete the questionnaire below. We will contact you within 3–5 business days:
 
-Questionnaire Link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+Questionnaire Link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
 :::

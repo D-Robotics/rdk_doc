@@ -139,7 +139,7 @@ ipc_instance6: ipc_instance6 {
 - Mailbox interrupt allocation at the hardware level is not configurable.
 - The number of channels, number of buffers, and buffer size must be identical on both Acore and MCU sides. Additionally, the `local` and `remote` addresses for data and control segments must be opposite between the two sides.
 - The first address of an instance’s control segment stores the initialization status, which can be used to determine whether the instance has been initialized. By default, Acore completes initialization during kernel boot.
-- If users need to allocate custom data and address segments, they must modify the Acore device tree file, U-Boot device tree file, and MCU configuration file.
+- If users need to allocate custom data and address segments, they must modify the Acore device tree file, Uboot device tree file, and MCU configuration file.
 - Within the same channel, sending (push) and receiving (pop) operations use independent ring buffers and interrupt mechanisms, ensuring that transmit and receive operations are fully independent and do not interfere with each other.
 
 ## Usage of User-Space IPC Applications and Configuration Files

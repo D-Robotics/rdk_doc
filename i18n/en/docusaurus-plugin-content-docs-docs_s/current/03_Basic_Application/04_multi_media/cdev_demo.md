@@ -173,7 +173,7 @@ The `decoder2display` example decodes a video file and outputs it via the `HDMI`
 
 Example flow diagram:
 
-![image-decoder_to_display](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-decoder_to_display.png)
+![image-decoder_to_display](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/04_multi_media/image/cdev_demo/s100/image-decoder_to_display-en.jpg)
 
 - **Environment Setup:**
 

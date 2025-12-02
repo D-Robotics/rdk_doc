@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# RDK S100 Development Kit
+# 7.4.1 Algorithm Toolchain
 
 ## Version: 3.2.0
 
@@ -28,26 +28,6 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-package.tgz --ftp-
 ```bash
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-doc.zip --ftp-password=Oeftp~123$%
 ```  
-
-### RDK S100 LLM Development Kit
-
-#### S100 1.0.0 Large Model Toolchain
-
-**Development Kit Download URL:** 
-```bash 
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0.tar.gz --ftp-password=Oeftp~123$%
-```
-
-**User Manual Download URL:** 
-```bash 
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0_Doc.zip --ftp-password=Oeftp~123$%
-```
-
-**ReleaseNotes Download URL:**  
-```bash
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0_ReleaseNotes.pdf --ftp-password=Oeftp~123$%
-```  
-
 
 ## Docker Images
 

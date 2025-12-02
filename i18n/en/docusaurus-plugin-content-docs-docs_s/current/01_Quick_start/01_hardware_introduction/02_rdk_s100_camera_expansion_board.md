@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png)
 
-The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the Digu Robot RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
+The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the D-Robotics RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
 
 :::warning
 
@@ -57,7 +57,7 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 | Interface | Function               | Interface   | Function                              |
 | :-------- | :--------------------- | ----------- | ------------------------------------- |
-| J2000     | 100-Pin Interface      | J2200       | MIPI Camera Interface 1               |
+| J2000     | 100-Pin Connector      | J2200       | MIPI Camera Interface 1               |
 | D2000     | Power Indicator LED    | J2201       | MIPI Camera Interface 2               |
 | J2001     | DC Power Input         | SW2200      | MIPI Camera Interface Function Switch |
 | J2100     | GMSL Camera Interface  | SW2201      | MIPI Camera Interface Voltage Switch  |
@@ -117,7 +117,7 @@ The Camera Expansion Board integrates the MAX96712 deserializer chip, supporting
 
 1. When the total 12V current draw of GMSL cameras is ≤700mA, no external 12V adapter is needed—the 12V power is supplied by the RDK S100. If the current draw exceeds 700mA, an external 12V adapter must be connected to ensure stable power delivery.
 2. The Camera Expansion Board can supply up to 550mA@12V per GMSL channel. Exceeding this limit may result in unstable camera operation.
-3. The GMSL interface uses a mini Fakra 4-in-1 Z-code connector. Use cables and cameras recommended by Digu Robotics to ensure stable high-speed GMSL signal transmission.
+3. The GMSL interface uses a mini Fakra 4-in-1 Z-code connector. Use cables and cameras recommended by D-Robotics to ensure stable high-speed GMSL signal transmission.
 
 :::
 
@@ -134,7 +134,7 @@ The Camera Expansion Board features two 4-lane MIPI CSI D-PHY interfaces, suppor
 
 :::
 
-### MIPI Interface Voltage Selection (SW2201)
+### MIPI Camera Interface Voltage Switch (SW2201)
 
 The control signals of the MIPI camera interfaces support switching between 1.8V and 3.3V logic levels to accommodate different camera modules. Switch the DIP switch SW2201 to select the desired logic voltage.
 
@@ -143,7 +143,7 @@ The control signals of the MIPI camera interfaces support switching between 1.8V
 | 1 (Right)| MIPI Cam 1   | MIPI Camera 1 interface uses 3.3V logic level    | MIPI Camera 1 interface uses 1.8V logic level    |
 | 2        | MIPI Cam 2   | MIPI Camera 2 interface uses 3.3V logic level    | MIPI Camera 2 interface uses 1.8V logic level    |
 
-### MIPI Interface Function Selection (SW2200)
+### MIPI Camera Interface Function Switch (SW2200)
 
 Pin 5 of the MIPI camera interface connectors supports switching between LPWM and MCLK (24MHz) functions to meet varying development needs. Switch the DIP switch SW2200 to select the desired function.
 
@@ -152,7 +152,7 @@ Pin 5 of the MIPI camera interface connectors supports switching between LPWM an
 | 1 (Right)| MIPI Cam 1   | Pin 5 of MIPI Camera 1 interface outputs LPWM signal  | Pin 5 of MIPI Camera 1 interface outputs MCLK signal  |
 | 2        | MIPI Cam 2   | Pin 5 of MIPI Camera 2 interface outputs LPWM signal  | Pin 5 of MIPI Camera 2 interface outputs MCLK signal  |
 
-## Power Indicator (D2000)
+## Power Indicator LED (D2000)
 
 The power indicator LED is located next to the DC power input jack.
 

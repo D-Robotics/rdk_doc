@@ -3,6 +3,7 @@
   "position": 2,
   "link": {
     "type": "generated-index",
+    "title":"1. Quick Start",
     "slug": "/Quick_start",
     "description": "RDK system installation and quick start"
   }

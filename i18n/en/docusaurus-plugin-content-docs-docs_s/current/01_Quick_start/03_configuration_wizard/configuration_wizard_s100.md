@@ -138,9 +138,10 @@ fc-cache -fv
 source /etc/default/locale
 ```
 
+<!-- 英文文档无需配置中文
 ## Set Up Chinese Input Method
 
-After installing the Chinese locale, the system’s built-in input method is supported by default. Press the `Super (Windows) key` + `Space` to switch between different input methods.
+After installing the Chinese locale, the system’s built-in input method is supported by default. Press the `Super (Windows) key` + `Space` to switch between different input methods. -->
 
 ## Configure RDK Studio
 

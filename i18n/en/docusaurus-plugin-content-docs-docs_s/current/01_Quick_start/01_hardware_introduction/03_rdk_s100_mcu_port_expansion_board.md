@@ -46,12 +46,12 @@ To prevent malfunction or damage to this expansion board, strictly adhere to the
 
 | **No.** | **Function**                            | No.  | Function                              |
 | ------- | --------------------------------------- | ---- | ------------------------------------- |
-| J1      | 100-pin connector for MCU expansion board | J6   | CAN7                                  |
+| J1      | 100-pin connector for MCU expansion board | J6   | CAN FD Connectors 7                                  |
 | J12     | 30-pin header                           | J7   | 120Ω termination resistor jumper for CAN7 |
-| U4      | Gigabit Ethernet port (MCU domain)      | J8   | CAN8                                  |
-| J2      | CAN5                                    | J9   | 120Ω termination resistor jumper for CAN8 |
-| J3      | 120Ω termination resistor jumper for CAN5 | J10  | CAN9                                  |
-| J4      | CAN6                                    | J11  | 120Ω termination resistor jumper for CAN9 |
+| U4      | Ethernet Connector      | J8   | CAN FD Connectors 8                                  |
+| J2      | CAN FD Connectors 5                                    | J9   | 120Ω termination resistor jumper for CAN8 |
+| J3      | 120Ω termination resistor jumper for CAN5 | J10  | CAN FD Connectors 9                                  |
+| J4      | CAN FD Connectors 6                                    | J11  | 120Ω termination resistor jumper for CAN9 |
 | J5      | 120Ω termination resistor jumper for CAN6 |      |                                       |
 
 ### Assembly Instructions

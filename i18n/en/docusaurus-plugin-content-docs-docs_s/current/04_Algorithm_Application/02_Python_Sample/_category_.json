@@ -2,6 +2,7 @@
   "label": "4.2 Reference Example (Python)",
   "position": 2,
   "link": {
+    "title":"4.2 Reference Example (Python)",
     "type": "generated-index",
     "slug": "03_Python_Sample",
     "description": "Provides Python algorithm development examples"
