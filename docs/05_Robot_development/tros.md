@@ -82,8 +82,8 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | [人体跟随](./03_boxs/body/reid.md) | &#10006; | &#10004; | &#10004; | &#10004; |
 | [BEV](./03_boxs/driver/hobot_bev.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 激光雷达目标检测算法[CenterPoint](./03_boxs/driver/hobot_centerpoint.md) | &#10006; | &#10004; | &#10004; | &#10006; |
-| [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| [双目OCC算法](./03_boxs/spatial/dstereo_occupancy.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; | &#10004; | &#10004; | &#10006; |
+| [双目OCC算法](./03_boxs/spatial/dstereo_occupancy.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10006; | &#10004; | &#10006; | &#10006; |
 | 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; | &#10004; | &#10006; | &#10006; |
 | 智能语音 [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10006; | &#10004; | &#10004; | &#10004; |
