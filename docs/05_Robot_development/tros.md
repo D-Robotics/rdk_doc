@@ -53,3 +53,36 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | ASR                               | 自动语音识别                                            |
 | TogetheROS.Bot                    | TogetheROS.Bot机器人操作系统                            |
 | tros.b                            | TogetheROS.Bot缩写                                      |
+
+
+## 功能支持列表
+
+| 功能 | X3 | X5 | S100 | S600 |
+|----------------|----------------|----------------|----------------|----------------|
+| 数据采集 [hobot_sensor](./02_quick_demo/demo_sensor.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 图像编解码 [hobot_codec](./02_quick_demo/hobot_codec.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 图像处理加速 [hobot_cv](./02_quick_demo/demo_cv.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 数据展示 [hobot_render](./02_quick_demo/demo_render.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 数据通信 [zero-copy](./02_quick_demo/demo_communication.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> | <span style="color: red">✖</span> |
+| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 |
+| 开放词汇目标检测 [YOLO-World](./03_boxs/detection/hobot_yolo_world.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> | <span style="color: red">✖</span> |
+| 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 分割一切 [mono_mobilesam](./03_boxs/segmentation/mono_mobilesam.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> | <span style="color: red">✖</span> |
+| [人体检测](./03_boxs/body/mono2d_body_detection.md)、[人手关键点](./03_boxs/body/hand_lmk_detection.md)、[手势识别](./03_boxs/body/hand_gesture_detection.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)、[人脸106关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应APP示例 | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> | <span style="color: red">✖</span> |
+| [人体跟随](./03_boxs/body/reid.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| [BEV](./03_boxs/driver/hobot_bev.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> |
+| 激光雷达目标检测算法[CenterPoint](./03_boxs/driver/hobot_centerpoint.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> |
+| [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| [双目OCC算法](./03_boxs/spatial/dstereo_occupancy.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> | <span style="color: red">✖</span> |
+| 文本图片特征检索 [hobot_clip](./03_boxs/function/hobot_clip.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> |
+| 光流估计 [mono_pwcnet](./03_boxs/function/mono_pwcnet.md)  | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: red">✖</span> | <span style="color: red">✖</span> |
+| [2D Lidar SLAM](./04_apps/slam.md) <br /> [Navigation2](./04_apps/navigation2.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| [智能盒子](./04_apps/video_boxs.md) | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
+| [视觉语音盒子](./04_apps/hobot_llamacpp.md) | <span style="color: red">✖</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> | <span style="color: green">✔</span> |
