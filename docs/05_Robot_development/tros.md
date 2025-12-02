@@ -60,15 +60,16 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 功能 | X3 | X5 | S100 | S600 |
 |----------------|----------------|----------------|----------------|----------------|
 | 数据采集 [hobot_sensor](./02_quick_demo/demo_sensor.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| 数据展示 [hobot_render](./02_quick_demo/demo_render.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 图像编解码 [hobot_codec](./02_quick_demo/hobot_codec.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 图像处理加速 [hobot_cv](./02_quick_demo/demo_cv.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 数据展示 [hobot_render](./02_quick_demo/demo_render.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 数据通信 [zero-copy](./02_quick_demo/demo_communication.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; | &#10004; | &#10006; | &#10006; |
+| 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| 图像发布工具 [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 |
 | 开放词汇目标检测 [YOLO-World](./03_boxs/detection/hobot_yolo_world.md) | &#10006; | &#10004; | &#10006; | &#10006; |
-| 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10006; | &#10004; | &#10004; | &#10004; |
 | 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10006; | &#10004; | &#10004; | &#10004; |
@@ -81,6 +82,10 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; | &#10004; | &#10004; | &#10004; |
 | [双目OCC算法](./03_boxs/spatial/dstereo_occupancy.md) | &#10006; | &#10004; | &#10004; | &#10004; |
 | 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10006; | &#10004; | &#10006; | &#10006; |
+| 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; | &#10004; | &#10006; | &#10006; |
+| 智能语音 [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| 视觉语言模型 [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| DeepSeek大语言模型 [hobot_xlm](./03_boxs/generate/hobot_xlm.md) | &#10006; | &#10006; | &#10004; | &#10004; |
 | 文本图片特征检索 [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 光流估计 [mono_pwcnet](./03_boxs/function/mono_pwcnet.md)  | &#10006; | &#10004; | &#10006; | &#10006; |
 | [2D Lidar SLAM](./04_apps/slam.md) <br /> [Navigation2](./04_apps/navigation2.md) | &#10004; | &#10004; | &#10004; | &#10004; |
