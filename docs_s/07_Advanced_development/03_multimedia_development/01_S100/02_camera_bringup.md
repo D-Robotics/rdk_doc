@@ -452,7 +452,8 @@ connect 则可以看到实时视频流。实时预览操作示意如图所示。
 ### V4L2 sensor驱动编写说明
 S100 Camsys sensor v4l2 驱动软件框架为标准的v4l2 sub device驱动。
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_10.png)
-下面以IMX219驱动为例，介绍MIPI直连sensor v4l2 驱动开发流程，imx219驱动源码位于：kernel/drivers/media/i2c/imx219.c
+下面以IMX219驱动为例，介绍MIPI直连sensor v4l2 驱动开发流程，imx219驱动源码位于：kernel/drivers/media/i2c/imx219.c  
+
 ####定义sensor私有结构体
 imx219私有结构体如下：
 ```c

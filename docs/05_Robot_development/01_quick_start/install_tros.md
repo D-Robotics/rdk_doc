@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 前提
 
 - 已完成[环境准备](./preparation.md)章节工作
-- RDK已安装2.x版本系统
+- RDK已安装Ubuntu系统
 - RDK能够正常访问互联网
 - RDK能够远程ssh
 
@@ -25,6 +25,12 @@ import TabItem from '@theme/TabItem';
 安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](../../01_Quick_start/download.md)
 
 :::
+
+
+<Tabs groupId="tros-distro">
+<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+
+RDK X3平台请注意：
 
 :::caution 注意
 - **2.x版本tros.b仅支持2.x版本系统镜像，[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持1.x版本系统。**
@@ -36,6 +42,12 @@ import TabItem from '@theme/TabItem';
 | -----------| ------------| ------------|
 | 1.x系统镜像 |       √     |       x     |
 | 2.x系统镜像 |       x     |       √     |
+
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
+
+</TabItem>
+</Tabs>
 
 ### 安装tros.b
 

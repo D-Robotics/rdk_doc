@@ -1,0 +1,10 @@
+{
+  "label": "4. Algorithm Application Development",
+  "position": 5,
+  "link": {
+    "title":"4. Algorithm Application Development",
+    "type": "generated-index",
+    "slug": "/Basic_Development",
+    "description": "Provides algorithm development examples, including multiple interfaces such as Python/C++ and algorithm repositories."
+  }
+}

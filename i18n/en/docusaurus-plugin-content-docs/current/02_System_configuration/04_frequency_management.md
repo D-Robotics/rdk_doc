@@ -17,9 +17,9 @@ To avoid chip overheating under heavy load, power management is implemented at t
 
 ### Main Temperature Points
 
-- **Boot Temperature:** This is the maximum temperature during system startup. If the temperature exceeds this threshold, the system will immediately throttle the CPU and BPU frequencies during boot. The current configuration value can be obtained using the command `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp`, with a default value of 80000 (80 degrees Celsius).
-- **Throttling Temperature:** This is the temperature at which the CPU and BPU frequencies are throttled. When the temperature exceeds this threshold, the CPU and BPU frequencies are reduced to decrease the SoC power consumption. The CPU frequency can be throttled down to a minimum of 240 MHz, and the BPU frequency can be throttled down to a minimum of 400 MHz. The current configuration value can be obtained using the command `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_1_temp`, with a default value of 95000 (95 degrees Celsius).
-- **Shutdown Temperature:** This is the temperature at which the system shuts down to protect the chip and hardware. It is recommended to ensure proper cooling of the device to prevent shutdowns. After a shutdown, the device does not automatically restart and requires a manual power cycle of the development board to restart. The current configuration value can be obtained using the command `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_2_temp`, with a default value of 105000 (105 degrees Celsius).
+- **Boot Temperature:** This is the maximum temperature during system startup. If the temperature exceeds this threshold, the system will immediately throttle the CPU and BPU frequencies during boot. The current configuration value can be obtained using the command `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp`, with a default value of 80000 (80 degrees Celsius/176 degrees Fahrenheit).
+- **Throttling Temperature:** This is the temperature at which the CPU and BPU frequencies are throttled. When the temperature exceeds this threshold, the CPU and BPU frequencies are reduced to decrease the SoC power consumption. The CPU frequency can be throttled down to a minimum of 240 MHz, and the BPU frequency can be throttled down to a minimum of 400 MHz. The current configuration value can be obtained using the command `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_1_temp`, with a default value of 95000 (95 degrees Celsius/203 degrees Fahrenheit).
+- **Shutdown Temperature:** This is the temperature at which the system shuts down to protect the chip and hardware. It is recommended to ensure proper cooling of the device to prevent shutdowns. After a shutdown, the device does not automatically restart and requires a manual power cycle of the development board to restart. The current configuration value can be obtained using the command `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_2_temp`, with a default value of 105000 (105 degrees Celsius/221 degrees Fahrenheit).
 
 The current chip operating frequency, temperature, and other status can be viewed using the `sudo hrut_somstatus` command:
 
@@ -41,7 +41,97 @@ For example, to set the shutdown temperature to 105 degrees Celsius:
 echo 105000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_2_temp
 ```
 
-Please note that the above configuration will be reset to the default values after a system restart. To ensure persistent configuration, these commands can be added to the startup scripts for automatic configuration.
+Please note that the above configuration will be reset to the default values after a system restart. To ensure persistent configuration, these commands can be added to the startup scripts for automatic configuration.  
+
+### CPU Frequency Management  
+
+The Linux kernel comes with a built-in cpufreq subsystem to control CPU frequency and frequency control policies.  
+
+Navigate to the directory `/sys/devices/system/cpu/cpufreq/policy0` and run `ls`. You will see the following files in the directory:
+
+```shell
+affected_cpus						// CPU cores affected by the current policy (does not show offline CPUs)
+cpuinfo_cur_freq					// Current CPU frequency (unit: KHz)
+cpuinfo_max_freq					// Maximum available CPU frequency under the current policy (unit: KHz)
+cpuinfo_min_freq					// Minimum available CPU frequency under the current policy (unit: KHz)
+cpuinfo_transition_latency			// Time required for the processor to switch frequencies (unit: ns)
+related_cpus						// List of CPU cores affected by this policy (includes all CPUs, online and offline)
+scaling_available_frequencies		// List of supported CPU hardware frequencies (unit: KHz)
+scaling_available_governors			// All available governor (frequency scaling) types in the current kernel
+scaling_boost_frequencies			// List of supported CPU hardware frequencies in boost (overclocking) mode (unit: KHz)
+scaling_cur_freq					// Stores the current CPU frequency cached by the cpufreq module; does not check CPU hardware registers.
+scaling_disable_freq				// Disabled CPU frequency; only one frequency can be set.
+scaling_driver						// The currently used frequency scaling driver
+scaling_governor					// The current governor (frequency scaling) policy
+scaling_max_freq					// Maximum available CPU frequency under the current policy (read from cpufreq module cache)
+scaling_min_freq					// Minimum available CPU frequency under the current policy (read from cpufreq module cache)
+scaling_setspeed					// Used only when the governor is set to 'userspace'. Writing a value to this file changes the frequency.
+```
+
+The Linux kernel used in the RDK system supports the following types of frequency scaling policies:
+
+- Performance: Always keeps the CPU at the highest performance (and highest power consumption) state, i.e., the maximum frequency supported by the hardware.
+
+- Powersave: Always keeps the CPU at the lowest power consumption (and lowest performance) state, i.e., the minimum frequency supported by the hardware.
+
+- Ondemand: Periodically checks the system load and adjusts the frequency accordingly. When the load is low, it scales down to the minimum frequency sufficient for the current load. When the load is high, it immediately scales up to the maximum performance state.
+
+- Conservative: Similar to the ondemand policy, it periodically checks the load and adjusts the frequency. For low load, it scales down to the minimum sufficient frequency. For high load, instead of immediately jumping to the maximum frequency, it increases the frequency step by step.
+
+- Userspace: Exposes the control interface to users via sysfs, allowing custom policies and manual frequency adjustment in user space.
+
+- Schedutil: Introduced starting from Linux kernel version 4.7. This policy utilizes CPU utilization information provided by the scheduler to adjust the frequency. It is similar in effect to the ondemand policy but is more precise and natural because the scheduler has the best knowledge of CPU usage.
+
+Users can control the CPU frequency scaling policy by modifying the corresponding settings in the directory `/sys/devices/system/cpu/cpufreq/policy0`.
+
+For example, to set the CPU to run in performance mode:  
+
+```shell
+sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
+```
+
+Or to set the CPU to run at a fixed frequency (1 GHz):  
+
+```shell
+sudo bash -c "echo userspace > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
+sudo bash -c "echo 1000000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed"
+```
+
+#### CPU Overclocking
+
+:::info NOTE
+The following content applies to the `RDK X3` and `RDK X3 Module` development boards, but not to the `RDK Ultra` board.
+:::
+
+<!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=14 -->
+
+The development board uses the CPU Freq driver to manage the CPU operating state. The default mode is `ondemand`, where the CPU frequency dynamically adjusts based on the load to save power. Users can switch to `performance` mode to make the CPU always run at the maximum frequency using the following command:
+
+```bash
+sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
+```
+
+The development board provides an overclocking feature in the system, which can increase the maximum CPU frequency from 1.2 GHz to 1.5 GHz. Use the following command to configure it:  
+
+```bash
+sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
+```
+
+The CPU frequency configured using the above command only takes effect during the current session. It will revert to the default configuration after a device reboot.
+
+:::info NOTE
+CPU overclocking increases chip power consumption and heat generation. If stability issues occur, you can disable the overclocking feature using the following command:  
+
+```bash
+sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
+```
+
+:::
+
+You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:  
+
+![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)  
+
 
 ## X5 Thermal Control
 :::info Note
@@ -148,6 +238,13 @@ scaling_min_freq                    // The lowest frequency available for the CP
 scaling_setspeed                    // A file that should be used to switch the governor to 'userspace' before use. Echo a value to this file to switch the frequency.
 ```
 
+Currently supported frequencies include:  
+```shell
+cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
+300000 600000 1200000 1500000
+```  
+
+
 The Linux kernel used by the RDK system supports the following types of scaling strategies:
 
 - Performance: It always keeps the CPU in the highest power consumption and highest performance state, which is the maximum frequency supported by the hardware.
@@ -174,35 +271,52 @@ sudo bash -c "echo 1000000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_set
 
 ### CPU Overclocking
 
-:::info Note
-The following content is applicable to `RDK X3` and `RDK X3 Module` development boards and not applicable to the `RDK Ultra` development board.
-:::
-
-Video: https://www.youtube.com/watch?v=WqLxbN2qw-k&list=PLSxjn4YS2IuFUWcLGj2_uuCfLYnNYw6Ld&index=5
-
-The development board uses the CPU Freq driver to manage the CPU operating state. The default mode is the 'ondemand' mode, where the CPU frequency is dynamically adjusted based on the load to save power. User can change to the 'performance' mode to make the CPU always operate at the highest frequency. The command is as follows:
+The development board uses the CPU Freq driver to manage the CPU operating state. The default mode is the `schedutil` mode, where the CPU frequency is dynamically adjusted based on the load to save power. Users can switch to the `performance` mode to make the CPU always run at the highest frequency using the following command:  
 
 ```bash
-sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
+echo performance >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 ```
 
-The development board provides overclocking function in the system, which can increase the CPU maximum frequency from 1.2GHz to 1.5GHz. The configuration command is as follows:
+The development board provides an overclocking feature in the system, which can increase the maximum CPU frequency from 1.5GHz to 1.8GHz. The configuration commands are as follows:  
 
 ```bash
-sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
+echo 1 >/sys/devices/system/cpu/cpufreq/boost
+echo performance >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 ```
 
-The CPU frequency configured by the above command only takes effect during current operation. If the device is restarted, it will return to the default configuration.
+The CPU frequency configured using the above commands only takes effect during the current session. If the device is rebooted, the configuration will revert to the default settings.  
 
 :::info Note
-Overclocking the CPU will increase the power consumption and heat dissipation of the chip. If stability issues occur, you can disable the overclocking function with the following command:
+CPU overclocking increases chip power consumption and heat. If stability issues occur, the overclocking feature can be disabled using the following command:  
 
 ```bash
-sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
+echo 0 >/sys/devices/system/cpu/cpufreq/boost
 ```
 
 :::
 
-You can use the `sudo hrut_somstatus` command to check the current chip operating frequency, temperature, and other status:
+:::info Note
+Overclocking is only supported on X5H; it is not available on X5M. The chip type can be checked using the following command. For example, the following query shows the chip is X5M:  
 
-![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
+```bash
+cat /sys/class/socinfo/soc_name
+X5M
+```
+
+If the chip type is identified as `X5U` (i.e., `X5 UNKNOWN`), it usually indicates that the chip is an early production version, and the corresponding identifier has not been burned into its eFUSE. Therefore, the accurate chip model cannot be read through software and requires manual identification based on the chip's silk print information.  
+
+![image-20251029-114153](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20251029-114153.png)
+
+For such chips, overclocking restrictions are not enabled, meaning overclocking configuration can theoretically be executed. However, please note:
+
+- Power consumption will increase significantly after overclocking.
+
+- System stability cannot be guaranteed; there may be risks of abnormal operation or reduced lifespan.
+
+It is recommended to use this feature only during the research and development phase for testing and not to rely on overclocking for mass production.  
+
+:::
+
+You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:  
+
+![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)

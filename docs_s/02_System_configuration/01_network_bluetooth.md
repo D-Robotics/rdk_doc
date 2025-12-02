@@ -340,13 +340,6 @@ sudo apt full-upgrade
 sudo reboot
 ```
 
-## 蓝牙配置（废弃）
-
-:::tip
-RDK S100 的蓝牙配置暂不可用
-持续更新中....
-:::
-
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9
 
 ### 初始化

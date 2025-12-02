@@ -293,9 +293,9 @@ Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在�
 
 ## **使用 MacOS 系统笔记本串口乱码问题**
 
-以 MacOs 版本 15.0(芯片 M3)为例，MACOS 系统默认串口驱动以 921600 波特率连接 CH340N 会出现乱码，需要安装最新的 CH340N 的驱动，操作如下：
+以 MacOS 版本 15.0(芯片 M3)为例，MacOS 系统默认串口驱动以 921600 波特率连接 CH340N 会出现乱码，需要安装最新的 CH340N 的驱动，操作如下：
 
-1. 默认的 CH340N 驱动插上设备显示为`tty.usbserial*`，说明此时为 MACOS 默认串口驱动，需要更新：
+1. 默认的 CH340N 驱动插上设备显示为`tty.usbserial*`，说明此时为 MacOS 默认串口驱动，需要更新：
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-mac-usb-driver-ttyusb.png)
 
 2. 安装流程：(以下安装流程参考[CH340N 最新驱动发布页面](https://github.com/WCHSoftGroup/ch34xser_macos?tab=readme-ov-file)下的 README.md 文档编写)
@@ -320,7 +320,7 @@ Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在�
 3. 连接设备验证
    :::warning 注意
 
-   CH340N 最新官方驱动仍不支持 MACOS 系统自带的 screen 工具以 921600 波特率通讯，需使用`minicom`工具。
+   CH340N 最新官方驱动仍不支持 MacOS 系统自带的 screen 工具以 921600 波特率通讯，需使用`minicom`工具。
 
    :::
 
@@ -333,7 +333,7 @@ Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在�
 4. FAQ
 
    1. Q1：之前已安装或使用官网下载的 CH340N 驱动后，串口查看还是乱码。
-      - A：如果已经从官网安装驱动，但是查看到设备仍为`tty.usbserial*`，需要把 CH34xVCPDriverApp 放到废纸篓里，清空废纸篓，**<font color='red'>重启电脑</font>**，根据[上面的步骤](#使用macos系统笔记本串口乱码问题)重新安装。
+      - A：如果已经从官网安装驱动，但是查看到设备仍为`tty.usbserial*`，需要把 CH34xVCPDriverApp 放到废纸篓里，清空废纸篓，**<font color='red'>重启电脑</font>**，根据[上面的步骤](#使用MacOS系统笔记本串口乱码问题)重新安装。
 
 ## **常见问题**
 
