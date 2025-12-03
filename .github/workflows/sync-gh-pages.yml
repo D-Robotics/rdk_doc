@@ -1,4 +1,4 @@
-name: Sync gh-pages to Gitee
+name: Sync gh-pages to OSS
 
 on:
   workflow_run:
@@ -18,15 +18,16 @@ jobs:
           ref: gh-pages
           fetch-depth: 0   # 拉取完整历史，保证可以 push
 
-      - name: Setup Git
+      - name: Upload to Alibaba Cloud OSS
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          # 1. 下载 ossutil 工具
+          wget -q http://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64
+          chmod +x ossutil64
 
-      - name: Add Gitee remote
-        run: |
-          git remote remove gitee 2>/dev/null || true
-          git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
+          # 2. 使用 GitHub Secrets 中的密钥配置 ossutil
+          ./ossutil64 config -e ${{ secrets.OSS_ENDPOINT }} \
+            -i ${{ secrets.OSS_ACCESS_KEY_ID }} \
+            -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
-      - name: Push gh-pages to Gitee
-        run: git push gitee gh-pages --force
+          # 3. 同步当前目录（即 gh-pages 分支内容）到 OSS Bucket
+          ./ossutil64 cp -r . oss://cn-rdk-front-prod/rdk_doc/ --update
