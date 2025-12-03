@@ -18,16 +18,19 @@ jobs:
           ref: gh-pages
           fetch-depth: 0   # 拉取完整历史，保证可以 push
 
-      - name: Upload to Alibaba Cloud OSS
+      - name: Upload to OSS via Custom Domain
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         run: |
-          # 1. 下载 ossutil 工具
-          curl -L -o ossutil64 https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64
+          # 下载最新版 ossutil
+          wget -q https://gosspublic.alicdn.com/ossutil/1.7.20/ossutil64
           chmod +x ossutil64
 
-          # 2. 使用 GitHub Secrets 中的密钥配置 ossutil
-          ./ossutil64 config -e ${{ secrets.OSS_ENDPOINT }} \
-            -i ${{ secrets.OSS_ACCESS_KEY_ID }} \
-            -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-
-          # 3. 同步当前目录（即 gh-pages 分支内容）到 OSS Bucket
-          ./ossutil64 cp -r . oss://cn-rdk-front-prod/rdk_doc/ --update
+          # 直接使用命令行参数，避免配置步骤
+          ./ossutil64 cp -r . oss://cn-rdk-front-prod/rdk_doc/ \
+            --endpoint=https://cn-rdk-front-prod.d-robotics.cc \
+            --access-key-id="$OSS_ACCESS_KEY_ID" \
+            --access-key-secret="$OSS_ACCESS_KEY_SECRET" \
+            --update \
+            --retry-times=3
