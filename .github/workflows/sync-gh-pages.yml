@@ -21,7 +21,7 @@ jobs:
       - name: Upload to Alibaba Cloud OSS
         run: |
           # 1. 下载 ossutil 工具
-          wget -q http://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64
+          curl -L -o ossutil64 https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64
           chmod +x ossutil64
 
           # 2. 使用 GitHub Secrets 中的密钥配置 ossutil
