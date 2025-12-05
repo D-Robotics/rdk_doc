@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# 3.1.3 Use PWM
+# 3.1.3 Using PWM
 
 The Hobot.GPIO library only supports PWM on pins with additional hardware PWM controllers. Unlike the RPi.GPIO library, the Hobot.GPIO library does not implement software simulated PWM. 
 

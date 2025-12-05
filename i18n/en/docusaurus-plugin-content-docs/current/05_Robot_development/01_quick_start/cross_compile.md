@@ -116,6 +116,10 @@ The `tros_ws/robot_dev_config` path contains the configuration and script files 
 
 During compilation, the installation path of `sysroot_docker` is specified through the `CMAKE_SYSROOT` macro in the `robot_dev_config/aarch64_toolchainfile.cmake` compilation script.
 
+:::info
+For the tag number (version information) of robot_dev_config, please refer to the [Version Release Notes](./changelog.md) section.
+:::
+
 #### 3 Cross-Compilation
 
 All of these operations are performed inside the docker on the development machine.
@@ -123,6 +127,9 @@ All of these operations are performed inside the docker on the development machi
 ```shell
 ## Compile tros.b version X3 using build.sh
 bash ./robot_dev_config/build.sh -p X3
+
+## Compile tros.b version Rdkultra using build.sh
+bash ./robot_dev_config/build.sh -p Rdkultra
 
 ## Compile tros.b version X5 using build.sh
 bash ./robot_dev_config/build.sh -p X5

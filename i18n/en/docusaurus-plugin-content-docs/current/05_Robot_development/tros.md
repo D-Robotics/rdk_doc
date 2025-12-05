@@ -5,7 +5,7 @@ sidebar_position: 0
 # TogetheROS.Bot
 TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and developers. It aims to unleash the intelligent potential of robot scenarios, enabling developers and commercial customers to develop robots efficiently and conveniently, and create competitive intelligent robot products.
 
-TogetheROS.Bot supports running on the RDK platform. The RDK platform covers all the functions shown in the diagram below, improving user algorithm development and verification efficiency, and enabling quick migration to the RDK platform.
+TogetheROS.Bot supports running on the RDK platform while also providing a simulator version for operation on X86 platforms. The RDK platform covers all the functions shown in the diagram below, while the X86 platform supports experiencing partial functionalities through image replay methods, improving user algorithm development and verification efficiency, and enabling quick migration to the RDK platform.
 
 ![TROS-Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png)
 
@@ -44,12 +44,10 @@ Apps are algorithm application examples developed based on the D-Robotics robot 
 | Term                             | Definition                                               |
 | ---------------------------------| --------------------------------------------------------|
 | zero-copy                        | Inter-process zero-copy communication method             |
-| BPU                              | neural network algorithm processing unit             |
+| BPU                              | BPU-based model inference function encapsulation             |
 | hobot dnn                        | Encapsulation of BPU-based model inference functionality |
 | SLAM                              | Simultaneous Localization and Mapping |
 | DOA                               | Direction of Arrival                     |
 | ASR                               | Automatic Speech Recognition             |
 | TogetheROS.Bot                    | Together Robot Operating System for robot    |
 | tros.b                            | TogetheROS.Bot abbreviation               |
-| RDK                               | Robotics Developer Kits                   |
-| BEV                               | Birds Eye View                   |

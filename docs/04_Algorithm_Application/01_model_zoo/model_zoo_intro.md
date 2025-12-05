@@ -68,7 +68,7 @@ jupyter lab --allow-root --ip 10.112.148.68
 
 使用命令后，会出现以上日志，按住Ctrl，鼠标左键点击上图所示的链接，即可进入Jupyter Lab（如下图所示），双击demos后，即可选择模型体验RDK Model Zoo。
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter-en.png)
 
 
 ## 使用指南
