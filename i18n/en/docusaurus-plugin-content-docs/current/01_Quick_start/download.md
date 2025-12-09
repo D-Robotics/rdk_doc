@@ -610,8 +610,9 @@ Providing comprehensive hardware design support materials for module customers t
       <th>🇯🇵 **MIC**</th>
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
-      <th>♻️ **RoHS**</th>
-      <th>♻️ **RoHS**</th>
+      <th>🇪🇺 **RoHS**</th>
+      <th>🇹🇭 **NBTC**</th>
+      <th>🇲🇾 **SIRIM**</th>
     </tr>
   </thead>
   <tbody>
@@ -624,7 +625,8 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/NBTC.pdf">📄 NBTC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SIRIM.pdf">📄 SIRIM</a></td>
     </tr>
     <tr>
       <td>**RDK X3**</td>
