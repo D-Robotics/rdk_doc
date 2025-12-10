@@ -382,14 +382,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 #### RDK平台
 
-1. 确认摄像头正确接入RDK，例如 F37 摄像头的接入RDK X3方式如下图：
+1. 确认摄像头正确接入RDK。
+
+    如 F37 摄像头的接入RDK X3方式如下图：
 
     ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
     如 imx219 摄像头的接入RDK S100方式如下图：
-    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
-
-    如 imx219 摄像头的接入RDK S100方式如下图：
+    
     ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
 
 2. RDK已烧录好Ubuntu系统镜像
@@ -684,14 +684,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 #### RDK平台
 
-1. 确认摄像头正确接入RDK，例如 SC230ai 双目摄像头的接入RDK X5, RDK X5 Module方式如下图：
+1. 确认摄像头正确接入RDK。
+
+    如 SC230ai 双目摄像头的接入RDK X5, RDK X5 Module方式如下图：
 
     ![image-X5-PI-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
 
     如SC230ai 双目摄像头的接入S100方式如下图：
-    ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
 
-    如SC230ai 双目摄像头的接入S100方式如下图：
     ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
 
 2. RDK已烧录好RDK OS系统

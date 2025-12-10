@@ -156,7 +156,7 @@ source /opt/ros/jazzy/setup.bash
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
 
-1. **RDK**启动导航功能
+2. **RDK**启动导航功能
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -187,18 +187,18 @@ source /opt/tros/jazzy/setup.bash
 
 
    ```bash
-   ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
+   ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/${ROS_DISTRO}/share/nav2_bringup/maps/tb3_sandbox.yaml
    ```
 
 
-2. **PC端**启动Rviz2工具
+3. **PC端**启动Rviz2工具
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/setup.bash
+source /opt/ros/setup.bash
 ```
 
 </TabItem>
@@ -206,7 +206,7 @@ source /opt/tros/setup.bash
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/humble/setup.bash
+source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
@@ -214,7 +214,7 @@ source /opt/tros/humble/setup.bash
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -229,7 +229,7 @@ source /opt/tros/jazzy/setup.bash
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz.png)
 
-1. 在Rviz2上设置机器人起始位置和方向
+（1） 在Rviz2上设置机器人起始位置和方向
 
    Rviz2启动后，机器人最初不知道它在哪里。默认情况下，Nav2会等待用户给机器人一个大致的起始位置。查看机器人在Gazebo中的位置，并在地图上找到该位置。通过点击Rviz2中的"2D Pose Estimate" 按钮，然后通过在地图上机器人预估的位置处点击来设置机器人初始位置 。可以通过向前拖动刚才单击的位置来设置机器人起始的移动方向。如下图所示：
 
@@ -239,7 +239,7 @@ source /opt/tros/jazzy/setup.bash
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_start.png)
 
-2. Rviz2设置目的地
+（2） Rviz2设置目的地
 
    点击 "Navigaton2 Goal" 按钮并选择一个目的地。
 

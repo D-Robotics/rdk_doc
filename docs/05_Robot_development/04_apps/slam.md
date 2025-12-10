@@ -250,6 +250,7 @@ PC端开启另外一个控制台，PC端启动控制工具，通过键盘控制�
 
 ```bash
 source /opt/ros/foxy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 </TabItem>
@@ -257,6 +258,7 @@ source /opt/ros/foxy/setup.bash
 
 ```bash
 source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 </TabItem>
@@ -264,15 +266,11 @@ source /opt/ros/humble/setup.bash
 
 ```bash
 source /opt/ros/jazzy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 ```
 
 </TabItem>
 </Tabs>
-
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
 
 控制小车行驶，随着小车雷达探测到更多的环境信息，SLAM算法也建立起环境地图，可以在Rviz2上观察到建图效果。
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)

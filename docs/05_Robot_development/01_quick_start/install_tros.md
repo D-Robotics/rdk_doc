@@ -163,13 +163,15 @@ Description: TogetheROS Bot
 
 ```
 
+可以看到当前tros.b版本已升级为2.2.0版本。
+
 </TabItem>
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
 root@ubuntu:~# apt show tros-jazzy
 Package: tros-jazzy
-Version: 2.2.0-noble.20240410.221258
+Version: 2.5.0-noble.20251202.080038
 Priority: optional
 Section: misc
 Maintainer: zhuo <zhuo.wang@d-robotics.cc>
@@ -177,20 +179,20 @@ Installed-Size: 44.0 kB
 Depends: hobot-models-basic, tros-jazzy-ai-msgs, tros-jazzy-audio-control, tros-jazzy-audio-msg, tros-jazzy-   audio-tracking, tros-jazzy-base, tros-jazzy-body-tracking, tros-jazzy-dnn-benchmark-example, tros-jazzy-dnn-   node, tros-jazzy-dnn-node-example, tros-jazzy-dnn-node-sample, tros-jazzy-elevation-net, tros-jazzy-gesture-   control, tros-jazzy-hand-gesture-detection, tros-jazzy-hand-lmk-detection, tros-jazzy-hbm-img-msgs, tros-humb   le-hobot-audio, tros-jazzy-hobot-chatbot, tros-jazzy-hobot-codec, tros-jazzy-hobot-cv, tros-jazzy-hobot-fall   down-detection, tros-jazzy-hobot-hdmi, tros-jazzy-hobot-image-publisher, tros-jazzy-hobot-llm, tros-jazzy-ho   bot-mot, tros-jazzy-hobot-shm, tros-jazzy-hobot-tts, tros-jazzy-hobot-usb-cam, tros-jazzy-hobot-vio, tros-hu   mble-hobot-visualization, tros-jazzy-img-msgs, tros-jazzy-imu-sensor, tros-jazzy-line-follower-model, tros-hu   mble-line-follower-perception, tros-jazzy-mipi-cam, tros-jazzy-mono2d-body-detection, tros-jazzy-mono2d-trash   -detection, tros-jazzy-mono3d-indoor-detection, tros-jazzy-parking-perception, tros-jazzy-parking-search, tro   s-jazzy-rgbd-sensor, tros-jazzy-websocket, tros-jazzy-ros-workspace
 Download-Size: 5,546 B
 APT-Manual-Installed: yes
-APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk noble/main arm64 Packages
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk-s600 noble/main arm64 Packages
 Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.2.0版本。
-
-:::caution 注意
-- 查询显示的版本号`Version`是实际安装的`tros.b`的版本，本示例以`2.2.0`版本举例说明。
-- `tros.b`的发布版本信息详见[版本发布记录](./changelog)。
-:::
+可以看到当前tros.b版本已升级为2.5.0版本。
 
 </TabItem>
 </Tabs>
+
+:::caution 注意
+- 查询显示的版本号`Version`是实际安装的`tros.b`的版本，可能和本示例中显示的版本号`Version`不一致。
+- `tros.b`的发布版本信息详见[版本发布记录](./changelog)。
+:::
 
 ## X86平台
 

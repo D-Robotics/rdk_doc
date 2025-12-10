@@ -113,8 +113,8 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 <TabItem value="jazzy" label="Jazzy">
 
    ```bash
-   # 配置tros.b环境
    source /opt/tros/jazzy/setup.bash
+   ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
    ```
 
  </TabItem>
@@ -186,8 +186,12 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 <TabItem value="jazzy" label="Jazzy">
 
    ```bash
-   # 配置tros.b环境
    source /opt/tros/jazzy/setup.bash
+   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+   export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+   export ROS_DISABLE_LOANED_MESSAGES=0
+   ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
    ```
 
  </TabItem>
