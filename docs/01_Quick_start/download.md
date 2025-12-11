@@ -607,8 +607,9 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <th>🇯🇵 **MIC**</th>
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
-      <th>♻️ **RoHS**</th>
-      <th>♻️ **RoHS**</th>
+      <th>🇪🇺 **RoHS**</th>
+      <th>🇹🇭 **NBTC**</th>
+      <th>🇲🇾 **SIRIM**</th>
     </tr>
   </thead>
   <tbody>
@@ -621,7 +622,8 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/NBTC.pdf">📄 NBTC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SIRIM.pdf">📄 SIRIM</a></td>
     </tr>
     <tr>
       <td>**RDK X3**</td>
@@ -631,7 +633,6 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td>
       <td>-</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
     </tr>
     <tr>

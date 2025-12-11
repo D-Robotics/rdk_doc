@@ -1,4 +1,4 @@
-name: Sync gh-pages to Gitee
+name: Sync gh-pages to OSS
 
 on:
   workflow_run:
@@ -16,23 +16,28 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: gh-pages
-          fetch-depth: 1   # 只拉取最新版本，减小仓库体积
+          fetch-depth: 0   # 拉取完整历史，保证可以 push
 
-      - name: Setup Git
+      - name: Setup ossutil v2
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          # 下载并设置 ossutil v2
+          curl -o ossutil.zip https://gosspublic.alicdn.com/ossutil/v2/2.1.2/ossutil-2.1.2-linux-amd64.zip
+          unzip ossutil.zip
+          cd ossutil-2.1.2-linux-amd64
+          chmod 755 ossutil
+          mv ossutil /usr/local/bin/ && sudo ln -s /usr/local/bin/ossutil /usr/bin/ossutil
+          ossutil version
 
-      - name: Create orphan branch to remove history
+      - name: Upload to OSS via Custom Domain
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         run: |
-          # 创建一个无历史的孤立分支，只包含当前内容
-          git checkout --orphan gh-pages-clean
-          git add -A
-          git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M:%S')"
-
-      - name: Add Gitee remote and force push
-        run: |
-          git remote remove gitee 2>/dev/null || true
-          git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/study-dp/rdk_doc.git
-          # 强制推送到 gh-pages，完全替换 Gitee 上的分支
-          git push gitee gh-pages-clean:gh-pages --force
+          # 直接使用命令行参数，避免配置步骤
+          sudo ossutil cp -r . oss://cn-rdk-front-prod/rdk_doc/ \
+          -e https://d-robotics.cc \
+          -i $OSS_ACCESS_KEY_ID \
+          -k $OSS_ACCESS_KEY_SECRET \
+          --region cn-beijing \
+          --update \
+          --retry-times=3
