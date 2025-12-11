@@ -744,9 +744,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 Take the SC230ai as an example to introduce the method of acquiring and previewing images:
 
-1. SSH into RDK and determine the camera model, take `SC230ai` as an example.
+1. Only launc the dual mipi camera for publish the stream.
 
-2. Start the `hobot_sensor` node with the following command:
+   (1) Start the `hobot_sensor` node with the following command:
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
@@ -765,7 +765,7 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     ros2 launch mipi_cam mipi_cam_dual_channel.launch.py
     ```
 
-3. If the following information is outputted, it means that the node has been successfully started:
+    (2) If the following information is outputted, it means that the node has been successfully started:
 
     ```text
     [INFO] [launch]: All log files can be found below /root/.ros/log/2024-09-18-19-15-26-160110-ubuntu-3931
@@ -785,7 +785,8 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     [mipi_cam-1]
     ...
     ```
-4. To view the dual camera image on the web, as raw data needs to be encoded into JPEG images, need to be coded Jpeg image node,  and one for publishing with a webservice node.
+2. To view the dual camera image on the web, as raw data needs to be encoded into JPEG images, need to be coded Jpeg image node,  and one for publishing with a webservice node.
+   (1) Start the `hobot_sensor` node with the following command:
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
@@ -804,7 +805,7 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     ros2 launch mipi_cam mipi_cam_dual_channel_websocket.launch.py
     ```
 
-5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the dual camera's output.
+    (2) Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the dual camera's output.
     ![web-dualcamera-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg)
 
 ### Caution

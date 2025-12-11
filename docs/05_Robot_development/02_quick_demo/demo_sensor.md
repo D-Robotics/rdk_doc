@@ -707,9 +707,8 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 下面以 SC230ai 为例，介绍摄像头数据获取和预览的方法：
 
-1. 通过 SSH 登录RDK，确定摄像头型号，这里以`SC230ai`为例
-
-2. 并通过下述命令启动 hobot_sensor 节点
+1. 只启动双目摄像机的启动方式,方便其他node订阅。
+   (1) 通过下述命令启动 hobot_sensor 节点
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
@@ -735,8 +734,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     # launch 方式启动
     ros2 launch mipi_cam mipi_cam_dual_channel.launch.py
     ```
-
-3. 如程序输出如下信息，说明节点已成功启动
+    (2) 如程序输出如下信息，说明节点已成功启动
 
     ```text
     [INFO] [launch]: All log files can be found below /root/.ros/log/2024-09-18-19-15-26-160110-ubuntu-3931
@@ -757,7 +755,8 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ...
     ```
 
-4. Web端查看双目摄像头图像，由于发布原始数据，需要一个编码JPEG图像的节点，一个用webservice发布的节点，启动命令如下：
+2. Web端查看双目摄像头图像，由于发布原始数据，需要一个编码JPEG图像的节点，一个用webservice发布的节点
+   (2) 启动命令如下：
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
@@ -784,7 +783,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ros2 launch mipi_cam mipi_cam_dual_channel_websocket.launch.py
     ```
 
-5. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为RDK IP地址），点击左上方Web端展示即可看到双目输出的实时画面
+    (2) PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为RDK IP地址），点击左上方Web端展示即可看到双目输出的实时画面
     ![web-dualcamera-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg)
 
 
