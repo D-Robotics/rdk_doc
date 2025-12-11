@@ -15,7 +15,7 @@ This section introduces how to use apt to install TogetheROS.Bot on RDK.
 Prerequisites
 
 - The [Environment Setup](./preparation.md) has been completed.
-- The RDK system has been installed.
+- RDK has installed the Ubuntu operating system.
 - The RDK can access the internet normally.
 - The RDK can be accessed remotely via SSH.
 
@@ -32,7 +32,7 @@ Before installing TogetheROS, please confirm the system version and download the
 Note for RDK X3 platform:
 
 :::caution Attention
-- **2.x version tros.b only supports 2.x version system images，1.x version tros.b only supports 1.x version systems.**  
+- **2.x version tros.b only supports 2.x version system images，[1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)[Chinese Only] only supports 1.x version systems.**  
 - **If you are using a 1.x version system image, you need to [upgrade the system](./preparation.md) to version 2.x.**
 - **For the method of checking system and tros.b version numbers and detailed instructions, please refer to [FAQs](../../../current/08_FAQ/03_applications_and_examples.md).**
 :::

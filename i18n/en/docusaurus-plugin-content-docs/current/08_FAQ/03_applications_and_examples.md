@@ -372,7 +372,7 @@ Date: 2023
         * Only supports earlier 1.x RDK OS and specific RDK hardware (such as early RDK X3).
         * Future 1.x versions may only receive critical fixes, with no new features.
         * Code was once hosted on GitLab or other internal platforms.
-        * Reference link (historical version docs): [1.x tros.b Documentation](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)
+        * Reference link (historical version docs): [1.x tros.b Documentation](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)[Chinese Only]
 
     :::caution **Note**
     1.x tros.b **cannot** be upgraded directly to 2.x or newer via `apt`. To use the new version, you must first upgrade the entire RDK board OS to a version that supports the new tros.b by flashing the image, then install the corresponding tros.b version.

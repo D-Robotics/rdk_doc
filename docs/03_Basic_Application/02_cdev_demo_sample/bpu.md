@@ -63,10 +63,10 @@ root@ubuntu:/app/cdev_demo/bpu/src/bin# tree
 我们需要进入到 /app/cdev_demo/bpu/src/bin 目录下执行，这里我们以接摄像头的 yolov5 推理作为执行效果。
 
 ### 执行效果
-(1)
-通过 `systemctl stop lightdm` 命令关闭图形界面服务。
+(1)通过 `systemctl stop lightdm` 命令关闭图形界面服务。
 
-(2) 搭配摄像头进行 yolov5 的推理
+(2) 搭配摄像头进行 yolov5 的推理  
+
 在 `root@ubuntu:/app/cdev_demo/bpu/src/bin#` 目录使用 `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0 ` 命令。
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0
@@ -94,7 +94,9 @@ Camera 0:
 就能看到文档开头时候展示的图片一样的效果：
 ![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_bpu_running_yolo5v.png)
 
-(3) 解码 h264 之后，通过 fcos 模型进行推理
+(3) 解码 h264 之后，通过 fcos 模型进行推理  
+
+
 在 `root@ubuntu:/app/cdev_demo/bpu/src/bin#` 目录使用 `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080 ` 命令。
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080

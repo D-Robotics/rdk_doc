@@ -25,9 +25,12 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-package.tgz --ftp-
 👉 [https://toolchain.d-robotics.cc/](https://toolchain.d-robotics.cc/)
 
 **下载地址：**
-```bash
+<!-- ```bash
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-doc.zip --ftp-password=Oeftp~123$%
-```  
+```   -->
+
+👉 [OE用户手册下载](https://archive.d-robotics.cc/toolchain/s100-3.5.0-oe-doc.zip)
+
 ## Docker 镜像
 
 ### CPU Docker

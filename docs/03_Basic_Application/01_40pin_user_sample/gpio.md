@@ -26,7 +26,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 - CVM： 使用字符串代替数字，对应于CVM / CVB连接器的信号名称。
 - SOC： 对应的编号是芯片内部的 GPIO 管脚序号。
 
-本文推荐用户使用`BOARD`编码模式，设置编码的方式如下：
+本文推荐用户使用`BOARD`编码模式，设置编码的方式如下：  
 注意：编码每次只能设置一次，如果想要重新设置，需要`GPIO.cleanup()`后重新设置
 ```python
 GPIO.setmode(GPIO.BOARD)
@@ -122,8 +122,8 @@ GPIO.cleanup()
 # 清除单个通道
 GPIO.cleanup(channel)
 # 清除一组通道
-GPIO.cleanup( (channel1, channel2) )
-GPIO.cleanup( [channel1, channel2] )
+GPIO.cleanup((channel1, channel2))
+GPIO.cleanup([channel1, channel2])
 ```
 
 ## 查看管脚状态

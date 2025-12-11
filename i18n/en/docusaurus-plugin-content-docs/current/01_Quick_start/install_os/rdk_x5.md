@@ -282,7 +282,7 @@ Connect the power cable using a USB Type C cable, and use a power adapter that s
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-![image_2025-10-31_201701_994](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image_2025-10-31_201701_994.png)
+![image_2025-10-31_201701_994](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image_2025-10-31_201701_994-en.png)
 
 </TabItem>
 </Tabs>
