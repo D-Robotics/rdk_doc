@@ -79,14 +79,6 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
 </Tabs>
 
 
@@ -114,14 +106,6 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -154,14 +138,6 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

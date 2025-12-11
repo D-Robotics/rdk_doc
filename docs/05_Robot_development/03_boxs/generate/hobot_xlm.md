@@ -20,7 +20,6 @@ import TabItem from '@theme/TabItem';
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 端侧大语言模型体验 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 端侧大语言模型体验 |
 
 ## 算法信息
 
@@ -91,13 +90,6 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
 
 </TabItem>
 </Tabs>
@@ -135,13 +127,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
    source /opt/tros/humble/setup.bash
    ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
-   ```
 
    </TabItem>
    </Tabs>
@@ -175,13 +160,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
    source /opt/tros/humble/setup.bash
    ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
-   ```
 
    </TabItem>
    </Tabs>
@@ -209,13 +187,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
    source /opt/tros/humble/setup.bash
    ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
-   ```
 
    </TabItem>
    </Tabs>

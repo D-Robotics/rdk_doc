@@ -21,7 +21,6 @@ import TabItem from '@theme/TabItem';
 | ------------------------------- | ------------ | ------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 端侧视觉语言大模型体验 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 端侧视觉语言大模型体验 |
 
 ## 支持模型
 
@@ -62,13 +61,6 @@ import TabItem from '@theme/TabItem';
 source /opt/tros/humble/setup.bash
 ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
 
 </TabItem>
 </Tabs>
@@ -213,15 +205,6 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 ```bash
 source /opt/tros/humble/setup.bash
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:=1 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="Describe the image." -p model_file_name:=SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm -p llm_model_name:=SmolVLM2-256M-Video-Instruct-Q8_0.gguf
-```
-
-</TabItem>
-<TabItem value="s600" label="RDK S600">
-
-```shell
-source /opt/tros/jazzy/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:=1 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="Describe the image." -p model_file_name:=SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm -p llm_model_name:=SmolVLM2-256M-Video-Instruct-Q8_0.gguf
 ```

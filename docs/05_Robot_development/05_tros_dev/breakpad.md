@@ -12,6 +12,12 @@ Breakpad是一个比Linux core机制更强大的、用于记录程序崩溃时�
 
 Breakpad位于[代码仓库](https://github.com/D-Robotics/breakpad.git)，分支为develop，目录内包含了经过交叉编译，可在RDK上运行的bin，lib，includes等文件夹，分别包含了breakpad工具，静态链接库，头文件等内容。
 
+## 支持平台
+
+| 平台    | 运行方式     |
+| ------- | ------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+
 ## 任务内容
 ### 1. 创建、编译并运行test程序
 下载源码后，在Breakpad目录下新建测试程序 test.cpp，并编译为可执行程序 test，其中要带上 -g 选项。新建目录 /tmp，再运行可执行程序 test

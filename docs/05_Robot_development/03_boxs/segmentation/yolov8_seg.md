@@ -26,7 +26,6 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 | ------- | ------------ | ------------------------------ |
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 
 ## 算法信息
 
@@ -72,13 +71,6 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
 
 </TabItem>
 </Tabs>
@@ -110,13 +102,6 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
 
 </TabItem>
 </Tabs>
@@ -149,13 +134,6 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
 
 </TabItem>
 </Tabs>

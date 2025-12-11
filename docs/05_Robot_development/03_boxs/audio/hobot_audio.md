@@ -182,14 +182,6 @@ RDK板端运行hobot_audio package：
     source /opt/tros/humble/setup.bash
     ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-    ```
-
  </TabItem>
  </Tabs>
 
@@ -254,20 +246,6 @@ RDK板端运行hobot_audio package：
    #启动launch文件
    ros2 launch hobot_audio hobot_audio.launch.py
    ```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-
-   # 屏蔽调式打印信息
-   export GLOG_minloglevel=3
-
-   #启动launch文件
-   ros2 launch hobot_audio hobot_audio.launch.py
-    ```
 
 </TabItem>
 

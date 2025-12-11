@@ -24,7 +24,6 @@ import TabItem from '@theme/TabItem';
 | ------ | ------------ | ---------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动音频模块算法，并在终端显示结果 |
 
 ## 准备工作
 
@@ -38,14 +37,6 @@ import TabItem from '@theme/TabItem';
    ```bash
    sudo apt update
    sudo apt install tros-humble-sensevoice-ros2
-   ```
-
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   sudo apt update
-   sudo apt install tros-jazzy-sensevoice-ros2
    ```
    </TabItem>
    </Tabs>
@@ -93,20 +84,6 @@ RDK板端运行sensevoice_ros2 package：
    #启动launch文件
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
    ```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-
-    # 屏蔽调式打印信息
-    export GLOG_minloglevel=3
-
-    #启动launch文件
-    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
-    ```
 
 </TabItem>
 

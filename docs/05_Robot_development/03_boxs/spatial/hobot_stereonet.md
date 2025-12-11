@@ -27,7 +27,6 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | --------------------- | --------------------- | ------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
 | RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动双目相机，推理出深度结果，并在Web端显示 |
 
 ## 算法版本信息
 
