@@ -153,15 +153,15 @@ Before burning the Ubuntu system image, please prepare the following:
 Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
 1. Open Rufus and select the target Micro SD card under the "Device" dropdown.
 
-   ![image-rufus-select-device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device.png)
+   ![image-rufus-select-device](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device-en.png)
 
 2. Click the "Select" button and choose the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the image to burn.
 
-   ![image-rufus-select-img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img.png)
+   ![image-rufus-select-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img-en.png)
 
 3. Keep other parameters as default, then click the "Start" button and wait for the burning process to complete. Once finished, you can close Rufus and remove the SD card.
 
-   ![image-rufus-flash](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash.png)
+   ![image-rufus-flash](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash-en.png)
 
 </TabItem>
 

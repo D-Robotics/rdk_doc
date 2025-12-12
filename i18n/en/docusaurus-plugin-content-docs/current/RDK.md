@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # D-Robotics RDK Suite
 
-This document is the user manual for the D-Robotics RDK Suite. It provides developers with usage instructions and development guidance for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module (Sunrise X3 Module), RDK X5, and RDK Ultra. The content covers hardware design, system customization, application development, algorithm toolchains, and more.
+This document is the user manual for the D-Robotics RDK Suite. It provides developers with usage instructions and development guidance for products such as RDK X3 (Sunrise X3 Pi), RDK X3 Module (Sunrise X3 Module), RDK X5, RDK X5 Module (Sunrise X5 Module), and RDK Ultra. The content covers hardware design, system customization, application development, algorithm toolchains, and more.
 
 :::tip 💾 Download Resources Summary
 

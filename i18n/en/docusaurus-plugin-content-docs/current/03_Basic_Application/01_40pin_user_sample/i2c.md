@@ -6,6 +6,8 @@ sidebar_position: 5
 
 By default, RDK X3 enables I2C0 on pin 40, with physical pin numbers 3 and 5, and IO voltage of 3.3V.
 
+By default, RDK X5 enables I2C5 (physical pin numbers 3 and 5) and I2C0 (physical pin numbers 27 and 28) on pin 40, and IO voltage of 3.3V.
+
 RDX Ultra enables I2C4 and I2C6, with physical pin numbers 3, 5, 27, and 28, and IO voltage of 3.3V.
 
 Please refer to `/app/40pin_samples/test_i2c.py` for detailed information on how to use I2C.
@@ -63,6 +65,7 @@ def i2cdevTest():
     i2c.close()
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     print("Starting demo now! Press CTRL+C to exit")
     print("List of enabled I2C controllers:")
     os.system('ls /dev/i2c*')

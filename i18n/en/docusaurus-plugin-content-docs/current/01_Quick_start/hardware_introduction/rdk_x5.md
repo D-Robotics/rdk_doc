@@ -91,7 +91,7 @@ The core board provides a 300-pin high-speed expansion interface, which can flex
 
 During installation, it is essential to ensure the correct orientation and alignment to avoid damage to the connectors on the core module or the carrier board.
 
-![img-20250418-111059](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250418-111059.png)
+![img-20250418-111059](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250418-111059-en.png)
 
 Module installation steps:
 

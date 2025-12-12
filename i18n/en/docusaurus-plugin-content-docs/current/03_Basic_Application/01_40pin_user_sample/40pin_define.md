@@ -5,6 +5,13 @@ sidebar_position: 1
 
 For the 40-pin on the development board, please refer to the [40-Pin GPIO Definition](./40pin_define) section for interface definitions.
 
+## Hardware Usage Instructions
+
+- The 40PIN interface on the RDK provides GPIO signals at 3.3V logic level, with a maximum withstand voltage of 3.46V.
+- The 3.3V pin of the 40PIN interface supports a maximum output current of 800mA, while the 5V pin supports a maximum output current of 500mA. To achieve these maximum output currents, the RDK's input adapter must have a minimum load capacity of 25W.
+- When connecting peripherals, strict attention must be paid to the voltage and current relationships of the power, ground, and signal levels on the 40PIN interface. Any overvoltage, overcurrent, or ESD events may cause irreversible damage to the RDK.
+- When using jumper wires to connect the RDK to other functional boards, ensure that the RDK product is powered off and shut down.
+  
 ## Pin Multiplexing Configuration
 
 The 40-pin are enabled with default configurations for UART, SPI, I2C, I2S, and other dedicated functions as shown in the [40-Pin GPIO Definition](#40pin_define). If you want to configure specific pins as GPIO, you need to use the `srpi-config` graphical configuration tool.
@@ -88,12 +95,12 @@ sunrise@ubuntu:~$ cd /app/40pin_samples/
 sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
 ```
 ## Expected Output
-By controlling the voltage level of pin `37`, the output level of pin `36` will change accordingly.
+By controlling the voltage level of pin `37`, the output level of pin `31` will change accordingly.
 
 ```bash
 sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
 Starting demo now! Press CTRL+C to exit
-Outputting 0 to Pin 36
-Outputting 1 to Pin 36
-Outputting 0 to Pin 36
+Outputting 0 to Pin 31
+Outputting 1 to Pin 31
+Outputting 0 to Pin 31
 ```

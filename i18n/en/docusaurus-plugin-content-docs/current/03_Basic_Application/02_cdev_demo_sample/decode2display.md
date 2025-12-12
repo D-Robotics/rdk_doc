@@ -5,7 +5,7 @@ sidebar_position: 2
 # 3.2.2 decode2display Sample Introduction
 
 ## Sample Overview
-decode2display is a **C language interface** development code example located in the /app/cdev_demo directory, demonstrating how to use C language for decoding and displaying to the screen. By referring to this example, users can understand and develop related applications.
+decode2display is a **C language interface** development code example located in the `/app/cdev_demo` directory, demonstrating how to use C language for decoding and displaying to the screen. By referring to this example, users can understand and develop related applications.
 
 ## Effect Demonstration
 The following image shows the phenomenon of the RDK connected to an HDMI screen during program execution and the network terminal output through SSH connection to the RDK.\
@@ -46,7 +46,7 @@ root@ubuntu:/app/cdev_demo/decode2display# tree
 ```
 
 ### Execution Effect
-- **First**, we need to prepare the input data. Here we can copy existing board data, such as the 1920x1080.h264 file from the /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 directory to the current directory for separate operation without affecting the original data.
+- **First**, we need to prepare the input data. Here we can copy existing board data, such as the 1920x1080.h264 file from the `/opt/tros/humble/lib/hobot_codec/config/1920x1080.h264` directory to the current directory for separate operation without affecting the original data.
 - **Second**, we use `systemctl stop lightdm` to stop the display service.
 - **Finally**, we use the `./decoder2display` command. The default execution result is to decode the 1920x1080.h264 file and display it on the monitor.
 

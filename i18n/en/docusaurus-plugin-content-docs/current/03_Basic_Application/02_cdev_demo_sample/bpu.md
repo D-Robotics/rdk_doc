@@ -65,7 +65,8 @@ We need to execute in the `/app/cdev_demo/bpu/src/bin` directory. Here, we use t
 ### Execution Effect
 (1) Use the `systemctl stop lightdm` command to close the graphical interface service.
 
-(2) YOLOv5 inference with camera
+(2) YOLOv5 inference with camera  
+
 In the `root@ubuntu:/app/cdev_demo/bpu/src/bin#` directory, use the `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0` command.
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0
@@ -93,7 +94,8 @@ Camera 0:
 You will see the same effect as shown in the image at the beginning of the document:
 ![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_bpu_running_yolo5v.png)
 
-(3) Inference using FCOS model after decoding H264
+(3) Inference using FCOS model after decoding H264  
+
 In the `root@ubuntu:/app/cdev_demo/bpu/src/bin#` directory, use the `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080` command.
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080

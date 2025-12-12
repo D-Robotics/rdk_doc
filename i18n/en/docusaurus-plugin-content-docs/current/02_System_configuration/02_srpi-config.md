@@ -159,11 +159,11 @@ Localisation options provide the following choices: local language, time zone, a
 
 - **Locale**
 
-  Select a locale, such as configuring English environment `en_US.UTF-8`. Restart to take effect.
+  Select a locale, such as configuring English environment `en_GB.UTF-8`. Restart to take effect.
 
 - **Time Zone**
 
-  Select your local time zone, starting from the region, for example, Asia, and then choose a city, like Tokyo. Type a letter to jump to that point in the alphabet.
+  Select your local time zone, starting from the region, for example, Europe, and then choose a city, like London. Type a letter to jump to that point in the alphabet.
 
 - **Keyboard**
 
@@ -199,7 +199,7 @@ Information about `srpi-config`
 
 Choosing this option will display the following information:
 
-![image-20231123110127905](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110127905.png)
+![image-20231123110127905](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20231123110127905-en.png)
 
 ## Finish button
 

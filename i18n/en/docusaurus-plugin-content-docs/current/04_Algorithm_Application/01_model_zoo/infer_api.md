@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Overview
 
-The board-side inference interface used by ModelZoo is **bpu_infer_lib**. In the previous section, we described how to install bpu_infer_lib, get started quickly, and use its basic features.
+The board-side inference interface used by ModelZoo is **bpu_infer_lib**. In the previous section, we described how to install **bpu_infer_lib**, get started quickly, and use its basic features.
 
 In this section, we will introduce the details and usage of each API provided by bpu_infer_lib.
 

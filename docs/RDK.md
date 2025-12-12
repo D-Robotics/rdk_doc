@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # D-Robotics RDK套件
 
-本文档为 D-Robotics RDK 套件 X 系列的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。
+本文档为 D-Robotics RDK 套件 X 系列的用户手册，为开发者提供关于RDK X3（旭日X3派）、RDK X3 Module（旭日X3模组）、RDK X5 、RDK X5 Module（旭日X5模组）、RDK Ultra等产品的使用说明和开发指导，内容涵盖硬件设计、系统定制、应用开发、算法工具链等多个方面。
 
 :::tip 💾 下载资源汇总
 

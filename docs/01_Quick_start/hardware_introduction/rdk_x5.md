@@ -96,7 +96,7 @@ RDK X5 Module作为核心板，集成了D-Robotics Sunrise®5智能计算芯片�
 
 安装时需要首先确认正确的方向和定位，避免对核心模组、载板的连接器造成损伤。
 
-![img-20250418-111059](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250418-111059.png)
+![img-20250418-111059](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/img-20250418-111059-en.png)
 
 模组安装方法如下：
 

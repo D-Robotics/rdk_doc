@@ -68,7 +68,7 @@ jupyter lab --allow-root --ip 10.112.148.68
 
 After running the command, you will see the above log. Hold Ctrl and left-click the link shown in the image to enter Jupyter Lab (as shown below). Double-click `demos` to select and experience models in the RDK Model Zoo.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter-en.png)
 
 
 
@@ -76,7 +76,7 @@ After running the command, you will see the above log. Hold Ctrl and left-click 
 
 After selecting a model's notebook in Jupyter Lab, you will see an interface similar to the following:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage.png)
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage-en.png)
 
 Taking the YOLO World model as an example, simply click the double triangle button shown above to run all cells. Scroll down to see the results:
 

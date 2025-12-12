@@ -25,29 +25,11 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-package.tgz --ftp-
 👉 [https://toolchain.d-robotics.cc/](https://toolchain.d-robotics.cc/)
 
 **下载地址：**
-```bash
+<!-- ```bash
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-doc.zip --ftp-password=Oeftp~123$%
-```  
+```   -->
 
-### RDK S100 LLM 开发工具包
-
-#### S100 1.0.0 大模型工具链
-
-**开发工具包下载地址：** 
-```bash 
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0.tar.gz --ftp-password=Oeftp~123$%
-```
-
-**用户手册下载地址:** 
-```bash 
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0_Doc.zip --ftp-password=Oeftp~123$%
-```
-
-**ReleaseNotes下载地址：**  
-```bash
-wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/D-Robotics_LLM_1.0.0_ReleaseNotes.pdf --ftp-password=Oeftp~123$%
-```  
-
+👉 [OE用户手册下载](https://archive.d-robotics.cc/toolchain/s100-3.5.0-oe-doc.zip)
 
 ## Docker 镜像
 

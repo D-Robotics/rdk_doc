@@ -14,7 +14,7 @@ Get board ID: 0x504
 >>> GPIO.VERSION
 '0.0.2'
 >>> GPIO.model
-'X3PI'
+'RDK_X5'
 ```
 
 ## Setting Pin Numbering Mode
@@ -24,10 +24,10 @@ The development board has 4 pin numbering modes:
 - BOARD: Physical pin numbering, corresponding to the silk screen numbering on the development board.
 - BCM: GPIO naming based on the Broadcom SoC.
 - CVM: Use strings instead of numbers, corresponding to the signal names of the CVM/CVB connectors.
-- SOC: GPIO pin numbering corresponding to the X3M chip, matching the chip's datasheet.
+- SOC: The corresponding number is the GPIO pin number inside the chip.
 
-This article recommends using the `BOARD` pin numbering mode. The pin numbering can be set as follows:
-
+This article recommends using the `BOARD` pin numbering mode. The pin numbering can be set as follows:    
+Note: The encoding can only be set once at a time. If you want to reset it, you need to call `GPIO.cleanup()` and then set it again.
 ```python
 GPIO.setmode(GPIO.BOARD)
 # or
@@ -123,8 +123,8 @@ If you only want to clean up specific channels, use:
 # Clean up a single channel
 GPIO.cleanup(channel)
 # Clean up a group of channels
-GPIO.cleanup( (channel1, channel2) )
-GPIO.cleanup( [channel1, channel2] )
+GPIO.cleanup((channel1, channel2))
+GPIO.cleanup([channel1, channel2])
 ```
 
 ## Checking Pin State
@@ -147,7 +147,9 @@ On the `RDK Ultra` platform, only a specific few pins on the `40 pin` header can
 
 Please refer to [Pin Configuration and Definitions](./40pin_define#40pin_define) for pin definitions.
 
-:::The GPIO library provides three methods to detect input events:
+:::  
+
+The GPIO library provides three methods to detect input events:
 
 ### wait_for_edge() function
 
@@ -241,22 +243,27 @@ The main test cases are provided in the `/app/40pin_samples/` directory:
 
 ```python
 #!/usr/bin/env python3
-
+import sys
+import signal
 import Hobot.GPIO as GPIO
 import time
 
-# Define the GPIO channel used as 38output_pin = 38 # BOARD code 38
+def signal_handler(signal, frame):
+    sys.exit(0)
+
+# Define GPIO channel 37 for use
+output_pin = 37 # BOARD encoding 37
 
 def main():
-    # Set the pin numbering mode to BOARD
+    # Set pin numbering mode to hardware numbering BOARD
     GPIO.setmode(GPIO.BOARD)
-    # Set the pin as output and initialize it to high level
+    # Set as output mode and initialize to HIGH level
     GPIO.setup(output_pin, GPIO.OUT, initial=GPIO.HIGH)
-    # Record the current pin state
+    # Record current pin state
     curr_value = GPIO.HIGH
     print("Starting demo now! Press CTRL+C to exit")
     try:
-        # Loop to control the LED light on and off every 1 second
+        # Control LED on/off with 1-second intervals
         while True:
             time.sleep(1)
             GPIO.output(output_pin, curr_value)
@@ -265,6 +272,7 @@ def main():
         GPIO.cleanup()
 
 if __name__=='__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     main()
 ```
 
@@ -294,8 +302,9 @@ def main():
             value = GPIO.input(input_pin)
             if value != prev_value:
                 if value == GPIO.HIGH:
-                    value_str = "HIGH"else:
-                value_str = "LOW"
+                    value_str = "HIGH"
+                else:
+                    value_str = "LOW"
             print("Value read from pin {} : {}".format(input_pin, value_str))
             prev_value = value
         time.sleep(1)
@@ -311,42 +320,45 @@ if __name__=='__main__':
 
 ```python
 #!/usr/bin/env python3
-
-import RPi.GPIO as GPIO
+import sys
+import signal
+import Hobot.GPIO as GPIO
 import time
 
-# Define the GPIO channels:
-# Pin 31 as output to light up an LED
-# Pin 38 as input for a button
-led_pin = 31  # BOARD coding 31
-but_pin = 38  # BOARD coding 38
+def signal_handler(signal, frame):
+    sys.exit(0)
 
-# Disable warning messages
+# Define the GPIO channel to use as 37
+input_pin = 37 # BOARD encoding 37
+
 GPIO.setwarnings(False)
 
 def main():
-    # Set the pin coding mode to BOARD
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(led_pin, GPIO.OUT)  # LED pin set as output
-    GPIO.setup(but_pin, GPIO.IN)  # button pin set as input
+    prev_value = None
 
-    # Initial state for LEDs:
-    GPIO.output(led_pin, GPIO.LOW)
+    # Set pin numbering mode to hardware numbering BOARD
+    GPIO.setmode(GPIO.BOARD)
+    # Set as input mode
+    GPIO.setup(input_pin, GPIO.IN)
 
     print("Starting demo now! Press CTRL+C to exit")
     try:
         while True:
-            print("Waiting for button event")
-            GPIO.wait_for_edge(but_pin, GPIO.FALLING)
-
-            # event received when button pressed
-            print("Button Pressed!")
-            GPIO.output(led_pin, GPIO.HIGH)
+            # Read pin level
+            value = GPIO.input(input_pin)
+            if value != prev_value:
+                if value == GPIO.HIGH:
+                    value_str = "HIGH"
+                else:
+                    value_str = "LOW"
+                print("Value read from pin {} : {}".format(input_pin, value_str))
+                prev_value = value
             time.sleep(1)
-            GPIO.output(led_pin, GPIO.LOW)finally:
-    GPIO.cleanup()  # cleanup all GPIOs
+    finally:
+        GPIO.cleanup()
 
-if __name__ == '__main__':
+if __name__=='__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     main()
 ```
 
@@ -363,12 +375,12 @@ def signal_handler(signal, frame):
     sys.exit(0)
 
 # Define GPIO channels:
-# Pin 12 as output, can light up an LED
-# Pin 13 as output, can light up an LED
-# Pin 38 as input, can connect a button
-led_pin_1 = 12 # BOARD code 12
-led_pin_2 = 13 # BOARD code 13
-but_pin = 38   # BOARD code 38
+# Pin 15 as output, can light up an LED
+# Pin 16 as output, can light up an LED
+# Pin 37 as input, can connect a button
+led_pin_1 = 15 # BOARD code 15
+led_pin_2 = 16 # BOARD code 16
+but_pin = 37   # BOARD code 37
 
 # Disable warning messages
 GPIO.setwarnings(False)

@@ -105,7 +105,31 @@ Rufus is a bootable media creation tool for Windows. To create an SD boot card u
     ![image-rufus-flash](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash-en.png)
 
 
----
+### Flashing the Board
+
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X5">
+
+Insert the SD card into the development board, connect the USB 2.0 Type-C to the PC, press and hold the Sleep button (located next to the headphone jack), power on the development board, wait for 5 seconds, and the board will enter flashing mode.
+
+The PC can detect the SD card mapped as a USB drive, then follow the system flashing section to complete the system flashing.
+
+</TabItem>
+<TabItem value="x5md" label="RDK X5 Module">
+
+Insert the SD card into the development board, connect the USB 2.0 Type-C to the PC, press and hold the Sleep button (interface 23), power on the development board, wait for 5 seconds, and the board will enter flashing mode.
+
+The PC can detect the SD card mapped as a USB drive.
+
+If the SD card is not inserted into the development board, the eMMC built into the core board will be mapped as a USB drive.
+
+Then follow the system flashing section to complete the system flashing.
+
+</TabItem>
+</Tabs>
+
+![img-2025-1451](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1451-en.png)  
+
 
 ### System Boot
 
@@ -258,7 +282,7 @@ Connect the power cable using a USB Type C cable, and use a power adapter that s
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-![image_2025-10-31_201701_994](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image_2025-10-31_201701_994.png)
+![image_2025-10-31_201701_994](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image_2025-10-31_201701_994-en.png)
 
 </TabItem>
 </Tabs>
@@ -278,12 +302,12 @@ Click "Start Upgrade". After seeing the prompt, unplug and replug the power;
 
 If the serial port is lost after unplugging and replugging the power, you can first not supply power, and after seeing the prompt, then power on the board.
 
-![d785a399-9e2e-40c5-a0c8-222a515f35f0](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/d785a399-9e2e-40c5-a0c8-222a515f35f0.png)
+![d785a399-9e2e-40c5-a0c8-222a515f35f0](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/d785a399-9e2e-40c5-a0c8-222a515f35f0-en.png)
 
 Start Upgrading
 
-![267d637b-f67e-42a7-981f-2e45278bd877](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/267d637b-f67e-42a7-981f-2e45278bd877.png)
+![267d637b-f67e-42a7-981f-2e45278bd877](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/267d637b-f67e-42a7-981f-2e45278bd877-en.png)
 
 Upgrade Finished
 
-![078e4c6a-fca1-467b-bc93-c5a7ca73f8b7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/078e4c6a-fca1-467b-bc93-c5a7ca73f8b7.png)
+![078e4c6a-fca1-467b-bc93-c5a7ca73f8b7](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/078e4c6a-fca1-467b-bc93-c5a7ca73f8b7-en.png)

@@ -159,7 +159,7 @@ sidebar_position: 7
     <tr>
       <td>📄 **规格书**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 规格书</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module 规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_module_zh_v1_2.pdf">RDK X5 Module 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf">开发套件规格书</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf">Module规格书</a></td>
@@ -177,7 +177,7 @@ sidebar_position: 7
     <tr>
       <td>📐 **机械尺寸图**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_TOP.dxf">模组结构图 (TOP)</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_BOTTOM.dxf">模组结构图 (BOTTOM)</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_TOP.dxf">模组结构图_V1P1 (TOP)</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_BOTTOM.dxf">模组结构图_V1P1 (BOTTOM)</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_TOP.dxf">模组结构图_V1P2 (TOP)</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_BOTTOM.dxf">模组结构图_V1P2 (BOTTOM)</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>暂不开放</td>
       <td>暂不开放</td>
@@ -186,7 +186,7 @@ sidebar_position: 7
     <tr>
       <td>🎯 **3D图**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
-      <td>即将发布</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p0_0708.stp">模组结构图_V1P0</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p1-0709.stp">模组结构图_V1P1</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module V1P2 3D.stp">模组结构图_V1P2</a><br/></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
       <td>暂不开放</td>
       <td>暂不开放</td>
@@ -230,7 +230,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
     </tr>
     <tr>
       <td>📄 **Module 规格书**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf">RDK X5 Module</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_module_zh_v1_2.pdf">RDK X5 Module</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module</a></td>
       <td>核心计算模组详细技术规格和产品说明</td>
     </tr>
@@ -304,7 +304,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <p><strong>内容简介：</strong>提供模组的详细技术参数，包括电气特性、接口规范、尺寸定义、工作环境等关键信息。</p>
       <p><strong>适用场景：</strong>便于客户全面了解模组性能指标，进行选型评估或系统方案规划。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20MD.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_module_zh_v1_2.pdf" className="download-link">📥 RDK X5 Module Datasheet</a>
       </div>
     </div>
   </div>
@@ -360,12 +360,13 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <h4>模组结构图纸</h4>
     </div>
     <div class="doc-content">
-      <p><strong>文件：</strong>RDK_X5_MD_HW_V0P3_BOTTOM.dxf / RDK_X5_MD_HW_V0P3_TOP.dxf</p>
+      <p><strong>文件：</strong>&nbsp;RDK_X5_MD_HW_V1P1_BOTTOM.dxf<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RDK_X5_MD_HW_V1P1_TOP.dxf<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RDK_X5_MD_HW_V1P2_BOTTOM.dxf<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RDK_X5_MD_HW_V1P2_TOP.dxf<br/></p>
       <p><strong>内容简介：</strong>提供模组顶部和底部的二维结构图（DXF格式），包含孔位、外形尺寸、接口布局等关键结构信息。</p>
       <p><strong>适用场景：</strong>支持客户进行整机结构设计、模组贴装、外壳预留等工作。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_TOP.dxf" className="download-link">📥 TOP结构图</a>
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V0P3_BOTTOM.dxf" className="download-link">📥 BOTTOM结构图</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_TOP.dxf" className="download-link">📥 TOP结构图_V1P1</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_BOTTOM.dxf" className="download-link">📥 BOTTOM结构图_V1P1</a><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_TOP.dxf" className="download-link">📥 TOP结构图_V1P2</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_BOTTOM.dxf" className="download-link">📥 BOTTOM结构图_V1P2</a>
       </div>
     </div>
   </div>
