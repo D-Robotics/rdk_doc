@@ -168,16 +168,16 @@ sidebar_position: 7
     <tr>
       <td>🔧 **原理图**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_IO_CONN_PUBLIC_V1.0.pdf">RDK X5 原理图</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Carrier_Board_V1P0_0526.pdf">官方底板原理图</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Carrier Board V1P1.pdf">官方底板原理图</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2.0_IO_Schematics.pdf">RDK X3-2.0 原理图</a></td>
-      <td>暂不开放</td>
+      <td>N/A</td>
       <td>暂不开放</td>
       <td>电路设计原理图，供参考设计使用</td>
     </tr>
     <tr>
       <td>📐 **机械尺寸图**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_TOP.dxf">模组结构图_V1P1 (TOP)</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_BOTTOM.dxf">模组结构图_V1P1 (BOTTOM)</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_TOP.dxf">模组结构图_V1P2 (TOP)</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_BOTTOM.dxf">模组结构图_V1P2 (BOTTOM)</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p1_dxf.zip">模组结构图_V1P1</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p2_dxf.zip">模组结构图_V1P2</a><br/></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>暂不开放</td>
       <td>暂不开放</td>
@@ -194,9 +194,9 @@ sidebar_position: 7
     </tr>
     <tr>
       <td>🛠️ **参考设计资料**</td>
-      <td>即将发布</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf">硬件设计指南</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx">接口定义文档</a></td>
-      <td>暂不开放</td>
+      <td>N/A</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Guide V1P1.pdf">硬件设计指南</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Pinout Description and Application Note V1P1.xlsx">接口定义文档</a></td>
+      <td>N/A</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/reference_design">设计资料</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design">设计资料</a></td>
       <td>硬件原理图、PCB、3D模型、BOM、gerber等技术资料</td>
@@ -315,11 +315,11 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <h4>硬件设计指南</h4>
     </div>
     <div class="doc-content">
-      <p><strong>文件：</strong>RDK X5 Module Hardware Design Guide</p>
+      <p><strong>文件：</strong>RDK X5 Module Hardware Design Guide V1P1</p>
       <p><strong>内容简介：</strong>详细指导客户如何基于模组设计定制化的底板，包括供电、电源管理、接口连接、电气保护等关键设计要点。</p>
       <p><strong>适用场景：</strong>适用于底板硬件开发初期，确保设计与模组高度兼容、稳定可靠。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Hardware%20Design%20Guide_V1P0_0526.pdf" className="download-link">📥 硬件设计指南</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Guide V1P1.pdf" className="download-link">📥 硬件设计指南</a>
       </div>
     </div>
   </div>
@@ -330,11 +330,11 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <h4>接口定义与应用笔记</h4>
     </div>
     <div class="doc-content">
-      <p><strong>文件：</strong>RDK X5 Module Pinout Description and Application Note</p>
+      <p><strong>文件：</strong>RDK X5 Module Pinout Description and Application Note V1P1</p>
       <p><strong>内容简介：</strong>对模组的各个接口引脚进行详细定义，配合典型应用场景说明，帮助开发者快速理解信号含义与使用方式。</p>
       <p><strong>适用场景：</strong>接口设计阶段，确保引脚连接正确，便于功能调试与扩展开发。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK%20X5%20Module%20Pinout%20Description%20and%20Application%20Note_V1P0_0526.xlsx" className="download-link">📥 接口定义文档</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Pinout Description and Application Note V1P1.xlsx" className="download-link">📥 接口定义文档</a>
       </div>
     </div>
   </div>
@@ -345,11 +345,11 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <h4>官方底板参考设计</h4>
     </div>
     <div class="doc-content">
-      <p><strong>文件：</strong>RDK_X5_Module_Carrier_Board</p>
+      <p><strong>文件：</strong>RDK X5 Module Carrier Board V1P1</p>
       <p><strong>内容简介：</strong>提供官方底板的完整原理图，可作为客户底板设计的重要参考，涵盖各类接口、供电、功能模块布局等。</p>
       <p><strong>适用场景：</strong>参考设计使用，有助于缩短底板开发周期、减少设计错误。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_Module_Carrier_Board_V1P0_0526.pdf" className="download-link">📥 官方底板原理图</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Carrier Board V1P1.pdf" className="download-link">📥 官方底板原理图</a>
       </div>
     </div>
   </div>
@@ -360,13 +360,12 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <h4>模组结构图纸</h4>
     </div>
     <div class="doc-content">
-      <p><strong>文件：</strong>&nbsp;RDK_X5_MD_HW_V1P1_BOTTOM.dxf<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RDK_X5_MD_HW_V1P1_TOP.dxf<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RDK_X5_MD_HW_V1P2_BOTTOM.dxf<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RDK_X5_MD_HW_V1P2_TOP.dxf<br/></p>
+      <p><strong>文件：</strong>&nbsp;rdk_x5_md_hw_v1p1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdk_x5_md_hw_v1p2<br/></p>
       <p><strong>内容简介：</strong>提供模组顶部和底部的二维结构图（DXF格式），包含孔位、外形尺寸、接口布局等关键结构信息。</p>
       <p><strong>适用场景：</strong>支持客户进行整机结构设计、模组贴装、外壳预留等工作。</p>
       <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_TOP.dxf" className="download-link">📥 TOP结构图_V1P1</a>
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P1_BOTTOM.dxf" className="download-link">📥 BOTTOM结构图_V1P1</a><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_TOP.dxf" className="download-link">📥 TOP结构图_V1P2</a>
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK_X5_MD_HW_V1P2_BOTTOM.dxf" className="download-link">📥 BOTTOM结构图_V1P2</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p1_dxf.zip" className="download-link">📥 结构图_V1P1</a>
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p2_dxf.zip" className="download-link">📥 结构图_V1P2</a>
       </div>
     </div>
   </div>
@@ -382,6 +381,21 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <p><strong>适用场景：</strong>前期市场推广、项目提案或客户初步了解时使用。</p>
       <div class="doc-link">
         <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 模组简要介绍</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🔋</span>
+      <h4>模组功耗介绍</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>文件：</strong>RDK X5 Module Typical Scenario Power Consumption V1P0</p>
+      <p><strong>内容简介：</strong>RDK X5 模组典型场景功耗。</p>
+      <p><strong>适用场景：</strong>用于说明模组的典型功耗，帮助客户在整机设计阶段完成功耗评估。</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Typical Scenario Power Consumption V1P0.xlsx" className="download-link">📥 模组功耗介绍</a>
       </div>
     </div>
   </div>
