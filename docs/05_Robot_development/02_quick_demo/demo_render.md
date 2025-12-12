@@ -285,7 +285,7 @@ ros2 launch hobot_hdmi hobot_hdmi.launch.py device:=F37
 
 ### 功能介绍
 
-TogetheROS.Bot兼容ROS2 foxy/humble/jazzy版本，为了方便预览图像效果，可以通过RViz2获取图像。
+TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获取图像。
 
 ### 支持平台
 
@@ -300,21 +300,15 @@ TogetheROS.Bot兼容ROS2 foxy/humble/jazzy版本，为了方便预览图像效�
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK已烧录好Ubuntu桌面版本系统镜像。
 
 2. RDK已成功安装tros.b。
-
-3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
-
-ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-
-   PC 端 RViz2安装方法为：`sudo apt install ros-foxy-rviz-common ros-foxy-rviz-default-plugins ros-foxy-rviz2`
 
 ### 使用方式
 
 #### RDK平台
 
-1. 通过SSH登录开发板，启动板端相关程序
+1. 通过SSH登录RDK，启动板端相关程序
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -346,13 +340,13 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    </Tabs>
 
    ```shell
-   # 启动F37 camera发布BGR8格式图像
+   # 启动mipi camera发布BGR8格式图像
    ros2 launch mipi_cam mipi_cam.launch.py mipi_out_format:=bgr8 mipi_image_width:=480 mipi_image_height:=272 mipi_io_method:=ros mipi_video_device:=F37
    ```
 
    注意: mipi_out_format请勿随意更改，RViz2只支持RGB8, RGBA8, BGR8, BGRA8等图像格式.
 
-2. 如程序输出如下信息，说明节点已成功启动
+   如程序输出如下信息，说明节点已成功启动：
 
    ```shell
    [INFO] [launch]: All log files can be found below /root/.ros/log/2022-08-19-03-53-54-778203-ubuntu-2881662
@@ -360,7 +354,7 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    [INFO] [mipi_cam-1]: process started with pid [2881781]
    ```
 
-3. RDK新建一个窗口，查询话题命令及返回结果如下：
+2. RDK新建一个窗口，查询话题命令及返回结果如下：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -405,7 +399,7 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    /rosout
    ```
 
-4. PC机上查询当前话题，查询命令及返回结果如下：
+3. RDK上启动RViz2订阅话题，并预览摄像头数据；
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -422,43 +416,19 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
    ```
 
 </TabItem>
-</Tabs>
+<TabItem value="jazzy" label="Jazzy">
 
-   ```shell
-   # 配置ROS2环境
-   ros2 topic list
-   ```
-
-   输出：
-
-   ```shell
-   /camera_info
-   /image_raw
-   /parameter_events
-   /rosout
-   ```
-
-1. PC机上订阅话题，并预览摄像头数据；
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-   ```shell
-   source /opt/ros/foxy/setup.bash
-   ```
-
-</TabItem>
-<TabItem value="humble" label="Humble">
-
-   ```shell
-   source /opt/ros/humble/setup.bash
+   ```bash
+   source /opt/tros/jazzy/setup.bash
    ```
 
 </TabItem>
 </Tabs>
 
    ```shell
-   # 配置ROS2环境
+   # 安装RViz2
+   sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2
+   # 启动RViz2
    ros2 run rviz2 rviz2
    ```
 
@@ -470,90 +440,34 @@ ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Instal
 
    ![rviz2-result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png)
 
-### 注意事项
-
-1. 如遇到PC端ros2 topic list未识别到摄像头topic，排查：
-
-   - 检查RDK是否正常pub图像
-
-      <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/humble/setup.bash
-      ```
-
-      </TabItem>
-      <TabItem value="jazzy" label="Jazzy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/jazzy/setup.bash
-      ```
-
-      </TabItem>
-
-      </Tabs>
-
-      ```shell
-      ros2 topic list
-      ```
-
-      输出：
-
-      ```shell
-      /camera_info
-      /image_raw
-      /parameter_events
-      /rosout
-      ```
-
-   - 检查PC和RDK网络能否ping通；
-   - PC和RDK IP地址是否前三位相同；
 
 ## RQt展示
 
 ### 功能介绍
 
-TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，可以大幅度降低网络带宽消耗。
+TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大幅度降低网络带宽消耗。本章节的示例将会在RDK上启动MIPI摄像头获取图像，然后在RDK上使用RQt预览。
 
 ### 支持平台
 
-| 平台    | 运行方式      | 示例功能                       |
-| ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module, RDK Ultra| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头获取图像，在PC上使用RQt预览 |
+| 平台    | 运行方式      |
+| ------- | ------------- |
+| RDK X3, RDK X3 Module, RDK Ultra| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK已烧录好Ubuntu桌面版本系统镜像。
 
 2. RDK已成功安装tros.b。
-
-3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
-
-[ROS2 Foxy安装参考](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-
-   PC 端 rqt-image-view安装方法为：`sudo apt install ros-foxy-rqt-image-view ros-foxy-rqt`
 
 ### 使用方式
 
 #### RDK平台
 
-1. 通过SSH登录开发板，启动板端相关程序
-   
-   a. 启动F37 camera
+1. 通过SSH登录RDK开发板，启动mipi camera：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -588,7 +502,7 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
    ros2 launch mipi_cam mipi_cam.launch.py mipi_image_width:=640 mipi_image_height:=480 mipi_video_device:=F37
    ```
 
-   b. 启动hobot_codec, 发布compressed格式图像
+2. 在RDK上启动hobot_codec, 发布compressed格式图像：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -623,22 +537,7 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
    ros2 launch hobot_codec hobot_codec_encode.launch.py codec_out_format:=jpeg codec_pub_topic:=/image_raw/compressed
    ```
 
-2. 如程序输出如下信息，说明节点已成功启动
-
-   ```shell
-   [INFO] [launch]: All log files can be found below /root/.ros/log/2023-05-15-17-08-02-144621-ubuntu-4755
-   [INFO] [launch]: Default logging verbosity is set to INFO
-   [INFO] [mipi_cam-1]: process started with pid [4757]
-   [mipi_cam-1] This is version for optimizing camera timestamp 
-   ```
-
-   ```shell
-   [INFO] [launch]: All log files can be found below /root/.ros/log/2023-05-15-17-08-17-960398-ubuntu-4842
-   [INFO] [launch]: Default logging verbosity is set to INFO
-   [INFO] [hobot_codec_republish-1]: process started with pid [4844]
-   ```
-
-3. PC机上订阅话题，并预览摄像头数据；
+3. RDK上订阅话题，并预览摄像头数据；
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -653,71 +552,26 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
    ```shell
    source /opt/ros/humble/setup.bash
    ```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ```
 
 </TabItem>
 </Tabs>
 
    ```shell
-   # 配置ROS2环境
+   # 安装rqt
+   sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport
+   # 启动rqt
    ros2 run rqt_image_view rqt_image_view
    ```
 
    选择话题`/image_raw/compressed`，图像效果图如下：
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png)
-
-### 注意事项
-
-1. 如遇到PC端ros2 topic list未识别到摄像头topic，做如下排查：
-
-   - 检查RDK是否正常pub图像
-
-      <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/humble/setup.bash
-      ```
-
-      </TabItem>
-      <TabItem value="jazzy" label="Jazzy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/jazzy/setup.bash
-      ```
-
-      </TabItem>
-
-      </Tabs>
-
-      ```shell
-      ros2 topic list
-      ```
-
-      输出：
-
-      ```text
-      /camera_info
-      /hbmem_img000b0c26001301040202012020122406
-      /image_raw
-      /image_raw/compressed
-      /parameter_events
-      /rosout
-      ```
-
-   - 检查PC和RDK网络能否ping通；
-   - PC和RDK IP地址是否前三位相同；
 
 ## Foxglove展示
 
