@@ -5,7 +5,7 @@ sidebar_position: 4
 # 3.2.4 vio_capture Sample Introduction
 
 ## Sample Overview
-vio_capture is a C language development code sample located in /app/cdev_demo \
+vio_capture is a C language development code sample located in `/app/cdev_demo` \
 This sample is used to capture YUV format images and RAW data from the camera and save them as local files.
 
 ## Effect Demonstration
@@ -249,10 +249,10 @@ for any corresponding short options.
 ```
 
 Sample program parameter options description \
---width	 -w	Camera sensor output width \
---height -h	Camera sensor output height \
---bit	-b	RAW bit depth (usually 8/10/16) \
---count	-c	Number of frames to capture
+--width	 -w: Camera sensor output width \
+--height -h: Camera sensor output height \
+--bit	-b: RAW bit depth (usually 8/10/16) \
+--count	-c: Number of frames to capture
 
 Here we can list some example parameters for standard sensors for reference.
 | Model   | Width | Height | Bit Depth |
@@ -261,7 +261,7 @@ Here we can list some example parameters for standard sensors for reference.
 
 
 ### Software Architecture Description
-This sample mainly captures YUV and RAW images from the camera. The logic is relatively simple - after opening the camera, call the interfaces provided by the libspcdev library to directly obtain YUV and RAW images for saving.
+This sample mainly captures YUV and RAW images from the camera. The logic is relatively simple, after opening the camera, call the interfaces provided by the libspcdev library to directly obtain YUV and RAW images for saving.
 
 <center>
 ![software_arch](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_cdev_demo_sample/image/cdev_vio_capture_software_arch.png)

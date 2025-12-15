@@ -5,7 +5,7 @@ sidebar_position: 5
 # 3.2.5 vio2display Example Introduction
 
 ## Example Overview
-vio2display is a **C language interface** development code example located in the /app/cdev_demo directory, used to demonstrate how to open a camera using C language and display the camera-captured data on a display. By referencing this example, users can understand and develop related applications.
+vio2display is a **C language interface** development code example located in the `/app/cdev_demo` directory, used to demonstrate how to open a camera using C language and display the camera-captured data on a display. By referencing this example, users can understand and develop related applications.
 
 ## Effect Demonstration
 
@@ -24,7 +24,7 @@ This example does not require a mouse and keyboard, so only the camera, HDMI dis
 ## Quick Start
 
 ### Code and Board Location
-Navigate to the /app/cdev_demo/vio2display location, where you can see that the vio2display example contains 2 files:
+Navigate to the `/app/cdev_demo/vio2display` location, where you can see that the vio2display example contains 2 files:
 ```
 root@ubuntu:/app/cdev_demo/vio2display# tree
 .

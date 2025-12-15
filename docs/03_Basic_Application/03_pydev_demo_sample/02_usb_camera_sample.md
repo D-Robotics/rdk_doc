@@ -64,8 +64,7 @@ python3 usb_camera_fcos.py
 ```
 
 ### 执行效果
-usb_camera_snap.py 执行效果
-运行后，程序会自动查找可用的 USB 摄像头设备，捕获一帧图像并保存为当前目录下的 img.jpg 文件。
+usb_camera_snap.py 执行效果：运行后，程序会自动查找可用的 USB 摄像头设备，捕获一帧图像并保存为当前目录下的 img.jpg 文件。
 ```
 root@ubuntu:/app/pydev_demo/02_usb_camera_sample# ./usb_camera_snap.py 
 Opening video device: /dev/video0
@@ -74,8 +73,7 @@ Corrupt JPEG data: 766 extraneous bytes before marker 0xd9
 Image saved as img.jpg
 ```
 
-usb_camera_fcos.py 执行效果
-运行后，程序会自动查找可用的 USB 摄像头设备，并开始实时目标检测。检测结果会通过 HDMI 显示，并控制台打印检测到的目标信息及 FPS。
+usb_camera_fcos.py 执行效果：运行后，程序会自动查找可用的 USB 摄像头设备，并开始实时目标检测。检测结果会通过 HDMI 显示，并控制台打印检测到的目标信息及 FPS。
 ```
 root@ubuntu:/app/pydev_demo/02_usb_camera_sample# ./usb_camera_fcos.py 
 [BPU_PLAT]BPU Platform Version(1.3.6)!

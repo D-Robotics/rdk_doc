@@ -5,7 +5,7 @@ sidebar_position: 6
 # 3.2.6 vio2encoder Sample Introduction
 
 ## Sample Overview
-vio2encoder is a **C language interface** development code sample located in the /app/cdev_demo directory, demonstrating how to open the camera using C language and encode the data collected by the camera. By referring to this sample, users can understand and develop related applications.
+vio2encoder is a **C language interface** development code sample located in the `/app/cdev_demo` directory, demonstrating how to open the camera using C language and encode the data collected by the camera. By referring to this sample, users can understand and develop related applications.
 
 ## Effect Demonstration
 vio2encoder is a sample that generates video streams. For example, after executing `./vio2encoder -w 1920 -h 1080 --iwidth 1920 --iheight 1080 -o stream.h264`, a stream.h264 file will be generated in the current directory.

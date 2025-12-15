@@ -82,7 +82,7 @@ The basic classification example does not require command line parameters and ca
 ### Software Architecture Description
 This example demonstrates the execution effects of different models through different Python code samples, but the software architecture is basically consistent. Therefore, it is explained uniformly here. The software architecture of the example program includes the following core parts:
 
-1. Model Loading: Using hobot_dnn.pyeasy_dnn module to load precompiled model files
+1. Model Loading: Using `hobot_dnn.pyeasy_dnn` module to load precompiled model files
 
 2. Image Preprocessing: Converting input images to NV12 format and specified dimensions required by the model
 

@@ -183,7 +183,7 @@ sp_module_bind(vio -> encoder) success!
 
 ```
 
-## 详细是介绍
+## 详细介绍
 
 ### 示例程序参数选项说明
 

@@ -67,7 +67,7 @@ We need to execute in the `/app/cdev_demo/bpu/src/bin` directory. Here, we use t
 
 (2) YOLOv5 inference with camera  
 
-In the `root@ubuntu:/app/cdev_demo/bpu/src/bin#` directory, use the `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0` command.
+In the `root@ubuntu:/app/cdev_demo/bpu/src/bin` directory, use the `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0` command.
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0
 Opened DRM device: /dev/dri/card0
@@ -96,7 +96,7 @@ You will see the same effect as shown in the image at the beginning of the docum
 
 (3) Inference using FCOS model after decoding H264  
 
-In the `root@ubuntu:/app/cdev_demo/bpu/src/bin#` directory, use the `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080` command.
+In the `root@ubuntu:/app/cdev_demo/bpu/src/bin` directory, use the `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080` command.
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080
 Opened DRM device: /dev/dri/card0
