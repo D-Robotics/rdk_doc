@@ -100,7 +100,7 @@ MCU 扩展板提供了一个千兆以太网接口。
 
 ### 30-Pin（J12）
 
-接口定义: [drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0.xlsx](../../../static/asset/rdk_s100/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0_0924.xlsx)
+接口定义: [drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0.xlsx](https://archive.d-robotics.cc/downloads/hardware/rdk_s100/rdk_s100_mcu_port_expansion_board/drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0_0924.xlsx)
 
 :::warning 注意
 

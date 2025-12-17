@@ -100,7 +100,7 @@ The MCU expansion board features one Gigabit Ethernet port.
 
 ### 30-Pin Header (J12)
 
-Pinout Definition: [drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0.xlsx](../../../../../../static/asset/rdk_s100/drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0-eng.xlsx)
+Pinout Definition: [drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0.xlsx](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100_mcu_port_expansion_board/drobotics_rdk_s100_mcu_port_expansion_board_pinlist_v1p0-eng.xlsx)
 
 :::warning Note
 
