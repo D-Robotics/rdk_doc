@@ -1164,16 +1164,6 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-   # 打印ros版本的环境变量
-   echo $ROS_DISTRO
-    ```
-
-</TabItem>
 </Tabs>
 
 #### 2. apt安装RealSense SDK2.0以及RealSense ROS2 wrapper
@@ -1301,16 +1291,6 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
    # 打印ros版本的环境变量
    echo $ROS_DISTRO
    ```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-   # 打印ros版本的环境变量
-   echo $ROS_DISTRO
-    ```
 
 </TabItem>
 </Tabs>
@@ -1484,14 +1464,6 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

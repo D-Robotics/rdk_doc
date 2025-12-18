@@ -92,5 +92,5 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 文本图片特征检索 [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10006; | &#10004; | &#10004; | &#10006; |
 | 光流估计 [mono_pwcnet](./03_boxs/function/mono_pwcnet.md)  | &#10006; | &#10004; | &#10006; | &#10006; |
 | [2D Lidar SLAM](./04_apps/slam.md) <br /> [Navigation2](./04_apps/navigation2.md) | &#10004; | &#10004; | &#10004; | &#10004; |
-| [智能盒子](./04_apps/video_boxs.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| [智能盒子](./04_apps/video_boxs.md) | &#10004; | &#10004; | &#10004; | &#10006; |
 | [视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10006; |
