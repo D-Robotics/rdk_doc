@@ -405,14 +405,14 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/foxy/setup.bash
    ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -431,6 +431,8 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    # 启动RViz2
    ros2 run rviz2 rviz2
    ```
+
+   注意：RDK上运行rviz，需要使用mobaxterm等工具进行ssh连接，或者命令行ssh连接时加上“-Y”参数。
 
    在 RViz2 界面上首先点击 add 按钮，然后按照topic选择发布的图像，在该示例中topic名为/image_raw，然后点击image：
 
@@ -543,14 +545,14 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/foxy/setup.bash
    ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 </TabItem>
 <TabItem value="jazzy" label="Jazzy">
@@ -568,6 +570,8 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    # 启动rqt
    ros2 run rqt_image_view rqt_image_view
    ```
+
+   注意：RDK上运行rqt，需要使用mobaxterm等工具进行ssh连接，或者命令行ssh连接时加上“-Y”参数。
 
    选择话题`/image_raw/compressed`，图像效果图如下：
 

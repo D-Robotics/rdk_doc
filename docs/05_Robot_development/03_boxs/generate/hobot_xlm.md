@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-本章节介绍如何在RDK S100/S600系列平台体验端侧 Large Language Model (LLM)。
+本章节介绍如何在RDK S100系列平台体验端侧 Large Language Model (LLM)。
 
 代码仓库： (https://github.com/D-Robotics/hobot_xlm.git)
 

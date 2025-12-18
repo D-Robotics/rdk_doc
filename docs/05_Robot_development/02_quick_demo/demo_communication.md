@@ -188,7 +188,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    ```bash
    source /opt/tros/jazzy/setup.bash
    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
    export ROS_DISABLE_LOANED_MESSAGES=0
    ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
@@ -270,4 +270,4 @@ performance_test工具可输出多种类型的统计结果，下面主要对比�
 - “zero-copy” minflt、majflt明显少于非“zero-copy”，表明“zero-copy”通信抖动更小
 - “zero-copy” nvcsw、nivcsw明显少于非“zero-copy”，表明“zero-copy”通信抖动更小
 
-总的来说对于大数据通信，“zero-copy”在CPU消耗、内存占用以及通信延迟抖动方便均明显优于非“zero-copy”
+总的来说对于大数据通信，“zero-copy”在CPU消耗、内存占用以及通信延迟抖动方面均明显优于非“zero-copy”

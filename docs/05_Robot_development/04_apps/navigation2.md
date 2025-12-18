@@ -164,6 +164,7 @@ source /opt/ros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
 ```
 
 </TabItem>
@@ -172,6 +173,7 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
 ```
 
 </TabItem>
@@ -180,16 +182,11 @@ source /opt/tros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/jazzy/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/${ROS_DISTRO}/share/nav2_bringup/maps/tb3_sandbox.yaml
 ```
 
 </TabItem>
 </Tabs>
-
-
-   ```bash
-   ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/${ROS_DISTRO}/share/nav2_bringup/maps/tb3_sandbox.yaml
-   ```
-
 
 3. **PC端**启动Rviz2工具
 
@@ -198,7 +195,7 @@ source /opt/tros/jazzy/setup.bash
 
 ```bash
 # 配置tros.b环境
-source /opt/ros/setup.bash
+source /opt/tros/setup.bash
 ```
 
 </TabItem>

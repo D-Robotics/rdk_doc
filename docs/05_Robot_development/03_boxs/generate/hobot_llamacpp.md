@@ -117,15 +117,6 @@ wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks1
 
 </TabItem>
 
-<TabItem value="s600" label="RDK S600">
-
-```bash
-wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
-wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks100/vit_model_int16.hbm
-```
-
-</TabItem>
-
 </Tabs>
 
 <Tabs groupId="tros-distro">
@@ -140,16 +131,6 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 </TabItem>
 
 <TabItem value="s100" label="RDK S100">
-
-```bash
-source /opt/tros/humble/setup.bash
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16.hbm -p llm_model_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf
-```
-
-</TabItem>
-
-<TabItem value="s600" label="RDK S600">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -220,4 +201,4 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 ## 注意事项
 
-X5平台 修改ION memory大小为1.6GB, S100/S600平台 修改ION memory大小大于1.6GB, 否则会导致模型加载失败。
+X5平台 修改ION memory大小为1.6GB, S100平台修改ION memory大小大于1.6GB, 否则会导致模型加载失败。

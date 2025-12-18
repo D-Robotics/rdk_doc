@@ -89,7 +89,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 
 </TabItem>
 
-<TabItem value="s100/s600" label="RDK S100/S600">
+<TabItem value="s100" label="RDK S100">
 
 **使用MIPI摄像头发布图片**
 
