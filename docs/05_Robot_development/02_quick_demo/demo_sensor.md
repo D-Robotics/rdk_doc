@@ -511,6 +511,13 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   root@ubuntu:~# source /opt/ros/jazzy/setup.bash
+   ```
+
+</TabItem>
 </Tabs>
 
     ```shell
@@ -708,6 +715,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 下面以 SC230ai 为例，介绍摄像头数据获取和预览的方法：
 
 1. 只启动双目摄像机的启动方式,方便其他node订阅。
+   
    (1) 通过下述命令启动 hobot_sensor 节点
 
     <Tabs groupId="tros-distro">
@@ -756,7 +764,8 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
 2. Web端查看双目摄像头图像，由于发布原始数据，需要一个编码JPEG图像的节点，一个用webservice发布的节点
-   (2) 启动命令如下：
+   
+   (1) 启动命令如下：
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
