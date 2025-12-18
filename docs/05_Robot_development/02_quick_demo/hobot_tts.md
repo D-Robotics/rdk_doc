@@ -141,7 +141,7 @@ import TabItem from '@theme/TabItem';
     ros2 run hobot_tts hobot_tts
     ```
 
-    注意：若音频播放设备不是`pcmC0D1p`，则需要使用参数`playback_device`指定播放音频设备。例如音频播放设备为`pcmC1D1p`，启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`
+    注意：若音频播放设备不是`pcmC0D1p`，则需要使用参数`playback_device`指定播放音频设备。例如音频播放设备为`pcmC1D1p`，微雪板子启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`；usb语音设备启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
 
 4. 新开一个终端，使用echo命令发布一条topic
 
