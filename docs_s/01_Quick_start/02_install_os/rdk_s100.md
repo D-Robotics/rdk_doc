@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 1.2.1 RDK S100 系列
+# RDK S100 系列
 
 :::warning 注意事项
 
@@ -14,28 +14,35 @@ sidebar_position: 4
 
 ## 烧录准备
 
-### **供电**
+### 供电
 
 RDK S100 开发板通过 DC 接口供电，推荐使用套件中自带的电源适配器。
 
-### **存储**
+### 存储
 
 RDK S100 采用 eMMC 作为系统启动介质。
 
-### **显示**
+### 显示
 
-RDKS100 开发板支持 HDMI 显示接口。通过对应的线缆将开发板与显示器相连接，可实现图形化桌面显示。
+RDK S100 开发板支持 HDMI 显示接口。通过对应的线缆将开发板与显示器相连接，可实现图形化桌面显示。
 
-### **网络连接**
+### 网络连接
 
 RDK S100 开发板支持以太网、Wi-Fi 两种网络接口，用户可通过任意接口实现网络连接功能。
 
-### **驱动下载**
+### 驱动下载
 
-安装 USB 驱动
-对于 Windows 操作系统，在使用 adb 和 fastboot 功能前，需要首先确认是否安装对应的驱动程序。
+**安装 USB 驱动（仅 Windows）**
 
-在开发板的 uboot 命令行下输入 fastboot 0，让开发板进入 fastboot 模式：
+在使用烧录工具前，Windows 用户需要确认驱动是否已安装。
+
+**1. 进入 Fastboot 模式**
+
+首先需要让开发板进入 Fastboot 模式，以便电脑识别设备：
+
+1. 使用串口线连接开发板与电脑（参考 [硬件介绍-串口登录](../01_hardware_introduction/01_rdk_s100.md) 章节）。
+2. 给开发板上电，立刻长按空格键进入 Uboot 命令行。
+3. 在命令行输入 `fastboot 0` 并回车：
 
 ```bash
 Warning: eth1 (eth0) using random MAC address - 9a:07:de:92:a2:c5
@@ -51,21 +58,19 @@ Hobot$
 Hobot$ fastboot 0
 ```
 
-此时，设备管理器会提示存在 USB download gadget 的未知设备。
+**2. 检查与安装驱动**
 
-未安装驱动时，设备管理器会提示存在 USB download gadget 的未知设备，如下图：
+此时打开电脑的**设备管理器**：
+
+* **未安装驱动时**：会提示存在 `USB download gadget` 的未知设备（如下图）。此时需要安装驱动。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png)
 
-usb 驱动下载（可[点击此处下载](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/)）
+* **驱动下载与安装**：
+    1. [点击此处下载](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/) `sunrise5_winusb.zip` 压缩包。
+    2. 解压压缩包，进入目录右键点击 `install_driver.bat`，选择**以管理员身份运行**。
 
-下载`sunrise5_winusb.zip`压缩包，进行驱动安装，步骤如下：
-
-1、解压`sunrise5_winusb.zip`。
-
-2、进入`sunrise5_winusb`，右键点击`install_driver.bat`，选择以管理员身份运行。
-
-成功安装驱动后，设备管理器会显示 Android Device 设备，如下图：
+* **安装成功**：驱动安装完成后，设备管理器会显示 `Android Device` 设备（如下图）。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png)
 
@@ -75,7 +80,7 @@ RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌面
 
 :::info 注意
 
-**RDK S100**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成最新版本系统镜像的烧写</font>。
+**RDK S100** 出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成最新版本系统镜像的烧写</font>。
 :::
 
 ### 镜像下载
@@ -108,11 +113,12 @@ windows pc 上 D-Navigation 需要在[驱动安装](#驱动下载)成功后才�
 在烧录 Ubuntu 系统镜像前，需要做如下准备：
 
 - 准备一根 Type-C 数据线，数据线的一端与板子的 Type-C 接口相连接，另一端与 PC 相连接。
+- 请确保 Type-C 数据线为高质量数据线：1. 带有屏蔽层 2. 长度越短越好 3. 数据传输质量高，以确保烧录的稳定性。
 - 下载镜像烧录工具 D-Navigation（可[点击此处下载](https://archive.d-robotics.cc/downloads/software_tools/download_tools/)）,根据系统不同，启动地瓜芯片工具 D-Navigation 方式分为三种：
 
   - Windows 版本启动：
 
-        双击打开D-Navigation.exe
+        双击打开 D-Navigation.exe
 
   - Ubuntu 版本启动：
 
@@ -122,13 +128,13 @@ windows pc 上 D-Navigation 需要在[驱动安装](#驱动下载)成功后才�
   - MacOS 版本启动(目前支持 M 芯片)：
 
          xattr -cr D-navigation.app # App 解除隔离，在终端执行
-         双击打开D-Navigation.exe
+         双击打开 D-Navigation
 
     :::
 
 #### Uboot 烧录
 
-1. 准备 RDKS100 镜像包
+1. 准备 RDK S100 镜像包
 
    1. 从网页上[下载](#镜像下载)镜像包
       ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/download_web.png)
@@ -161,7 +167,7 @@ windows pc 上 D-Navigation 需要在[驱动安装](#驱动下载)成功后才�
 SW1、SW2 等说明可查看[1.1.1 章节开关、按键和灯光说明内容](../../01_Quick_start/01_hardware_introduction/01_rdk_s100.md#开关按键和灯光说明)
 :::
 
-1. 准备 RDKS100 镜像包
+1. 准备 RDK S100 镜像包
 
    1. 从网页上[下载](#镜像下载)镜像包
       ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/download_web.png)
@@ -229,7 +235,7 @@ Ubuntu Desktop 版本系统启动完成后，会通过 Display 传输接口在�
    2. 修改`ch341_tty_driver->name = "ttyUSB";`
    3. 重新编译并安装驱动
 
-2. **ubuntu24.04 系统需要安装驱动**
+2. **ubuntu 24.04 系统需要安装驱动**
 
    1. 执行如下脚本
 

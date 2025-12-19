@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 1.2.1 RDK S100 Series
+# RDK S100 Series
 
 :::warning Notes
 
@@ -14,28 +14,35 @@ sidebar_position: 4
 
 ## Preparation for Flashing
 
-### **Power Supply**
+### Power Supply
 
 The RDK S100 development board is powered via a DC jack. It is recommended to use the power adapter included in the kit.
 
-### **Storage**
+### Storage
 
 The RDK S100 uses eMMC as the system boot medium.
 
-### **Display**
+### Display
 
 The RDK S100 development board supports an HDMI display interface. Connect the board to a monitor using an appropriate cable to enable graphical desktop display.
 
-### **Network Connection**
+### Network Connection
 
 The RDK S100 development board supports both Ethernet and Wi-Fi network interfaces. Users can connect to the network through either interface.
 
-### **Driver Installation**
+### Driver Installation
 
-**Install USB Driver**  
-For Windows operating systems, before using adb and fastboot functionalities, you must first confirm whether the corresponding drivers are installed.
+**Install USB Driver (Windows Only)**
 
-Enter `fastboot 0` in the Uboot command line of the development board to put it into fastboot mode:
+Before using the flashing tool, Windows users need to confirm if drivers are installed.
+
+**1. Enter Fastboot Mode**
+
+First, the development board needs to enter Fastboot mode for the PC to recognize the device:
+
+1. Connect the development board to the computer with a serial cable (refer to [Hardware Introduction - Serial Login](../01_hardware_introduction/01_rdk_s100.md) section).
+2. Power on the development board, and immediately **long press the space bar** to enter the Uboot command line.
+3. In the command line, enter `fastboot 0` and press Enter:
 
 ```bash
 Warning: eth1 (eth0) using random MAC address - 9a:07:de:92:a2:c5
@@ -51,20 +58,19 @@ Hobot$
 Hobot$ fastboot 0
 ```
 
-At this point, Device Manager will indicate an unknown device named "USB download gadget."
+**2. Check and Install Drivers**
 
-If the driver is not installed, Device Manager will show an unknown "USB download gadget" device, as shown below:
+Now, open the computer's **Device Manager**:
+
+*   **If drivers are not installed**: An unknown device named `USB download gadget` will be displayed (as shown below). Drivers need to be installed at this point.
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png)
 
-Download the USB driver ([click here to download](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/)).
+*   **Driver Download and Installation**:
+    1.  [Click here to download](https://archive.d-robotics.cc/downloads/software_tools/winusb_drivers/) the `sunrise5_winusb.zip` archive.
+    2.  Extract the archive. Navigate into the extracted directory, right-click `install_driver.bat`, and select **"Run as administrator"**.
 
-Download the `sunrise5_winusb.zip` archive and install the driver by following these steps:
-
-1. Extract `sunrise5_winusb.zip`.
-2. Navigate into the `sunrise5_winusb` folder, right-click `install_driver.bat`, and select "Run as administrator."
-
-After successful driver installation, Device Manager will display an "Android Device," as shown below:
+*   **After successful installation**: Device Manager will display `Android Device` (as shown below).
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg)
 
@@ -107,6 +113,7 @@ On Windows PCs, **D-Navigation requires successful [driver installation](#driver
 Before flashing the Ubuntu system image, prepare the following:
 
 - A Type-C data cable: connect one end to the board’s Type-C port and the other end to your PC.
+- Please ensure the Type-C data cable is a high-quality data cable: 1. It has a shielding layer 2. The shorter, the better 3. High data transmission quality, to ensure flashing stability.
 - Download the image flashing tool **D-Navigation** ([click here to download](https://archive.d-robotics.cc/downloads/software_tools/download_tools/)). Depending on your operating system, there are three ways to launch the D-Navigation tool:
 
   - **Windows version:**
