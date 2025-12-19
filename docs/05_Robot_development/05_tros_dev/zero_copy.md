@@ -197,7 +197,7 @@ int main(int argc, char * argv[])
 ```
 
 </TabItem>
-<TabItem value="humble" label="Humble">
+<TabItem value="humble" label="Humble/Jazzy">
 
 ```c++
 #include <chrono>
@@ -358,7 +358,7 @@ int main(int argc, char * argv[])
 ```
 
 </TabItem>
-<TabItem value="humble" label="Humble">
+<TabItem value="humble" label="Humble/Jazzy">
 
 ```c++
 #include <memory>
@@ -693,22 +693,7 @@ ros2 run hbmem_pubsub listener
 - 创建publisher时会一次性申请KEEPLAST的三倍个消息大小的ion内存（最大为256MB），用于消息的传输，之后不会再动态申请。若subscriber端消息处理出错或者未及时处理，则会出现消息buffer都被占用，publisher一直获取不到可用消息的情况。
 
 </TabItem>
-<TabItem value="humble" label="Humble">
-
-如果你已经掌握ROS2的publisher和subscriber使用方式，那么很容易切换到使用零拷贝的publisher和subscriber，使用时只需要做以下改动：
-
-- **publisher**发送消息前要先调用**borrow_loaned_message**获取消息，然后**确认消息是否可用**，若可用，再进行赋值，发送
-- **subscription**在回调函数中处理接收到的消息，且**接收到的消息只能在回调函数中使用**，回调函数执行完，该消息就会释放
-- **运行**程序前，使用export命令在运行终端下配置零拷贝环境。
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-如果你已经掌握ROS2的publisher和subscriber使用方式，那么很容易切换到使用零拷贝的publisher和subscriber，使用时只需要做以下改动：
-
-- **publisher**发送消息前要先调用**borrow_loaned_message**获取消息，然后**确认消息是否可用**，若可用，再进行赋值，发送
-- **subscription**在回调函数中处理接收到的消息，且**接收到的消息只能在回调函数中使用**，回调函数执行完，该消息就会释放
-- **运行**程序前，使用export命令在运行终端下配置零拷贝环境。
+<TabItem value="humble" label="Humble/Jazzy">
 
 </TabItem>
 </Tabs>

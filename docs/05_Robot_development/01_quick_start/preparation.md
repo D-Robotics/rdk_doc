@@ -30,7 +30,7 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 :::
 
 </TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+<TabItem value="RDK S100/S600" label="RDK S100/S600">
 
 [Ubuntu镜像烧录方法](/rdk_s/02_install_os)
 
@@ -59,7 +59,7 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 [网络配置](/docs/02_System_configuration/01_network_blueteeth.md)
 
 </TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+<TabItem value="RDK S100/S600" label="RDK S100/S600">
 
 [网络配置](/rdk_s/System_configuration/network_bluetooth)
 
