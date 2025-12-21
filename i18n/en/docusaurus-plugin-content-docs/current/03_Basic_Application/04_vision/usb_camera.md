@@ -40,7 +40,7 @@ There is no situation where USB 2.0 devices share the bandwidth of USB 3.0.
 
 Therefore, by default, if you connect a USB 2.0 camera, it will usually “greedily” request almost the entire bandwidth, making it impossible to use a second camera simultaneously.
 
-RDK’s special UVC driver (uvcvideo) can use the limitsize parameter to limit the camera’s bandwidth usage within a certain range, allowing two cameras to stream at the same time.
+RDK’s special UVC driver (uvcvideo) can use the `limitsize` parameter to limit the camera’s bandwidth usage within a certain range, allowing two cameras to stream at the same time.
 
   ```shell
 rmmod uvcvideo.ko
@@ -49,11 +49,11 @@ modprobe uvcvideo limitsize=2
 
 However, the core parameter for USB bandwidth budgeting is `wMaxPacketSize`, which is defined in the endpoint descriptor of the device firmware.
 
-If the firmware provides multiple Video Streaming configurations, `wMaxPacketSize` can range from `1 x 192 bytes`, `1 x 384 bytes`, up to `3 x 1020 bytes`.
+If the firmware provides multiple `Video Streaming` configurations, `wMaxPacketSize` can range from `1 x 192 bytes`, `1 x 384 bytes`, up to `3 x 1020 bytes`.
 
 In practice, when enabling MJPEG video streaming, the device does not necessarily use the maximum packet size. Instead, it selects a suitable `wMaxPacketSize` based on resolution and frame rate.
 
-Therefore, bandwidth allocation is more flexible, and with uvcvideo limitsize=2, two cameras can stream simultaneously.
+Therefore, bandwidth allocation is more flexible, and with `uvcvideo limitsize=2`, two cameras can stream simultaneously.
 
   ```shell
     Interface Descriptor:
@@ -102,7 +102,7 @@ Therefore, bandwidth allocation is more flexible, and with uvcvideo limitsize=2,
   ```
 
 
-If the firmware provides only one Video Streaming configuration with `wMaxPacketSize = 3 x 1024 bytes`,
+If the firmware provides only one `Video Streaming` configuration with `wMaxPacketSize = 3 x 1024 bytes`,
 
 this means the device always requests the maximum bandwidth.
 
