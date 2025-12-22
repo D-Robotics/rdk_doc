@@ -109,6 +109,71 @@ After a system update, execute the rdk-miniboot-update command to burn the lates
 - **‌Upgrade Verification Mechanism‌‌** 
 Starting from hobot-miniboot_3.0.3, the rdk-miniboot-update tool automatically displays both the current NAND firmware version and the target upgrade version, reducing upgrade risks and ensuring operational safety.
 
+####  Version：3.4.1
+
+1. Overview
+This release is a major update for the RDK X5 system. The underlying platform software has been fully aligned and synchronized with the latest X5 SDK 1.1.1. Compared with the previous release (based on X5 SDK 1.0.17), this update primarily addresses boot stability and media pipeline issues, and includes a comprehensive restructuring of the development documentation.
+
+After in-depth adaptation and system trimming, all core capabilities have been fully integrated into RDK OS, providing developers with a more complete and consistent platform that stays fully aligned with the latest SDK.
+
+2. New Features
+
+- [LCD] New display support: Added full driver support for the 11.9-inch Waveshare widescreen display, and fixed touch coordinate drift and abnormal behavior on multiple display models.
+- [GPIO] PWM enhancements: The hobot-gpio library now supports multi-channel PWM configuration, enabling more complex motor control scenarios.
+- [Doc] Documentation refactor: Completely rewrote the Basic Application Development section, added explanations of key concepts, and enriched example code and hands-on demonstrations, significantly lowering the learning curve.
+
+3. System & Media Improvements
+
+- [System] Improved boot stability: Performed in-depth optimizations on the bootloader to improve compatibility with SD/TF cards from multiple vendors, significantly increasing cold boot and warm reboot success rates.
+- [System] Audio configuration optimization: srpi-config now supports synchronized switching with Ubuntu PulseAudio channels, reducing the need for manual user configuration.
+- [Media] Media pipeline fixes: Fixed a wide range of stability issues in ISP, VIO, and codec modules under specific abnormal conditions, and improved HDMI compatibility with displays of various resolutions.
+
+4. TogetheROS.Bot
+
+- hobot_cv fix: Fixed a potential issue when using VSE hardware acceleration for image resize operations in the image processing acceleration module.
+- hobot_dnn fix: Corrected inaccurate “inference latency” statistics in the on-device model inference framework, enabling more accurate performance analysis.
+- ROS component fixes: Fixed runtime loading failures caused by incorrect installation paths of ROS component shared objects for MIPI cameras and algorithm modules.
+- hobot_codec optimization: Optimized image codec module configurations by removing invalid parameters and adding new debug-related options.
+
+####  TROS Algorithm Upgrade & Version：3.3.3
+
+- Added driver support for the Yuguang SC132GS stereo camera module.
+- srpi-config enhancements: Added support for automatic pin multiplexing for interfaces, and introduced MIPI display selection.
+- Improved GPU desktop stability.
+- Upgraded the Wi-Fi driver to version 2025_0410, improving wireless stability.
+- FlashLink interface enhancements:
+- - Added support for usage on macOS.
+- - Added support for connecting USB flash drives via RDK Studio.
+- Released hobot-dnn-rdkx5 and hobot-vio-rdkx5 libraries on PyPI.
+- Various bug fixes.
+
+TROS V2.4.3
+- Monocular MIPI image acquisition supports the initiation of multi-channel image acquisition.
+- Binocular MIPI image acquisition supports sc132gs binocular camera.
+
+#### Version number: 3.3.1
+
+New features
+
+- Support ordinary kernel and real-time kernel switching;
+- Support CPU, GPU desktop switching, default CPU desktop;
+- After powering on, it will automatically switch to official source and Tsinghua source according to your location.
+- Support configuring WiFi hotspots through the desktop;
+- Support for configuring wired networks via desktop;
+- Adapt to new hardware X5_MD_V1P1, X5_MD_V1P0;
+- rdk-miniboot-update restricts burning of older versions of miniboot;
+- Support configuring the downclock temperature and shutdown temperature;
+- deb package contains github commit information;
+
+Fix
+
+- Fixed the problem that the memory of 8G board was reduced by 2G, and miniboot needs to be updated.
+- Optimized CAN communication to support high-speed two-way communication;
+- Corrected pin voltage domain and drive intensity configuration;
+- Fixed the issue that the X5 MD emmc system could not be backed up with rdk-backup.
+- Fix hibernation wake-up abnormalities;
+- Patching other system and example bugs;
+
 #### TROS Algorithm Upgrade & Version: 3.2.3
 
 System updates:
