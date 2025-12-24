@@ -2,4 +2,4 @@
 sidebar_position: 2
 ---
 
-# 通过读卡器烧录系统
+# YOLO目标检测

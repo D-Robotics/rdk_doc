@@ -2,4 +2,4 @@
 sidebar_position: 2
 ---
 
-# USB 摄像头推理
+# 人体关键
