@@ -15,6 +15,7 @@ sidebar_position: 2
 | sp_encoder_set_frame | **向编码通道传入图像帧** |
 | sp_encoder_get_stream | **从编码通道获取编码好的码流** |
 
+(注意，编码的图片 RDK X5 需要 16bit 对齐，RDK X3 可以 8/16bit 对齐)
 ## sp_init_encoder_module  
 
 **【函数原型】**  
