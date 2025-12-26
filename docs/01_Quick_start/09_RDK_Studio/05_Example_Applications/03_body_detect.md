@@ -18,7 +18,7 @@ RDK 设备已连接 MIPI 或者 USB 摄像头。
 
 :::tip 提示
 
-点击 RDK Studio 右上角  ![链接图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) 图标可以快速打开浏览器查看示例！
+点击 RDK Studio 右上角  ![链接图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) 图标可以快速在浏览器中打开示例！
 :::
 
 1. 选择连接摄像头的类型，本章节以 MIPI 相机为例进行说明，点击对应的 `启动` 指令，等待节点运行，完成后自动打开可视化窗口。
@@ -48,9 +48,7 @@ RDK 设备已连接 MIPI 或者 USB 摄像头。
 
     :::warning 注意
     
-    如果对节点、流程等进行了修改，需点击右上角 `部署` 后才能生效！
-    
-    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png)
+    如果对节点、流程等进行了修改，需点击右上角 ![部署图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png) 按钮后才能生效！
 
     :::
 

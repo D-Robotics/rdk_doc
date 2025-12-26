@@ -164,8 +164,12 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=1
 - 准备至少8GB容量的Micro SD卡
 - SD 读卡器
 - 下载镜像烧录工具Rufus（可[点击此处前往官网](https://rufus.ie/)）
-- 也可使用地瓜提供的 RDK Studio 工具进行系统的烧录，详细步骤参见[使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+- 下载镜像烧录工具 RDK Studio（可[点击此处下载](https://developer.d-robotics.cc/rdkstudio)）
+  
 :::
+
+<Tabs groupId="flashing-type">
+<TabItem value="Rufus" label="Rufus 工具">
 
 Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD启动卡流程如下：
 1. 打开Rufus工具，在“设备”下拉框中选择对应的Micro SD存储卡作为目标设备。
@@ -183,11 +187,20 @@ Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD�
 </TabItem>
 
 
+<TabItem value="RDK Studio" label="RDK Studio 工具">
+
+使用地瓜提供的 RDK Studio 工具进行系统烧录，详细步骤参见使用 [RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+
+
+</TabItem>
+</Tabs>
+</TabItem>
+
 <TabItem value="x3md" label="RDK X3 Module">
 
 RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
 
-- **使用SD卡**：如需烧录系统到SD上（不从eMMC模式启动），系统烧录步骤与 [RDK X3 系统烧录步骤](#系统烧录) 相同；也可使用地瓜提供的 RDK Studio 工具进行系统的烧录，详细步骤参见[使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+- **使用SD卡**：如需烧录系统到SD上（不从eMMC模式启动），系统烧录步骤与 [RDK X3 系统烧录步骤](#系统烧录) 相同。
 - **使用eMMC**：使用UMS方式烧录系统镜像（**以下主要介绍该方法**）
 
 #### 硬件连接
@@ -223,15 +236,15 @@ RDK X3 Module支持从eMMC和SD卡两种模式启动系统：
    ![imagex3md-ums4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums4.png) 
 
 
-</TabItem>
 
-</Tabs>
 
 :::caution
 
 如烧录过程发生中断，请按照上述步骤重新进行。
 :::
+</TabItem>
 
+</Tabs>
 
 
 ### 启动系统

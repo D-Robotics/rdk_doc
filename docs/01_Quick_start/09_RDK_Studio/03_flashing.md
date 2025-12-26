@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 :::info 提示
 
-如果您已完成过系统烧录，可跳过此章节直接进行[添加设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
+如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
 :::
 
 ## 烧录准备
@@ -35,42 +35,42 @@ import TabItem from '@theme/TabItem';
 
 :::info 提示
 
-烧录系统有 “使用本地镜像” 和 “在线下载镜像” 两种方式，如果没有下载过目标镜像文件到本地，请直接参考[选择通过 RDK Studio 下载镜像烧录](#选择通过-rdk-studio-下载镜像烧录)
+烧录系统有 “使用本地镜像” 和 “在线下载镜像” 两种方式，如果没有下载过目标镜像文件到本地，请跳过此节直接[选择通过 RDK Studio 下载镜像烧录](#选择通过-rdk-studio-下载镜像烧录)。
 
 :::
 
-1. 在选择 RDK 设备界面，此处选择想要安装系统的设备类型，本章节以安装 RDK X5 系统为例。
+1. 在选择 RDK 设备界面，选择想要安装系统的设备类型，本章节以安装 RDK X5 系统为例。
    
    ![安装类型页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device.png)
    
-2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type C）” 两种，点击按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
+2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type C）” 两种，点击对应的红色按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
    
    ![导览信息页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device_method.png)
 
-3. 点击 `结束导览` 关闭教程窗口，点击 `下一步` 进入选择 RDK 操作系统界面。 
+3. 点击 `结束导览` 关闭教程窗口，点击 `下一步` 进入选择 RDK 操作系统镜像界面。 
    
    ![选择系统页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image.png)
    
-4. 点击勾选 `选择本地镜像文件`，自动打开文件资源管理器，进入镜像存储路径选择镜像，选择本地镜像文件。
+4. 点击选择 `选择本地镜像文件`，自动打开文件资源管理器，进入镜像文件的存储路径双击确认选择镜像文件。
    
    ![镜像存储页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image_local.png)
 
 
-5. 点击 `下一步`，进入进入选择存储设备界面。
+5. 点击 `下一步`，进入选择存储设备界面，勾选正确的存储设备，点击 `安装`。
    
    :::warning
-   - 此处可通过以下方法确定存储设备：拔出存储设备点击刷新按钮，查看设备列表；再连接存储设备，点击刷新按钮，选择随插拔操作发生变化的存储设备。
-   - **烧录系统会<font color="red">清空存储设备中的所有数据</font>，请务必选择正确的存储设备！**
+   - 此处可通过以下方法确定存储设备：拔出存储设备点击刷新按钮，查看设备列表中消失的设备选项；再连接存储设备，点击刷新按钮，选择随拔插操作发生减增变化的存储设备。
+   - 烧录系统会<font color="red">清空存储设备中的所有数据</font>，请务必选择正确的存储设备！
    :::
 
     ![选择存储设备页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_storage_refresh.png)
 
-6. 勾选正确的存储设备，点击 `安装`，开始进行系统烧录。
+6. 开始进行系统烧录。
  
    ![烧录过程页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_success_local.png)
 
 
-7.  烧录成功后提示安装完成。
+7. 烧录成功后提示安装完成。
   
     
      ![烧录完成页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_success.png)
@@ -80,32 +80,32 @@ import TabItem from '@theme/TabItem';
 
 :::warning 注意
 
-如果本地已有目标镜像，请选择[本地已有镜像进行烧录](#选择本地已有镜像进行烧录)，再通过 RDK Studio 下载同名镜像会提示错误！
+如果本地已有目标镜像，请直接[选择本地已有镜像进行烧录](#选择本地已有镜像进行烧录)，如果再次通过 RDK Studio 下载同名镜像文件会提示错误！
 
 :::
 
-1. 在选择 RDK 设备界面，此处选择想要安装系统的设备类型，本章节以安装 RDK X5 系统为例。
+1. 在选择 RDK 设备界面，选择想要安装系统的设备类型，本章节以安装 RDK X5 系统为例。
    
    ![安装类型页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device.png)
    
-2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type C）” 两种，点击按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
+2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type C）” 两种，点击对应的红色按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
    
    ![导览信息页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device_method.png)
 
-3. 点击 `结束导览` 关闭教程窗口，点击 `下一步` 进入选择 RDK 操作系统界面。 
+3. 点击 `结束导览` 关闭教程窗口，点击 `下一步` 进入选择 RDK 操作系统镜像界面。 
    
    ![选择系统页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image.png)
    
-4. 选择想要安装的镜像版本，点击 `下一步` ，进入选择存储设备界面。
+4. 选择想要安装的镜像版本，点击 `下一步` ，进入选择存储设备界面，勾选正确的存储设备，点击 `安装`。
    
    :::warning
-   - 此处可通过以下方法确定存储设备：拔出存储设备点击刷新按钮，查看设备列表；再连接存储设备，点击刷新按钮，选择随插拔操作发生变化的存储设备。
-   - **烧录系统会<font color="red">清空存储设备中的所有数据</font>，请务必选择正确的存储设备！**
+   - 此处可通过以下方法确定存储设备：拔出存储设备点击刷新按钮，查看设备列表中消失的设备选项；再连接存储设备，点击刷新按钮，选择随拔插操作发生减增变化的存储设备。
+   - 烧录系统会<font color="red">清空存储设备中的所有数据</font>，请务必选择正确的存储设备！
    :::
 
     ![选择存储设备页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_storage_refresh.png)
 
-5. 勾选正确的存储设备，点击 `安装`，开始下载系统镜像。
+5. 开始下载系统镜像。
  
    ![安装过程页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_download_osimage.png)
 

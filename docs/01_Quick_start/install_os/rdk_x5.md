@@ -144,9 +144,12 @@ server：无桌面的Ubuntu系统，可以通过串口、网络远程连接操�
 在烧录Ubuntu系统镜像前，需要做如下准备：
 - 准备至少 16GB 容量的Micro SD卡
 - SD 读卡器
-- 下载镜像烧录工具Rufus（可[点击此处下载](https://rufus.ie/)）
-- 也可使用地瓜提供的 RDK Studio 工具进行系统的烧录，详细步骤参见[使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+- 下载镜像烧录工具 Rufus（可[点击此处下载](https://rufus.ie/)）
+- 下载镜像烧录工具 RDK Studio（可[点击此处下载](https://developer.d-robotics.cc/rdkstudio)）
 :::
+
+<Tabs groupId="flashing-type">
+<TabItem value="Rufus" label="Rufus 工具">
 
 Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD启动卡流程如下：
 1. 打开Rufus工具，在“设备”下拉框中选择对应的Micro SD存储卡作为目标设备。
@@ -160,6 +163,10 @@ Rufus是一款支持Windows平台的启动盘制作工具，使用Rufus制作SD�
 3. 其他参数保持默认，点击“开始”按钮，等待烧录完成。烧录完成后，可以关闭Rufus并取出存储卡。
 
     ![image-rufus-flash](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash.png)
+
+</TabItem>
+
+<TabItem value="board" label="在板烧录">
 
 ### 在板烧录
 
@@ -181,11 +188,20 @@ SD卡不插入开发板，核心板自带的emmc会被映射成U盘；
 
 然后依照系统烧录一节，完成系统烧录。
 
-</TabItem>
-</Tabs>
+
 
 ![img-2025-1451](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1451.png)
+</TabItem>
+</Tabs>
+</TabItem>
 
+<TabItem value="RDK Studio" label="RDK Studio 工具">
+
+使用地瓜提供的 RDK Studio 工具进行系统烧录，详细步骤参见使用 [RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+
+
+</TabItem>
+</Tabs>
 
 ### 启动系统
 

@@ -14,16 +14,25 @@ import TabItem from '@theme/TabItem';
 
 ## 终端使用
 
-点击终端按钮，会自动弹起 Windows 终端，输入用户密码即可自动连接，密码默认与用户名相同。
+点击终端图标，会自动弹出 Windows 终端，输入用户密码即可自动连接。
+
+:::info 提示
+
+默认密码与登录用户名相同：
+- root-root
+- sunrise-sunrise
+  
+:::
   
 ![RDK_Studio终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace_terminal.png)
 
 ## VS Code使用
 
-点击VS Code图标，即可自动调用本地VS Code Remote插件进行连接。
-:::tip
+点击 VS Code 图标，即可自动调用本地 VS Code Remote 插件进行连接。
 
-使用 VS Code 的 SSH Remote 插件打开 RDK 设备中的实例工程，因此本地需安装 VS Code 。
+:::info 提示
+
+本地需安装 VS Code 。
 
 :::
 ​
@@ -31,7 +40,7 @@ import TabItem from '@theme/TabItem';
 
 ## Node-RED 使用{#node-red}
 
-1. 点击应用空间图标，可以查看更多应用。
+1. 点击应用空间图标，查看更多应用。
    
    ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
    
@@ -41,7 +50,7 @@ import TabItem from '@theme/TabItem';
 
 3. Jupyter 等需要安装功能，可以按需安装。
 
-![RDK_Studio](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace.png)
+    ![RDK_Studio](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace.png)
 
 4. 点击空白处退出应用空间。
    

@@ -78,46 +78,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-## 使用 RDK Studio 登录开发板
 
-1. 点击右上角 `+ RDK 设备`，进入选择连接类型界面。
-   
-   ![+ RDK 设备界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device.png)
-
-
-2. 点击“选择连接类型”后面的问号图标，弹出连接方式导览窗口，指导用户进行所选连接类型对应的设备连接方法，点击 `下一步` 可查看后续内容，也可通过点击 `上一步` 再次查看之前的提示，查看全部导览内容后点击 `结束导览` 关闭窗口，也可随时点击右上角 ` × ` 直接关闭弹窗。
-  
-   ![导览窗口界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_help.png)
-
-3. 点击选中 `IP 地址（已知IP情况下使用）`连接类型，点击 `下一步` ，进入填写 IP 地址界面。
-    
-    ![填写IP界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/remote_login_ip_input.png)
-
-
-4. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “普通用户” 或 “root 用户”。
-    
-    
-   ![选择用户类型界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
-
-
-5. 点击 `下一步` ，进入WIFI无线网络连接界面，为 RDK 设备连接网络，展开选项列表选择想要连接的网络。
-   
-   ![WIFI无线网络连接界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_net.png)
-
-
-6. 点击 `下一步` ，进入创建 RDK 设备条目界面，填写设备名称及描述。
-
-    
-   ![创建 RDK 设备条目界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_device_manage_hr_add_device_IP_name.png)
-
-
-7. 点击 `确认`，成功添加 RDK 设备，在设备卡列表页面显示设备信息。
-
-    
-   ![设备卡列表界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_device_manage_hr_add_device_success_IP.png)
-
-
-可使用地瓜提供的 RDK Studio 登录开发板
 
 ## 网络状态确认{#network_config}
 
