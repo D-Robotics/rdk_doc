@@ -20,7 +20,7 @@ RDK Studio 是一款面向 RDK 机器人开发平台的易用性开发工具。�
 
 1. 下载 RDK Studio ([下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，选择对应系统的安装包，建议选用 User Installer。
 
-    ![RDK Studio安装包下载图片](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/QQ20241029-190206.png)  
+    ![RDK Studio安装包下载图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/download_icon.png)  
 
 2. 安装包下载完成后打开文件位置进入安装包保存路径，点击 “.exe” 安装文件，开始安装RDK Studio。
    

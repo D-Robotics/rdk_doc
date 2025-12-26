@@ -2,7 +2,16 @@
 sidebar_position: 1
 ---
 
-# Node-RED 打开示例应用操作指导
+# Node-RED 打开示例
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
+<Tabs groupId="rdk-type">
+<TabItem value="windows" label="Windows">
 
 1. 点击 `示例应用` 进入 RDK 示例应用展示界面，点击示例应用底部的下拉列表，已连接的所有 RDK 设备都会在此处显示，选择要安装示例应用的 RDK 设备。
    
@@ -24,10 +33,37 @@ sidebar_position: 1
    如未安装 Node-RED 会弹出提示，需在 “设备管理 - 应用空间” 中安装 Node-RED，参考 [Node-RED使用](../01_Device_management/02_integration_tools.md#node-red)。
    :::
 
-     ![示例应用列表页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_example_nodered_static_image_help.png)
+     ![示例应用列表页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_example_application_gesture_help.png)
 
 5. 进入示例应用流程界面。
         
-   ![手势识别示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_installnodered.png)
+   ![手势识别示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_example_nodered_gesture_detection.png)
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem>
+
+
+
+<TabItem value="mac" label="Mac">
+
+:::tip
+
+目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+
+</TabItem>
+
+</Tabs>
 
     

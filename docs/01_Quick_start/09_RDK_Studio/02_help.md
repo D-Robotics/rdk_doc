@@ -2,7 +2,17 @@
 sidebar_position: 2
 ---
 
+
 # 1.9.2 语言设置及参考信息（说明文档链接待定）
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
+<Tabs groupId="rdk-type">
+<TabItem value="windows" label="Windows">
 
 ## 语言设置
 
@@ -49,10 +59,37 @@ sidebar_position: 2
 
 ## 版本信息
 
+
 左下角最后一项展示 RDK Studio 工具版本。
    
 ![RDK Studio桌面图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_bottom_menu_version.png)
 
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem>
+
+
+
+<TabItem value="mac" label="Mac">
+
+:::tip
+
+目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+
+</TabItem>
+
+</Tabs>
 
 
 

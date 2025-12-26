@@ -4,6 +4,15 @@ sidebar_position: 3
 
 # 1.9.3 烧录系统
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
+<Tabs groupId="rdk-type">
+<TabItem value="windows" label="Windows">
+
 :::info 提示
 
 如果您已完成过系统烧录，可跳过此章节直接进行[添加设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
@@ -11,7 +20,7 @@ sidebar_position: 3
 
 ## 烧录准备
 
-1. 准备至少8GB容量的 Micro SD 卡和 SD 读卡器，将 Micro SD 卡通过读卡器连接到电脑。
+1. 准备至少 16GB 容量的 Micro SD 卡和 SD 读卡器，将 Micro SD 卡通过读卡器连接到电脑。
 2. 点击 `烧写` 弹出 RDK 系统安装工具，提示系统安装功能需通过管理员权限打开 RDK Studio。
    
    ![权限提示页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_permission.png)
@@ -20,8 +29,15 @@ sidebar_position: 3
    
    ![管理员打开页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_usertype.png)
 
+
+
 ## 选择本地已有镜像进行烧录
 
+:::info 提示
+
+烧录系统有 “使用本地镜像” 和 “在线下载镜像” 两种方式，如果没有下载过目标镜像文件到本地，请直接参考[选择通过 RDK Studio 下载镜像烧录](#选择通过-rdk-studio-下载镜像烧录)
+
+:::
 
 1. 在选择 RDK 设备界面，此处选择想要安装系统的设备类型，本章节以安装 RDK X5 系统为例。
    
@@ -62,6 +78,12 @@ sidebar_position: 3
    
 ## 选择通过 RDK Studio 下载镜像烧录
 
+:::warning 注意
+
+如果本地已有目标镜像，请选择[本地已有镜像进行烧录](#选择本地已有镜像进行烧录)，再通过 RDK Studio 下载同名镜像会提示错误！
+
+:::
+
 1. 在选择 RDK 设备界面，此处选择想要安装系统的设备类型，本章节以安装 RDK X5 系统为例。
    
    ![安装类型页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device.png)
@@ -91,3 +113,30 @@ sidebar_position: 3
   
     
      ![烧录完成页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_success.png)
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem>
+
+
+
+<TabItem value="mac" label="Mac">
+
+:::tip
+
+目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+
+</TabItem>
+
+</Tabs>
