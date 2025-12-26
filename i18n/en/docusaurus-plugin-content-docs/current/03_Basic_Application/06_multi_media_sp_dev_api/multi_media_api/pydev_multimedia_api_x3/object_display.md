@@ -5,6 +5,26 @@ sidebar_position: 4
 
 The Display object implements video display functionality, which can output image data to a monitor via the HDMI interface. This object includes methods such as `display`, `set_img`, `set_graph_rect`, `set_graph_word`, `close`, etc. The detailed description is as follows:
 
+
+## Basic Specifications
+- RDK X3/X5 supports both HDMI and DSI interfaces.
+
+## Reference Example
+ Example code for the Display object can be found in the `mipi_camera.py` and `decode_rtsp_stream.py` examples.
+
+
+## API Reference
+
+| API 接口 | 接口功能 |
+| ---- | ----- |
+| display | **Initialize the display** |
+| set_img | **Send an image to the display** |
+| set_graph_rect | **Draw a rectangle on the image** |
+| set_graph_word | **Write text on the image** |
+| get_display_res | **Get the display resolution** |
+| close | **Close the display** |
+
+
 ## display
 <font color='Blue'>[Function Description]</font>
 

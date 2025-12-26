@@ -81,7 +81,7 @@ This audio HAT requires audio routing configuration before each function. The fo
 
 #### Audio Routing and Gain Configuration Before Recording
 
-Before recording, it is necessary to correctly configure the audio input path and gain to ensure recording quality. The following commands sequentially set the input gain for left/right channels, recording volume, input path switches, etc.:
+Before recording, it is necessary to correctly configure the audio input path and gain to ensure recording quality. The following commands sequentially set the input gain for left/right channels, recording volume, input path switches, etc.
 
 ```shell
 # Set left/right channel input gain
