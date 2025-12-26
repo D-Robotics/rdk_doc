@@ -9,7 +9,7 @@ The development board is equipped with the `usb_camera_fcos.py` program to test 
 
 ## Environment Preparation
 
-  - Connect the USB camera to the development board and make sure that the `/dev/video8` device node is created.
+  - Connect the USB camera to the development board and confirm the generation of the `/dev/videoX` device node, where `X` represents a number, such as `/dev/video0`.
   - Connect the development board to the monitor using an HDMI cable.
 
 ## Execution Method
@@ -26,8 +26,8 @@ After running the program, the monitor will display the camera image and the res
 
 :::tip
 
-For detailed code implementation instructions, please refer to the [USB Camera Inference](../../04_Algorithm_Application/01_pydev_dnn_demo/usb_camera.md) chapter.
-
+For detailed code implementation instructions, please refer to the [USB Camera Inference](../../04_Algorithm_Application/01_pydev_dnn_demo/usb_camera.md) chapter.  
+Before connecting two USB cameras, it is necessary to limit the bandwidth usage of uvcvideo by executing `rmmod uvcvideo; modprobe uvcvideo quirks=128`.
 :::
 
 ## Multi-Camera Support

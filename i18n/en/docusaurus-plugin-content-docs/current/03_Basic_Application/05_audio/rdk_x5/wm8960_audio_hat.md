@@ -45,7 +45,7 @@ Select `UNSET` to uninstall the audio driver and related configurations.
 ## Usage
 Check if the sound card exists and verify the device number.
 
-To confirm the sound card is registered (as mentioned above):
+Confirm whether the sound card is registered via the `cat /proc/asound/cards` command (mentioned above):  
 ```shell
 root@ubuntu:~# cat /proc/asound/cards 
  0 [duplexaudioi2s1]: simple-card - duplex-audio-i2s1
@@ -54,7 +54,7 @@ root@ubuntu:~# cat /proc/asound/cards
             duplex-audio
 ```
 
-To check logical devices:
+Confirm logical devices via the `cat /proc/asound/devices` command:  
 ```shell
 root@ubuntu:~# cat /proc/asound/devices
   2: [ 0- 0]: digital audio playback
@@ -66,7 +66,7 @@ root@ubuntu:~# cat /proc/asound/devices
  33:        : timer
 ```
 
-To check user-space device files:
+Check the actual device files in user space using the `ls /dev/snd/` command:  
 ```shell
 root@ubuntu:~# ls /dev/snd/
 by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
@@ -77,42 +77,68 @@ The onboard sound card is card 1, device number `1-0`, which is not used here.
 
 This audio HAT requires audio routing configuration before each function. The following commands must be run before each scenario.
 
-- ### Recording
-- Dual-channel microphone recording:
+### Recording Operations
 
-```
+#### Audio Routing and Gain Configuration Before Recording
+
+Before recording, it is necessary to correctly configure the audio input path and gain to ensure recording quality. The following commands sequentially set the input gain for left/right channels, recording volume, input path switches, etc.:
+
+```shell
+# Set left/right channel input gain
 tinymix -D 0 set 'Left Input Boost Mixer LINPUT1 Volume' 3
 tinymix -D 0 set 'Right Input Boost Mixer RINPUT1 Volume' 3
 
+# Adjust gain according to actual conditions (reduce appropriately if feedback occurs)
 tinymix -D 0 set 'Left Input Boost Mixer LINPUT1 Volume' 1
 tinymix -D 0 set 'Right Input Boost Mixer RINPUT1 Volume' 1
 
+# Set recording volume
 tinymix -D 0 set 'Capture Volume' 40,40
 tinymix -D 0 set 'ADC PCM Capture Volume' 200,200
 
+# Turn on input path switches
 tinymix -D 0 set 'Left Boost Mixer LINPUT1 Switch' 1
 tinymix -D 0 set 'Right Boost Mixer RINPUT1 Switch' 1
-
 tinymix -D 0 set 'Left Input Mixer Boost Switch' 1
 tinymix -D 0 set 'Right Input Mixer Boost Switch' 1
 
+# Turn on recording switch
 tinymix -D 0 set 'Capture Switch' 1,1
+```
+
+#### Start Recording
+
+Use the `tinycap` command for recording:
+
+```shell
 tinycap ./2chn_test.wav -D 0 -d 0 -c 2 -b 16 -r 48000 -p 512 -n 4 -t 5
 ```
 
-- ### Playback
+After recording completes, the `2chn_test.wav` file will be generated.
 
-- Dual-channel speaker playback
 
-```
-tinymix -D  0 set 'Left Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Right Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Speaker DC Volume' 3
-tinymix -D  0 set 'Speaker AC Volume' 3
-tinymix -D  0 set 'Speaker Playback Volume' 127,127
-tinymix -D  0 set 'Playback Volume' 255,255
-tinymix -D  0 set 'Left Output Mixer PCM Playback Switch' 1
-tinymix -D  0 set 'Right Output Mixer PCM Playback Switch' 1
+### Playback Operation
+
+#### Speaker Playback (Dual Channel)
+
+- Audio output path and volume need to be configured before playback:
+
+```shell
+# Enable left and right channel PCM playback switches
+tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
+tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
+
+# Set speaker volume
+tinymix -D 0 set 'Speaker DC Volume' 3
+tinymix -D 0 set 'Speaker AC Volume' 3
+tinymix -D 0 set 'Speaker Playback Volume' 127, 127
+tinymix -D 0 set 'Playback Volume' 255, 255
+
+# Ensure output switches are enabled again
+tinymix -D 0 set 'Left Output Mixer PCM Playback Switch' 1
+tinymix -D 0 set 'Right Output Mixer PCM Playback Switch' 1
+
+# Play the recording file
 tinyplay ./2chn_test.wav -D 0 -d 0
 ```
 

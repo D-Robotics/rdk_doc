@@ -17,9 +17,7 @@ For detailed information about the audio sub-board, please refer to the [Audio D
 1. Connect the expansion board to the 40-pin header of the RDK X3 as shown below.  
 ![image-audio-driver-hat-setup](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/02_audio/image/image-audio-driver-hat-setup.jpg)
 
-2. Run the command `cat /sys/class/socinfo/som_name` to check the board type, and set the DIP switches on the audio sub-board accordingly:
-   - If the returned value is 5 or 6, set all three DIP switches to the `ON` position.
-   - If the returned value is 8, set all three DIP switches to the `OFF` position.
+2. Set all 3 DIP switches to the `OFF` position.
 
 - ### Software Configuration
 1. Use `srpi-config` to configure the audio board.  
@@ -56,7 +54,7 @@ root@ubuntu:~# cat /proc/asound/cards
                       duplex-audio
 ```
 
-To check logical devices:
+Confirm the logical device by using the command `cat /proc/asound/devices`:
 ```shell
 root@ubuntu:~# cat /proc/asound/devices
   2: [ 0- 0]: digital audio playback
@@ -68,7 +66,7 @@ root@ubuntu:~# cat /proc/asound/devices
  33:        : timer
 ```
 
-To check the actual device files in user space:
+Check the actual device files in user space through the `ls /dev/snd/` command:
 ```shell
 root@ubuntu:~# ls /dev/snd/
 by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
@@ -99,21 +97,32 @@ tinycap ./4chn_test.wav -D 0 -d 1 -c 4 -b 16 -r 48000 -p 512 -n 4 -t 5
 tinyplay ./2chn_test.wav -D 0 -d 0
 ```
 
-- ### Audio Loopback Test
 
-The playback loopback signal of this audio board uses recording channels 7 & 8, so you need to use the 8-channel recording command to capture it.
+## Audio Loopback Test
 
-- Start 8-channel microphone recording
-```shell
-tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -r 16000 -b 16 -t 3 -p 256
-```
+The audio loopback function can be used to capture signals from the playback channel for subsequent analysis.
 
-- Start dual-channel audio playback
-```
-tinyplay ./2chn_test.wav -D 0 -d 0
-```
+- **8-Channel Microphone Recording (Including Loopback)**  
+  The loopback signal on this audio board is mapped to recording channels 7 and 8. Use the 8-channel recording command:
 
-After recording, you can use audio software to check the spectrum information of channels 7 & 8 in the `8chn_test.wav` file.
+  ```shell
+  tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 512 -n 4 -t 5
+  ```
+
+- **Simultaneously Start Dual-Channel Audio Playback**
+
+  ```shell
+  tinyplay ./2chn_test.wav -D 0 -d 0
+  ```
+
+- **Analyze the Loopback Signal**  
+  After recording, use audio analysis software such as Audacity to open `8chn_test.wav` and examine the waveform or spectrum of channels 7 and 8 to verify whether the loopback function is working correctly.
 
 ## FAQ
+
+- If no sound card is detected, check whether the hardware connections and DIP switch settings are correct.
+
+- If there is no sound during recording or playback, confirm that the audio file format and channel count match the command parameters.
+
+- If there is no signal in the loopback channel, ensure that the 8-channel recording command has been used correctly.
 [For more questions, see this link](../../../08_FAQ/04_multimedia.md)

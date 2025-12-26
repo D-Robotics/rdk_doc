@@ -112,7 +112,7 @@ Retrieves a video frame with the specified resolution. The frame data will be in
 
 **Parameters**  
 - `obj`: The pointer to the initialized `VIO` object.
-- `frame_buffer`: A pre-allocated buffer to store the image data.
+- `frame_buffer`: A pre-allocated buffer pointer for storing captured images. Currently, the acquired images are all in `NV12` format, so the pre-allocated memory size can be calculated using the formula `height * width * 3 / 2`, or by utilizing the provided macro `FRAME_BUFFER_SIZE(w, h)` for memory size calculation.
 - `width`: The width of the image (must match the configured output width in `sp_open_camera` or `sp_open_vps`).
 - `height`: The height of the image (must match the configured output height in `sp_open_camera` or `sp_open_vps`).
 - `timeout`: The timeout for obtaining the image (in milliseconds, typically set to `2000`).
@@ -131,7 +131,7 @@ Retrieves the raw image data from the camera.
 
 **Parameters**  
 - `obj`: The pointer to the initialized `VIO` object.
-- `frame_buffer`: A pre-allocated buffer to store the raw image data.
+- `frame_buffer`: A pre-allocated memory buffer pointer used to store the retrieved raw image. The pre-allocated memory size in bytes can be calculated using the formula `(height * width * image depth) / 8`.
 - `width`: Set to `NULL` when retrieving raw data.
 - `height`: Set to `NULL` when retrieving raw data.
 - `timeout`: The timeout for obtaining the image (in milliseconds, typically set to `2000`).
@@ -150,7 +150,7 @@ Retrieves the YUV data from the ISP module of the camera.
 
 **Parameters**  
 - `obj`: The pointer to the initialized `VIO` object.
-- `frame_buffer`: A pre-allocated buffer to store the YUV image data.
+- `frame_buffer`: A pre-allocated memory buffer pointer used to store the retrieved images. Currently, all acquired images are in `NV12` format, so the pre-allocated memory size can be calculated using the formula `height * width * 3 / 2`. Alternatively, the provided macro definition `FRAME_BUFFER_SIZE(w, h)` can also be used to compute the memory size.
 - `width`: Set to `NULL` when retrieving ISP YUV data.
 - `height`: Set to `NULL` when retrieving ISP YUV data.
 - `timeout`: The timeout for obtaining the image (in milliseconds, typically set to `2000`).
