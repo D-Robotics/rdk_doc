@@ -150,5 +150,3 @@ The software architecture of the YOLOv3 object detection example includes the fo
 
 **Q:** How to obtain other pre-trained YOLO models?  
 **A:** You can refer to the [model_zoo repository](https://github.com/D-Robotics/rdk_model_zoo) or [Toolchain's basic model repository](https://github.com/D-Robotics/hobot_model)
-
-n

@@ -27,7 +27,7 @@ In the incorrect examples above, part of the metal connector is exposed, resulti
 
 Check if the sound card exists and verify the device number.
 
-To confirm if the sound card is registered, use:
+To confirm if the sound card is registered, use `cat /proc/asound/cards`:
 ```shell
  0 [duplexaudio    ]: simple-card - duplex-audio
             duplex-audio
@@ -50,20 +50,38 @@ by-path/   controlC0  pcmC0D0c   pcmC0D0p   timer
 
 From the above, you can confirm that sound card 0 is the on-board sound card; the devices exist, and the device number is `0-0`. The actual devices to operate are `pcmC0D0p` and `pcmC0D0c`.
 
-- ### Recording
+### Recording
+
+Execute the following command:
+
 
 ```
-# arecord -Dhw:0,0 -c 2 -r 48000 -f S24_LE -t wav -d 10 /userdata/record1.wav
+arecord -Dhw:0,0 -c 2 -r 48000 -f S24_LE -t wav -d 10 /userdata/record1.wav
+```
+
+The output is as follows, indicating that the audio file should be recorded normally:
+
+```
 Recording WAVE '/userdata/record1.wav' : Signed 24 bit Little Endian, Rate 48000 Hz, Stereo
 ```
-If you see normal recording logs, wait about 10 seconds (`-d 10` means 10 seconds). After recording, you can play back the recording with the following command.
 
-- ### Playback
+Observe the normal recording log on the screen. Wait approximately 10 seconds (the "10" in "-d 10" represents 10 seconds) for the recording to finish. Afterward, you can play the recorded audio using the following command.
+
+### Playback
+
+Execute the following command:
+
 ```
-# aplay -D hw:0,0 /userdata/record1.wav
+aplay -D hw:0,0 /userdata/record1.wav
+```
+
+The output is as follows, and the audio file should now play normally:
+
+```
 Playing WAVE '/userdata/record1.wav' : Signed 24 bit Little Endian, Rate 48000 Hz, Stereo
 ```
-Normally, you should hear the recorded sound through the headset.
+Under normal circumstances, you should be able to hear the recently recorded sound through the headphones.
+
 
 ## FAQ
 1. [How to distinguish between USB sound card and on-board sound card](../../../08_FAQ/04_multimedia.md)

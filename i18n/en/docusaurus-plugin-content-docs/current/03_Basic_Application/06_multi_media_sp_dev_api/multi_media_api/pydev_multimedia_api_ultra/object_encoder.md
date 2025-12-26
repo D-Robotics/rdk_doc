@@ -125,7 +125,6 @@ This interface should be used after calling `Encoder.encode()` to create an enco
 
 <font color='Blue'>【Reference Code】</font>  
 
-None
 
 
 ```python

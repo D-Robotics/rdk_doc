@@ -15,7 +15,7 @@
 
 ## Low-Speed Autonomous Vehicle Precise Environmental Perception Solution
 
-- [Community Link](https://developer.d-robotics.cc/forumDetail/289425139417082881)
+- [Community Link](https://forum-en.d-robotics.cc/t/deployment-process-of-bev-multi-task-and-centerpoint-3d-algorithms-based-on-rdk-s100/438)
 - In BEV (Bird's Eye View) multi-task real-time perception algorithms, the RDK S100 achieves an inference frame rate of 60 FPS, total inference latency of 17 ms, and only ~0.8% NDS quantization loss, enabling simultaneous output of 3D obstacle detection, object classification, and BEV semantic segmentation—providing structured perception support for path planning and behavioral decision-making in dynamic, complex environments.
 - For dense LiDAR point cloud processing, the CenterPoint 3D perception algorithm running on RDK S100 achieves 90 FPS inference frame rate, 60 ms total inference latency, and approximately 0.2% NDS quantization loss, enabling efficient spatial target parsing and rapid point cloud processing with feature extraction.
 

@@ -434,6 +434,14 @@ The RDK S100 defaults to six sets of parameters. Users can select the baud rate 
 
 ### Usage Guide
 
+
+:::info NOTE
+
+Before executing the sample, you need to first power on MCU1. For the procedure to power on MCU1, refer to [Powering on MCU](../01_S100/01_basic_information.md#mcu1-startupshutdown-process).
+
+:::
+
+
 For reference on using Acore CANHAL, consult the sample source code located at: `source/hobot-io-samples/debian/app/Can`. You can directly compile and use it on S100 under the `/app/Can` directory.
 
 Taking multi-channel transparent transmission as an example, the directory structure is as follows:

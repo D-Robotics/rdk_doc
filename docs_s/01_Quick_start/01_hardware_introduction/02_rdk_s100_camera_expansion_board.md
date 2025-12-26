@@ -124,7 +124,7 @@ Camera 扩展板集成了 MAX96712 解串芯片，能够接入 4 路 GMSL2 相�
 
 ### MIPI 相机接口（J2200, J2201）
 
-接口定义: [drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0.xlsx](../../../static/asset/rdk_s100/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0_0924.xlsx)
+接口定义: [drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0.xlsx](https://archive.d-robotics.cc/downloads/hardware/rdk_s100/rdk_s100_camera_expansion_board/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0_0924.xlsx)
 
 Camera 扩展板配备 2×4 Lane MIPI CSI D PHY 接口，支持同时连接两路 MIPI 相机。MIPI 相机接口支持 1.8V 和 3.3V 两种逻辑电平，同时为开发者提供 LPWM 同步信号或 24MHz MCLK 信号。
 

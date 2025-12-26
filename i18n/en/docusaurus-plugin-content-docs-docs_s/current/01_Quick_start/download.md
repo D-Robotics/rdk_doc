@@ -39,3 +39,22 @@ sidebar_position: 6
 | [Reference Design](https://archive.d-robotics.cc/downloads/hardware/rdk_s100/rdk_s100_mcu_port_expansion_board/drobotics_rdk_s100_mcu_port_expansion_board_reference_design_v1p0.zip) | V1.0.0  | 2025-06-10  | Reference design.                                                  |
 | Product Renderings                                                                                                                                                            | V1.0.0  | 2025-06-10  | Product rendering images, suitable for secondary editing of product materials. |
 | Product Photos                                                                                                                                                                | V1.0.0  | 2025-06-10  | Actual product photos, suitable for secondary editing of product materials. |
+
+## Specifications and Design Resources Summary
+### RDK S100
+
+| Name                                                                                                            | Version   | Upload Date   | Documentation                                                  |
+| --------------------------------------------------------------------------------------------------------------- | ------ | ---------- | --------------------------------------------------------- |
+| [RDK S100 Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_en_v1_1.pdf)    | V1.1 | 2025-12-16 | Product specifications, features, dimensions, and model details. |                |
+
+### RDK S100 Camera Expansion Board
+
+| Name                                                                                                            | Version   | Upload Date   | Documentation                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- | --------------------------------------------------------- |
+| [Camera Expansion Board Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100_camera_expansion_board/d_robotics_rdk_s100_camera_expansion_board_en_v1_1.pdf)                | V1.1 | 2025-12-16 | Product specifications, features, dimensions, and model details. |
+
+### RDK S100 MCU Port Expansion Board
+
+| Name                                                                                                            | Version   | Upload Date   | Documentation                                                  |
+|  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- | ------------------------------------------------------------- |
+| [MCU Port Expansion Board Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100_mcu_port_expansion_board/d_robotics_rdk_s100_mcu_port__expansion_board_en_v1_1.pdf)            | V1.1 | 2025-12-16 | Product specifications, features, dimensions, and model details.   |

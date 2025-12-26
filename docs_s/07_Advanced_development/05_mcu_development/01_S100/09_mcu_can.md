@@ -431,6 +431,12 @@ RDK S100默认配置了6组参数，用户可以通过修改Can_aControllerConfi
 
 ### 使用指南
 
+:::info 提示
+
+执行 sample 之前需要先开启MCU1，MCU1开启的流程参考[开启 MCU](../01_S100/01_basic_information.mdmcu1启动关闭流程)。
+
+:::
+
 Acore canhal使用可参考sample源码目录：source/hobot-io-samples/debian/app/Can，可以在S100的/app/Can目录下直接make编译使用。
 
 以多路透传为例，目录结构如下：

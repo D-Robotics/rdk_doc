@@ -5,6 +5,25 @@ sidebar_position: 2
 
 The Encoder object implements encoding and compression functions for video data. It includes several methods, such as `encode`, `encode_file`, `get_img`, `close`, etc. The detailed explanation is as follows:
 
+
+## Basic Specifications
+- RDK supports H.265/HEVC encoder, H.264/AVC encoder, H.265/HEVC decoder, H.264/AVC decoder, JPEG and MJPEG encoder/decoder.
+
+## Reference Example
+ Example code for the Encoder object can be referred to in the `mipi_camera_web.py` example.
+
+## API Reference
+
+| API Interface | Interface Function |
+| ---- | ----- |
+| encode | **Open the encoder** |
+| close | **Close the encoder** |
+| send_frame | **Send image data to the encoder** |
+| encode_file | **Send image data to the encoder** |
+| get_frame | **Stop the video stream and close the camera** |
+| get_img | **Stop the video stream and close the camera** |
+
+
 ## encode
 
 <font color='Blue'>【Function Description】</font>
@@ -51,6 +70,73 @@ None
 <font color='Blue'>【Reference Code】</font>
 
 None
+
+
+### close
+
+<font color='Blue'>【Function Description】</font>
+
+Disable the enabled encoding channel.
+
+<font color='Blue'>【Function Declaration】</font>  
+
+```python
+Encoder.close()
+```
+
+<font color='Blue'>【Parameter Description】</font>  
+
+无
+
+<font color='Blue'>【Usage】</font> 
+
+无
+
+<font color='Blue'>【Return Value】</font>  
+
+| Return value | Definition |                 
+| ------ | ----- |
+| 0      | Success  |
+| -1    | Failure   |
+
+<font color='Blue'>【Notes】</font> 
+
+This interface should be used after invoking `Encoder.encode()` to establish an encoding channel.
+
+
+
+
+### send_frame
+
+<font color='Blue'>【Function Description】</font>
+
+Send the image data to the encoder.
+
+<font color='Blue'>【Function Declaration】</font>  
+
+```python
+Encoder.send_frame(img)
+```
+
+<font color='Blue'>【Parameter Description】</font>  
+
+无
+
+<font color='Blue'>【Usage】</font> 
+
+无
+
+<font color='Blue'>【Return Value】</font>  
+
+| Return value | Definition |                 
+| ------ | ----- |
+| 0      | Success  |
+| -1    | Failure   |
+
+<font color='Blue'>【Notes】</font> 
+
+This interface should be used after calling `Encoder.encode()` to establish an encoding channel.
+
 
 ## encode_file
 

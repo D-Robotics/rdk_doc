@@ -5,7 +5,7 @@ sidebar_position: 3
 # 3.2.3 rtsp2display Example Introduction
 
 ## Example Overview
-rtsp2display is a **C language interface** development code example located in /app/cdev_demo, demonstrating how to obtain H.264 stream from RTSP video stream, and achieve real-time video playback on embedded device screens through hardware decoding (SP_Decoder), video processing (SP_VPS), and display module (SP_Display). Core functionalities include:
+rtsp2display is a **C language interface** development code example located in `/app/cdev_demo`, demonstrating how to obtain H.264 stream from RTSP video stream, and achieve real-time video playback on embedded device screens through hardware decoding (SP_Decoder), video processing (SP_VPS), and display module (SP_Display). Core functionalities include:
 - RTSP streaming protocol parsing
 - H.264 hardware decoding
 - Video scaling and format conversion
@@ -24,7 +24,7 @@ This example does not require a mouse and keyboard, so here we connect an HDMI d
 ## Quick Start
 
 ### Code and Board Location
-Navigate to /app/cdev_demo/rtsp2display location, you can see the rtsp2display example contains 2 files
+Navigate to `/app/cdev_demo/rtsp2display` location, you can see the rtsp2display example contains 2 files
 ```
 root@ubuntu:/app/cdev_demo/rtsp2display# tree
 .
@@ -46,9 +46,9 @@ root@ubuntu:/app/cdev_demo/rtsp2display# tree
 
 ### Execution Effect
 
-- **First** we need to prepare the input data. Here we can copy existing data from the board, such as the 1920x1080.h264 file from /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 directory to the current directory for separate operation without affecting the original data.
+- **First** we need to prepare the input data. Here we can copy existing data from the board, such as the 1920x1080.h264 file from `/opt/tros/humble/lib/hobot_codec/config/1920x1080.h264` directory to the current directory for separate operation without affecting the original data.
 - **Second** we use `systemctl stop lightdm` to stop the display service.
-- **Then** start live555MediaServer. Here we can copy live555MediaServer from /app/pydev_demo/08_decode_rtsp_stream location to the current directory and run it in the background.
+- **Then** start live555MediaServer. Here we can copy live555MediaServer from `/app/pydev_demo/08_decode_rtsp_stream` location to the current directory and run it in the background.
 
 - **Next** we use `sudo ./rtsp2display -i rtsp://127.0.0.1/1920x1080.h264 -t tcp` command. The default execution result is to decode the h264 file transmitted via rtsp and display it on the connected monitor.
 

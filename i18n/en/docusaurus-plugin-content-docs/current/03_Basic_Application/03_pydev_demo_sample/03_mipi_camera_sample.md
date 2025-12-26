@@ -24,7 +24,7 @@ The MIPI camera sample is a **Python interface** development code example locate
 ## Quick Start
 
 ### Code and Board Location
-The MIPI camera sample file is located at `/app/pydev_demo/03_mipi_camera_sample/mipi_camera.py`:
+The MIPI camera sample file is located at `/app/pydev_demo/03_mipi_camera_sample/mipi_camera.py`
 
 ### Compilation and Execution
 The Python sample does not require compilation and can be run directly:

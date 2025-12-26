@@ -256,7 +256,7 @@ Created new framebuffer: fb_id=79 for dma_buf_fd=60
 add mapping dma_buf_fd:60 fb_id:79, mapping_count: 2
 ```
 
-## 详细是介绍
+## 详细介绍
 
 ### 示例程序参数选项说明
 我们可以直接执行目标文件来确认参数选项说明

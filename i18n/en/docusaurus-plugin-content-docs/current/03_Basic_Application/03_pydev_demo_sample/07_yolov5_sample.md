@@ -127,10 +127,10 @@ The software architecture of the YOLOv5 object detection example includes the fo
 
 ### FAQ
 
-**Q:** What's the difference between YOLOv5 and YOLOv3?\  
+**Q:** What's the difference between YOLOv5 and YOLOv3?  
 **A:** YOLOv5 has improvements in network architecture, training strategies, and post-processing algorithms, typically offering higher detection accuracy and faster inference speed.
 
-**Q:** What should I do if I encounter "No module named 'hobot_dnn'" error when running the example?\  
+**Q:** What should I do if I encounter "No module named 'hobot_dnn'" error when running the example?  
 **A:** Please ensure the RDK Python environment is correctly installed, including the hobot_dnn module and other official dedicated inference libraries.
 
 **Q:** How to change the test image?  

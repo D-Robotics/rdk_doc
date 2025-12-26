@@ -123,7 +123,7 @@ The Camera Expansion Board integrates the MAX96712 deserializer chip, supporting
 
 ### MIPI Camera Interfaces (J2200, J2201)
 
-Pinout Definition: [drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0.xlsx](../../../../../../static/asset/rdk_s100/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0-eng.xlsx)
+Pinout Definition: [drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0.xlsx](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100_camera_expansion_board/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0-eng.xlsx)
 
 The Camera Expansion Board features two 4-lane MIPI CSI D-PHY interfaces, supporting simultaneous connection of two MIPI cameras. The MIPI camera interfaces support both 1.8V and 3.3V logic levels and provide developers with either an LPWM synchronization signal or a 24MHz MCLK signal.
 

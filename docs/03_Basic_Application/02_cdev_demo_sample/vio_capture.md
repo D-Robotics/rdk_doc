@@ -229,7 +229,7 @@ root@ubuntu:/app/cdev_demo/vio_capture#
 将产物下载到可以浏览 raw 和 yuv 的设备端，比如电脑主机上，然后通过软件预览 raw 和 yuv 图像。
 raw 图一般比较暗， yuv 图像经过了 isp 处理，会更加还原现实效果。
 
-## 详细是介绍
+## 详细介绍
 
 ### 示例程序参数选项说明
 ```
@@ -249,10 +249,10 @@ for any corresponding short options.
 ```
 
 示例程序参数选项说明 \
---width	 -w	是摄像头 sensor 的输出宽度 \
---height -h	是摄像头 sensor 的输出高度 \
---bit	-b	是	RAW 位深（通常 8/10/16 ）\
---count	-c	是	捕获帧数
+--width	 -w：是摄像头 sensor 的输出宽度 \
+--height -h：是摄像头 sensor 的输出高度 \
+--bit	-b：是RAW 位深（通常 8/10/16 ）\
+--count	-c：是捕获帧数
 
 我们这里可以列举一些标配 sensor 的示例参数，方便参考使用。
 | 型号   | 宽度 | 高度 | 位深 |

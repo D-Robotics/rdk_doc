@@ -11,13 +11,13 @@ usb_camera_fcos.py: Real-time object detection, using the FCOS model for real-ti
 
 usb_camera_snap.py: Single image capture, capturing one image from the USB camera and saving it as a file.
 
-## Demonstration
+## Effect Demonstration
 
-usb_camera_fcos.py Effect
+Effect of usb_camera_fcos.py
 
 ![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_pydev_demo_sample/image/pydev_02_usb_fcos.png)
 
-usb_camera_snap.py Effect
+Effect of usb_camera_snap.py
 
 ![output-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_pydev_demo_sample/image/pydev_02_usb_snap.png)
 
@@ -62,8 +62,7 @@ python3 usb_camera_fcos.py
 ```
 
 ### Execution Results
-usb_camera_snap.py Execution Results
-After running, the program will automatically search for available USB camera devices, capture one frame of image and save it as img.jpg in the current directory.
+usb_camera_snap.py Execution Results: After running, the program will automatically search for available USB camera devices, capture one frame of image and save it as img.jpg in the current directory.
 ```
 root@ubuntu:/app/pydev_demo/02_usb_camera_sample# ./usb_camera_snap.py 
 Opening video device: /dev/video0
@@ -72,8 +71,7 @@ Corrupt JPEG data: 766 extraneous bytes before marker 0xd9
 Image saved as img.jpg
 ```
 
-usb_camera_fcos.py Execution Results
-After running, the program will automatically search for available USB camera devices and start real-time object detection. Detection results will be displayed via HDMI, and target information with FPS will be printed to the console.
+usb_camera_fcos.py Execution Results: After running, the program will automatically search for available USB camera devices and start real-time object detection. Detection results will be displayed via HDMI, and target information with FPS will be printed to the console.
 ```
 root@ubuntu:/app/pydev_demo/02_usb_camera_sample# ./usb_camera_fcos.py 
 [BPU_PLAT]BPU Platform Version(1.3.6)!
@@ -236,13 +234,13 @@ This example uses OpenCV interfaces as well as display resource interfaces and m
 </center>
 
 ### FAQ
-**Q:** What should I do when the sample prompts "No USB camera found" during execution? 
+**Q:** What should I do when the sample prompts "No USB camera found" during execution?   
 **A:** Please check if the USB camera is correctly connected and ensure the device node (such as /dev/video8) exists. You can try using the command `v4l2-ctl --list-devices` to view available camera devices.
 
-**Q:** What should I do if HDMI display is abnormal when running usb_camera_fcos.py?  
+**Q:** What should I do if HDMI display is abnormal when running usb_camera_fcos.py?    
 **A:** Please check the HDMI connection and ensure the display service has been stopped (such as using `systemctl stop lightdm`).
 
-**Q:** How to adjust the detection threshold of usb_camera_fcos.py? 
+**Q:** How to adjust the detection threshold of usb_camera_fcos.py?   
 **A:** Modify the value of `fcos_postprocess_info.score_threshold` in the code, for example, change it to 0.5.
 
 **Q:** How to modify the save path of usb_camera_snap.py?  

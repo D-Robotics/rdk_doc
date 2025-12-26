@@ -46,7 +46,7 @@ root@ubuntu:/app/cdev_demo/rtsp2display# tree
 
 ### 执行效果
 
-- **首先** 我先要准备好输入数据，这里我们可以将板端已有的数据，比如 /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 目录下的 1920x1080.h264 文件拷贝到当前目录，单独操作，不影响原始数据。
+- **首先** 我们先要准备好输入数据，这里我们可以将板端已有的数据，比如 /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 目录下的 1920x1080.h264 文件拷贝到当前目录，单独操作，不影响原始数据。
 - **其次** 我们使用 systemctl stop lightdm 来关闭显示服务。
 - **然后** 打开 live555MediaServer ，这里我们可以把 /app/pydev_demo/08_decode_rtsp_stream 位置下的 live555MediaServer 拷贝到当前目录，然后后台运行。
 
