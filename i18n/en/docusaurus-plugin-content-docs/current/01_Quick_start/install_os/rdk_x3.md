@@ -148,7 +148,12 @@ Before burning the Ubuntu system image, please prepare the following:
 - A Micro SD card with at least 8GB capacity
 - An SD card reader
 - Download the image burning tool Rufus ([click here to visit the official website](https://rufus.ie/))
+- Download the image burning tool RDK Studio（[lick here to visit the official website](https://developer.d-robotics.cc/en/rdkstudio)）
+  
 :::
+
+<Tabs groupId="flashing-type">
+<TabItem value="Rufus" label="Rufus Tool">
 
 Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
 1. Open Rufus and select the target Micro SD card under the "Device" dropdown.
@@ -165,6 +170,14 @@ Rufus is a bootable media creation tool for Windows. To create an SD boot card u
 
 </TabItem>
 
+<TabItem value="RDK Studio" label="RDK Studio Tool">
+
+Using the RDK Studio tool provided by Digua to flash the system. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/03_flashing.md)。
+
+
+</TabItem>
+</Tabs>
+</TabItem>
 <TabItem value="x3md" label="RDK X3 Module">
 
 The RDK X3 Module supports booting the system from two modes: eMMC and SD card:
@@ -268,14 +281,16 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
    ![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)
    </figure>
 
-</TabItem>
 
-</Tabs>
 
 :::caution
 
 If the burning process is interrupted, please follow the above steps to restart.
 :::
+
+</TabItem>
+
+</Tabs>
 
 ### Start the system
 

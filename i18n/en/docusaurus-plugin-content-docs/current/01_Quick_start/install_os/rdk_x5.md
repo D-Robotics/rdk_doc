@@ -87,8 +87,12 @@ Before flashing the Ubuntu system image, please prepare the following:
 - A Micro SD card with at least 16GB capacity
 - An SD card reader
 - Download the Rufus image flashing tool ([click here to download](https://rufus.ie/))
-
+- Download the image burning tool RDK Studio（[lick here to visit the official website](https://developer.d-robotics.cc/en/rdkstudio)）
+  
 :::
+
+<Tabs groupId="flashing-type">
+<TabItem value="Rufus" label="Rufus Tool">
 
 Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
 
@@ -104,6 +108,9 @@ Rufus is a bootable media creation tool for Windows. To create an SD boot card u
 
     ![image-rufus-flash](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash-en.png)
 
+</TabItem>
+
+<TabItem value="board" label="Flashing the Board">
 
 ### Flashing the Board
 
@@ -125,11 +132,21 @@ If the SD card is not inserted into the development board, the eMMC built into t
 
 Then follow the system flashing section to complete the system flashing.
 
-</TabItem>
-</Tabs>
 
 ![img-2025-1451](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/img-2025-1451-en.png)  
 
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="RDK Studio" label="RDK Studio 工具">
+
+Using the RDK Studio tool provided by Digua to flash the system. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/03_flashing.md)。
+
+
+
+</TabItem>
+</Tabs>
 
 ### System Boot
 

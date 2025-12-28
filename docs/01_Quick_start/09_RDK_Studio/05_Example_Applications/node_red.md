@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
    :::info 提示
    - 部分示例已经安装，未安装示例可点击 `Install Example` 进行安装，本章节以 `手势识别` 示例为例进行说明。
    - 手势识别示例需跟踪手势，请提前连接好摄像头。
-   -  如未安装 Node-RED 会弹出提示，需在 “设备管理 - 应用空间” 中安装 Node-RED，参考 [Node-RED使用](../01_Device_management/02_integration_tools.md#node-red)。
+   -  如未安装 Node-RED 会弹出提示，需在 “设备管理 - 应用空间” 中安装 Node-RED，参考 [Node-RED使用](../04_Device_management/02_integration_tools.md#node-red-使用node-red)。
    :::
    
 3. 点击 `手势识别` 示例下的 Node-RED，阅读完导览信息后点击 `关闭` ，关闭导览弹窗。

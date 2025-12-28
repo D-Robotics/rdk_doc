@@ -4,6 +4,6 @@
   "link": {
     "type": "generated-index",
     "slug": "/Device_management",
-    "description": "在此处你可以通过右上角的 +RDK设备 进行添加设备进行管理。"
+    "description": "在此处你可以通过右上角的 +RDK设备 添加设备进行管理。"
   }
 }

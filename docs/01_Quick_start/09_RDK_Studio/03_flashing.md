@@ -94,7 +94,7 @@ import TabItem from '@theme/TabItem';
 
 3. 点击 `结束导览` 关闭教程窗口，点击 `下一步` 进入选择 RDK 操作系统镜像界面。 
    
-   ![选择系统页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image.png)
+   ![选择系统页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image1.png)
    
 4. 选择想要安装的镜像版本，点击 `下一步` ，进入选择存储设备界面，勾选正确的存储设备，点击 `安装`。
    
