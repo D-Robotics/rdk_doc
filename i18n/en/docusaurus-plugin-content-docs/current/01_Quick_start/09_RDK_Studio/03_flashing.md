@@ -27,7 +27,7 @@ If your storage device has already completed the system flashing process, you ca
 
 3. Click `OK` to close the pop-up. If RDK Studio is not currently opened with administrator privileges, close RDK Studio first. Return to the desktop, right-click on the RDK Studio application icon, select `Run as administrator`, open RDK Studio, and then enter the flashing function interface again.
    
-   ![Run as Administrator Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/flashing_install_usertype.png)
+   ![Run as Administrator Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_usertype.png)
 
 
 

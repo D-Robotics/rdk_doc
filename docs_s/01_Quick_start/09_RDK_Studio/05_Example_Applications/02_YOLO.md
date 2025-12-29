@@ -58,7 +58,7 @@ RDK 设备已连接 MIPI 或者 USB 摄像头。
 ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_update_package.png)
 
 
-### 了解更多
+### 了解更多(<font color = "red">图片待替换</font>)
 
 点击执行 `了解更多` 指令，可打开网页查阅有关示例的更多信息。
 
