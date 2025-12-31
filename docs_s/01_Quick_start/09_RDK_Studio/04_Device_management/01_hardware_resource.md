@@ -32,19 +32,8 @@ import TabItem from '@theme/TabItem';
 
    ![选择网络界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_choosenet.png)
 
-    :::tip 提示
-    
-      仅RDK X5 的 Type-C 接口支持通过闪连方式添加设备，此处选择闪连方式添加设备请提前执行以下步骤：
-      1. 开发板网络 IP 确认  
-       以 RDK X5 的 3.0 版本镜像为例（切勿使用Beta版本镜像），Type-C 网卡所对应的IP网段为192.168.128.10，其他版本镜像可以先选用其他连接方式，使用 `ifconfig` 命令进行查看 IP。
-      2. 个人PC网络的设置  
-       打开控制面板——>网络和Internet——>网络和共享中心——>左侧更改适配器设置——>找到板卡的以太网（PS：将板卡与电脑的连接线拔插多次即可知道哪个是开发板的以太网）——>右键选择属性，按照下图方式填写。
-    
-            ![r03XYBKpQH.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/r03XYBKpQH.png)
 
- :::
-
-1. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “sunrise（普通用户权限）” 或 “root（超级用户权限）”。
+4. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “sunrise（普通用户权限）” 或 “root（超级用户权限）”。
     
     
    ![选择用户类型界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
@@ -69,13 +58,13 @@ import TabItem from '@theme/TabItem';
 
     :::
 
-   ![创建 RDK 设备条目界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_name.png)
+   ![创建 RDK 设备条目界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/s100/device_manage_add_name.png)
 
 
 7. 点击 `确认`，成功添加 RDK 设备，在列表页面显示设备卡片及信息。
 
     
-   ![设备卡列表界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_success.png)
+   ![设备卡列表界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/s100/device_manage_add_success.png)
 
 :::tip 提示
 

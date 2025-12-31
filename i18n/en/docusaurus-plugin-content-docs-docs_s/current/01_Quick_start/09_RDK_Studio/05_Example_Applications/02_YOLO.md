@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Application Scenarios
 
-As a representative algorithm in single-stage object detection, the YOLO series has the advantages of fast speed and good generalization, and can be used for garbage recognition, vehicle detection, and other functions, mainly applied in autonomous driving, smart home, and other fields.
+RDK Studio helps developers with no prior experience get started quickly and initiate an efficient object detection workflow: As a representative algorithm in single-stage object detection, the YOLO series has the advantages of fast speed and good generalization, and can be used for garbage recognition, vehicle detection, and other functions, mainly applied in autonomous driving, smart home, and other fields.
 
 ## Preparations
 

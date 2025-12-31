@@ -7,7 +7,7 @@ sidebar_position: 2
     
 ## Application Scenarios
 
-Human keypoint detection algorithms are primarily used for capturing skeletal keypoints of the human body and are suitable for human pose recognition tasks in real-time application scenarios.
+RDK Studio helps zero-foundation developers get started quickly, opening up an efficient workflow for human key point detection, Human keypoint detection algorithms are primarily used for capturing skeletal keypoints of the human body and are suitable for human pose recognition tasks in real-time application scenarios.
 
 ## Preparations
 

@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## 应用场景
 
-RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作流：YOLO 系列作为单阶段目标检测中的代表算法，具有速度快，泛化性好的优点，可实现垃圾识别、车辆检测等功能，主要应用于自动驾驶、智能家居等领域。
+RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作流：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 
 ## 准备工作
 
@@ -21,7 +21,7 @@ RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作
 点击 RDK Studio 右上角  ![链接图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) 图标可以快速在浏览器中打开示例！
 :::
 
-1. 点击 `YOLO 目标检测` 示例下的 Node-RED。
+1. 点击 `人手关键点及手势识别` 示例下的 Node-RED。
    
     ![示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_location.png)
 

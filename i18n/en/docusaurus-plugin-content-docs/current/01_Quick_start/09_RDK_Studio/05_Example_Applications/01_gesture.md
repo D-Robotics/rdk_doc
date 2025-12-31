@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Application Scenarios
 
-The gesture recognition algorithm integrates technologies such as hand keypoint detection and gesture analysis, enabling computers to interpret human gestures as corresponding commands. This can achieve functions like gesture control and sign language translation. It is primarily applied in fields such as smart home systems, smart cockpits, and wearable smart devices.
+RDK Studio helps developers with zero background get started quickly and initiate an efficient gesture recognition workflow: The gesture recognition algorithm integrates technologies such as hand keypoint detection and gesture analysis, enabling computers to interpret human gestures as corresponding commands. This can achieve functions like gesture control and sign language translation. It is primarily applied in fields such as smart home systems, smart cockpits, and wearable smart devices.
 
 ## Preparations
 
