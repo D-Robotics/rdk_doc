@@ -147,12 +147,19 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 Before burning the Ubuntu system image, please prepare the following:
 - A Micro SD card with at least 8GB capacity
 - An SD card reader
-- Download the image burning tool Rufus ([click here to visit the official website](https://rufus.ie/))
-- Download the image burning tool RDK Studio（[lick here to visit the official website](https://developer.d-robotics.cc/en/rdkstudio)）
+- Download the flashing tool provided by D-Robotics, RDK Studio (you can [click here to download](https://developer.d-robotics.cc/en/rdkstudio)), or the image flashing tool Rufus (you can [click here to visit the official website](https://rufus.ie/en/)).
   
 :::
 
 <Tabs groupId="flashing-type">
+
+<TabItem value="RDK Studio" label="RDK Studio Tool">
+
+After using the RDK Studio tool to flash the system, you can add devices for management. It is recommended to use the RDK Studio tool. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/03_flashing.md)。
+
+
+</TabItem>
+
 <TabItem value="Rufus" label="Rufus Tool">
 
 Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
@@ -170,12 +177,7 @@ Rufus is a bootable media creation tool for Windows. To create an SD boot card u
 
 </TabItem>
 
-<TabItem value="RDK Studio" label="RDK Studio Tool">
 
-Using the RDK Studio tool provided by Digua to flash the system. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/03_flashing.md)。
-
-
-</TabItem>
 </Tabs>
 </TabItem>
 <TabItem value="x3md" label="RDK X3 Module">

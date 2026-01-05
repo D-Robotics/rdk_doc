@@ -2,65 +2,83 @@
 sidebar_position: 2
 ---
 
-# Gesture Recognition
+# TROS Gesture Detection
 
 ## Application Scenarios
 
-RDK Studio helps developers with zero background get started quickly and initiate an efficient gesture recognition workflow: The gesture recognition algorithm integrates technologies such as hand keypoint detection and gesture analysis, enabling computers to interpret human gestures as corresponding commands. This can achieve functions like gesture control and sign language translation. It is primarily applied in fields such as smart home systems, smart cockpits, and wearable smart devices.
+RDK Studio helps beginners get started quickly, enabling an efficient gesture recognition workflow: Gesture recognition algorithms integrate technologies such as hand keypoint detection and gesture analysis, allowing computers to interpret human gestures as corresponding commands. This enables functions like gesture control and sign language translation, mainly applied in smart home, smart cockpit, smart wearable devices, and other fields.
 
-## Preparations
+## Preparation
 
-The RDK device is already connected to an MIPI or USB camera.
+Supports connection of both USB and MIPI cameras. This section uses a USB camera as an example. The USB camera connection method is as follows:
 
-## Execution Process
+
+    ![Camera Connection Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/connect_camera.png)
+
+    
+## Running Process
 
 :::tip Tip
 
-Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the top right corner of RDK Studio to quickly open the example in a browser!
+Click the  ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the top right corner of RDK Studio to quickly open the example in a browser!
 :::
 
-1. Select the type of camera connected. This section uses an MIPI camera as an example. Click the corresponding `Start` command and wait for the node to run. Once completed, the visualization window will open automatically for recognition, and the recognized results will be announced via voice broadcast.
-
-    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_run_camera.png)
-
-2. Activate `Performance Information Output` to view the output results in the debug window.
+1. Click Node-RED under the `TROS Gesture Detection` example.
    
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_debug.png)
-   
-3. Activate `Output Statistics` to output the statistical results of detected gesture counts.
-   
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_count.png)
+    ![Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_location.png)
 
-4. Click to execute the `Visualization Interface` command, which automatically opens TogetherROS Web Display.
+2. Enter the example application flow interface.
+        
+   ![Gesture Recognition Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_example_nodered_gesture_detection.png)
 
-    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_display_browser1.png)
-    
-5. Click `Web Display` to enter the visualization page for real-time gesture recognition.
-   
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_display_browser2.png)
+3. Select the type of connected camera, click the corresponding `Start(USB Cam)` command. After waiting about 10 seconds, the visualization window will automatically open for recognition, and the recognized results will be broadcast via voice.
 
-6. Click the ` × ` in the top right corner of the visualization page to exit. Click to execute the `Close` command to shut down the camera.
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_run_camera.png)
+
+4.  `Performance Result`: Click the debug icon on the right to position the right sidebar to the debug window, where you can view performance information output results.
+      
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_debug.png)
    
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_close_camera.png)
+5.  `Output Statistics`: Outputs statistical results of collected gesture counts.
+   
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_count.png)
+
+
+6. Click to execute the `Stop` command to turn off the camera.
+   
+   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_close_camera.png)
 
 
     :::warning Note
     
-    If modifications are made to nodes, workflows, etc., you must click the ![Deploy Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png) button in the top right corner for them to take effect!
+    If you modify nodes, flows, etc., you need to click the ![Deploy Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png) button in the top right corner for the changes to take effect!
     
-    
-    
+       
     :::
 
-## Update Software Package
+7. Click the ` × ` icon in the top right corner to exit the Node-RED application.
 
-Executing `Update Software Package` will update the algorithm package or driver to the latest version available in the cloud. After the update is complete, the message "Update completed" is displayed, and a voice announcement "Smart update completed" is played.
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_nodered_close.png)
 
-![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_update_package.png)
+
+
+## More Features
+
+### Visualization Page
+
+1. Click to execute the `Visualization Interface` command, which automatically opens TogetherROS Web Display.
+
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_display_browser1.png)
+    
+7. Click `Web Display` to enter the visualization page for real-time gesture recognition.
+   
+   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_display_browser2.png)
+
+8. Click the ` × ` in the top right corner of the visualization page to exit it.
 
 
 ### Learn More
 
-Click to execute the `Learn More` command to open and view more information about the example.
+Click to execute the `Learn More` command to open and read more information about the example.
 
-![Example Explanation Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_more.png)
+![Example Description Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_more.png)

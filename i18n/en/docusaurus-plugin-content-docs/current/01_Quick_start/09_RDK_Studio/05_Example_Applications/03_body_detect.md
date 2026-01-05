@@ -2,69 +2,76 @@
 sidebar_position: 2
 ---
 
-# Human Body Keypoint Detection
+# TROS Body Detection
 
-    
 ## Application Scenarios
 
-RDK Studio helps zero-foundation developers get started quickly, opening up an efficient workflow for human key point detection, Human keypoint detection algorithms are primarily used for capturing skeletal keypoints of the human body and are suitable for human pose recognition tasks in real-time application scenarios.
+RDK Studio helps beginners get started quickly and enables an efficient workflow for human body keypoint detection: The human body keypoint detection algorithm is primarily used to capture skeletal keypoints of the human body, suitable for multi-person pose recognition tasks in real-time application scenarios.
 
 ## Preparations
 
-The RDK device is already connected to an MIPI or USB camera.
+Supports connecting both USB and MIPI cameras. This section uses a USB camera as an example. The connection method for a USB camera is as follows:
 
-    
-## Execution Process
+
+![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/connect_camera.png)
+
+## Running Process
 
 :::tip Tip
 
-Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the top right corner of RDK Studio to quickly open the example in a browser!
+Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the upper right corner of RDK Studio to quickly open the example in a browser!
 :::
 
-1. Select the type of camera connected. This section uses an MIPI camera as an example. Click the corresponding `Start` command and wait for the node to run. Once completed, the visualization window will open automatically for recognition.
-
-    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_body_run_camera.png)
-
-2.Activate `Performance Information Output` to view the output results in the debug window.
+1. Click Node-RED under the `TROS Body Detection` example.
    
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_body_debug.png)
-   
-3. Activate `Output Statistics` to output the statistical results of detected gesture counts.
-   
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_body_count.png)
+    ![Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_location.png)
 
-4. Click to execute the `Visualization Interface` command, which automatically opens TogetherROS Web Display.
-
-    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_display_browser1.png)
+2. Enter the example application flow interface.
+        
+   ![Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_home.png)
     
-5. Click `Web Display` to enter the visualization page for real-time gesture recognition.
-   
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_body_browser2.png)
+3. Select the type of camera connected, click the corresponding `Start(USB Cam)` command, and wait for about 10 seconds for the visualization window to open automatically.
 
-6. Click the ` × ` in the top right corner of the visualization page to exit. Click to execute the `Close` command to shut down the camera.
-   
-   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_body_close_camera.png)
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_run_camera.png)
 
+4. `Performance Result`: Click the debug icon on the right to position the sidebar to the debug window. You can view the performance information output results in the debug window.
+   
+   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_debug.png)
+   
+5.  `Output Statistics`: Can output statistical results of detected human body keypoints.
+ 
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_count.png)
+
+6. Click to execute the `Stop` command to turn off the camera.
+   
+   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_close_camera.png)
 
     :::warning Note
     
-    If modifications are made to nodes, workflows, etc., you must click the ![Deploy Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png) button in the top right corner for them to take effect!
-    
-    
-    
+    If you have modified nodes, flows, etc., you need to click the ![Deploy Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png) button in the upper right corner for the changes to take effect!
+
     :::
 
-## Update Software Package
+7. Click the `×` icon in the upper right corner and select "Close Program" to exit the Node-RED application.
 
-Executing `Update Software Package` will update the algorithm package or driver to the latest version available in the cloud. After the update is complete, the message "Update completed" is displayed, and a voice announcement "Smart update completed" is played.
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_nodered_close.png)
+    
+## More Features
 
-![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_update_package.png)
+### Visualization Page
 
+1. Click to execute the `Visualization Interface` command to automatically open TogetherROS Web Display.
+
+    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_display_browser1.png)
+    
+2.   Click `Web Display` to enter the visualization page for real-time target detection.
+   
+   ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_browser2.png)
+
+3.   Click the `×` in the upper right corner of the visualization page to exit.
 
 ### Learn More
 
-Click to execute the `Learn More` command to open and view more information about the example.
+Click to execute the `Learn More` command to open a webpage and view more information about the example.
 
-![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_body_more.png)
-
-
+![Example Description Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_more.png)

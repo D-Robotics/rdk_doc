@@ -10,8 +10,8 @@ RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作
 
 ## 准备工作
 
-<font color = "red">支持连接 USB 和 MIPI 摄像头，本章节以 USB 摄像头为例进行说明，USB 摄像头连接方法如下：</font>
-    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_gesture_run_camera.png)
+支持连接 USB 和 MIPI 摄像头，本章节以 USB 摄像头为例进行说明，USB 摄像头连接方法如下：
+    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/connect_camera.png)
 
     
 ## 运行过程
@@ -34,7 +34,7 @@ RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作
 
     ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_run_camera.png)
 
-4. `性能信息输出`：可在调试窗口查看输出结果。
+4. `性能信息输出`：点击右侧调试图标将右侧边栏定位至调试窗口，可在调试窗口查看性能信息输出结果。
    
    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_debug.png)
    
