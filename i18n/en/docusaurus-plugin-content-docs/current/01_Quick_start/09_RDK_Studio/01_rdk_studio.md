@@ -51,7 +51,7 @@ After closing the guided tour pop-up, you will enter the RDK Studio home page:
 
 #### Left-side Functional Menu Bar
 
-- `Resources`: Here, you can add devices for management by clicking the `+RDK Device` button in the top right corner.
+- `Resources`: Here, you can add devices for management by clicking the `+Hardware` button in the top right corner.
 - `Examples`: Here, you can directly install simple demos onto your development board.
 - `Community`: This provides direct access to the Digua Robot Community, eliminating the need to open a web browser for reference.
 - `NodeHub`: This provides direct access to NodeHub, offering a wealth of example nodes.

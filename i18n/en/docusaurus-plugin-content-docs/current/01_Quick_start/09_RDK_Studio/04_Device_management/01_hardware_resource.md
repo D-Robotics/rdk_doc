@@ -41,9 +41,9 @@ import TabItem from '@theme/TabItem';
     
             ![config_ethernet.png](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_config_ethernet.png)
 
- :::
+     :::
 
-1. Click `Next` to enter the user type selection interface. Set the user type for logging into the RDK device here. You can choose "sunrise (normal user privileges)" or "root (superuser privileges)".
+4. Click `Next` to enter the user type selection interface. Set the user type for logging into the RDK device here. You can choose "sunrise (Regular User)" or "root (Super User)".
     
     
    ![Select User Type Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
@@ -53,7 +53,7 @@ import TabItem from '@theme/TabItem';
    
    
    :::warning
-    If you choose "Create WIFI Connection" to add the device, ensure that the laptop and the RDK device are connected to the same local area network.
+    If you choose "Network Cable (Setting WIFI)" to add the device, ensure that the laptop and the RDK device are connected to the same local area network.
    :::
    
    
