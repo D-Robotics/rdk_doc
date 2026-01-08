@@ -616,7 +616,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 <Tabs groupId="rdk-type">
 <TabItem value="x5" label="RDK X3">
 
-| 接口 | 负责能力 | 
+| 接口 | 负载能力 | 
 | --- | ------ | 
 | CAN接口 | 500mA @ 3.3V | 
 | DSI接口 | 500mA @ 3.3V | 
@@ -626,7 +626,7 @@ RDK X3 Module载板提供IO电平切换功能，用于控制40pin header电平�
 </TabItem>
 <TabItem value="x5md" label="RDK X3 Module">
 
-| 接口 | 负责能力 | 
+| 接口 | 负载能力 | 
 | --- | ------ | 
 | CAN接口 | 500mA @ 3.3V | 
 | DSI接口 | 500mA @ 3.3V | 

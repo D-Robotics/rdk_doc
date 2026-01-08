@@ -5,6 +5,29 @@ sidebar_position: 1
 
 The Camera object is used to perform image acquisition and processing functions for MIPI cameras. It includes several methods such as `open_cam`, `open_vps`, `get_img`, `set_img`, `close_cam`, etc. Here are the detailed explanations:
 
+
+## Basic Specifications
+- RDK supports MIPI video input
+- Compatible with MIPI Alliance Interface Specification v2.1
+- Supports multiple video formats:
+  - RAW 8-/10-/12-/14-/16-bit formats
+  - YUV 422 format (8-/10-bit)
+
+## Reference Example
+ For sample code related to Camera objects, please refer to the introduction in the mipi_camera.py example.
+
+
+## API Reference
+
+| API Interface | Interface Function |
+| ---- | ----- |
+| open_cam | **Open camera and video stream** |
+| open_vps | **Open VPS module** |
+| get_img | **Get image from the specified module** |
+| set_img | **Input image to VSP module and trigger image processing operations** |
+| close_cam | **Stop video stream and close camera** |
+
+
 ## open_cam
 
 <font color='Blue'>[Function Description]</font>

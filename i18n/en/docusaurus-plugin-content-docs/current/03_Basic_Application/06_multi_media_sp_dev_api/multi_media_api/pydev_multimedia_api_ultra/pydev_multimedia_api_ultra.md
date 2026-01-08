@@ -1,8 +1,8 @@
-# 4.6 RDK Ultra 多媒体接口说明
+# RDK Ultra 多媒体接口说明
 
-开发板Ubuntu系统预装了Python版本的`hobot_spdev`图像多媒体模块，可以创建`Camera`，`Encode`，`Decode`，`Display`等几种对象，用于完成摄像头图像采集、图像处理、视频编码、视频解码和显示输出等功能。
+The development board's Ubuntu system comes pre-installed with the Python version of the `hobot_spdev` image multimedia module, which can create several objects such as `Camera`, `Encode`, `Decode`, and `Display`. These objects are used to perform functions such as camera image acquisition, image processing, video encoding, video decoding, and display output.
 
-模块基础使用方式如下：
+The basic usage of the module is as follows:
 
 ```python
 from hobot_spdev import libsppydev as srcampy

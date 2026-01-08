@@ -3,6 +3,11 @@ sidebar_position: 1
 ---
 # 3.1.1 Pin Configuration and Definition
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 For the 40-pin on the development board, please refer to the [40-Pin GPIO Definition](./40pin_define) section for interface definitions.
 
 ## Hardware Usage Instructions
@@ -58,21 +63,37 @@ Examples of multiplexed functions:
 ## 40-Pin Definition{#40pin_define}
 
 The development board provides a 40-pin standard interface for convenient peripheral expansion. The digital I/Os use a 3.3V voltage level. The pin definitions for the 40-pin interface are as follows:
-![image-20220828203147852](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203147852.png)
+
+<Tabs groupId="rdk-type">
+<TabItem value="x3" label="RDK X3">
+
+![image-20220828203147852](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20220828203147852.png)
 
 The development board has silk screen markings on the 40-pin interface to facilitate operation. The locations of PIN1 and PIN40 are as follows:
 
-![image-20220828203207798](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20220828203207798.jpg)
+![image-20220828203207798](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20220828203207798.png)
 
-:::info
-The RDK X3 Module provides the 40-pin GPIOs and their definitions as follows:
-:::
+</TabItem>
+
+<TabItem value="x3md" label="RDK X3 Module">
+
 ![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-20230510155124570.png)
 
-:::info
-The RDK Ultra provides the 40-pin GPIOs and their definitions as follows:
-:::
-![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/03_40pin_user_guide/image/40pin_user_guide/image-20230830194924570.png)
+</TabItem>
+
+<TabItem value="ultra" label="RDK Ultra">
+
+![image-20230510155124570](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20230830194924570.png)
+
+</TabItem>
+
+<TabItem value="rdkx5&x5md" label="RDK X5 & RDK X5 Module">
+
+![image-20251021194124](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20251021194124.png)
+
+</TabItem>
+
+</Tabs>
 
 ## GPIO Read/Write Operation Example
 

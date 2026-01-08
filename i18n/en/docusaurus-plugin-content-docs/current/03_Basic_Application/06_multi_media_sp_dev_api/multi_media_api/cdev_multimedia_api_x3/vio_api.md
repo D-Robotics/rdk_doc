@@ -167,6 +167,19 @@ The `X3` chip has alignment requirements for the width of `VPS` output. If the w
 
 :::
 
+
+For the size limitations of the VPS on the `X3` chip, please refer to [Video Processing - Feature Description](https://developer.d-robotics.cc/rdk_doc/en/Advanced_development/multimedia_development/video_processing).  
+
+The `X5` chip's VPS channel characteristics are as follows:  
+
+- Maximum processing capability: 3840x2160@60fps  
+- Supports input cropping, scaling separately in horizontal and vertical directions, and independent processing of chroma and luma components  
+- 5 downscale channels  
+  - Maximum resolutions supported: 4K/1080P/1080P/720P/720P  
+  - Minimum resolution: 64x64, with support for arbitrary downscale factors  
+- 1 upscale channel  
+  - Maximum resolution supported: 4K, with a maximum scaling factor of 4X, supporting scaling factors from 0 to 4
+
 【Return Type】  
 Return 0 if successful, -1 if failed
 
