@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 :::info Note
 
-If your storage device has already completed the system flashing process, you can skip this chapter and proceed directly to [Adding a Device](../09_RDK_Studio/04_Device_management/01_hardware_resource.md).
+If your storage device has already completed the system flashing process, you can skip this chapter and proceed directly to [Adding an RDK Device](../09_RDK_Studio/04_Device_management/01_hardware_resource.md).
 :::
 
 ## Flashing Preparation
@@ -43,7 +43,7 @@ There are two methods for flashing the system: "Using Local Image" and "Download
    
    ![Installation Type Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/flashing_select_device.png)
    
-2. The system installation methods are divided into "Using TF Card Reader" and "Using Flash Connect (Type C)". Click the corresponding red buttons to view the device connection tutorials; click `Learn More` to jump to a webpage for more information about RDK devices.
+2. The system installation methods are divided into "Using TF Card Reader" and "Using Flash Connect (Type-C)". Click the corresponding red buttons to view the device connection tutorials; click `Learn More` to jump to a webpage for more information about RDK devices.
    
    ![Guide Information Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/flashing_select_device_method.png)
 
@@ -88,7 +88,7 @@ If you already have the target image locally, please go directly to [Selecting a
    
    ![Installation Type Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/flashing_select_device.png)
    
-2. The system installation methods are divided into "Using TF Card Reader" and "Using Flash Connect (Type C)". Click the corresponding red buttons to view the device connection tutorials; click `Learn More` to jump to a webpage for more information about RDK devices.
+2. The system installation methods are divided into "Using TF Card Reader" and "Using Flash Connect (Type-C)". Click the corresponding red buttons to view the device connection tutorials; click `Learn More` to jump to a webpage for more information about RDK devices.
    
    ![Guide Information Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/flashing_select_device_method.png)
 

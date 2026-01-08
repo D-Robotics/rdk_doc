@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
    ![+ RDK Device Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device.png)
 
 
-2. Click the question mark icon next to "Select Connection Type." A connection guide window will pop up, instructing the user on the connection method corresponding to the selected type. Click `Next` to view subsequent content, or click `Previous` to review previous prompts again. After viewing all guide content, click `Finish` to close the pop-up. You can also click the `×` in the upper right corner at any time to close the pop-up directly.
+2. Click the question mark icon next to "Select Connection Type" A connection guide window will pop up, instructing the user on the connection method corresponding to the selected type. Click `Next` to view subsequent content, or click `Previous` to review previous prompts again. After viewing all guide content, click `Finish` to close the pop-up. You can also click the `×` in the upper right corner at any time to close the pop-up directly.
   
    ![Guide Window Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_help.png)
 

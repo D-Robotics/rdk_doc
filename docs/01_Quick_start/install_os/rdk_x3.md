@@ -171,7 +171,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=1
 
 <TabItem value="RDK Studio" label="RDK Studio 工具">
 
-使用 RDK Studio 工具烧录系统后可以添加设备进行管理，建议使用地 RDK Studio 工具，详细步骤参见 [使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+使用 RDK Studio 工具烧录系统后可以添加设备进行管理，建议使用 RDK Studio 工具，详细步骤参见 [使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
 
 
 </TabItem>

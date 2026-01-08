@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 :::info 提示
 
-如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
+如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加 RDK 设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
 :::
 
 ## 烧录准备
@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
    
    ![权限提示页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_permission.png)
 
-3. 点击 `知道了` 关闭弹窗。如果当前不是通过管理员权限打开的RDK Studio，先关闭RDK Studio；返回到桌面右键点击 RDK Studio 应用图标，选择 `以管理员身份运行`，打开 RDK Studio 后再次进入烧写功能界面。
+3. 点击 `知道了` 关闭弹窗。如果当前不是通过管理员权限打开的 RDK Studio，先关闭 RDK Studio；返回到桌面右键点击 RDK Studio 应用图标，选择 `以管理员身份运行`，打开 RDK Studio 后再次进入烧写功能界面。
    
    ![管理员打开页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_usertype.png)
 
@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
 :::info 提示
 
-烧录系统有 “使用本地镜像” 和 “在线下载镜像” 两种方式，如果没有下载过目标镜像文件到本地，请跳过此节直接[选择通过 RDK Studio 下载镜像烧录](#选择通过-rdk-studio-下载镜像烧录)。
+烧录系统有 “使用本地镜像” 和 “在线下载镜像” 两种方式，如果没有下载过目标镜像文件到本地，请跳过此节直接[选择通过 RDK Studio 下载镜像进行烧录](#选择通过-rdk-studio-下载镜像进行烧录)。
 
 :::
 
@@ -43,7 +43,7 @@ import TabItem from '@theme/TabItem';
    
    ![安装类型页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device.png)
    
-2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type C）” 两种，点击对应的红色按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
+2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type-C）” 两种，点击对应的红色按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
    
    ![导览信息页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device_method.png)
 
@@ -51,7 +51,7 @@ import TabItem from '@theme/TabItem';
    
    ![选择系统页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image.png)
    
-4. 点击选择 `选择本地镜像文件`，自动打开文件资源管理器，进入镜像文件的存储路径双击确认选择镜像文件。
+4. 点击选择 `选择本地镜像文件`，自动打开文件资源管理器，进入镜像文件的存储路径，双击打开镜像文件。
    
    ![镜像存储页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_os_image_local.png)
 
@@ -76,7 +76,7 @@ import TabItem from '@theme/TabItem';
      ![烧录完成页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_install_success.png)
 
    
-## 选择通过 RDK Studio 下载镜像烧录
+## 选择通过 RDK Studio 下载镜像进行烧录
 
 :::warning 注意
 
@@ -88,7 +88,7 @@ import TabItem from '@theme/TabItem';
    
    ![安装类型页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device.png)
    
-2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type C）” 两种，点击对应的红色按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
+2. 安装系统方式分为 “使用 TF 读卡器” 和 “使用闪连（Type-C）” 两种，点击对应的红色按钮可查看设备连接教程；点击 `了解更多` 可跳转至网页了解更多 RDK 设备信息。
    
    ![导览信息页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/flashing_select_device_method.png)
 

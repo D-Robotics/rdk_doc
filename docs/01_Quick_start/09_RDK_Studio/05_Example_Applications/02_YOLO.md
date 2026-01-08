@@ -16,16 +16,18 @@ RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作
     
 ## 运行过程
 
-:::tip 提示
-
-点击 RDK Studio 右上角  ![链接图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) 图标可以快速在浏览器中打开示例！
-:::
 
 1. 点击 `YOLO 目标检测` 示例下的 Node-RED。
    
     ![示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_location.png)
 
 2. 进入示例应用流程界面。
+
+    :::tip 提示
+
+    点击 RDK Studio 右上角  ![链接图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) 图标可以快速在浏览器中打开示例！
+    
+    :::
         
    ![示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_home.png)
 
@@ -53,7 +55,7 @@ RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作
        
     :::
 
-7. 点击右上角 ` × ` 图标退出 Nude-RED 应用。
+7. 点击右上角 ` × ` 图标，选择 “关闭程序” 退出 Node-RED 应用。
 
     ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_nodered_close.png)
 
@@ -75,7 +77,7 @@ RDK Studio 帮助零基础开发者快速上手，开启高效目标检测工作
 
 ### 了解更多
 
-点击执行 `了解更多` 指令，可打开网页查阅有关示例的更多信息。
+点击执行 `了解更多` 指令，可打开在线文档查阅有关示例的更多信息。
 
 ![示例说明图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_object_more.png)
 

@@ -21,7 +21,11 @@ import TabItem from '@theme/TabItem';
 
    :::info Note
    - Some examples are already installed. For uninstalled examples, click `Install Example` to install them. This section uses the `Gesture Recognition` example for explanation.
-   - The Gesture Recognition example requires tracking gestures, so please connect a camera in advance.
+   - The Gesture Recognition example requires tracking gestures, so please connect a camera in advance.Supports connecting both USB and MIPI cameras. This section uses a USB camera as an example. The connection method for a USB camera is as follows:
+
+
+        ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/connect_camera.png)
+        
    - If Node-RED is not installed, a prompt will appear. You need to install Node-RED in "Device Management - Application Space". Refer to [Using Node-RED](../04_Device_management/02_integration_tools.md#using-node-rednode-red).
    :::
    

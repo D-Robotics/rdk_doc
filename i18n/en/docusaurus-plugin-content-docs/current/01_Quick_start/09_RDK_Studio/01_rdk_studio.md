@@ -22,7 +22,7 @@ RDK Studio is a user-friendly development tool for the RDK robotics development 
 
     ![RDK Studio Installation Package Download Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/download_icon.png)  
 
-2. After the installation package is downloaded, open the file location to access the saved path. Click the ".exe" installation file to begin installing RDK Studio.
+2. After the installation package is downloaded, open the file location to access the saved path. Double-click the ".exe" installation file to begin installing RDK Studio.
    
     ![RDK Studio Installation Process Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_install.png)
 
@@ -53,7 +53,7 @@ After closing the guided tour pop-up, you will enter the RDK Studio home page:
 
 - `Resources`: Here, you can add devices for management by clicking the `+Hardware` button in the top right corner.
 - `Examples`: Here, you can directly install simple demos onto your development board.
-- `Community`: This provides direct access to the Digua Robot Community, eliminating the need to open a web browser for reference.
+- `Community`: This provides direct access to the D-Robotics Community, eliminating the need to open a web browser for reference.
 - `NodeHub`: This provides direct access to NodeHub, offering a wealth of example nodes.
 - `Imager`: This provides system flashing functionality via both card reader and flash connection methods.
 

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="windows" label="Windows">
 
-RDK Studio provides direct access to the Digua Robot Community, eliminating the need to manually open a browser to enter the community. With one click, it shortens the path from "encountering a problem" to "finding an answer".
+RDK Studio provides direct access to the D-Robotics Community, eliminating the need to manually open a browser to enter the community. With one click, it shortens the path from "encountering a problem" to "finding an answer".
 
 :::tip Tip
 

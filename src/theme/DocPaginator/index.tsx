@@ -47,6 +47,11 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/hardware_introduction$/, title: '1.1 Hardware Introduction' },
       { pattern: /^\/rdk_doc\/en\/install_os$/, title: '1.2 Install Operating System' },
       { pattern: /^\/rdk_doc\/en\/display_use$/, title: '1.5 Display Usage' },
+      { pattern: /^\/rdk_doc\/en\/RDK_Studio$/, title: '1.9 RDK Studio User Guide' },
+      { pattern: /^\/rdk_doc\/en\/Device_management$/, title: '1.9.4  Device Management' },
+      { pattern: /^\/rdk_doc\/en\/Example_Applications$/, title: '1.9.5 Sample Applications' },
+
+
       { pattern: /^\/rdk_doc\/en\/Basic_Application$/, title: '3. Basic Application Development' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/40pin_define$/, title: '3.1.1 Pin Configuration and Definition' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/01_40pin_user_sample\/gpio$/, title: '3.1.2 Using GPIO' },

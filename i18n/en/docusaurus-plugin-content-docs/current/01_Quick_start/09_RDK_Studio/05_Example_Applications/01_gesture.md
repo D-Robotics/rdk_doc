@@ -18,16 +18,18 @@ Supports connection of both USB and MIPI cameras. This section uses a USB camera
     
 ## Running Process
 
-:::tip Tip
-
-Click the  ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the top right corner of RDK Studio to quickly open the example in a browser!
-:::
 
 1. Click Node-RED under the `TROS Gesture Detection` example.
    
     ![Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_location.png)
 
 2. Enter the example application flow interface.
+
+    :::tip Tip
+
+    Click the  ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the top right corner of RDK Studio to quickly open the example in a browser!
+
+    :::
         
    ![Gesture Recognition Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_example_nodered_gesture_detection.png)
 
@@ -56,7 +58,7 @@ Click the  ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Qu
        
     :::
 
-7. Click the ` × ` icon in the top right corner to exit the Node-RED application.
+7. Click the ` × ` icon in the top right corner ，Select "Close APP" to exit the Node-RED application.
 
     ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_nodered_close.png)
 
@@ -79,6 +81,6 @@ Click the  ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Qu
 
 ### Learn More
 
-Click to execute the `Learn More` command to open and read more information about the example.
+Click to execute the `Learn More` command to open the online documentation to find more information about the examples.
 
 ![Example Description Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_gesture_more.png)

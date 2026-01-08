@@ -17,16 +17,18 @@ Supports connecting both USB and MIPI cameras. This section uses a USB camera as
 
 ## Running Process
 
-:::tip Tip
-
-Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the upper right corner of RDK Studio to quickly open the example in a browser!
-:::
 
 1. Click Node-RED under the `TROS Body Detection` example.
    
     ![Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_location.png)
 
 2. Enter the example application flow interface.
+
+    :::tip Tip
+
+    Click the  ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) icon in the top right corner of RDK Studio to quickly open the example in a browser!
+    
+    :::
         
    ![Example Page](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_home.png)
     
@@ -52,7 +54,7 @@ Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Qui
 
     :::
 
-7. Click the `×` icon in the upper right corner and select "Close Program" to exit the Node-RED application.
+7. Click the `×` icon in the upper right corner，Select "Close APP" to exit the Node-RED application.
 
     ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_nodered_close.png)
     
@@ -72,6 +74,6 @@ Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Qui
 
 ### Learn More
 
-Click to execute the `Learn More` command to open a webpage and view more information about the example.
+Click to execute the `Learn More` command to open the online documentation to find more information about the examples.
 
 ![Example Description Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_example_application_body_more.png)

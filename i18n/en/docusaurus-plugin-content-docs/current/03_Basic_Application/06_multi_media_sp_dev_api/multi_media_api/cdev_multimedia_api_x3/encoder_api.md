@@ -14,6 +14,8 @@ The `ENCODER` API provides the following interfaces:
 | sp_encoder_set_frame | **Pass image frames to encoding channel** |
 | sp_encoder_get_stream | **Get encoded stream from encoding channel** |
 
+Note: Encoded images for RDK X5 require 16-bit alignment, while RDK X3 supports both 8-bit and 16-bit alignment.
+
 ## sp_init_encoder_module
 
 **[Function Prototype]**

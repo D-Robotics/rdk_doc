@@ -85,7 +85,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
    ![+ RDK 设备界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device.png)
 
 
-2. 点击“选择连接类型”后面的问号图标，弹出连接方式导览窗口，指导用户进行所选连接类型对应的设备连接方法，点击 `下一步` 可查看后续内容，也可通过点击 `上一步` 再次查看之前的提示，查看全部导览内容后点击 `结束导览` 关闭窗口，也可随时点击右上角 ` × ` 直接关闭弹窗。
+2. 点击 “选择连接类型” 后面的问号图标，弹出连接方式导览窗口，指导用户根据所选连接类型进行设备连接，点击 `下一步` 可查看后续内容，也可点击 `上一步` 再次查看之前的提示，查看全部导览内容后点击 `结束导览` 关闭窗口，也可随时点击右上角 ` × ` 直接关闭弹窗。
   
    ![导览窗口界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_help.png)
 
@@ -94,7 +94,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
     ![填写IP界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/remote_login_ip_input.png)
 
 
-4. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “普通用户” 或 “root 用户”。
+4. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “sunrise（普通用户权限）” 或 “root（超级用户权限）”。
     
     
    ![选择用户类型界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
