@@ -147,7 +147,9 @@ Returns 0 on success, -1 on failure.
 
 **[Function Description]**
 
-Draws a string in the graphics layer of the display module.**【Parameters】**
+Draws a string in the graphics layer of the display module.
+
+**【Parameters】**
 
 - `obj`: Initialized `DISPLAY` object pointer
 - `x`: x-value of the starting coordinate for drawing the string

@@ -625,6 +625,7 @@ Providing comprehensive hardware design support materials for module customers t
       <th>🇯🇵 **MIC**</th>
       <th>🇨🇳 **SRRC**</th>
       <th>🇰🇷 **KCC**</th>
+      <th>🇬🇧 **UKCA**</th>
       <th>🇪🇺 **RoHS**</th>
       <th>🇹🇭 **NBTC**</th>
       <th>🇲🇾 **SIRIM**</th>
@@ -639,6 +640,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/D-ROBOTICS%20211-241225%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td>
+      <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/RoHS/2402Z107564E_CNAS.pdf">📄 RoHS</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/NBTC.pdf">📄 NBTC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SIRIM.pdf">📄 SIRIM</a></td>
@@ -651,8 +653,10 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td>
       <td>-</td>
+      <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/RoHS/P-2401V86686E%20RDK%20X3.pdf">📄 RoHS</a></td>
+      <td>-</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>**RDK X3 Module**</td>
@@ -662,6 +666,21 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td>
       <td>-</td>
       <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+     <tr>
+      <td>**RDK X5 Module**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/CE/AOC_for_CE_certification.pdf">📄 CE RED</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/CE/AOC_for_CE_certification.pdf">📄 CE EMC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/FCC/D-ROBOTICS 2BGUG-RDKX5M FCC Grant - DSS.PDF">📄 FCC Grant - DSS.pdf</a><br/><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/FCC/D-ROBOTICS 2BGUG-RDKX5M FCC Grant - DTS.PDF">📄 FCC Grant - DTS.pdf</a><br/><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/FCC/D-ROBOTICS 2BGUG-RDKX5M FCC Grant - NII.PDF">📄 FCC Grant - NII.pdf</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/MIC/D-ROBOTICS 211-250814 MIC Radio Certificate.pdf">📄 MIC</a></td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/UKCA/AOC for UKCA 证书.pdf">📄 UKCA</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/ROHS/AOC 2501X28112E-13.pdf">📄 RoHS</a></td>
       <td>-</td>
       <td>-</td>
     </tr>

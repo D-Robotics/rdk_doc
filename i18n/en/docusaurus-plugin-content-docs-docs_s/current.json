@@ -286,5 +286,9 @@
   "sidebar.tutorialSidebar.category.PORT模块指南.link.generated-index.description": {
     "message": "PORT Module Guide",
     "description": "The generated-index page description for category PORT模块指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.1 硬件简介.link.generated-index.title": {
+    "message": "1.1 Hardware Introduction",
+    "description": "The generated-index page title for category 1.1 硬件简介 in sidebar tutorialSidebar"
   }
 }

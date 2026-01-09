@@ -47,42 +47,6 @@
     "message": "Basic applications including image input, audio input, and interface development",
     "description": "The generated-index page description for category 3. 基础应用开发 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.3.1 图像采集与应用": {
-    "message": "3.1 Image Acquisition and Applications",
-    "description": "The label for category 3.1 图像采集与应用 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.3.2 语音采集与应用": {
-    "message": "3.2 Voice Acquisition and Applications",
-    "description": "The label for category 3.2 语音采集与应用 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.3.3 40PIN管脚应用": {
-    "message": "3.3 40-pin GPIO Pin Application",
-    "description": "The label for category 3.3 40PIN管脚应用 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.3.4 多媒体应用": {
-    "message": "3.4 Multimedia Applications",
-    "description": "The label for category 3.4 多媒体应用 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.3.4.3 多媒体接口使用说明": {
-    "message": "3.4.3 Multimedia Interface Usage Instructions",
-    "description": "The label for category 3.4.3 多媒体接口使用说明 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.RDK X3（Python）": {
-    "message": "RDK X3 (Python)",
-    "description": "The label for category RDK X3（Python） in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.RDK X3（C++）": {
-    "message": "RDK X3 (C++)",
-    "description": "The label for category RDK X3（C++） in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.RDK Ultra（Python）": {
-    "message": "RDK Ultra (Python)",
-    "description": "The label for category RDK Ultra（Python） in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category. RDK Ultra（C++）": {
-    "message": "RDK Ultra (C++)",
-    "description": "The label for category  RDK Ultra（C++） in sidebar tutorialSidebar"
-  },
   "sidebar.tutorialSidebar.category.4. 算法应用开发": {
     "message": "4. Algorithm Application Development",
     "description": "The label for category 4. 算法应用开发 in sidebar tutorialSidebar"
@@ -326,5 +290,13 @@
   "sidebar.tutorialSidebar.category.3.6.3 多媒体接口使用说明": {
     "message": "3.6.3 Multimedia Interface Usage Instructions",
     "description": "The label for category 3.6.3 多媒体接口使用说明 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK Ultra（Python）": {
+    "message": "RDK Ultra（Python）",
+    "description": "The label for category RDK Ultra（Python） in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category. RDK Ultra（C++）": {
+    "message": " RDK Ultra（C++）",
+    "description": "The label for category  RDK Ultra（C++） in sidebar tutorialSidebar"
   }
 }
