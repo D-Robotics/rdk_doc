@@ -4,6 +4,11 @@ sidebar_position: 1
 
 # 3.4.1 MIPI摄像头使用
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
 
 开发板上安装了`mipi_camera.py`程序用于测试MIPI摄像头的数据通路，该示例会实时采集MIPI摄像头的图像数据，然后运行目标检测算法，最后把图像数据和检测结果融合后通过HDMI接口输出。
@@ -14,12 +19,39 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=19
   - 通过HDMI线缆连接开发板和显示器
 
 ## 运行方式
+
+<Tabs groupId="rdk-type">
+<TabItem value="desktop" label="Desktop">
+
+执行以下命令关闭桌面服务
+  ```bash
+  sudo systemctl stop lightdm
+  ```
+
+通过 SSH 登录到开发板，按照以下命令执行程序
+  ```bash
+  sunrise@ubuntu:~$ cd /app/pydev_demo/03_mipi_camera_sample/
+  sunrise@ubuntu:/app/pydev_demo/03_mipi_camera_sample$ sudo python3 ./mipi_camera.py
+  ```
+
+</TabItem>
+
+<TabItem value="server" label="Server">
+
+:::info 提示
+
+Server 版本系统通过终端输出结果，如需查看摄像头画面及目标检测算法的结果(目标类型、置信度)，请通过 HDMI 线缆连接开发板和显示器。
+
+:::
+
 按照以下命令执行程序
 
   ```bash
   sunrise@ubuntu:~$ cd /app/pydev_demo/03_mipi_camera_sample/
   sunrise@ubuntu:/app/pydev_demo/03_mipi_camera_sample$ sudo python3 ./mipi_camera.py
   ```
+</TabItem>
+</Tabs>
 
 ## 预期效果
 程序执行后，显示器会实时显示摄像头画面及目标检测算法的结果(目标类型、置信度)，如下所示：
