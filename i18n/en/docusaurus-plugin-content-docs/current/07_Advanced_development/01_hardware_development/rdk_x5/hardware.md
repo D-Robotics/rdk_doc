@@ -17,7 +17,7 @@ This section provides the product manual and design materials for the RDK X5, he
 This section provides hardware schematics, mechanical dimension diagrams, and other design resources to assist developers with using peripheral interfaces.
 
 **Schematics**
-- [RDK X5 Schematics](https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_IO_CONN_PUBLIC_V1.0.pdf)
+- [RDK X5 Schematics](https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_IO_CONN_PUBLIC_V1.1.pdf)
 
 **Mechanical Dimension Diagrams**
 - [RDK X5 3D Mechanical Dimension Diagram](https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_LPDDR4_4266MHz_V1P0_pcb.stp)
