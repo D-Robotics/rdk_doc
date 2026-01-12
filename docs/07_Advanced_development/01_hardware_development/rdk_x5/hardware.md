@@ -17,7 +17,7 @@ sidebar_position: 1
 本章节主要提供硬件原理图、机械尺寸图等设计资料内容，方便开发者对外围接口的使用。
 
 **原理图**
-- [RDK X5 原理图](https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_IO_CONN_PUBLIC_V1.0.pdf)
+- [RDK X5 原理图](https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_IO_CONN_PUBLIC_V1.1.pdf)
 
 **机械尺寸图**
 - [RDK X5 3D机械尺寸图](https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_pcb.stp)
