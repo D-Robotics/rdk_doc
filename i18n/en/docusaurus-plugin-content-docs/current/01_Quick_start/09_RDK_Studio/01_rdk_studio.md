@@ -4,82 +4,36 @@ sidebar_position: 1
 
 # 1.9.1 Introduction to RDK Studio
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 RDK Studio is a user-friendly development tool for the RDK robotics development platform. It helps developers quickly understand and master the core capabilities of RDK, enabling "5-minute algorithm solution demos." Building on this, RDK Studio also supports developers in smoothly expanding demo solutions into complete, iterable application solutions, accelerating the entire process from learning and validation to actual development.
 
-<Tabs groupId="rdk-type">
-<TabItem value="windows" label="Windows">
 
+## Feature Overview
 
+### Flashing
 
-## Download and Install
+- Provides a comprehensive and flexible system flashing solution. Through an intuitive interface, users can easily complete system deployment tasks across various devices, significantly lowering the technical barrier and time cost associated with system installation, making device system management simpler and more efficient.
+- Intelligent wizard mode guides users step-by-step through their first flashing process.
+- Visualized flashing progress display offers real-time monitoring and feedback.
 
-1. Download RDK Studio ([Download Link](https://developer.d-robotics.cc/en/rdkstudio)). After clicking download, the page will scroll to the download section. Select the installation package for your system; it is recommended to choose the User Installer.
+### Device Management
 
-    ![RDK Studio Installation Package Download Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/download_icon.png)  
+- The device management feature supports logging into multiple devices simultaneously via various methods. All connected devices are displayed as device cards, clearly showing device status and basic information at a glance.
+- Quick-access buttons for operations such as shutdown, reboot, system upgrade, and firmware upgrade help developers log in and efficiently manage devices immediately.
+- Built-in application space allows easy downloading and installation of various applications.
 
-2. After the installation package is downloaded, open the file location to access the saved path. Double-click the ".exe" installation file to begin installing RDK Studio.
-   
-    ![RDK Studio Installation Process Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_install.png)
+### Sample Applications
 
-3. After installation is complete, a shortcut will be automatically created on the desktop. Double-click the RDK Studio icon on the desktop to start using it.
-   
-    ![RDK Studio Desktop Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_icon.png)
+- Developers can download ready-to-use sample applications that require no complex configuration—simply install and run with one click to experience how different algorithms perform on real hardware.
+- All samples come pre-configured with environment adaptations and integrated dependencies, supporting rapid installation and execution.
+- Developers can quickly evaluate algorithm performance and effectiveness, providing reliable references for actual project development.
 
+### Community
 
-## Interface Introduction
+- RDK Studio provides direct access to the Digua Robotics Community, eliminating the need to open a web browser for browsing.
+  - The developer community aggregates a wide range of development resources, including toolchains, SDKs, sample code, technical documentation, tutorial videos, and more.
+  - Users can also participate in topic discussions, share posts, or seek help via the community forum.
 
-1. When entering RDK Studio without an RDK device connected, a guided tour window will automatically pop up to help users understand the RDK device and its usage precautions. Click `Next` to view subsequent content, or click `Previous` to review earlier prompts.
-     
-    ![Guided Tour Window Interface Display](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_introduction2.png)
+### NodeHub
 
-2. After reviewing all guided content, click `Finish` to close the pop-up window. You can also click the ` × ` in the top right corner to close the window at any time.    
-
-    ![End Tour Interface Display](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_introduction3.png)  
-
-
-### RDK Studio Home Page
-
-After closing the guided tour pop-up, you will enter the RDK Studio home page:
-
-![RDK Studio Home Page Interface Display](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_menu.png)
-
-
-#### Left-side Functional Menu Bar
-
-- `Resources`: Here, you can add devices for management by clicking the `+Hardware` button in the top right corner.
-- `Examples`: Here, you can directly install simple demos onto your development board.
-- `Community`: This provides direct access to the D-Robotics Community, eliminating the need to open a web browser for reference.
-- `NodeHub`: This provides direct access to NodeHub, offering a wealth of example nodes.
-- `Imager`: This provides system flashing functionality via both card reader and flash connection methods.
-
-</TabItem>
-
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-The RDK Studio Windows version has been officially released. For our friends using Linux and Mac, please hold on a bit—our developers are typing away at full speed!
-
-:::
-
-</TabItem>
-
-
-
-<TabItem value="mac" label="Mac">
-
-:::tip
-
-The RDK Studio Windows version has been officially released. For our friends using Linux and Mac, please hold on a bit—our developers are typing away at full speed!
-
-:::
-
-
-</TabItem>
-
-</Tabs>
+- RDK Studio offers direct access to NodeHub, removing the need to open a web browser for software downloads.
+  - NodeHub is an intelligent robot application center designed for robotics enthusiasts, aiming to assist them in developing their own smart robots in a simpler, more efficient, and open manner.

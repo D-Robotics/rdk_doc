@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# 1.9.3 Flashing the System
+# 1.9.4 Flashing the System
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

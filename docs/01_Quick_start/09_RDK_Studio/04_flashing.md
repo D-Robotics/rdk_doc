@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# 1.9.3 烧录系统
+# 1.9.4 烧录系统
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

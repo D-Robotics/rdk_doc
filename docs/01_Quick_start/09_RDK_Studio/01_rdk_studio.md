@@ -4,86 +4,43 @@ sidebar_position: 1
 
 # 1.9.1 RDK Studio 简介
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
 
 RDK Studio 是一款面向 RDK 机器人开发平台的易用性开发工具。帮助开发者在极短时间内理解并上手 RDK 的核心能力，实现 “5 分钟完成算法方案演示”。在此基础上，RDK Studio 同时支持开发者将演示方案平滑扩展为可持续迭代的完整应用方案，加速从学习、验证到实际开发的全过程。
 
-<Tabs groupId="rdk-type">
-<TabItem value="windows" label="Windows">
 
 
+## 功能概述
 
-## 下载安装
+### 烧写
 
-1. 下载 RDK Studio ([下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，选择对应系统的安装包，建议选用 User Installer。
+- 提供功能全面、操作灵活的系统烧录解决方案，通过直观的界面轻松完成各种设备的系统部署任务，显著降低系统安装的技术门槛和时间成本，让设备系统管理变得更加简单高效。
+- 智能向导模式，逐步指导完成首次烧录。
+- 烧录进度可视化展示，实时监控与反馈。
+- 
+### 设备管理
 
-    ![RDK Studio安装包下载图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/download_icon.png)  
+- 设备管理功能支持通过多种方式同时登录多个设备，以设备卡片形式展示所有连接设备，设备状态和基本信息一目了然。
+- 提供关机、重启、系统升级、固件升级等快捷操作按钮，帮助开发者快速登录设备开始高效管理。
+- 内置应用空间，轻松下载和安装各类应用程序。
 
-2. 安装包下载完成后打开文件位置进入安装包保存路径，双击 “.exe” 安装文件，开始安装 RDK Studio。
-   
-    ![安装RDK Studio过程图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_install.png)
+### 示例应用
 
-3. 安装完成后会自动在桌面创建快捷方式，双击桌面的 RDK Studio 图标开始使用。
-   
-    ![RDK Studio桌面图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_icon.png)
-
-
-## 界面简介
-
-1. 未连接 RDK 设备情况下进入 RDK Studio 之后会自动弹出导览窗口，帮助大家了解 RDK 设备及其使用注意事项，点击 `下一步` 可查看后续内容，也可通过点击 `上一步` 再次查看之前的提示。
-     
-    ![导览窗口界面展示](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_introduction2.png)
-
-2. 查看全部导览内容后点击 `结束导览` 关闭弹窗，也可随时点击右上角 ` × ` 直接关闭弹窗。    
-
-    ![结束导览界面展示](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_introduction3.png)  
+- 开发者可下载即用型示例应用，无需复杂配置即可一键安装运行，直观体验各类算法在真实设备上的运行效果。
+- 所有示例均已完成环境适配和依赖集成，支持快速安装运行。
+- 开发者能够快速了解算法效果、评估性能，为实际项目开发提供可靠参考。
 
 
-### RDK Studio首页
+### 社区
 
-关闭导览弹窗后进入 RDK Studio 首页：
+- RDK Studio 提供了地瓜机器人社区直达访问，用户无需再开启网页进行查阅。
+  - 开发者社区汇总各类开发资源，包括工具链、SDK、示例代码、技术文档、教程视频等。
+  - 社区论坛也可参与话题讨论，发帖分享或求助。
 
-![RDK Studio首页界面展示](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_menu.png)
+### NodeHub
 
+- RDK Studio 提供了 NodeHub 直达访问，用户无需再开启网页进行软件下载。
+  - NodeHub智能机器人应用中心，为机器人爱好者打造的智能机器人应用中心,旨在以更加简单、高效、开放的方式协助机器人爱好者开发自己的智能机器人。
 
-#### 左侧功能菜单栏
-
-- `设备管理`：在此处可以通过点击右上角的 `+RDK设备`  添加设备进行管理。
-- `示例应用`：在此处你可以直接安装一些简单 Demo 到你的开发板上。
-- `社区`：此处为大家提供了地瓜机器人社区直达访问，大家无需再开启网页进行查阅。
-- `NodeHub`：此处为大家提供了 NodeHub 直达访问，提供了丰富的示例节点。
-- `烧写`：此处提供通过读卡器和闪连两种方式烧录系统功能。
- 
-
-</TabItem>
-
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
-
-:::
-
-</TabItem>
-
-
-
-<TabItem value="mac" label="Mac">
-
-:::tip
-
-目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
-
-:::
-
-
-</TabItem>
-
-</Tabs>
 
 
 

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# 1.9.6 Community
+# 1.9.7 Community
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
