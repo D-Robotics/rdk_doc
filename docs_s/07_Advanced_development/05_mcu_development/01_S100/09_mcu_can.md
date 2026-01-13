@@ -933,44 +933,13 @@ CAN_HAL_DEBUG_LEVEL 是一个环境变量，用于控制库文件libhbcanhal.so�
 1. 进入MCU1的控制台
 2. 输入命令：can_tran_debug
 ```
-D-Robotics:/$ can_tran_debug
-[01217.785483 0]Ipc2Can Statistics: // IPC 收到的数据包统计
-[01217.785712 0]Channel 0 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.786895 0]Channel 1 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.788077 0]Channel 2 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.789260 0]Channel 3 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.790443 0]Channel 4 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.791625 0]Channel 5 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.792808 0]Channel 6 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.793991 0]Channel 7 FifoOverflowCnt:          0 MsgOverLengthCnt:          0 MsgCRCErrCnt:          0
-[01217.796039 0]Soc2Can Statistics: // 解包之后的数据统计
-[01217.796268 0]RecvAllNum: 4
-[01217.796605 0]RollCntErr: 3 // 此错误不影响，当acore端应用发送数据填写好有序的序号时，此错误将消失。
-[01217.796941 0]InvaildChannelErr: 0
-[01217.798140 0]CanLengthErr: 0
-[01217.798424 0]CanDisableErr: 0
-[01217.798793 0]RecvNum[0]: 0, OverFlowErr[0]: 0
-[01217.800115 0]RecvNum[1]: 0, OverFlowErr[1]: 0
-[01217.800570 0]RecvNum[2]: 0, OverFlowErr[2]: 0
-[01217.801112 0]RecvNum[3]: 0, OverFlowErr[3]: 0
-[01217.802343 0]RecvNum[4]: 0, OverFlowErr[4]: 0
-[01217.802886 0]RecvNum[5]: 0, OverFlowErr[5]: 0
-[01217.804158 0]RecvNum[6]: 1, OverFlowErr[6]: 0
-[01217.804661 0]RecvNum[7]: 1, OverFlowErr[7]: 0
-[01217.806059 0]RecvNum[8]: 1, OverFlowErr[8]: 0
-[01217.806435 0]RecvNum[9]: 1, OverFlowErr[9]: 0
-[01217.806978 0]Hb_CanIf Statistics: // CAN控制器收发数据统计
-[01217.808159 0]Can 0 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.809520 0]Can 1 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.810941 0]Can 2 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.812362 0]Can 3 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.813784 0]Can 4 RxNum:          0 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.815205 0]Can 5 RxNum:          4 TxNum:          0 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.816626 0]Can 6 RxNum:          3 TxNum:          1 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.818048 0]Can 7 RxNum:          3 TxNum:          1 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.819469 0]Can 8 RxNum:          3 TxNum:          1 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
-[01217.820891 0]Can 9 RxNum:          3 TxNum:          1 RxOverFlowErr:          0 TxCanBusyErr:          0 TxPduErr:          0
+can_tran_debug
 ```
+
+3. 在 `/sys/class/remoteproc/remoteproc_mcu1` 路径下使用 `cat log` 命令查看结果
+   
+   ![Debug日志](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/s100_debug.jpg)
+   
 
 ### 应用程序接口
 
