@@ -34,7 +34,7 @@ RDK Studio is a user-friendly development tool designed for the RDK robotic deve
 
 ### Community
 
-- RDK Studio provides direct access to the Digua Robotics Community, eliminating the need to open a separate web browser for browsing.
+- RDK Studio provides direct access to the D-Robotics Community, eliminating the need to open a separate web browser for browsing.
   - The developer community aggregates various development resources, including toolchains, SDKs, sample code, technical documentation, tutorial videos, and more.
   - Users can also participate in topic discussions, share posts, or seek help via the community forum.
 
