@@ -213,6 +213,30 @@ EndSection
 
 ![screenshot-20250916-192612](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20250916-192612.png)
 
+### 11.9inch DSI LCD
+
+#### 硬件连接
+
+使用`DSI-Cable-12cm`排线，将显示屏DSI接口连接到X5 rdk主板的22PIN DSI接口，用接口的卡扣把没有触点的背面压紧。
+
+使用5V/3A的 type-C 接口电源为屏幕供电。
+
+安装效果如下：
+
+![screenshot-20260115-172118](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20260115-172118.png)
+
+#### 软件配置
+
+使用`srpi-config`工具来选择`11.9inch DSI LCD`，重启后生效。
+
+`2 Display Options` > `D3 MIPI LCD Choice` > `11.9inch DSI LCD`
+
+![image-20260115-161937](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/image-20260115-161937.png)
+
+#### 效果演示
+
+![screenshot-20260115-171911](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x5/display/screenshot-20260115-171911.png)
+
 ### 旧版本方法
 
 如果您系统中srpi-config工具版本较低，没有`D3 MIPI LCD Choice`选项，可以使用以下方法升级工具。
