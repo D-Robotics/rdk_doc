@@ -433,7 +433,7 @@ RDK S100默认配置了6组参数，用户可以通过修改Can_aControllerConfi
 
 :::info 提示
 
-执行 sample 之前需要先开启MCU1，MCU1开启的流程参考[开启 MCU](../01_S100/01_basic_information.mdmcu1启动关闭流程)。
+执行 sample 之前需要先开启MCU1，MCU1开启的流程参考[开启 MCU](../01_S100/01_basic_information.md#mcu1启动关闭流程)。
 
 :::
 
