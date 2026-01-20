@@ -30,5 +30,43 @@ cls id: 340 Confidence: 0.991851
 ![zebra_cls](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/01_pydev_dnn_demo/image/pydev_dnn_demo/zebra_cls.jpg)
 
 
+## 使用 RDK Studio 体验图像分类算法
+
+
+1. 点击 `基础静态图片推理` 示例下的 Node-RED。
+   
+    ![示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_image_zebra.png)
+
+2. 进入示例应用流程界面。
+   
+    :::tip 提示
+
+    点击 RDK Studio 右上角  ![链接图标](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_link_browser.png) 图标可以快速在浏览器中打开示例！
+
+    :::
+        
+   ![基础静态图片推理示例页面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_image_zebra_home.png)
+
+3. 点击 `查看图片` 指令，自动展示图片。
+
+    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_image_zebra_display-image.png)
+
+4. 点击右侧调试图标将右侧边栏定位至调试窗口，可在调试窗口查看图像分类算法输出结果。
+      
+    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_image_zebra_result.png)
+
+
+    :::warning 注意
+    
+    如果对节点、流程等进行了修改，需点击右上角 ![部署图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_deploy.png) 按钮后才能生效！
+    
+       
+    :::
+
+5. 点击右上角 ` × ` 图标，选择 “关闭程序” 退出 Node-RED 应用。
+
+    ![示例图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_example_application_nodered_close.png)
+
+
 
 
