@@ -106,12 +106,47 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
 使用杜邦线连接 `37`号管脚到 3.3v or GND，以控制其高低电平。
 
 ## 运行方式
+<Tabs groupId="tool-type">
+<TabItem value="login" label="登录开发板">
 执行 `button_led.py` 程序，以启动 GPIO 读写程序
 
   ```bash
   sunrise@ubuntu:~$ cd /app/40pin_samples/
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
   ```
+</TabItem>
+
+<TabItem value="rdk-studio" label="RDK Studio">
+
+1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+   
+2. 点击应用空间的 Visual Studio Code 应用图标打开应用。
+   
+3. 输入添加设备时所选账号的密码，按 “Enter” 键确认。
+   
+   :::info 提示
+
+   - 用户名：root-密码：root
+   - 用户名：sunrise-密码：sunrise
+
+   :::
+   
+   ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+
+4. 进入 VS Code APP程序界面，点击上方导航栏的 “Terminal” 新建终端。
+
+    ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+
+5.  执行 `button_led.py` 程序，以启动 GPIO 读写程序。
+
+  ```bash
+  sunrise@ubuntu:~$ cd /app/40pin_samples/
+  sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
+  ```
+
+</TabItem>
+
+</Tabs>
 
 ## 预期效果
 通过控制`37`号管脚的高低电平，可以改变 `31`号管脚的输出电平值。
