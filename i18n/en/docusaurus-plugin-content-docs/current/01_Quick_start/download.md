@@ -180,7 +180,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>Not Currently Available</td>
       <td>Not Currently Available</td>
-      <td>2D representations showing mechanical structure graphics</td>
+      <td>2D drawings</td>
     </tr>
     <tr>
       <td>🎯 **3D structural drawings**</td>
@@ -189,7 +189,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
       <td>Not Currently Available</td>
       <td>Not Currently Available</td>
-      <td>3D representations showing mechanical structure graphics</td>
+      <td>3D models</td>
     </tr>
     <tr>
       <td>🛠️ **Reference Design Materials**</td>

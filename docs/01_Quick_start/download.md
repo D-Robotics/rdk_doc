@@ -181,7 +181,7 @@ sidebar_position: 7
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>暂不开放</td>
       <td>暂不开放</td>
-      <td>二维形式展示机械结构的图形</td>
+      <td> 2D 图纸</td>
     </tr>
     <tr>
       <td>🎯 **3D 结构图纸**</td>
@@ -190,7 +190,7 @@ sidebar_position: 7
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
       <td>暂不开放</td>
       <td>暂不开放</td>
-      <td>三维形式展示机械结构的图形</td>
+      <td>三维模型</td>
     </tr>
     <tr>
       <td>🛠️ **参考设计资料**</td>
