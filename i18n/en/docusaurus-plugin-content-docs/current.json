@@ -291,6 +291,30 @@
     "message": "3.6.3 Multimedia Interface Usage Instructions",
     "description": "The label for category 3.6.3 多媒体接口使用说明 in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.1.9. RDK Studio 使用指南": {
+    "message": "1.9. RDK Studio User Guide",
+    "description": "The label for category 1.9. RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9. RDK Studio 使用指南.link.generated-index.description": {
+    "message": "RDK Studio User Guide",
+    "description": "The generated-index page description for category 1.9. RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9.5 设备管理": {
+    "message": "1.9.5 Device Management",
+    "description": "The label for category 1.9.4 设备管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9.5 设备管理.link.generated-index.description": {
+    "message": "Here, you can add and manage devices by clicking the `+ Hardware` in the upper right corner.",
+    "description": "The generated-index page description for category 1.9.4 设备管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9.6 示例应用": {
+    "message": "1.9.6 Sample Applications",
+    "description": "The label for category 1.9.5 示例应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9.6 示例应用.link.generated-index.description": {
+    "message": "Here, you can directly install some simple demos onto your development board.",
+    "description": "The generated-index page description for category 1.9.5 示例应用 in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.RDK Ultra（Python）": {
     "message": "RDK Ultra（Python）",
     "description": "The label for category RDK Ultra（Python） in sidebar tutorialSidebar"
@@ -300,3 +324,4 @@
     "description": "The label for category  RDK Ultra（C++） in sidebar tutorialSidebar"
   }
 }
+

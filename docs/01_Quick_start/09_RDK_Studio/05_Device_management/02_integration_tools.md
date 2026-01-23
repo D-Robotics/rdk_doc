@@ -1,0 +1,81 @@
+---
+sidebar_position: 2
+---
+
+# RDK Studio 集成工具的使用
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="rdk-type">
+<TabItem value="Windows" label="Windows">
+
+## 终端使用
+
+点击终端图标，会自动弹出 Windows 终端，输入用户密码即可自动连接。
+
+:::info 提示
+
+默认密码与登录用户名相同：
+- root-root
+- sunrise-sunrise
+  
+:::
+  
+![RDK_Studio终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace_terminal.png)
+
+## VS Code使用
+
+点击 VS Code 图标，即可自动调用本地 VS Code Remote 插件进行连接。
+
+:::info 提示
+
+本地需安装 VS Code 。
+
+:::
+​
+![RDK_Studio VSCode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace_vscode.png)
+
+## Node-RED 使用{#node-red}
+
+1. 点击应用空间图标，查看更多应用。
+   
+   ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+   
+2. 点击安装 Node-RED，用于运行 `示例应用` 中的示例。
+   
+   ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_nodered_install.png)
+
+3. Jupyter 等需要安装功能，可以按需安装。
+
+    ![RDK_Studio](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace.png)
+
+4. 点击空白处退出应用空间。
+   
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用Linux和Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem>
+
+
+
+<TabItem value="mac" label="Mac">
+
+:::tip
+
+目前RDK Studio Windows系统已正式出炉，使用Linux和Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
+
+:::
+
+</TabItem>
+
+</Tabs>
