@@ -161,7 +161,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/drobotics_rdk_x5_module_en_v1_2.pdf">RDK X5 Module Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module Specifications</a></td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf">Development Kit Specifications</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf">Module Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Product_Brief.pdf">Development Kit Specifications</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/RDK_Ultra_Module_Product_Brief.pdf">Module Specifications</a></td>
       <td>Product specifications, features, dimensions, and model details</td>
     </tr>
     <tr>
@@ -174,16 +174,16 @@ This document summarizes the download resources related to the D-Robotics RDK su
       <td>Circuit design schematics for reference design use</td>
     </tr>
     <tr>
-      <td>📐 **Mechanical Drawings**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a>/<a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a></td>
+      <td>📐 **2D structural drawings**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_top_dxf.dxf">2D top</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_bottom_dxf.dxf">2D bottom</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p1_dxf.zip">Module Structure_V1P1 </a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p2_dxf.zip">Module Structure_V1P2 </a><br/></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_2D_2.0.pdf">RDK X3-2.0 2D</a></td>
       <td>Not Currently Available</td>
       <td>Not Currently Available</td>
-      <td>Mechanical drawings showing dimensions of various product components</td>
+      <td>2D representations showing mechanical structure graphics</td>
     </tr>
     <tr>
-      <td>🎯 **3D Models**</td>
+      <td>🎯 **3D structural drawings**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDK_X5_LPDDR4_4266MHz_V1P0_pcb.stp">RDK X5 3D</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p0_0708.stp">Module Structure_V1P0</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/rdk_x5_md_hw_v1p1-0709.stp">Module Structure_V1P1</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module V1P2 3D.stp">Module Structure_V1P2</a><br/></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK_X3_3D_Step_Models.STEP">RDK X3-2.0 3D</a></td>
@@ -194,7 +194,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
     <tr>
       <td>🛠️ **Reference Design Materials**</td>
       <td>N/A</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Guide V1P1.pdf">Hardware Design Guide</a> / <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Pinout Description and Application Note V1P1.xlsx">Interface Definition Document</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Guide V1P1.pdf">Hardware Design Guide</a><br/><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Pinout Description and Application Note V1P1.xlsx">Interface Definition Document</a></td>
       <td>N/A</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/reference_design">Design Materials</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_ultra/reference_design">Design Materials</a></td>
