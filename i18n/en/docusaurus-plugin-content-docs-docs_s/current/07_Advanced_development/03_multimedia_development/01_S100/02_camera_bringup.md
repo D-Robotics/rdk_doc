@@ -278,7 +278,7 @@ Below are the fields that require individual configuration; other fields can rem
 | channel_sel[MIPIHOST_CHANNEL_NUM] | Mapping of MIPI virtual channels to IPI channels.                                                                                                                                                                                                                    |
 
 :::tip
-The commercial version offers more comprehensive feature support, deeper hardware capability access, and exclusive customization. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
+The commercial version offers more comprehensive feature support, deeper hardware capability access, and exclusive customization. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process.
 
 **Commercial Version Access Process:**
 1. **Complete a questionnaire**: Submit your organization’s information and intended use case.
@@ -373,7 +373,7 @@ bash run_tuning.sh
 
 **Image Preview**
 
-Open hbplayer and set the network address (ensure the PC can ping the board). Click "Apply" to apply the settings, then click "Connect" to view the real-time video stream. The real-time preview operation is illustrated in the figure below.
+Click [here](../../../01_Quick_start/download.md#system-images-and-tools) to download the image viewing tool hbplayer, then open hbplayer and set the network address (ensure the PC can ping the board). Click "Apply" to apply the settings, then click "Connect" to view the real-time video stream. The real-time preview operation is illustrated in the figure below.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
 

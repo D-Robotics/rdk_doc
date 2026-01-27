@@ -10,6 +10,7 @@ sidebar_position: 6
 | -------------------------------------------------------------------------------------- | -------------- | ----------- | ------------------------------------------------------------------------- |
 | [System Image](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)            | V4.0.4-beta    | 2025-10-24  | System image.                                                             |
 | [D-Navigation](https://archive.d-robotics.cc/downloads/software_tools/download_tools/) | V2.4.1         | 2025-09-01  | System image flashing tool, including versions for windows-x64, linux-x64, and darwin-arm64. |
+| [hbplayer](https://archive.d-robotics.cc/downloads/hobotplayer/hbplayerv2.7.zip) | V2.7      | 2026-01-27 | Image viewing tool. |
 
 ## Hardware Documentation
 

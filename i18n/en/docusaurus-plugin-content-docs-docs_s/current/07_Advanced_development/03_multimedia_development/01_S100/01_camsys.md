@@ -1089,7 +1089,7 @@ After RDK-S100 connects to cameras, the data flows through subsequent processing
 
 
 :::tip
-The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
+The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process.
 
 **Commercial Version Access Process:**  
 1. **Complete a questionnaire**: Submit your organization’s information and intended use case.  
@@ -1483,10 +1483,10 @@ Create a camera handle and a deserializer handle based on the provided configura
 
 This API creates cameras by parsing a JSON configuration file, which differs from the non-JSON approach used in the sample code. For further details, please consult your FAE.
 
-:::tip
+:::tip Commercial Support
 The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
 
-Commercial Version Access Procedure:
+**Commercial Version Access Procedure:**
 1. **Complete a questionnaire**: Submit basic information about your organization and intended use case.
 2. **Sign a Non-Disclosure Agreement (NDA)**: We will contact you based on your submission, and both parties will sign the NDA upon mutual confirmation.
 3. **Content release**: After the NDA is signed, we will provide access to the commercial version materials through a private channel.
