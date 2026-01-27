@@ -47,10 +47,10 @@ pip install tqdm
 1. 编译会使用python3，RDK S100开发使用的python3的版本为3.8.10；
 2. MCU1的镜像分为debug和release两个版本。debug版本的镜像会有调试信息，而release版本不含调试信息。
 
-:::info 说明
+:::info note 
 
 首次编译会从 arm 官网下载工具链后解压缩（10min左右），网速不好可能会导致工具链下载不成功或下载不完整的问题，建议通过以下方式下载编译：
-1. 点击[工具链下载链接](https://archive.d-robotics.cc/downloads/software_tools/mcu_toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2)，下载编译工具链。
+1. 点击[工具链下载链接](../../../01_Quick_start/download.md#工具下载)，下载编译工具链。
 2. 将已有工具链移至 /Build/ToolChain/Gcc/ 内，移动工具链命令如下：
 
     `mv 工具链存储路径/工具链文件名 新代码/Build/ToolChain/Gcc/`

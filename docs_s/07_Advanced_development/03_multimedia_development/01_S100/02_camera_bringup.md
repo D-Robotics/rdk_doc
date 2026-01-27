@@ -408,7 +408,7 @@ bash run_tuning.sh
 
 **图像预览**
 
-1. [点击此处](../../../01_Quick_start/download.md#系统镜像与工具)下载图像浏览工具 hbplayer。
+1. [点击此处](../../../01_Quick_start/download.md#工具下载)下载图像浏览工具 hbplayer。
 2. 打开 hbplayer 并设置网络地址（PC需要与板子可以ping通），点 apply 设置生效，并点 connect 则可以看到实时视频流。实时预览操作示意如图所示。
 
     ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
