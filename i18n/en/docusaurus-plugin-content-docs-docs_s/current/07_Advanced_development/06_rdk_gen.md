@@ -399,7 +399,7 @@ After modifying the partition table, the following steps are required for the ch
 	```
 
 :::tip
-The commercial version provides more comprehensive feature support, deeper hardware capability access, and exclusive customization options. To ensure compliance and secure delivery, we will grant access to the commercial version through the following process:
+The commercial version provides more comprehensive feature support, deeper hardware capability access, and exclusive customization options. To ensure compliance and secure delivery, we will grant access to the commercial version through the following process.
 
 **Commercial Version Access Process:**
 1. **Complete a questionnaire**: Submit basic information about your organization and intended use case.
