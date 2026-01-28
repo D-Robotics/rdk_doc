@@ -50,7 +50,7 @@ pip install tqdm
 1. Python3 is used for compilation. The RDK S100 development environment uses Python 3.8.10.
 2. MCU1 images are available in two versions: debug and release. The debug version includes debugging information, while the release version does not.
 
-:::info Note
+:::info Toolchain Download Instructions
 
 The first compilation will download the toolchain from the official ARM website and extract it (taking about 10 minutes). Poor network speed may cause issues such as unsuccessful or incomplete download of the toolchain. It is recommended to compile using the following method:
 
