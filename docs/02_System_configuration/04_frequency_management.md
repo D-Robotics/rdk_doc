@@ -4,7 +4,15 @@ sidebar_position: 4
 
 # 2.4 Thermal和CPU频率管理
 
-## X3
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="登录开发板">
+
+## RDK X3
 
 :::info 注意
 以下内容适用于`RDK X3`和`RDK X3 Module`开发板,不适用于`RDK Ultra`开发板
@@ -127,7 +135,7 @@ sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
 
 ![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
-## X5
+## RDK X5
 
 :::info 注意
 以下内容适用于`RDK X5`开发板
@@ -314,3 +322,61 @@ X5M
 可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
 
 ![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)
+
+</TabItem>
+
+<TabItem value="rdk-studio" label="RDK Studio">
+
+1. 点击应用空间图标，查看更多应用。
+
+    ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+    
+2. 点击安装 Performance Node 到开发板上。
+
+    ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-install.png)
+
+3. Performance Node 性能检测展示：
+   
+    - **CPU 性能界面：**
+
+        ![CPU 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - 点击上方 CPU 可启用/禁用对应的 CPU 性能展示。
+        - 点击右上角按钮进行区域缩放和还原。
+        - 点击下载按钮将当前性能界面保存为图片。
+
+    - **BPU/GPU 性能界面：**
+
+        ![BPU/GPU 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+    
+          - 点击上方 BPU/GPU 可启用/禁用对应的 BPU/GPU 性能展示。
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+    
+    - **Memory 性能界面：展示已用和可用内存。**
+
+        ![Memory 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+    
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+    - **Disk 性能界面：展示已用和可用磁盘。**
+
+        ![Disk 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+    
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+4. 性能监测设置：
+   
+   ![设置界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - 设置采样间隔：采样间隔时间默认1000ms，填写间隔时间后点击 `当前采样间隔1000ms，点我修改`，完成间隔时间设置。
+   - CPU 调频模式：点击 `performance(CPU 调频模式，点击切换)`，可切换 CPU 调频模式。
+   - 界面切换：默认为竖屏界面，点击 `点我前往横屏界面`，可切换为横屏展示。
+  
+      ![横屏界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+  
+</TabItem>
+</Tabs>
