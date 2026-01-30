@@ -23,7 +23,7 @@ sidebar_position: 1
 
 :::info BSP 源码包
 
-BSP 源码包：[下载链接](https://developer.d-robotics.cc/resource)（需要注册登录）
+BSP 源码包下载地址参见： [系统软件](../../01_Quick_start/download.md#系统软件)（需要注册登录）
 
 :::
 
