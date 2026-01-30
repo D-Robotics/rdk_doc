@@ -71,10 +71,9 @@
   }
 }
 
-/* Horizontal Window Orientation */
 #dify-chatbot-bubble-window {
   width: 600px !important;
-  height: 480px !important;
+  height: 500px !important;
   border: none !important;
   background-color: #ffffff !important; /* Restored white background */
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
@@ -83,7 +82,7 @@
 }
 
 #dify-chatbot-bubble-window iframe {
-  transform: scale(0.95);
+  transform: scale(0.9);
   transform-origin: top left;
   width: 105.3% !important;
   height: 105.3% !important;

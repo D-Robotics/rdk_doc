@@ -1,10 +1,26 @@
 window.difyChatbotConfig = {
-  token: 'MltLQTHPb5EeP7uz',
+  token: 'MltLQTHPb5EeP7uz', // 默认中文 Token
   baseUrl: 'http://rdk.d-robotics.cc',
   inputs: {},
   systemVariables: {},
   userVariables: {},
 };
+
+// Auto-switch token based on language
+(function() {
+  const cnToken = 'MltLQTHPb5EeP7uz';
+  const enToken = 'YJZVeswIhH8pRFbp';
+
+  // Check if URL contains /en/ indicating English locale
+  // Docusaurus typically uses /<baseUrl>/en/... for English
+  if (window.location.pathname.includes('/en/')) {
+    window.difyChatbotConfig.token = enToken;
+    console.log('[Dify] Switched to English Bot');
+  } else {
+    window.difyChatbotConfig.token = cnToken;
+    console.log('[Dify] Using Chinese Bot');
+  }
+})();
 
 /**
  * Dify Chatbot Draggable Logic
