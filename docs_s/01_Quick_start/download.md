@@ -9,7 +9,7 @@ sidebar_position: 6
 | 名称                                                                                   | 最新版本    | 上传日期   | 说明文档                                                             |
 | -------------------------------------------------------------------------------------- | ----------- | ---------- | -------------------------------------------------------------------- |
 | [系统镜像](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)                | V4.0.4-beta | 2025-10-24 | 系统镜像。                                                           |
-| [BSP 源码包](https://developer.d-robotics.cc/resource)                | V4.0.4 | 2026-01-29 | BSP 源码包。                                                           |
+| [BSP 源码包](https://developer.d-robotics.cc/resource)                | V4.0.4-beta | 2026-01-29 | BSP 源码包。                                                           |
 
 
 
