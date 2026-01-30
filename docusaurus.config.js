@@ -34,6 +34,15 @@ const config = {
       src: "https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e",
       async: true,
     },
+    // Dify Chatbot Configuration
+    {
+      src: "/rdk_doc/js/dify-config.js",
+    },
+    {
+      src: "http://rdk.d-robotics.cc/embed.min.js",
+      id: "MltLQTHPb5EeP7uz",
+      defer: true,
+    },
   ],
 
   // add by xgs for translate
