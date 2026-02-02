@@ -18,10 +18,10 @@ sidebar_position: 1
 ```bash
   // 示例版本为 V1.0.0
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
 
   // 更多模型转换示例，根据需要进行下载！
-  //wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
+  //wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
 ```
 
 #### 示例包源码目录结构说明
@@ -231,10 +231,10 @@ D-Robotics 要求的Docker基础环境信息如下：
 ```bash
   // 示例版本为 V1.2.6
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/runtime_package/Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://oeftp@sdk.d-robotics.cc/runtime_package/Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz --ftp-password=Oeftp~123$%
 
   // 更多模型转换示例，根据需要进行下载！
-  //wget -c ftp://oeftp@sunrise.horizon.cc:10021/model_convert_sample/horizon_model_convert_sample.tar.xz --ftp-password=Oeftp~123$%
+  //wget -c ftp://oeftp@sdk.d-robotics.cc/model_convert_sample/horizon_model_convert_sample.tar.xz --ftp-password=Oeftp~123$%
 ```
 
 #### 示例包源码目录结构说明
@@ -429,10 +429,10 @@ ftp://oemng@42.62.85.52:10021/RDK/rdk-x3-ultra/
 ```bash
   // 示例版本为 V1.0.0
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
 
   // 更多模型转换示例，根据需要进行下载！
-  //wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
+  //wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
 ```
 
 #### 示例包源码目录结构说明

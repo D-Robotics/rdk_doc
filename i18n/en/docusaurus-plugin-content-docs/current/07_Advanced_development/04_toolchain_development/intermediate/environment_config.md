@@ -14,10 +14,10 @@ Unpack the SDK source code package of the algorithm toolchain:
 ```bash
 // The sample version is v1.0.0
 
-wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
 
 // More model conversion examples, available for download as needed!
-// wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
+//wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
 tar -xvf Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X.tar.xz
 ```
 

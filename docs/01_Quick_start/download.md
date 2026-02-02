@@ -62,9 +62,9 @@ sidebar_position: 7
     </tr>
     <tr>
       <td>🔬 **OpenExplore**</td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/251934919646096384">RDK X5 OpenExplore</a></td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/136488103547258769">RDK X3 OpenExplore</a></td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/118363912788935318">RDK Ultra OpenExplore</a></td>
+      <td>[RDK X5 OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-x5)</td>
+      <td>[RDK X3 OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-x3)</td>
+      <td>[RDK Ultra OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-ultra)</td>
       <td>包含大量转化示例和源码，搭配Docker在x86开发机上使用</td>
     </tr>
     <tr>
@@ -749,5 +749,5 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
 如果您在使用过程中遇到问题，可以通过以下方式获取帮助：
 
 - 🌐 [开发者社区](https://developer.d-robotics.cc/)
-- 📧 技术支持邮箱
-- 📱 官方技术交流群
+- 📧 [技术支持邮箱](mailto:developer@d-robotics.cc)
+- 📱 [官方技术交流群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=dd2ra5d5-a239-4b4d-bc26-46e3374d1428)
