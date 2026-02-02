@@ -214,3 +214,24 @@ window.difyChatbotConfig = {
     chatWindow.style.top = newTop + 'px';
   }
 })();
+
+/**
+ * Force HTTPS for Dify Chatbot Iframe
+ * Solves Mixed Content issues where the embed script requests HTTP resources on an HTTPS site.
+ */
+(function() {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.tagName === 'IFRAME' && node.id === 'dify-chatbot-bubble-window') {
+          if (node.src && node.src.startsWith('http://')) {
+            console.warn('[Dify] Mixed Content Prevention: Switching iframe to HTTPS');
+            node.src = node.src.replace(/^http:\/\//, 'https://');
+          }
+        }
+      });
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
