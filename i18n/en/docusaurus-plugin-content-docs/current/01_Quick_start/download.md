@@ -753,5 +753,5 @@ System source code is hosted on [D-Robotics GitHub](https://github.com/d-robotic
 If you encounter any issues during use, you can get help through the following methods:
 
 - 🌐 [Developer Community](https://developer.d-robotics.cc/en)
-- 📧 Technical Support Email
+- 📧 [Technical Support Email](mailto:developer@d-robotics.cc)
 - 📱 Official Technical Discussion Group
