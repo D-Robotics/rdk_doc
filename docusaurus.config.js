@@ -39,7 +39,7 @@ const config = {
       src: "/rdk_doc/js/dify-config.js",
     },
     {
-      src: "http://rdk.d-robotics.cc/embed.min.js",
+      src: "https://rdk.d-robotics.cc/embed.min.js",
       id: "MltLQTHPb5EeP7uz",
       defer: true,
     },
