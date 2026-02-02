@@ -1,6 +1,6 @@
 window.difyChatbotConfig = {
   token: 'MltLQTHPb5EeP7uz', // 默认中文 Token
-  baseUrl: 'http://rdk.d-robotics.cc',
+  baseUrl: 'https://rdk.d-robotics.cc',
   inputs: {},
   systemVariables: {},
   userVariables: {},
