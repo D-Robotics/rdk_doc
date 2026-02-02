@@ -25,6 +25,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 translate_doc.py
+GEMINI.md
 
 yarn.lock
 # package-lock.json
