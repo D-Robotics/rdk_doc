@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-For the 40-pin on the development board, please refer to the [40-Pin GPIO Definition](./40pin_define) section for interface definitions.
+For the 40-pin on the development board, please refer to the [40-Pin GPIO Definition](#40pin_define) section for interface definitions.
 
 ## Hardware Usage Instructions
 
@@ -109,12 +109,99 @@ Use Dupont wires to connect pin `37` to 3.3V or GND to control its voltage level
 
 
 ### Execution Steps
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="Login to the RDK">
+
 Run the `button_led.py` program to start the GPIO read/write operation:
 
 ```bash
 sunrise@ubuntu:~$ cd /app/40pin_samples/
 sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
 ```
+
+</TabItem>
+
+<TabItem value="rdk-studio" label="RDK Studio">
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+
+#### Method 1: Install VS Code APP Locally
+
+  1. Use RDK Studio to add devices. Refer to [Add RDK Device](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+     
+  2. Use VS Code to open the sample project in the RDK device.
+        
+        :::warning Note
+        
+        Requires local installation of VS Code software. Click the VS Code APP icon on the device card in RDK Studio to automatically open the local VS Code, then use the SSH Remote plugin to open the sample project in the RDK device (the SSH Remote plugin will be automatically installed, no manual installation needed).
+        
+        :::
+            
+            
+        ![VScode APP icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/app_vscode.png)
+
+    1. Click the VS Code APP icon to open VS Code, enter the password for the account selected when adding the device, and press "Enter" to confirm.
+
+        :::info Note
+
+        - Username: root——Password: root
+        - Username: sunrise——Password: sunrise
+
+        :::
+            
+            ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+        
+    2. Enter the VS Code APP interface, click `Terminal` in the top navigation bar to create a new terminal.
+        
+        ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+
+5.  Execute the `button_led.py` program to start the GPIO read/write program.
+
+  ```bash
+  sunrise@ubuntu:~$ cd /app/40pin_samples/
+  sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
+  ```
+
+#### Method 2: Using On-board VS Code Web
+
+1. Click the application space icon to view more applications.
+
+    ![Application Space Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+    
+2. Click to install VS Code Web on the development board for running pre-installed functional test code, without requiring local VS Code installation.
+
+    ![Download Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/web_vscode-download.png)
+
+3. Click the VS Code Web icon to open VS Code Web.
+    
+    ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/web_vscode.png)
+
+4. After clicking `Open Folder`, enter the path where the code program is located `/app/`, then click `OK` to confirm.
+    
+    ![VScode Open Folder Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
+
+5. Enter the VS Code APP interface, click the list icon in the left navigation bar, select `Terminal` -> `New Terminal` to create a new terminal.
+
+    ![VScode New Terminal Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
+
+6.  Execute the `button_led.py` program to start the GPIO read/write program.
+
+  ```bash
+  sunrise@ubuntu:~$ cd /app/40pin_samples/
+  sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
+  ```
+
+</TabItem>
+
+</Tabs> 
+
 ## Expected Output
 By controlling the voltage level of pin `37`, the output level of pin `31` will change accordingly.
 

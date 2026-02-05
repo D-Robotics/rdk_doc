@@ -327,16 +327,25 @@ X5M
 
 <TabItem value="rdk-studio" label="RDK Studio">
 
-1. 点击应用空间图标，查看更多应用。
+:::info 提示
+
+- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
+- RDK Studio 使用指南：[点此查看](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+
+2. 点击应用空间图标，查看更多应用。
 
     ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
 
     
-2. 点击安装 Performance Node 到开发板上。
+3. 点击安装 Performance Node 到开发板上。
 
     ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-install.png)
 
-3. Performance Node 性能检测展示：
+4. Performance Node 性能检测展示：
    
     - **CPU 性能界面：**
 
@@ -368,7 +377,7 @@ X5M
           - 点击右上角按钮进行区域缩放和还原。
           - 点击下载按钮将当前性能界面保存为图片。
 
-4. 性能监测设置：
+5. 性能监测设置：
    
    ![设置界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
 

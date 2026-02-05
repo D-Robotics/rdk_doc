@@ -10,6 +10,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
+## 运行方式
+
 <Tabs groupId="run-type">
 
 <TabItem value="login" label="登录开发板">
@@ -27,7 +29,6 @@ import TabItem from '@theme/TabItem';
 :::
 
 
-## 使用方式
 
 ### 方式一：本地安装 VS Code APP
 
@@ -59,7 +60,7 @@ import TabItem from '@theme/TabItem';
         
         ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
 
-    3.  执行 GPIO [设置命令或运行板端程序](./gpio.md#gpio-设置)。
+    3.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
 
  ### 方式二：板端 VS Code Web
 
@@ -83,14 +84,8 @@ import TabItem from '@theme/TabItem';
 
         ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
 
-    6.  执行 GPIO [设置命令或运行板端程序](./gpio.md#gpio-设置)。
+    6.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
 
-### 方式三：使用 Node-RED 配置工作流
-
-  1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
-     
-  2. 点击应用空间的 Node-RED 图标打开应用。
-  3. 在 Node-RED 中根据需要配置相应的工作流。
 
 </TabItem>
 

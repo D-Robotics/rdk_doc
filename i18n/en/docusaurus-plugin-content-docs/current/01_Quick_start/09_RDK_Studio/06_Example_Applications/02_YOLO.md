@@ -13,7 +13,7 @@ RDK Studio helps developers with zero experience quickly get started and enables
 Supports connection of USB and MIPI cameras. This section uses a USB camera as an example for explanation. The USB camera connection method is as follows:
 
 
-    ![Example Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/connect_camera.png)
+    ![Camera Connection Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/connect_camera.png)
 
     
 ## Running Process

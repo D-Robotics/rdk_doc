@@ -102,10 +102,10 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
 
 以`/app/40pin_samples/button_led.py`为例，该程序配置`37`号管脚为输入，配置`31`号管脚配置为输出，并根据`37`号管脚的输入状态来控制`31`号管脚的输出状态。
 
-## 环境准备
+### 环境准备
 使用杜邦线连接 `37`号管脚到 3.3v or GND，以控制其高低电平。
 
-## 运行方式
+### 运行方式
 
 <Tabs groupId="tool-type">
 <TabItem value="login" label="登录开发板">
@@ -120,68 +120,80 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
 
 <TabItem value="rdk-studio" label="RDK Studio">
 
-## 方式一：使用 VS Code APP
+:::info 提示
 
-1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
-   
-2. 点击应用空间的 Visual Studio Code 应用图标打开应用。
-   
-3. 输入添加设备时所选账号的密码，按 “Enter” 键确认。
-   
-   :::info 提示
+- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
+- RDK Studio 使用指南：[点此查看](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
 
-   - 用户名：root-密码：root
-   - 用户名：sunrise-密码：sunrise
+:::
 
-   :::
-   
-   ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
 
-4. 进入 VS Code APP 程序界面，点击上方导航栏的 “Terminal” 新建终端。
+#### 方式一：本地安装 VS Code APP
 
-    ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+  1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+     
+  2. 使用 VS Code 打开 RDK 设备中的示例工程。
+        
+        :::warning 提示
+        
+        需本地安装 VS Code 软件，点击 RDK Studio 上设备卡片中的 VS Code APP 自动打开本地 VS Code， 使用 SSH Remote 插件打开 RDK 设备中的示例工程（SSH Remote 插件会自动安装，无需手动安装）。
+        
+        :::
+            
+            
+        ![VScode APP icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/app_vscode.png)
 
-5.  执行 `button_led.py` 程序，以启动 GPIO 读写程序。
+ 1. 点击 VS Code APP 图标打开 VS Code，输入添加设备时所选账号的密码，按 “Enter” 键确认。
+
+     :::info 提示
+
+     - 用户名：root——密码：root
+     - 用户名：sunrise——密码：sunrise
+
+     :::
+         
+      ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+     
+ 2. 进入 VS Code APP 程序界面，点击上方导航栏的 `Terminal` 新建终端。
+     
+     ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+
+3.  执行 `button_led.py` 程序，以启动 GPIO 读写程序。
 
   ```bash
   sunrise@ubuntu:~$ cd /app/40pin_samples/
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
   ```
 
-## 方式二：使用板端 VS Code Web
+#### 方式二：使用板端 VS Code Web
 
-        1. 点击应用空间图标，查看更多应用。
+1. 点击应用空间图标，查看更多应用。
 
-            ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
-            
-        2. 点击安装 VS Code Web 到开发板上，用于运行开发板预置的功能测试代码，无需本地安装 VS Code。
+    ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+    
+2. 点击安装 VS Code Web 到开发板上，用于运行开发板预置的功能测试代码，无需本地安装 VS Code。
 
-            ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode-download.png)
+    ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode-download.png)
 
-        3. 点击 VS Code Web 图标，打开 VS Code Web。
-            
-            ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode.png)
+3. 点击 VS Code Web 图标，打开 VS Code Web。
+    
+    ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode.png)
 
-        4. 点击 `Open Folder` 后填写代码程序所在路径 `/app/`，点击 `OK` 键确认。
-            
-            ![VScode Open Folder 界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
+4. 点击 `Open Folder` 后填写代码程序所在路径 `/app/`，点击 `OK` 键确认。
+    
+    ![VScode Open Folder 界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
 
-        5. 进入 VS Code APP 程序界面，点击左侧导航栏的列表图标，选择 `Terminal` ——> `New Terminal`,新建终端。
+5. 进入 VS Code APP 程序界面，点击左侧导航栏的列表图标，选择 `Terminal` ——> `New Terminal`,新建终端。
 
-            ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
+    ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
 
-        6.  执行 `button_led.py` 程序，以启动 GPIO 读写程序。
+6.  执行 `button_led.py` 程序，以启动 GPIO 读写程序。
 
-          ```bash
-          sunrise@ubuntu:~$ cd /app/40pin_samples/
-          sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
-          ```
-## 方式三：使用 Node-RED
+  ```bash
+  sunrise@ubuntu:~$ cd /app/40pin_samples/
+  sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
+  ```
 
-1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
-   
-2. 点击应用空间的 Node-RED 图标打开应用。
-3. 在 Node-RED 中根据需要配置相应的工作流。
 </TabItem>
 
 </Tabs> 

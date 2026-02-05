@@ -586,7 +586,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
     </tr>
     <tr>
       <td>💾 **镜像烧录工具**</td>
-      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a><br/><a href="https://archive.d-robotics.cc/TogetheROS/source_code">RDK Studio</a></td>
+      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a><br/><a href="https://developer.d-robotics.cc/rdkstudio">RDK Studio</a></td>
       <td>用于将镜像文件写入到SD卡的软件工具，支持多种镜像格式</td>
     </tr>
     <tr>

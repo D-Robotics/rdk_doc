@@ -96,26 +96,35 @@ if __name__ == '__main__':
 
 <TabItem value="rdk-studio" label="RDK Studio">
 
-## 方式一：使用 VS Code APP
+## 方式一：本地安装 VS Code APP
 
-1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
-   
-2. 点击应用空间的 Visual Studio Code 应用图标打开应用。
-   
-3. 输入添加设备时所选账号的密码，按 “Enter” 键确认。
-   
-   :::info 提示
+  1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+     
+  2. 使用 VS Code 打开 RDK 设备中的示例工程。
+        
+        :::warning 提示
+        
+        需本地安装 VS Code 软件，点击 RDK Studio 上设备卡片中的 VS Code APP 自动打开本地 VS Code， 使用 SSH Remote 插件打开 RDK 设备中的示例工程（SSH Remote 插件会自动安装，无需手动安装）。
+        
+        :::
+            
+            
+        ![VScode APP icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/app_vscode.png)
 
-   - 用户名：root-密码：root
-   - 用户名：sunrise-密码：sunrise
+ 1. 点击 VS Code APP 图标打开 VS Code，输入添加设备时所选账号的密码，按 “Enter” 键确认。
 
-   :::
-   
-   ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+     :::info 提示
 
-4. 进入 VS Code APP 程序界面，点击上方导航栏的 “Terminal” 新建终端。
+     - 用户名：root——密码：root
+     - 用户名：sunrise——密码：sunrise
 
-    ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+     :::
+         
+      ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+     
+ 2. 进入 VS Code APP 程序界面，点击上方导航栏的 `Terminal` 新建终端。
+     
+     ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
 
 5.  执行 `./simple_pwm.py` 程序。
 
@@ -152,12 +161,6 @@ if __name__ == '__main__':
           sunrise@ubuntu:~$ cd /app/40pin_samples/
           sunrise@ubuntu:/app/40pin_samples$ sudo python3 ././simple_pwm.py
           ```
-## 方式三：使用 Node-RED
-
-1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
-   
-2. 点击应用空间的 Node-RED 图标打开应用。
-3. 在 Node-RED 中根据需要配置相应的工作流。
 
 
 

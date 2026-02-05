@@ -3,6 +3,14 @@ sidebar_position: 4
 ---
 # 2.4 Thermal Control and CPU Frequency Management
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="Login to the RDK">
+
 :::info Note
 The following information does not apply to the `RDK Ultra` development board.
 :::
@@ -320,3 +328,68 @@ It is recommended to use this feature only during the research and development p
 You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:  
 
 ![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)
+
+</TabItem>
+
+<TabItem value="rdk-studio" label="RDK Studio">
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. Use RDK Studio to add devices. Refer to [Add RDK Device](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+2. Click the application space icon to view more applications.
+
+    ![Application Space Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+3. Click to install Performance Node onto the development board.
+
+    ![Download Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/en/performance-node-install.png)
+
+4. Performance Node monitoring display:
+   
+    - **CPU Performance Interface:**
+
+        ![CPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - Click on the CPU label above to enable/disable the corresponding CPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+    - **BPU/GPU Performance Interface:**
+
+        ![BPU/GPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+    
+        - Click on the BPU/GPU label above to enable/disable the corresponding BPU/GPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+    
+    - **Memory Performance Interface: Displays used and available memory.**
+
+        ![Memory Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+    
+          - Click the button in the upper right corner for area zoom and restore.
+          - Click the download button to save the current performance interface as an image.
+
+    - **Disk Performance Interface: Displays used and available disk space.**
+
+        ![Disk Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+    
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+5. Performance Monitoring Settings:
+   
+   ![Settings Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - Set Sampling Interval: The default sampling interval is 1000ms. After entering the interval time, click `Current sampling interval 1000ms, click to modify` to complete the interval time setting.
+   - CPU Frequency Scaling Mode: Click `performance (CPU frequency scaling mode, click to switch)` to switch the CPU frequency scaling mode.
+   - Interface Switching: The default is vertical screen interface. Click `Click to go to horizontal screen interface` to switch to horizontal display.
+  
+      ![Horizontal Screen Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+  
+</TabItem>
+</Tabs>

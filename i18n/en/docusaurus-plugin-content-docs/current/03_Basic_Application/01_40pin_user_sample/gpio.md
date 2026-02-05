@@ -3,6 +3,97 @@ sidebar_position: 2
 ---
 # 3.1.2 Using GPIO
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
+## Execution Steps
+
+<Tabs groupId="run-type">
+
+<TabItem value="login" label="Login to the RDK ">
+
+</TabItem>
+
+<TabItem value="rdk studio" label="RDK Studio">
+
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+
+
+### Method 1: Install VS Code APP Locally
+
+  1. Use RDK Studio to add devices. Refer to [Add RDK Device](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+     
+  2. Use VS Code to open the sample project in the RDK device.
+        
+        :::warning Note
+        
+        Requires local installation of VS Code software. Click the VS Code APP icon on the device card in RDK Studio to automatically open the local VS Code, then use the SSH Remote plugin to open the sample project in the RDK device (the SSH Remote plugin will be automatically installed, no manual installation needed).
+        
+        :::
+            
+            
+        ![VScode APP icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/app_vscode.png)
+
+    1. Click the VS Code APP icon to open VS Code, enter the password for the account selected when adding the device, and press "Enter" to confirm.
+
+        :::info Note
+
+        - Username: root——Password: root
+        - Username: sunrise——Password: sunrise
+
+        :::
+            
+            ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+        
+    2. Enter the VS Code APP interface, click `Terminal` in the top navigation bar to create a new terminal.
+        
+        ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+
+    3. Execute GPIO [configuration commands](#gpio-settings).
+
+ ### Method 2: Board-side VS Code Web
+
+ 1. Click the application space icon to view more applications.
+
+     ![Application space interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+     
+ 2. Click to install VS Code Web on the development board for running pre-installed functional test code on the board, without needing to install VS Code locally.
+
+     ![Download interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/web_vscode-download.png)
+
+ 3. Click the VS Code Web icon to open VS Code Web.
+     
+     ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/web_vscode.png)
+
+ 4. Click `Open Folder`, then fill in the path where the code program is located `/app/`, and click the `OK` button to confirm.
+     
+     ![VScode Open Folder interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
+
+ 5. Enter the VS Code APP interface, click the list icon in the left navigation bar, select `Terminal` ——> `New Terminal` to create a new terminal.
+
+     ![VScode new terminal interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
+
+ 6. Execute GPIO [configuration commands](#gpio-settings).
+
+
+</TabItem>
+
+ </Tabs>
+
+ ## GPIO Settings
+
+### Import GPIO Python Library
+
 The development board is equipped with the GPIO Python library `Hobot.GPIO`. Users can import the GPIO library with the following command.
 
 ```shell
