@@ -290,5 +290,13 @@
   "sidebar.tutorialSidebar.category.1.1 硬件简介.link.generated-index.title": {
     "message": "1.1 Hardware Introduction",
     "description": "The generated-index page title for category 1.1 硬件简介 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.1 S100": {
+    "message": "1.2.1 S100",
+    "description": "The label for category 1.2.1 S100 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.1.3 D-Navigation工具": {
+    "message": "1.2.1.3 D-Navigation",
+    "description": "The label for category 1.2.1.3 D-Navigation工具 in sidebar tutorialSidebar"
   }
 }

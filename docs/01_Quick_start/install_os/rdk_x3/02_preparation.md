@@ -20,11 +20,11 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=1
 
         :::info 版本说明
 
-        RDK X3 套件目前提供 Ubuntu 20.04/22.04 系统镜像。
+        目前提供 Ubuntu 20.04/22.04 系统镜像。
         
-        - 3.0 版本：<font color = 'red'>**补充：基于 RDK Linux 开源代码包制作，支持 RDK X3 派、X3 模组等全系列硬件**</font>
-        - 2.0 版本：基于 RDK Linux 开源代码包制作，支持 RDK X3 派、X3 模组等全系列硬件
-        - 1.0 版本：旭日 X3 派历史版本，仅支持旭日 X3 派硬件，系统镜像名为 `system_sdcard.img`
+        - 3.0 版本(Ubuntu 22.04)：基于 RDK Linux 开源代码包制作，支持 RDK X3、RDK X3 Module 开发套件。
+        - 2.0 版本(Ubuntu 20.04)：基于 RDK Linux 开源代码包制作，支持 RDK X3、RDK X3 Module 开发套件。
+        - 1.0 版本：RDK X3 历史版本，仅支持 RDK X3，系统镜像名为 `system_sdcard.img`
         
         :::
 

@@ -22,11 +22,11 @@ sidebar_position: 2
 
         :::info 版本说明
 
-        RDK X3 套件目前提供 Ubuntu 20.04/22.04 系统镜像。
+        目前提供 Ubuntu 20.04/22.04 系统镜像。
         
-        - 3.0 版本：<font color = 'red'>**补充：基于 RDK Linux 开源代码包制作，支持 RDK X3 派、X3 模组等全系列硬件**</font>
-        - 2.0 版本：基于 RDK Linux 开源代码包制作，支持 RDK X3 派、X3 模组等全系列硬件
-        - 1.0 版本：旭日 X3 派历史版本，仅支持旭日 X3 派硬件，系统镜像名为 `system_sdcard.img`
+        - 3.0 版本(Ubuntu 22.04)：基于 RDK Linux 开源代码包制作，支持 RDK X3、RDK X3 Module 开发套件。
+        - 2.0 版本(Ubuntu 20.04)：基于 RDK Linux 开源代码包制作，支持 RDK X3、RDK X3 Module 开发套件。
+        - 1.0 版本：RDK X3 历史版本，仅支持 RDK X3，系统镜像名为 `system_sdcard.img`
         
         :::
 
@@ -61,6 +61,15 @@ sidebar_position: 2
 
 [[点击此处]](https://rufus.ie/) 进入官网，根据使用平台选择工具版本。
 
+### hbupdate 工具下载
+
+[[点击此处]](https://archive.d-robotics.cc/downloads/hbupdate/) 进入下载地址，根据使用平台选择工具版本。
+
+    :::warning 工具使用注意事项
+  
+      解压工具压缩包，注意解压路径中不要包含**空格、中文、特殊字符**等内容。
+
+    :::
 
 
 

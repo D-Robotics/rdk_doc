@@ -24,6 +24,7 @@ RDK X5 支持 SD 卡烧录和 SD 卡在板烧录，可借助 PC 端工具 RDK St
 
 - 支持使用本地镜像和在线下载
 - 支持 Windows、Linux、Mac 系统
+- 支持 SD 卡烧录和 SD 卡在板烧录
 
 ### Rufus 工具
 

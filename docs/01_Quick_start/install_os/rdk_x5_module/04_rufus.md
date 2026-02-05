@@ -29,27 +29,18 @@ sidebar_position: 4
    
 ## 在板烧录
 
-### 硬件连接
+### SD 卡在板
 
-1. 使用跳线帽将 RDK X3 载板切换到 3.3V 供电。
-       
-       ![image-X3MD-3v3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/X3MD-3v3.PNG)  
+1. SD 卡插入开发板，USB Type-C 接到 PC 端，长按 Sleep 按键（接口23），开发板上电，等待 5s，开发板进入烧录模式，PC 可以发现映射成 U 盘的 SD 卡。
+2. 依照[系统烧录](#系统烧录)一节，完成系统烧录。
 
-2. 将载板的 Micro USB 接口（调试串口）与电脑通过 USB 线连接，接口位置参考下图。 
-   
-       ![image-X3MD-MicroUSB](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/X3MD-MicroUSB.PNG)   
 
-3. 将载板的 Micro USB 接口（烧录口）与电脑通过 USB 线连接，接口位置参考下图。  
-   
-       ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)
+### eMMC 烧录
 
-### 系统烧录
 
-1. SD卡插入开发板，USB Type-C 接到 PC 端，长按Sleep按键（接口23），开发板上电，等待5s，开发板进入烧录模式。
+1. USB Type-C 接到 PC 端，长按Sleep按键（接口23），开发板上电，等待5s，开发板进入烧录模式，核心板自带的 eMMC 会被映射成 U 盘。
 
-2. SD 卡插入开发板时，PC 可以发现映射成 U 盘的 SD 卡；SD卡不插入开发板，核心板自带的 eMMC 会被映射成 U 盘。
-
-3. 然后依照[系统烧录](#系统烧录)一节，完成系统烧录。
+2. 依照[系统烧录](#系统烧录)一节，完成系统烧录。
 
 ## 启动系统
 

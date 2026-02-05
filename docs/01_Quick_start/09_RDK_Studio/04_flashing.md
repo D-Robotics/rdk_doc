@@ -60,6 +60,9 @@ import TabItem from '@theme/TabItem';
    
    :::warning
    - 此处可通过以下方法确定存储设备：拔出存储设备点击刷新按钮，查看设备列表中消失的设备选项；再连接存储设备，点击刷新按钮，选择随拔插操作发生减增变化的存储设备。
+   - RDK X3 Module 烧录 eMMC 系统镜像时，可以通过[将 eMMC 映射成 U盘](../install_os/rdk_x3_module/04_rufus.md#emmc-烧录) 进行烧录，烧录步骤中 “选择存储设备” 步骤务必选择 eMMC 映射成的 U 盘。
+   - RDK X5 Module 烧录 eMMC 系统镜像时，可以通过[将 eMMC 映射成 U盘](../install_os/rdk_x5_module/04_rufus.md#在板烧录) 进行烧录，烧录步骤中 “选择存储设备” 步骤务必选择 eMMC 映射成的 U 盘。
+   - RDK X5 烧录在板 SD 卡系统镜像时，可以通过[将 SD 卡映射成 U盘](../install_os/rdk_x5/04_rufus.md#sd-卡在板烧录) 进行烧录，烧录步骤中 “选择存储设备” 步骤务必选择 SD 卡映射成的 U 盘。
    - 烧录系统会<font color="red">清空存储设备中的所有数据</font>，请务必选择正确的存储设备！
    :::
 

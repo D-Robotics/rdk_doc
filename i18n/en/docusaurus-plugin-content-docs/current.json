@@ -301,19 +301,19 @@
   },
   "sidebar.tutorialSidebar.category.1.9.5 设备管理": {
     "message": "1.9.5 Device Management",
-    "description": "The label for category 1.9.4 设备管理 in sidebar tutorialSidebar"
+    "description": "The label for category 1.9.5 设备管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.9.5 设备管理.link.generated-index.description": {
     "message": "Here, you can add and manage devices by clicking the `+ Hardware` in the upper right corner.",
-    "description": "The generated-index page description for category 1.9.4 设备管理 in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category 1.9.5 设备管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.9.6 示例应用": {
     "message": "1.9.6 Sample Applications",
-    "description": "The label for category 1.9.5 示例应用 in sidebar tutorialSidebar"
+    "description": "The label for category 1.9.6 示例应用 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.9.6 示例应用.link.generated-index.description": {
     "message": "Here, you can directly install some simple demos onto your development board.",
-    "description": "The generated-index page description for category 1.9.5 示例应用 in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category 1.9.6 示例应用 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.RDK Ultra（Python）": {
     "message": "RDK Ultra（Python）",
@@ -322,6 +322,33 @@
   "sidebar.tutorialSidebar.category. RDK Ultra（C++）": {
     "message": " RDK Ultra（C++）",
     "description": "The label for category  RDK Ultra（C++） in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.1 RDK X3": {
+    "message": "1.2.1 RDK X3",
+    "description": "The label for category 1.2.1 RDK X3 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.2 RDK X3 Module": {
+    "message": "1.2.2 RDK X3 Module",
+    "description": "The label for category 1.2.2 RDK X3 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3 RDK X5": {
+    "message": "1.2.3 RDK X5",
+    "description": "The label for category 1.2.3 RDK X5 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具": {
+    "message": "1.2.3.5 Using the XBurn Tool",
+    "description": "The label for category 1.2.3.5 使用 XBurn 工具 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具.link.generated-index.description": {
+    "message": "XBurn is the official image burning tool provided for flashing RDK X5 NAND firmware. It features an intuitive graphical interface, allowing users to complete the flashing process in just a few clicks, making it very convenient.",
+    "description": "The generated-index page description for category 1.2.3.5 使用 XBurn 工具 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.4 RDK X5 Module": {
+    "message": "1.2.4 RDK X5 Module",
+    "description": "The label for category 1.2.4 RDK X5 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.5 RDK Ultra": {
+    "message": "1.2.5 RDK Ultra",
+    "description": "The label for category 1.2.5 RDK Ultra in sidebar tutorialSidebar"
   }
 }
-

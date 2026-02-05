@@ -9,15 +9,9 @@
 
 :::
 
-
 ## 启动模式
 
-RDK X3 Module 支持从 eMMC 和 SD 卡两种模式启动系统。
-
-
 ### 从 SD 卡启动
-
-使用 RDK Studio 工具和 Rufus 工具进行烧录。
 
 #### RDK Studio 工具
   - 支持使用本地镜像和在线下载镜像
@@ -29,8 +23,19 @@ RDK X3 Module 支持从 eMMC 和 SD 卡两种模式启动系统。
 
 ### 从 eMMC 启动
 
-使用 Rufus 工具 UMS 方式烧录系统镜像。
+#### RDK Studio 工具
+  - 支持使用本地镜像和在线下载镜像
+  - 支持 Windows、Linux、Mac 系统
+  - 使用 UMS 方式烧录系统镜像
 
+  
 #### Rufus 工具
   - 支持使用本地镜像
   - 支持 Windows 系统
+  - 使用 UMS 方式烧录系统镜像
+
+#### hbupdate 工具
+  - 支持使用本地镜像
+  - 支持Windows、Linux 系统
+  - 依赖 RDK X3 Module 进入 U-Boot 的烧录模式（即 fastboot 模式）
+  

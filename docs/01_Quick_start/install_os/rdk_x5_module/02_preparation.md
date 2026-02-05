@@ -17,6 +17,12 @@ sidebar_position: 2
 **RDK X5 Module**出厂已经烧写测试版本系统镜像，为确保使用最新版本的系统，<font color='Red'>建议参考本文档完成最新版本系统镜像的烧写</font>。
 :::
 
+:::warning 注意
+
+RDK X5 Module 只能使用 3.2.0 及其后续版本的系统。
+
+:::
+
 
 1. 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images/rdk_x5/)，选择 RDK X5 镜像版本。
 
@@ -37,20 +43,10 @@ sidebar_position: 2
           ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x5_os_image_download1.png)
 
 
-  3. 下载完成后，解压出 Ubuntu 系统镜像文件，如`rdk-x5-ubuntu22-preinstalled-desktop-3.0.3-arm64.img`
+  3. 下载完成后，解压出 Ubuntu 系统镜像文件，如`rdk-x5-ubuntu22-preinstalled-desktop-3.2.3-arm64.img`
 
   
 ## 烧录工具下载
-
-:::warning 注意
-
-1. 使用 balenaEtcher 验证过程可能会报错，但是可以正常进入系统。
-
-2. 官方建议使用 rufus 烧录软件进行镜像安装，相对较为稳定。
-
-3. RDK X5 Module 只能使用 3.2.0 及其后续版本的系统。
-
-:::
 
 
 ### RDK  Studio 工具下载

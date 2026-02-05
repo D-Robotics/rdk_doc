@@ -27,6 +27,7 @@ sidebar_position: 2
           :::info 镜像说明
         
             支持无桌面 server 系统 和 desktop 桌面图形化交互。
+            
             - desktop：带有桌面的 Ubuntu 系统，可以外接屏幕、鼠标操作
             - server：无桌面的 Ubuntu 系统，可以通过串口、网络远程连接操作
             
@@ -39,14 +40,6 @@ sidebar_position: 2
 
   
 ### 烧录工具下载
-
-:::warning 注意
-
-1.使用 balenaEtcher 验证过程可能会报错，但是可以正常进入系统。
-
-2.官方建议使用 rufus 烧录软件进行镜像安装，相对较为稳定。
-
-:::
 
 
 #### RDK  Studio 工具下载
