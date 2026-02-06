@@ -376,21 +376,6 @@ Providing comprehensive hardware design support materials for module customers t
 
   <div class="doc-card">
     <div class="doc-header">
-      <span class="doc-icon">📋</span>
-      <h4>Module Brief Specifications</h4>
-    </div>
-    <div class="doc-content">
-      <p><strong>File:</strong>drobotics_rdk_x5_md_brief_v0p5.pdf</p>
-      <p><strong>Content:</strong>Concise product introduction including key features, applications, and core advantages.</p>
-      <p><strong>Use Case:</strong>For initial market promotion, project proposals, or preliminary customer understanding.</p>
-      <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 Module Brief Introduction</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-card">
-    <div class="doc-header">
       <span class="doc-icon">🔋</span>
       <h4>Module Typical Scenario Power Consumption Introduction</h4>
     </div>

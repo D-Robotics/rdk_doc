@@ -369,21 +369,6 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       </div>
     </div>
   </div>
-
-  <div class="doc-card">
-    <div class="doc-header">
-      <span class="doc-icon">📋</span>
-      <h4>模组简要规格介绍</h4>
-    </div>
-    <div class="doc-content">
-      <p><strong>文件：</strong>drobotics_rdk_x5_md_brief_v0p5.pdf</p>
-      <p><strong>内容简介：</strong>RDK X5 模组的简洁版产品介绍，涵盖主要特性、应用方向、核心优势等，便于快速了解产品定位。</p>
-      <p><strong>适用场景：</strong>前期市场推广、项目提案或客户初步了解时使用。</p>
-      <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 模组简要介绍</a>
-      </div>
-    </div>
-  </div>
   
   <div class="doc-card">
     <div class="doc-header">
