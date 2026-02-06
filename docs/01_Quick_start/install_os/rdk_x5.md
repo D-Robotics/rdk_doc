@@ -151,7 +151,7 @@ server：无桌面的Ubuntu系统，可以通过串口、网络远程连接操�
 
 <TabItem value="RDK Studio" label="RDK Studio 工具">
 
-使用 RDK Studio 工具烧录系统后可以添加设备进行管理，建议使用 RDK Studio 工具，详细步骤参见 [使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+使用 RDK Studio 工具烧录系统后可以添加设备进行管理，建议使用 RDK Studio 工具，详细步骤参见 [使用 RDK Studio 烧录系统](../09_RDK_Studio/04_flashing.md)。
 
 
 </TabItem>

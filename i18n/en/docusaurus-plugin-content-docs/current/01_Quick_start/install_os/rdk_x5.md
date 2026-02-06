@@ -94,7 +94,7 @@ Before flashing the Ubuntu system image, please prepare the following:
 
 <TabItem value="RDK Studio" label="RDK Studio Tool">
 
-After using the RDK Studio tool to flash the system, you can add devices for management. It is recommended to use the RDK Studio tool. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/03_flashing.md)。
+After using the RDK Studio tool to flash the system, you can add devices for management. It is recommended to use the RDK Studio tool. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/04_flashing.md)。
 
 
 
