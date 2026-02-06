@@ -15,8 +15,8 @@ sidebar_position: 9
    
    ![性能监控应用](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-install.png)
 
-5. 新增 MacOS 支持闪连方式
-6. 新增烧写后的 Wi-Fi 预配置
+5. 新增 macOS 支持闪连方式
+6. 新增烧写后的 Wi-Fi 预配置功能
 
 
 ### 重点问题修复
@@ -25,5 +25,5 @@ sidebar_position: 9
 
 ### 优化功能
 
-1. 烧写时空存储设备展示
-2. 烧写模块初始语言显示
+1. 无可烧录的存储设备时，可选列表为空
+2. 烧写模块初始语言显示跟随当前系统语言

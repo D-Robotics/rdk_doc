@@ -17,9 +17,9 @@ sidebar_position: 9
    
    ![Download Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/en/performance-node-install.png)
 
-5. Added MacOS support for flash connection method
+5. Added macOS support for flash connection method
 
-6. Added Wi-Fi pre-configuration after flashing
+6. Add Wi-Fi pre-configuration functionality after burning
 
 
 ### Key Fixes
@@ -28,6 +28,6 @@ sidebar_position: 9
 
 ### Optimizations
 
-1. Display of empty storage devices during flashing
+1. When there is no burnable storage device, the optional list is empty
 
-2. Initial language display for flashing module
+2. The initial language display of the burning module follows the current system language
