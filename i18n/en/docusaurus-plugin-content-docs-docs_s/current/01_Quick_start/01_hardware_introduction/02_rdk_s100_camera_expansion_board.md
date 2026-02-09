@@ -81,8 +81,24 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 :::
 
+:::warning Support Column Instructions  
+The locations of the support columns are shown in the figure below. There are two types: threaded columns with internal threads and smooth-hole columns without internal threads. Please refer to the corresponding expansion board assembly video based on the product selected.  
+
+    <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location-en.png" alt="Support Column Location Image" width="45%" />  
+
+:::
+
+#### Threaded hole support post
+
 <video controls width="90%" preload="metadata">
   <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+#### Smooth hole support post
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide_smooth_hole_support.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

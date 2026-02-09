@@ -82,8 +82,24 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 
 :::
 
+:::warning 支撑柱说明
+支撑柱位置见下图，有内壁带螺纹的螺纹柱和内壁无螺纹的光孔柱两种，请根据所选产品查看对应的扩展板组装视频。
+
+    <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location.png" alt="支撑柱位置图片" width="40%" />
+
+:::
+
+#### 螺纹柱扩展板组装说明
+
 <video controls width="90%" preload="metadata">
   <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  您的浏览器不支持 video 标签。
+</video>
+
+#### 光孔柱扩展板组装说明
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide_smooth_hole_support.mp4" type="video/mp4" />
   您的浏览器不支持 video 标签。
 </video>
 
