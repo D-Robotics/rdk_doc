@@ -281,6 +281,8 @@ RDK X5 V3.3.3 版本已同步至：
 
 ## TogetheROS.Bot
 
+### TogetheROS-V2.x
+
 详见TogetheROS.Bot[版本发布记录](/docs/05_Robot_development/01_quick_start/changelog.md)。
 
 ---
