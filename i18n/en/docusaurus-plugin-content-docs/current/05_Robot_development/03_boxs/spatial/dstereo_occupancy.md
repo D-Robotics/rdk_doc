@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## Function Introduction
 
-The **Digua Dual-lens OCC Algorithm** subscribes to dual-lens images, uses the BPU for algorithm inference, and publishes occupancy grid information.
+The **D-Robotics Dual-lens OCC Algorithm** subscribes to dual-lens images, uses the BPU for algorithm inference, and publishes occupancy grid information.
 
 Dual-lens OCC algorithm repository: https://github.com/D-Robotics/dstereo_occnet
 

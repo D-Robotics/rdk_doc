@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 8.4 Multimedia Processing and Applications
 
-This section addresses frequently asked questions related to video codec, audio processing, and other multimedia features on the Digua RDK board.
+This section addresses frequently asked questions related to video codec, audio processing, and other multimedia features on the D-Robotics RDK board.
 
 ## Video Codec
 
