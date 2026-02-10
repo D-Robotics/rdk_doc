@@ -81,8 +81,11 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 :::
 
-:::warning Support Column Instructions  
-The locations of the support columns are shown in the figure below. There are two types: threaded columns with internal threads and smooth-hole columns without internal threads. Please refer to the corresponding expansion board assembly video based on the product selected.  
+:::warning Camera Expansion Board Description  
+
+Please refer to the corresponding expansion board assembly video based on the actual product.
+- Threaded Standoff Expansion Board: Support standoffs have threaded inner walls.
+- Smooth Standoff Expansion Board: Support standoffs have smooth, non-threaded inner walls. 
 
     <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location-en.png" alt="Support Column Location Image" width="45%" />  
 
