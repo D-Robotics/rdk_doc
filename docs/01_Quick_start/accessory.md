@@ -14,14 +14,18 @@ sidebar_position: 8
 | --- | --------- | -------- | --------------- | --------- |
 | 电源 | 微雪 | ORD-PSU-5V3A-USB-C-US | Type-C接口 5V/3A 定制电源 | [购买链接](https://www.waveshare.net/shop/ORD-PSU-5V3A-USB-C-US.htm)  |
 | 电源 | 亚博 | T03F-050300Z | Type-C接口 5V/3A 定制电源 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=608661929691&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.154.4df82edcjJ7wap&skuId=4949624573441)  |
-| 外壳 | 亚博 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=6844a66941541&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.138.4df82edcjJ7wap)  |
-| 外壳 | 轮趣 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=670534732857&rn=0b151aa6abd5b8d65e5533b8259449f1&spm=a1z10.3-b-s.w4011-24713677160.27.ef207988tOY0c9&skuId=5004448047864)  |
+| 外壳 | 亚博 | N/A | 铝合金定制外壳 |[购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=6844a66941541&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.138.4df82edcjJ7wap)  |
+| 外壳 | 轮趣 | N/A | 铝合金定制外壳 |[购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=670534732857&rn=0b151aa6abd5b8d65e5533b8259449f1&spm=a1z10.3-b-s.w4011-24713677160.27.ef207988tOY0c9&skuId=5004448047864)  |
 | 外壳 | 地瓜机器人 | RDK X3 Case | 磨砂黑色工艺，I/O 接口与天线区域设有精密开孔，四颗螺丝固定 | [购买链接](https://item.taobao.com/item.htm?abbucket=11&id=623862263232&mi_id=0000TakHYTmsuMbPUMYV_dByLYk8Z3qEoQjHCjwjgpyQD58&ns=1&priceTId=213e032717694105383204838e131d&skuId=5633976856940&spm=a21n57.1.hoverItem.8&utparam=%7B%22aplus_abtest%22%3A%224d58468e1aea4fb2bc2fb94fb4afe5db%22%7D&xxc=taobaoSearch)  |
 | 散热器 | 微雪 | N/A | 散热风扇扩展板 | [购买链接](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | 散热器 | 亚博 | N/A | 主板风扇，支持OLED显示 | [购买链接](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
 | 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
-| IMU 模组 | 地瓜机器人 | RDK IMU Module | 高性能 6 轴惯性测量单元（IMU）BMI088，包含一个三轴陀螺仪和一个三轴加速度计，使用 I2C 接口进行连接 | [购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=950559188647&mi_id=0000y73ip0pJqD4bU7HI9v6_ueVB9SpvJQKtSGGzP2qQC4E&ns=1&priceTId=2147850217700998222523124e1266&skuId=5862025952973&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22d17d854d12fb2c2c542d2e5885d44a3e%22%7D&xxc=taobaoSearch)  |
+
+### IMU 
+| 类型 | 供应商 | 型号 | 描述 |使用指南|购买链接 |
+| --- | --------- | -------- | --------------- | --------- | --------- |
+| IMU 模组 | 地瓜机器人 | RDK IMU Module | 高性能 6 轴惯性测量单元（IMU）BMI088，包含一个三轴陀螺仪和一个三轴加速度计，使用 I2C 接口进行连接 |[点击查看](https://github.com/D-Robotics/rdk_imu)<br/>[点击查看](https://github.com/D-Robotics/rdk_imu/tree/library)|[购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=950559188647&mi_id=0000y73ip0pJqD4bU7HI9v6_ueVB9SpvJQKtSGGzP2qQC4E&ns=1&priceTId=2147850217700998222523124e1266&skuId=5862025952973&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22d17d854d12fb2c2c542d2e5885d44a3e%22%7D&xxc=taobaoSearch)  |
 
 ### 摄像头
 
@@ -104,8 +108,13 @@ sidebar_position: 8
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
 | 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 | 外壳 | 地瓜机器人 | RDK X5 Case | 全金属黑色外壳 | [购买链接](https://item.taobao.com/item.htm?abbucket=11&id=623862263232&mi_id=0000TakHYTmsuMbPUMYV_dByLYk8Z3qEoQjHCjwjgpyQD58&ns=1&priceTId=213e032717694105383204838e131d&skuId=5633976856940&spm=a21n57.1.hoverItem.8&utparam=%7B%22aplus_abtest%22%3A%224d58468e1aea4fb2bc2fb94fb4afe5db%22%7D&xxc=taobaoSearch)  |
-| 以太网供电模块 | 微雪 | RDK X5 PoE Module | 40PIN GPIO 接口连接，兼容 IEEE 802.3af/at 网络标准，全隔离开关电源（SMPS）设计，具备板载高转速主动散热风扇和金属散热片| [购买链接](https://www.waveshare.net/shop/RDK-PoE-Module.htm)  |
-| IMU 模组 | 地瓜机器人 | RDK IMU Module | 高性能 6 轴惯性测量单元（IMU）BMI088，包含一个三轴陀螺仪和一个三轴加速度计，使用 I2C 接口进行连接 | [购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=950559188647&mi_id=0000y73ip0pJqD4bU7HI9v6_ueVB9SpvJQKtSGGzP2qQC4E&ns=1&priceTId=2147850217700998222523124e1266&skuId=5862025952973&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22d17d854d12fb2c2c542d2e5885d44a3e%22%7D&xxc=taobaoSearch)  |
+| 以太网供电模块 | 微雪 | RDK X5 PoE Module | 40PIN GPIO 接口连接，兼容 IEEE 802.3af/at 网络标准，全隔离开关电源（SMPS）设计，具备板载高转速主动散热风扇和金属散热片|[购买链接](https://www.waveshare.net/shop/RDK-PoE-Module.htm)  |
+
+
+### IMU 
+| 类型 | 供应商 | 型号 | 描述 |使用指南|购买链接 |
+| --- | --------- | -------- | --------------- | --------- | --------- |
+| IMU 模组 | 地瓜机器人 | RDK IMU Module | 高性能 6 轴惯性测量单元（IMU）BMI088，包含一个三轴陀螺仪和一个三轴加速度计，使用 I2C 接口进行连接 |[点击查看](https://github.com/D-Robotics/rdk_imu)<br/>[点击查看](https://github.com/D-Robotics/rdk_imu/tree/library)|[购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=950559188647&mi_id=0000y73ip0pJqD4bU7HI9v6_ueVB9SpvJQKtSGGzP2qQC4E&ns=1&priceTId=2147850217700998222523124e1266&skuId=5862025952973&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22d17d854d12fb2c2c542d2e5885d44a3e%22%7D&xxc=taobaoSearch)  |
 
 
 ### 摄像头
