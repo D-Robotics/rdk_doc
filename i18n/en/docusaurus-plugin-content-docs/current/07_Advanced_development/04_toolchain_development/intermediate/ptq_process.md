@@ -42,12 +42,14 @@ Among these frameworks, the caffemodel exported by the Caffe framework is direct
 For the conversion from different frameworks to ONNX, there are currently corresponding standard solutions, as follows:
 
 -    Pytorch2Onnx: PyTorch official API supports exporting models directly as ONNX models. Refer to the link:
-         https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html.
+         https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
 
 -    Tensorflow2Onnx: Conversion based on the onnx/tensorflow-onnx in the ONNX community. Refer to the link:
-         https://github.com/onnx/tensorflow-onnx.
+         https://github.com/onnx/tensorflow-onnx
 
--    MXNet2Onnx: MXNet official API supports exporting models directly as ONNX models. Refer to the link:- More ONNX conversion support for other frameworks, please refer to the link: https://github.com/onnx/tutorials#converting-to-onnx-format.
+-    MXNet2Onnx: MXNet official API supports exporting models directly as ONNX models. Refer to the link:https://github.com/dotnet/machinelearning/blob/main/test/Microsoft.ML.Tests/OnnxConversionTest.cs
+
+-    More ONNX conversion support for other frameworks, please refer to the link: https://github.com/onnx/tutorials#converting-to-onnx-format
 
 :::tip Tips
 
@@ -1330,7 +1332,7 @@ This section focuses on the hardware characteristics of D-Robotics Processors. D
 
   D-Robotics's BPU has targeted optimizations for `depthwise convolution` and `group convolution`. Therefore, we recommend using models with a Depthwise+Pointwise structure, such as MobileNetv2, EfficientNet_lite, and the custom-designed VarGNet based on GroupConv, as the backbone of the model to achieve higher performance benefits.
 
-  We are continually exploring more model structures and business models, and we will provide more diverse models for your reference. These outputs will be periodically updated to https://github.com/D-RoboticsRobotics-Platform/ModelZoo/tree/master. If you still cannot find a suitable model, please feel free to reach out to us on the [D-Robotics Official Technical Community](https://developer.d-robotics.cc). We will provide more targeted guidance and suggestions based on your specific problems. 
+  We are continually exploring more model structures and business models, and we will provide more diverse models for your reference. These outputs will be periodically updated to https://github.com/D-Robotics/rdk_model_zoo . If you still cannot find a suitable model, please feel free to reach out to us on the [D-Robotics Official Technical Community](https://developer.d-robotics.cc). We will provide more targeted guidance and suggestions based on your specific problems. 
 
 ### Model Accuracy Analysis `{`#accuracy_evaluation`}`
 

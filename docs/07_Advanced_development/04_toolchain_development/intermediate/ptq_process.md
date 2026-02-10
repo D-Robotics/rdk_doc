@@ -42,16 +42,16 @@ sidebar_position: 2
 对于不同框架到ONNX的转换，目前都有对应的标准化方案，参考如下：
 
 -    Pytorch2Onnx：PytTorch官方API支持直接将模型导出为ONNX模型，参考链接：
-         https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html。
+         https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
 
 -    Tensorflow2Onnx：基于ONNX社区的onnx/tensorflow-onnx 进行转换，参考链接：
-         https://github.com/onnx/tensorflow-onnx。
+         https://github.com/onnx/tensorflow-onnx
 
 -    MXNet2Onnx：MXNet官方API支持直接将模型导出为ONNX模型，参考链接：
-         https://github.com/dotnet/machinelearning/blob/master/test/Microsoft.ML.Tests/OnnxConversionTest.cs。
+         https://github.com/dotnet/machinelearning/blob/main/test/Microsoft.ML.Tests/OnnxConversionTest.cs
 
 -    更多框架的ONNX转换支持，参考链接：
-         https://github.com/onnx/tutorials#converting-to-onnx-format。
+         https://github.com/onnx/tutorials#converting-to-onnx-format
 
 
 :::tip 小技巧
@@ -979,6 +979,7 @@ D-Robotics 处理器不会限制使用的数据排布，但是有两条要求：
   ...    ...     ...     ...       0.996023           3.251645
   ...    ...     ...     ...       0.996656           4.495638
 ```
+
 上面列举的输出内容中，Node、ON、Subgraph、Type与 ``hb_mapper checker`` 工具的解读是一致的，
 请参考前文 [**检查结果解读**](#check_result)；
 Threshold是每个层次的校准阈值，用于异常状态下向D-Robotics 技术支持反馈信息，正常状况下不需要关注；
@@ -1416,7 +1417,7 @@ Perf result:
 
   D-Robotics 处理器的BPU对于 ``Depthwise Convolution`` 和 ``Group Convolution`` 都做了针对性的优化，所以我们更推荐采用Depthwise+Pointwise 结构的MobileNetv2、EfficientNet_lite， 以及D-Robotics 基于 GroupConv 手工设计自研的 VarGNet 作为模型的 Backbone，以便获得更高的性能收益。
 
-  更多的模型结构和业务模型都在持续探索中，我们将提供更加丰富的模型给您作为直接的参考，这些产出将不定期更新至 https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master。
+  更多的模型结构和业务模型都在持续探索中，我们将提供更加丰富的模型给您作为直接的参考，这些产出将不定期更新至 https://github.com/D-Robotics/rdk_model_zoo 。
   如果以上依然不能满足您的需要，欢迎在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc)发帖与我们取得联系，我们将根据您的具体问题提供更具针对性的指导建议。
 
 

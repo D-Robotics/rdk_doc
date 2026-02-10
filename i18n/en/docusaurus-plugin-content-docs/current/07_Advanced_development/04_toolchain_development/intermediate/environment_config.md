@@ -194,7 +194,7 @@ If the hb_mapper tool has output logs properly, it means that the environment ha
 
 ## Board Deployment
 
-Board deployment requires you to update the board image to the latest version according to the flashing instructions. Please refer to the [**Install OS**](../..../../../01_Quick_start/install_os.md#flash_system) section for the upgrade method. After the upgrade is completed, copy the relevant supplementary files to the development board.
+Board deployment requires you to update the board image to the latest version according to the flashing instructions. Please refer to the [**Install OS**](../../../01_Quick_start/install_os/rdk_x3.md) section for the upgrade method. After the upgrade is completed, copy the relevant supplementary files to the development board.
 
 ### Preparation of Supplementary Files
 

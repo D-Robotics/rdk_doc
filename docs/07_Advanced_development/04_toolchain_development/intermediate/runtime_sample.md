@@ -494,7 +494,7 @@ sidebar_position: 4
 
 ##### 模型推理 DNN API日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 文档中的 ``配置信息`` 一节内容。
+关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algo04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 文档中的 ``配置信息`` 一节内容。
 
 ### 公版模型性能精度测评说明
 
