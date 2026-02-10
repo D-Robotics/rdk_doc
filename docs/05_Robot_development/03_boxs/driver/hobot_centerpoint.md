@@ -65,7 +65,7 @@ tar -zxvf hobot_centerpoint_data.tar.gz -C config
 ```shell
 # 板端下载回灌的点云文件
 cd ~
-wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz.gz
+wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
 # 解压缩
 mkdir -p ~/centerpoint_data

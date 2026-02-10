@@ -56,7 +56,7 @@ tar -zxvf hobot_centerpoint_data.tar.gz -C config
 ```shell
 # Download playback point cloud files on the board
 cd ~
-wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz.gz
+wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
 # Decompress the file
 mkdir -p ~/centerpoint_data
