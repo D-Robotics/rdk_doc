@@ -27,7 +27,7 @@ RDK X5 provides various functional interfaces, including Ethernet, USB, camera, 
 
 | No. | Function                       | No. | Function                  | No. | Function                  |
 | --- | ------------------------------ | --- | ------------------------- | --- | ------------------------- |
-| 1   | Power Interface (USB Type C)   | 2   | RTC Battery Interface     | 3   | QuickLink Port (USB Type C) |
+| 1   | Power Interface (USB Type C)   | 2   | RTC Battery Interface<br/>(The pin closer to PWR is B+, the other pin is GND)     | 3   | QuickLink Port (USB Type C) |
 | 4   | Debug Serial Port (Micro USB)  | 5   | Dual MIPI Camera Ports    | 6   | Gigabit Ethernet Port with PoE |
 | 7   | 4 USB 3.0 Type A Ports         | 8   | High-Speed CAN FD Interface | 9   | 40-pin GPIO Interface           |
 | 10  | HDMI Display Interface         | 11  | Multi-standard Headphone Jack | 12 | Onboard Wi-Fi Antenna     |
