@@ -392,7 +392,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
     </div>
     <div class="doc-content">
       <p><strong>文件：</strong>RDK X5 Module Thermal Design Guide V1P0</p>
-      <p><strong>内容简介：</strong>本文档为 RDK X5 Module 的热设计指导，为用户提供参考设计、仿真结果和设计建议。</p>
+      <p><strong>内容简介：</strong>本文档为 RDK X5 Module 的热设计指导，为用户提供热仿真支持和散热设计建议。</p>
       <p><strong>适用场景：</strong>RDK X5 Module 热设计指南用于帮助用户开发可靠的系统级热解决方案。</p>
       <div class="doc-link">
         <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Thermal Design Guide V1P0.pdf" className="download-link">📥 热设计指导</a>
@@ -407,7 +407,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
     </div>
     <div class="doc-content">
       <p><strong>文件：</strong>RDK X5 Module Hardware Design Checklist V1P0</p>
-      <p><strong>内容简介：</strong>本文档梳理了 RDK X5 Module 的电源设计、系统控制、GPIO配置、功能接口、低速接口及 PCB 设计等说明信息。</p>
+      <p><strong>内容简介：</strong>本文档用于指导客户核对硬件设计，确保设计合规无遗漏，提升设计成功率。</p>
       <p><strong>适用场景：</strong>用于进行硬件设计前的关键指导，确保功能可靠性及生产可实施性。</p>
       <div class="doc-link">
         <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Checklist V1P0.xlsx" className="download-link">📥 硬件设计 Checklist</a>
