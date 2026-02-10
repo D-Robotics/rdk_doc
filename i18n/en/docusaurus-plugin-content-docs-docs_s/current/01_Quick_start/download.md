@@ -53,7 +53,7 @@ sidebar_position: 6
 
 | Name                                                                                                            | Version   | Upload Date   | Documentation                                                  |
 | --------------------------------------------------------------------------------------------------------------- | ------ | ---------- | --------------------------------------------------------- |
-| [RDK S100 Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_en_v1_1.pdf)    | V1.1 | 2025-12-16 | Product specifications, features, dimensions, and model details. |                |
+| [RDK S100 Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_en_v1_2.pdf)    | V1.2 | 2026-02-10 | Product specifications, features, dimensions, and model details. |                |
 
 ### RDK S100 Camera Expansion Board
 
