@@ -388,6 +388,36 @@ Providing comprehensive hardware design support materials for module customers t
       </div>
     </div>
   </div>
+
+<div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🌡️</span>
+      <h4>Thermal Design Guide</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Thermal Design Guide V1P0</p>
+      <p><strong>Content:</strong> This document provides thermal design guidelines for the RDK X5 Module, including reference designs, simulation results, and design recommendations.</p>
+      <p><strong>Use Case:</strong> The RDK X5 Module Thermal Design Guide assists users in developing reliable system-level thermal solutions.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Thermal Design Guide V1P0.pdf" className="download-link">📥 Thermal Design Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📝</span>
+      <h4>Hardware Design Checklist</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Hardware Design Checklist V1P0</p>
+      <p><strong>Content:</strong> This document details specifications for the RDK X5 Module's power design, system control, GPIO configuration, functional interfaces, low-speed interfaces, and PCB design.</p>
+      <p><strong>Use Case:</strong> Serves as key guidance prior to hardware design to ensure functional reliability and manufacturing feasibility.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Checklist V1P0.xlsx" className="download-link">📥 Hardware Design Checklist</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
