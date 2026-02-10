@@ -23,8 +23,6 @@ Code Repository:  (https://github.com/D-Robotics/hobot_websocket)
 | -------------------- | ----------------------------- | --------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI cameras and display images via Web |
 | RDK X5               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
-| RDK Ultra            | Ubuntu 20.04 (Foxy)           | Start MIPI cameras and display images via Web |
-| X86                  | Ubuntu 20.04 (Foxy)           | Start USB cameras and display images via Web |
 | RDK S100               | Ubuntu 22.04 (Humble)         | Start MIPI cameras and display images via Web |
 
 
@@ -149,7 +147,7 @@ Code Repository:  (https://github.com/D-Robotics/hobot_hdmi)
 
 | Platform | System | Function                    |
 | -------- | ------------ | ----------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera and display image through HDMI |
+| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera and display image through HDMI |
 
 :::caution
 HDMI `EOL` Description:
@@ -229,7 +227,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 | Platform | System | Sample Function                                        |
 | -------- | -------------- | ------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
+| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the MIPI camera to capture images and use RViz2 to preview on PC |
 
 ### Preparation
 
@@ -239,11 +237,11 @@ TogetheROS.Bot is compatible with ROS2 Foxy version. To conveniently preview ima
 
 2. RDK has successfully installed tros.b.
 
-3. The PC has installed Ubuntu 20.04, ROS2 Foxy Desktop version, and the data visualization tool RViz2. The PC and RDK are on the same network segment (the first three segments of the IP address are the same).
+3. The PC has Ubuntu 20.04/Ubuntu 22.04 installed, along with the desktop version of ROS 2 Foxy/Humble and the data visualization tool RViz2, and is on the same network segment as the RDK (the first three octets of the IP address are identical).
 
-   Reference for ROS2 Foxy installation:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - ROS 2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   On the PC, install RViz2 with the command: `sudo apt install ros-foxy-rviz-common ros-foxy-rviz-default-plugins ros-foxy-rviz2`
+   - Install RViz2 on the PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Here, `$ROS_DISTRO` refers to the ROS 2 version, e.g., `foxy` or `humble`.
 
 ### Usage
 
@@ -438,7 +436,7 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
 | Platform       | System | Function           |
 | -------------- | ------------ | ------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera to capture images and use RQt to preview on PC |
+| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera to capture images and use RQt to preview on PC |
 
 ### Preparation
 
@@ -448,12 +446,12 @@ TogetheROS.Bot is compatible with ROS2 Foxy and supports previewing compressed f
 
 2. RDK has successfully installed tros.b.
 
-3. PC has been installed with Ubuntu 20.04 system, ROS2 Foxy desktop version, and the visualization tool RQt. Both PC and RDK are on the same network segment (with the same first three digits of the IP addresses).
+3. The PC has Ubuntu 20.04/Ubuntu 22.04 installed, together with the desktop version of ROS 2 Foxy/Humble and the data visualization tool RQt, and it is on the same network segment as the RDK (the first three octets of the IP address are the same).
 
-   ROS2 Foxy installation reference:  (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - ROS 2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   Installation method for `rqt-image-view` on PC terminal: `sudo apt install ros-foxy-rqt-image-view ros-foxy-rqt`
-   
+   - Install rqt-image-view on the PC: `sudo apt install ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Here, `$ROS_DISTRO` refers to the ROS 2 version, e.g., `foxy` or `humble`.
+
 ### Usage
 
 #### RDK
@@ -617,7 +615,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization)
 
 | Platform | System | Function                                     |
 | -------- | -------------- | -------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5      |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100      |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
 
 ### Preparation
 

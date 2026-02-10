@@ -307,11 +307,11 @@ TogetheROS.Bot兼容ROS2 foxy/humble版本，为了方便预览图像效果，�
 
 2. RDK已成功安装tros.b。
 
-3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
 
-ROS2 Foxy安装参考：[https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   PC 端 RViz2安装方法为：`sudo apt install ros-foxy-rviz-common ros-foxy-rviz-default-plugins ros-foxy-rviz2`
+   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
 
 ### 使用方式
 
@@ -520,11 +520,11 @@ TogetheROS.Bot兼容ROS2 foxy版本，支持通过RQt预览压缩格式图像，
 
 2. RDK已成功安装tros.b。
 
-3. PC已安装Ubuntu 20.04系统、ROS2 Foxy桌面版和可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
 
-[ROS2 Foxy安装参考](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   PC 端 rqt-image-view安装方法为：`sudo apt install ros-foxy-rqt-image-view ros-foxy-rqt`
+   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
 
 ### 使用方式
 
