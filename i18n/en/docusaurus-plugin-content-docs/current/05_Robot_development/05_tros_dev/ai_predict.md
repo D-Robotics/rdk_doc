@@ -15,6 +15,10 @@ import TabItem from '@theme/TabItem';
 | ---------------------- | ---------------------------------- |
 | RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
+:::info
+The content introduced in this chapter is theoretically applicable to all platforms. The code examples are based on the `RDK X3` platform, and code adaptation will be required if used on other platforms.
+:::
+
 ## Model Inference Development
 
 ### Background

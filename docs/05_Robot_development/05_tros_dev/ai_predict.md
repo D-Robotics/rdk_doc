@@ -15,6 +15,10 @@ import TabItem from '@theme/TabItem';
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
+:::info
+本章节介绍的内容，其理论适用于所有平台，代码示例基于`RDK X3`平台，如用于其他平台将会涉及到代码适配。
+:::
+
 ## 模型推理开发
 
 ### 功能背景
