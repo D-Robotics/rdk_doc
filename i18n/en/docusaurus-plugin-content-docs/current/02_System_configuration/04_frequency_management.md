@@ -8,8 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-<Tabs groupId="tool-type">
-<TabItem value="login" label="Login to the RDK">
+
 
 :::info Note
 The following information does not apply to the `RDK Ultra` development board.
@@ -90,6 +89,11 @@ The Linux kernel used in the RDK system supports the following types of frequenc
 
 - Schedutil: Introduced starting from Linux kernel version 4.7. This policy utilizes CPU utilization information provided by the scheduler to adjust the frequency. It is similar in effect to the ondemand policy but is more precise and natural because the scheduler has the best knowledge of CPU usage.
 
+Users can set the frequency scaling policy in the following two ways:
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="Login to the RDK">
+
 Users can control the CPU frequency scaling policy by modifying the corresponding settings in the directory `/sys/devices/system/cpu/cpufreq/policy0`.
 
 For example, to set the CPU to run in performance mode:  
@@ -140,6 +144,72 @@ You can use the `sudo hrut_somstatus` command to view the current chip operating
 
 ![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)  
 
+</TabItem>
+
+<TabItem value="rdk-studio" label="Log in with RDK Studio">
+
+The Performance Node tool in RDK Studio provides system hardware monitoring and real-time performance control capabilities. It combines detailed data monitoring with dynamic performance tuning to help users fully understand and manage their computer's operational status.
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. Use RDK Studio to add devices. Refer to [Add RDK Device](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+2. Click the application space icon to view more applications.
+
+    ![Application Space Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+3. Click to install Performance Node onto the development board.
+
+    ![Download Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/en/performance-node-install.png)
+
+4. Performance Node monitoring display:
+   
+    - **CPU Performance Interface:**
+
+        ![CPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - Click on the CPU label above to enable/disable the corresponding CPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+    - **BPU/GPU Performance Interface:**
+
+        ![BPU/GPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+    
+        - Click on the BPU/GPU label above to enable/disable the corresponding BPU/GPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+    
+    - **Memory Performance Interface: Displays used and available memory.**
+
+        ![Memory Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+    
+          - Click the button in the upper right corner for area zoom and restore.
+          - Click the download button to save the current performance interface as an image.
+
+    - **Disk Performance Interface: Displays used and available disk space.**
+
+        ![Disk Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+    
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+5. Performance Monitoring Settings:
+   
+   ![Settings Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - Set Sampling Interval: The default sampling interval is 1000ms. After entering the interval time, click `Current sampling interval 1000ms, click to modify` to complete the interval time setting.
+   - CPU Frequency Scaling Mode: Click `performance (CPU frequency scaling mode, click to switch)` to switch the CPU frequency scaling mode.
+   - Interface Switching: The default is vertical screen interface. Click `Click to go to horizontal screen interface` to switch to horizontal display.
+  
+      ![Horizontal Screen Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+  
+</TabItem>
+</Tabs>
 
 ## X5 Thermal Control
 :::info Note
@@ -262,6 +332,11 @@ The Linux kernel used by the RDK system supports the following types of scaling 
 - Userspace: It exposes the control interface through sysfs to allow users to customize their own strategies. Users can manually adjust the frequency in the user space.
 - Schedutil: This is a strategy introduced in Linux-4.7 that adjusts the frequency based on the CPU utilization information provided by the scheduler. It has similar effects to the ondemand strategy but is more accurate and natural (as the scheduler has the best understanding of CPU usage).
 
+Users can set the frequency scaling policy in the following two ways:
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="Login to the RDK">
+
 Users can control the CPU scaling strategy by modifying the corresponding settings under the directory `/sys/devices/system/cpu/cpufreq/policy0`.
 
 For example, to set the CPU to performance mode:
@@ -331,7 +406,9 @@ You can use the `sudo hrut_somstatus` command to view the current chip operating
 
 </TabItem>
 
-<TabItem value="rdk-studio" label="RDK Studio">
+<TabItem value="rdk-studio" label="Log in with RDK Studio">
+
+The Performance Node tool in RDK Studio provides system hardware monitoring and real-time performance control capabilities. It combines detailed data monitoring with dynamic performance tuning to help users fully understand and manage their computer's operational status.
 
 :::info Note
 
