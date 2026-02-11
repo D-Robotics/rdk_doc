@@ -78,7 +78,16 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-## 使用 RDK Studio 远程登录开发板并进行设备管理
+## RDK Studio 登录
+
+RDK Studio 提供安全的设备远程访问能力，支持从客户端通过 IP 远程登录 RDK 设备并实时控制与管理。操作步骤如下：
+
+:::info 说明
+
+- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
+- 更多 RDK Studio 使用指导参见 [RDK Studio 使用指南](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
 
 1. 点击右上角 `+ RDK 设备`，进入选择连接类型界面。
    

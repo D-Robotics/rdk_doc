@@ -74,7 +74,16 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 ```
 
-## Using RDK Studio for Remote Login to the Development Board and Device Management
+## Log in with RDK Studio
+
+RDK Studio provides secure remote device access capabilities, allowing clients to remotely log in to RDK devices via IP for real-time control and management. The operation steps are as follows:
+
+:::info Instructions
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- For more guidance on using RDK Studio, refer to the [RDK Studio User Guide](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
 
 1. Click `+Hardware` in the upper right corner to enter the connection type selection interface.
    
