@@ -4,6 +4,17 @@ sidebar_position: 2
 
 # 5.5.2 Model Inference
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+## Supported Platforms
+
+| Platform               | Supported OS & ROS 2 Version       |
+| ---------------------- | ---------------------------------- |
+| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+
 ## Model Inference Development
 
 ### Background
@@ -1028,7 +1039,7 @@ If the following error message is displayed during startup:
 error while loading shared libraries: libdnn_node.so: cannot open shared object file: No such file or directory
 ```
 
-It indicates that the configuration of the hobot_dnn environment has failed. Please check if /opt/tros/share/dnn_node exists.
+Indicates failure to configure the hobot_dnn environment. Use the command `ros2 pkg prefix dnn_node` to check if dnn_node exists.
 
 ##### 3.5 Results
 

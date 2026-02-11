@@ -14,7 +14,6 @@ import TabItem from '@theme/TabItem';
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 
 ## 模型推理开发
 
@@ -1145,7 +1144,7 @@ ros2 launch cpp_dnn_demo.launch.py
 
 `error while loading shared libraries: libdnn_node.so: cannot open shared object file: No such file or directory`
 
-说明配置hobot_dnn环境失败，检查/opt/tros/share/dnn_node是否存在。
+说明配置hobot_dnn环境失败，使用`ros2 pkg prefix dnn_node`命令检查dnn_node是否存在。
 
 ##### 3.5 运行结果
 
