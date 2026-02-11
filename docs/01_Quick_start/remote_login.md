@@ -86,7 +86,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 :::info 说明
 
 - RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
-- 更多 RDK Studio 使用指导参见 [RDK Studio 使用指南](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+- 更多 RDK Studio 使用指导参见 [RDK Studio 使用指南](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
 
 :::
 

@@ -147,7 +147,7 @@ RDK Studio 中的性能监测工具 Performance Node 提供系统硬件监控与
 :::info 提示
 
 - RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
-- RDK Studio 使用指南：[点此查看](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+- RDK Studio 使用指南：[点此查看](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
 
 :::
 
@@ -410,7 +410,7 @@ RDK Studio 中的性能监测工具 Performance Node 提供系统硬件监控与
 :::info 提示
 
 - RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
-- RDK Studio 使用指南：[点此查看](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+- RDK Studio 使用指南：[点此查看](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
 
 :::
 
