@@ -80,7 +80,11 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 ```
 ## RDK Studio 登录
 
+<<<<<<< HEAD
 本章节面向使用 RDK Studio 登录开发板的用户，RDK Studio 提供安全的设备远程访问能力，支持从客户端通过 IP 远程登录 RDK 设备并实时控制与管理。操作步骤如下:
+=======
+RDK Studio 提供安全的设备远程访问能力，支持从客户端通过 IP 远程登录 RDK 设备并实时控制与管理。操作步骤如下：
+>>>>>>> 250d2328eab8199113f30600018c2f6c1613ff3c
 
 :::info 说明
 
