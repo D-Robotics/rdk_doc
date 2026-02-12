@@ -100,7 +100,7 @@ This section summarizes the third-party accessory list officially certified by D
 
 | Type | Supplier | Model | Description | Purchase Link |
 | --- | --------- | -------- | --------------- | --------- |
-| Power | Waveshare | PSU-27W-USB-C-CN | Type-C interface 5V/5A custom power supply | [Purchase Link](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)  |
+| Power | Waveshare | PSU-27W-USB-C-CN-B | Type-C interface 5V/5A custom power supply | [Purchase Link](https://www.waveshare.net/shop/PSU-27W-USB-C-CN-B.htm)  |
 | Wi-Fi Antenna | Waveshare | ORD-CM4-ANTENNA | SMA antenna supporting 2.4G/5G WiFi bands | [Purchase Link](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
 | 4G Communication Module | Waveshare | SIM7600G-H 4G DTU | Industrial-grade 4G communication module, supports USB/UART/RS232/RS485 interfaces, 4G/3G/2G networks and GNSS positioning | [Purchase Link](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 | Case | D-Robotics | RDK X5 Case |  Full Metal Black Enclosure | [Purchase Link](https://item.taobao.com/item.htm?abbucket=11&id=623862263232&mi_id=0000TakHYTmsuMbPUMYV_dByLYk8Z3qEoQjHCjwjgpyQD58&ns=1&priceTId=213e032717694105383204838e131d&skuId=5633976856940&spm=a21n57.1.hoverItem.8&utparam=%7B%22aplus_abtest%22%3A%224d58468e1aea4fb2bc2fb94fb4afe5db%22%7D&xxc=taobaoSearch)  |

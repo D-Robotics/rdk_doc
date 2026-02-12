@@ -104,7 +104,7 @@ sidebar_position: 8
 
 | 类型 | 供应商 | 型号 | 描述 | 购买链接 |
 | --- | --------- | -------- | --------------- | --------- |
-| 电源 | 微雪 | PSU-27W-USB-C-CN | Type-C接口 5V/5A 定制电源 | [购买链接](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)  |
+| 电源 | 微雪 | PSU-27W-USB-C-CN-B | Type-C接口 5V/5A 定制电源 | [购买链接](https://www.waveshare.net/shop/PSU-27W-USB-C-CN-B.htm)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
 | 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
 | 外壳 | 地瓜机器人 | RDK X5 Case | 全金属黑色外壳 | [购买链接](https://item.taobao.com/item.htm?abbucket=11&id=623862263232&mi_id=0000TakHYTmsuMbPUMYV_dByLYk8Z3qEoQjHCjwjgpyQD58&ns=1&priceTId=213e032717694105383204838e131d&skuId=5633976856940&spm=a21n57.1.hoverItem.8&utparam=%7B%22aplus_abtest%22%3A%224d58468e1aea4fb2bc2fb94fb4afe5db%22%7D&xxc=taobaoSearch)  |
