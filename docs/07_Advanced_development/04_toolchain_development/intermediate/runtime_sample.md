@@ -494,7 +494,7 @@ sidebar_position: 4
 
 ##### 模型推理 DNN API日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algo04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 文档中的 ``配置信息`` 一节内容。
+关于模型推理 DNN API日志的配置，请阅读[《算法工具链产品手册》](https://developer.d-robotics.cc/api/v1/fileData/horizon_xj3_open_explorer_cn_doc/runtime/source/bpu_sdk_api/source/bpu_sdk_api_doc.html#bpu-sdk-config)。
 
 ### 公版模型性能精度测评说明
 
@@ -1449,7 +1449,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 - 模型推理API DNN日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](/clang_development/cdev_dnn_api/model_debug#configuration_information)文档中的 ``配置信息`` 一节内容
+关于模型推理 DNN API日志的配置，请阅读[《算法工具链产品手册》](https://developer.d-robotics.cc/api/v1/fileData/horizon_xj3_open_explorer_cn_doc/runtime/source/bpu_sdk_api/source/bpu_sdk_api_doc.html#bpu-sdk-config)。
 
 
 ##### 算子耗时说明
@@ -2409,7 +2409,7 @@ profile日志文件产生目录。
 
 ##### 模型推理 DNN API日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 文档中的 ``配置信息`` 一节内容。
+关于模型推理 DNN API日志的配置，请阅读[《算法工具链产品手册》](https://developer.d-robotics.cc/api/v1/fileData/x5_doc-v126cn/runtime/source/bpu_sdk_api/bpu_sdk_api.html#bpu-sdk-config) 。
 
 ### 公版模型性能精度测评说明
 
@@ -4010,7 +4010,7 @@ QAT模型的精度计算脚本在 **qat/tools/python_tools/accuracy_tools** 目�
 
 ###### 模型推理API DNN日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md)文档中的 ``配置信息`` 一节内容
+关于模型推理 DNN API日志的配置，请阅读[《算法工具链产品手册》](https://developer.d-robotics.cc/api/v1/fileData/x5_doc-v126cn/runtime/source/bpu_sdk_api/bpu_sdk_api.html#bpu-sdk-config)。
 
 
 ##### 算子耗时说明
@@ -5046,7 +5046,7 @@ Latency与FPS的统计情景不同，Latency为单流程（单核单线程）推
 
 ##### 模型推理 DNN API日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](../../../04_Algorithm_Application/02_cdev_dnn_api/cdev_dnn_api.md) 文档中的 ``配置信息`` 一节内容。
+关于模型推理 DNN API日志的配置，请阅读[《算法工具链产品手册》](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/runtime/source/bpu_sdk_api/source/bpu_sdk_api_doc.html#bpu-sdk-config)。
 
 ### 公版模型性能精度测评说明
 
@@ -5962,7 +5962,7 @@ voc_det_eval.py是用来计算使用VOC数据集评测的检测模型的精度�
 
 - 模型推理API DNN日志
 
-关于模型推理 DNN API日志的配置，请阅读[《模型推理DNN API使用说明》](/clang_development/cdev_dnn_api/model_debug#configuration_information)文档中的 ``配置信息`` 一节内容
+关于模型推理 DNN API日志的配置，请阅读[《算法工具链产品手册》](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/runtime/source/bpu_sdk_api/source/bpu_sdk_api_doc.html#bpu-sdk-config)。
 
 
 ##### 算子耗时说明
