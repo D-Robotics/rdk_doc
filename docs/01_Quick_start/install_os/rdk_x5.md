@@ -16,9 +16,11 @@ import TabItem from '@theme/TabItem';
 ### **供电**
 
 <Tabs groupId="rdk-type">
-<TabItem value="x3" label="RDK X5">
+<TabItem value="x5" label="RDK X5">
 
 RDK X5开发板通过USB Type C接口供电，需要使用支持**5V/5A**的电源适配器为开发板供电。
+
+更多供电方式参见[PoE 供电使用](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x5/POE?_highlight=poe)。
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">

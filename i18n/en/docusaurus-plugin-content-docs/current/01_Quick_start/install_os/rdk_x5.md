@@ -17,6 +17,8 @@ Before using the RDK X5 development board, the following preparations are requir
 
 The RDK X5 development board is powered via a USB Type C interface. Use a power adapter that supports **5V/5A** to power the board.
 
+For more power supply options, refer to [PoE Power Supply Usage](https://developer.d-robotics.cc/rdk_doc/en/Advanced_development/hardware_development/rdk_x5/POE?_highlight=poe).
+
 :::caution
 Do not use a computer USB port to power the board. Insufficient power may cause **abnormal shutdowns or repeated reboots**.  
 
