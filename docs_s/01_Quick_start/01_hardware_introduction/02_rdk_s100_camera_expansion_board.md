@@ -62,7 +62,7 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | J2001 | DC 电源输入   | SW2200 | MIPI 相机接口功能切换开关 |
 | J2100 | GMSL 相机接口 | SW2201 | MIPI 相机接口电平切换开关 |
 
-### 组装说明
+### 相机安装说明
 
 | 型号                        | 硬件接口        | 功能切换 SW2200 | 电平切换 SW2201       |
 |-----------------------------|------------------|------------------|------------------------|
@@ -74,6 +74,7 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | Intel RealSense D457        | J2100             | -                | -                      |
 | Intel RealSense D435i       | USB               | -                | -                      |
 
+### 组装说明
 
 :::danger
 

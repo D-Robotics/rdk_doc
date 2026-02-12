@@ -30,7 +30,7 @@ sidebar_position: 3
 
 -   标记为PyTorch的算子(OP)为官方的opset11不包含的算子，D-Robotics 算法工具链提供了导出脚本可以将其从PyTorch导出到D-Robotics 自定义的onnx OP中。
 
--   基于tensorlfow-onnx（https://github.com/onnx/tensorflow-onnx
+-   基于tensorflow-onnx（https://github.com/onnx/tensorflow-onnx
 ）转换工具，支持将 ``tensorlfow1.*`` 版本的算子稳定的转换到opset6-opset11版本的ONNX模型格式，但是 ``Tensroflow2.*`` 当前支持还属于实验版本。
 
 -   关于OP主动量化被动量化的说明：一个符合本章节约束条件的OP仍然运行在CPU的主要原因是该OP属于被动量化OP，算法工具链会根据OP的计算特性和BPU底层逻辑等多方面考虑设计量化逻辑，当前量化逻辑分为：主动量化，被动量化，手动量化。量化逻辑更多信息请阅读：[**算法工具链中的主动量化和被动量化逻辑**](https://developer.d-robotics.cc/forumDetail/118364000835765793) 章节。

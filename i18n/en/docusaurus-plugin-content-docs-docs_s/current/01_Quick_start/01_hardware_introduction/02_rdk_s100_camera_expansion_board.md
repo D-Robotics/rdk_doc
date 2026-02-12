@@ -62,7 +62,7 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 | J2001     | DC Power Input         | SW2200      | MIPI Camera Interface Function Switch |
 | J2100     | GMSL Camera Interface  | SW2201      | MIPI Camera Interface Voltage Switch  |
 
-### Assembly Guide
+### Camera Installation Instructions
 
 | Model                                      | Hardware Interface | Function Switch SW2200 | Voltage Switch SW2201            |
 | ------------------------------------------ | ------------------ | ---------------------- | -------------------------------- |
@@ -73,6 +73,8 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 | LEC28736A11 (X3C Module)                   | J2100              | -                      | -                                |
 | Intel RealSense D457                       | J2100              | -                      | -                                |
 | Intel RealSense D435i                      | USB                | -                      | -                                |
+
+### Assembly Guide
 
 :::danger
 

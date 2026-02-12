@@ -538,7 +538,9 @@ The example package provides performance and accuracy evaluation examples for co
 :::tip Tip
 
 To obtain the ai_benchmark example package for public model accuracy and performance evaluation, please refer to the [Deliverables Instructions](../intermediate/environment_config.md).
-:::#### Example Code Package Structure
+:::
+
+#### Example Code Package Structure
 
 ```bash
   ai_benchmark/code                     # Example source code folder

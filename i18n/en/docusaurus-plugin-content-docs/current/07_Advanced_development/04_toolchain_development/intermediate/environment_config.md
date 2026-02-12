@@ -191,6 +191,7 @@ You have successfully entered the complete algorithm toolchain development envir
     infer      inference and dump output feature as float vector.
     makertbin  transform caffe model to quantization model, generate runtime...
 ```
+
 If the hb_mapper tool has output logs properly, it means that the environment has been successfully installed and deployed. Please go to the **Board Deployment** section for board environment installation.
 
 
@@ -405,7 +406,7 @@ If the `hb_mapper` tool has successfully output logs, it indicates that the envi
 
 ### <span id="board_env_install"/>Board Deployment
 
-For board deployment, you need to follow the flashing instructions to update the development board image to the latest version. For upgrade procedures, please refer to the [**Install System**](../../quick_start/update_system_firmware.html#span-id-system-update) section. After completing the upgrade, simply copy the relevant supplementary files onto the development board.
+For board deployment, you need to follow the flashing instructions to update the development board image to the latest version. For upgrade procedures, please refer to the [**Install System**](../../../01_Quick_start/install_os/rdk_x5.md) section. After completing the upgrade, simply copy the relevant supplementary files onto the development board.
 
 Some supplementary tools of the algorithm toolchain are not included in the system image. These tools are already provided in the ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/`` installation package.  
 Navigate to ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/board`` and execute the install script.  
@@ -598,8 +599,7 @@ You can type the command ``hb_mapper --help`` to verify that help information is
   Commands:
     checker    check whether the model meet the requirements.
     infer      inference and dump output feature as float vector.
-```
-makertbin  transform caffe model to quantization model, generate runtime...
+    makertbin  transform caffe model to quantization model, generate runtime...
 ```
 If the hb_mapper tool has successfully output logs, it indicates that the environment has been properly installed and deployed. Please proceed to the **Development Board Deployment** section to install the environment on the development board.
 
@@ -607,7 +607,7 @@ If the hb_mapper tool has successfully output logs, it indicates that the enviro
 ### Development Board Deployment
 
 
-For development board deployment, you need to follow the flashing instructions to update the development board image to the latest version. For the upgrade procedure, please refer to the [**Install OS**](../../../01_Quick_start/install_os) section. After completing the upgrade, simply copy the relevant supplementary files onto the development board.
+For development board deployment, you need to follow the flashing instructions to update the development board image to the latest version. For the upgrade procedure, please refer to the [**Install OS**](../../../01_Quick_start/install_os/rdk_ultra.md) section. After completing the upgrade, simply copy the relevant supplementary files onto the development board.
 
 
 #### Preparation of Supplementary Files
