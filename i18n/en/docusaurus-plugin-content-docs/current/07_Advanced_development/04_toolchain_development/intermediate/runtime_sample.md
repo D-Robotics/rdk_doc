@@ -486,7 +486,7 @@ The example logs mainly use vlog in glog. In the basic_samples of the example co
 
 #### Model Inference DNN API Logs
 
-For the configuration of model inference DNN API logs, please refer to the "Configuration Information" section in the "Model Inference DNN API Usage Instructions" document.
+For the configuration of model inference DNN API logs, please refer to the "Configuration Information" section in the "Algorithm Toolchain Manual" document.
 
 ## Public model performance accuracy evaluation instructions
 
