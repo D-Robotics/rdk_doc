@@ -92,7 +92,7 @@ Execute the `simple_pwm.py` program to start the GPIO read/write program.
 <TabItem value="rdk-studio" label="RDK Studio">
 
 
-### Method 1: Install VS Code APP Locally
+**Method 1: Install VS Code APP Locally**
 
 1. Use RDK Studio to add devices. Refer to [Add RDK Device](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
     
@@ -129,7 +129,7 @@ Execute the `simple_pwm.py` program to start the GPIO read/write program.
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./simple_pwm.py
   ```
 
-### Method 2: Using On-board VS Code Web
+**Method 2: Using On-board VS Code Web**
 
 1. Click the application space icon to view more applications.
 

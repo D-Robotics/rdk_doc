@@ -128,7 +128,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
 :::
 
 
-#### 方式一：本地安装 VS Code APP
+**方式一：本地安装 VS Code APP**
 
   1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
      
@@ -165,7 +165,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
   ```
 
-#### 方式二：使用板端 VS Code Web
+**方式二：使用板端 VS Code Web**
 
 1. 点击应用空间图标，查看更多应用。
 
@@ -183,7 +183,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=16
     
     ![VScode Open Folder 界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
 
-5. 进入 VS Code APP 程序界面，点击左侧导航栏的列表图标，选择 `Terminal` ——> `New Terminal`,新建终端。
+5. 进入 VS Code APP 程序界面，点击左侧导航栏的列表图标，选择 `Terminal` ——> `New Terminal`，新建终端。
 
     ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
 

@@ -33,7 +33,7 @@ RDK X5 默认使能PWM3，可以通过`srpi-config`系统配置工具，使能�
 
 请参阅 `/app/40pin_samples/simple_pwm.py`了解如何使用 PWM 通道的详细信息。
 
-### 测试代码
+## 测试代码
 打开 `output_pin` 指定的PWM通道，初始占空比 25%， 先每0.25秒增加5%占空比，达到100%之后再每0.25秒减少5%占空比，在正常输出波形时，可以通过示波器或者逻辑分析仪测量输出信号，观察波形。
 
 ```python
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
 <TabItem value="rdk-studio" label="RDK Studio">
 
-## 方式一：本地安装 VS Code APP
+**方式一：本地安装 VS Code APP**
 
   1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
      
@@ -133,7 +133,7 @@ if __name__ == '__main__':
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./simple_pwm.py
   ```
 
-## 方式二：使用板端 VS Code Web
+**方式二：使用板端 VS Code Web**
 
         1. 点击应用空间图标，查看更多应用。
 

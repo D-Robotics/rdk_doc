@@ -132,7 +132,7 @@ sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
 :::
 
 
-#### Method 1: Install VS Code APP Locally
+**Method 1: Install VS Code APP Locally**
 
   1. Use RDK Studio to add devices. Refer to [Add RDK Device](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
      
@@ -162,14 +162,14 @@ sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
         
         ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
 
-5.  Execute the `button_led.py` program to start the GPIO read/write program.
+1.  Execute the `button_led.py` program to start the GPIO read/write program.
 
   ```bash
   sunrise@ubuntu:~$ cd /app/40pin_samples/
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
   ```
 
-#### Method 2: Using On-board VS Code Web
+**Method 2: Using On-board VS Code Web**
 
 1. Click the application space icon to view more applications.
 

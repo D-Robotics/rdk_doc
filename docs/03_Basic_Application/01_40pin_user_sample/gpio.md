@@ -5,21 +5,8 @@ sidebar_position: 2
 # 3.1.2 GPIO应用
 
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
 
-## 运行方式
-
-<Tabs groupId="run-type">
-
-<TabItem value="login" label="登录开发板">
-
-</TabItem>
-
-<TabItem value="rdk studio" label="RDK Studio">
-
+## 设置方式一：使用 RDK Studio 设置 GPIO
 
 :::info 提示
 
@@ -29,8 +16,7 @@ import TabItem from '@theme/TabItem';
 :::
 
 
-
-### 方式一：本地安装 VS Code APP
+### 本地安装 VS Code APP
 
   1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
      
@@ -62,7 +48,7 @@ import TabItem from '@theme/TabItem';
 
     3.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
 
- ### 方式二：板端 VS Code Web
+ ### 板端 VS Code Web
 
     1. 点击应用空间图标，查看更多应用。
 
@@ -87,13 +73,11 @@ import TabItem from '@theme/TabItem';
     6.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
 
 
-</TabItem>
-
- </Tabs>
 
 
 
-## GPIO 设置
+
+## 设置方式二：登录开发板设置 GPIO
 
 ### 导入 GPIO Python 库
 
@@ -528,9 +512,13 @@ if __name__ == '__main__':
 
 ```
 ## hb_gpioinfo工具介绍
+
   hb_gpioinfo 是适配X5的一个gpio帮助工具，可以查看当前开发板的的PinName和PinNum的对应关系
+
 ### hb_gpioinfo组成
+
   hb_gpioinfo工具由驱动和应用两部分组成,驱动负责解析pinmux-gpio.dtsi并将pinnode和pinname信息导出到debugfs系统中，hb_gpioinfo应用进行解析打印到终端上
+
 驱动代码路径：`kernel/drivers/gpio/hobot_gpio_debug.c`
 ### hb_gpioinfo使用实例
 - PinName:指的是Soc上的管脚名字，原理图上X5 Soc管脚命名一致
