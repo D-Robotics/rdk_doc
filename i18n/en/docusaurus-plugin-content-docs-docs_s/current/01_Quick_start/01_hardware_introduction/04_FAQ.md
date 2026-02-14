@@ -18,9 +18,9 @@ sidebar\_position: 4
 
 **A:** It is described in the "Tip" or "Note" information within the introduction section of each interface.  
 
-### Q4：Can the power supply capability of the RDK S100 external interface output power exceed the maximum supply current provided by Digua?​  
+### Q4：Can the power supply capability of the RDK S100 external interface output power exceed the maximum supply current provided by D-Robotics?​  
 
-**A:** It must not exceed the maximum supply current provided by Digua, otherwise it may cause damage to the development board or startup abnormalities.  
+**A:** It must not exceed the maximum supply current provided by D-Robotics, otherwise it may cause damage to the development board or startup abnormalities.  
 
 ### Q5：How are the MCU sub-board and CAM sub-board connected to the RDK S100 mainboard, and are there any reference guides?  
 

@@ -56,7 +56,7 @@ sidebar_position: 6
 
 | 名称                                                                                                            | 版本   | 上传日期   | 说明文档                                                  |
 | --------------------------------------------------------------------------------------------------------------- | ------ | ---------- | --------------------------------------------------------- |
-| [RDK S100规格书](https://archive.d-robotics.cc/downloads/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_zh_v1_1.pdf)    | V1.1 | 2025-12-16 | 产品规格、特色、尺寸及型号等详细信息。 |                |
+| [RDK S100规格书](https://archive.d-robotics.cc/downloads/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_zh_v1_2.pdf)    | V1.2 | 2026-02-10 | 产品规格、特色、尺寸及型号等详细信息。 |                |
 
 ### RDK S100 Camera Expansion Board
 

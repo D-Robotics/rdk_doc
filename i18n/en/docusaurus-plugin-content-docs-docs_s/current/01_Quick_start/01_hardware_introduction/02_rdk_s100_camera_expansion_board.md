@@ -62,7 +62,7 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 | J2001     | DC Power Input         | SW2200      | MIPI Camera Interface Function Switch |
 | J2100     | GMSL Camera Interface  | SW2201      | MIPI Camera Interface Voltage Switch  |
 
-### Assembly Guide
+### Camera Installation Instructions
 
 | Model                                      | Hardware Interface | Function Switch SW2200 | Voltage Switch SW2201            |
 | ------------------------------------------ | ------------------ | ---------------------- | -------------------------------- |
@@ -74,6 +74,8 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 | Intel RealSense D457                       | J2100              | -                      | -                                |
 | Intel RealSense D435i                      | USB                | -                      | -                                |
 
+### Assembly Guide
+
 :::danger
 
 1. Perform installation only when the development board is powered off and the DC plug is disconnected.
@@ -81,8 +83,27 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 :::
 
+:::warning Camera Expansion Board Description  
+
+Please refer to the corresponding expansion board assembly video based on the actual product.
+- Threaded Standoff Expansion Board: Support standoffs have threaded inner walls.
+- Smooth Standoff Expansion Board: Support standoffs have smooth, non-threaded inner walls. 
+
+    <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location-en.png" alt="Support Column Location Image" width="45%" />  
+
+:::
+
+#### Threaded hole support post
+
 <video controls width="90%" preload="metadata">
   <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+#### Smooth hole support post
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide_smooth_hole_support.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 

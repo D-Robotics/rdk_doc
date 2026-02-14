@@ -62,7 +62,7 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | J2001 | DC 电源输入   | SW2200 | MIPI 相机接口功能切换开关 |
 | J2100 | GMSL 相机接口 | SW2201 | MIPI 相机接口电平切换开关 |
 
-### 组装说明
+### 相机安装说明
 
 | 型号                        | 硬件接口        | 功能切换 SW2200 | 电平切换 SW2201       |
 |-----------------------------|------------------|------------------|------------------------|
@@ -74,6 +74,7 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | Intel RealSense D457        | J2100             | -                | -                      |
 | Intel RealSense D435i       | USB               | -                | -                      |
 
+### 组装说明
 
 :::danger
 
@@ -82,8 +83,27 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 
 :::
 
+:::warning 相机扩展板说明
+
+请根据实际产品查看对应的扩展板组装视频。
+- 螺纹柱扩展板：支撑柱内壁带螺纹
+- 光孔柱扩展板：支撑柱内壁光滑无螺纹
+
+    <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location.png" alt="支撑柱位置图片" width="40%" />
+
+:::
+
+#### 螺纹柱扩展板组装说明
+
 <video controls width="90%" preload="metadata">
   <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  您的浏览器不支持 video 标签。
+</video>
+
+#### 光孔柱扩展板组装说明
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide_smooth_hole_support.mp4" type="video/mp4" />
   您的浏览器不支持 video 标签。
 </video>
 

@@ -369,21 +369,6 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       </div>
     </div>
   </div>
-
-  <div class="doc-card">
-    <div class="doc-header">
-      <span class="doc-icon">📋</span>
-      <h4>模组简要规格介绍</h4>
-    </div>
-    <div class="doc-content">
-      <p><strong>文件：</strong>drobotics_rdk_x5_md_brief_v0p5.pdf</p>
-      <p><strong>内容简介：</strong>RDK X5 模组的简洁版产品介绍，涵盖主要特性、应用方向、核心优势等，便于快速了解产品定位。</p>
-      <p><strong>适用场景：</strong>前期市场推广、项目提案或客户初步了解时使用。</p>
-      <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 模组简要介绍</a>
-      </div>
-    </div>
-  </div>
   
   <div class="doc-card">
     <div class="doc-header">
@@ -396,6 +381,36 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <p><strong>适用场景：</strong>用于说明模组的典型功耗，帮助客户在整机设计阶段完成功耗评估。</p>
       <div class="doc-link">
         <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Typical Scenario Power Consumption V1P0.xlsx" className="download-link">📥 模组功耗介绍</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🌡️</span>
+      <h4>热设计指导</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>文件：</strong>RDK X5 Module Thermal Design Guide V1P0</p>
+      <p><strong>内容简介：</strong>本文档为 RDK X5 Module 的热设计指导，为用户提供热仿真支持和散热设计建议。</p>
+      <p><strong>适用场景：</strong>RDK X5 Module 热设计指南用于帮助用户开发可靠的系统级热解决方案。</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Thermal Design Guide V1P0.pdf" className="download-link">📥 热设计指导</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📝</span>
+      <h4>硬件设计 Checklist</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>文件：</strong>RDK X5 Module Hardware Design Checklist V1P0</p>
+      <p><strong>内容简介：</strong>本文档用于指导客户核对硬件设计，确保设计合规无遗漏，提升设计成功率。</p>
+      <p><strong>适用场景：</strong>用于进行硬件设计前的关键指导，确保功能可靠性及生产可实施性。</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Checklist V1P0.xlsx" className="download-link">📥 硬件设计 Checklist</a>
       </div>
     </div>
   </div>

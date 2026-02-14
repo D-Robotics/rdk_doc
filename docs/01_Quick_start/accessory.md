@@ -14,12 +14,18 @@ sidebar_position: 8
 | --- | --------- | -------- | --------------- | --------- |
 | 电源 | 微雪 | ORD-PSU-5V3A-USB-C-US | Type-C接口 5V/3A 定制电源 | [购买链接](https://www.waveshare.net/shop/ORD-PSU-5V3A-USB-C-US.htm)  |
 | 电源 | 亚博 | T03F-050300Z | Type-C接口 5V/3A 定制电源 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=608661929691&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.154.4df82edcjJ7wap&skuId=4949624573441)  |
-| 外壳 | 亚博 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=6844a66941541&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.138.4df82edcjJ7wap)  |
-| 外壳 | 轮趣 | N/A | 铝合金定制外壳 | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=670534732857&rn=0b151aa6abd5b8d65e5533b8259449f1&spm=a1z10.3-b-s.w4011-24713677160.27.ef207988tOY0c9&skuId=5004448047864)  |
+| 外壳 | 亚博 | N/A | 铝合金定制外壳 |[购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=6844a66941541&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.138.4df82edcjJ7wap)  |
+| 外壳 | 轮趣 | N/A | 铝合金定制外壳 |[购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=670534732857&rn=0b151aa6abd5b8d65e5533b8259449f1&spm=a1z10.3-b-s.w4011-24713677160.27.ef207988tOY0c9&skuId=5004448047864)  |
+| 外壳 | 地瓜机器人 | RDK X3 Case | 磨砂黑色工艺，I/O 接口与天线区域设有精密开孔，四颗螺丝固定 | [购买链接](https://item.taobao.com/item.htm?abbucket=11&id=623862263232&mi_id=0000TakHYTmsuMbPUMYV_dByLYk8Z3qEoQjHCjwjgpyQD58&ns=1&priceTId=213e032717694105383204838e131d&skuId=5633976856940&spm=a21n57.1.hoverItem.8&utparam=%7B%22aplus_abtest%22%3A%224d58468e1aea4fb2bc2fb94fb4afe5db%22%7D&xxc=taobaoSearch)  |
 | 散热器 | 微雪 | N/A | 散热风扇扩展板 | [购买链接](https://www.waveshare.net/shop/X3-PI-FAN-HAT.htm)  |
 | 散热器 | 亚博 | N/A | 主板风扇，支持OLED显示 | [购买链接](https://detail.tmall.com/item.htm?de_count=1&id=607959748338)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
 | 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
+
+### IMU 
+| 类型 | 供应商 | 型号 | 描述 |使用指南|购买链接 |
+| --- | --------- | -------- | --------------- | --------- | --------- |
+| IMU 模组 | 地瓜机器人 | RDK IMU Module | 高性能 6 轴惯性测量单元（IMU）BMI088，包含一个三轴陀螺仪和一个三轴加速度计，使用 I2C 接口进行连接 |[点击查看](https://github.com/D-Robotics/rdk_imu)<br/>[点击查看](https://github.com/D-Robotics/rdk_imu/tree/library)|[购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=950559188647&mi_id=0000y73ip0pJqD4bU7HI9v6_ueVB9SpvJQKtSGGzP2qQC4E&ns=1&priceTId=2147850217700998222523124e1266&skuId=5862025952973&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22d17d854d12fb2c2c542d2e5885d44a3e%22%7D&xxc=taobaoSearch)  |
 
 ### 摄像头
 
@@ -98,9 +104,18 @@ sidebar_position: 8
 
 | 类型 | 供应商 | 型号 | 描述 | 购买链接 |
 | --- | --------- | -------- | --------------- | --------- |
-| 电源 | 微雪 | PSU-27W-USB-C-CN | Type-C接口 5V/5A 定制电源 | [购买链接](https://www.waveshare.net/shop/PSU-27W-USB-C-CN.htm)  |
+| 电源 | 微雪 | PSU-27W-USB-C-CN-B | Type-C接口 5V/5A 定制电源 | [购买链接](https://www.waveshare.net/shop/PSU-27W-USB-C-CN-B.htm)  |
 | Wi-Fi天线 | 微雪 | ORD-CM4-ANTENNA | SMA天线 支持2.4G/5G WiFi频段 | [购买链接](https://www.waveshare.net/shop/ORD-CM4-ANTENNA.htm)  |
 | 4G通信模块 | 微雪 | SIM7600G-H 4G DTU | 工业级4G通信模块，支持USB/UART/RS232/RS485接口，4G/3G/2G网络及GNSS定位 | [购买链接](https://www.waveshare.net/shop/SIM7600G-H-4G-DTU.htm)  |
+| 外壳 | 地瓜机器人 | RDK X5 Case | 全金属黑色外壳 | [购买链接](https://item.taobao.com/item.htm?abbucket=11&id=623862263232&mi_id=0000TakHYTmsuMbPUMYV_dByLYk8Z3qEoQjHCjwjgpyQD58&ns=1&priceTId=213e032717694105383204838e131d&skuId=5633976856940&spm=a21n57.1.hoverItem.8&utparam=%7B%22aplus_abtest%22%3A%224d58468e1aea4fb2bc2fb94fb4afe5db%22%7D&xxc=taobaoSearch)  |
+| 以太网供电模块 | 微雪 | RDK X5 PoE Module | 40PIN GPIO 接口连接，兼容 IEEE 802.3af/at 网络标准，全隔离开关电源（SMPS）设计，具备板载高转速主动散热风扇和金属散热片|[购买链接](https://www.waveshare.net/shop/RDK-PoE-Module.htm)  |
+
+
+### IMU 
+| 类型 | 供应商 | 型号 | 描述 |使用指南|购买链接 |
+| --- | --------- | -------- | --------------- | --------- | --------- |
+| IMU 模组 | 地瓜机器人 | RDK IMU Module | 高性能 6 轴惯性测量单元（IMU）BMI088，包含一个三轴陀螺仪和一个三轴加速度计，使用 I2C 接口进行连接 |[点击查看](https://github.com/D-Robotics/rdk_imu)<br/>[点击查看](https://github.com/D-Robotics/rdk_imu/tree/library)|[购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=950559188647&mi_id=0000y73ip0pJqD4bU7HI9v6_ueVB9SpvJQKtSGGzP2qQC4E&ns=1&priceTId=2147850217700998222523124e1266&skuId=5862025952973&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22d17d854d12fb2c2c542d2e5885d44a3e%22%7D&xxc=taobaoSearch)  |
+
 
 ### 摄像头
 
@@ -112,15 +127,16 @@ sidebar_position: 8
 | MIPI | 微雪 | IMX219摄像头 | Pi5，IMX219传感器，800W像素，FOV 对角120度(需要先使用srpi-config切换效果库)| 1920x1080@30fps(default), 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://e.tb.cn/h.7lIWpbM80XTnoFu?tk=28dmU3MVDG4)  |
 | MIPI | 微雪 | IMX477摄像头 | IMX477传感器，1230W像素，FOV 对角160度 | 1920x1080@50fps(default), 1280x960@120fps, 2016x1520@40fps, 4000x3000@10fps(max) | [购买链接](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm)  |
 | MIPI | 第三方 | IMX415摄像头 | IMX415传感器，800W像素，FOV 对角123度，22PIN无需转接板 | 待测试 | [购买链接](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn)  |
-| MIPI | 亚博 | IMX219摄像头 | IMX219传感器，800W像素，FOV 对角77度 | 1920x1080@30fps(default), 640x480@30fps, 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=710344235988&rn=f64e2bbcef718a13a9f9c261124febd2&spm=a1z10.5-b-s.w4011-22651484606.110.4df82edcjJ7wap)  |
+| MIPI | 亚博 | IMX219摄像头 | IMX219传感器，800W像素，FOV 对角77度 | 1920x1080@30fps(default), 640x480@30fps, 1632x1232@30fps, 3264x2464@15fps(max) | [购买链接](https://detail.tmall.com/item.htm?abbucket=11&id=839183655358&mi_id=0000mJPS-aUaSa1zzO5CvcLhQYgkjpazBFmo9ZGQ9_-A15E&ns=1&priceTId=2147801e17695881044207950e13fd&skuId=5770242754444&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22ad38bcc0b3e9545ae7b168f9b42eb0eb%22%7D&xxc=taobaoSearch)  |
 | USB | 亚博 | USB摄像头 | 免驱USB麦克风摄像头，720p | 1280x720@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=2&id=633040443710&rn=ed9c7f0eecc103e742248e32a32ba62e&spm=a1z10.5-b-s.w4011-22651484606.152.c3406a83G6l62o)  |
 | USB | 轮趣 | USB摄像头 | 免驱USB摄像头，金属外壳，1080p | 1920x1080@30fps | [购买链接](https://detail.tmall.com/item.htm?abbucket=12&id=666156389569&ns=1&spm=a230r.1.14.1.13e570f3eFF1sJ&skuId=4972914294771)  |
 
 ### 双目摄像头
 
-| 类型 | 供应商 | 型号 | 描述 | 支持分辨率 | 购买链接 |
-| --- | --------- | -------- | --------------- | --------- | --------- |
-| MIPI | 地瓜机器人 | RDK Stereo Camera GS130W | SC132GS全局快门传感器，130W像素，FOV 对角178度，双目间距80mm | 1280×1080@120fps |  [购买链接](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197)  |
+| 类型 | 供应商 | 型号 | 描述 | 支持分辨率 |使用指南| 购买链接 |
+| --- | --------- | -------- | --------------- | --------- | --------- |--------- |
+| MIPI | 地瓜机器人 | RDK Stereo Camera Module | SmartSens SC230AI，1/2.8 英寸 CMOS，滚动快门，200W像素，对角 178° / 水平 150° / 垂直 80° | 1920x1080 | [点击查看](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#1-搭配-rdk-stereo-camera-module-启动) |[购买链接](https://item.taobao.com/item.htm?id=854591367752&mi_id=0000vEM7hxW2z-nLLTEOwsSqHTMyfw56sg0mU79IxSOWpEs&spm=a21xtw.29978516.0.0&xxc=shop&skuId=5656880664831)  |
+| MIPI | 地瓜机器人 | RDK Stereo Camera GS130W | SC132GS全局快门传感器，130W像素，FOV 对角178度，双目间距80mm | 1280×1080@120fps | [点击查看](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#2-搭配-rdk-stereo-camera-gs130w-启动) |[购买链接](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197)  |
 
 
 ### 显示屏

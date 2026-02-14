@@ -16,9 +16,11 @@ import TabItem from '@theme/TabItem';
 ### **供电**
 
 <Tabs groupId="rdk-type">
-<TabItem value="x3" label="RDK X5">
+<TabItem value="x5" label="RDK X5">
 
 RDK X5开发板通过USB Type C接口供电，需要使用支持**5V/5A**的电源适配器为开发板供电。
+
+更多供电方式参见[PoE 供电使用](https://developer.d-robotics.cc/rdk_doc/Advanced_development/hardware_development/rdk_x5/POE?_highlight=poe)。
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
@@ -151,7 +153,7 @@ server：无桌面的Ubuntu系统，可以通过串口、网络远程连接操�
 
 <TabItem value="RDK Studio" label="RDK Studio 工具">
 
-使用 RDK Studio 工具烧录系统后可以添加设备进行管理，建议使用 RDK Studio 工具，详细步骤参见 [使用 RDK Studio 烧录系统](../09_RDK_Studio/03_flashing.md)。
+使用 RDK Studio 工具烧录系统后可以添加设备进行管理，建议使用 RDK Studio 工具，详细步骤参见 [使用 RDK Studio 烧录系统](../09_RDK_Studio/04_flashing.md)。
 
 
 </TabItem>

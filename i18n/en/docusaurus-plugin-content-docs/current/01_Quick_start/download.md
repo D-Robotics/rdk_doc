@@ -61,9 +61,9 @@ This document summarizes the download resources related to the D-Robotics RDK su
     </tr>
     <tr>
       <td>🔬 **OpenExplore**</td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/251934919646096384">RDK X5 OpenExplore</a></td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/136488103547258769">RDK X3 OpenExplore</a></td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/118363912788935318">RDK Ultra OpenExplore</a></td>
+      <td>[RDK X5 OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-x5)</td>
+      <td>[RDK X3 OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-x3)</td>
+      <td>[RDK Ultra OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-ultra)</td>
       <td>Contains numerous conversion examples and source code, used with Docker on x86 development machines</td>
     </tr>
     <tr>
@@ -376,21 +376,6 @@ Providing comprehensive hardware design support materials for module customers t
 
   <div class="doc-card">
     <div class="doc-header">
-      <span class="doc-icon">📋</span>
-      <h4>Module Brief Specifications</h4>
-    </div>
-    <div class="doc-content">
-      <p><strong>File:</strong>drobotics_rdk_x5_md_brief_v0p5.pdf</p>
-      <p><strong>Content:</strong>Concise product introduction including key features, applications, and core advantages.</p>
-      <p><strong>Use Case:</strong>For initial market promotion, project proposals, or preliminary customer understanding.</p>
-      <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 Module Brief Introduction</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-card">
-    <div class="doc-header">
       <span class="doc-icon">🔋</span>
       <h4>Module Typical Scenario Power Consumption Introduction</h4>
     </div>
@@ -400,6 +385,36 @@ Providing comprehensive hardware design support materials for module customers t
       <p><strong>Use Case:</strong>Used to illustrate the typical power consumption of the module, helping customers complete power consumption assessment during the whole machine design phase.</p>
       <div class="doc-link">
         <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/RDK X5 Module Typical Scenario Power Consumption V1P0-EN.xlsx" className="download-link">📥 Module Typical Scenario Power Consumption Introduction</a>
+      </div>
+    </div>
+  </div>
+
+<div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🌡️</span>
+      <h4>Thermal Design Guide</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Thermal Design Guide V1P0</p>
+      <p><strong>Content:</strong> This document provides thermal design guidelines for the RDK X5 Module, offering thermal simulation support and heat dissipation design recommendations.</p>
+      <p><strong>Use Case:</strong> The RDK X5 Module Thermal Design Guide assists users in developing reliable system-level thermal solutions.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Thermal Design Guide V1P0.pdf" className="download-link">📥 Thermal Design Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📝</span>
+      <h4>Hardware Design Checklist</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Hardware Design Checklist V1P0</p>
+      <p><strong>Content:</strong> This document serves as a guide for customers to verify hardware design, ensuring compliance and completeness to enhance design success rates.</p>
+      <p><strong>Use Case:</strong> Serves as key guidance prior to hardware design to ensure functional reliability and manufacturing feasibility.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Checklist V1P0.xlsx" className="download-link">📥 Hardware Design Checklist</a>
       </div>
     </div>
   </div>

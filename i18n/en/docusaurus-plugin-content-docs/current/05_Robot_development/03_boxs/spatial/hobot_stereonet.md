@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## Function Introduction
 
-The Digua stereo depth estimation algorithm takes stereo image data as input and outputs a disparity map and a depth map corresponding to the left view. The algorithm draws inspiration from the IGEV network and employs a GRU architecture, offering good data generalization and high inference efficiency.
+The D-Robotics stereo depth estimation algorithm takes stereo image data as input and outputs a disparity map and a depth map corresponding to the left view. The algorithm draws inspiration from the IGEV network and employs a GRU architecture, offering good data generalization and high inference efficiency.
 
 Stereo algorithm repository: https://github.com/D-Robotics/hobot_stereonet
 
@@ -271,7 +271,188 @@ Parameter descriptions:
 
 ![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
-### (2) Offline Image Replay on Local Machine
+### (2) Startup with RDK Stereo Camera GS130W
+
+- The official RDK MIPI stereo camera is shown in the figure below:
+
+![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
+
+- The installation method is shown in the figure below. **Ensure the connections are correct**; reversing them will cause the left and right images to swap, leading to errors in stereo algorithm operation:
+
+![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
+
+- **Verify camera connection**: Connect to the RDK via SSH and execute the following commands. If addresses like `0x32`, `0x33`, or `0x50` appear in the output, the camera connection is normal.
+
+    ```bash
+    # For RDK X5
+    i2cdetect -r -y 4
+    i2cdetect -r -y 6
+
+    # For RDK S100
+    i2cdetect -r -y 1
+    i2cdetect -r -y 2
+    ```
+
+![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+
+- Launch the corresponding version of the stereo algorithm using the appropriate launch file. Connect to the RDK X5 via SSH and execute the following command:
+
+<Tabs groupId="stereo-version">
+<TabItem value="V2.0" label="V2.0">
+
+```bash
+# Only supports RDK X5
+
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.0.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+```
+
+</TabItem>
+<TabItem value="V2.1" label="V2.1">
+
+```bash
+# Supports RDK X5 and RDK X100
+
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.1.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+uncertainty_th:=0.1
+```
+
+</TabItem>
+<TabItem value="V2.2" label="V2.2">
+
+```bash
+# Only supports RDK X5
+
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.2.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+```
+
+</TabItem>
+<TabItem value="V2.3" label="V2.3">
+
+```bash
+# Only supports RDK X5
+
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.3.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+```
+
+</TabItem>
+<TabItem value="V2.4" label="V2.4">
+
+```bash
+# For RDK X5, run the following commands:
+
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# int16 version: Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.4_int16.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+
+# int8 version: Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.4_int8.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0
+
+# For RDK S100, run the following command:
+
+# Configure the tros.b humble environment
+source /opt/tros/humble/setup.bash
+
+# Launch the stereo model launch file, which starts both the algorithm and the stereo camera nodes
+ros2 launch hobot_stereonet stereonet_model_web_visual_v2.4.launch.py \
+mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0 mipi_rotation:=90.0 \
+need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+uncertainty_th:=0.1
+```
+
+</TabItem>
+</Tabs>
+
+The parameter meanings are as follows:
+
+| Parameter Name        | Value        | Description                                                                                                                               |
+| --------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| mipi_image_width      | Set to 640   | The MIPI camera output resolution is 640x352.                                                                                             |
+| mipi_image_height     | Set to 352   | The MIPI camera output resolution is 640x352.                                                                                             |
+| mipi_lpwm_enable      | Set to True  | Enables hardware synchronization for the MIPI camera.                                                                                     |
+| mipi_image_framerate  | Set to 30.0  | The MIPI camera output frame rate is 30.0 FPS.                                                                                            |
+| need_rectify          | Set to False | The official camera comes pre-calibrated and performs automatic correction; there's no need to load custom calibration files for rectification. |
+| height_min            | Set to -10.0 | Minimum point cloud height is -10.0m.                                                                                                     |
+| height_max            | Set to 10.0  | Maximum point cloud height is 10.0m.                                                                                                      |
+| pc_max_depth          | Set to 5.0   | Maximum point cloud distance is 5.0m.                                                                                                     |
+| uncertainty_th        | Set to 0.1   | Confidence threshold for filtering noise points. It is recommended to set it to 0.1. A smaller value results in stricter filtering.       |
+
+- The following log indicates the stereo algorithm has started successfully. `fx/fy/cx/cy/base_line` are the camera intrinsic parameters. If the depth map appears normal but the estimated distances are inaccurate, the camera intrinsics might be incorrect.
+
+![stereonet_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
+
+- View the depth map via the web interface by entering `http://<RDK_IP>:8000` in your browser (e.g., `http://192.168.1.100:8000` in the figure):
+
+![web_depth_visual](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
+
+- View the point cloud via rviz2. rviz2 can be installed directly on the RDK. **Note the following configuration is required in rviz2**:
+
+    ```bash
+    # Install rviz2
+    sudo apt install ros-humble-rviz2
+    # Launch rviz2
+    source /opt/tros/humble/setup.bash
+    rviz2
+    ```
+
+![stereonet_rviz](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
+
+- To save the depth estimation results, add the following parameters: `save_image_all` enables the save function, `save_freq` controls the save frequency, `save_dir` specifies the save directory (created automatically if it doesn't exist), and `save_total` sets the total number of saves. The program will save the **camera intrinsics, left/right images, disparity map, depth map, and visualization images**.
+
+    ```bash
+    # Configure the tros.b humble environment
+    source /opt/tros/humble/setup.bash
+
+    # Using V2.0 algorithm as an example; other versions are similar.
+    ros2 launch hobot_stereonet stereonet_model_web_visual_v2.0.launch.py \
+    mipi_image_width:=640 mipi_image_height:=352 mipi_lpwm_enable:=True mipi_image_framerate:=30.0  mipi_rotation:=90.0 \
+    need_rectify:=False height_min:=-10.0 height_max:=10.0 pc_max_depth:=5.0 \
+    save_image_all:=True save_freq:=4 save_dir:=./online_result save_total:=10
+    ```
+
+The parameter meanings are as follows:
+
+| Parameter Name | Value                  | Description                                                                        |
+| -------------- | ---------------------- | ---------------------------------------------------------------------------------- |
+| save_image_all | Set to True            | Enables the image saving function.                                                 |
+| save_freq      | Set to 4               | Saves an image every 4 frames. Can be modified to any positive integer.            |
+| save_dir       | Set to the save directory | Specifies the save location as needed.                                             |
+| save_total     | Set to 10              | Saves a total of 10 images. Setting it to -1 means saving indefinitely.            |
+
+![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
+
+![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
+
+### (3) Offline Image Replay on Local Machine
 
 - If you want to evaluate the algorithm's performance using local images, you can use the following command to specify the algorithm's operating mode, image data path, and camera intrinsic parameters. Ensure that the image data has been **rectified and epipolar aligned**. The image format is shown below. The first left-eye image is named left000000.png, the second left-eye image is named left000001.png, and so on. The corresponding first right-eye image is named right000000.png, the second right-eye image is named right000001.png, and so on. The algorithm traverses the images in sequence until all images have been processed:
 
@@ -313,7 +494,7 @@ Parameter descriptions:
 
 - After the algorithm runs successfully, the result data can also be displayed via the web interface and rviz2. Refer to the corresponding settings above.
 
-### (3) Startup with ZED Stereo Camera
+### (4) Startup with ZED Stereo Camera
 
 - The ZED stereo camera is shown below:
 
