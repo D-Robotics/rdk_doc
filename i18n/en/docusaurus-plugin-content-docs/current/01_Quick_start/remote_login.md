@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 # 1.4 Remote Login
 
-This chapter is intended to introduce users who need to remotely access the development board through their personal computer (PC) on how to remotely login via serial port and network (VNC, SSH) methods.
+This chapter is intended to introduce users who need to remotely access the development board through their personal computer (PC) on how to remotely login via serial port、RDK Studio and network (VNC, SSH) methods.
 
 :::tip
 
@@ -74,7 +74,16 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 ```
 
-## Using RDK Studio for Remote Login to the Development Board and Device Management
+## Log in with RDK Studio
+
+This chapter is intended for users who log in to the development board using RDK Studio. RDK Studio provides secure remote device access capabilities, supporting remote login and real-time control and management of RDK devices from a client via IP. The steps are as follows:
+
+:::info Instructions
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- For more guidance on using RDK Studio, refer to the [RDK Studio User Guide](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
 
 1. Click `+Hardware` in the upper right corner to enter the connection type selection interface.
    

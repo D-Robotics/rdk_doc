@@ -590,9 +590,9 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td>防止条件受限无法从github拉取代码时的备用下载源</td>
     </tr>
     <tr>
-      <td>🎯 **RDK Studio**</td>
+      <td><img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/image.png" alt="icon" width="8%"/>  **RDK Studio**</td>
       <td><a href="https://developer.d-robotics.cc/rdkstudio">前往官网</a></td>
-      <td>RDK Studio为RDK使用者提供了丰富的功能以及便利，其中包括设备管理、Demo快速入手、社区论坛快速访问等功能。板卡支持：完美支持RDK全系列板卡的使用，可以帮助用户管理手中所有的RDK板卡。系统更新：提供全新的板卡升级方式，一键获取最新RDK OS，只需要一根数据线就可以快速完成板卡升级</td>
+      <td>RDK Studio 提供设备连接及管理、AI 示例快速体验、社区论坛快速访问等功能。板卡支持：完美支持RDK全系列板卡的使用，可以帮助用户管理手中所有的RDK板卡。系统更新：提供全新的板卡升级方式，一键获取最新RDK OS，只需要一根数据线就可以快速完成板卡升级</td>
     </tr>
     <tr>
       <td>🔄 **hbupdate**</td>
@@ -601,7 +601,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
     </tr>
     <tr>
       <td>💾 **镜像烧录工具**</td>
-      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a></td>
+      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a><br/><a href="https://developer.d-robotics.cc/rdkstudio">RDK Studio</a></td>
       <td>用于将镜像文件写入到SD卡的软件工具，支持多种镜像格式</td>
     </tr>
     <tr>
