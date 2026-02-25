@@ -19,6 +19,8 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Applications: mobilenet_unet, composed of MobileNet and UNet, can segment images at the pixel level. It can be used for road recognition, remote sensing map analysis, medical image diagnosis, and other functions. It is mainly applied in the fields of autonomous driving, geological detection, and medical image analysis.
 
+Background Blur Example： https://github.com/rusito-23/mobile_unet_segmentation
+
 ## Supported Platforms
 
 | Platform | System | Function                     |

@@ -18,11 +18,22 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Application scenarios: MobileNet_SSD is an object detection algorithm based on MobileNet, which has the advantages of fast speed and easy deployment. It can achieve functions such as object detection and garbage recognition, and is mainly used in the fields of autonomous driving and smart home.
 
+- Face Detection Example： (https://github.com/bruceyang2012/Face-detection-with-mobilenet-ssd)    
+- Licence Detection Example： (https://github.com/soonhahwang/Mobilenet-SSD-to-detect-Licence-Plate)
+
 ## Supported Platforms
 
 | Platform                 | System | Function                                             |
 | ------------------------ | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+| RDK X3, RDK X3 Module    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+| RDK X5, RDK X5 Module    | Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| ssd_mobilenet | X3 | 1x3x300x300 | 141.60 |
+| ssd_mobilenet | X5 | 1x3x300x300 | 453.98 |
 
 ## Preparation
 
