@@ -615,7 +615,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_visualization)
 
 | Platform | System | Function                                     |
 | -------- | -------------- | -------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100      |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK X3, RDK X3 Module |  Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK X5, RDK X5 Module |  Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble)   | Offline object detection, and display images and algorithm effects using Foxglove |
 
 ### Preparation
 

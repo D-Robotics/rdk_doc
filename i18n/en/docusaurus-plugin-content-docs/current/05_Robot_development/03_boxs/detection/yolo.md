@@ -22,6 +22,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Use cases: As a representative algorithm in single-stage object detection, the YOLO series has the advantages of fast speed and good generalization, and can be used for garbage recognition, vehicle detection, and other functions, mainly applied in autonomous driving, smart home, and other fields.
 
+Car Detection Example： (https://github.com/JunshengFu/vehicle-detection)  
+Fall Down Detection Example： (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-and-LiteFlowNet)
+
 ## Supported Platforms
 
 | Platform              | System | Supported Algorithms | Function                                            |

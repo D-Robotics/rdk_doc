@@ -18,6 +18,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Application scenarios: MobileNet_SSD is an object detection algorithm based on MobileNet, which has the advantages of fast speed and easy deployment. It can achieve functions such as object detection and garbage recognition, and is mainly used in the fields of autonomous driving and smart home.
 
+- Face Detection Example： (https://github.com/bruceyang2012/Face-detection-with-mobilenet-ssd)    
+- Licence Detection Example： (https://github.com/soonhahwang/Mobilenet-SSD-to-detect-Licence-Plate)
+
 ## Supported Platforms
 
 | Platform                 | System | Function                                             |

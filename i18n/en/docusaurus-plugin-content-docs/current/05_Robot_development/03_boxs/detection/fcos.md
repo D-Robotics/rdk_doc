@@ -18,6 +18,8 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Application scenarios: FCOS is a one-stage object detection algorithm capable of pedestrian and vehicle detection. It is mainly used in autonomous driving and smart home fields.
 
+Multispectral Object Detection Example： (https://github.com/hdjsjyl/Multispectral-FCOS)
+
 ## Supported Platforms
 
 | Platform          | System | Function                                       |

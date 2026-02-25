@@ -18,6 +18,8 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Applications: EfficientNet_Det can be used for tasks such as vehicle detection and is mainly applied in the fields of autonomous driving and smart home.
 
+Smoke Detection Example： (https://github.com/abg3/Smoke-Detection-using-Tensorflow-2.2)
+
 ## Supported Platforms
 
 | Platform               | System | Function                                        |
