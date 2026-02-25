@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports four versions: YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12、YOLO13.
+YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports four versions: YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12.
 
 Since all YOLOs after YOLOv8 are based on the Ultralytics algorithm framework, the Parser of YOLOv8 can be used. The relevant bin model can be found on GitHub⭐️ : Get it [RDK_Model_Zoo](https://github.com/D-Robotics/rdk_model_zoo).
 
@@ -27,8 +27,30 @@ Use cases: As a representative algorithm in single-stage object detection, the Y
 | Platform              | System | Supported Algorithms | Function                                            |
 | --------------------- | ---------------- | -------------------- | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
-| RDK X5 | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| yolov2 | X3 | 1x608x608x3 | 12.60 |
+| yolov3 | X3 | 1x416x416x3 | 11.71 |
+| yolov5 | X3 | 1x512x512x3 | 32.62 |
+| yolov2 | X5 | 1x608x608x3 | 38.33 |
+| yolov3 | X5 | 1x416x416x3 | 31.28 |
+| yolov5 | X5 | 1x512x512x3 | 10.37 |
+| yolov8n | X5 | 1x3x640x640 | 140.46 |
+| yolov10n | X5 | 1x3x640x640 | 36.47 |
+| yolov11m | X5 | 1x3x640x640 | 28.95 |
+| yolov12m | X5 | 1x3x640x640 | 74 |
+| yolov2 | S100 | 1x3x608x608 | 226.19 |
+| yolov3 | S100 | 1x3x416x416 | 212.55 |
+| yolov5 | S100 | 1x3x672x672 | 62.24 |
+| yolov8n | S100 | 1x3x640x640 | 506.57 |
+| yolov10n | S100 | 1x3x640x640 | 494.10 |
+| yolov11m | S100 | 1x3x640x640 | 162.46 |
+| yolo12n | S100 | 1x3x640x640 | 42.66 |
 
 ## Preparations
 
@@ -76,7 +98,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=mipi
 
 # Start the launch file
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 #### Use USB Camera to Publish Images
@@ -109,7 +131,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=usb
 
 # Start the launch file
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 #### Use Local Data Offline
@@ -142,7 +164,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2, YOLOv3 and YOLOv5 are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`, and for the YOLOv8 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov8workconfig.json"`, and for the YOLOv10 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov10workconfig.json"`.
+In addition to the YOLOv2, YOLO series are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`, and for the YOLOv8 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov8workconfig.json"`, and for the YOLOv10 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov10workconfig.json"`, and for the YOLOv11 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov11workconfig.json"`, and for the YOLOv12 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov12workconfig.json"`.
 
 ## Result Analysis
 

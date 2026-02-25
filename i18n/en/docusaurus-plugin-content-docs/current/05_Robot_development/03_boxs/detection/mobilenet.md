@@ -22,7 +22,15 @@ Application scenarios: MobileNet_SSD is an object detection algorithm based on M
 
 | Platform                 | System | Function                                             |
 | ------------------------ | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+| RDK X3, RDK X3 Module    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+| RDK X5, RDK X5 Module    | Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| ssd_mobilenet | X3 | 1x3x300x300 | 141.60 |
+| ssd_mobilenet | X5 | 1x3x300x300 | 453.98 |
 
 ## Preparation
 

@@ -22,7 +22,13 @@ Applications: EfficientNet_Det can be used for tasks such as vehicle detection a
 
 | Platform               | System | Function                                        |
 | ---------------------- | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start MIPI/USB camera and display inference results through web<br/>· Use local data to save rendering results offline |
+| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start MIPI/USB camera and display inference results through web<br/>· Use local data to save rendering results offline |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| EfficientNet | X3 | 1x3x512x512 | 54.58 |
 
 ## Preparations
 
