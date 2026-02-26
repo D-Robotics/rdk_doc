@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The Ultralytics YOLOv8-Seg algorithm example uses images as input and performs algorithm inference using BPU. It publishes segmentation result messages.
 
-The YOLOv8-Seg is trained on the [COCO128-seg](http://cocodataset.org/) dataset and the Onnx model. It supports instance segmentation for 80 categories including humans, animals, fruits, and vehicles.
+The YOLOv8-Seg is trained on the [COCO128-seg](http://cocodataset.org/) dataset and the [Onnx model](https://github.com/D-Robotics/hobot_model). It supports instance segmentation for 80 categories including humans, animals, fruits, and vehicles.
 
 Code repository: (https://github.com/D-Robotics/hobot_dnn)
 
@@ -23,7 +23,15 @@ Applications: YOLOv8-Seg is capable of recognizing objects and performing precis
 
 | Platform | System | Function                     |
 | -------- | ------------ | ---------------------------------------- |
-| RDK X5 | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| yolov8n_seg | X5 | 1x3x640x640 | 126.64 |
+| yolov8n_seg | S100 | 1x3x640x640 | 443.39 |
 
 ## Preparation
 

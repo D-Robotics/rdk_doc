@@ -25,7 +25,17 @@ Background Blur Example： https://github.com/rusito-23/mobile_unet_segmentation
 
 | Platform | System | Function                     |
 | -------- | ------------ | ---------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| mobilenet_unet | X3 | 1x3x1024x2048 | 24.34 |
+| mobilenet_unet | X5 | 1x3x224x224 | 50.33 |
+| deeplabv3 | S100 | 1x3x224x224 | 14.70 |
 
 ## Preparation
 
