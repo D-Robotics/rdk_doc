@@ -737,6 +737,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 export CAM_TYPE=fb
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
 ros2 launch hobot_visualization hobot_vis_render.launch.py
 ```
