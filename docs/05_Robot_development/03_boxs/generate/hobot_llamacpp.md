@@ -34,7 +34,8 @@ import TabItem from '@theme/TabItem';
 | InternVL3 | 2B | S100 | [vit_model_int16_VL3_2B_Instruct.hbm](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_2B_Instruct.hbm) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | SmolVLM2 | 256M | X5 | [SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
 | SmolVLM2 | 256M | S100 | [SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf)
+| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
+| SmolVLM2 | 500M | S100 | [SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
 
 ## 算法信息
 
@@ -44,6 +45,7 @@ import TabItem from '@theme/TabItem';
 | InternVL2_5 | 0.5B | Q4_0 | X5 | 1x3x448x448 | 2456.00 | 7.7 | 51.6 |
 | InternVL3 | 0.5B | Q8_0 | S100 | 1x3x448x448 | 100.00 | 9.19 | 41.65 |
 | Smolvlm2 | 256M | Q8_0 | X5 | 1x3x512x512 | 1053 | 9.3 | 27.8 |
+| Smolvlm2 | 500M | Q8_0 | X5 | 1x3x512x512 | 1053 | 27.3 | 65.7 |
 
 ## 准备工作
 

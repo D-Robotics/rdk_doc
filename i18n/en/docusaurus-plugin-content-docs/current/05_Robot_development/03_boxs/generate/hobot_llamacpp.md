@@ -19,7 +19,8 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 | Platform             | OS / Method             | Demo Functionality             |
 | -------------------- | ---------------------- | ------------------------------ |
-| RDK X5     | Ubuntu 22.04 (Humble)  | On-device Vision Language Model|
+| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)  | On-device Vision Language Model|
+| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)  | On-device Vision Language Model|
 
 ## Supported Models
 
@@ -32,7 +33,9 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 | InternVL3 | 2B | X5 | [vit_model_int16_VL3_2B_Instruct.bin](https://huggingface.co/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_VL3_2B_Instruct.bin) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://huggingface.co/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | InternVL3 | 2B | S100 | [vit_model_int16_VL3_2B_Instruct.hbm](https://huggingface.co/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_2B_Instruct.hbm) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://huggingface.co/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | SmolVLM2 | 256M | X5 | [SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf)
+| SmolVLM2 | 256M | S100 | [SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
+| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
+| SmolVLM2 | 500M | S100 | [SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
 
 ## Preparation
 
