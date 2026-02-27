@@ -18,10 +18,10 @@ sidebar_position: 1
 ```bash
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/s100-3.2.0-oe-package.tgz --ftp-password=Oeftp~123$%
 ```
- 
+
 ### OE 用户手册
 
-**在线阅读地址：**  
+**在线阅读地址：**
 👉 [https://toolchain.d-robotics.cc/](https://toolchain.d-robotics.cc/)
 
 **下载地址：**
@@ -48,5 +48,5 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_v3.2.0/ai_toolchain_ubuntu_22_s100_gpu_
 ```
 
 ### 备用下载地址
-**备用下载地址：**  
+**备用下载地址：**
 👉 [百度网盘](https://pan.baidu.com/s/1_0JxJaEG12e1F3jLt3Rpyg?pwd=rr74) 提取码: `rr74`
