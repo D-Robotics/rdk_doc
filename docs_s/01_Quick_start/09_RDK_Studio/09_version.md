@@ -4,14 +4,12 @@ sidebar_position: 9
 
 # 1.7.9 版本更新
 
-# 1.9.9 版本更新
-
 ## RDK Studio-v0.3.19
 
 ### 新增功能
 
 1. 示例应用模块新增示例
-   - YOLOv8-Seg图像分割
+   - YOLOv8-Seg 图像分割
    - DOSOD
    - 跌倒检测
    - 人脸关键点检测

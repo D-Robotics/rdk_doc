@@ -13,9 +13,10 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="windows" label="Windows">
 
-:::info 提示
+:::warning 注意
 
-如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加 RDK 设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
+- RDK Studio 支持使用读卡器和闪连两种方式进行烧录，其中，闪连方式烧录速度较慢，因此推荐使用读卡器方式以获得更快的烧录体验。
+- 如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加 RDK 设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
 :::
 
 ## 烧录准备

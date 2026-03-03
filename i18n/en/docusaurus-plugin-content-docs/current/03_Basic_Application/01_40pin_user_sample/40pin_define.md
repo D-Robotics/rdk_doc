@@ -197,6 +197,16 @@ sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
   sunrise@ubuntu:~$ cd /app/40pin_samples/
   sunrise@ubuntu:/app/40pin_samples$ sudo python3 ./button_led.py
   ```
+**Method 3: Using Node-RED**
+
+1. For Node-RED installation instructions, see [Node-RED Installation](../../01_Quick_start/09_RDK_Studio/05_Device_management/02_integration_tools.md#using-node-rednode-red).
+
+2. Click to open the Node-RED application in the application space.
+
+    ![Open Application Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/appspace-node-red-en.png)
+
+3. Enter the Node-RED interface, drag nodes from the left panel to the workspace, and create a workflow.
+    ![Workflow Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/button-led-en.png)
 
 </TabItem>
 

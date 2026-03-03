@@ -1,7 +1,7 @@
 ---
 sidebar_position: 9
 ---
-# 1.9.9 Version Release
+# 1.7.9 Version Release
 
 ## RDK Studio-v0.3.19
 
