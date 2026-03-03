@@ -63,7 +63,7 @@ Therefore, if you wish configurations made via NetworkManager (GUI or `nmcli`) t
 
 <!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=12 -->
 
-The development board integrates a 2.4GHz Wi-Fi module, supporting both Soft AP and Station modes, and runs in Station mode by default. The following sections describe how to use both modes.
+The development board needs to have a wireless Wi-Fi module installed, supporting both Soft AP and Station modes, and runs in Station mode by default. The following sections describe how to use both modes.
 
 ### Station Mode
 
