@@ -43,6 +43,28 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 1. RDK should be flashed with the Ubuntu 22.04 system image.
 2. TogetheROS.Bot must be successfully installed on the RDK.
+3. Install package
+
+```shell
+sudo apt update
+sudo apt install tros-humble-hobot-llamacpp
+```
+
+4. System Setup
+
+Use command `srpi-config` for setting ION memory larger than 1.6GB, then restart and setup the maximum CPU frequency.
+
+  - For RDK X5: 
+
+    1) `srpi-config`Usage [Performance Options](/i18n/en/docusaurus-plugin-content-docs/current/02_System_configuration/02_srpi-config.md#performance-options)
+
+    2) CPU Frequency: [CPU Frequency Setting](/i18n/en/docusaurus-plugin-content-docs/current/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
+
+  - For RDK S100:
+
+    1) `srpi-config` Usage [Performance Options](/i18n/en/docusaurus-plugin-content-docs-docs_s/current/02_System_configuration/02_srpi-config.md#performance-options)
+
+    2) CPU Frequency: [CPU Frequency Setting](/i18n/en/docusaurus-plugin-content-docs-docs_s/current/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
 
 ## Usage
 
