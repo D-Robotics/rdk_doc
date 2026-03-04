@@ -39,7 +39,15 @@ Human Tracking for Car Example: [Car Tracking](../../apps/car_tracking)
 
 | Platform                            | System | Function                                     |
 | ----------------------------------- | -------------- | -------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| fastrcnn | X3 | 1x3x544x960 | 74.96 |
+| fastrcnn | X5 | 1x3x544x960 | 125.21 |
 
 ## Preparation
 
