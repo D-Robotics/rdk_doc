@@ -4,6 +4,83 @@ sidebar_position: 2
 
 # 3.1.2 GPIO应用
 
+
+
+## 设置方式一：使用 RDK Studio 设置 GPIO
+
+:::info 提示
+
+- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
+- RDK Studio 使用指南：[点此查看](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+
+### 本地安装 VS Code APP
+
+  1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+     
+  2. 使用 VS Code 打开 RDK 设备中的示例工程。
+        
+        :::warning 提示
+        
+        需本地安装 VS Code 软件，点击 RDK Studio 上设备卡片中的 VS Code APP 自动打开本地 VS Code， 使用 SSH Remote 插件打开 RDK 设备中的示例工程（SSH Remote 插件会自动安装，无需手动安装）。
+        
+        :::
+            
+            
+        ![VScode APP icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/app_vscode.png)
+
+    1. 点击 VS Code APP 图标打开 VS Code，输入添加设备时所选账号的密码，按 “Enter” 键确认。
+
+        :::info 提示
+
+        - 用户名：root——密码：root
+        - 用户名：sunrise——密码：sunrise
+
+        :::
+            
+            ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+        
+    2. 进入 VS Code APP 程序界面，点击上方导航栏的 `Terminal` 新建终端。
+        
+        ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+
+    3.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
+
+ ### 板端 VS Code Web
+
+    1. 点击应用空间图标，查看更多应用。
+
+        ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+        
+    2. 点击安装 VS Code Web 到开发板上，用于运行开发板预置的功能测试代码，无需本地安装 VS Code。
+
+        ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode-download.png)
+
+    3. 点击 VS Code Web 图标，打开 VS Code Web。
+        
+        ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode.png)
+
+    4. 点击 `Open Folder` 后填写代码程序所在路径 `/app/`，点击 `OK` 键确认。
+        
+        ![VScode Open Folder 界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
+
+    5. 进入 VS Code APP 程序界面，点击左侧导航栏的列表图标，选择 `Terminal` ——> `New Terminal`,新建终端。
+
+        ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
+
+    6.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
+
+
+
+
+
+
+## 设置方式二：登录开发板设置 GPIO
+
+### 导入 GPIO Python 库
+
 开发板预置了 GPIO Python 库 `Hobot.GPIO`，用户可以通过如下命令导入GPIO库。
 
 ```shell
@@ -17,7 +94,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 'RDK_X5'
 ```
 
-## 设置引脚编码方式
+### 设置引脚编码方式
 
 开发板的引脚编码有 4 种模式：
 
@@ -46,7 +123,7 @@ GPIO.getmode()
 
 程序会输出 `BOARD, BCM, CVM, SOC or None` 其中的一种结果。
 
-## 警告信息
+### 警告信息
 
 以下几种情况下运行代码，会有警告日志输出，但并不会影响正常功能：
 
@@ -59,7 +136,7 @@ GPIO.getmode()
 GPIO.setwarnings(False)
 ```
 
-## 管脚配置
+### 管脚配置
 
 GPIO管脚在使用之前，需要进行相应的配置，具体如下：
 
@@ -88,7 +165,7 @@ channels = [18, 12, 13]
 GPIO.setup(channels, GPIO.OUT)
 ```
 
-## 输入操作
+### 输入操作
 
 要读取通道的值，请使用：
 
@@ -98,7 +175,7 @@ GPIO.input(channel)
 
 命令返回值为 0 或者 1。 0 代表 GPIO.LOW， 1 代表 GPIO.HIGH。
 
-## 输出操作
+### 输出操作
 
 要设置通道的输出值，请使用：
 
@@ -108,7 +185,7 @@ GPIO.output(channel, state)
 
 其中 state 可以是 GPIO.LOW 或 GPIO.HIGH。
 
-## 清理管脚占用
+### 清理管脚占用
 
 在程序推出前，推荐进行通道清理动作，请使用：
 
@@ -126,7 +203,7 @@ GPIO.cleanup((channel1, channel2))
 GPIO.cleanup([channel1, channel2])
 ```
 
-## 查看管脚状态
+### 查看管脚状态
 
 此功能允许您检查对应 GPIO 通道的功能：
 
@@ -136,7 +213,7 @@ GPIO.gpio_function(channel)
 
 该函数返回 IN 或 OUT。
 
-## 边沿检测与中断
+### 边沿检测与中断
 
 边沿是电信号`从低到高`（上升沿）或`从高到低`（下降沿）的变化，这种改变可以看作是一种事件的发生，这种事件可以用来触发CPU中断信号。
 
@@ -150,7 +227,7 @@ GPIO.gpio_function(channel)
 
 GPIO库提供了三种方法来检测输入事件：
 
-### wait_for_edge() 函数
+#### wait_for_edge() 函数
 
 此函数阻塞调用线程，直到检测到对应的边缘变化。函数调用如下：
 
@@ -167,7 +244,7 @@ GPIO.wait_for_edge(channel, GPIO.RISING, timeout=500)
 
 在超时时间内外部信号发生变化，函数返回检测的通道号；如果发生超时，函数返回None。
 
-### event_detected() 函数
+#### event_detected() 函数
 
 此函数可用于定期检查自上次调用以来是否发生了事件。该函数可以按如下方式设置和调用：
 
@@ -180,7 +257,7 @@ if GPIO.event_detected(channel):
 
 您可以检测 GPIO.RISING、GPIO.FALLING 或 GPIO.BOTH 的事件。
 
-### 检测到边沿事件时运行回调函数
+#### 检测到边沿事件时运行回调函数
 
 此功能可用于注册回调函数，回调函数运行在独立的处理线程中，使用说明如下：
 
@@ -216,7 +293,7 @@ GPIO.add_event_callback(channel, callback_two)
 GPIO.add_event_detect(channel, GPIO.RISING, callback=callback_fn, bouncetime=200)
 ```
 
-### 关闭中断
+#### 关闭中断
 
 如果不再需要边沿检测，可以将其删除，如下所示：
 
@@ -224,7 +301,7 @@ GPIO.add_event_detect(channel, GPIO.RISING, callback=callback_fn, bouncetime=200
 GPIO.remove_event_detect(channel)
 ```
 
-## 测试例程
+### 测试例程
 
 在 `/app/40pin_samples/`目录下提供主要的测试例程：
 
@@ -435,9 +512,13 @@ if __name__ == '__main__':
 
 ```
 ## hb_gpioinfo工具介绍
+
   hb_gpioinfo 是适配X5的一个gpio帮助工具，可以查看当前开发板的的PinName和PinNum的对应关系
+
 ### hb_gpioinfo组成
+
   hb_gpioinfo工具由驱动和应用两部分组成,驱动负责解析pinmux-gpio.dtsi并将pinnode和pinname信息导出到debugfs系统中，hb_gpioinfo应用进行解析打印到终端上
+
 驱动代码路径：`kernel/drivers/gpio/hobot_gpio_debug.c`
 ### hb_gpioinfo使用实例
 - PinName:指的是Soc上的管脚名字，原理图上X5 Soc管脚命名一致

@@ -16,13 +16,12 @@ import TabItem from '@theme/TabItem';
 
 点击终端图标，会自动弹出 Windows 终端，输入用户密码即可自动连接。
 
-:::info 提示
+   :::info 提示
 
-默认密码与登录用户名相同：
-- root-root
-- sunrise-sunrise
-  
-:::
+   - 用户名：root-密码：root
+   - 用户名：sunrise-密码：sunrise
+
+   :::
   
 ![RDK_Studio终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace_terminal.png)
 

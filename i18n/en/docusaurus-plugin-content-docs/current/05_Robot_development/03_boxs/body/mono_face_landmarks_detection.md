@@ -20,7 +20,14 @@ Code Repository: (https://github.com/D-Robotics/face_landmarks_detection)
 | Platform                | Operating Mode                | Example Functionality                        |
 |------------------------|-------------------------------|----------------------------------------------|
 | RDK X3, RDK X3 Module  | Ubuntu 22.04 (Humble)         | Starts MIPI/USB camera and displays inference rendering results via the web |
-| RDK X5                 | Ubuntu 22.04 (Humble)         | Starts MIPI/USB camera and displays inference rendering results via the web |
+| RDK X5, RDK X5 Module  | Ubuntu 22.04 (Humble)         | Starts MIPI/USB camera and displays inference rendering results via the web |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| faceLandmark106pts | X3 | 1×3×128x128 | 741.93 |
+| faceLandmark106pts | X5 | 1×3×128x128 | 985.75 |
 
 ## Preparation
 

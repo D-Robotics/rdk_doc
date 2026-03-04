@@ -81,7 +81,7 @@ sudo apt install tros-humble
 
 :::caution Attension
 - **If the `sudo apt update` command fails or reports an error, please refer to `Q10: How to handleapt updatecommand failure or errors?` in the [FAQs](../../08_FAQ/01_hardware_and_system.md) section for resolution.**
-- **If you encounter the error `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).' after running the installation command, please execute the command `apt --fix-broken install` to install the related dependencies before installing tros.b.**
+- **If you encounter the error `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` after running the installation command, please execute the command `apt --fix-broken install` to install the related dependencies before installing tros.b.**
 :::
 
 After the installation is complete, check the files in the /opt directory
@@ -212,7 +212,7 @@ sudo apt install tros
 ```
 :::caution
 - **If your X86 platform already has `tros.b` version 1.x installed, please use the command `sudo apt remove tros` to uninstall it before installing `tros.b` version 2.x.**  
-- **For details on how to check the version of `tros.b`, refer to the [FAQs](/docs/08_FAQ/03_applications_and_examples.md).**
+- **For details on how to check the version of `tros.b`, refer to the [FAQs](../../../current/08_FAQ/03_applications_and_examples.md).**
 
 :::
 

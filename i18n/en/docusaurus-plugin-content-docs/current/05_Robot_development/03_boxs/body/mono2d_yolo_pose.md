@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 # Human Detection and Tracking (Ultralytics YOLO Pose)
 
@@ -35,7 +35,13 @@ Game character control using pose and gesture recognition: [Play with X3Pi, Fitn
 
 | Platform   | OS/ROS Version         | Example Functionality                                      |
 | ---------- | --------------------- | ---------------------------------------------------------- |
-| RDK S100   | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results on Web |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results on Web |
+
+## Algorithm Information
+
+| Model     | Platform | Input Size    | Inference FPS |
+| --------- | -------- | ------------- | ------------- |
+| yolo-pose | S100     | 1x3x640x640   | 68.70         |
 
 ## Preparation
 

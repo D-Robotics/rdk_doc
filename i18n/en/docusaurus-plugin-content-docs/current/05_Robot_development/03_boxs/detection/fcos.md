@@ -18,11 +18,21 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Application scenarios: FCOS is a one-stage object detection algorithm capable of pedestrian and vehicle detection. It is mainly used in autonomous driving and smart home fields.
 
+Multispectral Object Detection Example： (https://github.com/hdjsjyl/Multispectral-FCOS)
+
 ## Supported Platforms
 
 | Platform          | System | Function                                       |
 | ----------------- | ---------------- | ----------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)       | - Launch MIPI/USB camera and display via web interface<br/>- Use local data to save results offline |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)       | - Launch MIPI/USB camera and display via web interface<br/>- Use local data to save results offline |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)       | - Launch MIPI/USB camera and display via web interface<br/>- Use local data to save results offline |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| fcos | X3 | 1x3x512x512 | 74.91 |
+| fcos | X5 | 1x3x512x512 | 258.92 |
 
 ## Preparation
 

@@ -3,6 +3,80 @@ sidebar_position: 2
 ---
 # 3.1.2 Using GPIO
 
+
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+## Setup Method 1: Configure GPIO Using RDK Studio
+
+
+### Install VS Code APP Locally
+
+  1. Use RDK Studio to add devices. Refer to [Add RDK Device](../../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+     
+  2. Use VS Code to open the sample project in the RDK device.
+        
+        :::warning Note
+        
+        Requires local installation of VS Code software. Click the VS Code APP icon on the device card in RDK Studio to automatically open the local VS Code, then use the SSH Remote plugin to open the sample project in the RDK device (the SSH Remote plugin will be automatically installed, no manual installation needed).
+        
+        :::
+            
+            
+        ![VScode APP icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/app_vscode.png)
+
+    1. Click the VS Code APP icon to open VS Code, enter the password for the account selected when adding the device, and press "Enter" to confirm.
+
+        :::info Note
+
+        - Username: root——Password: root
+        - Username: sunrise——Password: sunrise
+
+        :::
+            
+            ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_password_input.png)
+        
+    2. Enter the VS Code APP interface, click `Terminal` in the top navigation bar to create a new terminal.
+        
+        ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
+
+    3. Execute GPIO [configuration commands](#gpio-settings).
+
+ ### Board-side VS Code Web
+
+ 1. Click the application space icon to view more applications.
+
+     ![Application space interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+     
+ 2. Click to install VS Code Web on the development board for running pre-installed functional test code on the board, without needing to install VS Code locally.
+
+     ![Download interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/web_vscode-download.png)
+
+ 3. Click the VS Code Web icon to open VS Code Web.
+     
+     ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/web_vscode.png)
+
+ 4. Click `Open Folder`, then fill in the path where the code program is located `/app/`, and click the `OK` button to confirm.
+     
+     ![VScode Open Folder interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
+
+ 5. Enter the VS Code APP interface, click the list icon in the left navigation bar, select `Terminal` ——> `New Terminal` to create a new terminal.
+
+     ![VScode new terminal interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
+
+ 6. Execute GPIO [configuration commands](#gpio-settings).
+
+
+
+ ## Setting Method 2: Log in to the development board and set the GPIO
+
+### Import GPIO Python Library
+
 The development board is equipped with the GPIO Python library `Hobot.GPIO`. Users can import the GPIO library with the following command.
 
 ```shell
@@ -17,7 +91,7 @@ Get board ID: 0x504
 'RDK_X5'
 ```
 
-## Setting Pin Numbering Mode
+### Setting Pin Numbering Mode
 
 The development board has 4 pin numbering modes:
 
@@ -46,7 +120,7 @@ mode = GPIO.getmode()
 
 The program will output one of the results `BOARD, BCM, CVM, SOC, or None`.
 
-## Warning Messages
+### Warning Messages
 
 The code will produce warning log outputs, but will not affect normal functionality in the following cases:
 
@@ -59,7 +133,7 @@ To suppress the warning messages, you can use the following command:
 GPIO.setwarnings(False)
 ```
 
-## Pin Configuration
+### Pin Configuration
 
 Before using GPIO pins, they need to be configured accordingly. Below are the specific configurations:
 
@@ -89,7 +163,7 @@ channels = [18, 12, 13]
 GPIO.setup(channels, GPIO.OUT)
 ```
 
-## Input Operation
+### Input Operation
 
 To read the value of a channel, use:
 
@@ -99,7 +173,7 @@ GPIO.input(channel)
 
 The command returns either 0 or 1. 0 represents GPIO.LOW, and 1 represents GPIO.HIGH.
 
-## Output Operation
+### Output Operation
 
 To set the output value of a channel, use:
 
@@ -109,7 +183,7 @@ GPIO.output(channel, state)
 
 Where state can be GPIO.LOW or GPIO.HIGH.
 
-## Clearing Pin Usage
+### Clearing Pin Usage
 
 Before exiting the program, it is recommended to perform a channel cleanup operation, use:
 
@@ -127,7 +201,7 @@ GPIO.cleanup((channel1, channel2))
 GPIO.cleanup([channel1, channel2])
 ```
 
-## Checking Pin State
+### Checking Pin State
 
 This function allows you to check the function of the corresponding GPIO channel:
 
@@ -137,7 +211,7 @@ GPIO.gpio_function(channel)
 
 This function returns IN or OUT.
 
-## Edge Detection and Interrupts
+### Edge Detection and Interrupts
 
 Edge refers to the change in the electrical signal from low to high (rising edge) or high to low (falling edge), which can be considered as the occurrence of an event. This event can be used to trigger a CPU interrupt signal.
 
@@ -151,7 +225,7 @@ Please refer to [Pin Configuration and Definitions](./40pin_define#40pin_define)
 
 The GPIO library provides three methods to detect input events:
 
-### wait_for_edge() function
+#### wait_for_edge() function
 
 This function blocks the calling thread until the corresponding edge change is detected. The function call is as follows:
 
@@ -168,7 +242,7 @@ GPIO.wait_for_edge(channel, GPIO.RISING, timeout=500)
 
 If the external signal changes within the timeout period, the function returns the detected channel number; if a timeout occurs, the function returns None.
 
-### event_detected() function
+#### event_detected() function
 
 This function can be used to periodically check if an event has occurred since the last call. The function can be set and called as follows:
 
@@ -181,7 +255,7 @@ if GPIO.event_detected(channel):
 
 You can detect events of `GPIO.RISING`, `GPIO.FALLING`, or `GPIO.BOTH`.
 
-### Running a callback function when an edge event is detected
+#### Running a callback function when an edge event is detected
 
 This feature can be used to register a callback function, which runs in a separate processing thread. Here is how to use it:
 
@@ -217,7 +291,7 @@ To prevent multiple invocations of the callback function by merging multiple eve
 GPIO.add_event_detect(channel, GPIO.RISING, callback=callback_fn, bouncetime=200)
 ```
 
-### Disable Interrupts
+#### Disable Interrupts
 
 If edge detection is no longer needed, you can remove it as follows:
 
@@ -225,7 +299,7 @@ If edge detection is no longer needed, you can remove it as follows:
 GPIO.remove_event_detect(channel)
 ```
 
-## Test Cases
+### Test Cases
 
 The main test cases are provided in the `/app/40pin_samples/` directory:
 
@@ -422,10 +496,10 @@ if __name__ == '__main__':
     main()
 ```
 :::
-## Introduction to `hb_gpioinfo` Tool
+### Introduction to `hb_gpioinfo` Tool
 The `hb_gpioinfo` tool is a GPIO helper tool adapted for the X5 platform. It is used to view the mapping relationship between `PinName` and `PinNum` on the current development board.
 
-### Components of `hb_gpioinfo`
+#### Components of `hb_gpioinfo`
 The `hb_gpioinfo` tool consists of two parts:  
 1. **Driver**: Parses the `pinmux-gpio.dtsi` file and exports `PinNode` and `PinName` information to the `debugfs` system.  
 2. **Application**: Parses and displays the information in the terminal.  
@@ -434,7 +508,7 @@ The `hb_gpioinfo` tool consists of two parts:
 
 ---
 
-### Example Usage of `hb_gpioinfo`
+#### Example Usage of `hb_gpioinfo`
 - **PinName:** Refers to the pin name on the SoC, consistent with the X5 SoC pin names in the schematic.  
 - **PinNode:** Refers to the `PinNode` information in the device tree.  
 - **PinNum:** Refers to the actual GPIO number corresponding to the pin on the X5.

@@ -163,6 +163,10 @@ cd ..
 vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
+:::info
+For the tag number (version information) of robot_dev_config, please refer to the [Version Release Notes](./changelog.md) section.
+:::
+
 ## X86 Platform
 
 ### System Requirements
@@ -362,4 +366,4 @@ A1: As shown in the image below, during the vcs import process, a "." indicates 
 
 Q2: Limited conditions prevent code retrieval from GitHub
 
-A2: You can directly download the desired version of the code from the [TogetheROS File Server](http://archive.d-robotics.cc/tros/source_code/). For example, the `tros_2.0.0_source_code.tar.gz` file corresponds to version 2.0.0 of tros.b.
+A2: You can directly download the desired version of the code from the [TogetheROS File Server](https://archive.d-robotics.cc/TogetheROS/source_code/). For example, the `tros_2.0.0_source_code.tar.gz` file corresponds to version 2.0.0 of tros.b.

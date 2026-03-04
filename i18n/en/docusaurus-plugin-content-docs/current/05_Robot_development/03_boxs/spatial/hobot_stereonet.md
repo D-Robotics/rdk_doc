@@ -72,7 +72,7 @@ sudo apt upgrade
 ```
 
 :::caution **Note**
-**If the `sudo apt update` command fails or reports errors, please refer to [FAQ](/docs/08_FAQ/01_hardware_and_system.md) section `Q10: How to handle failures or errors with the apt update command?` for solutions.**
+**If the `sudo apt update` command fails or reports errors, please refer to [FAQ](/i18n/en/docusaurus-plugin-content-docs/current/08_FAQ/01_hardware_and_system.md) section `Q10: How to handle failures or errors with the apt update command?` for solutions.**
 :::
 
 ## Usage Instructions
