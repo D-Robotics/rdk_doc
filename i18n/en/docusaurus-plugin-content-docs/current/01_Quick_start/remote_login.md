@@ -23,7 +23,7 @@ Before using serial port login, it is necessary to confirm that the serial port 
 
 Serial port login requires a PC terminal tool. The commonly used tools are `PuTTy`, `MobaXterm`, etc. Users can select their terminal tool according to their own preferences, as the port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
 
-- When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:  
+- When the USB-to-Serial adapter is first plugged into the computer, the serial port driver needs to be installed. After the driver is installed, the Device Manager can recognize the serial port board port normally, as shown in the figure below:
 ![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
 - Open the `MobaXterm` tool, click `Session`, and then select `Serial`.
@@ -31,7 +31,7 @@ Serial port login requires a PC terminal tool. The commonly used tools are `PuTT
 - Configure the port number, for example, `COM7`. The actual serial port number used depends on the serial port number recognized by the PC.
 
 - Set the serial port configuration parameters as follows:
-  
+
   | Configuration Item    | Parameter Value |
   | --------------------- | -------------- |
   | Baud rate             | 921600         |
@@ -39,8 +39,8 @@ Serial port login requires a PC terminal tool. The commonly used tools are `PuTT
   | Parity                | None           |
   | Stop bits             | 1              |
   | Flow Control          | None           |
-  
-- Click `OK`, enter the username: `root`, password: `root` to log in to the device  
+
+- Click `OK`, enter the username: `root`, password: `root` to log in to the device
 ![image-Uart-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
 
 At this point, you can use the `ifconfig` command to query the IP address of the development board, where eth0 and wlan0 represent the wired and wireless networks respectively:
@@ -54,7 +54,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 5766  bytes 246466 (246.4 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-        device interrupt 43  base 0xa000  
+        device interrupt 43  base 0xa000
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
@@ -86,27 +86,27 @@ This chapter is intended for users who log in to the development board using RDK
 :::
 
 1. Click `+Hardware` in the upper right corner to enter the connection type selection interface.
-   
+
    ![+ RDK Device Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device.png)
 
 2. Click the question mark icon next to `Choose Connection Type` to pop up the connection method guide window. This guides users through the device connection method corresponding to the selected connection type. Click `Next` to view subsequent content, or click `Previous` to review previous prompts again. After viewing all guide content, click `Finish` to close the window. You can also click the ` × ` in the upper right corner to directly close the pop-up at any time.
-  
+
    ![Guide Window Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_help.png)
 
 3. Click to select the `IP Address` connection type, then click `Next` to enter the IP address input interface.
-    
+
     ![IP Input Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/remote_login_ip_input.png)
 
 4. Click `Next` to enter the user type selection interface. Here, set the user type for logging into the RDK device, with options for "sunrise(Regular User)" or "root(Super User)".
-    
+
    ![User Type Selection Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
 
 5. Click `Next` to enter the Create RDK Device Entry interface. Fill in the device name and description.
-    
+
    ![Create RDK Device Entry Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_device_manage_hr_add_device_IP_name.png)
 
 7. Click `Confirm` to successfully add the RDK device. The device information will be displayed on the device card list page.
-    
+
    ![Device Card List Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/left_menu_device_manage_hr_add_device_success_IP.png)
 
 ## Network Status Confirmation
@@ -143,15 +143,15 @@ Video: https://www.youtube.com/watch?v=whwi7O2XBKs&list=PLSxjn4YS2IuFUWcLGj2_uuC
 
 This section is for users using the Ubuntu Desktop system version, and it explains how to use "VNC Viewer" to achieve remote desktop login. "VNC Viewer" is a graphical desktop sharing software that allows you to remotely log in and control the desktop of the device on your computer. With this software, you can preview the system desktop of the development board on your computer screen and use your computer's mouse and keyboard for remote operation. By using VNC Viewer, you can achieve the same effect as local operation on the development board. You can download VNC Viewer from the following link: [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/).
 
-**Connect to the Development Board**  
+**Connect to the Development Board**
 Currently, VNC supports two connection methods: direct connection and cloud connection. Users can choose according to their own needs. This article recommends using the direct connection method. The connection steps are as follows:- Enter the IP address of the input device, for example: 192.168.127.10
 
 ![image-20220610160658103](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
 
-- After entering the IP address, press Enter, a prompt for an unencrypted connection will appear, click `Continue`  
+- After entering the IP address, press Enter, a prompt for an unencrypted connection will appear, click `Continue`
 ![image-20220610160715916](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160715916.png)
 
-- Enter the password `sunrise`, check `Remember password`, and click `OK` to connect  
+- Enter the password `sunrise`, check `Remember password`, and click `OK` to connect
 ![image-20220610160928136](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160928136.png)
 
 ## SSH Login {#ssh}
