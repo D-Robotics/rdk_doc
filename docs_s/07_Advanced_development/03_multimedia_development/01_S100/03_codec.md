@@ -477,6 +477,184 @@ dec_idx  dec_id cur_input_buf_cnt cur_output_buf_cnt total_input_buf_cnt total_o
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/04f0aba90a1d65017dfeb90f9afa43e2.png)
 
+### 常见问题
+
+#### 配置和用法问题
+
+##### video编码性能规格问题
+
+问题背景：对于4K@30FPS的编码，是否支持编码成4路独立的1080p@30fps码流？
+
+问题解答：不支持4K@30FPS编码成4路独立的1080p@30fps码流。codec支持多路编码，但是本身不支持crop，如果想实现1080p 4路的编码，输入的流就需要是4路1080p的size。
+
+##### GOP配置问题
+
+问题背景：在S100上H265帧每次publish的时候，每个GOP的组合是怎么样的呢？会使用到P帧吗？每帧里支持独立解码吗？会在每帧中插入SPS和PPS吗？
+
+问题解答：GOP结构是需要用户配置的，可以支持全I帧和IP帧的模块；如果是全IDR帧的话，是支持独立解码的，需要配置全I帧的gop结构和Intra period=1；
+每个IDR帧是否要插入sps/pps/vps，可以通过接口hb_mm_mc_request_idr_header选择，默认都会加。
+
+##### 如何插入userdata信息
+
+问题背景：在编码过程中，如何通过接口插入userdata信息？
+
+问题解答：
+
+```
+//"+"后面部分为用户自己插入的信息
+uint8_t uuid[] = "dc45e9bd-e6d948b7-962cd820-d923eeef+HorizonAI";
+hb_u32 length = sizeof(uuid)/sizeof(uuid[0]);
+ret = hb_mm_mc_insert_user_data(context, uuid, length);
+```
+
+##### 帧信息打印问题
+
+问题背景：每帧编解码信息都打印会产生海量日志
+
+问题解答：编解码进程初始化时会根据LOGLEVEL设置日志等级，当配置``LOGLEVEL<5``时不会输出帧信息。
+
+##### 外部输入Buffer映射失败问题
+
+问题背景：用户在使用外部输入buffer模式时遇到"Fail to map phys"报错，驱动报"Failed to map ion phy due to same phys"。
+
+问题解答： 外部输入buffer是指通过内存映射来复用其它模块/程序申请的ION Buffer，从而减少内存申请和拷贝；
+用户使用外部输入Buffer模式时需要注意一下场景限制。
+
+1.不能把同一个Buffer地址信息给到两个不同的编解码实例做映射；
+
+2.不能把外部Buffer动态申请释放，避免得到交叠的地址导致报错；建议申请固定个数Buffer然后循环使用，实例退出后统一释放。
+
+##### 内部Buffer申请失败问题
+
+问题背景：用户使用较多编解码通道时出现内存申请失败问题。
+
+问题解答：libmm从ion中申请到内存后还会执行map和import操作去获取iova和vaddr地址；但可能会由于达到系统ion内存/进程fd上限/内部buffer pool个数上限而出现内存申请失败问题。
+
+1.ion内存上限：需要减少通道路或优化系统ion内存使用；
+
+2.进程fd上限：通过ulimit -n调整进程fd上限值即可；
+
+3.内部buffer pool个数上限：在解码特定码流时可能遇到，建议采用限制dpb size（max_dec_frame_buffering）的码流。
+
+#### VPU编解码问题
+
+##### dequeue output buffer超时可能是什么原因
+
+问题背景：编解码过程中，dequeue output buffer超时可能是什么原因导致的？
+
+问题解答：
+
+1.CPU压力较大时，导致线程调度频繁，相关工作线程调度延时；
+
+2.前几次dequeue output后，未及时queue output归还不及时，未进行接口对称操作导致；
+
+3.无输入buffer时，直接dequeue output
+
+##### video解码时首帧获取出现timeout现象
+
+问题背景：串行调用dequeue/queue inputbuffer/outputbuffer接口时，第一次dequeue outputbuffer必现timeout是什么原因？
+
+问题解答：由于硬件特性，h265解码时第一帧会输出一个空帧，会延迟一帧给出数据。
+
+##### video解码时首帧pts不对齐问题
+
+问题背景：解码时取出来的第一帧数据pts一直是0，和赋值不一致，获取到第二帧时，才和送进去第二帧中的pts对应上
+
+问题解答：当首帧头信息和IDR帧分开送入时，可以支持第一帧pts对齐，一并送入时，由于和硬件处理特性关联，第一帧会是0.
+
+##### 解码时出现FAILED TO DEC_PIC_HDR: ret(1) SEQERR(00005000)报错
+
+问题背景：video解码过程中，出现FAILED TO DEC_PIC_HDR: ret(1) SEQERR(00005000)报错
+
+问题解答：这是解析帧头信息错误，解码器解码时，第一帧都带有VPS SPS PPS信息，但是有些码流因为格式问题，如果单独给VPS SPS PPS不能正常解码，需要给VPS+SPS+PPS+IDR。
+
+##### 编码时出现Bitstream buffer is too small报错
+
+问题背景：编码过程中，出现Bitstream buffer is too small的报错
+
+问题解答：bitstream_buf_size 设置过小导致，增大size值即可。
+
+##### 编码时出现Failed to VPU_EncRegisterFrameBuffer (1)报错
+
+问题背景：编码过程中，出现Failed to VPU_EncRegisterFrameBuffer (1)的报错
+
+问题解答：vlc_buf_size 设置过小，增大size值即可。
+
+##### video color range问题
+
+问题背景：请问S100使用VPU进行H265编码时，编码器是否会强制转换为limit range(TVrange)输出？
+
+测试方法：用一端S100编码的265码流，直接用ffmpeg播放，发现解析出为TV range
+
+问题处理：编解码器并没有办法区分full range和limit range，也没法识别这张图是full range或limit range，只有用户自己知道输入的是什么range，然后编解码处理像素的范围都是[0,255]，是按照给入的像素直接做处理，不会有转换，解码的时候也不会做转换；
+但是对于ffmpeg他是有一个swscaler模块的他是可以转换的，yuv420p是limit range， yuvj420p是full range，他内部会根据video full range信息做输入和输出格式的转换的。
+
+所以如果用户现在知道自己输入的是full range或者limit range是可以设置vui信息的，这样通过ffmpeg解码时根据vui信息指定ffmpeg的输出格式来决定是否转码。
+
+目前已经根据用户需求，将VUI信息中默认的color range模式改为full range。
+
+##### 当编码大片蓝天时，出现了一些异常的条纹
+
+问题背景：当编码大片蓝天时，出现了一些异常的条纹形状是什么原因？
+
+![image14](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/image14.png)
+
+问题解答：原始图片中存在较多的噪点，压缩后噪点分布不规律，看着像是条纹状，其实是对噪点压缩导致，这种现象属于codec硬件特性，无法消除.
+
+##### CBR或AVBR模式编码输出码率不符合预期
+
+问题背景：用户使用CBR和AVBR模式时发现实际输出码流的码率和设置的目标码率偏差超过10%。
+
+问题解答：
+
+1.全I帧编码（gop_preset_idx=1）时需要将I帧间隔（intra_period）置1；
+
+2.检查目标码率设置是否合理，调整质量参数是有上下限的；
+（仅供测试参考：针对h264的以1:100压缩率设置码率，针对h265的以1:150压缩率设置码率）
+
+3.编码帧数是否足够多，码率控制过程调节质量参数需要一定时间。
+
+##### 高优先级编码限制问题
+
+多路编码场景中可以指定某一路优先级为高使其优先处理以获取最短延迟。方法是把要求低时延的编码任务的priority参数设置31（高优先级）。示例如下：
+
+```
+media_codec_context_t context;
+context.priority = PRIO_31;
+```
+
+但需要注意如下限制条件:
+
+1.存在多路高优任务时无法保证低时延目标。
+
+2.用户需要确保高优任务程序的软件调度环境才能保证时延稳定。
+（建议：总cpu负载不超过90%，把创建高优编码任务的线程的调度策略改FIFO，优先级改20。）
+
+3.业务场景DDR负载过高且VPU在总线中为低优先级时，带宽竞争会影响硬件处理延迟。
+（建议：比VPU高优的写带宽流量不超过DDR负载45%。将sysfs节点中的rt_task_expect_latency_ms置0可减少指令排队。）
+
+#### JPU编解码问题
+
+##### jpg工具查看1080p图片时出现绿边
+
+问题背景：使用jpg工具查看1920x1080图片时，底下会出现绿边；
+
+![image12](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/codec/image12.png)
+
+问题说明：这是因为当前ip进行编码时按照16位对齐进行，假如到最后如果是8位对齐而不是16位对齐，那么编码器就会在后面补齐，这部分补齐的数据是随机产生的，不属于有效数据；
+
+##### 1080p图片多次编码后md5不同
+
+问题背景：同一个1080p yuv图片被多次编码后，即使编码的参数都相同，产生的jpg图片其 md5结果有可能不同
+
+问题原因：因为当前ip进行编码时按照16位对齐进行，假如到最后是8位对齐而不是16位对齐，那么编码器就会在后面进行补齐，这部分补齐的数据是随机产生的，不属于有效数据。
+
+##### 外部输入Buffer映射个数限制
+
+问题背景：用户在使用外部输入Buffer模式（零拷贝）时，传入超过32个Buffer地址报异常"Fail to get map idx"
+
+问题解答：libmm内部做了jpg输入buffer映射信息缓存，默认上限是32个，在退出时统一解映射。建议申请有限个buffer的内存然后循环使用。
+
 ## Codec API
 
 ### MediaCodec接口说明

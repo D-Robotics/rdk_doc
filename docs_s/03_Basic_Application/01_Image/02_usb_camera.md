@@ -46,8 +46,8 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=18
 按照以下命令执行程序
 
   ```shell
-  sunrise@ubuntu:~$ cd /app/pydev_demo/02_usb_camera_sample/
-  sunrise@ubuntu:/app/pydev_demo/02_usb_camera_sample$ python3 usb_camera_snap.py
+  sunrise@ubuntu:~$ cd /app/pydev_demo/09_usb_camera_sample
+  sunrise@ubuntu:/app/pydev_demo/09_usb_camera_sample$ python usb_camera_snap.py
   ```
 
 ## 预期效果

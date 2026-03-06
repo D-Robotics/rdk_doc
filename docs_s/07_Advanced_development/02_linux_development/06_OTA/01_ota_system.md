@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 1
 ---
 
-# 7.2.6 OTA
+# 系统 OTA 升级
 
 ## 概述
 
@@ -46,13 +46,10 @@ RDK默认不开启OTA功能，如需开启请按如下流程操作：
         # 仅建立编译环境
         sudo ./pack_image.sh -p
         ```
-2. 将build_params目录下的`ubuntu-22.04_desktop_rdk-s100_beta.conf`和`ubuntu-22.04_desktop_rdk-s100_release.conf`中的中的PARTITION_FILE配置为OTA版本（PARTITION_FILE="s100-ota-gpt.json）；
+2. 将build_params目录下的`ubuntu-22.04_desktop_rdk-s100_beta.conf`和`ubuntu-22.04_desktop_rdk-s100_release.conf`中的PARTITION_FILE配置为OTA版本:`export PARTITION_FILE="s100-ota-gpt.json"`，RDK_DM_VERIFY_ENABLE配置为开启:`export RDK_DM_VERIFY_ENABLE="yes"`；
 
-    ![ota_conf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_conf.png)
+3. 将source/bootloader/device/rdk/s100目录下的`board_s100_debug.mk`和`board_s100_release.mk`文件中的`RDK_OTA`变量配置为开启`export RDK_OTA="yes"`；
 
-3. 将source/bootloader/device/rdk/s100目录下的`board_s100_debug.mk`和`board_s100_release.mk`文件中的`RDK_OTA`变量配置为开启（export RDK_OTA="yes"）
-
-    ![ota_board_conf](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/ota/ota_board_conf.png)
 4. 编译
    - 制作新的miniboot的deb包
         ```bash
@@ -63,24 +60,168 @@ RDK默认不开启OTA功能，如需开启请按如下流程操作：
         sudo ./pack_image.sh -l
         ```
 
+## 根文件系统说明（OTA模式）
+### 概述
+
+开启 OTA 后，系统采用 system + overlayfs 的根文件系统结构。
+该方案通过将系统只读部分与用户可写部分分离，使用户既可以在根文件系统中进行写操作，又能保证 system 分区 以只读方式挂载，从而在保证系统稳定与安全的同时，支持 system 分区 在 OTA 升级时进行差分更新。
+
+### OverlayFS 简要说明
+
+OverlayFS 是一种联合文件系统（UnionFS），可将多个目录合并为一个统一的视图。
+在 overlayfs 中：
+
+- Lowerdir（下层）：只读层，提供系统的基础文件内容；
+
+- Upperdir（上层）：可写层，保存用户的修改、增删文件；
+
+- Merged（合并层）：提供给用户统一访问的挂载点视图。
+
+当文件被修改或删除时，操作仅在 Upperdir 中生效，而 Lowerdir 保持不变。系统在访问时会优先读取 Upperdir 的文件，从而实现增量覆盖与只读保护的效果。
+
+### 根文件系统结构方案
+
+本系统采用以下分区结构实现 overlayfs：
+
+| 分区类型             | 挂载角色 | 权限   | 说明                                               |
+| ------------------- | -------- | ----- | -------------------------------------------------- |
+| system_A / system_B | Lowerdir | 只读   | 系统基础文件所在分区，AB 双分区结构以支持无缝 OTA 升级 |
+| overlay             | Upperdir | 读写   | 用户数据及修改保存区，不参与 OTA 升级                 |
+| root (`/`)          | Merged   | 合并视图 | 提供统一的根目录访问视图                           |
+
+
+根文件系统的挂载逻辑如下：
+
+- system_A / system_B：通过 OTA 升级实现系统内容的更新；
+
+- overlay 分区：作为 overlayfs 的上层目录，保存运行时和用户的修改；
+
+- 根目录 /：用户看到的文件系统合并视图。
+
+### 注意事项
+
+1. 初次烧录行为
+
+    整机烧录时，overlay 分区会被格式化，system_A / system_B 分区写入只读系统镜像，此后系统启动时会自动建立 overlayfs 合并层。
+
+2. OTA 升级行为
+
+    OTA 升级时仅更新 system 分区内容，不改动 overlay 分区。用户的配置、应用安装或修改文件将被保留。
+
+3. 文件覆盖优先级
+
+    若用户手动修改了 /etc/xxx 等文件，该修改将被写入 overlay 分区。即使 OTA 升级更新了 system 分区中的同名文件，升级后系统仍优先显示用户修改版本（overlay 优先级更高）。
+
 ## OTA 打包工具
 
-### OTA 打包工具介绍
+**本文档以 ZIP 格式 的 OTA 包为示例进行说明。除非特别说明，TAR（img 经 Zstandard 压缩）格式 的使用方法与 ZIP 格式完全一致，仅需将文档中的 .zip 后缀替换为 .zst.tar 即可。**
 
-OTA打包工具位于`ota_tools/`路径下，该文件夹包含的内容如下：
+当前OTA包支持zip格式和img经zstd压缩后的tar格式，后缀分别为.zip和.zst.tar。.zst.tar将img压缩成img.zst，更高压缩比，更快的解压速度，同时利用tar格式支持索引。
+
+### ota_tools目录介绍
+
+OTA 打包工具位于 ota_tools/ 路径下。该目录包含 OTA 包构建所需的核心工具和脚本，该文件夹包含的内容如下：
 ```bash
 tree
 .
-├── hdiffz              // 差分工具，用于生成文件差异
-├── hpatchz             // 差分工具，用于应用文件差异
-├── mk_otapackage.py    // OTA 打包工具，用于生成 OTA 升级包
-├── ota_pack_tool.sh    // OTA 打包脚本，封装了 mk_otapackage.py 的功能
-├── ota_process         // OTA 升级过程中使用的二进制工具，包含在 OTA 包中
-├── out                 // OTA 打包的输出文件夹
-│   ├── deploy          // 存放 OTA 包制作过程的中间文件
-│   └── ota_packages    // 存放制作好的 OTA 升级包
-└── private_key.pem     // 私钥文件，用于 OTA 包的签名
+├── hdiffz                 # 用于生成 OTA 差分镜像的二进制差分工具
+├── hooks                  # OTA 分区升级前/后的 Hook 脚本目录
+│   ├── README.md          # Hook 脚本使用说明及命名规范
+│   ├── postinst_MCU.sh    # MCU 分区升级完成后的后处理脚本
+│   └── preinst_MCU.sh     # MCU 分区升级前的前处理脚本
+├── hpatchz                # 用于应用 OTA 差分镜像的二进制补丁工具
+├── mk_otapackage.py       # OTA 升级包构建主脚本
+├── ota_pack_tool.sh       # OTA 升级包构建流程的 Shell 封装脚本
+├── ota_process            # OTA 升级核心处理逻辑目录
+├── ota_sign.py            # OTA 升级包签名脚本
+├── parse_env.py           # 构建环境与配置解析脚本
+├── part_ota_cmd.json      # 分区 OTA 升级命令与配置描述文件
+├── private_key.pem        # OTA 升级包签名使用的私钥（请妥善保管）
+└── zstd.py                # Zstandard 压缩/解压辅助模块
 ```
+其中 hooks 目录用于提供分区烧写前和烧写后的自动执行脚本，可用于在升级过程中插入自定义处理逻辑。在使用打包工具前，建议先了解 hooks 目录的作用和使用方式。
+
+#### OTA 升级 Hook 机制
+- Hook 脚本放置位置
+
+    hooks 目录用于存放 OTA 分区升级过程中的前置 / 后置处理脚本，用于在分区烧写前或烧写后执行一些自定义逻辑，包括但不限于：
+
+    - 升级前的环境检查
+
+    - 数据备份与迁移
+
+
+    **如果某个分区不需要任何前后处理逻辑，对应的脚本文件可以省略。**
+
+- 脚本命名规则（必须遵守）
+
+    为确保脚本能够被正确打包并在 OTA 升级过程中执行，脚本文件名必须严格遵循以下命名规则，否则将无法被识别和加入升级包。
+
+
+    - 分区烧写前脚本（Pre-install Hook）
+
+        ```text
+        preinst_<分区名>.sh
+        ```
+
+    - 分区烧写后脚本（Post-install Hook）
+
+        ```bash
+        postinst_<分区名>.sh
+        ```
+
+    不符合上述命名规则的脚本文件将不会被加入 OTA 升级包，也不会在升级过程中被执行。
+
+    脚本文件名中的 `<分区名>` 必须 与 OTA 系统中使用的分区名称完全一致，如果不确定分区名称，可通过`out/product/img_packages/ota_tools/ota_info.json`文件中的`base_name`字段进行确认。
+
+
+- 使用示例
+
+    以MCU分区为例
+
+    - 打开`out/product/img_packages/ota_tools/ota_info.json`文件，查看`MCU`部分的`base_name`字段，确认分区名称。
+
+        **以下仅为示例，不与实际代码挂钩，实际分区表请参考源码**
+        ```json
+
+            "MCU_a_S600_V1.0": {
+                "base_name": "MCU",
+                "out": "/home/zxs/s600/source/bootloader/out/target/product/img_packages/MCU_S600_V1.0.img",
+                "medium": "nor",
+                "nose_support": null,
+                "secure": true,
+                "part_type": "AB",
+                "multi_img": true,
+                "life_img": false,
+                "multi_key": false,
+                "have_anti_ver": null,
+                "size": 6291456,
+                "ota_update_mode": "image"
+            }
+
+        ```
+
+    - 在 hooks 目录下创建以下脚本：
+
+        ```text
+        hooks/
+        ├── preinst_MCU.sh     # 分区烧写前执行
+        ├── postinst_MCU.sh    # 分区烧写后执行
+        ```
+
+    如果该分区不需要任何前置或后置处理逻辑，则无需创建任何脚本文件。
+
+- 注意事项
+
+    - Hook 脚本为 可选项，不存在时会自动跳过执行。
+
+    - 仅会识别并处理位于 hooks 目录下、且命名规范正确的脚本文件。
+
+    - 请确保脚本内容具备正确的执行逻辑和必要的错误处理。
+
+    - 根据系统配置，脚本执行失败可能会导致 OTA 升级流程中断，请谨慎编写脚本逻辑。
+
+#### OTA 打包工具使用方法
 
 一般使用位于`ota_tools/`路径下的ota_pack_tool.sh制作所需的OTA升级包，支持OTA升级包解包，解包后重打包，制作升级包以及制作差分包等。
 
@@ -88,53 +229,39 @@ tree
 ```bash
 Usage: ./ota_pack_tool.sh [OPTIONS]...
 Options:
-  -x, -unpack <ota_package>        Unpack the given OTA package file.
-  -r, -repack                      Repack the files into a new OTA package.
-  -c, -create <pack_type> -d <source_dir>
-       Generate OTA package by source dir or img_packages.
-       <pack_type>: sys, sys_signed ... etc.
-       <source_dir>: sys and sys_signed require img dir.
-       (e.g.)run "./ota_pack_tool.sh -c sys -d ../out/product/img_packages/"
+  -x, -unpack <ota_package>        Unpack the given OTA package file. (compress inferred from suffix)
+  -r, -repack [-t <tar|zip>]       Repack the files into a new OTA package. (default: tar)
+  -c, -create <pack_type> -d <source_dir> [-t <tar|zip>]
+       Generate OTA package by source dir or img_packages. (default: tar)
+       <pack_type>: sys, sys_signed, miniboot_signed ... etc.
+       <source_dir>: sys or sys_signed require img dir.
+       (e.g.)run "./ota_pack_tool.sh -c sys -d ../out/product/img_packages/ -t tar"
   -i, -inc <pack_type> -old <old_pkg> -new <new_pkg>
-       Create an incremental OTA package.
+       Create an incremental OTA package. (compress inferred from suffix of -old)
        <pack_type>: sys, sys_signed.
-       <old_pkg>, <new_pkg>: OTA pack, xxx.zip.
-       (e.g.)run "./ota_pack_tool.sh -i sys -old out/ota_packages/all_in_one_old.zip -new out/ota_packages/all_in_one_new.zip".
-  -h, -help                        Display this help message.
+       <old_pkg>, <new_pkg>: ota pack, xxx.zip or xxx.zst.tar.
+       (e.g.)run "./ota_pack_tool.sh -i sys -old all_in_one_old.zip -new all_in_one_new.zip".
+  -h, -help                                 Display this help message.
 ```
 
-#### OTA 升级包解包与重打包
-升级包解包指令为：
-```bash
-./ota_pack_tool.sh -x out/ota_packages/all_in_one.zip
-```
-- 升级包解包后，可以更新`ota_tools/out/ota_unpack`下的镜像，重新制作OTA包，使用的OTA配置文件与ota_process均位于`ota_tools/out/ota_unpack`目录，该方法无法修改OTA配置文件gpt.conf。
-
-升级包重打包指令为：
-```BASH
-./ota_pack_tool.sh -r
-```
-- 打包的源文件夹路径为：ota_tools/out/ota_unpack
-- 打包后的目标文件路径为：ota_tools/out/ota_repack
 #### OTA 制作普通升级包
 
-通过如下命令可以制作系统升级包，使用的分区配置文件通过ota_pack_tool.sh脚本中的GPT_CONFIG配置，默认使用`/out/product/img_packages/s100-ota-gpt.json`，可根据实际需求修改。
+通过如下命令可以制作系统升级包:
 
 ```BASH
+# tar格式升级包(-t参数省略)，sys_signed代表打包secure版本升级包
+ ./ota_pack_tool.sh -c sys_signed -d ~/s600/out/product/img_packages/
 
-# sys代表打包nonsecure版本升级包
- ./ota_pack_tool.sh -c sys -d ~/s100/out/product/img_packages/
-
-# sys_signed代表打包secure版本升级包
- ./ota_pack_tool.sh -c sys_signed -d ~/s100/out/product/img_packages/
+# zip格式升级包，sys代表打包nonsecure版本升级包
+./ota_pack_tool.sh -c sys -d ~/s600/out/product/img_packages -t zip
 ```
-生成的 OTA 升级包将输出到`ota_tools/out/ota_packages`目录，在该目录下，您将看到zip和signature两种后缀的文件，其中zip后缀文件是 OTA 升级包，signature后缀文件是对同名升级包的签名文件：
+生成的 OTA 升级包将输出到`out/product/ota_packages`目录，在该目录下，您将看到`zip`或`.zst.tar`结尾的升级包和`signature`结尾的升级包的签名文件：
 ```BASH
+all_in_one_signed.signature     #secure 升级包签名文件
+all_in_one_signed.zst.tar       #secure 升级包文件
+
 all_in_one.signature            #nonsecure 升级包签名文件
 all_in_one.zip                  #nonsecure 升级包文件
-
-all_in_one_signed.signature     #secure 升级包签名文件
-all_in_one_signed.zip           #secure 升级包文件
 ```
 
 #### OTA 制作差分升级包
@@ -157,9 +284,23 @@ all_in_one_signed.zip           #secure 升级包文件
 
     - 差分镜像升级时需要依赖已经烧录的旧镜像包，因此，在计划使用差分升级时，**请务必妥善保存旧镜像包避免丢失或损坏**。
    ```bash
-    # 基于out/ota_packages/all_in_one_signed_old.zip制作out/ota_packages/all_in_one_signed_new.zip的差分包all_in_one_signed_inc.zip
-    ./ota_pack_tool.sh -i sys_signed -old out/ota_packages/all_in_one_signed_old.zip -new out/ota_packages/all_in_one_signed_new.zip
+    # 基于all_in_one_signed_old.zip制作all_in_one_signed_new.zip的差分包all_in_one_signed_inc.zip
+    ./ota_pack_tool.sh -i sys_signed -old all_in_one_signed_old.zip -new all_in_one_signed_new.zip
    ```
+
+#### OTA 升级包解包与重打包
+升级包解包指令为：
+```bash
+./ota_pack_tool.sh -x all_in_one.zip
+```
+- 升级包解包后，可以更新`out/deploy/ota_deploy/unpack`下的镜像，重新制作OTA包，使用的OTA配置文件与ota_process均位于`out/deploy/ota_deploy/unpack`目录，该方法无法修改OTA配置文件gpt.conf。
+
+升级包重打包指令为：
+```BASH
+./ota_pack_tool.sh -r -t zip
+```
+- 打包的源文件夹路径为：out/deploy/ota_deploy/unpack
+- 打包后的目标文件路径为：out/product/ota_packages
 
 ### 签名密钥
 
@@ -190,7 +331,7 @@ all_in_one_signed.zip           #secure 升级包文件
     sudo ./pack_image.sh -l
 
 **注意：**
-- 打包生成的 OTA 包默认命名为 all_in_one_xxx.zip。升级程序会对包名进行校验，包名中必须包含 "all_in_one" 关键字，且后缀必须为 .zip。此外，包名中不得包含以下关键字："app"、"APP"、"middleware"、"param"。
+- 打包生成的 OTA 包默认命名为 all_in_one_xxx。升级程序会对包名进行校验，包名中必须包含 "all_in_one" 关键字。此外，包名中不得包含以下关键字："app"、"APP"、"middleware"、"param"。
 
 ### OTA 升级包介绍
 
@@ -692,6 +833,9 @@ S100参考实现中，OTA升级完重启之后起到内核会触发systemd的OTA
 ## OTA 升级端介绍
 
 ### ota_tool 使用
+
+**此处以 ZIP 格式 的 OTA 包为示例进行说明。除非特别说明，TAR（img 经 Zstandard 压缩）格式 的使用方法与 ZIP 格式完全一致，仅需将文档中的 .zip 后缀替换为 .zst.tar 即可。**
+
 
 在板端可通过ota_tool手动发起 OTA 升级，在输入ota_tool -h指令可查询详细的。
 
