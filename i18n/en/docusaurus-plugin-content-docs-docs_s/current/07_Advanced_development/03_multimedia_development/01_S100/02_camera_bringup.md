@@ -373,7 +373,8 @@ bash run_tuning.sh
 
 **Image Preview**
 
-Click [here](../../../01_Quick_start/download.md#tools-download) to download the image viewing tool hbplayer, then open hbplayer and set the network address (ensure the PC can ping the board). Click "Apply" to apply the settings, then click "Connect" to view the real-time video stream. The real-time preview operation is illustrated in the figure below.
+1. Click [here](../../../01_Quick_start/download.md#tools-download) to download the image viewing tool hbplayer.
+2. Open hbplayer and set the network address (ensure the PC can ping the board). Click "Apply" to apply the settings, then click "Connect" to view the real-time video stream. The real-time preview operation is illustrated in the figure below.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
 
