@@ -4,7 +4,8 @@ sidebar_position: 4
 
 # 1.1.2 Camera Expansion Board
 
-![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png)
+<!-- ![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png) -->
+![image-rdk_100_camera_expansion_board](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_smooth_hole_support_board.png)
 
 The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the D-Robotics RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
 

@@ -301,19 +301,19 @@
   },
   "sidebar.tutorialSidebar.category.1.9.5 设备管理": {
     "message": "1.9.5 Device Management",
-    "description": "The label for category 1.9.4 设备管理 in sidebar tutorialSidebar"
+    "description": "The label for category 1.9.5 设备管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.9.5 设备管理.link.generated-index.description": {
     "message": "Here, you can add and manage devices by clicking the `+ Hardware` in the upper right corner.",
-    "description": "The generated-index page description for category 1.9.4 设备管理 in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category 1.9.5 设备管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.9.6 示例应用": {
     "message": "1.9.6 Sample Applications",
-    "description": "The label for category 1.9.5 示例应用 in sidebar tutorialSidebar"
+    "description": "The label for category 1.9.6 示例应用 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.1.9.6 示例应用.link.generated-index.description": {
     "message": "Here, you can directly install some simple demos onto your development board.",
-    "description": "The generated-index page description for category 1.9.5 示例应用 in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category 1.9.6 示例应用 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.RDK Ultra（Python）": {
     "message": "RDK Ultra（Python）",
@@ -324,4 +324,3 @@
     "description": "The label for category  RDK Ultra（C++） in sidebar tutorialSidebar"
   }
 }
-
