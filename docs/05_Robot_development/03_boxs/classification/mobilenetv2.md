@@ -29,6 +29,7 @@ mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK Ultra| Ubuntu 20.04 (Foxy) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK SS600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
 
 ## 算法信息
@@ -38,6 +39,7 @@ mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出
 | mobilenetv2 | X3 | 1x3x224x224 | 414.17 |
 | mobilenetv2 | X5 | 1x3x224x224 | 683.46 |
 | mobilenetv2 | S100 | 1x3x224x224 | 1722.25 |
+| mobilenetv2 | S600 | 1x3x224x224 | 2721.90 |
 
 ## 准备工作
 
@@ -82,6 +84,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 
@@ -109,6 +119,14 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -140,6 +158,14 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

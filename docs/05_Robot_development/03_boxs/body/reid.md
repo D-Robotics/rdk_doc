@@ -26,6 +26,7 @@ Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
 
 ## 算法信息
 
@@ -33,6 +34,7 @@ Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git
 | ---- | ---- | ------------ | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | X5 | 1x3x256x128 | 19.44 |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S100 | 1x3x256x128 | 407.66 |
+| [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S600 | 1x3x256x128 | 662.16 |
 
 ## 准备工作
 
@@ -51,19 +53,19 @@ package对外发布包含实例ID信息的算法msg, 用户可以订阅 "/percep
 **mipi摄像头发布图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -85,14 +87,6 @@ ros2 launch reid reid.launch.py
 **使用usb摄像头发布图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -100,6 +94,13 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
 </TabItem>
 </Tabs>
@@ -119,14 +120,6 @@ ros2 launch reid reid.launch.py
 **使用单张回灌图片**
 
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -134,6 +127,13 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
 </TabItem>
 </Tabs>
