@@ -80,8 +80,6 @@ For Windows users, please follow the steps below to verify whether the fastboot 
 
 ## Booting the System
 
-## Booting the System
-
 ### eMMC Without a Flashed System
 
 Insert an SD card with a prepared system image into the carrier board to boot from the SD card.
