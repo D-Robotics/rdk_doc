@@ -109,7 +109,7 @@ macos系统下，使用minicom工具连接串口，步骤如下：
 
 :::tip
 
-使用minicom连接出现乱码，请查看[使用macos系统笔记本串口乱码](../01_Quick_start/02_install_os/rdk_s100.md#使用macos系统笔记本串口乱码问题)
+使用minicom连接出现乱码，请查看[使用macos系统笔记本串口乱码](../01_Quick_start/02_install_os/rdk_s100/05_FAQ.md#使用-macos-系统笔记本串口乱码问题)
 :::
 
 ## 网络状态确认{#network_config}

@@ -235,7 +235,7 @@ fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
 #### 空板烧录
 **空板烧录请使用 Xburn 工具指定区域烧录，并指定 `miniboot_flash`**
 
-关于 Xburn 工具烧录指定区域，请参考[指定区域烧录](../../../01_Quick_start/02_install_os/rdk_s100.md#指定区域烧录)章节
+关于 Xburn 工具烧录指定区域，请参考[指定区域烧录](../../../01_Quick_start/02_install_os/rdk_s100/03_xburn/01_windows.md#使用-xburn-指定区域烧录)章节
 
 ## MCU1 Undefined/Abort 异常处理原理
 
