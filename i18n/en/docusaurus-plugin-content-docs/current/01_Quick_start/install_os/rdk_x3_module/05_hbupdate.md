@@ -4,7 +4,19 @@ sidebar_position: 4
 
 # 1.2.2.4 Using the hbupdate Tool
 
-## Installing USB Drivers
+## SD Card Flashing
+
+### Hardware Connection
+
+Insert the SD card into a card reader, then connect the card reader to the appropriate port on your PC.
+
+### System Flashing
+
+If you need to flash the system onto an SD card (instead of booting from eMMC mode), the system flashing procedure is the same as the [RDK X3 system flashing steps](../rdk_x3/04_rufus.md#system-flashing).
+
+## eMMC Flashing
+
+### Installing USB Drivers
 
 For Windows users, please follow the steps below to verify whether the fastboot driver has been installed before flashing:
 
@@ -32,13 +44,13 @@ For Windows users, please follow the steps below to verify whether the fastboot 
    
        ![image-usb-driver3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
 
-## Hardware Connection
+### Hardware Connection
 
 1. Use a jumper cap to connect the `BOOT` pin to ground. Refer to the [Function Control Interface](../../hardware_introduction/rdk_x3.md#function-control-interface) for pin locations.
 
 2. Connect the Micro USB port to your computer. The `Android Device` should appear in your computer's Device Manager.
 
-## Flashing the System {#flash_system}
+### Flashing the System {#flash_system}
 
 1. Run `hbupdate.exe` to launch the flashing tool and follow the steps below:
 

@@ -4,7 +4,20 @@ sidebar_position: 4
 
 # 1.2.2.4 使用 hbupdate 工具
 
-## 安装 USB 驱动
+## SD 卡烧录
+
+### 硬件连接
+
+将 SD 卡插入读卡器，将读卡器插入 PC 相应接口。
+
+### 系统烧录
+
+
+如需烧录系统到SD上（不从eMMC模式启动），系统烧录步骤与 [RDK X3 系统烧录步骤](../rdk_x3/04_rufus.md#系统烧录) 相同。
+
+## eMMC 烧录
+
+### 安装 USB 驱动
 
 使用 Windows 系统的用户，在烧录前，请按照如下步骤确认是否安装过 fastboot 驱动程序：
 
@@ -32,14 +45,14 @@ sidebar_position: 4
    
        ![image-usb-driver3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
 
-## 硬件连接
+### 硬件连接
 
 1. 通过跳线帽将`BOOT`管脚接地，管脚位置参考[功能控制接口](../../hardware_introduction/rdk_x3.md#功能控制接口)。
 
 2. 将 Micro USB 接口连接到电脑，电脑设备管理器中会识别出 `Android Device` 的设备。
 
 
-## 烧录系统{#flash_system}
+### 烧录系统{#flash_system}
 
 1. 运行 `hbupdate.exe` 打开烧录工具，并按照以下步骤进行烧录：
 
@@ -94,7 +107,7 @@ sidebar_position: 4
 
 **切换到从 SD 卡启动**
 
-1. 禁用 eMMC 的启动切换到使用 SD 卡启动系统，登录系统后，执行以下命名把 eMMC 的第二个分区的启动标志删除，并重启系统生效：
+1. 禁用 eMMC 的启动切换到使用 SD 卡启动系统，登录系统后，执行以下命令把 eMMC 的第二个分区的启动标志删除，并重启系统生效：
     
       ```
       sudo parted /dev/mmcblk0 set 2 boot off

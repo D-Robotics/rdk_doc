@@ -350,5 +350,13 @@
   "sidebar.tutorialSidebar.category.1.2.5 RDK Ultra": {
     "message": "1.2.5 RDK Ultra",
     "description": "The label for category 1.2.5 RDK Ultra in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具烧录 NAND 固件": {
+    "message": "1.2.3.5 Using the XBurn tool to burn the NAND firmware",
+    "description": "The label for category 1.2.3.5 使用 XBurn 工具烧录 NAND 固件 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具烧录 NAND 固件.link.generated-index.description": {
+    "message": "XBurn is the officially provided image burning tool used for flashing RDK X5 NAND firmware. It offers an intuitive graphical interface that allows users to complete the burning process with just a few clicks, making it very convenient.",
+    "description": "The generated-index page description for category 1.2.3.5 使用 XBurn 工具烧录 NAND 固件 in sidebar tutorialSidebar"
   }
 }
