@@ -31,7 +31,7 @@ This solution has the following core features:
 
 - This method does not support partition table upgrades
 
-    Before upgrading, this solution compares the partition table in the upgrade package with the partition table information in the device. If they are inconsistent, the upgrade will exit. Therefore, for upgrades involving partition table changes, the full烧录 must be completed using Dijia tools. Reference: [System Burning](/rdk_s/Quick_start/install_os/rdk_s100).
+    Before upgrading, this solution compares the partition table in the upgrade package with the partition table information in the device. If they are inconsistent, the upgrade will exit. Therefore, for upgrades involving partition table changes, the full system flashing must be completed using Dijia tools. Reference: [System Burning](../../../01_Quick_start/02_install_os/rdk_s100/01_instruction.md).
 
 Overall, based on flexible OTA upgrade capabilities, strict verification mechanisms, and comprehensive rollback strategies, this solution achieves secure updates of miniboot partitions while minimizing risks during the system upgrade process. For the principles and detailed introduction of OTA upgrade, please refer to the [System OTA Upgrade](./01_ota_system.md) section.
 

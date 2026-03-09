@@ -258,7 +258,7 @@ fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
 #### Flashing on a Blank Board
 **For blank board flashing, please use the Xburn tool to flash the specified region and specify `miniboot_flash`.**
 
-For information about flashing a specified region using the Xburn tool, please refer to the [Specified Region Flashing](../../../01_Quick_start/01_hardware_introduction/01_rdk_s100.md) section.
+For information about flashing a specified region using the Xburn tool, please refer to the [Specified Region Flashing](../../../01_Quick_start/02_install_os/rdk_s100/03_xburn/01_windows.md#flashing-specific-partitions-with-xburn) section.
 
 ## MCU1 Undefined/Abort Exception Handling Principle
 
