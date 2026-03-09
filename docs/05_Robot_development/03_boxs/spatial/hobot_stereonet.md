@@ -31,16 +31,16 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 3. 模型版本
 
-| 平台 | 算法版本 | 量化方式 | 输入尺寸    | 推理帧率(fps) | 算法特性                       |
-| ---- | -------- | -------- | ----------- | ------------- | ------------------------------ |
-| X5   | V2.0     | int16    | 640x352x3x2 | 15            | 精度较高、帧率较低             |
-| X5   | V2.1     | int16    | 640x352x3x2 | 15            | 有置信度输出                   |
-| X5   | V2.2     | int8     | 640x352x3x2 | 23            | 精度较低、帧率较高             |
-| X5   | V2.3     | int8     | 640x352x3x2 | 27            | 帧率进一步提升                 |
-| X5   | V2.4     | int16    | 640x352x3x2 | 15            | 加入更多数据训练               |
-| X5   | V2.4     | int8     | 640x352x3x2 | 23            | 加入更多数据训练               |
-| S100 | V2.1     | int16    | 640x352x3x2 | 53            | 有置信度输出                   |
-| S100 | V2.4     | int16    | 640x352x3x2 | 53            | 有置信度输出，加入更多数据训练 |
+| 平台 | 算法版本 | 量化方式 | 输入尺寸    | 推理帧率(fps) | 模型说明                   |
+| ---- | -------- | -------- | ----------- | ------------- | -------------------------- |
+| X5   | V2.0     | int16    | 640x352x3x2 | 15            | 历史版本                   |
+| X5   | V2.1     | int16    | 640x352x3x2 | 15            | 历史版本，带置信度输出     |
+| X5   | V2.2     | int8     | 640x352x3x2 | 23            | 历史版本                   |
+| X5   | V2.3     | int8     | 640x352x3x2 | 27            | 历史版本，最高帧率         |
+| X5   | V2.4     | int16    | 640x352x3x2 | 15            | 当前主版本，高精度深度估计 |
+| X5   | V2.4     | int8     | 640x352x3x2 | 23            | 当前主版本，高帧率深度估计 |
+| S100 | V2.1     | int16    | 640x352x3x2 | 53            | 历史版本，带置信度输出     |
+| S100 | V2.4     | int16    | 640x352x3x2 | 53            | 当前主版本，带置信度输出   |
 
 ## 4. 准备工作
 
@@ -96,9 +96,11 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 <p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有CDPxxx-V3，确认相机是V3版本 </p>
 
-- 安装方式如图所示：
+- RDK X5安装方式如图所示：
 
 ![RDK_X5_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
+
+- RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
 
 ![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
 
@@ -108,10 +110,17 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 ![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
 
-- 安装方式如图所示：
+- RDK X5安装方式如图所示：
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
+- 最新线材做了升级，主要线材是带有方向的，CAM端接入相机，RDK端接入开发板
+
+![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
+
+- RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
+
+![RDK_S100_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png)
 
 ### 5.3. 在线启动指令
 
@@ -150,8 +159,99 @@ i2cdetect -r -y 2
 **如果I2C信号检测不到，相机无法正常工作**
 :::
 
+#### (2) 确认相机能正常启动
 
-#### (2) 创建启动脚本
+- 方法1：如果已经安装tros-humble-hobot-stereonet功能包，则可以直接复制
+
+```bash
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
+```
+
+- 方法2：手动创建启动脚本`run_cam.sh`，写入以下内容
+
+```bash
+#!/bin/bash
+source /opt/tros/humble/setup.bash
+
+ros2 pkg prefix mipi_cam
+
+image_width=1280
+image_height=1088
+framerate=30.0
+rotation=90.0
+gdc_enable=False
+cal_rotation=90.0
+lpwm_enable=True
+frame_ts_type=realtime
+out_format=nv12
+channel=2
+channel2=0
+log_level=ERROR
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --image_width) image_width=$2; shift 2 ;;
+    --image_height) image_height=$2; shift 2 ;;
+    --framerate) framerate=$2; shift 2 ;;
+    --rotation) rotation=$2; shift 2 ;;
+    --gdc_enable) gdc_enable=$2; shift 2 ;;
+    --cal_rotation) cal_rotation=$2; shift 2 ;;
+    --lpwm_enable) lpwm_enable=$2; shift 2 ;;
+    --frame_ts_type) frame_ts_type=$2; shift 2 ;;
+    --out_format) out_format=$2; shift 2 ;;
+    --channel) channel=$2; shift 2 ;;
+    --channel2) channel2=$2; shift 2 ;;
+    --log_level) log_level=$2; shift 2 ;;
+    *) echo "unknown param: $1"; exit 1 ;;
+  esac
+done
+
+ros2 run mipi_cam mipi_cam --ros-args \
+-p device_mode:=dual -p dual_combine:=1 \
+-p image_width:=$image_width -p image_height:=$image_height \
+-p framerate:=$framerate -p rotation:=$rotation \
+-p gdc_enable:=$gdc_enable -p cal_rotation:=$cal_rotation \
+-p lpwm_enable:=$lpwm_enable \
+-p frame_ts_type:=$frame_ts_type \
+-p out_format:=$out_format \
+-p channel:=$channel -p channel2:=$channel2 \
+--log-level $log_level
+```
+
+- 执行如下指令：
+
+<Tabs groupId="Stereo Cam">
+<TabItem value="230AI" label="230AI">
+
+```bash
+bash run_cam.sh --image_width 1920 --image_height 1080 --rotation 0.0 --cal_rotation 0.0 --log-level INFO
+```
+
+</TabItem>
+<TabItem value="132GS" label="132GS">
+
+```bash
+bash run_cam.sh --rotation 90.0 --log-level INFO
+```
+
+</TabItem>
+</Tabs>
+
+- 以X5上接入132GS相机为例，正确启动相机会打印如下日志（S100或其它相机接入会打印不同的日志）：
+
+![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
+
+
+- 日志解析：
+
+I2C bus是**控制通道编号**，可以用于配置传感器寄存器，例如设置分辨率、设置帧率、启动 streaming，图像数据不走I2C，I2C只负责**控制**。
+程序会检测X5的第4路和地6路I2C控制器，是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描sensor地址。
+
+mipi rx phy是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
+日志显示X5有两个mipi phy，分别是编号0和编号2，对应左右目相机。该编号可以设置到下文提到的`channel`参数，用于改变左右目图像的拼接顺序。
+
+
+#### (3) 创建启动脚本
 
 - 方法1：如果已经安装tros-humble-hobot-stereonet功能包，则可以直接复制
 
@@ -181,7 +281,7 @@ uncertainty_th=-0.10
 
 # topic
 stereo_image_topic=/image_combine_raw
-camera_info_topic=/image_right_raw/camera_info
+camera_info_topic=/image_combine_raw/right/camera_info
 depth_image_topic="~/stereonet_depth"
 depth_camera_info_topic="~/stereonet_depth/camera_info"
 pointcloud2_topic="~/stereonet_pointcloud2"
@@ -430,7 +530,7 @@ stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
-#### (3) 执行启动指令
+#### (4) 执行启动指令
 
 - 通过ssh连接RDK，执行以下命令，则可以启动算法：
 
@@ -465,7 +565,7 @@ bash run_stereo.sh --stereonet_version v2.4
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--channel 0 --channel2 2
+# 方法2：在上面的运行指令上，加入参数：--channel 0 --channel2 1
 ```
 
 </TabItem>
@@ -496,7 +596,7 @@ rviz2
 ![stereonet_rviz](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
 
 
-#### (4) 参数定义
+#### (5) 参数定义
 
 `run_stereo.sh`脚本有很多可设置参数：
 
@@ -536,7 +636,7 @@ rviz2
 - save_freq控制保存的频率，例如设置为4代表每隔4帧保存一次
 - save_total控制保存的总数，设置为-1代表一直保存，设置为100代表保存100帧则不再保存
 
-#### (5) 保存一帧图像
+#### (6) 保存一帧图像
 
 - 程序运行成功后，可以开启另一个终端，执行如下指令保存一帧数据：
 
@@ -575,6 +675,15 @@ bash run_stereo.sh \
 --save_disp_flag True --save_uncert_flag False \
 --save_depth_flag True --save_visual_flag True \
 --save_pcd_flag False
+
+# S100需要指定模型版本，例如增加参数--stereonet_version v2.4
+# save_stereo_flag    保存双目图像，该图像会输入算法进行推理
+# save_origin_flag    保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
+# save_disp_flag      保存视差图
+# save_uncert_flag    保存置信度图，只有带置信度的模型支持
+# save_depth_flag     保存深度图
+# save_visual_flag    保存web端渲染的可视化图
+# save_pcd_flag       保存点云数据
 ```
 
 ![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
@@ -598,13 +707,13 @@ ros2 param set /StereoNetNode save_total 10
 ros2 param set /StereoNetNode save_freq 1
 
 # 设置保存内容，按需要设置
-ros2 param set /StereoNetNode save_stereo_flag true
-ros2 param set /StereoNetNode save_origin_flag true
-ros2 param set /StereoNetNode save_disp_flag true
-ros2 param set /StereoNetNode save_uncert_flag true
-ros2 param set /StereoNetNode save_depth_flag true
-ros2 param set /StereoNetNode save_visual_flag true
-ros2 param set /StereoNetNode save_pcd_flag true
+ros2 param set /StereoNetNode save_stereo_flag true   # 保存双目图像，该图像会输入算法进行推理
+ros2 param set /StereoNetNode save_origin_flag true   # 保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
+ros2 param set /StereoNetNode save_disp_flag true     # 保存视差图
+ros2 param set /StereoNetNode save_uncert_flag true   # 保存置信度图，只有带置信度的模型支持
+ros2 param set /StereoNetNode save_depth_flag true    # 保存深度图
+ros2 param set /StereoNetNode save_visual_flag true   # 保存web端渲染的可视化图
+ros2 param set /StereoNetNode save_pcd_flag true      # 保存点云数据
 
 # 执行保存命令
 ros2 param set /StereoNetNode save_result_flag true
@@ -636,10 +745,13 @@ ros2 param set /StereoNetNode save_result_flag true
 
 - 通过ssh连接RDK，执行以下命令：
 
+<Tabs groupId="RDK">
+<TabItem value="RDK X5" label="RDK X5">
+
 ```bash
 bash run_stereo.sh \
---use_local_image_flag True --local_image_dir /root/imgdir \
---save_result_flag True --save_dir /root/offline \
+--use_local_image_flag True --local_image_dir <离线图像路径> \
+--save_result_flag True --save_dir <结果保存路径> \
 --save_stereo_flag True --save_origin_flag False \
 --save_disp_flag True --save_uncert_flag False \
 --save_depth_flag True --save_visual_flag True \
@@ -647,6 +759,24 @@ bash run_stereo.sh \
 
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
+
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
+
+```bash
+bash run_stereo.sh --stereonet_version v2.4 \
+--use_local_image_flag True --local_image_dir <离线图像路径> \
+--save_result_flag True --save_dir <结果保存路径> \
+--save_stereo_flag True --save_origin_flag False \
+--save_disp_flag True --save_uncert_flag False \
+--save_depth_flag True --save_visual_flag True \
+--save_pcd_flag True
+
+# 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
+```
+
+</TabItem>
+</Tabs>
 
 - 运行成功后，会打印如下日志
 
