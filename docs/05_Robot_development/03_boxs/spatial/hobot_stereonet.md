@@ -27,7 +27,6 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | --------------------- | --------------------- | ------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
 | RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
-| RDK S600              | Ubuntu 24.04 (Jazzy)  | 启动双目相机，推理出深度结果，并在Web端显示 |
 
 ## 3. 模型版本
 
@@ -81,7 +80,7 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ### 5.1. 注意事项（必看！！！）
 
 :::caution **注意**
-**请用`root`用户执行文档中的命令，其它用户执行可能权限不够，造成一些不必要的错误。**
+**请用`root`用户执行文档中的命令，其他用户执行可能权限不够，造成一些不必要的错误。**
 :::
 
 ![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
@@ -104,7 +103,7 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 ![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
 
-#### (2) 132GSMIPI双目相机
+#### (2) 132GS MIPI双目相机
 
 - RDK官方132GS MIPI双目相机如图所示：
 
@@ -159,7 +158,7 @@ i2cdetect -r -y 2
 **如果I2C信号检测不到，相机无法正常工作**
 :::
 
-#### (2) 确认相机能正常启动
+#### (2) 确认相机出流正常
 
 - 方法1：如果已经安装tros-humble-hobot-stereonet功能包，则可以直接复制
 
@@ -237,7 +236,7 @@ bash run_cam.sh --rotation 90.0 --log-level INFO
 </TabItem>
 </Tabs>
 
-- 以X5上接入132GS相机为例，正确启动相机会打印如下日志（S100或其它相机接入会打印不同的日志）：
+- 以X5上接入132GS相机为例，正确启动相机会打印如下日志（S100或不同型号相机接入会打印不同的日志）：
 
 ![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
 
@@ -245,13 +244,13 @@ bash run_cam.sh --rotation 90.0 --log-level INFO
 - 日志解析：
 
 I2C bus是**控制通道编号**，可以用于配置传感器寄存器，例如设置分辨率、设置帧率、启动 streaming，图像数据不走I2C，I2C只负责**控制**。
-程序会检测X5的第4路和地6路I2C控制器，是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描sensor地址。
+程序会检测X5的第4路和第6路I2C控制器，是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描sensor地址。
 
 mipi rx phy是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
 日志显示X5有两个mipi phy，分别是编号0和编号2，对应左右目相机。该编号可以设置到下文提到的`channel`参数，用于改变左右目图像的拼接顺序。
 
 
-#### (3) 创建启动脚本
+#### (3) 创建双目算法启动脚本
 
 - 方法1：如果已经安装tros-humble-hobot-stereonet功能包，则可以直接复制
 
@@ -530,7 +529,7 @@ stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
-#### (4) 执行启动指令
+#### (4) 执行双目算法启动指令
 
 - 通过ssh连接RDK，执行以下命令，则可以启动算法：
 
@@ -824,7 +823,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 
 联网的情况下程序会自动下载标定文件，如果RDK没有联网，可以手动下载标定文件然后上传到RDK。
 根据log信息，在PC端打开浏览器，输入(https://calib.stereolabs.com/?SN=38085162) ，即可下载标定文件SN38085162.conf。
-注意每台ZED的SN码是不一样的，使用请根据报错信息下载对应的标定文件，将标定文件上传到`/root/zed/settings/`目录下，如果目录不存在则手动创建。
+注意每台ZED的SN码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到`/root/zed/settings/`目录下，如果目录不存在则手动创建。
 
 - 然后，启动双目算法，开启另一个终端执行：
 
