@@ -6,6 +6,22 @@ sidebar_position: 6
 
 ## tros-jazzy
 
+### 版本号：2.5.1 (2026-03-10)
+
+功能变更：
+
+- 适配`RKD S600 v5.0.1`版本的系统SDK。
+- `mipi_cam`重构从获取码流到消息发布的videobuff管理，以及拼接线程；修改拼接图片的标定信息的topic为"image_combine_raw/left/camera_info"和"image_combine_raw/right/camera_info"。
+
+新增功能：
+
+- 新增检测算法yolov2, yolov3, yolov5；分割算法unet；分类算法mobilenet。
+- 新增开放词汇目标检测算法 DOSOD。
+- 新增人体检测和跟踪算法(Ultralytics YOLO Pose)。
+- 新增人体实例跟踪算法reid。
+- 新增分割一切算法MobileSAM。
+
+
 ### 版本号：2.5.0 (2025-12-02)
 
 新增功能：
