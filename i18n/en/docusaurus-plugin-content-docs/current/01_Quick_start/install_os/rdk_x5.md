@@ -210,21 +210,21 @@ Download the latest `product_release date.zip` file. After extraction, you will 
 
 - Download URL：https://archive.d-robotics.cc/downloads/miniboot/rdk_x5/
 
-![image-20251031-170821](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20251031-170821.png)
+    ![image-20251031-170821](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20251031-170821.png)
 
 ### Download and Install the Burning Tool
 
-`XBurn` is the official image burning tool provided for burning the RDK X5 NAND firmware. It offers an intuitive graphical interface, allowing users to complete the image burning process with just a few clicks, making it very convenient.
+XBurn is the official image burning tool provided for burning the RDK X5 NAND firmware. It offers an intuitive graphical interface, allowing users to complete the image burning process with just a few clicks, making it very convenient.
 
 - Download link:：https://archive.d-robotics.cc/downloads/software_tools/download_tools/
 
-![image-20251031-194712](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20251031-194712.png)
+    ![image-20251031-194712](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-20251031-194712.png)
 
 For Windows systems, download `XBurn-gui_version number_x64-setup.exe`.
 
 For Ubuntu systems, download `XBurn-gui_version number_x64-setup.deb`.
 
-For MAC systems, download `XBurn-gui_version number_x64-setup.dmg`.
+For macOS, download `XBurn-gui_version number_x64-setup.dmg`.
 
 #### Installing and Launching XBurn on Windows
 
@@ -261,7 +261,7 @@ Processing triggers for hicolor-icon-theme (0.17-2)  ...
 
 Then execute the command `sudo xburn-gui` or click the `xburn-gui` icon in the application menu (a prompt to enter the password will appear), enter the password to open the burning tool interface.  
 
-#### Installing and Launching XBurn on MAC  
+#### Installing and Launching XBurn on macOS 
 
 Double-click the installer `xburn-gui_1.1.5_universal.dmg` to proceed with the installation. The specific installation steps are as follows:  
 

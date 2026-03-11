@@ -67,7 +67,7 @@ import TabItem from '@theme/TabItem';
 
 
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 

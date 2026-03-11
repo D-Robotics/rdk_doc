@@ -28,7 +28,7 @@ RDK Studio 提供了 NodeHub 直达访问，无需手动打开浏览器进入Nod
 
 :::tip
 
-目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+目前RDK Studio Windows系统已正式出炉，使用 Linux 和 macOS 的小伙伴们，稍微等等开发小哥正在火速敲键盘
 
 :::
 
@@ -36,11 +36,11 @@ RDK Studio 提供了 NodeHub 直达访问，无需手动打开浏览器进入Nod
 
 
 
-<TabItem value="mac" label="Mac">
+<TabItem value="macOS" label="macOS">
 
 :::tip
 
-目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 macOS 的小伙伴们，稍微等等开发小哥正在火速敲键盘
 
 :::
 

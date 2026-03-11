@@ -128,11 +128,11 @@ Currently, the RDK Studio Windows system has been officially released. For frien
 
 
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 
-Currently, the RDK Studio Windows system has been officially released. For friends using Linux and Mac, please wait a moment—the development team is rapidly coding!
+Currently, the RDK Studio Windows system has been officially released. For friends using Linux and macOS, please wait a moment—the development team is rapidly coding!
 
 :::
 
