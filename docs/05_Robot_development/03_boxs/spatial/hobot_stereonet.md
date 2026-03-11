@@ -223,14 +223,14 @@ ros2 run mipi_cam mipi_cam --ros-args \
 <TabItem value="230AI" label="230AI">
 
 ```bash
-bash run_cam.sh --image_width 1920 --image_height 1080 --rotation 0.0 --cal_rotation 0.0 --log-level INFO
+bash run_cam.sh --image_width 1920 --image_height 1080 --rotation 0.0 --cal_rotation 0.0 --log_level INFO
 ```
 
 </TabItem>
 <TabItem value="132GS" label="132GS">
 
 ```bash
-bash run_cam.sh --rotation 90.0 --log-level INFO
+bash run_cam.sh --rotation 90.0 --log_level INFO
 ```
 
 </TabItem>
@@ -247,7 +247,7 @@ I2C bus是**控制通道编号**，可以用于配置传感器寄存器，例如
 程序会检测X5的第4路和第6路I2C控制器，是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描sensor地址。
 
 mipi rx phy是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
-日志显示X5有两个mipi phy，分别是编号0和编号2，对应左右目相机。该编号可以设置到下文提到的`channel`参数，用于改变左右目图像的拼接顺序。
+日志显示X5有两个mipi phy，分别是编号0和编号2，对应左右目相机。该编号可以设置到下文提到的`channel`和`mipi_channel`参数，用于改变左右目图像的拼接顺序。
 
 
 #### (3) 创建双目算法启动脚本
@@ -547,7 +547,7 @@ bash run_stereo.sh
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--channel 0 --channel2 2
+# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 1，看看哪种情况能输出正确的结果
 ```
 
 </TabItem>
@@ -564,7 +564,7 @@ bash run_stereo.sh --stereonet_version v2.4
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--channel 0 --channel2 1
+# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 1，看看哪种情况能输出正确的结果
 ```
 
 </TabItem>
