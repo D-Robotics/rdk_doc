@@ -122,7 +122,7 @@ If you already have the target image locally, please go directly to [Selecting a
 
 :::tip
 
-Currently, the RDK Studio Windows system has been officially released. For friends using Linux and Mac, please wait a moment—the development team is rapidly coding!
+For those using Linux, please wait a moment as the documentation is being rapidly prepared.
 
 :::
 
@@ -134,7 +134,7 @@ Currently, the RDK Studio Windows system has been officially released. For frien
 
 :::tip
 
-Currently, the RDK Studio Windows system has been officially released. For friends using Linux and Mac, please wait a moment—the development team is rapidly coding!
+For those using macOS, please wait a moment as the documentation is being rapidly prepared.
 
 :::
 

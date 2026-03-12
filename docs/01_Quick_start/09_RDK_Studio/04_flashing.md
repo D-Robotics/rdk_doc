@@ -121,7 +121,7 @@ import TabItem from '@theme/TabItem';
 
 :::tip
 
-目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+使用 Linux 的小伙伴们，稍微等等文档正在火速编写中。
 
 :::
 
@@ -133,7 +133,7 @@ import TabItem from '@theme/TabItem';
 
 :::tip
 
-目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+使用 macOS 的小伙伴们，稍微等等文档正在火速编写中。
 
 :::
 
