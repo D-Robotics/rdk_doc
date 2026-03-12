@@ -190,6 +190,126 @@ root@ubuntu:/app/ipcbox_sample# tree .
 
 ```
 
+### IPC Real-Time Performance Optimization Settings
+
+If real-time performance of IPC communication needs to be improved in specific scenarios, follow the steps below, using ipc_instance5 as an example.
+
+1. First, locate the interrupt number and interrupt thread PID corresponding to ipc_instance5
+```shell
+# Find interrupt number:
+root@ubuntu:~# cat /proc/interrupts | grep "mailbox"
+ 14:          0          0          0          0          0          0     GICv3 293 Level     29f00000.mailbox0
+ 15:          0          0          0          0          0          0     GICv3 294 Level     29f00000.mailbox0
+ 16:          0          0          0          0          0          0     GICv3 295 Level     29f00000.mailbox0
+ 17:          0          0          0          0          0          0     GICv3 296 Level     29f00000.mailbox0
+ 18:          0          0          0          0          0          0     GICv3 297 Level     29f00000.mailbox0
+ 19:          0          0          0          0          0          0     GICv3 298 Level     29f00000.mailbox0
+ 20:          0          0          0          0          0          0     GICv3 299 Level     29f00000.mailbox0
+ 21:          0          0          0          0          0          0     GICv3 300 Level     29f00000.mailbox0
+ 22:          0          0          0          0          0          0     GICv3 301 Level     29f00000.mailbox0
+ 23:          0          0          0          0          0          0     GICv3 302 Level     29f00000.mailbox0
+ 24:          0          0          0          0          0          0     GICv3 303 Level     29f00000.mailbox0
+ 25:          1          0          1          0          1          1     GICv3 304 Level     29f00000.mailbox0
+ 26:          0          0          0          0          0          0     GICv3 305 Level     29f00000.mailbox0
+ 27:          0          0          0          0          0          0     GICv3 306 Level     29f00000.mailbox0
+ 28:          0          0          0          0          0          0     GICv3 307 Level     29f00000.mailbox0
+ 29:          0          0          0          0          0          0     GICv3 280 Level     29f01000.mailbox1
+ 30:          0          0          0          0          0          0     GICv3 281 Level     29f01000.mailbox1
+ 31:          0          0          0          0          0          0     GICv3 282 Level     29f01000.mailbox1
+ 32:          0          0          0          0          0          0     GICv3 283 Level     29f01000.mailbox1
+ 33:          0          0          0          0          0          0     GICv3 284 Level     29f01000.mailbox1
+ 34:          0          0          0          0          0          0     GICv3 285 Level     29f01000.mailbox1
+ 35:          0          0          0          0          0          0     GICv3 286 Level     29f01000.mailbox1
+ 36:          0          0          0          0          0          0     GICv3 287 Level     29f01000.mailbox1
+ 37:          0          0          0          0          0          0     GICv3 288 Level     29f01000.mailbox1
+ 38:          0          0          0          0          0          0     GICv3 289 Level     29f01000.mailbox1
+ 39:          0          0          0          0          0          0     GICv3 290 Level     29f01000.mailbox1
+ 40:          0          0          0          0          0          0     GICv3 291 Level     29f01000.mailbox1
+ 41:          0          0          0          0          0          0     GICv3 292 Level     29f01000.mailbox1
+ 42:          0          0          0          0          0          0     GICv3  50 Level     28109000.mailbox2
+ 43:          0          0          0          0          0          0     GICv3  52 Level     2810d000.mailbox3
+ 44:          0          0          0          0          0          0     GICv3  54 Level     28105000.mailbox4
+# Find interrupt thread PID:
+root@ubuntu:~# ps aux | grep "mailbox"
+root          70  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/14-29f00000.mailbox0]
+root          71  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/15-29f00000.mailbox0]
+root          72  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/16-29f00000.mailbox0]
+root          73  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/17-29f00000.mailbox0]
+root          74  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/18-29f00000.mailbox0]
+root          75  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/19-29f00000.mailbox0]
+root          76  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/20-29f00000.mailbox0]
+root          77  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/21-29f00000.mailbox0]
+root          78  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/22-29f00000.mailbox0]
+root          79  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/23-29f00000.mailbox0]
+root          80  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/24-29f00000.mailbox0]
+root          81  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/25-29f00000.mailbox0]
+root          82  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/26-29f00000.mailbox0]
+root          83  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/27-29f00000.mailbox0]
+root          84  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/28-29f00000.mailbox0]
+root          85  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/29-29f01000.mailbox1]
+root          86  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/30-29f01000.mailbox1]
+root          87  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/31-29f01000.mailbox1]
+root          88  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/32-29f01000.mailbox1]
+root          89  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/33-29f01000.mailbox1]
+root          90  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/34-29f01000.mailbox1]
+root          91  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/35-29f01000.mailbox1]
+root          92  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/36-29f01000.mailbox1]
+root          93  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/37-29f01000.mailbox1]
+root          94  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/38-29f01000.mailbox1]
+root          95  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/39-29f01000.mailbox1]
+root          96  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/40-29f01000.mailbox1]
+root          97  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/41-29f01000.mailbox1]
+root          98  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/42-28109000.mailbox2]
+root          99  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/43-2810d000.mailbox3]
+root         100  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/44-28105000.mailbox4]
+# According to the device tree, ipc_instance5 corresponds to mailbox with mboxes = <&mailbox0 5 21 5>; therefore, the interrupt number is 19, and the interrupt thread PID is 75.
+```
+
+2. Bind interrupt to CPU cores to reduce migration overhead
+```shell
+# Bind IRQ 19 to CPU2:
+root@ubuntu:/# echo 4 > /proc/irq/19/smp_affinity
+```
+
+3. Bind interrupt thread to CPU cores to reduce migration overhead
+```shell
+# Bind PID 75 to CPU2:
+root@ubuntu:/# taskset -p 0x04 75
+pid 75's current affinity mask: 3f
+pid 75's new affinity mask: 4
+```
+
+4. Set interrupt thread priority to prevent interruption by high-priority tasks
+```shell
+# Increase PID 75's priority to 99
+root@ubuntu:/# chrt -f -p 99 75
+root@ubuntu:/# chrt -p 75
+pid 75's current scheduling policy: SCHED_FIFO
+pid 75's current scheduling priority: 99
+```
+
+5. Isolate interrupt CPU cores to ensure dedicated CPU for real-time tasks
+```shell
+# Isolate CPU2 by configuring in uboot mode
+Hobot$ printenv bootargs
+bootargs=earlycon=uart8250,mmio32,0x394B0000 no_console_suspend root=/dev/ram0 rdinit=/init rootwait net.ifnames=0
+Hobot$ setenv bootargs "${bootargs} isolcpus=2 nohz_full=2 rcu_nocbs=2"
+Hobot$ saveenv
+Saving Environment to MMC... Writing to MMC(0)... OK
+Hobot$ reset
+# Verify after system startup
+root@ubuntu:/# cat /sys/devices/system/cpu/isolated
+2
+```
+
+6. Configure RT kernel scheduler status to prevent RT tasks from being forcibly yielded
+```shell
+root@ubuntu:/# echo -1 > /proc/sys/kernel/sched_rt_runtime_us
+```
+:::warning Notes
+This setting allows all RT tasks to occupy CPU without limitation, thereby improving system real-time performance. However, it may also cause regular tasks to be starved as they cannot obtain scheduling opportunities. Therefore, use -1 with caution. For debugging RT thread scheduling, please refer to the [kernel official documentation](https://kernel.org/doc/html/v6.1/scheduler/sched-rt-group.html)
+:::
+
 ### API Workflow Description
 
 API Sample workflow diagram for Acore–MCU communication (IRQ mode)
@@ -273,6 +393,23 @@ The number of channels (`config_num`) can be increased in the JSON file, along w
 
 ### C++ Application
 
+The Acore side implements multiple applications for operating the peripherals on the MCU side. These applications are located in the `/app/ipcbox_sample` directory:
+
+```bash
+root@ubuntu:/app/ipcbox_sample# tree -L 1
+.
+├── common                # Common files, implementing data packetization, unpacking, data validation, etc.
+├── ipcbox_i2c             # Sample for operating the I2C peripheral on the MCU side
+├── ipcbox_runcmd          # Sample for running cmd commands on the MCU side
+├── ipcbox_spi             # Sample for operating the SPI peripheral on the MCU side
+└── ipcbox_uart            # Sample for operating the UART peripheral on the MCU side
+```
+
+:::tip
+- These applications actually operate the peripherals on the MCU side. Before using them, please ensure that MCU1 is started. For information on starting MCU1, please refer to [MCU1 Startup](../../../07_Advanced_development/05_mcu_development/01_S1000/01_basic_information.md#start_mcu1)
+- When operating these peripherals, you need to confirm whether the MCU side has configured these peripherals for passthrough. Please refer to [MCU Side IPCBOX Configuration](../../../07_Advanced_development/05_mcu_development/01_S100/08_mcu_ipc.md#IPCBOX)
+:::
+
 #### RunCmd Application
 
 This sample implements reading the voltage from an ADC channel.
@@ -320,10 +457,59 @@ A4 0F 1F D4 AA AA 00 00 06 00 00 00 01 00 00 00
 [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 deinit success.
 ```
 
+#### SPI Read/Write Test
+
+This sample implements a loopback test for SPI. During the test, the MOSI and MISO pins of `SPI3` need to be shorted together.
+
+1. After booting and entering S100, open the application directory: `cd /app/ipcbox_sample/ipcbox_spi`
+2. Compile: `make`
+3. Run: `./ipcbox_spi`
+4. The test passes when you see the log message `SPI write successful, 128 bytes`. Reference log output:
+        ```
+        root@ubuntu:/app/ipcbox_sample/ipcbox_spi# ./ipcbox_spi -b 3
+        [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch2 [ins] 7 [id] 2 init success.
+        [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch2 [ins] 7 [id] 2 config success.
+        SPI write successful, 128 bytes
+        tx_data(128)
+        00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+        10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
+        20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
+        30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F
+        40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
+        50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F
+        60 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F
+        70 71 72 73 74 75 76 77 78 79 7A 7B 7C 7D 7E 7F
+
+        rx_packet(128)
+        00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+        10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
+        20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
+        30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F
+        40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
+        50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F
+        60 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F
+        70 71 72 73 74 75 76 77 78 79 7A 7B 7C 7D 7E 7F
+
+        [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch2 [ins] 7 [id] 2 deinit success.
+        ```
+
+:::tip
+IpcBox only implements control for SPI Master, with the following limitations:
+- Slave mode is not supported
+- The MCU side底层 defaults to interrupt + asynchronous mode, with synchronous mode supported
+- Application layer control of frame length is not supported
+:::
+
 
 #### UART Passthrough
 
-This sample implements UART5 passthrough. For testing, short the TX and RX pins of UART5.
+**Test Prerequisites**
+Before testing, you need to short-circuit the TX and RX of the `Uart` to be used. The default Uart used by S100 is as follows:
+| Platform | Uart id |
+|----------|---------|
+| S100     | Uart5   |
+
+The test sample implements transparent transmission of `Uart`. The operation steps are as follows:
 
 1. After booting into S100, navigate to the application directory: `cd /app/ipcbox_sample/ipcbox_uart`
 2. Compile: `make`
@@ -352,19 +538,32 @@ tx_data and rx_data are identical.
 
 ### Python Application
 
-S100 provides a Python library for IPC usage. Internally, it uses pybind11 to call C++ interfaces, ensuring consistent function names and macro definitions across both sides.
+**Test Prerequisites**
+
+Since the Python application calls the Uart in IpcBox, similar to the C++ use cases, the TX and RX of the `Uart` need to be shorted before testing. The default Uart used by S100 is as follows:
+
+| Platform | Uart id |
+|----------|---------|
+| S100     | Uart5   |
+
+:::tip
+- The application actually operates on the MCU-side peripherals. Before use, confirm whether MCU1 has started. For MCU1 startup, please refer to [MCU1 Startup](../../../07_Advanced_development/05_mcu_development/01_S100/01_basic_information.md#start_mcu1)
+- When operating these peripherals, you need to confirm whether the MCU side has configured them for transparent transmission. For reference, see [MCU-side IPCBOX Configuration](../../../07_Advanced_development/05_mcu_development/01_S100/08_mcu_ipc.md#IPCBOX)
+:::
+
+S100 provides Python library files for using Ipc. The principle is to call the C++ interface through pybind11, with function names and macro definitions remaining consistent on both ends.
 
 1. Importing packages
 ```
 import pyhbipchal as pyipc
 import pyhbipchal_utils as ipc_utils
+from ipcbox_packet import ipcbox_packet
 ```
 
 2. Source code directory structure
 
 ```bash
-root@ubuntu:/app/pyhbipchal_sample# tree
-.
+├── ipcbox_packet.py // Encapsulation of ipcbox_packet object
 ├── ipcfhal_sample_config.json // Configuration file used for IPC initialization
 ├── pyhbipchal_test.py // Basic Python application test case using the pyhbipchal library
 ├── pyhbipchal_utils.py // Source code of pyhbipchal_utils, which provides a Pythonic wrapper over pyhbipchal
@@ -406,27 +605,58 @@ IPCF_HAL_E_TIMEOUT (-11): Expired the time out
 IPCF_HAL_E_REINIT (-12): Re initilize
 
 IPCF_HAL_E_BUSY (-13): Busy
+
 IPCF_HAL_E_CHANNEL_INVALID (-14): Channel is invalid
 
 =====================test OK=======================
 
-[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 init success.
-[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 config success.
-tx_data(64)
-69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
-37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
+=== Sending Packet ===
+Original message: This is the PYIPC UART test
+Original data length: 27 bytes
+Fixed data length: 32 bytes
+Fixed data content (hex):
+54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
+43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
 
-rx_data(64)
-69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
-37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+IPCBox packet length: 160
+Full packet content (hex):
+44 49 50 43 01 00 00 00 97 0A 00 00 A0 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
+43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
 
-tx_data and rx_data are identical.
-[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 deinit success.
-root@ubuntu:/app/pyhbipchal_sample#
+=== Received Packet ===
+Raw received data length: 160
+Raw received data (hex):
+44 49 50 43 01 00 00 00 97 0A 00 00 A0 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
+43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
+
+tx_data(32)
+54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
+43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
+
+rx_data(32)
+54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
+43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
+
+[SUCCESS]: tx_data and rx_data are identical.
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 deinit success.
 
 ```
 
@@ -434,10 +664,41 @@ Test whether the IPC communication functionality of the pyhbipchal_utils package
 
 ```bash
 root@ubuntu:/app/pyhbipchal_sample# python pyhbipchal_utils_test.py
-[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 init success.
-[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 config success.
-Tx: b'ipc_runcmd_send 7 0 123456789 10' | Rx: b'ipc_runcmd_send 7 0 123456789 10'
-[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 deinit success.
+root@ubuntu:/app/pyhbipchal_sample# python pyhbipchal_utils_test.py
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
+Sending IPCBox packet:
+Original message: ipc_runcmd_send 7 0 123456789 10
+Fixed data length: 32 bytes
+IPCBox packet length: 160 bytes
+IPCBox packet content (hex):
+44 49 50 43 01 00 00 00 13 0B 00 00 A0 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+
+Received data (hex):
+44 49 50 43 01 00 00 00 13 0B 00 00 A0 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+
+Extracted data length: 32 bytes
+Extracted data content (hex):
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
 ```
 
 ## Data Transfer Flow Between Acore and MCU

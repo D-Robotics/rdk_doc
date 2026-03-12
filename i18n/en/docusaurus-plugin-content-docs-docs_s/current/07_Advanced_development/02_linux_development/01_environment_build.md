@@ -21,10 +21,10 @@ Setting up a cross-compilation environment is an essential step in the developme
 
 ### Developing for RDK S100
 
-:::tip
+:::tip Commercial Support
 The commercial edition provides more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial edition will be granted through the following process:
 
-**Commercial Edition Access Procedure**:
+**Commercial Edition Access Procedure:**
 1. **Complete a Questionnaire**: Submit basic information about your organization and intended use case.
 2. **Sign a Non-Disclosure Agreement (NDA)**: We will contact you based on your submission, and both parties will sign an NDA upon mutual confirmation.
 3. **Content Release**: After the NDA is signed, we will provide access to commercial edition materials via a private channel.

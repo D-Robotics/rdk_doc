@@ -187,6 +187,16 @@ sudo srpi-config
   
   RDK X3 Module 和 RDK X5 Module 支持从eMMC和SD卡两种模式启动系统，本选项用于切换启动模式。
 
+## Sensor Profiles
+
+提供多套`Sensor`效果库配置，用于适配同一`Sensor`的不同模组形态。由于模组在光学和调校上的差异，最终成像效果及强度会有所不同，因此需要分别进行`ISP`校准。
+
+![image-20260115-153741](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/srpi-config/image-20260115-153741.png)
+
+ **IMX219 Switch ISP**
+
+   切换`IMX219`效果库，`1 FOV 79.3°` 对应`Jetson Nano`摄像头 适配`200FOV`和`160FOV`的模组，`2 FOV 120°`对应`树莓派5代`摄像头，适配`120FOV`模组。
+
 ## Update
 
 将`srpi-config`工具更新到最新版本。

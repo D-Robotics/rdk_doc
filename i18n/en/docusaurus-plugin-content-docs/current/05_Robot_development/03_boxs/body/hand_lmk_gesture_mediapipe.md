@@ -43,7 +43,7 @@ Example of gesture-controlled car: [Car Gesture Control](../../apps/car_gesture_
 
 | Platform                             | System | Function                                 |
 | -------------------------------- | ------------ | ----------------------------------------------- |
-| RDK S100 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results via web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results via web |
 
 ## Algorithm Information
 

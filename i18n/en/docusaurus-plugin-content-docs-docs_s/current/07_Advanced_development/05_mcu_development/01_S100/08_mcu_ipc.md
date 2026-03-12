@@ -200,15 +200,16 @@ Ipc_InstanceConfigType Ipc_ShmCfgInstances0 = {
 
 #### instance5
 
-| Instance   | Channel | receive core id    | Description              |
-|------------|---------|--------------------|--------------------------|
-| instance5  | 0       | Ipc_Receive_Core0  | Customer Reserved: Reserve |
-| instance5  | 1       | Ipc_Receive_Core0  | Customer Reserved: Reserve || instance5| 2       | Ipc_Receive_Core0| Customer Reserved: Reserve   |
-| instance5| 3       | Ipc_Receive_Core0| Customer Reserved: Reserve   |
-| instance5| 4       | Ipc_Receive_Core0| Customer Reserved: Reserve   |
-| instance5| 5       | Ipc_Receive_Core0| Customer Reserved: Reserve   |
-| instance5| 6       | Ipc_Receive_Core0| Customer Reserved: Reserve   |
-| instance5| 7       | Ipc_Receive_Core0| Customer Reserved: Reserve   |
+| Instance | Channel | receive core id  | Description         |
+|----------|---------|------------------|---------------------|
+| instance5| 0       | Ipc_Receive_Core0| RTC driver            |
+| instance5| 1       | Ipc_Receive_Core0| RTC driver             |
+| instance5| 2       | Ipc_Receive_Core0| RTC driver             |
+| instance5| 3       | Ipc_Receive_Core0| RTC driver             |
+| instance5| 4       | Ipc_Receive_Core0| RTC driver             |
+| instance5| 5       | Ipc_Receive_Core0| RTC driver             |
+| instance5| 6       | Ipc_Receive_Core0| RTC driver             |
+| instance5| 7       | Ipc_Receive_Core0| RTC driver             |
 
 #### instance6
 
@@ -262,7 +263,10 @@ All application samples run on the Acore side and communicate with MCU1. Therefo
 
 IpcBox is an IPC application extension that uses instance7 to transparently transmit peripheral data and execute CMD applications on the MCU side, referred to as the RunCmd application.
 
-For usage instructions on the Acore side, refer to the [IPC Module Introduction](../../../07_Advanced_development/02_linux_development/04_driver_development_s100/06_driver_ipc.md) section.
+:::tip
+- For usage instructions on the Acore side, refer to the [IPC Module Introduction](../../../07_Advanced_development/02_linux_development/04_driver_development_s100/06_driver_ipc.md) section.
+- During the upgrade from version `RDKS100 V4.0.4-Beta` to `RDKS100 V4.0.5-Beta`, IpcBox underwent a refactoring. The modifications include changes to the packet structure, IPC channels, and the default configuration for passthrough peripherals. Please pay attention to the version compatibility between the MCU side and the Acore side.
+:::
 
 #### Transparent Transmission of Peripheral Data
 

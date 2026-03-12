@@ -8,7 +8,7 @@ sidebar_position: 0
 MCU0 firmware compilation / McalCdd / Service / Platform, and other code are proprietary to the Enterprise Edition. If needed, please contact [D-Robotics](mailto:developer@d-robotics.cc) for support.
 :::
 
-:::tip
+:::tip Commercial Support
 The Commercial Edition offers more comprehensive feature support, deeper hardware capability access, and exclusive customization content. To ensure compliance and secure delivery, we will grant access to the Commercial Edition through the following process:
 
 **Commercial Edition Access Procedure**:

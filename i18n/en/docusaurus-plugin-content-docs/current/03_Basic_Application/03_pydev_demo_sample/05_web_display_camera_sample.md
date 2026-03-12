@@ -46,6 +46,14 @@ root@ubuntu:/app/pydev_demo/05_web_display_camera_sample# tree
 
 ### Compilation and Execution
 First, you need to start the Nginx server, then run the Python script:
+
+:::info Note
+
+When using the IMX477 camera, it is necessary to set fps=50 in the mipi_camera_web.py file (around line 39).
+
+:::
+
+
 ```bash
 # Start Nginx server
 ./start_nginx.sh

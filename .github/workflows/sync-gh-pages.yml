@@ -5,6 +5,7 @@ on:
     workflows: ["Deploy Docusaurus site to GitHub Pages"]  # deploy.yml workflow 名称
     types:
       - completed
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   sync-gh-pages:

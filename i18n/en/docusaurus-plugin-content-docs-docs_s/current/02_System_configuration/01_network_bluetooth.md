@@ -340,14 +340,9 @@ After running `apt full-upgrade`, drivers, kernel files, and some system softwar
 sudo reboot
 ```
 
-## Bluetooth Configuration (Deprecated)
+## Bluetooth Configuration
 
-:::tip
-Bluetooth configuration for RDK S100 is currently unavailable.
-Continuously being updated....
-:::
-
-<!-- Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9 -->
+Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=9
 
 ### Initialization
 
