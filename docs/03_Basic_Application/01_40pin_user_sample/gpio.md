@@ -48,30 +48,6 @@ sidebar_position: 2
 
     3.  执行 GPIO [设置命令](#设置方式二登录开发板)。
 
- ### 板端 VS Code Web
-
-    1. 点击应用空间图标，查看更多应用。
-
-        ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
-        
-    2. 点击安装 VS Code Web 到开发板上，用于运行开发板预置的功能测试代码，无需本地安装 VS Code。
-
-        ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode-download.png)
-
-    3. 点击 VS Code Web 图标，打开 VS Code Web。
-        
-        ![VS Code Web](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/web_vscode.png)
-
-    4. 点击 `Open Folder` 后填写代码程序所在路径 `/app/`，点击 `OK` 键确认。
-        
-        ![VScode Open Folder 界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_app_path_ok.png)
-
-    5. 进入 VS Code APP 程序界面，点击左侧导航栏的列表图标，选择 `Terminal` ——> `New Terminal`,新建终端。
-
-        ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
-
-    6.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
-
 ### 板端 VS Code Web
 
     1. 点击应用空间图标，查看更多应用。
