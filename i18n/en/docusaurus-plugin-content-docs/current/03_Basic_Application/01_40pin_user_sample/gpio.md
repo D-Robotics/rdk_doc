@@ -71,16 +71,6 @@ sidebar_position: 2
 
  6. Execute GPIO [configuration commands](#setting-method-2-log-in-to-the-development-board-and-set-the-gpio).
 
-### Using Node-RED
-
-1. For Node-RED installation instructions, see [Node-RED Installation](../../01_Quick_start/09_RDK_Studio/05_Device_management/02_integration_tools.md#using-node-rednode-red).
-
-2. Click to open the Node-RED application in the application space.
-
-    ![Open Application Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/appspace-node-red-en.png)
-
-3. Enter the Node-RED interface, drag nodes from the left panel to the workspace, and create a workflow to run the test example.
-    ![Workflow Image](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/en/simple-out-en.png)
 
  ## Setting Method 2: Log in to the development board and set the GPIO
 

@@ -161,16 +161,6 @@ if __name__ == '__main__':
           sunrise@ubuntu:~$ cd /app/40pin_samples/
           sunrise@ubuntu:/app/40pin_samples$ sudo python3 ././simple_pwm.py
           ```
-**方式三：使用 Node-RED**
-
-1. Node-RED 安装方法参见 [Node-RED 安装](../../01_Quick_start/09_RDK_Studio/05_Device_management/02_integration_tools.md#node-red-使用node-red)。
-
-2. 在应用空间中点击打开 Node-RED 应用。
-
-    ![打开应用界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/appspace-node-red.png)
-
-3. 进入 Node-RED 界面，拖拽左侧节点到工作区，创建工作流。
-    ![工作流图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/simple-pwm.png)
 
 
 
