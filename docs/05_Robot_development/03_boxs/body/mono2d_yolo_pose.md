@@ -43,7 +43,7 @@ import TabItem from '@theme/TabItem';
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
 | ---- | ---- | ------------ | ---- |
-| yolov8n-pose | S100 | 1x3x640x640 | 68.70 |
+| yolov11x-pose | S100 | 1x3x640x640 | 68.70 |
 | yolov11n-pose | S600 | 1x3x640x640 | 1104.91 |
 
 ## 准备工作
