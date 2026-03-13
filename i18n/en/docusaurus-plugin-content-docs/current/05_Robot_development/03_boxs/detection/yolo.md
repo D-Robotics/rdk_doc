@@ -30,7 +30,7 @@ Fall Down Detection Example： (https://github.com/xiaobin1231/Fall-Detection-By
 | Platform              | System | Supported Algorithms | Function                                            |
 | --------------------- | ---------------- | -------------------- | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
 
 ## Algorithm Information
@@ -47,6 +47,7 @@ Fall Down Detection Example： (https://github.com/xiaobin1231/Fall-Detection-By
 | yolov10n | X5 | 1x3x640x640 | 36.47 |
 | yolov11m | X5 | 1x3x640x640 | 28.95 |
 | yolov12m | X5 | 1x3x640x640 | 74 |
+| yolo26n | X5 | 1x3x640x640 | 67.48 |
 | yolov2 | S100 | 1x3x608x608 | 226.19 |
 | yolov3 | S100 | 1x3x416x416 | 212.55 |
 | yolov5 | S100 | 1x3x672x672 | 62.24 |
@@ -167,7 +168,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2, YOLO series are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`, and for the YOLOv8 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov8workconfig.json"`, and for the YOLOv10 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov10workconfig.json"`, and for the YOLOv11 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov11workconfig.json"`, and for the YOLOv12 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov12workconfig.json"`.
+In addition to the YOLOv2, YOLO series are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`, and for the YOLOv8 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov8workconfig.json"`, and for the YOLOv10 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov10workconfig.json"`, and for the YOLOv11 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov11workconfig.json"`, and for the YOLOv12 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov12workconfig.json"`, and for the YOLO26 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolo26workconfig.json"`.
 
 ## Result Analysis
 
