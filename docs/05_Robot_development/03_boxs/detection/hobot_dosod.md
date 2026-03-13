@@ -151,9 +151,6 @@ export CAM_TYPE=fb
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
-</TabItem>
-
-</Tabs>
 
 除了设定模型，还支持变更模型与配置。
 
