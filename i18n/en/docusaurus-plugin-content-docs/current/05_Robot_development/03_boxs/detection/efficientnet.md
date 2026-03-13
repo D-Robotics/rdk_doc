@@ -18,11 +18,19 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Applications: EfficientNet_Det can be used for tasks such as vehicle detection and is mainly applied in the fields of autonomous driving and smart home.
 
+Smoke Detection Example： (https://github.com/abg3/Smoke-Detection-using-Tensorflow-2.2)
+
 ## Supported Platforms
 
 | Platform               | System | Function                                        |
 | ---------------------- | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start MIPI/USB camera and display inference results through web<br/>· Use local data to save rendering results offline |
+| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start MIPI/USB camera and display inference results through web<br/>· Use local data to save rendering results offline |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| EfficientNet | X3 | 1x3x512x512 | 54.58 |
 
 ## Preparations
 

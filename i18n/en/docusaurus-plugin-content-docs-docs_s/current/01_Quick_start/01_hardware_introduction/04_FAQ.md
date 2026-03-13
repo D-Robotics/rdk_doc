@@ -18,13 +18,13 @@ sidebar\_position: 4
 
 **A:** It is described in the "Tip" or "Note" information within the introduction section of each interface.  
 
-### Q4：Can the power supply capability of the RDK S100 external interface output power exceed the maximum supply current provided by Digua?​  
+### Q4：Can the power supply capability of the RDK S100 external interface output power exceed the maximum supply current provided by D-Robotics?​  
 
-**A:** It must not exceed the maximum supply current provided by Digua, otherwise it may cause damage to the development board or startup abnormalities.  
+**A:** It must not exceed the maximum supply current provided by D-Robotics, otherwise it may cause damage to the development board or startup abnormalities.  
 
 ### Q5：How are the MCU sub-board and CAM sub-board connected to the RDK S100 mainboard, and are there any reference guides?  
 
-**A: The [1.1.1 RDK S100 Series](01_rdk_s100.md)** and **[1.1.3 MCU Interface Expansion Board](03_rdk_s100_mcu_port_expansion_board.md)** sections provide reference videos demonstrating the connection of the CAM sub-board and MCU sub-board to the RDK S100 mainboard.​  
+**A: The [1.1.1 RDK S100 Series](01_rdk_s100.md)** and **[1.1.3 MCU Port Expansion Board](03_rdk_s100_mcu_port_expansion_board.md)** sections provide reference videos demonstrating the connection of the CAM sub-board and MCU sub-board to the RDK S100 mainboard.​  
 
 ### Q6：What do characters such as AO, AI, I, O, IO, NULL, / described in the RDK S100 Pinlist Excel file mean?  
 

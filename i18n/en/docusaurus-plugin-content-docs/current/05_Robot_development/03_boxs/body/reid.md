@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 ---
 # Human Instance Tracking Reid
 
@@ -21,7 +21,14 @@ Application scenario: body tracking, body instance detection.
 
 | Platform             | System | Function                                            |
 | -------------------- | ---------------- | ------------------------------------------------------------|
-| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
+
+## Algorithm Information
+| Model     | Platform | Input Size    | Inference FPS |
+| --------- | -------- | ------------- | ------------- |
+| [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | X5 | 1x3x256x128 | 19.44 |
+| [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S100 | 1x3x256x128 | 407.66 |
 
 ## Preparation
 

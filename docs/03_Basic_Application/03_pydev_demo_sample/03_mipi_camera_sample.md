@@ -24,7 +24,7 @@ MIPI 摄像头示例是一个位于 `/app/pydev_demo/03_mipi_camera_sample` 中�
 ## 快速开始
 
 ### 代码以及板端位置
-MIPI 摄像头示例文件位于 `/app/pydev_demo/03_mipi_camera_sample/mipi_camera.py`：
+MIPI 摄像头示例文件位于 `/app/pydev_demo/03_mipi_camera_sample/mipi_camera.py`
 
 ### 编译以及运行
 Python 示例无需编译，直接运行即可：

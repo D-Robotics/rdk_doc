@@ -47,7 +47,7 @@ Bit idx  Function name   Status
 
 #### Automatic Capture
 
-- Set environment variables in U-Boot:
+- Set environment variables in Uboot:
 ```Shell
 setenv enable_ramdump 1
 setenv ramdump_part_name ramdump # "ramdump" here indicates the actual partition where dump files will be saved; replace it according to your board's partition layout
@@ -61,7 +61,7 @@ saveenv
 
 #### Manual Capture
 
-After triggering a Kernel panic and rebooting into U-Boot, execute the following commands in U-Boot. The data will be stored in the `/ramdump/` directory on eMMC or UFS.
+After triggering a Kernel panic and rebooting into Uboot, execute the following commands in Uboot. The data will be stored in the `/ramdump/` directory on eMMC or UFS.
 
 ```Shell
 Hobot$ setenv enable_ramdump 1

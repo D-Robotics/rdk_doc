@@ -42,130 +42,126 @@ sidebar_position: 6
 
 ## 应用sample
 
-- Sample中使用了DMA，但是没有进行初始化，是因为在Target/Target-hobot-lite-freertos-mcu1/target/HorizonTask.c文件中已经进行了初始化。
+### 软件操作流程
+
+一般的软件操作流程如下:
+
+1. 初始化
+    - 修改 `ChannelCfgArrayPtr` , `JobCfgArrayPtr` , `SeqCfgArrayPtr` , `HwCfgPtr` , `PhyCfgPtr` 等配置结构体，将SPI对应instance配置为自己需要的波特率和传输模式，可参考SPI配置说明[Spi 配置说明](./06_mcu_spi.md#spi_config)
+    - 调用 `Spi_Init(&Spi_Config)` 或者 `Spi_Init(NULL)` ，当传入为NULL时，使用 `Spi_PBcfg.c` 中的默认配置
+    - 驱动程序遍历 ，根据配置信息初始化内部数据结构（如 `Spi_ChannelState` , `Spi_JobState` , `Spi_HwQueueArray` 等）和物理SPI硬件单元（根据 `Spi_PhyCfgType` 和 `Spi_IpCfg` 设置寄存器）
+
+2. 设置传输模式:
+    - 应用程序通过 `Spi_SetAsyncMode()` 选择使用中断模式还是轮询模式。
+
+3. 数据准备:
+    - 应用程序通过 `Spi_WriteIB()` 或 `Spi_SetupEB()` 函数将要发送的数据放入通道关联的缓冲区中。
+
+4. 传输请求：
+    - 应用程序调用 `Spi_AsyncTransmit(sequence)` 或 `Spi_SyncTransmit(sequence)` 来启动一个序列的传输。
+
+5. 驱动处理:
+    - 驱动程序根据 `sequence ID` 找到对应的 `Spi_SeqCfg`
+    - 根据 `Spi_SeqCfg.JobIndexList`  获取作业列表。
+    - 对于序列中的每个作业：
+    - 根据 `Spi_JobCfg.HWUnit` 确定要使用的物理SPI硬件单元。
+    - 根据 `Spi_JobCfg.HwCfgPtr` 获取该作业对应的外部设备通信参数。
+    - 根据 `Spi_JobCfg.ChannelIndexList` 获取通道列表。
+    - 遍历通道列表，从 `Spi_ChannelCfg.BufferDescriptor` 指向的缓冲区中获取发送数据。
+    - 配置物理SPI硬件单元。
+    - 启动硬件传输。
+
+6. 传输完成:
+    - 对于异步传输，硬件完成传输后（通过中断或轮询检测），驱动程序会调用相应的通知函数
+    - 对于同步传输，函数会等待传输完成。
+
+7. 状态查询:
+    - 应用程序可以通过 `Spi_GetJobResult()` , `Spi_GetSequenceResult()` 等函数查询传输状态。
 
 
-S100 有SPI2-SPI7六个SPI硬件，SPI通道和外部设备以及物理单元抽象关键信息对应如下:
-
-| **SPI通道** | **External device**     | **Spi Physical Unit**      |
-|-------------|-------------------------| ---------------------------|
-| SPI2        | SPI_SpiExternalDevice_0 | Spi_PhyConfig_SpiPhyUnit_0 |
-| SPI3        | SPI_SpiExternalDevice_1 | Spi_PhyConfig_SpiPhyUnit_1 |
-| SPI4        | SPI_SpiExternalDevice_2 | Spi_PhyConfig_SpiPhyUnit_2 |
-| SPI5        | SPI_SpiExternalDevice_3 | Spi_PhyConfig_SpiPhyUnit_3 |
-| SPI6        | SPI_SpiExternalDevice_4 | Spi_PhyConfig_SpiPhyUnit_4 |
-| SPI7        | SPI_SpiExternalDevice_5 | Spi_PhyConfig_SpiPhyUnit_5 |
-
-### 配置说明
-
-以SPI4为例,配置如下：
-
-```c
-//Config/McalCdd/gen_s100_sip_B_mcu1/Spi/src/Spi_PBcfg.c
-static const Spi_PhyCfgType Spi_PhyConfig_SpiPhyUnit_2 =
-{
-    (uint8)2U, /* Instance */
-    SPI_SPURIOUS_CORE_ID, /* SpiCoreUse */
-    /* Spi Slave mode*/
-    (boolean)FALSE,  //FALSE为master模式，true为slave模式
-    /* Spi Test Mode Operation Enable*/
-    (boolean)FALSE, // 回环模式，不走线
-    /* Spi Sample Point*/
-    (uint32)0U,
-#if (SPI_DMA_ENABLE == STD_ON)
-    (boolean)FALSE, //DMA配置
-#endif
-    SPI_IP_POLLING, /* Transfer mode 可选中断模式和轮询模式*/
-    (uint8)2U, /* State structure element from the array */
-    //SPI_PHYUNIT_SYNC /* IsSync */
-    SPI_PHYUNIT_ASYNC //同步模式或异步模式
-};
-
-static const Spi_ChannelCfg SpiChannel_2 =
-{
-    /* SpiChannel_2*/
-    EB, /* BufferType IB or EB */ //使用外部内存或者内部内存
-    8U, /* Frame size */
-    (uint32)1U, /* In the case SpiDefaultData is disabled. Set this value is 1U */
-    Spi_TxDefaultBufferSpiChannel_2,
-    Spi_RxDefaultBufferSpiChannel_2,
-    256U, /* Length (configured in SpiEbMaxLength) */
-    &Spi_BufferSpiChannel_2,
-    SPI_SPURIOUS_CORE_ID,
-    &Spi_ChannelState[2U] /* Spi_ChannelState pointer */
-};
-
-```
-
+:::tip
+- SPI只需要在INIT之后配置一次`set_AsyncMode()`，不需要反复调用，反复调用会导致传输异常。
+- 当传输发生异常的时候，SPI的状态机不会自动复位，需要手动调用 `Spi_Cancel()` 函数复位传输状态机。
+- Sample里用了DMA，但没进行初始化，这是因为在 `Target/Target-hobot-lite-freertos-mcu1/target/HorizonTask.c` 文件中已经完成了初始化。
+:::
 
 ### 单片选使用示例
 
-spi_test 命令用于测试SPI（Serial Peripheral Interface，串行外设接口）功能。该命令支持初始化和参数设置、获取参数以及执行SPI测试。
+spi_test 命令用于测试SPI（Serial Peripheral Interface，串行外设接口）功能。该命令支持初始化和参数设置、显示当前参数以及执行SPI数据传输测试。
 
-- spitest 命令支持以下三种操作模式，通过第一个参数指定：
-    - 0：初始化和参数设置
-    - 1：获取参数
-    - 2：执行SPI测试
+**命令语法**
+```bash
+spi_test <operation> [bus_id] [sync_mode] [trans_mode]
+```
 
-- 参数解析
-    - 操作模式 (argv[1]): 指定要执行的操作，取值范围为0、1或2。
-    - 设备ID (argv[2]): 指定SPI设备的ID，与使用哪一个SPI相关，对应情况可参考本文首节中SPI关键信息对应表。
-    - 通道号 (argv[3]): 指定SPI通道号，对应上文的Spi_ChannelCfg配置，通常只在切换内部内存和外部内存时需要更改。
-    - 同步模式 (argv[4]): 仅在操作模式为0时使用，指定SPI通信的同步模式。
-        - 0: 异步模式
-        - 1: 同步模式
-    - 传输模式 (argv[5]): 仅在操作模式为0时使用，指定SPI数据的传输模式。
-        - 0: 轮询模式 (Polling)
-        - 1: 中断模式 (Interrupt)
+**参数说明**
+- operation: 指定要执行的操作。
+    - 0: 初始化和参数设置。
+    - 1: 显示当前设置的参数。
+    - 2: 执行SPI测试（异步或同步）。
+- bus_id (仅当 operation 为 0 时需要): 指定要使用的SPI总线。
+    - 取值范围: 2 到 6，分别对应 SPI2 到 SPI6。
+- sync_mode (仅当 operation 为 0 时需要): 指定SPI通信的同步模式。
+    - 0: 异步模式 (async)
+    - 1: 同步模式 (sync)
+- trans_mode (仅当 operation 为 0 时需要): 指定SPI数据传输的底层机制。
+    - 0: 轮询模式 (polling)
+    - 1: 中断模式 (interrupt)
 
 :::tip
 应用层配置与底层配置应保持一致，否则会出现错误。
 :::
 
-将SPI4的MISO和MOSI短接，运行以下命令
+以SPI3 为例，将SPI3的MISO和MOSI短接，运行以下命令，设置传输参数
+```shell
+D-Robotics:/$ spi_test 0 3 0 0
+[055.578172 0]Init&&Parameter setting
+[055.578428 0]Show Spi parameter
+[055.578792 0]spi_bus = 3
+[055.579085 0]sync_mode = async
+[055.579443 0]trans_mode = polling
+```
+运行以下命令，测试
 ```shell
 D-Robotics:/$ spi_test 2
-[0433.628723 0]set interrupt
-[0433.628914 0]interrupt,2
-[0433.639657 0]interrupt,2
-[0433.649684 0]
+[059.643996 0]Sequence: 1, transfer_length = 128 spi_framesize = 16
+[059.673978 0]
 RxChBuf0 (256 bytes):
-0CC20DC0: 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 00  | 123456789:;<=>?.
-0CC20DD0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20DE0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20DF0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E10: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20E90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20EA0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CC20EB0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-[0433.679963 0]
+0CBD2A80: 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F  | ................
+0CBD2A90: 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F  | ................
+0CBD2AA0: 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F  |  !"#$%&'()*+,-./
+0CBD2AB0: 30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F  | 0123456789:;<=>?
+0CBD2AC0: 40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F  | @ABCDEFGHIJKLMNO
+0CBD2AD0: 50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F  | PQRSTUVWXYZ[\]^_
+0CBD2AE0: 60 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F  | `abcdefghijklmno
+0CBD2AF0: 70 71 72 73 74 75 76 77 78 79 7A 7B 7C 7D 7E 7F  | pqrstuvwxyz{|}~.
+0CBD2B00: 80 81 82 83 84 85 86 87 88 89 8A 8B 8C 8D 8E 8F  | ................
+0CBD2B10: 90 91 92 93 94 95 96 97 98 99 9A 9B 9C 9D 9E 9F  | ................
+0CBD2B20: A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 AA AB AC AD AE AF  | ................
+0CBD2B30: B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 BA BB BC BD BE BF  | ................
+0CBD2B40: C0 C1 C2 C3 C4 C5 C6 C7 C8 C9 CA CB CC CD CE CF  | ................
+0CBD2B50: D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 DA DB DC DD DE DF  | ................
+0CBD2B60: E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 EA EB EC ED EE EF  | ................
+0CBD2B70: F0 F1 F2 F3 F4 F5 F6 F7 F8 F9 FA FB FC FD FE FF  | ................
+[059.687954 0]
 TxChBuf0 (256 bytes):
-0CBC3040: 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 00  | 123456789:;<=>?.
-0CBC3050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC30A0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC30B0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC30C0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC30D0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC30E0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC30F0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3110: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3120: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-0CBC3130: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  | ................
-[0433.700110 0]=====SPI ASYNC TEST SUCCESS=====
-
+0CBD2B80: 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F  | ................
+0CBD2B90: 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F  | ................
+0CBD2BA0: 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F  |  !"#$%&'()*+,-./
+0CBD2BB0: 30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F  | 0123456789:;<=>?
+0CBD2BC0: 40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F  | @ABCDEFGHIJKLMNO
+0CBD2BD0: 50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F  | PQRSTUVWXYZ[\]^_
+0CBD2BE0: 60 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F  | `abcdefghijklmno
+0CBD2BF0: 70 71 72 73 74 75 76 77 78 79 7A 7B 7C 7D 7E 7F  | pqrstuvwxyz{|}~.
+0CBD2C00: 80 81 82 83 84 85 86 87 88 89 8A 8B 8C 8D 8E 8F  | ................
+0CBD2C10: 90 91 92 93 94 95 96 97 98 99 9A 9B 9C 9D 9E 9F  | ................
+0CBD2C20: A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 AA AB AC AD AE AF  | ................
+0CBD2C30: B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 BA BB BC BD BE BF  | ................
+0CBD2C40: C0 C1 C2 C3 C4 C5 C6 C7 C8 C9 CA CB CC CD CE CF  | ................
+0CBD2C50: D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 DA DB DC DD DE DF  | ................
+0CBD2C60: E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 EA EB EC ED EE EF  | ................
+0CBD2C70: F0 F1 F2 F3 F4 F5 F6 F7 F8 F9 FA FB FC FD FE FF  | ................
+[059.702104 0]=====SPI ASYNC TEST SUCCESS=====
 ```
 ### 双片选使用示例
 
@@ -201,14 +197,122 @@ Robotics:/$ SpiTest_Mul_cs 4 4 1 8 10 1
 [Spi_Trans_Test 231] [INFO]: data_tx: 0xcbccc40, data_rx: 0xcbcca40
 [Spi_Trans_Test 238] [INFO]: len = 10, check_data_len = 10
 [get_spi_sequence_result 122] [INFO]: SPI result: SPI_SEQ_PENDING
-TX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
-RX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
+TX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
+RX | 00 01 02 03 04 05 06 07 08 09 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 [check_data 81] [INFO]: check data success.
 [Spi_Interrupt_Async_Transfer_Test 353] [INFO]: Transfer success.
 [SpiTest_Mul_cs 474] [INFO]: Test case pass.
 [SpiTest_Mul_cs 479] [INFO]: #####################################################################
 
 ```
+
+### 配置文件说明{#spi_config}
+
+配置文件`Spi_PBcfg.c` 存放着SPI的驱动配置，其中`Spi_ConfigType`为顶层容器，它将所有配置信息（通道、作业、序列、硬件单元等）组织在一起，形成一个完整的、用于初始化 SPI 驱动程序的配置集。
+
+```c
+/**
+ * @struct Spi_ConfigType
+ * @NO{S01E17C01}
+ * @brief This is the top level structure containing all the
+ *         needed parameters for the SPI Handler Driver.
+ */
+typedef struct
+{
+    uint32 SpiCoreUse;                                  /**< CoreID used*/
+    const Spi_ChannelCfgArray *ChannelCfgArrayPtr;      /**< Pointer to Array of channels defined in the configuration.*/
+    const Spi_JobCfgArray *JobCfgArrayPtr;              /**< Pointer to Array of jobs defined in the configuration.*/
+    const Spi_SeqCfgArray *SeqCfgArrayPtr;              /**< Pointer to Array of sequences defined in the configuration.*/
+    const Spi_HwCfgArray *HwCfgPtr;                     /**< External device unit attributes.*/
+    const Spi_PhyCfgArray *PhyCfgPtr;                   /**< Pointer to Array of device instances.*/
+    Spi_ChannelType SpiMaxChannel;                      /**< Number of channels defined in the configuration.*/
+    Spi_JobType SpiMaxJob;                              /**< Number of jobs defined in the configuration.*/
+    Spi_SequenceType SpiMaxSequence;                    /**< Number of sequences defined in the configuration.*/
+    Spi_HwNumType SpiMaxHwNum;                          /**< Number of Spi HW defined in the configuration.*/
+#if (SPI_DISABLE_DEM_REPORT_ERROR_STATUS == STD_OFF)
+    const Mcal_DemErrorType SpiErrorHwCfg;        /**< SPI Driver DEM Error: SPI_E_HARDWARE_ERROR.*/
+#endif
+} Spi_ConfigType;
+```
+**成员解释**
+
+1. **SpiCoreUse**：指定哪个CPU核心可以使用这个SPI配置，单核系统保持原状即可
+2. **ChannelCfgArrayPtr**：指向一个包含所有Spi_ChannelCfg配置的数组。这个数组定义了系统中所有可用的SPI通道（Channel）的属性，如缓冲区类型（IB/EB）、帧大小、默认值、缓冲区指针等
+3. **JobCfgArrayPtr**：指向一个包含所有Spi_JobCfg配置的数组。这个数组定义了系统中所有可用的SPI作业（Job）的属性，如包含的通道列表、通知函数、优先级、关联的物理单元（HWUnit）等
+4. **SeqCfgArrayPtr**：指向一个包含所有Spi_SeqCfg配置的数组。这个数组定义了系统中所有可用的SPI序列（Sequence）的属性，如包含的作业列表、通知函数、是否可中断等
+5. **HwCfgPtr**：指向一个包含所有Spi_HwCfg配置的数组。这个数组定义了系统中所有外部设备（External Device）的硬件属性，主要是与通信相关的参数（如波特率、时钟极性、片选等）
+6. **PhyCfgPtr**：指向一个包含所有Spi_PhyCfgType配置的数组。这个数组定义了系统中所有物理SPI硬件单元（Physical SPI Unit, PhyUnit）的基本工作模式和特性（如主/从模式、DMA 使用、传输模式等）。
+7. **SpiMaxChannel**: 配置中定义的通道总数。用于驱动程序内部数组的大小分配和边界检查
+8. **SpiMaxJob**：配置中定义的作业总数。用于驱动程序内部数组的大小分配和边界检查
+9. **SpiMaxSequence**：配置中定义的序列总数。用于驱动程序内部数组的大小分配和边界检查
+10. **SpiMaxHwNum**：配置中涉及的物理SPI硬件单元（PhyUnit）的数量。用于驱动程序内部数组的大小分配和边界检查
+11. **SpiErrorHwCfg**：用于配置SPI硬件错误的报告参数
+
+**成员之间的关联关系**
+
+应用程序通常通过调用 `Spi_AsyncTransmit()` 或 `Spi_SyncTransmit()` 并传入一个序列ID来启动传输，因此序列是用户直接交互的入口点，它与通道、作业、硬件配置和物理单元配置的简略实体关系如下：
+
+ ```mermaid
+erDiagram
+    SPI_SEQUENCE ||--o{ SPI_JOB : contains
+    SPI_JOB ||--|| SPI_HWUNIT : uses
+    SPI_JOB ||--|| SPI_EXTERNAL_DEVICE : configures
+    SPI_JOB ||--o{ SPI_CHANNEL : includes
+
+    SPI_SEQUENCE {
+        uint8 NumJobs
+        array JobIndexList
+    }
+    SPI_JOB {
+        uint8 NumChannels
+        array ChannelIndexList
+        enum HWUnit
+        ptr HwCfgPtr
+    }
+    SPI_CHANNEL {
+        uint16 FrameSize
+        uint16 Length
+        ptr BufferDescriptor
+    }
+    SPI_HWUNIT {
+        uint8 Instance "0~5"
+        bool SlaveMode
+        string TransferMode
+    }
+    SPI_EXTERNAL_DEVICE {
+        uint8 Instance
+        ptr IpCfg
+    }
+```
+
+
+`SPI_HWUNIT` 和 `SPI_EXTERNAL_DEVICE` 都需要关联一个硬件实例（Instance），该实例决定了使用哪一个SPI接口进行通信。由于RDKS100平台共提供8个SPI 控制器，其中MAIN域包含2个（SPI0、SPI1），MCU域包含6个（SPI2 至 SPI7），因此MCU域中的 SPI 实际从 SPI2 开始编号。下表<font color='green'>**绿色**</font>字体部分展示了 SPI 序列配置（Spi SeqCfg）与对应硬件资源（Spi BusId、HWUnit、Instance）之间的映射关系。
+
+
+
+| **SPI SeqCfg** | <font color='green'>**Spi BusId**</font>  | <font color='green'>**HWUnit**</font>  | <font color='green'>**Instance**</font>  | **Spi Baudrate** | **Spi Cs** | **Frame size**|
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| SpiSequence_0 | <font color='green'>SPI2</font> | <font color='green'>CSIB0</font> | <font color='green'>0</font> | 2000000 | CS0 | 16 bit |
+| SpiSequence_1 | <font color='green'>SPI3</font> | <font color='green'>CSIB1</font> | <font color='green'>1</font> | 2000000 | CS0 | 16 bit |
+| SpiSequence_2 | <font color='green'>SPI4</font> | <font color='green'>CSIB2</font> | <font color='green'>2</font> | 1000000 | CS0 | 8 bit |
+| SpiSequence_3 | <font color='green'>SPI5</font> | <font color='green'>CSIB3</font> | <font color='green'>3</font> | 1000000 | CS0 | 8 bit |
+| SpiSequence_4 | <font color='green'>SPI5</font> | <font color='green'>CSIB3</font> | <font color='green'>3</font> | 1000000 | CS0 | 16 bit |
+| SpiSequence_5 | <font color='green'>SPI6</font> | <font color='green'>CSIB4</font> | <font color='green'>4</font> | 1000000 | CS0 | 8 bit |
+| SpiSequence_6 | <font color='green'>SPI7</font> | <font color='green'>CSIB5</font> | <font color='green'>5</font> | 1000000 | CS0 | 8 bit |
+| SpiSequence_7 | <font color='green'>SPI2</font> | <font color='green'>CSIB0</font> | <font color='green'>0</font> | 2000000 | CS1 | 16 bit |
+| SpiSequence_8 | <font color='green'>SPI3</font> | <font color='green'>CSIB1</font> | <font color='green'>1</font> | 2000000 | CS1 | 16 bit |
+| SpiSequence_9 | <font color='green'>SPI4</font> | <font color='green'>CSIB2</font> | <font color='green'>2</font> | 1000000 | CS1 | 8 bit |
+| SpiSequence_10 | <font color='green'>SPI5</font> | <font color='green'>CSIB3</font> | <font color='green'>3</font> | 1000000 | CS1 | 8 bit |
+| SpiSequence_11 | <font color='green'>SPI5</font> | <font color='green'>CSIB3</font> | <font color='green'>3</font> | 1000000 | CS1 | 16 bit |
+| SpiSequence_12 | <font color='green'>SPI6</font> | <font color='green'>CSIB4</font> | <font color='green'>4</font> | 1000000 | CS1 | 8 bit |
+| SpiSequence_13 | <font color='green'>SPI7</font> | <font color='green'>CSIB5</font> | <font color='green'>5</font> | 1000000 | CS1 | 8 bit |
+
+:::tip
+MCU1 的 SPI 出厂默认参数基于 Spi_PBcfg.c 配置文件，具有一定的时效性，但通常不会发生变更。
+:::
+
+
+
 ### 应用程序接口
 
 #### void Spi_Init(const Spi_ConfigType* ConfigPtr)

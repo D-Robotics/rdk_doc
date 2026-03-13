@@ -4,7 +4,13 @@ sidebar_position: 4
 
 # 2.4 Thermal和CPU频率管理
 
-## X3
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
+## RDK X3
 
 :::info 注意
 以下内容适用于`RDK X3`和`RDK X3 Module`开发板,不适用于`RDK Ultra`开发板
@@ -20,7 +26,7 @@ sidebar_position: 4
 - **降频温度：**系统CPU、BPU降频温度点，温度超过该温度点时，CPU和BPU会降低运行频率来降低SoC功耗，CPU最低降到240MHz，BPU最低降到400MHz。可以通过命令 `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_1_temp`获得当前配置值，默认是 95000（95摄氏度）。
 - **宕机温度：**系统宕机温度点，如果温度超过该温度，为了保护芯片和硬件，系统会关机，建议对设备做好散热处理，避免设备宕机，因为宕机后设备不会自动重启，需要用户手动给开发板断电后再重启。可以通过命令 `cat /sys/devices/virtual/thermal/thermal_zone0/trip_point_2_temp`获得当前配置值，默认是 105000（105摄氏度）。
 
-可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
+可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态：
 
 ![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
@@ -65,7 +71,7 @@ scaling_driver						// 当前使用的调频驱动
 scaling_governor					// governor(调频)策略
 scaling_max_freq					// 当前调频策略下CPU可用的最高频率（从cpufreq模块缓存中读取）
 scaling_min_freq					// 当前调频策略下CPU可用的最低频率（从cpufreq模块缓存中读取）
-scaling_setspeed					// 需将governor切换为userspace才能使用，往这个文件echo数值，会切换频率 
+scaling_setspeed					// 需将governor切换为userspace才能使用，往这个文件echo数值，会切换频率
 ```
 
 RDK系统使用的linux内核支持以下种类的调频策略:
@@ -76,6 +82,11 @@ RDK系统使用的linux内核支持以下种类的调频策略:
 - 保守（conservative）：跟ondemand策略类似，定时检查负载，然后根据负载来调节频率。负载低的时候调节至一个刚好能够满足当前负载需求的最低频，但当负载高时，不是立即设置为最高性能状态，而是逐级升高主频。
 - 用户（userspace）：将控制接口通过sysfs开放给用户，由用户进行自定义策略，可以在用户空间手动调节频率。
 - 调度信息（schedutil）：这是从Linux-4.7版本开始才引入的策略，其原理是根据调度器所提供的CPU利用率信息进行频率调节，效果上类似于ondemand策略，但是更加精确和自然（因为调度器掌握了最好的CPU使用情况）。
+
+用户可以通过以下两种方式设置调频策略：
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="登录开发板">
 
 用户可以通过控制目录`/sys/devices/system/cpu/cpufreq/policy0`下的对应设置来控制CPU的调频策略。
 
@@ -123,11 +134,81 @@ sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
 
 :::
 
-可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
+可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态：
 
 ![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
-## X5
+</TabItem>
+
+<TabItem value="rdk-studio" label="RDK Studio 登录">
+
+RDK Studio 中的性能监测工具 Performance Node 提供系统硬件监控与实时性能调控能力。它将精细化的数据监控与动态的性能调优相结合，帮助用户全面掌握并控制计算机的运行状态。
+
+:::info 提示
+
+- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
+- RDK Studio 使用指南：[点此查看](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+
+2. 点击应用空间图标，查看更多应用。
+
+    ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+
+3. 点击安装 Performance Node 到开发板上。
+
+    ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-install.png)
+
+4. Performance Node 性能检测展示：
+
+    - **CPU 性能界面：**
+
+        ![CPU 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - 点击上方 CPU 可启用/禁用对应的 CPU 性能展示。
+        - 点击右上角按钮进行区域缩放和还原。
+        - 点击下载按钮将当前性能界面保存为图片。
+
+    - **BPU/GPU 性能界面：**
+
+        ![BPU/GPU 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+
+          - 点击上方 BPU/GPU 可启用/禁用对应的 BPU/GPU 性能展示。
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+    - **Memory 性能界面：展示已用和可用内存。**
+
+        ![Memory 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+    - **Disk 性能界面：展示已用和可用磁盘。**
+
+        ![Disk 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+5. 性能监测设置：
+
+   ![设置界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - 设置采样间隔：采样间隔时间默认1000ms，填写间隔时间后点击 `当前采样间隔1000ms，点我修改`，完成间隔时间设置。
+   - CPU 调频模式：点击 `performance(CPU 调频模式，点击切换)`，可切换 CPU 调频模式。
+   - 界面切换：默认为竖屏界面，点击 `点我前往横屏界面`，可切换为横屏展示。
+
+      ![横屏界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+
+</TabItem>
+</Tabs>
+
+
+## RDK X5
 
 :::info 注意
 以下内容适用于`RDK X5`开发板
@@ -231,7 +312,7 @@ scaling_driver						// 当前使用的调频驱动
 scaling_governor					// governor(调频)策略
 scaling_max_freq					// 当前调频策略下CPU可用的最高频率（从cpufreq模块缓存中读取）
 scaling_min_freq					// 当前调频策略下CPU可用的最低频率（从cpufreq模块缓存中读取）
-scaling_setspeed					// 需将governor切换为userspace才能使用，往这个文件echo数值，会切换频率 
+scaling_setspeed					// 需将governor切换为userspace才能使用，往这个文件echo数值，会切换频率
 ```
 
 目前支持的频率包括
@@ -248,6 +329,11 @@ RDK X5系统使用的linux内核支持以下种类的调频策略:
 - userspace：根据用户的设置频率
 - powersave：以最低频率执行
 - schedutil：按照负载调整频率，它是与CPU调度器结合来使用
+
+用户可以通过以下两种方式设置调频策略：
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="登录开发板">
 
 用户可以通过控制目录`/sys/devices/system/cpu/cpu0/cpufreq/`下的对应设置来控制CPU的调频策略。
 
@@ -311,6 +397,75 @@ X5M
 
 :::
 
-可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态： 
+可通过`sudo hrut_somstatus`命令查看当前芯片工作频率、温度等状态：
 
 ![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)
+
+</TabItem>
+
+<TabItem value="rdk-studio" label="RDK Studio 登录">
+
+RDK Studio 中的性能监测工具 Performance Node 提供系统硬件监控与实时性能调控能力。它将精细化的数据监控与动态的性能调优相结合，帮助用户全面掌握并控制计算机的运行状态。
+
+:::info 提示
+
+- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
+- RDK Studio 使用指南：[点此查看](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. 使用 RDK Studio 添加设备，参见[添加 RDK 设备](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+
+2. 点击应用空间图标，查看更多应用。
+
+    ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+
+3. 点击安装 Performance Node 到开发板上。
+
+    ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-install.png)
+
+4. Performance Node 性能检测展示：
+
+    - **CPU 性能界面：**
+
+        ![CPU 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - 点击上方 CPU 可启用/禁用对应的 CPU 性能展示。
+        - 点击右上角按钮进行区域缩放和还原。
+        - 点击下载按钮将当前性能界面保存为图片。
+
+    - **BPU/GPU 性能界面：**
+
+        ![BPU/GPU 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+
+          - 点击上方 BPU/GPU 可启用/禁用对应的 BPU/GPU 性能展示。
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+    - **Memory 性能界面：展示已用和可用内存。**
+
+        ![Memory 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+    - **Disk 性能界面：展示已用和可用磁盘。**
+
+        ![Disk 性能界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+
+          - 点击右上角按钮进行区域缩放和还原。
+          - 点击下载按钮将当前性能界面保存为图片。
+
+5. 性能监测设置：
+
+   ![设置界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - 设置采样间隔：采样间隔时间默认1000ms，填写间隔时间后点击 `当前采样间隔1000ms，点我修改`，完成间隔时间设置。
+   - CPU 调频模式：点击 `performance(CPU 调频模式，点击切换)`，可切换 CPU 调频模式。
+   - 界面切换：默认为竖屏界面，点击 `点我前往横屏界面`，可切换为横屏展示。
+
+      ![横屏界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+
+</TabItem>
+</Tabs>

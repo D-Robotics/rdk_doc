@@ -24,6 +24,11 @@ Update apt repository
 sudo apt update
 ```
 
+:::caution **Note**
+**If `sudo apt update` fails or returns an error, please refer to `Q10: How to resolve apt update command failures or errors?` in the [FAQ](../../08_FAQ/01_hardware_and_system.md) section.**
+
+:::
+
 ### 2. Install packages
 
 ```shell

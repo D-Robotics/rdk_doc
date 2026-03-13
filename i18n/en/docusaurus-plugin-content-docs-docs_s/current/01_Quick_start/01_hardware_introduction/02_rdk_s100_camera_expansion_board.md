@@ -4,9 +4,10 @@ sidebar_position: 4
 
 # 1.1.2 Camera Expansion Board
 
-![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png)
+<!-- ![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png) -->
+![image-rdk_100_camera_expansion_board](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_smooth_hole_support_board.png)
 
-The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the Digu Robot RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
+The RDK S100 Camera Expansion Board (hereinafter referred to as the "Camera Expansion Board") is a core expansion module of the D-Robotics RDK S100 series developer kit. Based on the RDK S100 Camera Expansion Connector, the Camera Expansion Board enables secondary development and provides 2 MIPI camera interfaces and 4 GMSL camera interfaces.
 
 :::warning
 
@@ -57,12 +58,12 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 | Interface | Function               | Interface   | Function                              |
 | :-------- | :--------------------- | ----------- | ------------------------------------- |
-| J2000     | 100-Pin Interface      | J2200       | MIPI Camera Interface 1               |
+| J2000     | 100-Pin Connector      | J2200       | MIPI Camera Interface 1               |
 | D2000     | Power Indicator LED    | J2201       | MIPI Camera Interface 2               |
 | J2001     | DC Power Input         | SW2200      | MIPI Camera Interface Function Switch |
 | J2100     | GMSL Camera Interface  | SW2201      | MIPI Camera Interface Voltage Switch  |
 
-### Assembly Guide
+### Camera Installation Instructions
 
 | Model                                      | Hardware Interface | Function Switch SW2200 | Voltage Switch SW2201            |
 | ------------------------------------------ | ------------------ | ---------------------- | -------------------------------- |
@@ -74,6 +75,8 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 | Intel RealSense D457                       | J2100              | -                      | -                                |
 | Intel RealSense D435i                      | USB                | -                      | -                                |
 
+### Assembly Guide
+
 :::danger
 
 1. Perform installation only when the development board is powered off and the DC plug is disconnected.
@@ -81,8 +84,27 @@ To avoid malfunction or damage to this expansion board, strictly adhere to the f
 
 :::
 
+:::warning Camera Expansion Board Description  
+
+Please refer to the corresponding expansion board assembly video based on the actual product.
+- Threaded Standoff Expansion Board: Support standoffs have threaded inner walls.
+- Smooth Standoff Expansion Board: Support standoffs have smooth, non-threaded inner walls. 
+
+    <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location-en.png" alt="Support Column Location Image" width="45%" />  
+
+:::
+
+#### Threaded hole support post
+
 <video controls width="90%" preload="metadata">
   <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+#### Smooth hole support post
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide_smooth_hole_support.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -117,13 +139,13 @@ The Camera Expansion Board integrates the MAX96712 deserializer chip, supporting
 
 1. When the total 12V current draw of GMSL cameras is ≤700mA, no external 12V adapter is needed—the 12V power is supplied by the RDK S100. If the current draw exceeds 700mA, an external 12V adapter must be connected to ensure stable power delivery.
 2. The Camera Expansion Board can supply up to 550mA@12V per GMSL channel. Exceeding this limit may result in unstable camera operation.
-3. The GMSL interface uses a mini Fakra 4-in-1 Z-code connector. Use cables and cameras recommended by Digu Robotics to ensure stable high-speed GMSL signal transmission.
+3. The GMSL interface uses a mini Fakra 4-in-1 Z-code connector. Use cables and cameras recommended by D-Robotics to ensure stable high-speed GMSL signal transmission.
 
 :::
 
 ### MIPI Camera Interfaces (J2200, J2201)
 
-Pinout Definition: [drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0.xlsx](../../../../../../static/asset/rdk_s100/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0-eng.xlsx)
+Pinout Definition: [drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0.xlsx](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100_camera_expansion_board/drobotics_rdk_s100_camera_expansion_board_pinlist_v1p0-eng.xlsx)
 
 The Camera Expansion Board features two 4-lane MIPI CSI D-PHY interfaces, supporting simultaneous connection of two MIPI cameras. The MIPI camera interfaces support both 1.8V and 3.3V logic levels and provide developers with either an LPWM synchronization signal or a 24MHz MCLK signal.
 
@@ -134,7 +156,7 @@ The Camera Expansion Board features two 4-lane MIPI CSI D-PHY interfaces, suppor
 
 :::
 
-### MIPI Interface Voltage Selection (SW2201)
+### MIPI Camera Interface Voltage Switch (SW2201)
 
 The control signals of the MIPI camera interfaces support switching between 1.8V and 3.3V logic levels to accommodate different camera modules. Switch the DIP switch SW2201 to select the desired logic voltage.
 
@@ -143,7 +165,7 @@ The control signals of the MIPI camera interfaces support switching between 1.8V
 | 1 (Right)| MIPI Cam 1   | MIPI Camera 1 interface uses 3.3V logic level    | MIPI Camera 1 interface uses 1.8V logic level    |
 | 2        | MIPI Cam 2   | MIPI Camera 2 interface uses 3.3V logic level    | MIPI Camera 2 interface uses 1.8V logic level    |
 
-### MIPI Interface Function Selection (SW2200)
+### MIPI Camera Interface Function Switch (SW2200)
 
 Pin 5 of the MIPI camera interface connectors supports switching between LPWM and MCLK (24MHz) functions to meet varying development needs. Switch the DIP switch SW2200 to select the desired function.
 
@@ -152,7 +174,7 @@ Pin 5 of the MIPI camera interface connectors supports switching between LPWM an
 | 1 (Right)| MIPI Cam 1   | Pin 5 of MIPI Camera 1 interface outputs LPWM signal  | Pin 5 of MIPI Camera 1 interface outputs MCLK signal  |
 | 2        | MIPI Cam 2   | Pin 5 of MIPI Camera 2 interface outputs LPWM signal  | Pin 5 of MIPI Camera 2 interface outputs MCLK signal  |
 
-## Power Indicator (D2000)
+## Power Indicator LED (D2000)
 
 The power indicator LED is located next to the DC power input jack.
 

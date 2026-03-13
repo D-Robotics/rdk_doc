@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # UART使用指南
 
-S100 MCU芯片共有3路uart，即uart4~uart6。其中uart4作为调试控制台使用（MCU0、MCU1共用调试串口），默认不开启DMA，默认配置如下：
+S100 MCU芯片共有3路Uart，即Uart4~Uart6。其中Uart4作为调试控制台使用（MCU0、MCU1共用调试串口），默认不开启DMA，默认配置如下：
 
 | **配置项**         | **uart4** | **uart5** | **uart6** |
 |--------------------|-----------|-----------|-----------|
@@ -55,20 +55,40 @@ S100 MCU芯片共有3路uart，即uart4~uart6。其中uart4作为调试控制台
 
 ### 使用示例
 
-S100 开发板将UART5引出供用户开发学习使用，PIN脚位于Main Board板上的MCU Expansion Header。
+S100 开发板将Uart5引出供用户开发学习使用，PIN脚位于`Main Board`板上的`MCU Expansion Header`。
 
 //TODO 增加板子图片
 
-由于主线的代码，uart5默认透传给acore，所以在测试前需要在mcu的控制终端输入以下cmd命令,释放占用的uart5：
+:::tip
+当Uart5 可能用于Ipc透传时会与测试用例产生冲突，产生测试失败的现象，可以通过 `ipcbox_set_mode debug` 命令确认，若 `uart` 所在行显示 `Enable` 则代表已经被占用。
+
+```bash
+D-Robotics:/$ ipcbox_set_mode debug
+[0427.611385 0]Module: runcmd, Enable
+[0427.611637 0]Module: uart, Enable
+[0427.612039 0]Module: spi, Disable
+[0427.612440 0]Module: i2c, Disable
+```
+
+若确认被占用，在测试前需要在mcu的控制终端输入 `ipcbox_set_mode uart 0` 命令，释放占用的Uart5：
 
 ```shell
 D-Robotics:/$ ipcbox_set_mode uart 0
-[058.203488 0]uart processing disabled
-[058.203749 0]uart2ipc_release
-Return: 0, 0x00000000
-```
+[0774.571200 0]uart processing disabled
+[0774.690237 0]IpcBox_uart task resources released and terminating
+[0775.071611 0]IpcBox_uart task exited properly
 
-- uarttest  1 自环测试，注意将RX引脚接TX引脚
+D-Robotics:/$ ipcbox_set_mode debug
+[0781.748204 0]Module: runcmd, Enable
+[0781.748456 0]Module: uart, Disable
+[0781.748868 0]Module: spi, Disable
+[0781.749270 0]Module: i2c, Disable
+
+```
+:::
+
+
+- `uarttest 1` 自环测试，注意将RX引脚接TX引脚
 
 ```shell
 D-Robotics:/$ uarttest 1
@@ -79,7 +99,7 @@ Rx: 0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e
 ```
 
 
-- uarttest  2 接收数据
+- `uarttest 2` 接收数据
 这里使用了串口助手(配置：921600波特率8-N-1)向mcu发送数据
 ```shell
 D-Robotics:/$ uarttest 2
@@ -87,23 +107,23 @@ Rx: 0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e
 [0359.598869 0]AsyncSend & ASyncReceive test pass!
 ```
 
-- uarttest  3 发送数据
+- `uarttest 3` 发送数据
 ```shell
 
 D-Robotics:/$ uarttest 3
 Tx: 0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f 20 21 22 23 24 25 26 27 28 29 2a 2b 2c 2d 2e 2f 30 31 32 33 34 35 36 37 38 39 3a 3b 3c 3d 3e 3f 41 42 43 44 45
 ```
 
-- uarttest 4 获取GPS数据，RDK内部测试用例。
+- `uarttest 4` 获取GPS数据，RDK内部测试用例。
 
-- uarttest  5 设置波特率为9600
+- `uarttest 5` 设置波特率为9600
 ```
 D-Robotics:/$ uarttest 5
 [042602.833314 0]Channel 1 Baud: 9600
 
 ```
 
-- uarttest  6 设置波特率为115200
+- `uarttest 6` 设置波特率为115200
 
 ```
 D-Robotics:/$ uarttest 6

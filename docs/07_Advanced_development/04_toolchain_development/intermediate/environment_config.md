@@ -18,10 +18,10 @@ sidebar_position: 1
 ```bash
   // 示例版本为 V1.0.0
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
 
   // 更多模型转换示例，根据需要进行下载！
-  //wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
+  //wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
 ```
 
 #### 示例包源码目录结构说明
@@ -195,7 +195,7 @@ D-Robotics 要求的Docker基础环境信息如下：
 ### 开发板部署
 
 
-开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
+开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os/rdk_x3.md) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
 
 
 #### 补充文件准备
@@ -231,10 +231,10 @@ D-Robotics 要求的Docker基础环境信息如下：
 ```bash
   // 示例版本为 V1.2.6
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/runtime_package/Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://oeftp@sdk.d-robotics.cc/runtime_package/Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz --ftp-password=Oeftp~123$%
 
   // 更多模型转换示例，根据需要进行下载！
-  //wget -c ftp://oeftp@sunrise.horizon.cc:10021/model_convert_sample/horizon_model_convert_sample.tar.xz --ftp-password=Oeftp~123$%
+  //wget -c ftp://oeftp@sdk.d-robotics.cc/model_convert_sample/horizon_model_convert_sample.tar.xz --ftp-password=Oeftp~123$%
 ```
 
 #### 示例包源码目录结构说明
@@ -399,12 +399,12 @@ X5算法工具链要求的Docker基础环境信息如下：
     infer      inference and dump output feature as float vector.
     makertbin  transform caffe model to quantization model, generate runtime...
 ```
-若hb_mapper工具已正常输出日志， 说明环境已安装部署完成，请到 [**开发板部署**](./environment_config.html#span-id-board-env-install) 章节，进行开发板的环境安装。
+若hb_mapper工具已正常输出日志， 说明环境已安装部署完成，请到**开发板部署**章节，进行开发板的环境安装。
 
 
 ### <span id="board_env_install"/>开发板部署
 
-开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../quick_start/update_system_firmware.html#span-id-system-update) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
+开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os/rdk_x5.md) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
 
 算法工具链的部分补充工具未包含在系统镜像中，这些工具已经放置在 ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/`` 安装包中，
 进入到 ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/board`` 执行install脚本。
@@ -429,10 +429,10 @@ ftp://oemng@42.62.85.52:10021/RDK/rdk-x3-ultra/
 ```bash
   // 示例版本为 V1.0.0
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
 
   // 更多模型转换示例，根据需要进行下载！
-  //wget -c ftp://oeftp@sunrise.horizon.cc:10021/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
+  //wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
 ```
 
 #### 示例包源码目录结构说明
@@ -606,7 +606,7 @@ D-Robotics 要求的Docker基础环境信息如下：
 ### 开发板部署
 
 
-开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
+开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os/rdk_ultra.md) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
 
 
 #### 补充文件准备

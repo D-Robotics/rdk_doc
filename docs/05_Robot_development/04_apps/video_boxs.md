@@ -164,7 +164,7 @@ launch脚本中默认的算法引用yolov8;
         extra_arguments=[{'use_intra_process_comms': True}],
     ) 
 ```
-如果引用算法yolov7，请修改config_file为"config/yolov5xworkconfig.json"，参考[YOLO](../03_boxs/detection/yolo.md)，
+如果引用算法yolov5，请修改config_file为"config/yolov5xworkconfig.json"，参考[YOLO](../03_boxs/detection/yolo.md)，
 
 ## 结果分析
 

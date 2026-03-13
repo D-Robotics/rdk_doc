@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 2.3 config.txt File Configuration
 :::warning
-- All settings in configuration files can be manually overridden within U-Boot. Manually configured settings in U-Boot (using `setenv` in the U-Boot command line) take **precedence over** those in configuration files. The full environment variable priority order is: `setenv > config file > last boot's saveenv`;
+- All settings in configuration files can be manually overridden within Uboot. Manually configured settings in Uboot (using `setenv` in the Uboot command line) take **precedence over** those in configuration files. The full environment variable priority order is: `setenv > config file > last boot's saveenv`;
 - Throughout this chapter, the term "configuration file" refers to the file located at the **default path** `/boot/config.txt`;
 - Using a configuration file requires modifying the contents of the boot partition, which conflicts with the requirements of [AVB](https://source.android.com/docs/security/features/verifiedboot). Therefore, this feature is unavailable when AVB is enabled (AVB is **disabled by default**);
 :::
@@ -13,7 +13,7 @@ sidebar_position: 3
 :::info Note
 - The default format of the configuration file is `<key>=<value>`. Everything after the first `=` constitutes the value for the `<key>` preceding it;
 - Each line in the configuration file must not exceed 1024 characters;
-- Settings in the configuration file are not saved as U-Boot's default environment by default;
+- Settings in the configuration file are not saved as Uboot's default environment by default;
 :::
 
 ### Configure kernel bootargs (kernel cmdline)
@@ -58,7 +58,7 @@ fdt-disable=/soc/uart@394C0000;
 
 References for DTB Overlay:
 1. Kernel v6.1 official documentation: [Devicetree Overlay Notes](https://kernel.org/doc/html/v6.1/devicetree/overlay-notes.html);
-2. U-Boot v2022.10 official documentation: [Device Tree Overlays](https://docs.u-boot.org/en/v2022.10/usage/fdt_overlays.html);
+2. Uboot v2022.10 official documentation: [Device Tree Overlays](https://docs.u-boot.org/en/v2022.10/usage/fdt_overlays.html);
 
 Brief introduction: A DTB Overlay file allows **adding or modifying** (but not removing) nodes in the currently used DTB without altering the original DTS file used for booting.
 
@@ -143,10 +143,10 @@ lrwxrwxrwx 1 root root 15 Jun  4 22:17 /dev/block/platform/by-name/userdata -> /
 ```
 
 ## Custom config.txt Guide
-D-Robotics U-Boot automatically determines the default partition containing the configuration file based on the current boot storage medium and partition.
+D-Robotics Uboot automatically determines the default partition containing the configuration file based on the current boot storage medium and partition.
 
-Users can customize the storage medium and partition for the configuration file used on the next boot via U-Boot environment variables, as follows:
-  1. Halt the boot process and enter the U-Boot command line;
+Users can customize the storage medium and partition for the configuration file used on the next boot via Uboot environment variables, as follows:
+  1. Halt the boot process and enter the Uboot command line;
   2. The following environment variables can be used to customize the configuration file location (each can be used independently):
      1. `boot_config_f`: changes the default configuration filename. For example, `setenv boot_config_f test.txt` will cause the next boot to look for a file named `test.txt` instead of `config.txt`;
      2. `boot_config_dev_part`: changes the default partition where the configuration file is searched. For example, `setenv boot_config_dev_part 0:0xd` will cause the next boot to look for the configuration file in partition 13 (0xd) of the current boot medium;
@@ -154,4 +154,4 @@ Users can customize the storage medium and partition for the configuration file 
   3. Save the environment variables: `saveenv`
 
 ## config.txt Parsing Development Guide
-The source code implementing configuration file parsing is located in the U-Boot directory at: `board/hobot/common/drobot_boot_config.c`.
+The source code implementing configuration file parsing is located in the Uboot directory at: `board/hobot/common/drobot_boot_config.c`.

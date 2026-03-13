@@ -42,16 +42,16 @@ sidebar_position: 2
 对于不同框架到ONNX的转换，目前都有对应的标准化方案，参考如下：
 
 -    Pytorch2Onnx：PytTorch官方API支持直接将模型导出为ONNX模型，参考链接：
-         https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html。
+         https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
 
 -    Tensorflow2Onnx：基于ONNX社区的onnx/tensorflow-onnx 进行转换，参考链接：
-         https://github.com/onnx/tensorflow-onnx。
+         https://github.com/onnx/tensorflow-onnx
 
 -    MXNet2Onnx：MXNet官方API支持直接将模型导出为ONNX模型，参考链接：
-         https://github.com/dotnet/machinelearning/blob/master/test/Microsoft.ML.Tests/OnnxConversionTest.cs。
+         https://github.com/dotnet/machinelearning/blob/main/test/Microsoft.ML.Tests/OnnxConversionTest.cs
 
 -    更多框架的ONNX转换支持，参考链接：
-         https://github.com/onnx/tutorials#converting-to-onnx-format。
+         https://github.com/onnx/tutorials#converting-to-onnx-format
 
 
 :::tip 小技巧
@@ -446,13 +446,13 @@ hb_mapper makertbin参数解释：
 
   如您开启了fast-perf模式，还需要进行如下配置：
 
-  ``--model``<br/>
+  --model<br/>
   Caffe或ONNX浮点模型文件。
 
-  ``--proto``<br/>
+  --proto<br/>
   用于指定Caffe模型prototxt文件。
 
-  ``--march``<br/>
+  --march<br/>
   BPU的微架构。若使用 ``RDK X3`` 则设置为 ``bernoulli2``，若使用 ``RDK Ultra`` 则设置为 ``bayes``，若使用 ``RDK X5`` 则设置为 ``bayes-e``。
 
 
@@ -646,7 +646,8 @@ hb_mapper makertbin参数解释：
 |``remove_node_name``| **参数作用**：设置删除节点的名称。<br/>**参数说明**：该参数为隐藏参数， 不设置或设置为空不影响模型转换过程。 此参数用于支持您设置待删除节点的名称。被删除的节点必须在模型的开头或者末尾, 与模型的输入或输出连接。注意：待删除节点会按顺序依次删除，并动态更新模型结构；同时在节点删除前还会判断该节点是否位于模型的输入输出处。因此节点的删除顺序很重要。| **取值范围**：无。不同类型用";"分割。<br/> **默认配置**：无。|可选 |
 |``set_node_data_type``| **参数作用**：配置指定op的输出数据类型为int16，此参数 **只支持RDK Ultra和RDK X5配置！** <br/> **参数说明**：在模型转换过程中，大多数op的默认输入输出数据类型为int8，通过该参数可以指定特定op的输出数据类型为int16（在满足一定的约束条件下）。int16相关说明详见：[**int16配置说明**](#int16_config)部分的描述。 <br/> **注意：** 该参数相关功能已合并至 ``node_info`` 参数中，后续版本计划废弃。 | **取值范围**：支持配置int16的算子范围您可参考[**模型算子支持列表**](./supported_op_list)中RDK Ultra 和 RDK X5算子支持约束列表。<br/> **默认配置**：无。|可选 |
 |``debug_mode``| **参数作用**：保存用于精度debug分析的校准数据。<br/>**参数说明**：该参数作用为保存用于精度debug分析的校准数据，数据格式为.npy。该数据通过np.load()可直接送入模型进行推理。若不设置此参数，您也可自行保存数据并使用精度debug工具进行精度分析。 | **取值范围**：``"dump_calibration_data"``<br/> **默认配置**：无。|可选 |
-|``node_info``| **参数作用**：支持配置指定OP的输入输出数据类型为int16以及强制指定算子在CPU或BPU上运行。此参数 **只支持RDK Ultra和RDK X5配置！** <br/>**参数说明**：基于减少yaml中的参数的原则，我们将 ``set_node_data_type`` 、``run_on_cpu`` 和 ``run_on_bpu`` 三个参数的能力融合到本参数中，并在此基础上扩充支持配置指定op输入数据类型为int16的能力。<br/> ``node_info`` 参数使用方式：  <br/>- 仅指定OP运行在BPU/CPU上（下以BPU为例，CPU方法一致）：<br/> node_info: `{ <br/>"node_name":<br/> { 'ON': 'BPU', <br/>}  <br/>}` <br/> - 仅配置节点数据类型： <br/> node_info: 'node_name1:int16;node_name2:int16' <br/>  多个值的配置方法请参考 `param_value配置 <param_value>`。 <br/> - 指定OP运行在BPU上，同时配置OP的输入输出数据类型：<br/> node_info: `{ <br/>"node_name": { <br/>'ON': 'BPU', <br/>'InputType': 'int16', <br/>'OutputType': 'int16'<br/> } <br/>  } ` <br/> 'InputType': 'int16'代表指定算子的所有输入数据类型为int16。 <br/>如需指定算子特定输入的InputType，可在InputType后通过指定数字来进行配置。如：<br/>'InputType0': 'int16'代表指定算子的第一个输入数据类型为int16，<br/>'InputType1': 'int16'代表指定算子的第二个输入数据类型为int16，以此类推。<br/>**注意：** 'OutputType' 不支持指定算子特定输出的OutputType，配置后对算子的所有输出生效，不支持配置 'OutputType0' 、 'OutputType1'等。 | **取值范围**：支持配置int16的算子范围您可参考[模型算子支持列表](./supported_op_list)中RDK Ultra 和 RDK X5算子支持约束列表。可指定在CPU或BPU运行的算子需为模型中包含的算子。<br/> **默认配置**：无。|可选 |
+|``node_info``| **参数作用**：支持配置指定OP的输入输出数据类型为int16以及强制指定算子在CPU或BPU上运行。此参数 **只支持RDK Ultra和RDK X5配置！** <br/>**参数说明**：基于减少yaml中的参数的原则，我们将 ``set_node_data_type`` 、``run_on_cpu`` 和 ``run_on_bpu`` 三个参数的能力融合到本参数中，并在此基础上扩充支持配置指定op输入数据类型为int16的能力。<br/> ``node_info`` 参数使用方式：  <br/>- 仅指定OP运行在BPU/CPU上（下以BPU为例，CPU方法一致）：<br/> node_info:<br/> `{ "node_name" { 'ON': 'BPU',} }` <br/> - 指定OP运行在BPU上，同时配置OP的输入输出数据类型：<br/> node_info:<br/> `{ "node_name": { 'ON': 'BPU', 'InputType': 'int16', 'OutputType': 'int16'}} ` <br/> - 指定多个算子运行:<br/> node_info:<br/>`{"/model.0/conv/Conv": {"ON": "BPU","InputType": "int16","OutputType": "int16"},`<br/>`"/model.0/act/Mul": {"ON": "BPU","InputType": "int16","OutputType": "int16"},`<br/>`"/model.2/Concat": {"ON": "BPU","InputType": "int16","OutputType": "int16"}}`
+'InputType': 'int16'代表指定算子的所有输入数据类型为int16。 <br/>如需指定算子特定输入的InputType，可在InputType后通过指定数字来进行配置。如：<br/>'InputType0': 'int16'代表指定算子的第一个输入数据类型为int16，<br/>'InputType1': 'int16'代表指定算子的第二个输入数据类型为int16，以此类推。<br/>**注意：** 'OutputType' 不支持指定算子特定输出的OutputType，配置后对算子的所有输出生效，不支持配置 'OutputType0' 、 'OutputType1'等。 | **取值范围**：支持配置int16的算子范围您可参考[模型算子支持列表](./supported_op_list)中RDK Ultra 和 RDK X5算子支持约束列表。可指定在CPU或BPU运行的算子需为模型中包含的算子。<br/> **默认配置**：无。|可选 |
 
 - ###### 输入信息参数组
 
@@ -978,6 +979,7 @@ D-Robotics 处理器不会限制使用的数据排布，但是有两条要求：
   ...    ...     ...     ...       0.996023           3.251645
   ...    ...     ...     ...       0.996656           4.495638
 ```
+
 上面列举的输出内容中，Node、ON、Subgraph、Type与 ``hb_mapper checker`` 工具的解读是一致的，
 请参考前文 [**检查结果解读**](#check_result)；
 Threshold是每个层次的校准阈值，用于异常状态下向D-Robotics 技术支持反馈信息，正常状况下不需要关注；
@@ -1415,7 +1417,7 @@ Perf result:
 
   D-Robotics 处理器的BPU对于 ``Depthwise Convolution`` 和 ``Group Convolution`` 都做了针对性的优化，所以我们更推荐采用Depthwise+Pointwise 结构的MobileNetv2、EfficientNet_lite， 以及D-Robotics 基于 GroupConv 手工设计自研的 VarGNet 作为模型的 Backbone，以便获得更高的性能收益。
 
-  更多的模型结构和业务模型都在持续探索中，我们将提供更加丰富的模型给您作为直接的参考，这些产出将不定期更新至 https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master。
+  更多的模型结构和业务模型都在持续探索中，我们将提供更加丰富的模型给您作为直接的参考，这些产出将不定期更新至 https://github.com/D-Robotics/rdk_model_zoo 。
   如果以上依然不能满足您的需要，欢迎在[**D-Robotics 官方技术社区**](https://developer.d-robotics.cc)发帖与我们取得联系，我们将根据您的具体问题提供更具针对性的指导建议。
 
 
