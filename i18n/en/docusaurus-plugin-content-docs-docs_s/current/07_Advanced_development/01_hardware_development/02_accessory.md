@@ -12,7 +12,7 @@ The Certified Accessory List refers to a list of third-party accessories officia
 
 :::
 
-:::tip
+:::tip Commercial Support
 The commercial version offers more comprehensive feature support, deeper hardware capability access, and exclusive customization options. To ensure compliance and secure delivery, we will grant access to the commercial version through the following process:
 
 **Commercial Version Access Procedure:**
@@ -23,7 +23,7 @@ The commercial version offers more comprehensive feature support, deeper hardwar
 
 If you wish to obtain the commercial version, please complete the questionnaire below. We will contact you within 3–5 business days:
 
-Click here: [Questionnaire Link](https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre)
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
 :::
 
 ## Compatibility List

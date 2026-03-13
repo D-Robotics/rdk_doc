@@ -21,7 +21,14 @@ Code Repository: [https://github.com/D-Robotics/face_age_detection](https://gith
 | Platform              | Operating Mode        | Example Functionality                                                       |
 |-----------------------|-----------------------|-----------------------------------------------------------------------------|
 | RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) | Starts MIPI/USB camera and displays inference rendering results via the web |
-| RDK X5                | Ubuntu 22.04 (Humble) | Starts MIPI/USB camera and displays inference rendering results via the web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Starts MIPI/USB camera and displays inference rendering results via the web |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| faceAge | X3 | 1×3×128x128 | 1261.29 |
+| faceAge | X5 | 1×3×128x128 | 1207.32 |
 
 ## Preparation
 

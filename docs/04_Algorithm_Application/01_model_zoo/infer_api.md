@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## 概述
 
-ModelZoo使用的板端推理接口为**bpu_infer_lib**。在上一小节中，我们讲述了bpu_infer_lib的安装方式、快速上手方法、和使用指南。
+ModelZoo使用的板端推理接口为**bpu_infer_lib**。在上一小节中，我们讲述了**bpu_infer_lib**的安装方式、快速上手方法、和使用指南。
 
 本小节，我们将具体介绍bpu_infer_lib中，各个api接口的具体细节和使用方式。
 

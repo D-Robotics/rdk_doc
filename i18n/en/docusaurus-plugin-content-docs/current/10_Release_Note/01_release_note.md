@@ -10,6 +10,52 @@ sidebar_position: 1
 > - After updating the system, please use the `rdk-miniboot-update` command to update the NAND firmware to the latest version.  
 > - Official new images are released regularly, containing the latest feature optimizations and bug fixes. Users can either download and install the latest image or update the system online.
 
+### Version: 3.4.1
+
+#### Version Information
+
+- **System Version**: RDKOS V3.4.1
+- **Release Date**: December 2025
+- **Platform**: RDK X5
+
+#### Version Update Overview
+
+This RDK OS release is fully aligned and synchronized with the latest underlying platform software X5 SDK 1.1.1. Compared to the previous version (based on X5 SDK 1.0.17), this update integrates feature enhancements, stability fixes, and performance optimizations from the past six months. After adaptation, verification, and system tailoring, all core capabilities have been fully integrated into RDK OS.
+Building on the RDK Ubuntu 22.04 and TROS Robot Operating System experience, this version provides developers with more comprehensive platform support and a consistent runtime experience that matches the latest SDK.
+
+**(1) System and Boot Stability**
+
+- **EMMC/SD Boot Reliability Enhancement**: Adapted for multiple brands of SD/TF cards, significantly improving success rates and compatibility for cold boots and hot restarts.
+- **System Configuration Consistency Optimization**: Improved `srpi-config` audio configuration flow, synchronizing with Ubuntu PulseAudio channel switching to reduce additional user configuration costs.
+
+**(2) Media Pipeline and Display Adaptation**
+
+- **Massive Media Pipeline Fixes**: Covers stability enhancements and exception scenario fixes for modules including ISP, VIO, encoding/decoding, etc.
+- **Sample Programs Cleanup and Completion**: Updated interface calls, filled in missing examples, and improved usability.
+- **HDMI Output Capability Enhancement**: Improved multi-resolution support and compatibility, enhancing display stability.
+- **LCD Full-Size Adaptation**:
+  - Added full adaptation for the 11.9-inch Waveshare ultra-wide screen.
+  - Fixed touch coordinate anomalies on multiple screens.
+
+**(3) Peripheral Interfaces and Application Development Capabilities**
+
+- **WiringPi Compatibility Fixes**: Improved ease of use for scripts and peripheral control.
+- **hobot-gpio Functionality Expansion**: Supports multi-channel PWM configuration.
+
+**(4) Documentation and Development Experience**
+
+- **Comprehensive Rewrite of "Chapter 3: Basic Application Development"**: Re-planned chapter structure, supplemented key concept explanations, enriched sample code and practical operation demonstrations, significantly improving document readability and learning path coherence.
+- **Fixed and Supplemented Over 20 Documentation Issues**: Covers incomplete interface descriptions, missing examples, inconsistent configuration steps, etc., making the overall documentation more accurate, standardized, and easier to use.
+
+**(5) TogetheROS**
+
+- **Fixed Image Processing Acceleration Module**: Fixed a bug in `hobot_cv` using vse to accelerate image resize.
+- **Fixed Onboard Model Inference Framework**: Fixed an issue in `hobot_dnn` where inference latency statistics were incorrect.
+- **Fixed MIPI Cam and Algorithm Modules**: Fixed an issue where incorrect installation paths for ros component shared objects (so) caused runtime loading failures.
+- **Optimized Image Codec Module**: Optimized `hobot_codec` configuration, removed invalid configuration parameters, and added configuration parameters for debugging.
+
+---
+
 ### Version: 3.3.3
 
 #### Version Information

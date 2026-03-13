@@ -147,24 +147,39 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 Before burning the Ubuntu system image, please prepare the following:
 - A Micro SD card with at least 8GB capacity
 - An SD card reader
-- Download the image burning tool Rufus ([click here to visit the official website](https://rufus.ie/))
+- Download the flashing tool provided by D-Robotics, RDK Studio (you can [click here to download](https://developer.d-robotics.cc/en/rdkstudio)), or the image flashing tool Rufus (you can [click here to visit the official website](https://rufus.ie/en/)).
+  
 :::
+
+<Tabs groupId="flashing-type">
+
+<TabItem value="RDK Studio" label="RDK Studio Tool">
+
+After using the RDK Studio tool to flash the system, you can add devices for management. It is recommended to use the RDK Studio tool. For detailed steps, please refer to [Flashing the System with RDK Studio](../09_RDK_Studio/04_flashing.md)。
+
+
+</TabItem>
+
+<TabItem value="Rufus" label="Rufus Tool">
 
 Rufus is a bootable media creation tool for Windows. To create an SD boot card using Rufus, follow these steps:
 1. Open Rufus and select the target Micro SD card under the "Device" dropdown.
 
-   ![image-rufus-select-device](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device.png)
+   ![image-rufus-select-device](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-device-en.png)
 
 2. Click the "Select" button and choose the extracted `ubuntu-preinstalled-desktop-arm64.img` file as the image to burn.
 
-   ![image-rufus-select-img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img.png)
+   ![image-rufus-select-img](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-select-img-en.png)
 
 3. Keep other parameters as default, then click the "Start" button and wait for the burning process to complete. Once finished, you can close Rufus and remove the SD card.
 
-   ![image-rufus-flash](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash.png)
+   ![image-rufus-flash](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-rufus-flash-en.png)
 
 </TabItem>
 
+
+</Tabs>
+</TabItem>
 <TabItem value="x3md" label="RDK X3 Module">
 
 The RDK X3 Module supports booting the system from two modes: eMMC and SD card:
@@ -268,14 +283,16 @@ The `hbupdate` tool supports two versions: Windows and Linux, which start with `
    ![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)
    </figure>
 
-</TabItem>
 
-</Tabs>
 
 :::caution
 
 If the burning process is interrupted, please follow the above steps to restart.
 :::
+
+</TabItem>
+
+</Tabs>
 
 ### Start the system
 

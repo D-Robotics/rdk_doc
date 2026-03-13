@@ -18,8 +18,8 @@ The development board has the `usb_camera_fcos.py` program installed to test the
 Execute the program with the following commands:
 
   ```shell
-  sunrise@ubuntu:~$ cd /app/pydev_demo/02_usb_camera_sample/
-  sunrise@ubuntu:/app/pydev_demo/02_usb_camera_sample$ python3 usb_camera_fcos.py
+  sunrise@ubuntu:~$ cd /app/pydev_demo/09_usb_camera_sample/
+  sunrise@ubuntu:/app/pydev_demo/09_usb_camera_sample$ python3 usb_camera_fcos.py
   ```
 
 ## Expected Result
@@ -47,8 +47,8 @@ The development board has the `usb_camera_snap.py` program installed to test the
 Execute the program with the following commands:
 
   ```shell
-  sunrise@ubuntu:~$ cd /app/pydev_demo/02_usb_camera_sample/
-  sunrise@ubuntu:/app/pydev_demo/02_usb_camera_sample$ python3 usb_camera_snap.py
+  sunrise@ubuntu:~$ cd /app/pydev_demo/09_usb_camera_sample/
+  sunrise@ubuntu:/app/pydev_demo/09_usb_camera_sample$ python3 usb_camera_snap.py
   ```
 
 ## Expected Result

@@ -109,7 +109,7 @@ GDC Tool is a PC-based utility that enables offline simulation of GDC processing
     - **Launch the application**: In the command prompt, navigate to the tool directory and run `node.exe app.js`. Then open Chrome and go to http://localhost:3000/.
 
 2. **Unix Environment**
-    - **Installation prerequisites** (macOS): Run `brew install node`.
+    - **Installation prerequisites** (MacOS): Run `brew install node`.
     - **Install dependencies**: In the tool directory, run `npm install --production`.
     - **Launch the application**: Run `node app.js` and open http://localhost:3000/ in your browser.
 
@@ -1075,6 +1075,89 @@ ROI partitioning for hardware stitching is directly related to camera mounting p
  | 7   | Overlap: Right & Rear | Right (frame2) | (0,366)   | -256,186   | Rear (frame3)    | (304,0)    | -256,218   | (-304,366) | AlphaBlend   |
 
 
+#### LPWM
+##### Overview of LPWM
+LPWM is a signal source similar to PWM, typically used to trigger sensor exposure in the camsys system. LPWM itself requires an external trigger. Upon receiving a trigger signal, it outputs a square wave based on the configured parameters such as period, high-time, and offset, with a frequency ranging from **1 Hz to 500 kHz**, an effective high-level duration from **0 μs to 4095 μs**, and a default precision of **1 μs**.
+
+The S100 integrates **3 LPWM chips**, each containing **4 LPWM channels**. Configuration should be performed according to the actual hardware connections.
+
+The camera hardware synchronization function of the S100 is mainly implemented by the LPWM module. It supports multiple trigger sources for the S100 and generates multi-channel configurable PWM signals for external cameras (which can be forwarded via SerDes), thereby achieving synchronization between the trigger source and cameras, as well as synchronization among multiple cameras.
+
+##### LPWM Configuration Items
+1. **trigger_mode [0, 1]**: LPWM trigger mode
+   - 0: Internal software trigger
+   - 1: External trigger
+
+2. **trigger_source [0, 10]**: LPWM trigger source.
+   To use an external trigger source, set `trigger_mode = 1`.
+   In typical scenarios, use **0** with a default trigger period of 1 second.
+
+| trigger_source Value | Corresponding Trigger Source |
+|----------------------|-------------------------------|
+| 0                    | aon_rtc_pps                   |
+| 1                    | reserve                       |
+| 2                    | pps0                          |
+| 3                    | pps1                          |
+| 4                    | pps2                          |
+| 5                    | reserve                       |
+| 6                    | pcie0_ptm_pps                 |
+| 7                    | pcie1_ptm_pps                 |
+| 8                    | acore_eth0_pps                |
+| 9                    | acore_eth1_pps                |
+| 10                   | mcu_eth_pps                   |
+
+3. **period [2, 1000000) μs**: Period of the LPWM output square wave.
+4. **offset [0, 1000000) μs**: Offset time of the first waveform within each trigger cycle. Must be smaller than `period`.
+5. **duty_time [0, 4096) μs**: Effective high-level duration of the LPWM output waveform. Must be smaller than `period`.
+6. **threshold [0, 65535] μs**: Threshold for slow synchronization. Advanced feature; can usually be ignored.
+7. **adjust_step [0, 15]**: Adjustment step per cycle.
+   `adjust_time = 2^adjust_step`. Advanced feature; can usually be ignored.
+
+##### LPWM Configuration Calculation
+The LPWM trigger source is typically PPS with a common period of **1 second**.
+After receiving a trigger signal, LPWM first delays by the configured `offset`, then outputs continuous square waves. The waveform period and effective high-level duration are determined by configuration. When the next trigger arrives, the delay and waveform generation repeat.
+
+The `offset` setting depends on the sensor **fps**:
+- If 1 second cannot be divided evenly by fps, `offset` must be configured.
+- Otherwise, set `offset = 0`.
+
+**Example: 30 fps sensor**
+
+- `period = 1 s / fps = 33333 μs`
+- After 30 frames, the total time is 999,990 μs, leaving a **10 μs gap** until the next PPS trigger.
+- Therefore, `offset` should be set to **10 μs** (minimum 10 μs, maximum `period - duty_time` μs).
+  To be safe, add **1** to the calculated offset; otherwise, LPWM will output 31 pulses within 1 second.
+
+Due to hardware or peripheral differences, PPS may fall in the high-level region.
+If slow synchronization is disabled or completed, LPWM must finish the current high-level period before entering the next trigger cycle (and recalculating `offset`).
+This may result in fewer waveforms than expected per trigger cycle, causing the sensor frame rate to deviate from the target in exposure-synchronized mode.
+In such cases, **increase `offset` appropriately** to ensure PPS always falls in the low-level region and outputs the expected waveform.
+
+```
+Period = 1000000 / fps
+Offset = 1000000 - Period * fps + 1
+```
+
+![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camsys/lpwm_01.png)
+
+Recommended Configurations
+| Usage Scenario       | trigger_source       | trigger_mode | duty_time | offset | period        |
+|----------------------|----------------------|--------------|-----------|--------|---------------|
+| All 30 fps           | 8(eth0)/9(eth1)      | 1            | 100       | 11     | 33333         |
+| All 25 fps           | 8(eth0)/9(eth1)      | 1            | 100       | 11     | 40000         |
+| 12.5/25 fps          | 8(eth0)/9(eth1)      | 1            | 100       | 11     | 80000/40000   |
+| 30/10 fps            | 8(eth0)/9(eth1)      | 1            | 100       | 11     | 33333/100000  |
+
+##### Other Notes
+When the MCU RTC function is enabled, the CIM hardware automatically latches the timestamp corresponding to the LPWM trigger signal.
+Software synchronizes this timestamp with `global_time` and provides it to the user.
+When the sensor operates in **exposure synchronization mode**, this timestamp represents the start time of sensor exposure triggering.
+
+When the sensor is in frame-synchronized output or unsynchronized mode, the sensor exposure start time is **not related** to the LPWM signal.
+In other words, there is no correlation between CIM frame start (tv) and LPWM trigger (trig_tv) time.
+In this case, the timestamp has no reference value and can be ignored.
+
+In actual use, ensure PPS stably falls in the **low-level region** by appropriately increasing `offset` based on debugging results.
 
 ### Data Flow and Performance Metrics
 
@@ -1089,7 +1172,7 @@ After RDK-S100 connects to cameras, the data flows through subsequent processing
 
 
 :::tip
-The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
+The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process.
 
 **Commercial Version Access Process:**  
 1. **Complete a questionnaire**: Submit your organization’s information and intended use case.  
@@ -1098,7 +1181,7 @@ The commercial version offers more comprehensive feature support, deeper hardwar
 
 If you wish to access the commercial version, please complete the questionnaire below. We will contact you within 3–5 business days:  
 
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre  
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg  
 :::
 
 - **CIM**: Receives input from RX and can output online to ISP0/ISP1 (RAW) or PYM0/PYM1 (YUV), or store offline to DDR for subsequent modules to access via DDR.
@@ -1483,17 +1566,17 @@ Create a camera handle and a deserializer handle based on the provided configura
 
 This API creates cameras by parsing a JSON configuration file, which differs from the non-JSON approach used in the sample code. For further details, please consult your FAE.
 
-:::tip
+:::tip Commercial Support
 The commercial version offers more comprehensive feature support, deeper hardware capability exposure, and exclusive customization options. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
 
-Commercial Version Access Procedure:
+**Commercial Version Access Procedure:**
 1. **Complete a questionnaire**: Submit basic information about your organization and intended use case.
 2. **Sign a Non-Disclosure Agreement (NDA)**: We will contact you based on your submission, and both parties will sign the NDA upon mutual confirmation.
 3. **Content release**: After the NDA is signed, we will provide access to the commercial version materials through a private channel.
 
 If you wish to obtain the commercial version, please fill out the questionnaire below. We will contact you within 3–5 business days:
 
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
 :::
 
 14. **hbn_deserial_create**
@@ -3125,6 +3208,7 @@ Switching to V4L2 mode:
   rmmod hobot_ynr
 
   # Load V4L2 drivers
+  echo ion > /sys/module/hobot_camsys_adapter/parameters/mops # ion or dma optional
   modprobe videobuf2-common
   modprobe videobuf2-v4l2
   modprobe videobuf2-memops
@@ -3201,7 +3285,34 @@ modprobe vid_v4l2  xxx=xxxx### Scene Description
 
 (Other link scenarios are currently unsupported and will be continuously updated.)
 
+### v4l2 Buffer Allocation Methods
+There are currently two buffer allocation methods: **ion** and **dma**. The **ion** method is used by default.
 
+Supported io_mode for Each Buffer Allocation Method
+| Buffer Allocation Method | Supported io_mode         |
+|--------------------------|---------------------------|
+| ion                      | mmap                      |
+| dma                      | mmap dambuf userptr       |
+
+Buffer Allocation Method Switching Procedure
+
+```c
+# Unload the vid_v4l2 driver if it is already loaded
+rmmod vid_v4l2
+
+# Set the buffer allocation method to ion or dma
+echo ion > /sys/module/hobot_camsys_adapter/parameters/mops
+or
+echo dma > /sys/module/hobot_camsys_adapter/parameters/mops
+
+# Reload the previously unloaded vid_v4l2 driver
+modprobe vid_v4l2  xxx=xxxx
+```
+
+#### Check the Current Buffer Allocation Method
+```c
+cat /sys/module/hobot_camsys_adapter/parameters/mops
+```
 
 
 ## camsys sample

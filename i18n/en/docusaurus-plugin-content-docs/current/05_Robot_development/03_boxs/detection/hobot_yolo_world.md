@@ -20,7 +20,13 @@ Application Scenarios: The robust zero-shot detection capability of YOLO-World e
 
 | Platform                            | System | Function                                     |
 | ----------------------------------- | -------------- | -------------------------------------------------------- |
-| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+
+## Algorithm Information
+
+| Model Type | Platform | Input Size | Frequency (fps) |
+| ---- | ---- | ------------ | ---- |
+| yoloworldv2 | X5 | 1×640x640x3 | 7.0 |
 
 ## Preparation
 

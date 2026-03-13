@@ -3,6 +3,14 @@ sidebar_position: 1
 ---
 # 5.1.1 Environment Setup
 
+
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
 TogetheROS.Bot supports installation on the RDK with  Ubuntu 20.04/22.04 system. Installing through DEB packages on Ubuntu system is simple and recommended for users who want to experience it initially.
 
 Next, we will introduce the environment setup details for RDK.
@@ -11,9 +19,31 @@ Next, we will introduce the environment setup details for RDK.
 
 ### System Installation
 
-Before installing tros.b, it is recommended to upgrade the RDK system image to the latest version. Here is the method of burning  Ubuntu 20.04/22.04 image: [Ubuntu Image Burning Method](/i18n/en/docusaurus-plugin-content-docs/current/01_Quick_start/install_os.md)
+Before installing tros.b, it is recommended to upgrade the RDK system image to the latest version:  
+<Tabs groupId="tros-distro">
+<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
 
-If the image has already been installed, you can upgrade it by running the commands `sudo apt update` and `sudo apt upgrade`.
+[Ubuntu Image Flashing Method](/install_os/)
+
+:::caution **Note**
+- **If you are using RDK X3 with a 1.x version system installed, you need to upgrade the system to version 2.x.**
+- **For the system version number checking method and detailed instructions, please refer to [FAQs](/i18n/en/docusaurus-plugin-content-docs/current/08_FAQ/03_applications_and_examples.md)**
+:::
+
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
+
+[Ubuntu Image Flashing Method](/rdk_s/02_install_os)
+
+</TabItem>
+</Tabs>
+
+If the image has already been installed, you can complete the upgrade using the commands `sudo apt update` and `sudo apt upgrade`.。
+
+:::caution **Note**
+**If the sudo apt update command fails or reports an error, please refer to the Q10: How to handle apt update command failure or errors? section in the [FAQs](/i18n/en/docusaurus-plugin-content-docs/current/08_FAQ/01_hardware_and_system.md) ``Q10: What to do if `apt update` fails (e.g., key error, update failure, lock file in use)?``**
+:::
+
 
 ### Configuration
 
@@ -72,4 +102,8 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 4.14.87 aarch64)
  * Support:        https://ubuntu.com/advantage
 Last login: Sat Apr  2 05:57:05 2022 from 10.64.37.219
 root@ubuntu:~#
-```
+```  
+
+## X86 Platform
+
+Install the Ubuntu 20.04 64-bit system on an X86 platform physical machine and configure the network environment. Virtual machine installation or Docker can also be used, but the runtime efficiency may be lower.

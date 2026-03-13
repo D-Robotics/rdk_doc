@@ -40,6 +40,10 @@ sudo apt update
 sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-examples-rclcpp-minimal-subscriber
 ```
 
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to `Q10: How to solve the failure or error of the apt update command?` in the [FAQ](../../08_FAQ/01_hardware_and_system.md) section for solutions.**
+:::
+
 In the first terminal, run:
 
 ```shell

@@ -5,7 +5,7 @@ sidebar_position: 2
 # 3.2.2 decode2display 示例介绍
 
 ## 示例简介
-decode2display 是一个位于 /app/cdev_demo 目录中的 **C 语言接口** 开发代码示例，用于演示如何使用 c 语言进行解码并显示到屏幕的程序。参考这个示例，用户可以理解并开发相关应用。
+decode2display 是一个位于 `/app/cdev_demo` 目录中的 **C 语言接口** 开发代码示例，用于演示如何使用 c 语言进行解码并显示到屏幕的程序。参考这个示例，用户可以理解并开发相关应用。
 
 ## 效果展示
 下图展示的是程序执行期间， RDK 连接 HDMI 屏幕现象以及通过 ssh 连接到 RDK 的网络终端输出，\
@@ -46,9 +46,9 @@ root@ubuntu:/app/cdev_demo/decode2display# tree
 ```
 
 ### 执行效果
-- **首先** 我先要准备好输入数据，这里我们可以将板端已有的数据，比如 /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 目录下的 1920x1080.h264 文件拷贝到当前目录，单独操作，不影响原始数据。
-- **其次** 我们使用 systemctl stop lightdm 来关闭显示服务。
-- **最后** 我们使用 ./decoder2display 命令，默认的执行结果是将 1920x1080.h264 的文件，解码之后给到显示器进行显示。
+- **首先** 我先要准备好输入数据，这里我们可以将板端已有的数据，比如 `/opt/tros/humble/lib/hobot_codec/config/1920x1080.h264` 目录下的 `1920x1080.h264` 文件拷贝到当前目录，单独操作，不影响原始数据。
+- **其次** 我们使用 `systemctl stop lightdm` 来关闭显示服务。
+- **最后** 我们使用 `./decoder2display` 命令，默认的执行结果是将 `1920x1080.h264` 的文件，解码之后给到显示器进行显示。
 
 ```
 root@ubuntu:/app/cdev_demo/decode2display# sudo ./decoder2display -w 1920 -h 1080 -i 1920x1080.h264

@@ -151,7 +151,15 @@ export CAM_TYPE=fb
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
-除了设定模型，还支持变更模型与配置。更改模型文件配置为`dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`，更改模型类别配置为`dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
+</TabItem>
+
+</Tabs>
+
+除了设定模型，还支持变更模型与配置。
+
+- X5: 更改模型文件配置为`dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`，更改模型类别配置为`dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
+
+- S100: 更改模型文件配置为`dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"`，更改模型类别配置为`dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
 
 ## 结果分析
 

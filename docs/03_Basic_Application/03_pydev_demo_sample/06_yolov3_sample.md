@@ -114,7 +114,8 @@ YOLOv3 目标检测示例的软件架构包含以下几个核心部分：
 </center>
 
 ### API 流程说明
-1. 模型加载 :models = dnn.load('../models/yolov3_416x416_nv12.bin')2. 图像预处理 : 调整图像尺寸并转换为 NV12 格式
+1. 模型加载 :models = dnn.load('../models/yolov3_416x416_nv12.bin')
+2. 图像预处理 : 调整图像尺寸并转换为 NV12 格式
 
 3. 模型推理 : outputs = models[0].forward(nv12_data)
 

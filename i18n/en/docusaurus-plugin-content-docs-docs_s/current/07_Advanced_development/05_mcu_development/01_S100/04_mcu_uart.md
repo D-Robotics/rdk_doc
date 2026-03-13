@@ -2,11 +2,11 @@
 sidebar_position: 4
 ---
 
-# UART Usage Guide
+# Uart Usage Guide
 
-The S100 MCU chip has a total of 3 UART interfaces, namely UART4 to UART6. Among them, UART4 is used as the debug console (shared by MCU0 and MCU1), with DMA disabled by default. The default configuration is as follows:
+The S100 MCU chip has a total of 3 Uart interfaces, namely Uart4 to Uart6. Among them, Uart4 is used as the debug console (shared by MCU0 and MCU1), with DMA disabled by default. The default configuration is as follows:
 
-| **Configuration Item** | **UART4** | **UART5** | **UART6** |
+| **Configuration Item** | **Uart4** | **Uart5** | **Uart6** |
 |------------------------|-----------|-----------|-----------|
 | Channel Identifier     | Uart_Channel0 | Uart_Channel1 | Uart_Channel2 |
 | Baud Rate              | 921600    | 921600    | 921600    |
@@ -59,14 +59,32 @@ On the S100 development board, UART5 is exposed for user development and learnin
 
 //TODO Add board image
 
-In the mainline code, UART5 is by default passed through to Acore. Therefore, before testing, you need to enter the following command in the MCU console to release UART5:
+:::tip
+When Uart5 might be used for IPC passthrough, it can conflict with test cases, causing test failures. You can confirm this using the `ipcbox_set_mode debug` command. If the line corresponding to `uart` shows `Enable`, it means the resource is already occupied.
+
+```bash
+D-Robotics:/$ ipcbox_set_mode debug
+[0427.611385 0]Module: runcmd, Enable
+[0427.611637 0]Module: uart, Enable
+[0427.612039 0]Module: spi, Disable
+[0427.612440 0]Module: i2c, Disable
+```
+
+If it is confirmed to be occupied, you need to enter the `ipcbox_set_mode uart 0` command in the MCU control terminal before testing to release the occupied Uart5:
 
 ```shell
 D-Robotics:/$ ipcbox_set_mode uart 0
-[058.203488 0]uart processing disabled
-[058.203749 0]uart2ipc_release
-Return: 0, 0x00000000
+[0774.571200 0]uart processing disabled
+[0774.690237 0]IpcBox_uart task resources released and terminating
+[0775.071611 0]IpcBox_uart task exited properly
+
+D-Robotics:/$ ipcbox_set_mode debug
+[0781.748204 0]Module: runcmd, Enable
+[0781.748456 0]Module: uart, Disable
+[0781.748868 0]Module: spi, Disable
+[0781.749270 0]Module: i2c, Disable
 ```
+:::
 
 - `uarttest 1`: Loopback test (note: connect the RX pin to the TX pin)
 
