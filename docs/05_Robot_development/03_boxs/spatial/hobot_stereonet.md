@@ -30,16 +30,20 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 3. 模型版本
 
-| 平台 | 算法版本 | 量化方式 | 输入尺寸    | 推理帧率(fps) | 模型说明                   |
-| ---- | -------- | -------- | ----------- | ------------- | -------------------------- |
-| X5   | V2.0     | int16    | 640x352x3x2 | 15            | 历史版本                   |
-| X5   | V2.1     | int16    | 640x352x3x2 | 15            | 历史版本，带置信度输出     |
-| X5   | V2.2     | int8     | 640x352x3x2 | 23            | 历史版本                   |
-| X5   | V2.3     | int8     | 640x352x3x2 | 27            | 历史版本，最高帧率         |
-| X5   | V2.4     | int16    | 640x352x3x2 | 15            | 当前主版本，高精度深度估计 |
-| X5   | V2.4     | int8     | 640x352x3x2 | 23            | 当前主版本，高帧率深度估计 |
-| S100 | V2.1     | int16    | 640x352x3x2 | 53            | 历史版本，带置信度输出     |
-| S100 | V2.4     | int16    | 640x352x3x2 | 53            | 当前主版本，带置信度输出   |
+| 平台 | 算法版本              | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                                    |
+| ---- | --------------------- | -------- | ----------- | ----------------- | ------------------------------------------- |
+| X5   | V2.0                  | int16    | 640x352x3x2 | 15                | 历史版本                                    |
+| X5   | V2.1                  | int16    | 640x352x3x2 | 15                | 历史版本，带置信度输出                      |
+| X5   | V2.2                  | int8     | 640x352x3x2 | 23                | 历史版本                                    |
+| X5   | V2.3                  | int8     | 640x352x3x2 | 27                | 历史版本，最高帧率                          |
+| X5   | V2.4_int16            | int16    | 640x352x3x2 | 15                | 当前主版本，高精度深度估计                  |
+| X5   | V2.4_int8             | int8     | 640x352x3x2 | 23                | 当前主版本，高帧率深度估计                  |
+| X5   | V2.5_int16            | int16    | 640x352x3x2 | 16                | 最新版本，高精度深度估计                    |
+| X5   | V2.5_int16_96         | int16    | 640x352x3x2 | 18                | 最新版本，最大搜索视差96视差                |
+| X5   | V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | 最新版本，544*448分辨率                     |
+| X5   | V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | 最新版本，544*448分辨率，最大搜索视差96视差 |
+| S100 | V2.1                  | int16    | 640x352x3x2 | 53                | 历史版本，带置信度输出                      |
+| S100 | V2.4                  | int16    | 640x352x3x2 | 53                | 当前主版本，带置信度输出                    |
 
 ## 4. 准备工作
 
@@ -93,7 +97,7 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 ![RDK_Stereo_Cam_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png)
 
-<p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有CDPxxx-V3，确认相机是V3版本 </p>
+<p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有CDPxxx-V3/V4，确认相机是V3或V4版本 </p>
 
 - RDK X5安装方式如图所示：
 
@@ -113,7 +117,7 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
-- 最新线材做了升级，主要线材是带有方向的，CAM端接入相机，RDK端接入开发板
+- 最新线材做了升级，注意线材是带有方向的，CAM端接入相机，RDK端接入开发板
 
 ![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
 
@@ -570,6 +574,12 @@ bash run_stereo.sh --stereonet_version v2.4
 </TabItem>
 </Tabs>
 
+:::caution **注意**
+**如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
+
+**如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考下文确认左右图是否满足极线对齐要求**
+:::
+
 - 左右目相机定义，<span style={{ color: 'red' }}> 需要确认下文网页端显示的RGB图像是否是左相机拍摄的图像 </span>：
 
 ![230ai_left_right_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png)
@@ -597,14 +607,15 @@ rviz2
 
 #### (5) 参数定义
 
-`run_stereo.sh`脚本有很多可设置参数：
+`run_stereo.sh`脚本有很多可设置参数，下面介绍一些常用参数的定义，其它参数请参考源码中的解释：
 
 - stereonet_version控制启动不同版本的算法
-  - RDK X5可以设置为`v2.0`、`v2.1`、`v2.2`、`v2.3`、`v2.4_int16`、`v2.4_int8`
+  - RDK X5可以设置为`v2.0`、`v2.1`、`v2.2`、`v2.3`、`v2.4_int16`、`v2.4_int8`、`v2.5_int16`、`v2.5_int16_96`、`v2.5_int16_544_448`、`v2.5_int16_544_448_96`
   - RDK S100可以设置为`v2.1`、`v2.4`
 - stereo_node_name控制ros节点的名称
 - uncertainty_th为置信度阈值，只有带置信度的模型并且设置为正数时才会生效，如果需要开启，建议设置为`0.10`
-- stereo_image_topic/camera_info_topic/depth_image_topic等控制ros节点发布的话题名称
+- stereo_image_topic/camera_info_topic为ros节点需要接收的话题名称，分别为双目图像和对应的相机参数
+- depth_image_topic/pointcloud2_topic/visual_image_topic等控制ros节点发布的话题名称
 
 - mipi_image_width、mipi_image_height、mipi_image_framerate控制相机的分辨率和帧率
 - mipi_gdc_enable控制相机开启GDC矫正，相机会读取EEPROM存储的参数进行图像的畸变矫正，目前生成的相机都带有出厂标定参数
@@ -617,7 +628,7 @@ rviz2
   - 当`mipi_gdc_enable:=False`时，或者相机无法对图像进行矫正时，需要将calib_method设置为`custom`，并且需要指定`stereo_calib_file_path`
 - stereo_calib_file_path控制自定义标定参数的路径
 
-- render_type控制渲染方式，默认是`distance`，会自动根据深度图距离自动渲染伪彩色图像用于网页端显示
+- render_type控制渲染方式，默认是`distance`，会自动根据深度图距离自动渲染伪彩色图像用于网页端显示，可以设置为`indoor`、`outdoor`，不建议设置为`indoor`
 - render_perf控制渲染图像上是否展示CPU、BPU占用率、Latency、FPS信息，可以设置为`True`、`False`
 
 - speckle_filter_enable控制是否开启speckle filter滤波，可以设置为`True`、`False`
@@ -634,6 +645,18 @@ rviz2
 - save_dir控制保存的目录，目录不存在会自动创建，请确保该目录下有足够空间，否则会保存失败
 - save_freq控制保存的频率，例如设置为4代表每隔4帧保存一次
 - save_total控制保存的总数，设置为-1代表一直保存，设置为100代表保存100帧则不再保存
+
+- use_local_image_flag控制是否开启离线推理
+- local_image_dir控制本地图像目录，离线推理时使用
+
+- epipolar_mode控制是否开启基于棋盘格的极线对齐检测
+- epipolar_img控制使用`origin`原图还是使用`rect`图
+- chessboard_per_rows/chessboard_per_cols/chessboard_square_size控制棋盘格内点数和棋盘格方块大小（单位m）
+- feature_epipolar_mode制是否开启基于ORB特征点的极线对齐检测
+
+- infer_thread_num控制推理线程数，默认是2个推理线程，多线程推理帧率高，但latency较大。可以改为1，单线程推理帧率稍低，但latency也低
+
+- stereonet_pub_web控制是否开启web端发布可视化图像
 
 #### (6) 保存一帧图像
 
@@ -723,6 +746,43 @@ ros2 param set /StereoNetNode save_total 10
 # 执行保存命令
 ros2 param set /StereoNetNode save_result_flag true
 ```
+
+#### (8) 开启极线对齐检测模式
+
+如果出现深度图较差的情况，除了可能是左右图的拼接顺序错误之外，还有可能是左右目图像没有达到极线对齐状态。
+双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于`1 pixel`。
+
+本程序开发了两种极线对齐检测方式：一种是基于棋盘格标定板的方式，这种方式比较严格，推荐使用；
+另一种是基于ORB特征点的方式，这种方式不需要标定板，只需要在纹理丰富的场景运行即可，但计算出来的极线对齐误差可能偏大。
+
+- 基于棋盘格标定板极线对齐检测程序启动指令（以X5搭配132GS相机为例）：
+
+```bash
+# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
+# 注意棋盘格参数的设置，例子中使用每行内角点20、每列内角度11、方格大小为0.06m的棋盘格
+bash run_stereo.sh --epipolar_mode True \
+--chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
+```
+
+运行成功后，可以在web端看到如下图像：
+
+![epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg)
+
+基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在`1 pixel`内，双目图像才是合格图像，否则使用的标定参数是错误的
+
+- 基于ORB特征点极线对齐检测程序启动指令（以X5搭配132GS相机为例）：
+
+```bash
+# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
+bash run_stereo.sh --feature_epipolar_mode True
+```
+
+运行成功后，可以在web端看到如下图像：
+
+![feature_epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png)
+
+基于ORB特征点的极线对齐检测没有那么严格，根据经验值，如果是640×352分辨率的图像，极线对齐误差要小于`1 pixel`，如果是1280×1088分辨率的图像，极线对齐误差要小于`2 pixel`，双目图像才是合格图像
+
 
 ### 5.4. 离线启动指令
 
@@ -833,7 +893,7 @@ bash run_stereo.sh --use_mipi_cam False
 
 - 通过网页端查看深度图，在浏览器输入 http://ip:8000 (ip为RDK对应的ip地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
 
-## 6. hobot_stereonet功能包说明
+## 6. 功能包话题说明
 
 ### 6.1. 订阅话题
 
