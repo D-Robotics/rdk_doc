@@ -407,6 +407,15 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
 </Tabs>
 
 ```shell
@@ -598,6 +607,15 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
 </Tabs>
 
 ```shell
@@ -658,6 +676,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_cv)
 | Platform  | System | Function              |
 | --------- | -------------- | ----------------------------- |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble)  | Read image and resize |
+| RDK S600 | Ubuntu 24.04 (Jazzy)  | Read image and resize |
 
 ### Preparation
 

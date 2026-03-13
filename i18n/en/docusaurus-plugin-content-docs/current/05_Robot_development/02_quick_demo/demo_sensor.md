@@ -576,7 +576,8 @@ To achieve environmental perception capabilities, robots often carry stereo came
 
 | Type | Model | Specifications | Supported Platforms |
 | ------ | ------ | ------ | ------ |
-| Camera | SC230ai | 200W | RDK X5 |
+| Camera | SC230ai | 200W | RDK X5, RDK 100, RDK S100P, RDK S600 |
+| Camera | SC132gs | 200W | RDK X5, RDK 100, RDK S100P, RDK S600 |
 
 Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -585,6 +586,8 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 | Platform   | System      | Function                          |
 | ------ | ------------- | --------------------------------- |
 | RDK X5 | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
+| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images through Web |
 
 ### Preparation
 
@@ -621,6 +624,15 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     ```bash
     # Configure the tros.b environment
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+     # Configure the tros.b environment
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -661,6 +673,15 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     ```bash
     # Configure the tros.b environment
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+     # Configure the tros.b environment
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>

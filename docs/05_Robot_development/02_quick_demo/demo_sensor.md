@@ -673,10 +673,8 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 类型 | 型号 | 规格 | 支持平台 |
 | ------ | ------ | ------ | ------ |
-| 摄像头| SC230ai | 200W | RDK X5, RDK X5 Module, RDK S100, RDK S100P |
-| 摄像头| SC132gs | 200W | RDK X5, RDK X5 Module, RDK S100, RDK S100P |
-| 摄像头| SC132gs | 200W | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| 摄像头| SC230ai | 200W | RDK S600 | Ubuntu 24.04 (Jazzy) |
+| 摄像头| SC230ai | 200W | RDK X5, RDK X5 Module, RDK S100, RDK S100P, RDK S600 |
+| 摄像头| SC132gs | 200W | RDK X5, RDK X5 Module, RDK S100, RDK S100P, RDK S600 |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 

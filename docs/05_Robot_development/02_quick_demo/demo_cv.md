@@ -693,6 +693,7 @@ cpu占用为单核百分比，耗时统计单位为ms
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,gbr24之间的转换 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | nv12,gbr24之间的转换 |
 
 ### 准备工作
 
@@ -714,6 +715,15 @@ cpu占用为单核百分比，耗时统计单位为ms
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
