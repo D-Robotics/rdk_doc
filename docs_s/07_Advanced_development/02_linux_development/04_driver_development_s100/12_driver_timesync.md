@@ -648,7 +648,7 @@ MCU侧本sample的编译环境使用MCU代码中的build工具，请参考：[MC
 
 ```
   # 进入Build/FreeRtos目录
-  python build_freertos.py lite matrix B s100 gcc debug # 硬件板或者项目名
+  python build_freertos.py s100_sip_B debug # 硬件板或者项目名
 ```
 
 #### 运行

@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 1.4 远程登录
 
-本章节旨在向需要通过个人电脑(PC)远程访问开发板的用户介绍如何通过串口、RDK Studio、网络(VNC、SSH)方式进行远程登录。
+本章节旨在向需要通过个人电脑(PC)远程访问开发板的用户介绍如何通过串口、网络(VNC、SSH)方式进行远程登录。
 
 :::tip
 
@@ -27,7 +27,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
 
 串口登录需要借助PC终端工具，目前常用的工具有`Putty`、`MobaXterm`等，用户可根据自身使用习惯来选择。不同工具的端口配置流程基本类似，下面以`MobaXterm`为例，介绍新建串口连接过程：
 
-- 当串口USB转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.d-robotics.cc/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：
+- 当串口USB转接板首次插入电脑时，需要安装串口驱动。驱动程序可从资源中心的[工具子栏目](https://developer.d-robotics.cc/resource)获取。驱动安装完成后，设备管理器可正常识别串口板端口，如下图：  
 
 ![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
 
@@ -37,7 +37,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
 - 配置端口号，例如`COM3`，实际使用的串口号以PC识别到的串口号为准
 
 - 设置串口配置参数，如下：
-
+  
   | 配置项               | 参数值                               |
   | -------------------- | ------------------------------------ |
   | 波特率（Baud rate）  | RDK X3 （921600），RDK X5 （115200） |
@@ -45,8 +45,8 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=2
   | 奇偶校验（Parity）   | None                                 |
   | 停止位（Stop bits）  | 1                                    |
   | 流控（Flow Control） | 无                                   |
-
-- 点击`OK`，输入用户名：`root`、密码：`root`登录设备
+  
+- 点击`OK`，输入用户名：`root`、密码：`root`登录设备  
 ![image-Uart-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Uart-Login.gif)
 
 此时，可使用`ifconfig`命令查询开发板IP地址，其中eth0、wlan0分别代表有线、无线网络：
@@ -60,7 +60,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 5766  bytes 246466 (246.4 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-        device interrupt 43  base 0xa000
+        device interrupt 43  base 0xa000  
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
@@ -78,50 +78,6 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-## RDK Studio 登录
-
-本章节面向使用 RDK Studio 登录开发板的用户，RDK Studio 提供安全的设备远程访问能力，支持从客户端通过 IP 远程登录 RDK 设备并实时控制与管理。操作步骤如下:
-
-
-:::info 说明
-
-- RDK Studio 下载链接：[点此下载](https://developer.d-robotics.cc/rdkstudio)
-- 更多 RDK Studio 使用指导参见 [RDK Studio 使用指南](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
-
-:::
-
-1. 点击右上角 `+ RDK 设备`，进入选择连接类型界面。
-
-   ![+ RDK 设备界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device.png)
-
-
-2. 点击 “选择连接类型” 后面的问号图标，弹出连接方式导览窗口，指导用户根据所选连接类型进行设备连接，点击 `下一步` 可查看后续内容，也可点击 `上一步` 再次查看之前的提示，查看全部导览内容后点击 `结束导览` 关闭窗口，也可随时点击右上角 ` × ` 直接关闭弹窗。
-
-   ![导览窗口界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_help.png)
-
-3. 点击选中 `IP 地址（已知IP情况下使用）`连接类型，点击 `下一步` ，进入填写 IP 地址界面。
-
-    ![填写IP界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/remote_login_ip_input.png)
-
-
-4. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “sunrise（普通用户权限）” 或 “root（超级用户权限）”。
-
-
-   ![选择用户类型界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
-
-
-5. 点击 `下一步` ，进入创建 RDK 设备条目界面，填写设备名称及描述。
-
-
-   ![创建 RDK 设备条目界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_device_manage_hr_add_device_IP_name.png)
-
-
-7. 点击 `确认`，成功添加 RDK 设备，在设备卡列表页面显示设备信息。
-
-
-   ![设备卡列表界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/left_menu_device_manage_hr_add_device_success_IP.png)
-
-
 
 ## 网络状态确认{#network_config}
 
@@ -163,16 +119,16 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 
 本章节面向使用Ubuntu Desktop系统版本的用户，介绍如何通过`VNC Viewer`实现远程桌面登录功能。`VNC Viewer`是一个图形桌面共享软件，可在电脑上实现设备远程登录和控制桌面。该软件可以通过电脑显示器预览开发板系统桌面，并使用电脑的鼠标、键盘进行远程操作。用户通过VNC Viewer操作，可以获得跟开发板本地操作相同的效果，下载链接[VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)。
 
-**连接开发板**
+**连接开发板**  
 目前VNC支持直接、云端两种连接方式，用户可以根据自身情况选择。本文推荐使用直接连接方式，连接步骤如下：
 
-- 输入设备ip地址，例如：192.168.127.10
+- 输入设备ip地址，例如：192.168.127.10  
 ![image-20220610160658103](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160658103.png)
 
-- 输入IP地址后回车，弹出链接未加密的提示，点击 `Continue`
+- 输入IP地址后回车，弹出链接未加密的提示，点击 `Continue`  
 ![image-20220610160715916](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160715916.png)
 
-- 输入密码 `sunrise`，勾选 `Remember password`, 点击 `OK`连接
+- 输入密码 `sunrise`，勾选 `Remember password`, 点击 `OK`连接  
 ![image-20220610160928136](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220610160928136.png)
 
 ## SSH登录{#ssh}
@@ -188,7 +144,7 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 
 ![image-Network-Login](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-Network-Login.gif)
 
-### 电脑命令行
+### 电脑命令行 
 用户也可通过命令行方式进行SSH登录，步骤如下：
 
 1. 打开终端窗口，输入SSH登录命令，例如`ssh sunrise@192.168.127.10`

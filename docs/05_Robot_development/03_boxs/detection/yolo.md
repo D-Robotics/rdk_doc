@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## 功能介绍
 
-YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、YOLOv11、YOLOv12等版本。
+YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推理，发布包含目标类别和检测框的算法msg。目前支持YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10等版本。
 
 
 模型使用[COCO数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型。
@@ -197,7 +197,7 @@ source /opt/tros/jazyy/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-除了YOLOv2算法，还支持YOLO系列其他算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`，使用YOLOv8算法的启动配置为`dnn_example_config_file:="config/yolov8workconfig.json"`，使用YOLOv10算法的启动配置为`dnn_example_config_file:="config/yolov10workconfig.json"`，使用YOLOv11算法的启动配置为`dnn_example_config_file:="config/yolov11workconfig.json"`，使用YOLOv12算法的启动配置为`dnn_example_config_file:="config/yolov12workconfig.json"`。
+除了YOLOv2算法，还支持YOLOv3和YOLOv5算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`，使用YOLOv8算法的启动配置为`dnn_example_config_file:="config/yolov8workconfig.json"`，使用YOLOv10算法的启动配置为`dnn_example_config_file:="config/yolov10workconfig.json"`，使用YOLOv11算法的启动配置为`dnn_example_config_file:="config/yolov11workconfig.json"`，使用YOLOv12算法的启动配置为`dnn_example_config_file:="config/yolov12workconfig.json"`。
 
 ### RDK Ultra平台
 

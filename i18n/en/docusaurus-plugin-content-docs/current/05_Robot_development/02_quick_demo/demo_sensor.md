@@ -21,12 +21,7 @@ Code repository:  (https://github.com/D-Robotics/hobot_usb_cam.git)
 | Platform    | Operating Mode     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
-| RDK Ultra | Ubuntu 20.04 (Foxy) |
-| X86     | Ubuntu 20.04 (Foxy) |
+| RDK X5, RDK S100 | Ubuntu 22.04 (Humble) |
 
 ### Preparation
 
@@ -279,7 +274,7 @@ Here is an example using the RDK platform:
 3. Changes to the pixel_format configuration:
 
    hobot_usb_cam supports the following configurations:
-   "mjpeg","mjpeg2rgb","rgb8","yuyv","yuyv2rgb","uyvy","uyvy2rgb","m4202rgb","mono8","mono16","y102mono8"
+   "mjpeg", "mjpeg-compressed", "mjpeg2rgb", "rgb8", "yuyv", "yuyv2rgb", "uyvy", "uyvy2rgb", "m4202rgb", "mono8", "mono16", "y102mono8"
    
    Start usb camera with the default parameters of the first type to query the formats supported by the device hardware, as shown in the log below:
 
@@ -300,7 +295,7 @@ Here is an example using the RDK platform:
    ```
    a. Query the image formats supported by the usb camera, as shown in the log above. The log shows support for mjpeg and YUYV.
 
-   b. Only "mjpeg", "mjpeg2rgb", "yuyv", and "yuyv2rgb" can be set; otherwise, the hobot_usb_cam program will exit.
+   b. Only "mjpeg", "mjpeg-compressed", "mjpeg2rgb", "yuyv", and "yuyv2rgb" can be set; otherwise, the hobot_usb_cam program will exit.
 
 ## MIPI camera
 
@@ -308,8 +303,8 @@ Here is an example using the RDK platform:
 
 To achieve environmental perception capabilities, robots often carry cameras, ToF, and other types of sensors. In order to reduce the cost of sensor adaptation and usage for users, TogetheROS.Bot wraps multiple commonly used sensors into the hobot_sensor module and abstracts them into ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program will automatically adapt to the correct sensor type. The currently supported MIPI sensor types are as follows:
 
-| Index | Name    | Representational Image                     | Parameters     |support platform | Reference Link                                                |
-| ----- | ------- | ------------------------------------------ | -------------- |-----------|------------------------------------------------------------- |
+| Index | Name    | Representational Image                     | Parameters     | Reference Link                                                |
+| ----- | ------- | ------------------------------------------ | -------------- | ------------------------------------------------------------- |
 | 1    | F37    | ![F37](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W Pixel | RDK X3, RDK X3 Module | [F37](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
 | 2    | GC4663 | ![GC4663](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W Pixel | RDK X3, RDK X3 Module | [GC4663](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
 | 3    | IMX219 | ![IMX219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W Pixel | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
@@ -329,13 +324,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 #### RDK
 
-1. Confirm that the camera is correctly connected to RDK. 
+1. Confirm that the camera is correctly connected to RDK. For example, the connection between the F37 camera and RDK X3 is shown in the following figure:
 
-    For example F37 connection RDK X3:
     ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
-
-    For example imx219 connection RDK S100:
-    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
 
 2. RDK is flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics
 
@@ -347,9 +338,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 #### RDK Platform
 
-Introduce the method of acquiring and previewing images:
+Take the F37 as an example to introduce the method of acquiring and previewing images:
 
-1. SSH into RDK.
+1. SSH into RDK and determine the camera model, take `F37` as an example, and determine the path to read the camera calibration file, take `/opt/tros/lib/mipi_cam/config/F37_calibration.yaml` as an example.
 
 2. Start the `hobot_sensor` node with the following command:
 
@@ -376,7 +367,7 @@ Introduce the method of acquiring and previewing images:
 
     ```shell
     # Start the launch file
-    ros2 launch mipi_cam mipi_cam.launch.py
+    ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37 mipi_camera_calibration_file_path:=/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml
     ```
 
 3. If the following information is outputted, it means that the node has been successfully started:
@@ -387,7 +378,7 @@ Introduce the method of acquiring and previewing images:
     [INFO] [mipi_cam-1]: process started with pid [8854]
     ...
     ```
-4. To view the camera image on the web, as raw data needs to be encoded into JPEG images, two terminals need to be launched separately: one for subscribing to MIPI data and encoding it into JPEG, and one for publishing with a webservice.
+4. To view the F37 camera image on the web, as raw data needs to be encoded into JPEG images, two terminals need to be launched separately: one for subscribing to MIPI data and encoding it into JPEG, and one for publishing with a webservice.
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
@@ -414,12 +405,12 @@ Introduce the method of acquiring and previewing images:
     # Start encoding
     ros2 launch hobot_codec hobot_codec_encode.launch.py
 
-    # Launch another terminal，and configure the tros.b environment
+    # Launch another terminal
     # Start websocket
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the camera's output.
+5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the F37 camera's output.
     ![web-f37-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png)
 
 6. To query the camera's intrinsic parameters on the PC (the specific data may vary depending on the calibrated camera file), use the following command and view the results:
@@ -568,6 +559,153 @@ Introduce the method of acquiring and previewing images:
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```   
 
+## RealSense Image Capture
+
+### Feature Overview
+
+Stereo cameras are commonly used sensors in robotics, often serving as the "eyes" of the robot. They have diverse applications, including navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo camera models such as RealSense and Orbbec.
+
+Currently, the usage of RealSense and Orbbec stereo cameras on ROS follows the architecture shown below. It requires platform-specific SDK library files. These SDKs provide APIs for camera initialization and configuration. On top of these SDKs, ROS wrappers are implemented, enabling the integration of stereo cameras into ROS.
+
+The general installation process for stereo camera ROS packages involves:
+1. Installing the camera's SDK library files.
+2. Installing the ROS wrapper for the camera.
+
+![Stereo Camera ROS Architecture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+
+This section explains how to use a RealSense camera on the RDK platform.
+### Supported Platforms
+
+| Platform              | Operating System         |
+| --------------------- | ------------------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5                | Ubuntu 22.04 (Humble)   |
+| RDK Ultra             | Ubuntu 20.04 (Foxy)    |
+
+---
+
+### Preparation
+
+#### RDK Platform
+
+1. Ensure your RealSense camera is functioning properly and connect it to the RDK's USB port using the provided USB cable.
+2. Verify that the RDK is flashed with the Ubuntu 20.04/Ubuntu 22.04 system image.
+3. Confirm that tros.b is successfully installed on the RDK.
+4. Ensure that your PC can access the RDK over the network.
+
+---
+
+### Usage Instructions
+
+To use the RealSense series cameras on the RDK platform, install RealSense SDK 2.0 and the RealSense ROS wrapper using the `apt` command.
+
+Below are the GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper. This guide references these repositories, which also contain more detailed instructions for advanced use cases:
+
+- RealSense SDK 2.0: [GitHub Repository](https://github.com/IntelRealSense/librealsense)
+- RealSense ROS wrapper: [GitHub Repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development)
+
+#### 1. Log in to the RDK via Serial Port or SSH and Verify the ROS Version
+
+<Tabs groupId="tros-distro">
+
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+# Print the ROS version environment variable
+echo $ROS_DISTRO
+   ```
+</TabItem> 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+# Print the ROS version environment variable
+echo $ROS_DISTRO
+   ```
+
+</TabItem>
+</Tabs>
+
+#### 2. Install RealSense SDK 2.0 and RealSense ROS2 Wrapper
+
+```bash
+# Install RealSense SDK 2.0
+sudo apt-get install ros-$ROS_DISTRO-librealsense2* -y 
+# Install RealSense ROS2 wrapper
+sudo apt-get install ros-$ROS_DISTRO-realsense2-* -y
+```
+
+#### 3. Start the RealSense Camera
+
+After installation, you can start the RealSense camera using the following ROS command:
+
+
+```shell
+ros2 launch realsense2_camera rs_launch.py
+```
+
+![realsense-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
+
+You can use the `ros2 topic list` command to view the topics published by the RealSense camera. When started with default parameters, the RealSense camera will only enable the depth and RGB data streams.
+
+
+![realsense-basic-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
+
+
+The RealSense ROS wrapper provides numerous configurable parameters. For example:  
+- Setting `enable_infra1:=true` enables the camera's left IR data stream.  
+- Setting `pointcloud.enable:=true` enables the point cloud data stream.
+
+
+```shell
+ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
+```
+
+![realsense-ir-pointcloud-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
+
+![realsense-image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
+
+Additionally, RealSense provides several services that can be viewed using the `ros2 service list` command. For example, you can use these services to query the camera's serial number, firmware version, and other information.
+
+
+```shell
+ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
+```
+For more details on topics and service configurations, refer to the RealSense ROS wrapper's [GitHub repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development).
+
+
+
+#### 4. Depth and RGB Alignment
+
+In practical applications, it's often necessary to align the depth map with the color image. RealSense provides corresponding launch methods to achieve this.
+
+
+```shell
+ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true 
+```
+
+![realsense-d2c-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
+
+![realsense-image-align](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
+
+#### 5. Displaying Images and Point Clouds
+
+There are multiple ways to display images and point clouds from the RealSense camera. Refer to [2.2 Data Visualization](./demo_render.md) for details.  
+
+For example, you can use `rviz2` on a PC to display the data. Ensure that the PC can access the RDK over the network. Note that since data is transmitted over the network, this method may cause significant load and result in lag or stuttering.
+
+
+![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
+
+It is recommended to directly read data on the RDK to verify if the output stream is functioning correctly. You can use `ros2 topic echo topic_name` to print the data or write code to subscribe to the relevant topics.
+
+
+![realsense-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
+
+
 ## Dual MIPI camera
 
 ### Introduction
@@ -593,14 +731,9 @@ Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 #### RDK
 
-1. Confirm that the camera is correctly connected to RDK. 
+1. Confirm that the camera is correctly connected to RDK. For example, the connection between the dual camera and RDK X5 is shown in the following figure:
 
-    For example, the connection between the dual camera and RDK X5 is shown in the following figure:
     ![image-X5-PI-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
-
-    For example, the sc230ai connection between the dual camera and RDK S100 is shown in the following figure:
-    ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
-
 
 2. RDK is flashed with the  Ubuntu 22.04 system image provided by D-Robotics
 
@@ -1005,153 +1138,6 @@ If there is an abnormality in the startup of the hobot_sensor node, you can trou
 1. Check hardware connections.
 2. Check if the tros.b environment is set.
 3. Check if the parameters are correct. For specific details, please refer to the Hobot_Sensors README.md file.
-
-## RealSense Image Capture
-
-### Feature Overview
-
-Stereo cameras are commonly used sensors in robotics, often serving as the "eyes" of the robot. They have diverse applications, including navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo camera models such as RealSense and Orbbec.
-
-Currently, the usage of RealSense and Orbbec stereo cameras on ROS follows the architecture shown below. It requires platform-specific SDK library files. These SDKs provide APIs for camera initialization and configuration. On top of these SDKs, ROS wrappers are implemented, enabling the integration of stereo cameras into ROS.
-
-The general installation process for stereo camera ROS packages involves:
-1. Installing the camera's SDK library files.
-2. Installing the ROS wrapper for the camera.
-
-![Stereo Camera ROS Architecture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
-
-This section explains how to use a RealSense camera on the RDK platform.
-### Supported Platforms
-
-| Platform              | Operating System         |
-| --------------------- | ------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5                | Ubuntu 22.04 (Humble)   |
-| RDK Ultra             | Ubuntu 20.04 (Foxy)    |
-
----
-
-### Preparation
-
-#### RDK Platform
-
-1. Ensure your RealSense camera is functioning properly and connect it to the RDK's USB port using the provided USB cable.
-2. Verify that the RDK is flashed with the Ubuntu 20.04/Ubuntu 22.04 system image.
-3. Confirm that tros.b is successfully installed on the RDK.
-4. Ensure that your PC can access the RDK over the network.
-
----
-
-### Usage Instructions
-
-To use the RealSense series cameras on the RDK platform, install RealSense SDK 2.0 and the RealSense ROS wrapper using the `apt` command.
-
-Below are the GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper. This guide references these repositories, which also contain more detailed instructions for advanced use cases:
-
-- RealSense SDK 2.0: [GitHub Repository](https://github.com/IntelRealSense/librealsense)
-- RealSense ROS wrapper: [GitHub Repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development)
-
-#### 1. Log in to the RDK via Serial Port or SSH and Verify the ROS Version
-
-<Tabs groupId="tros-distro">
-
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-# Print the ROS version environment variable
-echo $ROS_DISTRO
-   ```
-</TabItem> 
-<TabItem value="humble" label="Humble">
-
-   ```shell
-# Configure the tros.b environment
-source /opt/tros/humble/setup.bash
-# Print the ROS version environment variable
-echo $ROS_DISTRO
-   ```
-
-</TabItem>
-</Tabs>
-
-#### 2. Install RealSense SDK 2.0 and RealSense ROS2 Wrapper
-
-```bash
-# Install RealSense SDK 2.0
-sudo apt-get install ros-$ROS_DISTRO-librealsense2* -y 
-# Install RealSense ROS2 wrapper
-sudo apt-get install ros-$ROS_DISTRO-realsense2-* -y
-```
-
-#### 3. Start the RealSense Camera
-
-After installation, you can start the RealSense camera using the following ROS command:
-
-
-```shell
-ros2 launch realsense2_camera rs_launch.py
-```
-
-![realsense-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
-
-You can use the `ros2 topic list` command to view the topics published by the RealSense camera. When started with default parameters, the RealSense camera will only enable the depth and RGB data streams.
-
-
-![realsense-basic-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
-
-
-The RealSense ROS wrapper provides numerous configurable parameters. For example:  
-- Setting `enable_infra1:=true` enables the camera's left IR data stream.  
-- Setting `pointcloud.enable:=true` enables the point cloud data stream.
-
-
-```shell
-ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
-```
-
-![realsense-ir-pointcloud-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
-
-![realsense-image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
-
-Additionally, RealSense provides several services that can be viewed using the `ros2 service list` command. For example, you can use these services to query the camera's serial number, firmware version, and other information.
-
-
-```shell
-ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
-```
-For more details on topics and service configurations, refer to the RealSense ROS wrapper's [GitHub repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development).
-
-
-
-#### 4. Depth and RGB Alignment
-
-In practical applications, it's often necessary to align the depth map with the color image. RealSense provides corresponding launch methods to achieve this.
-
-
-```shell
-ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true 
-```
-
-![realsense-d2c-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
-
-![realsense-image-align](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
-
-#### 5. Displaying Images and Point Clouds
-
-There are multiple ways to display images and point clouds from the RealSense camera. Refer to [2.2 Data Visualization](./demo_render.md) for details.  
-
-For example, you can use `rviz2` on a PC to display the data. Ensure that the PC can access the RDK over the network. Note that since data is transmitted over the network, this method may cause significant load and result in lag or stuttering.
-
-
-![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
-
-It is recommended to directly read data on the RDK to verify if the output stream is functioning correctly. You can use `ros2 topic echo topic_name` to print the data or write code to subscribe to the relevant topics.
-
-
-![realsense-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
-
 
 ## Orbbec camera
 

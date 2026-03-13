@@ -15,7 +15,7 @@ This section introduces how to use apt to install TogetheROS.Bot on RDK.
 Prerequisites
 
 - The [Environment Setup](./preparation.md) has been completed.
-- RDK has installed the Ubuntu operating system.
+- The RDK system has been installed.
 - The RDK can access the internet normally.
 - The RDK can be accessed remotely via SSH.
 
@@ -24,29 +24,6 @@ Prerequisites
 Before installing TogetheROS, please confirm the system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download.md)
 
 :::
-
-
-<Tabs groupId="tros-distro">
-<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
-
-Note for RDK X3 platform:
-
-:::caution Attention
-- **2.x version tros.b only supports 2.x version system images，[1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)[Chinese Only] only supports 1.x version systems.**  
-- **If you are using a 1.x version system image, you need to [upgrade the system](./preparation.md) to version 2.x.**
-- **For the method of checking system and tros.b version numbers and detailed instructions, please refer to [FAQs](../../../current/08_FAQ/03_applications_and_examples.md).**
-:::
-
-| Dependency    | 1.x tros.b  | 2.x tros.b |
-| -----------| ------------| ------------|
-| 1.x System Image |       √     |       x     |
-| 2.x System Image |       x     |       √     |
-
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
-
-</TabItem>
-</Tabs>
 
 ### Installation
 
@@ -79,10 +56,7 @@ sudo apt install tros-humble
 </TabItem>
 </Tabs>
 
-:::caution Attension
-- **If the `sudo apt update` command fails or reports an error, please refer to `Q10: How to handleapt updatecommand failure or errors?` in the [FAQs](../../08_FAQ/01_hardware_and_system.md) section for resolution.**
-- **If you encounter the error `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` after running the installation command, please execute the command `apt --fix-broken install` to install the related dependencies before installing tros.b.**
-:::
+**Note: If you encounter the error `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).' after running the installation command, please execute the command `apt --fix-broken install` to install the related dependencies before installing tros.b.**
 
 After the installation is complete, check the files in the /opt directory
 
@@ -93,8 +67,6 @@ hobot  tros
 The tros.b is installed in the /opt directory.
 
 ### Upgrade tros.b
-
-Taking RDK installation as an example, the X86 Ubuntu upgrade method is consistent with that of RDK.  
 
 Login to RDK:
 
@@ -108,10 +80,6 @@ Upgrade tros.b deb package:
 sudo apt update
 sudo apt upgrade
 ```
-
-:::caution Attension
-- **If the `sudo apt update` command fails or reports an error, please refer to `Q10: How to handleapt updatecommand failure or errors?` in the [FAQs](../../08_FAQ/01_hardware_and_system.md) section for resolution.**
-:::
 
 ### Check the current version of tros.b
 
@@ -157,13 +125,6 @@ Description: TogetheROS Bot
 
 ```
 It can be seen that the current version of tros.b has been upgraded to version 2.2.0.
-
-
-:::caution 注意
-- The `Version` displayed in the query is the actual installed version of `tros.b`. This example uses version `2.2.0` for illustration.
-- For detailed release version information of `tros.b`, please refer to the [Version Release Notes](./changelog.md)。
-:::
-
 
 </TabItem>
 </Tabs>
@@ -212,7 +173,7 @@ sudo apt install tros
 ```
 :::caution
 - **If your X86 platform already has `tros.b` version 1.x installed, please use the command `sudo apt remove tros` to uninstall it before installing `tros.b` version 2.x.**  
-- **For details on how to check the version of `tros.b`, refer to the [FAQs](../../../current/08_FAQ/03_applications_and_examples.md).**
+- **For details on how to check the version of `tros.b`, refer to the [FAQs](/docs/08_FAQ/03_applications_and_examples.md).**
 
 :::
 

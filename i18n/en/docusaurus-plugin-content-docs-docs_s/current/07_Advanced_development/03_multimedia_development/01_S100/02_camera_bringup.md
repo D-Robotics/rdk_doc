@@ -278,7 +278,7 @@ Below are the fields that require individual configuration; other fields can rem
 | channel_sel[MIPIHOST_CHANNEL_NUM] | Mapping of MIPI virtual channels to IPI channels.                                                                                                                                                                                                                    |
 
 :::tip
-The commercial version offers more comprehensive feature support, deeper hardware capability access, and exclusive customization. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process.
+The commercial version offers more comprehensive feature support, deeper hardware capability access, and exclusive customization. To ensure compliance and secure delivery, access to the commercial version will be granted through the following process:
 
 **Commercial Version Access Process:**
 1. **Complete a questionnaire**: Submit your organization’s information and intended use case.
@@ -287,7 +287,7 @@ The commercial version offers more comprehensive feature support, deeper hardwar
 
 If you wish to obtain the commercial version, please complete the questionnaire below. We will contact you within 3–5 business days:
 
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
 :::
 
 ##### Camera Sensor Configuration
@@ -373,8 +373,7 @@ bash run_tuning.sh
 
 **Image Preview**
 
-1. Click [here](../../../01_Quick_start/download.md#tools-download) to download the image viewing tool hbplayer.
-2. Open hbplayer and set the network address (ensure the PC can ping the board). Click "Apply" to apply the settings, then click "Connect" to view the real-time video stream. The real-time preview operation is illustrated in the figure below.
+Open hbplayer and set the network address (ensure the PC can ping the board). Click "Apply" to apply the settings, then click "Connect" to view the real-time video stream. The real-time preview operation is illustrated in the figure below.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
 
@@ -712,7 +711,7 @@ ar0820@11 {
 
 ### Sensor DTBO File Configuration Guide
 
-The S100 Uboot supports Device Tree Blob Overlay (DTBO) functionality, allowing users to add or modify (but not delete) nodes in the currently loaded DTB without changing the original DTS file.
+The S100 U-Boot supports Device Tree Blob Overlay (DTBO) functionality, allowing users to add or modify (but not delete) nodes in the currently loaded DTB without changing the original DTS file.
 
 #### Generating Sensor DTBO Files
 
@@ -803,7 +802,7 @@ Edit `config.txt` as follows:
 dtbo_file_path=/overlays/v0p5_d457_2v_depth_color.dtbo
 ```
 
-3. Reboot the board to apply the DTBO configuration. In debug builds of Uboot, you can verify DTBO loading from the boot logs.
+3. Reboot the board to apply the DTBO configuration. In debug builds of U-Boot, you can verify DTBO loading from the boot logs.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_14.png)
 

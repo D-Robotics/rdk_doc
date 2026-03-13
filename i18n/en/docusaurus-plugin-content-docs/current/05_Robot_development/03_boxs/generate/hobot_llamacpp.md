@@ -19,8 +19,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 | Platform             | OS / Method             | Demo Functionality             |
 | -------------------- | ---------------------- | ------------------------------ |
-| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)  | On-device Vision Language Model|
-| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)  | On-device Vision Language Model|
+| RDK X5     | Ubuntu 22.04 (Humble)  | On-device Vision Language Model|
 
 ## Supported Models
 
@@ -33,9 +32,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 | InternVL3 | 2B | X5 | [vit_model_int16_VL3_2B_Instruct.bin](https://huggingface.co/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_VL3_2B_Instruct.bin) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://huggingface.co/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | InternVL3 | 2B | S100 | [vit_model_int16_VL3_2B_Instruct.hbm](https://huggingface.co/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_2B_Instruct.hbm) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://huggingface.co/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | SmolVLM2 | 256M | X5 | [SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 256M | S100 | [SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 500M | S100 | [SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
+| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://huggingface.co/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf)
 
 ## Preparation
 
@@ -43,28 +40,6 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 1. RDK should be flashed with the Ubuntu 22.04 system image.
 2. TogetheROS.Bot must be successfully installed on the RDK.
-3. Install package
-
-```shell
-sudo apt update
-sudo apt install tros-humble-hobot-llamacpp
-```
-
-4. System Setup
-
-Use command `srpi-config` for setting ION memory larger than 1.6GB, then restart and setup the maximum CPU frequency.
-
-  - For RDK X5: 
-
-    1) `srpi-config`Usage [Performance Options](/i18n/en/docusaurus-plugin-content-docs/current/02_System_configuration/02_srpi-config.md#performance-options)
-
-    2) CPU Frequency: [CPU Frequency Setting](/i18n/en/docusaurus-plugin-content-docs/current/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
-
-  - For RDK S100:
-
-    1) `srpi-config` Usage [Performance Options](/i18n/en/docusaurus-plugin-content-docs-docs_s/current/02_System_configuration/02_srpi-config.md#performance-options)
-
-    2) CPU Frequency: [CPU Frequency Setting](/i18n/en/docusaurus-plugin-content-docs-docs_s/current/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
 
 ## Usage
 

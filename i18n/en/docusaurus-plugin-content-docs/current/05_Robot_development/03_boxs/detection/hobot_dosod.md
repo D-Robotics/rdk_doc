@@ -23,13 +23,6 @@ Application Scenarios: The robust zero-shot detection capability of DOSOD endows
 | RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
 
-## Algorithm Information
-
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| DOSOD-l | X5 | 1×640×640×3 | 12 |
-| DOSOD-l | S100 | 1×640×640×3 | 44.89 |
-
 ## Preparation
 
 ### RDK
@@ -126,12 +119,6 @@ ros2 launch hobot_dosod dosod.launch.py
 </TabItem>
 
 </Tabs>
-
-By the way, we support change model and config which you designed.
-
-- X5: The setting of model file `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` and the setting of config `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
-
-- S100: The setting of model file `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.bin"` and the setting of config `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
 
 ## Result analysis
 

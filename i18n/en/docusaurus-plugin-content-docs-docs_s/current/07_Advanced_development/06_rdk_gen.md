@@ -2,20 +2,6 @@
 sidebar_position: 06
 ---
 # 7.6 RDK S100 Build System Development Guide
-
-:::tip Commercial Support
-The commercial version provides more comprehensive feature support, deeper hardware capability access, and exclusive customization options. To ensure compliance and secure delivery, we will grant access to the commercial version through the following process.
-
-**Commercial Version Access Process:**
-1. **Complete a questionnaire**: Submit basic information about your organization and intended use case.
-2. **Sign an NDA**: We will contact you based on your submission, and both parties will sign a Non-Disclosure Agreement upon mutual confirmation.
-3. **Content release**: After the agreement is signed, we will provide access to commercial version materials through a private channel.
-
-If you wish to obtain the commercial version, please complete the questionnaire below. We will contact you within 3–5 business days:
-
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
-:::
-
 ## 7.6.1 Overview
 This section is primarily intended for users who need to customize the RDK build system. For instructions on using `rdk_gen`, please refer to the README.md in the `rdk_gen` repository.
 
@@ -411,3 +397,16 @@ After modifying the partition table, the following steps are required for the ch
 	# In RDK Source Root Directory
 	sudo ./pack_image.sh -l
 	```
+
+:::tip
+The commercial version provides more comprehensive feature support, deeper hardware capability access, and exclusive customization options. To ensure compliance and secure delivery, we will grant access to the commercial version through the following process:
+
+**Commercial Version Access Process:**
+1. **Complete a questionnaire**: Submit basic information about your organization and intended use case.
+2. **Sign an NDA**: We will contact you based on your submission, and both parties will sign a Non-Disclosure Agreement upon mutual confirmation.
+3. **Content release**: After the agreement is signed, we will provide access to commercial version materials through a private channel.
+
+If you wish to obtain the commercial version, please complete the questionnaire below. We will contact you within 3–5 business days:
+
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+:::

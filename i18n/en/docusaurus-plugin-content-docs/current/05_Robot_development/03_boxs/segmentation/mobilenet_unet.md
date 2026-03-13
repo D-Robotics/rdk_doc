@@ -19,23 +19,11 @@ Code repository:  (https://github.com/D-Robotics/hobot_dnn)
 
 Applications: mobilenet_unet, composed of MobileNet and UNet, can segment images at the pixel level. It can be used for road recognition, remote sensing map analysis, medical image diagnosis, and other functions. It is mainly applied in the fields of autonomous driving, geological detection, and medical image analysis.
 
-Background Blur Example： https://github.com/rusito-23/mobile_unet_segmentation
-
 ## Supported Platforms
 
 | Platform | System | Function                     |
 | -------- | ------------ | ---------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
-
-## Algorithm Information
-
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| mobilenet_unet | X3 | 1x3x1024x2048 | 24.34 |
-| mobilenet_unet | X5 | 1x3x224x224 | 50.33 |
-| deeplabv3 | S100 | 1x3x224x224 | 14.70 |
+| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
 
 ## Preparation
 

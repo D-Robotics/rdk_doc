@@ -8,7 +8,7 @@ sidebar_position: 0
 MCU0 firmware compilation / McalCdd / Service / Platform, and other code are proprietary to the Enterprise Edition. If needed, please contact [D-Robotics](mailto:developer@d-robotics.cc) for support.
 :::
 
-:::tip Commercial Support
+:::tip
 The Commercial Edition offers more comprehensive feature support, deeper hardware capability access, and exclusive customization content. To ensure compliance and secure delivery, we will grant access to the Commercial Edition through the following process:
 
 **Commercial Edition Access Procedure**:
@@ -18,7 +18,7 @@ The Commercial Edition offers more comprehensive feature support, deeper hardwar
 
 If you wish to obtain the Commercial Edition, please fill out the questionnaire below. We will contact you within 3–5 business days:
 
-Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnJQBMIkRm6K79rjXR0hr0Fg
+Questionnaire link: https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
 :::
 
 ## MCU Community Edition

@@ -19,22 +19,24 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 | Platform                        | OS/Environment         | Example Feature         |
 | ------------------------------- | ---------------------- | ---------------------- |
-| RDK X5, RDK X5 Module           | Ubuntu 22.04 (Humble)  | Vision & Speech Box    |
-| RDK S100, RDK S100P             | Ubuntu 22.04 (Humble)  | Vision & Speech Box    |
+| RDK X5 (4GB RAM)                | Ubuntu 22.04 (Humble)  | Vision & Speech Box    |
+
+**Note: Only supported on RDK X5 with 4GB RAM.**
 
 ## Preparation
 
 ### RDK Platform
 
-1. RDK should be flashed with Ubuntu 22.04 system image.
-2. TogetheROS.Bot should be successfully installed on RDK.
-3. Install the ASR module for speech input with `apt install tros-humble-sensevoice-ros2`.
+1. RDK must be the 4GB RAM version.
+2. RDK should be flashed with Ubuntu 22.04 system image.
+3. TogetheROS.Bot should be successfully installed on RDK.
+4. Install the ASR module for speech input with `apt install tros-humble-sensevoice-ros2`.
 
 ## Usage
 
 ### On RDK Platform
 
-- You can use the Vision Language Model [Vision Language Model](../03_boxs/generate/hobot_llamacpp.md)
+- You can use the Vision Language Model [Vision Language Model](../03_box/generate/hobot_llamacpp.md)
 
 - You can use the TTS tool [Text-to-Speech](../02_quick_demo/hobot_tts.md)
 
@@ -45,10 +47,10 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 ```bash
 root@ubuntu:~# ls /dev/snd/
 
-by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  timer
+by-path  controlC1  pcmC1D0c  pcmC1D0p  timer
 ```
 
-The audio device name should be "plughw:0,0" as shown.
+The audio device name should be "hw:1,0" as shown.
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
 
@@ -65,7 +67,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # Set up MIPI camera
 export CAM_TYPE=mipi
-ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
 
 **Using USB Camera for Image Publishing**
@@ -74,7 +76,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # Set up USB camera
 export CAM_TYPE=usb
-ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
 
 **Using Local Images for Playback**
@@ -83,7 +85,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # Set up local image playback
 export CAM_TYPE=fb
-ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
 
 After starting the program, you can interact with the device via voice prompts. Usage: Wake up the device by saying "Hello", then give it a task, such as "Please describe this image". After receiving the task, the device will reply "Okay", then wait for the device to finish inference and start outputting text.
@@ -108,7 +110,7 @@ source /opt/tros/humble/setup.bash
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 
-ros2 launch hobot_llamacpp llama_llm.launch.py llamacpp_gguf_model_file_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_llm.launch.py llamacpp_gguf_model_file_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf audio_device:=hw:1,0 
 ```
 
 After starting the program, you can interact with the device via voice prompts. Usage: After device initialization, it will say "I'm here"; wake up the device by saying "Hello", then give it a task, such as "How should I relax on weekends?". The device will start inference and output the response.

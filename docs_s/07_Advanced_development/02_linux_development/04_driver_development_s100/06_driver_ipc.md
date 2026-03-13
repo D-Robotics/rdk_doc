@@ -183,124 +183,6 @@ root@ubuntu:/app/ipcbox_sample# tree .
 
 ```
 
-### IPC实时性能优化设置
-如果特定场景下需要提高IPC通信的实时性能，可以按照如下几步进行设置，以ipc_instance5为例进行说明。
-1. 首先查找ipc_instance5对应的中断号和中断线程pid
-```shell
-#中断号查找：
-root@ubuntu:~# cat /proc/interrupts | grep "mailbox"
- 14:          0          0          0          0          0          0     GICv3 293 Level     29f00000.mailbox0
- 15:          0          0          0          0          0          0     GICv3 294 Level     29f00000.mailbox0
- 16:          0          0          0          0          0          0     GICv3 295 Level     29f00000.mailbox0
- 17:          0          0          0          0          0          0     GICv3 296 Level     29f00000.mailbox0
- 18:          0          0          0          0          0          0     GICv3 297 Level     29f00000.mailbox0
- 19:          0          0          0          0          0          0     GICv3 298 Level     29f00000.mailbox0
- 20:          0          0          0          0          0          0     GICv3 299 Level     29f00000.mailbox0
- 21:          0          0          0          0          0          0     GICv3 300 Level     29f00000.mailbox0
- 22:          0          0          0          0          0          0     GICv3 301 Level     29f00000.mailbox0
- 23:          0          0          0          0          0          0     GICv3 302 Level     29f00000.mailbox0
- 24:          0          0          0          0          0          0     GICv3 303 Level     29f00000.mailbox0
- 25:          1          0          1          0          1          1     GICv3 304 Level     29f00000.mailbox0
- 26:          0          0          0          0          0          0     GICv3 305 Level     29f00000.mailbox0
- 27:          0          0          0          0          0          0     GICv3 306 Level     29f00000.mailbox0
- 28:          0          0          0          0          0          0     GICv3 307 Level     29f00000.mailbox0
- 29:          0          0          0          0          0          0     GICv3 280 Level     29f01000.mailbox1
- 30:          0          0          0          0          0          0     GICv3 281 Level     29f01000.mailbox1
- 31:          0          0          0          0          0          0     GICv3 282 Level     29f01000.mailbox1
- 32:          0          0          0          0          0          0     GICv3 283 Level     29f01000.mailbox1
- 33:          0          0          0          0          0          0     GICv3 284 Level     29f01000.mailbox1
- 34:          0          0          0          0          0          0     GICv3 285 Level     29f01000.mailbox1
- 35:          0          0          0          0          0          0     GICv3 286 Level     29f01000.mailbox1
- 36:          0          0          0          0          0          0     GICv3 287 Level     29f01000.mailbox1
- 37:          0          0          0          0          0          0     GICv3 288 Level     29f01000.mailbox1
- 38:          0          0          0          0          0          0     GICv3 289 Level     29f01000.mailbox1
- 39:          0          0          0          0          0          0     GICv3 290 Level     29f01000.mailbox1
- 40:          0          0          0          0          0          0     GICv3 291 Level     29f01000.mailbox1
- 41:          0          0          0          0          0          0     GICv3 292 Level     29f01000.mailbox1
- 42:          0          0          0          0          0          0     GICv3  50 Level     28109000.mailbox2
- 43:          0          0          0          0          0          0     GICv3  52 Level     2810d000.mailbox3
- 44:          0          0          0          0          0          0     GICv3  54 Level     28105000.mailbox4
-#中断线程PID查找
-root@ubuntu:~# ps aux | grep "mailbox"
-root          70  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/14-29f00000.mailbox0]
-root          71  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/15-29f00000.mailbox0]
-root          72  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/16-29f00000.mailbox0]
-root          73  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/17-29f00000.mailbox0]
-root          74  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/18-29f00000.mailbox0]
-root          75  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/19-29f00000.mailbox0]
-root          76  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/20-29f00000.mailbox0]
-root          77  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/21-29f00000.mailbox0]
-root          78  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/22-29f00000.mailbox0]
-root          79  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/23-29f00000.mailbox0]
-root          80  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/24-29f00000.mailbox0]
-root          81  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/25-29f00000.mailbox0]
-root          82  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/26-29f00000.mailbox0]
-root          83  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/27-29f00000.mailbox0]
-root          84  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/28-29f00000.mailbox0]
-root          85  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/29-29f01000.mailbox1]
-root          86  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/30-29f01000.mailbox1]
-root          87  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/31-29f01000.mailbox1]
-root          88  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/32-29f01000.mailbox1]
-root          89  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/33-29f01000.mailbox1]
-root          90  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/34-29f01000.mailbox1]
-root          91  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/35-29f01000.mailbox1]
-root          92  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/36-29f01000.mailbox1]
-root          93  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/37-29f01000.mailbox1]
-root          94  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/38-29f01000.mailbox1]
-root          95  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/39-29f01000.mailbox1]
-root          96  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/40-29f01000.mailbox1]
-root          97  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/41-29f01000.mailbox1]
-root          98  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/42-28109000.mailbox2]
-root          99  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/43-2810d000.mailbox3]
-root         100  0.0  0.0      0     0 ?        S    22:17   0:00 [irq/44-28105000.mailbox4]
-#依据设备树ipc_instance5对应的mailbox为 mboxes = <&mailbox0 5 21 5>;所以中断号为19，中断线程pid为75.
-```
-
-2. 中断绑核，降低迁移带来的消耗
-```shell
-#将IRQ 19绑定到 CPU2：
-root@ubuntu:/# echo 4 > /proc/irq/19/smp_affinity
-```
-
-3. 中断线程绑核，降低迁移带来的消耗
-```shell
-#将PID 75绑定到 CPU2:
-root@ubuntu:/# taskset -p 0x04 75
-pid 75's current affinity mask: 3f
-pid 75's new affinity mask: 4
-```
-
-4. 设置中断线程优先级，防止被高优任务打断
-```shell
-#将PID 75的优先级提高到99
-root@ubuntu:/# chrt -f -p 99 75
-root@ubuntu:/# chrt -p 75
-pid 75's current scheduling policy: SCHED_FIFO
-pid 75's current scheduling priority: 99
-```
-
-5. 中断CPU设置隔离，确保对应CPU专门用于实时任务
-```shell
-#将CPU2进行隔离，需要进入uboot模式下设置
-Hobot$ printenv bootargs
-bootargs=earlycon=uart8250,mmio32,0x394B0000 no_console_suspend root=/dev/ram0 rdinit=/init  rootwait net.ifnames=0
-Hobot$ setenv bootargs "${bootargs} isolcpus=2 nohz_full=2 rcu_nocbs=2"
-Hobot$ saveenv
-Saving Environment to MMC... Writing to MMC(0)... OK
-Hobot$ reset
-#系统启动之后查看是否生效
-root@ubuntu:/# cat /sys/devices/system/cpu/isolated
-2
-```
-
-6. 设置RT内核调度器状态，防止RT任务被强行yield
-```shell
-root@ubuntu:/# echo -1 > /proc/sys/kernel/sched_rt_runtime_us
-```
-:::warning 注意事项
-该设置会允许所有RT任务无限制地占用CPU，从而提升系统的实时性能，但也可能导致普通任务无法获得调度机会而被饿死。因此，在使用 -1 时需谨慎。有关RT线程调度的调试，请参考[内核官方文档](https://kernel.org/doc/html/v6.1/scheduler/sched-rt-group.html)
-:::
-
 ### API流程说明
 
 Acore与MCU(IRQ方式)之间API Sample运行流程图
@@ -382,191 +264,99 @@ Acore与MCU(POLL方式)之间API Sample运行流程图
 | `IPCF_HAL_E_BUSY` | 13 | 系统繁忙 |
 | `IPCF_HAL_E_CHANNEL_INVALID` | 14 | **数据写入通道状态异常：内核态RingBuffer已达容量上限，导致数据写入操作失败，建议等待1-2ms后重试操作;**<br/>**数据读取通道状态异常：内核态RingBuffer已空，导致数据读取操作失败，建议等待1-2ms后重试操作** |
 
-### C++ 应用{#IPC_APP}
-
-Acore侧实现了多个应用，用于操作MCU端的外设，这些应用位于`/app/ipcbox_sample`目录下：
-```bash
-root@ubuntu:/app/ipcbox_sample# tree -L 1
-.
-├── common  # 公共文件，实现了对数据的封包和解包，数据校验等功能
-├── ipcbox_i2c # 操作MCU侧I2C外设 Sample
-├── ipcbox_runcmd # 运行mcu侧cmd命令 Sample
-├── ipcbox_spi # 操作MCU侧SPI外设 Sample
-└── ipcbox_uart # 操作MCU侧UART外设 Sample
-```
-
-:::tip
-- 应用实际操作的是MCU侧外设，在使用前要确认MCU1是否启动，MCU1的启动可以参考[MCU1 启动](../../../07_Advanced_development/05_mcu_development/01_S1000/01_basic_information.md#start_mcu1)
-- 操作这些外设时，需要确认MCU侧是否将这些外设配置用于透传，可以参考[MCU侧IPCBOX配置](../../../07_Advanced_development/05_mcu_development/01_S100/08_mcu_ipc.md#IPCBOX)
-:::
-
+### C++ 应用
 
 #### RunCmd应用
 
 此sample实现了对读取了ADC chanel的电压。
-1. 开机进入S100后，打开应用目录`/app/ipcbox_sample/ipcbox_runcmd`
-2. 编译：`make`
-3. 运行: `./ipcbox_runcmd`
-4. 出现`Extracted adc data:{"adc_ch":1,"adc_result":628,"adc_mv":276}`的打印则测试通过，其中表示adc对应pin口，adc_mv表示读出来的电压值
-        ```
-        root@ubuntu:/app/ipcbox_sample/ipcbox_runcmd# ./ipcbox_runcmd
-        [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 init success.
-        [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 config success.
-        Extracted adc data:{"adc_ch":1,"adc_result":628,"adc_mv":276}
-        [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 deinit success.
-        ```
+1. 开机进入S100后，打开应用目录/app/ipcbox_sample/ipcbox_runcmd
+2. 编译：make
+3. 运行: ./ipcbox_runcmd
+4. 出现`Extracted adc data:{"adc_ch":1,"adc_result":2411,"adc_mv":1059}`打印则测试通过
+
+其中表示adc对应pin口，adc_mv表示读出来的电压值
+
+```
+root@ubuntu:/app/ipcbox_sample/ipcbox_runcmd# ./ipcbox_runcmd
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 config success.
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
+Extracted adc data:{"adc_ch":1,"adc_result":2411,"adc_mv":1059}
+TxCmdItem(96)
+44 2D 49 50 43 42 4F 58 01 00 00 00 55 07 00 00
+69 70 63 73 65 6E 64 5F 61 64 63 20 31 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+60 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+rx_packet(160):D-IPCBOX
+44 2D 49 50 43 42 4F 58 01 00 00 00 4B 10 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+A0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+7B 22 61 64 63 5F 63 68 22 3A 31 2C 22 61 64 63
+5F 72 65 73 75 6C 74 22 3A 32 34 31 31 2C 22 61
+64 63 5F 6D 76 22 3A 31 30 35 39 7D 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 C9 F5 5A 58 13 C3 E8 F0 1C E7 DE FF FF 00 00
+CC 74 22 8A FF FF 00 00 74 47 67 8A FF FF 00 00
+A4 0F 1F D4 AA AA 00 00 06 00 00 00 01 00 00 00
+58 1D E7 DE FF FF 00 00 58 1D E7 DE FF FF 00 00
+01 00 00 00 00 00 00 00 D8 1C 20 D4 AA AA 00 00
+40 C0 69 8A FF FF 00 00 A4 0F 1F D4 AA AA 00 00
+
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch0 [ins] 7 [id] 0 deinit success.
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 deinit success.
+```
 
 
 #### Uart透传
+此sample实现了对Uart5的透传，测试时需要将uart5的TX和RX短接。
 
-**测试前提**
-在测试前，需要将用到的`Uart`的TX和RX短接。其中S100默认使用的Uart如下:
-| 平台 | Uart id |
-|------|---------|
-| S100 | Uart5  |
+1. 开机进入S100后，打开应用目录cd /app/ipcbox_sample/ipcbox_uart
+2. 编译：make
+3. 运行: ./ipcbox_uart
+4. 出现tx_data and rx_data are identical.打印则测试通过, 参考log如下：
+```
+# ./ipcbox_uart
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 config success.
+tx_data(64)
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-测试sample实现了对`Uart`的透传，操作步骤如下：
+rx_data(64)
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-1. 开机进入S100后，打开应用目录`cd /app/ipcbox_sample/ipcbox_uart`
-2. 编译：`make`
-3. 运行: `./ipcbox_uart`
-4. 出现`tx_data and rx_data are identical.`的打印则测试通过, 参考log如下：
-        ```
-        root@ubuntu:/app/ipcbox_sample/ipcbox_uart# ./ipcbox_uart
-        [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
-        [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
-        tx_data(32)
-        31 32 33 34 35 36 37 38 39 61 62 63 64 65 66 67
-        68 69 6A 6B 00 00 00 00 00 00 00 00 00 00 00 00
+tx_data and rx_data are identical.
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 deinit success.
+```
 
-        rx_packet(32)
-        31 32 33 34 35 36 37 38 39 61 62 63 64 65 66 67
-        68 69 6A 6B 00 00 00 00 00 00 00 00 00 00 00 00
-
-        [SUCCESS]: tx_data and rx_packet are identical.
-        [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 deinit success.
-        ```
-
-#### SPI读写测试
-
-此sample实现了对SPI的回环测试，测试时需要将`SPI3`的MOSI和MISO短接。
-
-1. 开机进入S100后，打开应用目录`cd /app/ipcbox_sample/ipcbox_spi`
-2. 编译：`make`
-3. 运行: `./ipcbox_spi`
-4. 出现`SPI write successful, 128 bytes`的打印则测试通过, 参考log如下：
-        ```
-        root@ubuntu:/app/ipcbox_sample/ipcbox_spi# ./ipcbox_spi -b 3
-        [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch2 [ins] 7 [id] 2 init success.
-        [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch2 [ins] 7 [id] 2 config success.
-        SPI write successful, 128 bytes
-        tx_data(128)
-        00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-        10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
-        20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
-        30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F
-        40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
-        50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F
-        60 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F
-        70 71 72 73 74 75 76 77 78 79 7A 7B 7C 7D 7E 7F
-
-        rx_packet(128)
-        00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-        10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
-        20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
-        30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F
-        40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
-        50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F
-        60 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F
-        70 71 72 73 74 75 76 77 78 79 7A 7B 7C 7D 7E 7F
-
-        [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch2 [ins] 7 [id] 2 deinit success.
-        ```
-
-:::tip
-IpcBox只实现了对SPI Master的操控，有以下限制
-- 不支持Slave模式
-- MCU侧底层默认使用中断+异步方式，支持同步模式
-- 不支持应用层控制帧长度
-:::
-
-#### I2C测试
-此sample实现了对I2c的detect测试，I2c寄存器的读写
-
-1. 开机进入S100后，打开应用目录`cd /app/ipcbox_sample/ipcbox_i2c`
-2. 编译：`make`
-3. 运行: `./ipcbox_i2c` 出现如下参考命令
-        ```
-        root@ubuntu:/app/ipcbox_sample/ipcbox_i2c# ./ipcbox_i2c
-        Usage: ./ipcbox_i2c detect [i2c_channel]
-        ./ipcbox_i2c get [i2c_channel] [slave_addr] [reg_addr]
-        ./ipcbox_i2c set [i2c_channel] [slave_addr] [reg_addr] [val]
-        Examples:
-        ./ipcbox_i2c detect 0
-        ./ipcbox_i2c set 0 0x50 0x01 0xAA
-        ./ipcbox_i2c get 0 0x50 0x01
-        ```
-4. 输入`./ipcbox_i2c detect 6` ,探测`I2c6`的设备
-        ```
-        root@ubuntu:/app/ipcbox_sample/ipcbox_i2c# ./ipcbox_i2c detect 6
-        Parsed arguments: operation=detect, channel=6
-        [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch3 [ins] 7 [id] 3 init success.
-        [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch3 [ins] 7 [id] 3 config success.
-        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-        00:    -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-        10: -- -- -- 13 -- -- -- -- -- -- -- -- -- -- -- --
-        20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-        30: -- -- 32 -- -- -- -- -- -- -- -- -- -- -- -- --
-        40: -- -- -- -- 44 45 -- 47 48 49 4a 4b 4c 4d 4e 4f
-        50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-        60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-        70: -- -- -- -- -- -- -- --
-        [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch3 [ins] 7 [id] 3 deinit success.
-        ```
-5. 读取`I2c6` 上，slave地址为`0x13`,寄存器地址为`0x2`
-        ```
-        root@ubuntu:/app/ipcbox_sample/ipcbox_i2c# ./ipcbox_i2c get 6 0x13 0x2
-        Parsed arguments: operation=get, channel=6, slave_addr=0x13, reg_addr=0x2
-        [INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch3 [ins] 7 [id] 3 init success.
-        [INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch3 [ins] 7 [id] 3 config success.
-        Read data[0]: 0x3C
-        [INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch3 [ins] 7 [id] 3 deinit success.
-        ```
-
-:::tip
-ipcbox只实现了对i2c Master的简单传输，不支持Slave
-
-测试用例中的读写操作都是对8bit 地址的slave做测试，需要根据slave的实际情况更改MCU的IpcBox_I2cGetValue/IpcBox_I2cSetValue,此函数位于MCU的SDK中的Service/HouseKeeping/ipc_box/src/ipc_i2c.c
-:::
 
 ### Python应用
 
-**测试前提**
-由于Python应用调用了IpcBox中的Uart，所以与C++的用例类似，在测试前，需要将用到的`Uart`的TX和RX短接。其中S100默认使用的Uart如下:
-| 平台 | Uart id |
-|------|---------|
-| S100 | Uart5  |
-
-:::tip
-- 应用实际操作的是MCU侧外设，在使用前要确认MCU1是否启动，MCU1的启动可以参考[MCU1 启动](../../../07_Advanced_development/05_mcu_development/01_S1000/01_basic_information.md#start_mcu1)
-- 操作这些外设时，需要确认MCU侧是否将这些外设配置用于透传，可以参考[MCU侧IPCBOX配置](../../../07_Advanced_development/05_mcu_development/01_S100/08_mcu_ipc.md#IPCBOX)
-:::
-
-
-S100提供Python库文件使用Ipc，其原理为通过pybind11调用C++接口，函数名与宏定义等两端保持一致。
+S100提供python库文件使用IPC，其原理为通过pybind11调用C++接口，函数名与宏定义等两端保持一致。
 
 1. 包的导入
 ```
 import pyhbipchal as pyipc
 import pyhbipchal_utils as ipc_utils
-from ipcbox_packet import ipcbox_packet
 ```
 
 2. 源码路径
 
 ```bash
-
-├── ipcbox_packet.py // ipcbox_packet对象封装
+root@ubuntu:/app/pyhbipchal_sample# tree
+.
 ├── ipcfhal_sample_config.json // 配置文件，用于初始化ipc
 ├── pyhbipchal_test.py // 使用pyhbipchal库编写基础python应用测试过用例
 ├── pyhbipchal_utils.py // pyhbipchal_utils对象源码，pyhbipchal进行二次封装,相较于pyhbipchal更符合pyhton的编程习惯
@@ -613,53 +403,23 @@ IPCF_HAL_E_CHANNEL_INVALID (-14): Channel is invalid
 
 =====================test OK=======================
 
-[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
-[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
-=== Sending Packet ===
-Original message: This is the PYIPC UART test
-Original data length: 27 bytes
-Fixed data length: 32 bytes
-Fixed data content (hex):
-54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
-43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 config success.
+tx_data(64)
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-IPCBox packet length: 160
-Full packet content (hex):
-44 49 50 43 01 00 00 00 97 0A 00 00 A0 00 00 00
+rx_data(64)
+69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
+37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
-43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
 
-=== Received Packet ===
-Raw received data length: 160
-Raw received data (hex):
-44 49 50 43 01 00 00 00 97 0A 00 00 A0 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
-43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
-
-tx_data(32)
-54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
-43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
-
-rx_data(32)
-54 68 69 73 20 69 73 20 74 68 65 20 50 59 49 50
-43 20 55 41 52 54 20 74 65 73 74 00 00 00 00 00
-
-[SUCCESS]: tx_data and rx_data are identical.
-[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 deinit success.
+tx_data and rx_data are identical.
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 deinit success.
+root@ubuntu:/app/pyhbipchal_sample#
 
 ```
 
@@ -667,40 +427,10 @@ rx_data(32)
 
 ```bash
 root@ubuntu:/app/pyhbipchal_sample# python pyhbipchal_utils_test.py
-[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 init success.
-[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch1 [ins] 7 [id] 1 config success.
-Sending IPCBox packet:
-Original message: ipc_runcmd_send 7 0 123456789 10
-Fixed data length: 32 bytes
-IPCBox packet length: 160 bytes
-IPCBox packet content (hex):
-44 49 50 43 01 00 00 00 13 0B 00 00 A0 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
-37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
-
-Received data (hex):
-44 49 50 43 01 00 00 00 13 0B 00 00 A0 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
-37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
-
-Extracted data length: 32 bytes
-Extracted data content (hex):
-69 70 63 5F 72 75 6E 63 6D 64 5F 73 65 6E 64 20
-37 20 30 20 31 32 33 34 35 36 37 38 39 20 31 30
+[INFO][hb_ipcf_hal.cpp:282] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 init success.
+[INFO][hb_ipcf_hal.cpp:333] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 config success.
+Tx: b'ipc_runcmd_send 7 0 123456789 10' | Rx: b'ipc_runcmd_send 7 0 123456789 10'
+[INFO][hb_ipcf_hal.cpp:553] [channel] cpu2mcu_ins7ch4 [ins] 7 [id] 4 deinit success.
 ```
 
 ## Acore与MCU的传输流程

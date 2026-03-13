@@ -41,15 +41,15 @@ import TabItem from '@theme/TabItem';
 
 - 已安装ASR工具
 
-- RDK 设备外接 usb 音箱含麦克风扬声器（部分RDK 产品包含3.5 mm 耳机孔, 可接入有线耳机体验）插入后检测音频设备是否正常:
+- RDK 设备包含3.5mm 耳机孔, 且设备插入有线耳机。插入后检测音频设备是否正常:
 
 ```bash
 root@ubuntu:~# ls /dev/snd/
 
-by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  timer
+by-path  controlC1  pcmC1D0c  pcmC1D0p  timer
 ```
 
-如图显示的音频设备名应为 "plughw:0,0"。
+如图显示的音频设备名应为 "hw:1,0"。
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
 
@@ -65,7 +65,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
-ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
 
 **使用USB摄像头发布图片**
@@ -75,7 +75,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置USB摄像头
 export CAM_TYPE=usb
-ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
 
 **使用本地回灌图片**
@@ -84,7 +84,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置本地回灌图片
 export CAM_TYPE=fb
-ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=hw:1,0
 ```
 
 </TabItem>
@@ -117,7 +117,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
-ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=hw:1,0
 ```
 
 **使用USB摄像头发布图片**
@@ -146,7 +146,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置USB摄像头
 export CAM_TYPE=usb
-ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=hw:1,0
 ```
 
 **使用本地回灌图片**
@@ -175,7 +175,7 @@ source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 # 配置本地回灌图片
 export CAM_TYPE=fb
-ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
+ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=hw:1,0
 ```
 
 </TabItem>
@@ -220,7 +220,7 @@ source /opt/tros/humble/setup.bash
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 
-ros2 launch hobot_llamacpp llama_llm.launch.py llamacpp_gguf_model_file_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf audio_device:=plughw:0,0 
+ros2 launch hobot_llamacpp llama_llm.launch.py llamacpp_gguf_model_file_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf audio_device:=hw:1,0 
 ```
 
 程序启动后，可通过语音提示与设备交互。具体使用方法：等待设备初始化后, 会说"我来啦"; 通过"你好"唤醒设备, 然后给设备说明任务。如"周末应该怎么休息?"。设备收到任务后, 开始推理并输出文字播报。

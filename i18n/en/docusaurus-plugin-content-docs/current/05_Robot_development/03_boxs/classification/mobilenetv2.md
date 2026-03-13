@@ -18,8 +18,6 @@ Code repository:  https://github.com/D-Robotics/hobot_dnn
 
 Applications: mobilenetv2 is capable of predicting the category of a given image, and can be used for tasks such as digit recognition and object recognition. It is mainly applied in fields such as text recognition and image retrieval.
 
-Food Classification Example： https://github.com/frotms/Chinese-and-Western-Food-Classification
-
 ## Supported Platforms
 
 | Platform   | System | Function                   |

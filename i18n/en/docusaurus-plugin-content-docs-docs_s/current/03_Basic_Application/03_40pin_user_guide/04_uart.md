@@ -8,9 +8,9 @@ The RDK S100 supports UART2 on the 40-pin header, which is disabled by default. 
 
 :::info
 
-The 40-pin header requires a DIP switch to select between UART2 and I2C5. For specific details, please refer to the image below:
+On the 40-pin header, you need to toggle the DIP switch to select between UART2 and I2C5. For specific details, please refer to the figure below:
 
-![image-rdk_100_funcreuse_40pin](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_funcreuse_40pin-en.jpg)
+![image-rdk_100_funcreuse_40pin](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_funcreuse_40pin.png)
 
 After toggling the DIP switch, you also need to modify the device tree file. The modification path and method are as follows:
 

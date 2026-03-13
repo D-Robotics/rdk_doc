@@ -644,7 +644,7 @@ Build the FreeRTOS image version. Note:
 
 ```
   # Enter the Build/FreeRtos directory
-  python build_freertos.py lite matrix B s100 gcc debug # Hardware board or project name
+  python build_freertos.py s100_sip_B debug # Hardware board or project name
 ```
 
 #### Execution

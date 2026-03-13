@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Camera点亮
 
-## HBN mipi sensor 点亮
+## HBN sensor 点亮
 
 ### 范围
 
@@ -24,20 +24,15 @@ settings 等。
 
 RDK-S100 开发板 camera 相关硬件资源如下：
 
-| RDK-S100                       | MIPI host    | I2C   | 管脚说明                          | 管脚说明                           | 其他                                                            |
+| RDK-S100                       | MIPI host    | I2C   | gpio_en                          | gpio_lpwm_mclk                           | 其他                                                            |
 |--------------------------------|------------------|-------|-----------------------------------|-----------------------------------|-----------------------------------------------------------------|
-| RX0<br /> 可接 imx219 模组 | **0**<br />  4 lane | **1** | SPI1_CSN0<br />  gpio_number:502 | 可通过拨码开关进行选择<br />  • LPWM0_DOUT0<br />  gpio_number:456<br />  • mclk 24Mhz  | 注意： imx219 模组本身外接 24M 晶振，所以不需要 SOC 端输出 mclk<br /> 注意：拨码开关决定输出 I2C/GPIO 电平 1.8V 还是 3.3V。<br /> 注意：拨码开关决定输出是 LPWM还是 24M mclk。 |
-| RX1<br /> 可接 imx219 模组 | **1**<br />   4 lane | **2** | SD_WPROT<br />  gpio_number:494 | 可通过拨码开关进行选择<br />  • LPWM0_DOUT1<br /> gpio_number:457<br />  • mclk 24Mhz  | 注意： imx219 模组本身外接 24M 晶振，所以不需要 SOC 端输出 mclk<br /> 注意：拨码开关决定输出 I2C/GPIO 电平 1.8V 还是 3.3V。<br /> 注意：拨码开关决定输出是 LPWM还是 24M mclk。|
-| RX4<br /> 用于接 serdes    | **4**<br />  4 lane | **3** | poc EN:<br /> gpio_number:433<br />poc INT: <br />gpio_number:506 |  解串器 PWDNB:<br /> gpio_number:452<br />                          | 解串器 max96712, addr: 0x29<br /> poc max20087, addr: 0x28           |
+| RX0<br /> 可接 imx219 模组 | **0**<br />  4 lane | **1** | SPI1_CSN0<br />  gpio_number:502 | 可通过拨码开关进行选择<br />  • LPWM0_DOUT0<br />  gpio_number:456<br />  • mclk 24Mhz  | 注意： imx219 模组本身外接 24M 晶振，所以不需要 SOC 端输出 mclk |
+| RX1<br /> 可接 imx219 模组 | **1**<br />   4 lane | **2** | SD_WPROT<br />  gpio_number:494 | 可通过拨码开关进行选择<br />  • LPWM0_DOUT1<br /> gpio_number:457<br />  • mclk 24Mhz  | 注意： imx219 模组本身外接 24M 晶振，所以不需要 SOC 端输出 mclk |
+| RX4<br /> 用于接 serdes    | **4**<br />  4 lane | **3** | 暂无介绍                          | 暂无介绍                          | 解串器 max96712, addr: 0x29 poc: max20087, addr: 0x28           |
 
 硬件连接示意图：
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_02.png)
-
-RX0 和 RX1 对应拨码开关示意图：
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_02_1.png)
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_02_2.png)
-
 
 
 ### 添加新 sensor 点亮步骤
@@ -322,16 +317,16 @@ out/deploy/rootfs/usr/hobot/lib/sensor 中。
 | channel_num                       | mipi 虚拟通道 number，linear mode 填 1，HDR DOL2 mode 填 2。                                                       |
 | channel_sel[MIPIHOST_CHANNEL_NUM] | mipi 虚拟通道对应的 ipi channel。                                                                                  |
 
-:::tip 商业支持
-商业版提供更完整的功能支持、更深入的硬件能力开放和专属的定制内容。为确保内容合规、安全交付，我们将通过以下方式开放商业版访问权限。
+:::tip
+商业版提供更完整的功能支持、更深入的硬件能力开放和专属的定制内容。为确保内容合规、安全交付，我们将通过以下方式开放商业版访问权限：
 
 商业版本获取流程：
-1. 填写问卷：提交您的机构信息、使用场景等基本情况
-2. 签署保密协议（NDA）：我们将根据提交信息与您联系，双方确认后签署保密协议
-3. 内容释放：完成协议签署后，我们将通过私有渠道为您开放商业版本资料
-  
-如您希望获取商业版内容，请点击下方链接填写问卷，我们将在 3 ～ 5 个工作日内与您联系：
-https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
+填写问卷：提交您的机构信息、使用场景等基本情况
+签署保密协议（NDA）：我们将根据提交信息与您联系，双方确认后签署保密协议
+内容释放：完成协议签署后，我们将通过私有渠道为您开放商业版本资料
+如您希望获取商业版内容，请填写下方问卷，我们将在3～5个工作日内与您联系：
+
+问卷链接：https://horizonrobotics.feishu.cn/share/base/form/shrcnpBby71Y8LlixYF2N3ENbre
 :::
 
 ##### camera sensor 配置
@@ -407,16 +402,16 @@ IMX219_RGGB_Raw10_IMX219_RDK-S100()
 
 ```c
 cd /app/tuning_tool/scripts
-bash run_tuning.sh
+bash run_tuning.sh 
 # 按照交互页面提示，选择对应的 sensor
 ```
 
 **图像预览**
 
-1. [点击此处](../../../01_Quick_start/download.md#工具下载)下载图像浏览工具 hbplayer。
-2. 打开 hbplayer 并设置网络地址（PC需要与板子可以ping通），点 apply 设置生效，并点 connect 则可以看到实时视频流。实时预览操作示意如图所示。
+打开 hbplayer，并设置网络地址（PC需要与板子可以ping通），点 apply 设置生效，并点
+connect 则可以看到实时视频流。实时预览操作示意如图所示。
 
-    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_06.png)
 
 ### 错误码
 
@@ -452,155 +447,12 @@ bash run_tuning.sh
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_09.png)
 
-
-## HBN gmsl sensor 点亮
-
-### gmsl sensor驱动编写说明
-本章节在 mipi camera 点亮说明的基础上，增加 gmsl 的差异部分。需要读者对 mipi camera 点亮说明及 gmsl 有一定的了解。
-
-该部分内容以 RDK-S100 开发板 + AR0820 (SG8S-AR0820C-5300-G2A) 模组为例，进行讲解，其他硬件平台或者 camera 模组以实际情况为准。
-
-### 资源准备
-硬件资源：RDK-S100 开发板、camera 模组。
-
-软件资源：系统 SDK、camera 驱动源码、sensor datasheet、sensor 的 initialize settings 、serdes datasheet 等。
-
-RDK-S100 开发板 camera 相关硬件资源参考 mipi camera 对应部分即可，下面图片用于表示解串器的 port 顺序。
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_15.png)
-
-###  添加新 sensor 点亮步骤
-参考 mipi camera 点亮步骤，这里只说明差异部分。
-
-#### dts 修改
-1. sensor mclk 配置，GMSL sensor mclk 一般由加串器输出，HBN 需要在 sensor 驱动代码中配置，后面介绍 sensor 驱动文件时，将详细说明。
-2. gpio_poc，gpio_des，lpwm_chn 及其他 vcon 配置，如果使用 RDK-S100 硬件，也不用关注，目前 dts 已经配置完毕，仅在使用新硬件情况下，需要根据实际硬件情况进行修改，修改方式与 MIPI camera 一致。
-
-#### sensor 驱动文件添加
-代码位置：<br />
-sensor 驱动目录：hobot-camera/drivers/sensor<br />
-ar0820 驱动目录：hobot-camera/drivers/sensor/ar0820std<br />
-serial 驱动目录：hobot-camera/drivers/sensor/serial<br />
-deserial 驱动目录：hobot-camera/drivers/deserial<br />
-GMSL camera sensor 驱动需要实现的内容和 mipi 驱动类似，这里以 ar0820std 为例，解释差异部分。<br />
-其中 std 是HBN 后期重构的，长期维护的 sensor 驱动，所以建议参考 std 驱动，增加新模组配置。<br />
-
-```
-static emode_data_t emode_data[MODE_TYPE_MAX] = {
-...
-    [SENSING_M25F120D4G3_S0R0T7] = {
-        .serial_addr = 0x40,            // serial i2c addr
-        .sensor_addr = 0x10,            // sensor i2c addr
-        .eeprom_addr = 0x50,            // eeprom i2c addr
-        .serial_rclk_out = 0,           // 0: serial rclk disabl, 1: serial_rclk enable
-        .rclk_mfp = 0,                  // if serial_rclk_out = 1, the rclk output on rclk_mfp
-    },
-};
-```
-通常一个解串器会连接多个加串器和 sensor，而这些加串器和sensor，可能是相同的硬件，i2c 地址相同，为了区分各个加串器和 sensor，需要对其 i2c 地址进行重新映射。emode_data 中的 *_addr 是在 i2c 地址重新映射 过程中，提供器件的默认 i2c 地址。映射的新地址，将由应用程序中 *_addr 自定义。
-
-在 serdes 模组中，sensor 需要的 mclk 可以由加串器来提供，也可以是外部晶振提供。前者情况需要将 serial_rclk_out 配置为 1，且 rclk_mfp 配置为对应的 mfp index，目前软件只配置了 MFP4，其他情况请咨询地瓜人员。后者情况将 serial_rclk_out 和 rclk_mfp 都配置为 0 即可。
-
-**emode (extra_mode) 配置**
-```
-static const sensor_emode_type_t sensor_emode[MODE_TYPE_NUM] = {
-        SENSOR_EMADD(SUNNY_M25F120D12G3_S1R8T2, "0.0.1", "lib_CA82GB_pwl12_WS_Fov120.so", "0.22.10.20", &emode_data[SUNNY_M25F120D
-12G3_S1R8T2]),
-        SENSOR_EMADD(SENSING_M27F120D12G3_S0R0T7, "0.0.1", "lib_ar0820RGGB_pwl12_Sens_Fov30.so", "0.22.9.13", &emode_data[SENSING_
-M27F120D12G3_S0R0T7]),
-        SENSOR_EMADD(SUNNY_M25F120D12G3_S0R8T7E0, "0.0.1", "lib_CA82GB_pwl12_WS_Fov120.so", "0.22.10.20", &emode_data[SUNNY_M25F12
-0D12G3_S0R8T7E0]),
-        SENSOR_EMADD(GALAXY_M25F120D12G2_S1R5T3E0, "0.0.1", "lib_CW_A82GB_A120_065_L_W20.so", "0.24.4.24", &emode_data[GALAXY_M25F
-120D12G2_S1R5T3E0]),
-        SENSOR_EMADD(GALAXY_M25F30D12G2_S1R5T3E0, "0.0.1", "lib_CW_A82GB_A30_017_L_W20.so", "0.24.4.28", &emode_data[GALAXY_M25F30
-D12G2_S1R5T3E0]),
-        //D4: YUV422, S0: MAX9295A, R0: sensor module isp reset MFP0 T7: sensor frame sync MFP7
-        SENSOR_EMADD(SENSING_M25F120D4G3_S0R0T7, "0.0.1", "lib_ar0820RGGB_pwl12_Sens_Fov30.so", "0.22.9.13", &emode_data[SENSING_M
-25F120D4G3_S0R0T7]),
-        SENSOR_EMEND(),
-};
-```
-在 HBN 代码中，将利用类似 SENSING_M25F120D4G3_S0R0T7 的 emode 字段，来解析出模组的基本信息，所以这个字段，需要根据模组实际情况填写，解析的基本规则如下：
-第一个 “_” 前面是模组厂名称，可以自定义。
-第一个 “_” 后面将根据关键字符进行解析
-1. M：加串器给 sensor 输出 mclk 的频率，单位为 MHZ，如 M25，且 serial_rclk_out 及 rclk_mfp 使能且配置正确后，加串器将输出 25Mhz 的 mclk。
-2. F：为模组 lens 的 FOV 大小，一般为了方便驱动中根据不同 lens 做一些逻辑判断。
-3. S：用于区分加串器类型，S0 代表 MAX9295A，S1 代表 MAX96717,  S2 代表 MAX96717F
-4. D：用于区分 sensor 输出的 datatype，D4 代表 YUV422（mipi 类型为 0x1e），D8 代表 RAW8 （mipi 类型为 0x2a），D10 代表 RAW10 （mipi 类型为 0x2b），D12 代表 RAW12 （mipi 类型为 0x2c）
-5. N：用于配置加串器 mipi lane 的数目，默认为 4 lane。
-6. R：用于配置加串器 reset sensor 或者模组内部 ISP 等器件。如 R0，则代表加串器使用 MFP0 gpio 进行 reset。
-7. T：用于配置加串器触发 sensor 同步曝光。如 T7，则代表加串器使用 MFP7 去触发 sensor 进行同步曝光。
-8. L：用于配置加串器 link 速率，可以选择 3Gbps 或者 6Gbps，需要根据实际硬件配置来选择。如 L3，则代表选择 3Gbps。如果没有配置，则软件中根据加串器型号自动配置其支持的最大速率。
-9. I：用于表示 sensor 的接口，是否为 DVP 接口。如 I1，则表示 sensor 与加串器的接口为 DVP 接口，I0 或者不配置，则为 MIPI 接口。
-10. 其他字符的解析，一般用不到，特殊情况，可以咨询地瓜人员。
-
-"0.0.1" 和 "0.22.9.13" 分别为 sensor 驱动版本号及 isp 效果库 so 的版本号，前期点亮阶段，可以忽略。
-
-"lib_ar0820RGGB_pwl12_Sens_Fov30.so" 为选择 emode 的默认 isp 效果库 so，需要注意的是，在用户程序中，也可以通过 calib_lname 指定效果库名称，且优先级高于 emode 中的配置。
-
-**config_index 配置**
-HBN 框架通过 config_index 字段来配置一些功能，如写一些 emb data，配置mirror/flip，设置sensor 曝光等。
-```
-static SENSOR_CONFIG_FUNC sensor_config_index_funcs[B_CONFIG_INDEX_MAX] = {
-        [B_EMBEDDED_MODE] = sensor_config_index_embed_setting,
-        [B_TEST_PATTERN] = sensor_config_index_test_pattern,
-        [B_FLIP] = sensor_config_index_filp_setting,
-        [B_MIRROR] = sensor_config_index_mirror_setting,
-        [B_TRIG_STANDARD] = sensor_config_index_trig_mode,
-        [B_TRIG_SHUTTER_SYNC] = sensor_config_index_trig_shutter_mode,
-};
-
-typedef enum CONFIG_INDEX_B {
-        B_AE_DISABLE,
-        B_AWB_DISABLE,
-        B_TEST_PATTERN,
-        B_DPHY_PORTB,
-        B_DPHY_COPY,
-        B_EMBEDDED_MODE,
-        B_EMBEDDED_DATA,
-        B_TRIG_SOURCE,
-        B_TRIG_STANDARD,
-        B_TRIG_SHUTTER_SYNC,
-        B_TRIG_EXTERNAL,
-        B_DUAL_ROI,
-        B_MIRROR,
-        B_FLIP,
-        B_PWL_24BIT,
-        B_CONFIG_INDEX_MAX,
-} camera_sensor_config_index_t;
-```
-在用户程序中，将有 config_index 字段，表示模组选择哪一些功能，对应的赋值则是按照 ```1 << CONFIG_INDEX_B``` 值来配置，如，选择 B_TRIG_STANDARD，则 config_index 赋值为 256。
-
-#### 用户程序
-该部分可以参考 mipi camera 配置，侧重于 deserial 的一些配置说明。这里的 deserial 字段为一些常用的配置。
-
-**deserial 配置**
-| 字段 | 描述 |
-|------|------|
-|name[CAMERA_MODULE_NAME_LEN]  | deserial 名称，如 max96712 |
-| addr  |   deserial 设备地址 |
-| gpio_mfp[CAMERA_DES_GPIO_MAX] |MFP 的 GPIO功能选择，常见的<br /> CAMERA_DES_GPIO_TRIG0 = 0,<br /> CAMERA_DES_GPIO_TRIG1 = 1,<br /> CAMERA_DES_GPIO_TRIG2 = 2, <br /> CAMERA_DES_GPIO_TRIG3 = 3, <br /> 如 .gpio_mfp[CAMERA_DES_GPIO_TRIG0] = 5, <br /> 则表示 SOC 输出的 LPWM 触发信号，连接到了解串器 MFP5 管脚上。|
-|link_desp[CAMERA_DES_LINKMAX][CAMERA_DES_PORTDESP_LEN] | 各Link连接模组的配置描述，多进程需要使用，单进程可选。格式为：name:extra_mode@config_index<br />如： strcpy(g_deserial_config[0].link_desp[0], "ar0820std:5@256");<br />则代表：port0 选择的为 ar0820 模组，emode 为 5， config_index 为 256。|
-| poc_cfg_t | 参见 poc 配置 |
-| mipi_config_t | 参见 mipi camera 对应的配置，注意 extra_mode 和 config_index 配置。|
-| end_flag | 固定为 DESERIAL_CONFIG_END_FLAG |
-
-**poc 配置**
-| 字段 | 描述 |
-|------|------|
-|name[CAMERA_MODULE_NAME_LEN] | poc 名称，如：max20087 |
-| addr | poc 设备 i2c 地址 |
-| poc_map | poc 与 link 的 map 关系，需要根据硬件原理图来进行配置，SDK 硬件为：0x1320 |
-| end_flag | 固定为 POC_CONFIG_END_FLAG|
-
-板端运行程序，isp 图像预览等部分请参考 mipi camera 点亮说明。
-
-
 ## V4L2 sensor 点亮
 
 ### V4L2 sensor驱动编写说明
 S100 Camsys sensor v4l2 驱动软件框架为标准的v4l2 sub device驱动。
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_10.png)
-下面以IMX219驱动为例，介绍MIPI直连sensor v4l2 驱动开发流程，imx219驱动源码位于：kernel/drivers/media/i2c/imx219.c
+下面以IMX219驱动为例，介绍MIPI直连sensor v4l2 驱动开发流程，imx219驱动源码位于：kernel/drivers/media/i2c/imx219.c  
 
 ####定义sensor私有结构体
 imx219私有结构体如下：
@@ -667,7 +519,7 @@ static int imx219_probe(struct i2c_client *client)
         imx219 = devm_kzalloc(&client->dev, sizeof(*imx219), GFP_KERNEL); // 1
         if (!imx219)
                 return -ENOMEM;
-        ...
+        ...        
         v4l2_i2c_subdev_init(&imx219->sd, client, &imx219_subdev_ops);  // 2
 
         imx219->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE |
@@ -677,7 +529,7 @@ static int imx219_probe(struct i2c_client *client)
         ret = media_entity_pads_init(&imx219->sd.entity, 1, &imx219->pad);  // 3
 
         ret = v4l2_async_register_subdev_sensor(&imx219->sd);  // 4
-
+        
         ...
 }
 ```
@@ -940,7 +792,7 @@ dtbo_file_path=/overlays/v0p5_d457_2v_depth_color.dtbo
 
 3. 重启板子，使能配置的dtbo文件。在debug 版本的uboot log中，可以检查加载dtbo 的情况
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/03_multimedia_development/02_S100/camera_bringup/camera_bringup_14.png)
-
+  
 ### Sensor gain LUT表编写说明
 RAW格式的sensor，对接到S100 ISP图像系统，除了编写sensor v4l2 驱动，另外需要制作一个so，存放sensor增益lut转换表，包括again lut、dgain lut等。人眼对亮度的感知更接近对数尺度而非线性尺度，dB单位更符合这种感知，S100 ISP这里sensor增益lut表存放的gain数组，需要存放db单位连续的sensor gain 寄存器配置值，供ISP调节sensor增益时找到对应的sensor寄存器值，下发到sensor。下面以imx219为例，介绍v4l2 sensor lut so如何制作。
 
@@ -992,14 +844,14 @@ typedef struct {
         DGainIndexToReg_t dgain_index_to_reg_callback;
 } Callbacks;   // callback结构体，不需要更改
 
-uint32_t again_index_to_reg_function(uint8_t isp_index)
+uint32_t again_index_to_reg_function(uint8_t isp_index) 
 {
         if (isp_index >= sizeof(imx219_again_lut)/sizeof(uint32_t))
                 isp_index = sizeof(imx219_again_lut)/sizeof(uint32_t) - 1;
         return imx219_again_lut[isp_index];
 }
 
-uint32_t dgain_index_to_reg_function(uint8_t isp_index)
+uint32_t dgain_index_to_reg_function(uint8_t isp_index) 
 {
         if (isp_index >= sizeof(imx219_dgain_lut)/sizeof(uint32_t))
                 isp_index = sizeof(imx219_dgain_lut)/sizeof(uint32_t) - 1;

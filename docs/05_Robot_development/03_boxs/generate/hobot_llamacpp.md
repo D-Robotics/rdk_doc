@@ -34,8 +34,7 @@ import TabItem from '@theme/TabItem';
 | InternVL3 | 2B | S100 | [vit_model_int16_VL3_2B_Instruct.hbm](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_2B_Instruct.hbm) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | SmolVLM2 | 256M | X5 | [SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
 | SmolVLM2 | 256M | S100 | [SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
-| SmolVLM2 | 500M | S100 | [SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_500M_Instruct_S100.hbm) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
+| SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf)
 
 ## 算法信息
 
@@ -45,7 +44,6 @@ import TabItem from '@theme/TabItem';
 | InternVL2_5 | 0.5B | Q4_0 | X5 | 1x3x448x448 | 2456.00 | 7.7 | 51.6 |
 | InternVL3 | 0.5B | Q8_0 | S100 | 1x3x448x448 | 100.00 | 9.19 | 41.65 |
 | Smolvlm2 | 256M | Q8_0 | X5 | 1x3x512x512 | 1053 | 9.3 | 27.8 |
-| Smolvlm2 | 500M | Q8_0 | X5 | 1x3x512x512 | 1053 | 27.3 | 65.7 |
 
 ## 准备工作
 
@@ -76,23 +74,23 @@ sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
-4. 系统配置
-
-使用命令`srpi-config`修改ION memory大小为1.6GB，重启后设置CPU为最高频率。
-
-  - RDK X5 参考: 
-  
-    1) `srpi-config`使用指南[Performance Options](/docs/02_System_configuration/02_srpi-config.md#performance-options)
-
-    2) CPU调频方法: [CPU频率管理](/docs/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
-
-  - RDK S100 参考: 
-
-    1) `srpi-config`使用指南[Performance Options](/docs_s/02_System_configuration/02_srpi-config.md#performance-options)
-
-    2) CPU调频方法: [CPU频率管理](/docs_s/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
-
 ## 使用方式
+
+使用命令`srpi-config`修改ION memory大小为1.6GB，设置方法参考RDK用户手册配置工具`srpi-config`使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
+
+重启后设置CPU最高频率为1.5GHz，以及调度模式为`performance`，命令如下：
+
+```bash
+sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu5/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu6/cpufreq/scaling_governor'
+sudo bash -c 'echo performance >/sys/devices/system/cpu/cpu7/cpufreq/scaling_governor'
+```
 
 目前提供两种体验方式，一种直接终端输入图片,文本体验，一种订阅图片和文本消息，然后将结果以文本方式发布出去。
 

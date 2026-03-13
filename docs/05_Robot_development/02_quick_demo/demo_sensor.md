@@ -402,9 +402,9 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 #### RDK平台
 
-下面介绍摄像头数据获取和预览的方法：
+下面以 F37 为例，介绍摄像头数据获取和预览的方法：
 
-1. 通过 SSH 登录RDK
+1. 通过 SSH 登录RDK，确定摄像头型号，这里以`F37`为例，确定相机标定文件的读取路径，这里以`/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml`为例
 
 2. 并通过下述命令启动 hobot_sensor 节点
 
@@ -439,7 +439,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     ```shell
     # launch 方式启动
-    ros2 launch mipi_cam mipi_cam.launch.py
+    ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37 mipi_camera_calibration_file_path:=/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml
     ```
 
 3. 如程序输出如下信息，说明节点已成功启动
@@ -486,7 +486,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     # 启动编码
     ros2 launch hobot_codec hobot_codec_encode.launch.py
 
-    # 再起一个终端，并且配置tros.b环境
+    # 再起一个终端
     # 启动websocket
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```

@@ -25,13 +25,7 @@ Application scenario: Combining detection boxes for obstacle segmentation, water
 
 | Platform             | System | Function                                            |
 | -------------------- | ---------------- | ------------------------------------------------------------|
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
-
-## Algorithm Information
-
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| mobilesam | X5 | 1×3×384×384 | 6.6 |
+| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
 
 ## Preparation
 
