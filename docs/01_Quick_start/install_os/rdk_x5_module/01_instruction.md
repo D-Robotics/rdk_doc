@@ -15,22 +15,11 @@
 RDK X5 Module 支持从 eMMC 和 SD 卡两种模式启动系统。
 
 
-### 从 eMMC 启动
+### RDK Studio 工具
+  - 支持使用本地镜像和在线下载镜像
+  - 支持 Windows、Linux、Mac 系统
+  
+### Rufus 工具
+  - 支持使用本地镜像
+  - 支持 Windows 系统
 
-#### Rufus 工具
-    - 支持使用本地镜像
-    - 支持 Windows 系统
-
-### 从 SD 卡启动
-
-使用 RDK Studio 工具和 Rufus 工具。
-
-#### RDK Studio 工具
-    - 支持使用本地镜像和在线下载镜像
-    - 支持 Windows、Linux、Mac 系统
-    - 支持 SD 卡烧录和 SD 卡在板烧录
-
-#### Rufus 工具
-    - 支持使用本地镜像
-    - 支持 Windows 系统
-    - 支持 SD 卡烧录和 SD 卡在板烧录
