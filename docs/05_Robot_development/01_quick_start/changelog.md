@@ -19,8 +19,6 @@ sidebar_position: 6
 - 'mipi_cam'重构从获取码流到消息发布的videobuff管理和拼接线程。修改拼接图片的标定信息的topic，"image_combine_raw/left/camera_info"和"image_combine_raw/right/camera_info"。重构X5的eeprom的读处理。X5增加子目录的发布。增加联合132gs的imu数据发布。
 
 
-## tros-humble
-
 ### 版本号：2.4.5 (2025-10-28)
 
 问题修复（`RDK X5`平台）：
