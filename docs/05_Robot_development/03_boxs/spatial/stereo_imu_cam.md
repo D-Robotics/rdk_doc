@@ -30,9 +30,7 @@ mipi相机代码仓库：https://github.com/D-Robotics/hobot_mipi_cam
 
 1. RDK已烧录好RDK OS系统
 2. RDK已成功安装TogetheROS.Bot
-3. 如果需要在线推理，请准备好双目相机，目前支持多款MIPI相机、ZED mini/2i USB相机
-4. 如果需要离线推理，请准备好双目图像数据
-5. 确认PC机能够通过网络访问RDK
+3. 确认PC机能够通过网络访问RDK
 
 ### 3.2. 系统和功能包版本
 
