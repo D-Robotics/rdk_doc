@@ -43,25 +43,34 @@ Example of gesture-controlled car: [Car Gesture Control](../../apps/car_gesture_
 
 | Platform                             | System | Function                                 |
 | -------------------------------- | ------------ | ----------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results via web |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results via web |
 
 ## Algorithm Information
 
 | Model | Platform | Input Size | Inference FPS |
 | ---- | ---- | ------------ | ---- |
+| mediapipe | X5 | 224x224 | 911.98 |
 | mediapipe | S100 | 224x224 | 1114 |
 
 ## Preparations
 
 ### RDK
 
-1. RDK is flashed with  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+1. RDK is flashed with  Ubuntu 22.04 system image provided by D-Robotics.
 
 2. TogetheROS.Bot has been successfully installed on RDK.
 
 3. The RDK is installed with a MIPI or USB camera.
 
 4. Confirm that the PC can access the RDK through the network.
+
+5. Install Packages
+
+```shell
+apt install tros-humble-palm-detection-mediapipe
+apt install tros-humble-hand-landmarks-mediapipe
+```
 
 ## Usage
 
