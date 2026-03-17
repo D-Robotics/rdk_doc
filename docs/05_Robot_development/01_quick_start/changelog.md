@@ -6,13 +6,14 @@ sidebar_position: 6
 
 ## tros-humble
 
-### 版本号：2.5.2 (2026-03-13)
+### 版本号：2.5.2 (2026-03-17)
 
 新增功能（`RDK X5`平台）：
 - 双目深度估计算法新增极线对齐检测功能；根据hobot_mipi_cam调整订阅的消息为"image_combine_raw/left/camera_info"和"image_combine_raw/right/camera_info"
 - 双目OCC算法支持使用mipi相机。
 - 目标检测算法支持`yolo26`。
-- `sensevoice_ros2`算法新增配置选项，支持中英文模式配置
+- `sensevoice_ros2`算法新增配置选项，支持中英文模式配置。
+- 新增基于`palm_detection_mediapipe`和`hand_landmarks_mediapipe`的人手关键点及手势识别算法。
 
 功能变更（`RDK X5`平台）：
 - 适配系统版本：RDK 3.5.0 (Linux SDK V1.1.2)
