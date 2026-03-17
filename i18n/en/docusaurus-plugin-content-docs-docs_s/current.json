@@ -295,8 +295,8 @@
     "message": "1.2.1 S100",
     "description": "The label for category 1.2.1 S100 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.1.2.1.3 D-Navigation工具": {
-    "message": "1.2.1.3 D-Navigation",
-    "description": "The label for category 1.2.1.3 D-Navigation工具 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.1.2.1.3 XBurn 工具": {
+    "message": "1.2.1.3 XBurn Tool",
+    "description": "The label for category 1.2.1.3 XBurn 工具 in sidebar tutorialSidebar"
   }
 }
