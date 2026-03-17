@@ -130,7 +130,7 @@ sidebar_position: 0
 5. 产品路线协同沟通（如涉及）  
 
 👉 项目对接入口：  
-[地瓜生态项目对接交流](https://horizonrobotics.feishu.cn/share/base/form/shrcnbJ7HdsqdQtS8W1AER0MLfe)
+[地瓜生态项目对接交流](https://horizonrobotics.feishu.cn/share/base/form/shrcnpxBa3PjdjFmtxZS3tBXw0e)
 
 :::note 说明
 本入口适用于明确的项目或商业落地需求。  
