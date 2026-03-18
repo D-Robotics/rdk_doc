@@ -158,7 +158,7 @@ sidebar_position: 7
   <tbody>
     <tr>
       <td>📄 **规格书**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_x5_zh_v1_1.pdf">RDK X5 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_module_zh_v1_2.pdf">RDK X5 Module 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module 规格书</a></td>
@@ -224,7 +224,7 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
   <tbody>
     <tr>
       <td>📄 **开发板规格书**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 产品规格书</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_x5_zh_v1_1.pdf">RDK X5 产品规格书</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 产品规格书</a></td>
       <td>开发板详细技术规格和产品说明</td>
     </tr>
@@ -251,6 +251,11 @@ RDK X3/X5 相关配件、扩展产品的完整规格书资料，提供详细的�
       <td> - </td>
       <td>用于机器人视觉、机器视觉检测和实时运动监测等场景</td>
     </tr>
+    <!-- <tr>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_RDK_stereo_camera_gs130wi_zh_v1_1.pdf">RDK 双目摄像头 GS130WI</a></td>
+      <td> - </td>
+      <td>用于机器人视觉、机器视觉检测及运动姿态感知等应用场景</td>
+    </tr> -->
     <tr>
       <td>🔌 **摄像头转接板**</td>
       <td>-</td>
