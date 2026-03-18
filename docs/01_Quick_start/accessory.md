@@ -137,7 +137,8 @@ sidebar_position: 8
 | 类型 | 供应商 | 型号 | 描述 | 支持分辨率 |使用指南| 购买链接 |
 | --- | --------- | -------- | --------------- | --------- | --------- |--------- |
 | MIPI | 地瓜机器人 | RDK Stereo Camera Module | SmartSens SC230AI，1/2.8 英寸 CMOS，滚动快门，200W像素，对角 178° / 水平 150° / 垂直 80° | 1920x1080 | [点击查看](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#1-搭配-rdk-stereo-camera-module-启动) |[购买链接](https://item.taobao.com/item.htm?id=854591367752&mi_id=0000vEM7hxW2z-nLLTEOwsSqHTMyfw56sg0mU79IxSOWpEs&spm=a21xtw.29978516.0.0&xxc=shop&skuId=5656880664831)  |
-| MIPI | 地瓜机器人 | RDK Stereo Camera GS130W | SC132GS全局快门传感器，130W像素，FOV 对角178度，双目间距80mm | 1280×1080@120fps | [点击查看](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#2-搭配-rdk-stereo-camera-gs130w-启动) |[购买链接](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197)  |
+| MIPI | 地瓜机器人 | RDK Stereo Camera GS130W | SC132GS全局快门传感器，130W像素，FOV 对角 157.2°，双目间距80mm | 1280×1080@120fps | [点击查看](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#2-搭配-rdk-stereo-camera-gs130w-启动) |[购买链接](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197)  |
+<!-- | MIPI | 地瓜机器人 | RDK Stereo Camera GS130WI | SC132GS全局快门传感器，FOV 对角 157.2°，双目间距70mm，ICM-42688-P 六轴 IMU，高动态范围（HDR）、高信噪比（40 dB）与 850/940 nm 近红外增强能力 | 1280×1080@120fps |-|-| -->
 
 
 ### 显示屏

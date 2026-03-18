@@ -124,8 +124,8 @@ This section summarizes the third-party accessory list officially certified by D
 | Type | Supplier | Model | Description | Supported Resolutions| User Guide| Purchase Link |
 | --- | --------- | -------- | --------------- | --------- | --------- |--------- |
 | MIPI | D-Robotics | RDK Stereo Camera Module | SmartSens SC230AI, 1/2.8-inch CMOS, rolling shutter, 2MP, diagonal 178° / horizontal 150° / vertical 80° | 1920x1080 | [Click to View](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#1-startup-with-rdk-stereo-camera-module) | [Purchase Link](https://item.taobao.com/item.htm?id=854591367752&mi_id=0000vEM7hxW2z-nLLTEOwsSqHTMyfw56sg0mU79IxSOWpEs&spm=a21xtw.29978516.0.0&xxc=shop&skuId=5656880664831) |
-| MIPI | D-Robotics | RDK Stereo Camera GS130W | SC132GS Global Shutter Sensor, 1.3MP, FOV diagonal 178° ,Interpupillary distance 80mm| 1280×1080@120fps |[Click to view](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#2-startup-with-rdk-stereo-camera-gs130w)|[Purchase Link](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197) |
-
+| MIPI | D-Robotics | RDK Stereo Camera GS130W | SC132GS Global Shutter Sensor, 1.3MP, FOV diagonal 157.2° ,Interpupillary distance 80mm| 1280×1080@120fps |[Click to view](../05_Robot_development/03_boxs/spatial/hobot_stereonet.md#2-startup-with-rdk-stereo-camera-gs130w)|[Purchase Link](https://detail.tmall.com/item.htm?id=991101307919&spm=a211lz.success.0.0.7dea2b901R1WG0&skuId=6129733154197) |
+<!-- | MIPI | D-Robotics | RDK Stereo Camera GS130WI | SC132GS Global Shutter Sensor, ICM-42688-P 6-Axis IMU, 130W pixels, High Dynamic Range (HDR), High Signal-to-Noise Ratio (40 dB), and 850/940 nm Near-Infrared Enhancement Capability | 1280×1080@120fps |-|-| -->
 
 ### Displays
 
