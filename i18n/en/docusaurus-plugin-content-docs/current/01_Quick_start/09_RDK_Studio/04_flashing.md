@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 :::info Note
 
-- RDK Studio supports burning via both card reader and QuickLink. The QuickLink method has a slower burning speed, so using the card reader is recommended for a faster burning experience.
+- The RDK Studio supports burning using both a card reader and quicklink method. Among these, the quicklink method uses a USB 2.0 interface and has a slower burning speed. Therefore, using the card reader method is recommended for a faster burning experience.
 
 - If your storage device has already completed the system flashing process, you can skip this chapter and proceed directly to [Adding an RDK Device](../09_RDK_Studio/04_Device_management/01_hardware_resource.md).
 :::
