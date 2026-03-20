@@ -27,7 +27,10 @@ To flash the system onto the SD card (instead of booting from eMMC mode), follow
 
 3. Connect the Micro USB port (flashing port) on the carrier board to your PC using a USB cable. Refer to the image below for the port location.
    
-       ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png" 
+       style={{ width: '100%', height: 'auto', align:'center'}}
+       / >
 
 ### System Flashing
 
@@ -46,7 +49,10 @@ To flash the system onto the SD card (instead of booting from eMMC mode), follow
 
 3. The PC will recognize a standard USB drive corresponding to the eMMC partition of the RDK X3 Module.
    
-       ![imagex3md-ums3](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/portable.png) 
+       <img 
+       src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/portable.png" 
+       style={{ width: '80%', height: 'auto', align:'center'}}
+       / >
 
 4. Launch the Rufus tool, select the corresponding drive letter in the "Device" dropdown menu as the target device, and proceed with the remaining steps identical to those in [RDK X3 flashing](../rdk_x3/04_rufus.md#system-flashing) to complete the image flashing.
    

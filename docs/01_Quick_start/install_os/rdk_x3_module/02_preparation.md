@@ -30,7 +30,11 @@ sidebar_position: 2
         
         :::
 
-        ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x3_os_image_download.png)
+        <!-- ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x3_os_image_download.png) -->
+        <img 
+          src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x3_os_image_download.png" 
+          style={{ width: '100%', height: 'auto', align:'center'}}
+        />
 
 
   2. 进入所选版本目录，选择 “server” 版本镜像或 “desktop” 版本镜像，点击下载。
@@ -43,7 +47,12 @@ sidebar_position: 2
             
           :::
 
-          ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x3_os_image_download1.png)
+          <!-- ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x3_os_image_download1.png) -->
+          <img 
+            src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x3_os_image_download1.png" 
+            style={{ width: '100%', height: 'auto', align:'center'}}
+          />
+
 
 
   3. 下载完成后，解压出 Ubuntu 系统镜像文件，如`rdk-x3-ubuntu22-preinstalled-desktop-3.0.3-arm64.img`
@@ -55,7 +64,12 @@ sidebar_position: 2
 
 [[点击此处]](https://developer.d-robotics.cc/rdkstudio) 进入下载地址，根据使用平台选择安装包版本，建议选用 User Installer。
 
-![RDK Studio下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/rdkStudio_download.png)
+<!-- ![RDK Studio下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/rdkStudio_download.png) -->
+
+<img 
+  src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/rdkStudio_download.png" 
+  style={{ width: '100%', height: 'auto', align:'center'}}
+/>
 
 ### Rufus 工具下载
 

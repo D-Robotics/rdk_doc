@@ -31,7 +31,12 @@ usb 驱动下载（可[点击此处下载](https://archive.d-robotics.cc/downloa
 1. 连接串口，首次连接需要安装 CH340 串口驱动，驱动程序可从资源汇总的[工具下载](../../../download.md#工具下载)获取。
 2. 驱动安装完成后，设备管理器可正常识别串口板端口，如下图：
 
-   ![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)
+   <!-- ![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png" 
+   style={{ width: '60%', height: 'auto', align:'center'}}
+   />
+   
    
 3. 下载远程连接工具 [Mobaxterm](https://mobaxterm.mobatek.net/download.html)。
 
@@ -55,11 +60,19 @@ usb 驱动下载（可[点击此处下载](https://archive.d-robotics.cc/downloa
 
 5. 成功安装驱动后，设备管理器会显示 Android Device 设备，如下图：
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png" 
+   style={{ width: '60%', height: 'auto', align:'center'}}
+   />
 
    如果未成功安装驱动时，设备管理器会提示存在 USB download gadget 的未知设备，如下图：
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png" 
+   style={{ width: '41%', height: 'auto', align:'center'}}
+   />
 
 
 ## 系统烧录

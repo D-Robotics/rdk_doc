@@ -29,7 +29,11 @@ sidebar_position: 4
 
 3. 将载板的 Micro USB 接口（烧录口）与电脑通过 USB 线连接，接口位置参考下图。  
    
-       ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)
+       <!-- ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png) -->
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png" 
+       style={{ width: '100%', height: 'auto', align:'center'}}
+       / >
 
 
 ### 系统烧录
@@ -49,7 +53,11 @@ sidebar_position: 4
 
 3. PC 识别到标准 U 盘就是 RDK X3 Module 的 eMMC 分区。
    
-       ![imagex3md-ums3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums3.png) 
+       <!-- ![imagex3md-ums3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums3.png) -->
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums3.png" 
+       style={{ width: '100%', height: 'auto', align:'center'}}
+       / >
 
 4. 打开 Rufus 工具，在 “设备” 下拉框中选择对应的盘符作为目标设备，其余步骤与[RDK X3 烧录](../rdk_x3/04_rufus.md#系统烧录)一致，完成镜像烧录。
    

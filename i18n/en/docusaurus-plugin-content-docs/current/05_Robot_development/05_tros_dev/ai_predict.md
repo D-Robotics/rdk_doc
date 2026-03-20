@@ -4,6 +4,21 @@ sidebar_position: 2
 
 # 5.5.2 Model Inference
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+## Supported Platforms 
+
+| Platform               | Supported OS & ROS 2 Version       |
+| ---------------------- | ---------------------------------- |
+| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+
+:::info
+The content introduced in this chapter is theoretically applicable to all platforms. The code examples are based on the `RDK X3` platform, and code adaptation will be required if used on other platforms.
+:::
+
 ## Model Inference Development
 
 ### Background
@@ -29,18 +44,31 @@ For detailed instructions on how to use `hobot_dnn`, please refer to the [README
 
 Without understanding the workflow of using `hobot_dnn`, users can also follow the steps in this chapter to develop a model inference example using `hobot_dnn`.
 
-:::info
-The following content in this chapter uses the tros.b Foxy version as an example. If you are using the tros.b Humble version, just replace the `source /opt/tros/setup.bash` command with `source /opt/tros/humble/ setup.bash`.
-:::
-
 ### Usage
 
 #### 1. Create package
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+source /opt/tros/local_setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
 
 ```shell
 mkdir -p ~/dev_ws/src
 cd ~/dev_ws/src
-source /opt/tros/setup.bash
 ros2 pkg create --build-type ament_cmake cpp_dnn_demo --dependencies rclcpp sensor_msgs hbm_img_msgs ai_msgs dnn_node hobot_mot
 cd cpp_dnn_demo
 touch src/body_det_demo.cpp
@@ -1028,7 +1056,7 @@ If the following error message is displayed during startup:
 error while loading shared libraries: libdnn_node.so: cannot open shared object file: No such file or directory
 ```
 
-It indicates that the configuration of the hobot_dnn environment has failed. Please check if /opt/tros/share/dnn_node exists.
+Indicates failure to configure the hobot_dnn environment. Use the command `ros2 pkg prefix dnn_node` to check if dnn_node exists.
 
 ##### 3.5 Results
 

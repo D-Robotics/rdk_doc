@@ -11,7 +11,9 @@ sidebar_position: 2
 1. Click [**Download Image**](https://archive.d-robotics.cc/downloads/os_images/rdk_ultra/).
 
 
-        ![Image version selection interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/ultra_os_image_download.png)
+        <!-- ![Image version selection interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/ultra_os_image_download.png) -->
+
+        
 
 
 2. Enter the directory of your chosen version and select either the “server” or “desktop” image, then click to download.

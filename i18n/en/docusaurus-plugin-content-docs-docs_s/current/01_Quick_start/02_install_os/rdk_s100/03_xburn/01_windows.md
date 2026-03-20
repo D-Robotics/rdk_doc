@@ -50,11 +50,19 @@ Download the `sunrise5_winusb.zip` compressed package and proceed with the drive
 
 2. After successfully installing the driver, the Device Manager will show an Android Device, as shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg" 
+   style={{ width: '52%', height: 'auto', align:'center'}}
+   />
 
    If the driver installation is unsuccessful, the Device Manager will indicate an unknown device named USB download gadget, as shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png" 
+   style={{ width: '41%', height: 'auto', align:'center'}}
+   />
 
 ## System Flashing
 

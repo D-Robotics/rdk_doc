@@ -27,7 +27,12 @@ RDK X5 Module 只能使用 3.2.0 及其后续版本的系统。
 1. 点击 [**下载镜像**](https://archive.d-robotics.cc/downloads/os_images/rdk_x5/)，选择 RDK X5 镜像版本。
 
 
-        ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x5_os_image_download.png)
+        <!-- ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x5_os_image_download.png) -->
+
+        <img 
+        src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x5_os_image_download.png" 
+        style={{ width: '100%', height: 'auto', align:'center'}}
+        />
 
 
 2. 进入所选版本目录，选择 “server” 版本镜像或 “desktop” 版本镜像，点击下载。
@@ -40,7 +45,11 @@ RDK X5 Module 只能使用 3.2.0 及其后续版本的系统。
             
           :::
 
-          ![镜像版本选择界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x5_os_image_download1.png)
+
+          <img 
+          src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/x5_os_image_download1.png" 
+          style={{ width: '100%', height: 'auto', align:'center'}}
+          />
 
 
   3. 下载完成后，解压出 Ubuntu 系统镜像文件，如`rdk-x5-ubuntu22-preinstalled-desktop-3.2.3-arm64.img`

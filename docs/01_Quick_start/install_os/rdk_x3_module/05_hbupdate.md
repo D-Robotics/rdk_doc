@@ -12,15 +12,27 @@ sidebar_position: 4
 
 1. 使用跳线帽将 RDK X3 载板的 `Boot` 管脚接地，管脚位置参考下图。
    
-       ![image-carrier-board-bootstrap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png)
+       <!-- ![image-carrier-board-bootstrap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png) -->
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-bootstrap.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 2. 将载板的 Micro USB 接口与电脑通过 USB 线连接，接口位置参考下图。
    
-       ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)
+       <!-- ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png) -->
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 3. 给设备上电，然后观察电脑设备管理器端口状态，如出现 `USB download gadget` 未知设备时，需要更新设备驱动，否则可跳过下述步骤。
    
-       ![image-usb-driver1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png)
+       <!---driver1](https-driver1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png) -->
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver1.png" 
+        style={{ width: '40%', height: 'auto', align:'center'}}
+        / >
 
 4. 下载并解压驱动包 `android_hobot.zip`，下载链接 [android_hobot](https://archive.d-robotics.cc/downloads/hbupdate/android_hobot.zip) 。
    
@@ -28,11 +40,17 @@ sidebar_position: 4
    
 6. 双击`USB download gadget`未知设备，选择驱动包解压目录，然后点击下一步。
    
-       ![image-usb-driver2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver2.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 7. 驱动安装完成后，设备管理器会显示 fastboot 设备 `Android Device`。
    
-       ![image-usb-driver3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-usb-driver3.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 ### 硬件连接
 
@@ -45,7 +63,10 @@ sidebar_position: 4
 
 1. 运行 `hbupdate.exe` 打开烧录工具，并按照以下步骤进行烧录：
 
-    ![image-flash-system1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system1.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system1.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 2. 选择开发板型号，必选项。
 
@@ -57,15 +78,24 @@ sidebar_position: 4
 
       - RDK_X3_MD_4GB： RDK X3 Module，4GB内存版本
 
-        ![image-flash-system2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system2.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system2.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 3. 点击 `Browse` 按钮选择将要烧录的镜像文件，必选项。
 
-        ![image-flash-system3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system3.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system3.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 4. 点击 `Start` 按钮开始烧录：
 
-        ![image-flash-system4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system4.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system4.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 
 5. 烧录完毕断开电源，断开和电脑的连接线，将BOOT管脚跳线帽拔下，重新上电即可。
@@ -76,11 +106,17 @@ sidebar_position: 4
 
    - 镜像烧录成功时，工具提示如下：
 
-        ![image-flash-system6](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system6.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system6.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
    - 镜像烧录失败时，工具提示如下，此时需要确认PC设备管理器是否存在`Android Device`设备
 
-        ![image-flash-system7](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-flash-system7.png" 
+        style={{ width: '80%', height: 'auto', align:'center'}}
+        / >
 
 ## 启动系统
 

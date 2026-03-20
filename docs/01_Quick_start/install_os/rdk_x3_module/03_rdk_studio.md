@@ -22,7 +22,11 @@ RDK Studio 工具提供烧录系统功能，并且可以连接设备并进行管
 
 3. 将载板的 Micro USB 接口（烧录口）与电脑通过 USB 线连接，接口位置参考下图。  
    
-       ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)
+       <!-- ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png) -->
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png" 
+       style={{ width: '100%', height: 'auto', align:'center'}}
+       / >
 
 
 ### 系统烧录

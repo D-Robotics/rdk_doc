@@ -22,7 +22,10 @@ The RDK Studio tool provides system flashing functionality, allows device connec
 
 3. Connect the Micro USB interface (flashing port) on the carrier board to your computer using a USB cable. Refer to the figure below for the interface location.  
    
-       ![image-carrier-board-microusb](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png)
+       <img 
+       src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/image-carrier-board-microusb.png" 
+       style={{ width: '100%', height: 'auto', align:'center'}}
+       / >
 
 
 ### System Flashing
@@ -42,6 +45,9 @@ The RDK Studio tool provides system flashing functionality, allows device connec
 
 3. The standard USB drive recognized by your PC corresponds to the eMMC partitions of the RDK X3 Module.
    
-       ![imagex3md-ums3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/01_hardware_development/rdk_x3_module/image/rdk_x3_module/x3md-ums3.png) 
+       <img 
+       src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/portable.png" 
+       style={{ width: '80%', height: 'auto', align:'center'}}
+       / >
 
 4. For flashing instructions, refer to [Flashing System Using RDK Studio](../../09_RDK_Studio/04_flashing.md).
