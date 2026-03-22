@@ -8,61 +8,58 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-EfficientNet_Det is an detection algorithm that takes images as input and utilizes BPU for algorithm inference. It publishes algorithm messages containing object categories and detection boxes.
+The EfficientNet_Det object detection algorithm example takes images as input, performs inference on the BPU, and publishes algorithm messages containing detected object classes and bounding boxes.
 
-EfficientNet_Det is an Onnx model and trained using the [COCO dataset](http://cocodataset.org/). It supports 80 types of object detection, including humans, animals, fruits, and vehicles.
+EfficientNet_Det is an ONNX model obtained from (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet), trained on the [COCO dataset](http://cocodataset.org/). It supports detecting 80 object categories, including people, animals, fruits, vehicles, and more.
 
-Code repository:  (https://github.com/D-Robotics/hobot_dnn)
+Code repository: (https://github.com/D-Robotics/hobot_dnn)
 
-Applications: EfficientNet_Det can be used for tasks such as vehicle detection and is mainly applied in the fields of autonomous driving and smart home.
+Application scenarios: EfficientNet_Det can be used for vehicle detection and similar tasks, primarily applied in autonomous driving, smart homes, and related fields.
 
-Smoke Detection Example： (https://github.com/abg3/Smoke-Detection-using-Tensorflow-2.2)
+Smoke detection example: (https://github.com/abg3/Smoke-Detection-using-Tensorflow-2.2)
 
 ## Supported Platforms
 
-| Platform               | System | Function                                        |
-| ---------------------- | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module  | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start MIPI/USB camera and display inference results through web<br/>· Use local data to save rendering results offline |
+| Platform              | Runtime Environment     | Example Features                                                     |
+| --------------------- | ----------------------- | -------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
 
-## Algorithm Information
+## Algorithm Details
 
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| EfficientNet | X3 | 1x3x512x512 | 54.58 |
+| Model        | Platform | Input Size     | Inference FPS |
+| ------------ | -------- | -------------- | ------------- |
+| EfficientNet | X3       | 1x3x512x512    | 54.58         |
 
-## Preparations
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. The RDK has been pre-installed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
-
+1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
 2. TogetheROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera is installed on the RDK. If no camera is available, you can test the algorithm by replaying local JPEG/PNG images or MP4, H.264, and H.265 video files.
+4. Ensure your PC can access the RDK over the network.
 
-3. A MIPI or USB camera has been installed on the RDK. If there is no camera available, you can experience the algorithm using locally JPEG/PNG images or MP4, H.264, and H.265 videos offline.
+## Usage Guide
 
-4. Make sure the PC can access the RDK through the network.
+### RDK Platform
 
-## Usage
+#### Publishing Images Using MIPI Camera
 
-### RDK
-
-#### Use MIPI Camera to Publish Images
-
-EfficientNet_Det subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. WebSocket package is used to render and display the published images and corresponding algorithm results on a PC browser.
+The EfficientNet_Det object detection example subscribes to images published by the sensor package, performs inference, and then publishes algorithm messages. Results are rendered and displayed in a web browser on the PC via the websocket package.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
@@ -71,13 +68,13 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
@@ -85,19 +82,19 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 </Tabs>
 
-#### Use USB Camera to Publish Images
+#### Publishing Images Using USB Camera
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
@@ -106,13 +103,13 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
@@ -120,18 +117,18 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 </Tabs>
 
-#### Use Local Images Offline
+#### Replaying Local Images
 
-The EfficientNet_Det detection algorithm example uses local JPEG/PNG images for rendering the algorithm results after inference, which are stored in the local path.
+The EfficientNet_Det object detection example replays local JPEG/PNG images, performs inference, and saves the rendered result images to the current working directory.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image:=config/target.jpg
 ```
 
@@ -140,10 +137,10 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/efficient_det_workconfig.json dnn_example_image:=config/target.jpg
 ```
 
@@ -153,9 +150,9 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 ## Result Analysis
 
-### Use Camera to Publish Images 
+### Using Camera to Publish Images
 
-The terminal output during the execution is as follows:
+The terminal output shows the following logs:
 
 ```shell
 [example-3] [WARN] [1655093196.041759782] [example]: Create ai msg publisher with topic_name: hobot_dnn_detection
@@ -172,15 +169,15 @@ The terminal output during the execution is as follows:
 [example-3] [WARN] [1655093202.302124315] [example]: Smart fps 7.10
 ```
 
-The log output shows that the topic for publishing the inference results of the algorithm is `hobot_dnn_detection`, and the topic for subscribing to the image is `/hbmem_img`.
+The log indicates that the algorithm publishes inference results on the topic `hobot_dnn_detection` and subscribes to images from the topic `/hbmem_img`.
 
-To view the image and the rendering effect of the algorithm, enter http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
+Open a browser on your PC and navigate to http://IP:8000 to view the rendered image and algorithm results (replace "IP" with the RDK's IP address):
 
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_web.jpeg)
 
-### Use local image offline
+### Replaying Local Images
 
-The terminal output is as follows:
+The terminal output shows the following logs:
 
 ```shell
 [example-1] [INFO] [1654931461.278066695] [example]: Output from image_name: config/target.jpg, frame_id: feedback, stamp: 0.0
@@ -190,6 +187,6 @@ The terminal output is as follows:
 [example-1] [INFO] [1654931461.278396934] [PostProcessBase]: det rect: 79.3884 263.497 373.645 372.554, det type: couch, score:1.0287
 ```
 
-The log shows that the algorithm has inferred 2 targets from the input image, and outputs the coordinates of the detection boxes (the order of the output coordinates is the top-left x and y coordinates, and the bottom-right x and y coordinates) and the categories. The rendered image is saved as render_feedback_0_0.jpeg, and here is the rendering effect:
+The log shows that the algorithm detected two objects from the input image, outputting their bounding box coordinates (in the order of top-left x, top-left y, bottom-right x, bottom-right y) and corresponding class labels. The rendered image is saved as `render_feedback_0_0.jpeg`, with the following visualization:
 
 ![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_feedback.jpeg)

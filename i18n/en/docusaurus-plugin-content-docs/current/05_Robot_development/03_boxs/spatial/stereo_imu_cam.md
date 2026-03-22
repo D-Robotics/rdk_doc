@@ -2,46 +2,47 @@
 sidebar_position: 7
 ---
 
-# 双目IMU相机
+# Stereo IMU Camera
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## 1. 功能介绍
+## 1. Feature Overview
 
-地瓜双目IMU相机自带完整的标定参数，包括双目标定参数、IMU内参、双目和IMU之间的外参，用户无需额外标定即可直接使用。
-利用这些参数，可以通过双目立体匹配算法计算高精度的深度图，实现实时的三维环境感知。
-同时，相机的数据能应用于开源视觉惯性里程计（VIO）算法，如 OpenVINS 等，可计算相机位姿与轨迹信息。
-适用于机器人导航、避障等应用，为开发者提供即插即用的深度感知与视觉惯性融合能力。
+The Digua Stereo IMU Camera comes with complete pre-calibrated parameters, including stereo calibration parameters, IMU intrinsic parameters, and extrinsic parameters between the stereo cameras and IMU. Users can use it directly without additional calibration.
 
-mipi相机代码仓库：https://github.com/D-Robotics/hobot_mipi_cam
+With these parameters, high-precision depth maps can be computed via stereo matching algorithms to achieve real-time 3D environmental perception.  
+Additionally, the camera data can be used with open-source Visual-Inertial Odometry (VIO) algorithms such as OpenVINS to estimate camera pose and trajectory information.  
+This makes it suitable for applications like robot navigation and obstacle avoidance, providing developers with plug-and-play depth perception and visual-inertial fusion capabilities.
 
-## 2. 支持平台
+MIPI camera code repository: https://github.com/D-Robotics/hobot_mipi_cam
 
-| 平台                  | 系统支持              | 示例功能                            |
-| --------------------- | --------------------- | ----------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动双目相机，输出双目图像和IMU数据 |
+## 2. Supported Platforms
 
-## 3. 准备工作
+| Platform              | OS Support            | Example Functionality                        |
+| --------------------- | --------------------- | -------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Launch stereo camera and output stereo images and IMU data |
 
-### 3.1. RDK平台
+## 3. Preparation
 
-1. RDK已烧录好RDK OS系统
-2. RDK已成功安装TogetheROS.Bot
-3. 确认PC机能够通过网络访问RDK
+### 3.1. RDK Platform
 
-### 3.2. 系统和功能包版本
+1. RDK has been flashed with the RDK OS.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. Ensure your PC can access the RDK over the network.
 
-|                                       | 版本        | 查询方法                                        |
-| ------------------------------------- | ----------- | ----------------------------------------------- |
-| RDK X5系统镜像版本                    | 3.4.1及以上 | `cat /etc/version`                              |
-| tros-humble-hobot-stereonet功能包版本 | 2.5.0及以上 | `apt list \| grep tros-humble-hobot-stereonet/` |
-| tros-humble-mipi-cam功能包版本        | 2.5.0及以上 | `apt list \| grep tros-humble-mipi-cam/`        |
+### 3.2. System and Package Versions
 
-- 如果系统镜像版本不符合要求，请参考文档对应章节进行镜像烧录
-- 如果功能包版本不符合要求，请执行以下指令进行更新：
+|                                       | Version     | Verification Command                                     |
+| ------------------------------------- | ----------- | -------------------------------------------------------- |
+| RDK X5 System Image Version           | ≥ 3.4.1     | `cat /etc/version`                                       |
+| tros-humble-hobot-stereonet Package   | ≥ 2.5.0     | `apt list \| grep tros-humble-hobot-stereonet/`          |
+| tros-humble-mipi-cam Package          | ≥ 2.5.0     | `apt list \| grep tros-humble-mipi-cam/`                 |
+
+- If your system image version does not meet the requirement, please refer to the corresponding section in the documentation to re-flash the image.
+- If your package versions are outdated, run the following commands to upgrade:
 
 ```bash
 sudo apt update
@@ -49,34 +50,37 @@ sudo apt install --only-upgrade tros-humble-hobot-stereonet
 sudo apt install --only-upgrade tros-humble-mipi-cam
 ```
 
-:::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::caution **Note**
+**If the `sudo apt update` command fails or returns an error, please refer to the FAQ section [Common Issues](../../../08_FAQ/01_hardware_and_system.md), specifically `Q10: How to resolve apt update command failure or errors?`**
 :::
 
-## 4. 启动双目相机
+## 4. Launching the Stereo Camera
 
-### 4.1. 双目IMU相机
+### 4.1. Stereo IMU Camera
 
-- 注意相机有黑色金属外壳和亚克力外壳两个版本，功能都是一样的
+- Note: The camera is available in two versions—black metal housing and acrylic housing—but both offer identical functionality.
 
 ![LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam.jpg)
 
-### 4.2. 硬件连接
+### 4.2. Hardware Connection
 
-1. 模组背后开关设置为`EXT`模式，不要在`LPWM`模式
-2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[3.1.1 管脚定义与应用](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md)
+1. Set the switch on the back of the module to `EXT` mode, **not** `LPWM` mode.
+2. Connect the black Dupont wire from the camera to pin `37` on the RDK X5. This external trigger is required for time synchronization between the camera and IMU. For pin definitions, refer to [3.1.1 Pin Definitions and Applications](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md).
 
-![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png)
+![RDK_X5_LH_IMU_cam](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam-en.png)
 
-### 4.3. RDK X5配置
+<br/>
+![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/01_40pin_user_sample/image/40pin_user_sample/image-20251021194124.png)
 
-1. RDK X5上要进行相应的设置才能读取IMU数据，首先检查一下系统版本是否符合要求，需要`3.4.1`版本以上：
+### 4.3. RDK X5 Configuration
+
+1. Specific settings are required on the RDK X5 to read IMU data. First, verify that your system version meets the requirement (≥ 3.4.1):
 
 ```bash
 cat /etc/version
 ```
 
-2. 在RDK X5上运行以下指令进行配置：
+2. Run the following command on the RDK X5 to configure the system:
 
 ```bash
 srpi-config
@@ -87,7 +91,7 @@ srpi-config
 ![LH_IMU_cam_config3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config3.png)
 ![LH_IMU_cam_config4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config4.png)
 
-3. 重启后，确认目录`/sys/bus/iio/devices/`有`iio:device1`和`iio:device2`则代表配置成功
+3. After rebooting, confirm successful configuration by checking if the directories `iio:device1` and `iio:device2` exist under `/sys/bus/iio/devices/`:
 
 ```bash
 ll /sys/bus/iio/devices/
@@ -95,9 +99,9 @@ ll /sys/bus/iio/devices/
 
 ![LH_IMU_cam_config5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config5.png)
 
-### 4.4. 相机启动指令
+### 4.4. Camera Launch Command
 
-1. 执行如下指令启动相机：
+1. Execute the following command to launch the camera:
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -111,22 +115,22 @@ mipi_out_format:=nv12 \
 log_level:=info
 ```
 
-参数解释：
+Parameter explanations:
 
-- mipi_channel:=2 mipi_channel2:=0 调整左右目拼接顺序
-- mipi_lpwm_enable:=True 开启LPWM硬件同步
-- mipi_frame_ts_type:=realtime 时间戳采用系统时间
-- mipi_image_width:=816 mipi_image_height:=960 调整图像分辨率，最高可设置为1088*1280
-- mipi_image_framerate:=10.0 调整相机帧率，最高可调整为30.0
-- mipi_gdc_enable:=True 开启GDC矫正会发布矫正后的双目图像，否则会发布带畸变的图像
-- mipi_out_format:=nv12 设置图像格式，支持nv12/bgr8
-- log_level:=info 日志等级，info等级可以打印标定参数，如果不需要显示那么多信息，则设置为warn
+- `mipi_channel:=2 mipi_channel2:=0`: Controls the left-right image stitching order.
+- `mipi_lpwm_enable:=True`: Enables LPWM hardware synchronization.
+- `mipi_frame_ts_type:=realtime`: Uses system time for timestamps.
+- `mipi_image_width:=816 mipi_image_height:=960`: Sets image resolution (maximum supported: 1088×1280).
+- `mipi_image_framerate:=10.0`: Sets camera frame rate (maximum: 30.0 fps).
+- `mipi_gdc_enable:=True`: Enables GDC correction to publish rectified stereo images; otherwise, distorted images are published.
+- `mipi_out_format:=nv12`: Sets output image format (supports `nv12`/`bgr8`).
+- `log_level:=info`: Sets logging level. At `info` level, calibration parameters are printed. Use `warn` to suppress excessive logs.
 
-2. 程序运行成功会打印如下日志，包括相机全部的标定参，目前双目标定采用鱼眼模式，可以参考[OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html)的介绍：
+2. Upon successful execution, the program prints logs containing all camera calibration parameters. Currently, fisheye stereo calibration is used. For details, refer to [OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html).
 
 ![LH_IMU_cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png)
 
-3. 发布的话题如下：
+3. Published topics:
 
 ```bash
 ros2 topic list -v
@@ -134,40 +138,40 @@ ros2 topic list -v
 
 ![LH_IMU_cam_topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_topic.png)
 
-- /image_combine_raw 为上下拼接的双目图像，mipi_channel:=2 mipi_channel2:=0 参数控制拼接顺序
-- /image_left_raw//image_right_raw 为左右目数据话题，mipi_channel:=2 mipi_channel2:=0 参数控制顺序
-- /imu_data 为IMU数据话题，发布陀螺仪和加速度计数据
+- `/image_combine_raw`: Vertically stacked stereo image. Stitching order controlled by `mipi_channel` and `mipi_channel2`.
+- `/image_left_raw` / `/image_right_raw`: Left and right camera image topics. Order controlled by `mipi_channel` and `mipi_channel2`.
+- `/imu_data`: IMU data topic publishing gyroscope and accelerometer readings.
 
-:::caution **注意**
-**imu数据话题中`angular_velocity` 单位是 rad/s，`linear_acceleration`单位是 m/s²，重力加速度值是`9.81`**
+:::caution **Note**
+**In the IMU data topic, `angular_velocity` is in rad/s, and `linear_acceleration` is in m/s². The gravitational acceleration value is `9.81`.**
 :::
 
-## 5. 启动双目深度算法
+## 5. Launching Stereo Depth Algorithm
 
-### 5.1. 启动指令
+### 5.1. Launch Command
 
-- 参考[双目深度算法](https://developer.d-robotics.cc/rdk_doc/Robot_development/boxs/spatial/hobot_stereonet)，里面有双目算法的相关介绍和启动指令介绍
-- 本相机启动指令为：
+- Refer to the [Stereo Depth Algorithm](./hobot_stereonet.md) documentation for algorithm details and launch instructions.
+- Launch command for this camera:
 
 ```bash
 bash run_stereo.sh --mipi_rotation 0.0
 
-# 参考对应文档查看具体的参数设置
+# Refer to the corresponding documentation for detailed parameter settings.
 ```
 
-### 5.2. 结果展示
+### 5.2. Results Visualization
 
-- 启动后，可以在web端查看RGB图和深度图，在浏览器输入 http://ip:8000 (图中RDK IP是192.168.128.10)：
+- After launching, view RGB and depth images via a web browser by navigating to `http://ip:8000` (e.g., RDK IP: 192.168.128.10):
 
 ![LH_IMU_cam_DStereo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png)
 
-## 6. 双目VIO算法（以OpenVINS为例）
+## 6. Stereo VIO Algorithm (Using OpenVINS as an Example)
 
-### 6.1. 录制rosbag
+### 6.1. Recording rosbag
 
-目前还不支持在线运行VIO算法，需要录制rosbag后在PC上进行计算
+Currently, online VIO execution is not supported. You need to record a rosbag and process it on a PC.
 
-- 运行指令
+- Launch command:
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -183,17 +187,17 @@ mipi_out_format:=nv12 \
 log_level:=warn
 ```
 
-- 主要录制imu数据话题和双目图像话题，由于RDK X5写入数据的性能有限，不建议录制太长时间
+- Record the IMU and stereo image topics. Due to limited write performance on the RDK X5, avoid recording for extended durations:
 
 ```bash
 ros2 bag record /imu_data /image_combine_raw --max-cache-size 1073741824
 ```
 
-- 将ros2 bag转为ros1格式，可以自行写程序实现
+- Convert the ROS 2 bag to ROS 1 format (implementation requires custom code).
 
-### 6.2. 准备VIO参数
+### 6.2. Preparing VIO Parameters
 
-配置OpenVINS的参数，在OpenVINS的config目录新建文件夹`drobotics_stereo_imu_cam`，创建以下3个文件，注意相机的标定文件需要根据上文的命令读取
+Configure OpenVINS parameters. In the OpenVINS `config` directory, create a new folder named `drobotics_stereo_imu_cam`, and add the following three files. Note: Camera calibration files must be extracted from the logs generated by the command in Section 4.4.
 
 - estimator_config.yaml
 
@@ -265,7 +269,7 @@ init_dyn_bias_a: [ 0.0, 0.0, 0.0 ] # initial accelerometer bias guess
 record_timing_information: false # if we want to record timing information of the method
 record_timing_filepath: "/tmp/traj_timing.txt" # https://docs.openvins.com/eval-timing.html#eval-ov-timing-flame
 
-# if we want to save the simulation state and its diagional covariance
+# if we want to save the simulation state and its diagonal covariance
 # use this with rosrun ov_eval error_simulation
 save_total_state: false
 filepath_est: "/tmp/ov_estimate.txt"
@@ -398,31 +402,30 @@ cam1:
   camera_model: pinhole
   distortion_coeffs: [-0.028463396839828604, 0.012205852066252196, -0.01306188175421103, 0.001536051968099967]
   distortion_model: equidistant
-  intrinsics: [494.7591785888601, 494.9156071869387, 384.67971500453064, 488.34269230328925]
-  resolution: [816, 960]
-  rostopic: /right_camera/image_raw
-  timeshift_cam_imu: 0.00591541095880247
+  intrinsics: [494.7591785888601, 494.9156071869387, 384.67971500453064, 488.34269230328925]  
+  resolution: [816, 960]  
+  rostopic: /right_camera/image_raw  
+  timeshift_cam_imu: 0.00591541095880247  
 ```
 
-### 6.3. 启动OpenVINS
+### 6.3. Launch OpenVINS
 
-- 开启3个终端，分别执行
+- Open three terminals and run the following commands respectively:
 
 ```bash
-# 启动openvins
+# Launch OpenVINS
 roslaunch ov_msckf subscribe.launch config:=drobotics_stereo_imu_cam verbosity:=DEBUG \
 dosave:=true path_est:=~/openvins_traj.txt
 ```
 
 ```bash
-# 启动rviz
-rosrun rviz rviz -d <OpenVINS目录>/open_vins/ov_msckf/launch/display.rviz
+# Launch RViz
+rosrun rviz rviz -d <OpenVINS directory>/open_vins/ov_msckf/launch/display.rviz
 ```
 
 ```bash
-# 播放采集的rosbag数据
+# Play the recorded rosbag data
 rosbag play xxx_ros1.bag
 ```
 
 ![LH_IMU_cam_OpneVINS](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_OpneVINS.gif)
-

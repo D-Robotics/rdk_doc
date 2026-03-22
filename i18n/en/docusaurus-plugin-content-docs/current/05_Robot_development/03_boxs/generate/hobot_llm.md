@@ -9,80 +9,91 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-This section introduces how to experience Large Language Model (LLM) on RDK.
+This section describes how to experience on-device Large Language Models (LLMs) on the RDK platform.
 
-Code repository:  (https://github.com/D-Robotics/hobot_llm.git)
+Code repository: (https://github.com/D-Robotics/hobot_llm.git)
 
 ## Supported Platforms
 
-| Platform                       | System | Function |
-| ------------------------------ | -------------- | ---------------- |
-| RDK X3, RDK X3 Module (4GB RAM) | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Edge-side LLM Experience |
+| Platform                            | Runtime Environment     | Example Functionality           |
+| ----------------------------------- | ----------------------- | ------------------------------- |
+| RDK X3, RDK X3 Module (4GB RAM)     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | On-device large language model experience |
 
-**Note: Only supports RDK X3 and RDK X3 Module with 4GB RAM version.**
+**Note: Only supports RDK X3 and RDK X3 Module with 4GB RAM.**
 
-## Preparation
+## Model Information
 
-### RDK
+| Model | Parameters | Platform | Prefill Eval Time (ms/token) | Eval Time (ms/token) |
+| ----- | ---------- | -------- | ---------------------------- | -------------------- |
+| Bloom | 1.4B       | X3       | 305.34                       | 364.78               |
 
-1. RDK with 4GB RAM version.
-2. RDK has been flashed with the provided  Ubuntu 20.04/22.04 system image.
-3. RDK has successfully installed TogetheROS.Bot.
-4. Install transformers, the command is `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`.
+## Prerequisites
 
-## Usage
+### RDK Platform
 
-### RDK
+1. RDK must be the 4GB RAM version.
+2. RDK must have Ubuntu 20.04 or Ubuntu 22.04 system image flashed.
+3. TogetherROS.Bot must already be installed successfully on the RDK.
+4. Install `transformers` by running:  
+   ```bash
+   pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple
+   ```
 
-Before running the program, you need to download the model file and extract it, the commands are as follows:
+## Usage Instructions
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+### RDK Platform
 
- ```bash
- # Configure the tros.b environment
- source /opt/tros/setup.bash
- ```
+Before running the program, download and extract the model files using the following commands:
 
- </TabItem>
- <TabItem value="humble" label="Humble">
-
- ```bash
- # Configure the tros.b environment
- source /opt/tros/humble/setup.bash
- ```
-
- </TabItem>
- </Tabs>
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
 ```bash
-# Download the model file
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+```bash
+# Download model files
 wget http://archive.d-robotics.cc/llm-model/llm_model.tar.gz
 
 # Extract
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
 ```
 
-Use the command `srpi-config` to modify the ION memory size to 1.7GB. The configuration method can be referred to the "Performance Options" section of the RDK User Manual Configuration Tool `srpi-config` Guide [Performance Options](/i18n/en/docusaurus-plugin-content-docs/current/02_System_configuration/02_srpi-config.md)
+Use the command `srpi-config` to adjust ION memory size to 1.9GB. For configuration details, refer to the **Performance Options** section in the RDK User Manual under the `srpi-config` usage guide: [Performance Options](https://developer.d-robotics.cc/rdk_doc/en/System_configuration/srpi-config#performance-options).
 
-After restarting, set the CPU maximum frequency to 1.5GHz and the scheduling mode to `performance`, the commands are as follows:
+After rebooting, set the CPU maximum frequency to 1.5GHz and the governor mode to `performance` using the following commands:
 
 ```bash
 sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
 sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
 ```
 
-Currently, there are two ways to experience it. One is to directly input text in the terminal for chat interaction, and the other is to subscribe to text messages and then publish the results in text format.
+Currently, two interaction methods are provided:
+- Direct terminal-based text chat
+- Subscribe to input text messages and publish results as text messages
 
-#### Terminal Interaction
+#### Terminal Interaction Experience
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -91,7 +102,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -103,17 +114,17 @@ source /opt/tros/humble/setup.bash
 ros2 run hobot_llm hobot_llm_chat
 ```
 
-After the program starts, you can chat directly with the robot in the current terminal.
+After the program starts, you can directly chat with the robot in the current terminal.
 
-#### Subscribe and Publish Messages
+#### Publish-Subscribe Interaction Experience
 
-1. Start hobot_llm
+1. Launch `hobot_llm`
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -122,7 +133,7 @@ After the program starts, you can chat directly with the robot in the current te
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -134,13 +145,13 @@ After the program starts, you can chat directly with the robot in the current te
     ros2 run hobot_llm hobot_llm
     ```
 
-2. Open a new terminal to subscribe
+2. Open a new terminal and subscribe to the output topic
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -149,7 +160,7 @@ After the program starts, you can chat directly with the robot in the current te
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -161,13 +172,13 @@ After the program starts, you can chat directly with the robot in the current te
     ros2 topic echo /text_result
     ```
 
-3. Open a new terminal to publish
+3. Open another new terminal and publish a message
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -176,7 +187,7 @@ After the program starts, you can chat directly with the robot in the current te
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -185,11 +196,10 @@ After the program starts, you can chat directly with the robot in the current te
     </Tabs>
 
     ```bash
-    ros2 topic pub --once /text_query std_msgs/msg/String "{data: ""What is the highest mountain?""}"
+    ros2 topic pub --once /text_query std_msgs/msg/String "{data: \"What is the capital of China?\"}"
     ```
 
-After sending the message, you can check the output result in the subscribed terminal.
+After sending the message, you can view the output result in the terminal that subscribed to `/text_result`.
 
-## Note
-
-Make sure the development board has 4GB of memory and modify the ION memory size to 1.7GB, otherwise the model loading will fail.
+## Notes
+Confirm that the development board memory is 4GB, and simultaneously adjust the ION memory size to 1.9GB; otherwise, model loading will fail.

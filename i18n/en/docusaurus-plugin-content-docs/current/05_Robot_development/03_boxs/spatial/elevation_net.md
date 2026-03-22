@@ -1,52 +1,65 @@
 ---
 sidebar_position: 1
 ---
-# Monocular Elevation Network
+# Monocular Elevation Network Detection
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-elevation_net is a monocular elevation network detection algorithm example developed based on the hobot_dnn package. It uses an elevation network model and indoor data with BPU for model inference on the RDK to obtain algorithm inference results.
+`elevation_net` is an elevation network detection algorithm example developed based on the `hobot_dnn` package. It performs model inference on the RDK using an elevation network model and indoor data via the BPU to obtain algorithmic inference results.
 
-Code Repository:  (https://github.com/D-Robotics/elevation_net)
+Code repository: (https://github.com/D-Robotics/elevation_net)
 
-Application Scenarios: The monocular elevation network detection algorithm parses images to obtain depth and height information of pixels, mainly used in autonomous driving, smart homes, intelligent transportation, and other fields.
+Application scenarios: The monocular elevation network detection algorithm extracts depth and height information per pixel from images, primarily applied in autonomous driving, smart homes, intelligent transportation, and other fields.
 
 ## Supported Platforms
 
-| Platform                | System    | Function                        |
-| ----------------------- | ------------ | --------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start local data offline and save inference rendering results locally |
+| Platform                  | Runtime Environment     | Example Functionality                               |
+| ------------------------- | ----------------------- | --------------------------------------------------- |
+| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Run local playback; inference rendering results saved locally |
+| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)   | · Run local playback; inference rendering results saved locally |
+| X86                       | Ubuntu 20.04 (Foxy)     | · Run local playback; inference rendering results saved locally |
 
-## Preparation
+## Algorithm Details
 
-### RDK
+| Model           | Platform | Input Size      | Inference FPS |
+| --------------- | -------- | --------------- | ------------- |
+| elevation_net   | X3       | 1x3x512x960     | 24.41         |
+| elevation_net   | X5       | 1x3x512x960     | 87.12         |
 
-1. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+## Prerequisites
 
-2. TogetheROS.Bot has been successfully installed on RDK.
+### RDK Platform
 
-## Usage
+1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
 
-The monocular elevation network detection algorithm example package uses the form of reading local images. After algorithm inference, it detects depth and height information based on pixels of the Image. At the same time, the package processes the depth and height information and publishes PointCloud2 topic data. Users can subscribe to PointCloud2 data for application development.
+### X86 Platform
 
-### RDK
+1. The X86 environment has been configured with an Ubuntu 20.04 system image.
+2. tros.b has been successfully installed in the X86 environment.
+
+## Usage Guide
+
+The monocular elevation network detection algorithm example package reads local images, performs inference to extract per-pixel depth and height information from the image, processes this information, and publishes it as PointCloud2 topic data. Users can subscribe to the PointCloud2 data for application development.
+
+### RDK Platform
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Configure ROS2 environment
 source /opt/tros/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 
-# Start the launch file
+# Launch the launch file
 ros2 launch elevation_net elevation_net.launch.py
 ```
 
@@ -55,13 +68,13 @@ ros2 launch elevation_net elevation_net.launch.py
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Configure ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 
-# Start the launch file
+# Launch the launch file
 ros2 launch elevation_net elevation_net.launch.py
 ```
 
@@ -69,10 +82,23 @@ ros2 launch elevation_net elevation_net.launch.py
 
 </Tabs>
 
+### X86 Platform
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+
+# Copy required configuration files for running the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
+
+# Launch the launch file
+ros2 launch elevation_net elevation_net.launch.py
+```
+
 ## Result Analysis
 
-The package outputs the following information:
- 
+When the package runs, the terminal outputs the following inference logs:
+
 ```shell
 [16:15:17:520]root@ubuntu:/userdata# ros2 run elevation_net elevation_net
 [16:15:18:976][WARN] [1655108119.406738772] [example]: This is dnn node example!
@@ -105,7 +131,7 @@ The package outputs the following information:
 [16:15:19:384][INFO] [1655108119.780962558] [elevation_net_parser]: nz_: 1.000000
 [16:15:19:384][INFO] [1655108119.781067928] [elevation_net_parser]: camera_height: 1.000000
 [16:15:19:385][INFO] [1655108119.781833267] [elevation_net_parser]: model out width: 480, height: 256
-```[16:15:19:416][INFO] [1655108119.808395254] [elevation_net_parser]: depth: 998.000000
+[16:15:19:416][INFO] [1655108119.808395254] [elevation_net_parser]: depth: 998.000000
 [16:15:19:416][INFO] [1655108119.808593786] [elevation_net_parser]: height: -42.699909
 [16:15:19:416][INFO] [1655108119.808644533] [elevation_net_parser]: depth: 998.000000
 [16:15:19:416][INFO] [1655108119.808692531] [elevation_net_parser]: height: -25.339746
@@ -146,4 +172,4 @@ The package outputs the following information:
 [16:15:19:417][INFO] [1655108119.810410741] [elevation_net_parser]: depth: 998.000000
 ```
 
-The log displays the depth and height information of the image.
+The logs indicate that after reading a local image and performing inference, the algorithm outputs per-pixel depth and height information for the image.

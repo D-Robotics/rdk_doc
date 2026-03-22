@@ -1,58 +1,64 @@
 ---
 sidebar_position: 1
 ---
-# 5.2.1 Image Capture
+# 5.2.1 Data Acquisition
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## USB camera
+## USB Image Acquisition
 
-### Introduction
+### Feature Introduction
 
-In order to achieve environmental perception capability, robot products usually carry cameras to obtain image information. USB cameras are easy to obtain, easy to use, and have good versatility. TogetheROS.Bot supports USB cameras and supports ROS2 standard image messages.
+To enable environmental perception capabilities, robotic products typically integrate cameras to capture image data. USB cameras are easy to obtain, simple to use, and highly compatible. TogetheROS.Bot adds support for USB cameras and provides compatibility with standard ROS2 image messages.
 
-Code repository:  (https://github.com/D-Robotics/hobot_usb_cam.git)
+Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://github.com/D-Robotics/hobot_usb_cam.git)
 
 ### Supported Platforms
 
-| Platform    | Operating Mode     |
-| ------- | ------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
-| RDK Ultra | Ubuntu 20.04 (Foxy) |
-| X86     | Ubuntu 20.04 (Foxy) |
+| Platform                | Runtime Environment                     |
+| ----------------------- | --------------------------------------- |
+| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   |
+| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                   |
+| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   |
+| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                   |
+| RDK Ultra               | Ubuntu 20.04 (Foxy)                     |
+| X86                     | Ubuntu 20.04 (Foxy)                     |
 
-### Preparation
+### Prerequisites
 
-#### RDK
+#### RDK Platform
 
-1. Confirm that the USB camera is working properly and connect it to the USB slot of the RDK.
+1. Ensure your USB camera functions properly and connect it to an RDK USB port.
 
-2. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+2. Confirm that the RDK has been flashed with either Ubuntu 20.04 or Ubuntu 22.04 system image.
 
-3. RDK has successfully installed tros.b.
+3. Verify that tros.b has been successfully installed on the RDK.
 
-4. Confirm that the PC can access the RDK via the network.
+4. Ensure your PC can access the RDK over the network.
 
-### How to Use (default usb_pixel_format is mjpeg)
+#### X86 Platform
 
-Taking RDK as an example:
+1. Ensure your USB camera functions properly and connect it to a USB port on your PC or server.
 
-1. Log in to the RDK via SSH and confirm the device name of the USB camera. Here, let's take `/dev/video8` as an example.
+2. Confirm that your X86 platform runs Ubuntu 20.04 and that tros.b has been successfully installed.
 
-2. Start the USB camera using the following command:
+### Usage (Default `usb_pixel_format` is `mjpeg`)
+
+Usage is identical on both RDK and X86 platforms; the following example uses the RDK platform:
+
+1. Log into the RDK via SSH and confirm the USB camera device name (e.g., `/dev/video8`).
+
+2. Launch the USB camera using the command below:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -61,7 +67,7 @@ Taking RDK as an example:
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -69,12 +75,12 @@ Taking RDK as an example:
 
     </Tabs>
 
-    ```bash
-    # Start the launch file
-    ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_video_device:=/dev/video8
-    ```
+   ```bash
+   # Launch via launch file:
+   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_video_device:=/dev/video8
+   ```
 
-3. If the program outputs the following information, it means the node has been successfully launched.
+3. If the program outputs the following log messages, the node has started successfully:
 
     ```text
     [INFO] [launch]: All log files can be found below /root/.ros/log/2024-01-18-19-44-39-419588-ubuntu-3951
@@ -82,8 +88,6 @@ Taking RDK as an example:
     [INFO] [hobot_usb_cam-1]: process started with pid [3953]
     [hobot_usb_cam-1] [WARN] [1705578280.808870437] [hobot_usb_cam]: framerate: 30
     [hobot_usb_cam-1] [WARN] [1705578280.809851560] [hobot_usb_cam]: pixel_format_name: mjpeg
-    [hobot_usb_cam-1] [WARN] [1705578280.936383062] [hobot_usb_cam]: Camera calibration file: [/opt/tros/lib/hobot_usb_cam/config/usb_camera_calibration.yaml] does not exist!
-    [hobot_usb_cam-1] If you need calibration msg, please make sure the calibration file path is correct and the calibration file exists!
     [hobot_usb_cam-1] [WARN] [1705578280.936697507] [hobot_usb_cam]: This devices supproted formats:
     [hobot_usb_cam-1] [WARN] [1705578280.936858791] [hobot_usb_cam]:        Motion-JPEG: 640 x 480 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.936912830] [hobot_usb_cam]:        Motion-JPEG: 1920 x 1080 (30 Hz)
@@ -99,13 +103,53 @@ Taking RDK as an example:
     [hobot_usb_cam-1] [WARN] [1705578280.937373518] [hobot_usb_cam]:        YUYV 4:2:2: 1024 x 576 (15 Hz)
     ```
 
-4. Open another terminal to view the USB camera image on the web page:
+4. View the USB camera feed in a web browser by opening another terminal:
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```bash
+# Launch websocket
+ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
+```
+
+5. On your PC, open a browser (`Chrome/Firefox/Edge`), navigate to `IP:8000` (replace `IP` with the RDK’s IP address), and click the "Web Display" button in the top-left corner to view the live USB camera feed.
+
+![Live USB Camera Feed](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
+
+
+
+### Usage Method 2 (`usb_pixel_format` set to `yuyv2rgb`)
+
+Usage is identical on both RDK and X86 platforms; the following example uses the RDK platform:
+
+1. Log into the RDK via SSH and confirm the USB camera device name (e.g., `/dev/video8`).
+
+2. Launch the USB camera using the command below:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -114,7 +158,7 @@ Taking RDK as an example:
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -123,46 +167,11 @@ Taking RDK as an example:
     </Tabs>
 
     ```bash
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-    ```
-
-5. Open a web browser (Chrome/Firefox/Edge) on your PC and enter  `http://IP:8000` (where IP is the RDK IP address). Click on the upper left corner to view the real-time image from the USB camera.
-![image-usb-camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
-
-### Usage Method 2 (usb_pixel_format is yuyv2rgb)
-
-Here is an example using the RDK platform:
-
-1. SSH into the RDK and confirm the USB camera device name, for example `/dev/video8`.
-
-2. Start the USB camera using the following command:
-
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
-
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/setup.bash
-    ```
-
-    </TabItem>
-
-    <TabItem value="humble" label="Humble">
-
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
-
-    </TabItem>
-
-    </Tabs>
-
-    ```bash
+    # Launch via launch file:
     ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_video_device:=/dev/video8 usb_pixel_format:=yuyv2rgb usb_image_width:=640 usb_image_height:=480
     ```
 
-3. If the following information is outputted by the program, it indicates that the node has been successfully launched
+3. If the program outputs the following log messages, the node has started successfully:
 
     ```text
     [INFO] [launch]: All log files can be found below /root/.ros/log/2024-01-18-19-44-39-419588-ubuntu-3951
@@ -170,15 +179,13 @@ Here is an example using the RDK platform:
     [INFO] [hobot_usb_cam-1]: process started with pid [3953]
     [hobot_usb_cam-1] [WARN] [1705578280.808870437] [hobot_usb_cam]: framerate: 30
     [hobot_usb_cam-1] [WARN] [1705578280.809851560] [hobot_usb_cam]: pixel_format_name: yuyv2rgb
-    [hobot_usb_cam-1] [WARN] [1705578280.936383062] [hobot_usb_cam]: Camera calibration file: [/opt/tros/lib/hobot_usb_cam/config/usb_camera_calibration.yaml] does not exist!
-    [hobot_usb_cam-1] If you need calibration msg, please make sure the calibration file path is correct and the calibration file exists!
     [hobot_usb_cam-1] [WARN] [1705578280.936697507] [hobot_usb_cam]: This devices supproted formats:
     [hobot_usb_cam-1] [WARN] [1705578280.936858791] [hobot_usb_cam]:        Motion-JPEG: 640 x 480 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.936912830] [hobot_usb_cam]:        Motion-JPEG: 1920 x 1080 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.936960328] [hobot_usb_cam]:        Motion-JPEG: 320 x 240 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.937007285] [hobot_usb_cam]:        Motion-JPEG: 800 x 600 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.937053241] [hobot_usb_cam]:        Motion-JPEG: 1280 x 720 (30 Hz)
-    [hobot_usb_cam-1] [WARN] [1705578280.9379806] [hobot_usb_cam]:        Motion-JPEG: 1024 x 576 (30 Hz)
+    [hobot_usb_cam-1] [WARN] [1705578280.937098906] [hobot_usb_cam]:        Motion-JPEG: 1024 x 576 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.937144528] [hobot_usb_cam]:        YUYV 4:2:2: 640 x 480 (30 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.937190068] [hobot_usb_cam]:        YUYV 4:2:2: 1920 x 1080 (5 Hz)
     [hobot_usb_cam-1] [WARN] [1705578280.937235858] [hobot_usb_cam]:        YUYV 4:2:2: 320 x 240 (30 Hz)
@@ -187,261 +194,260 @@ Here is an example using the RDK platform:
     [hobot_usb_cam-1] [WARN] [1705578280.937373518] [hobot_usb_cam]:        YUYV 4:2:2: 1024 x 576 (15 Hz)
     ```
 
-4. Encode to mjpeg with hobot codec
+4. Encode the output to MJPEG using hobot codec:
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
-
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
     ```bash
     # Configure the tros.b environment
     source /opt/tros/setup.bash
     ```
 
-    </TabItem>
+</TabItem>
 
-    <TabItem value="humble" label="Humble">
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
 
-    </TabItem>
+</TabItem>
 
-    </Tabs>
+</Tabs>
 
-    ```bash
-    # Start the launch file
-    ros2 launch hobot_codec hobot_codec_encode.launch.py codec_in_mode:=ros codec_in_format:=rgb8 codec_out_mode:=ros codec_sub_topic:=/image codec_pub_topic:=/image_mjpeg
-    ```
+```bash
+# Launch via launch file:
+ros2 launch hobot_codec hobot_codec_encode.launch.py codec_in_mode:=ros codec_in_format:=rgb8 codec_out_mode:=ros codec_sub_topic:=/image codec_pub_topic:=/image_mjpeg
+```
 
-5. View the USB camera image on the web side, open a new terminal:
+5. View the USB camera image on the web browser. Open another terminal:
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+```
 
-    </TabItem>
+</TabItem>
 
-    <TabItem value="humble" label="Humble">
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
 
-    </TabItem>
+</TabItem>
 
-    </Tabs>
+</Tabs>
 
-    ```bash
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_mjpeg websocket_only_show_image:=true
-    ```
+```bash
+# Launch websocket
+ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_mjpeg websocket_only_show_image:=true
+```
 
-6. Open a browser on your PC (chrome/firefox/edge) and enter  `http://IP:8000` (IP is the RDK IP address), click on the top left to display the web side to view the real-time image from the USB camera
-    ![image-usb-camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
-    
+6. On your PC, open a browser (Chrome/Firefox/Edge) and navigate to `http://IP:8000` (replace IP with the RDK's IP address). Click the "Web Display" button in the top-left corner to view the real-time USB camera feed.
+![image-usb-camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
+
+
 ### Notes
 
-1. USB cameras need to be calibrated and the camera calibration file path needs to be set in order to publish camera parameters. However, this does not affect other functionalities.
-2. To set the camera calibration file path, follow the steps below:
+1. The USB camera must be calibrated, and the path to the camera calibration file must be configured. Otherwise, camera intrinsic parameters cannot be published (though other functionalities remain unaffected).
+2. To set the path for the camera calibration file, follow these steps:
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+```
 
-    </TabItem>
+</TabItem>
 
-    <TabItem value="humble" label="Humble">
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
 
-    </TabItem>
+</TabItem>
 
-    </Tabs>
+</Tabs>
 
-   ```bash
-   # Start with launch command
-   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_camera_calibration_file_path:=（actual calibration file absolute path）
-   ```
+```bash
+# Launch via launch file
+ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_camera_calibration_file_path:=(absolute path to the actual calibration file)
+```
 
-3. Changes to the pixel_format configuration:
+3. For x86 platforms, if Ubuntu 20.04 is running inside a virtual machine, you must set the **USB Compatibility** of the **USB Controller** in the VM settings to **USB 3.1**.
 
-   hobot_usb_cam supports the following configurations:
-   "mjpeg","mjpeg2rgb","rgb8","yuyv","yuyv2rgb","uyvy","uyvy2rgb","m4202rgb","mono8","mono16","y102mono8"
-   
-   Start usb camera with the default parameters of the first type to query the formats supported by the device hardware, as shown in the log below:
+4. Changing the `pixel_format` configuration
 
-   ```text
-   [hobot_usb_cam-1] [WARN] [1705548544.174669672] [hobot_usb_cam]: This devices supproted formats:
-   [hobot_usb_cam-1] [WARN] [1705548544.174844917] [hobot_usb_cam]:        Motion-JPEG: 640 x 480 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.174903166] [hobot_usb_cam]:        Motion-JPEG: 1920 x 1080 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.174950581] [hobot_usb_cam]:        Motion-JPEG: 320 x 240 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.174996788] [hobot_usb_cam]:        Motion-JPEG: 800 x 600 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175043412] [hobot_usb_cam]:        Motion-JPEG: 1280 x 720 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175089161] [hobot_usb_cam]:        Motion-JPEG: 1024 x 576 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175135035] [hobot_usb_cam]:        YUYV 4:2:2: 640 x 480 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175180325] [hobot_usb_cam]:        YUYV 4:2:2: 1920 x 1080 (5 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175226449] [hobot_usb_cam]:        YUYV 4:2:2: 320 x 240 (30 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175272365] [hobot_usb_cam]:        YUYV 4:2:2: 800 x 600 (20 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175318697] [hobot_usb_cam]:        YUYV 4:2:2: 1280 x 720 (10 Hz)
-   [hobot_usb_cam-1] [WARN] [1705548544.175365195] [hobot_usb_cam]:        YUYV 4:2:2: 1024 x 576 (15 Hz)
-   ```
-   a. Query the image formats supported by the usb camera, as shown in the log above. The log shows support for mjpeg and YUYV.
+   `hobot_usb_cam` supports the following pixel format configurations:  
+   `"mjpeg"`, `"mjpeg2rgb"`, `"rgb8"`, `"yuyv"`, `"yuyv2rgb"`, `"uyvy"`, `"uyvy2rgb"`, `"m4202rgb"`, `"mono8"`, `"mono16"`, `"y102mono8"`
 
-   b. Only "mjpeg", "mjpeg2rgb", "yuyv", and "yuyv2rgb" can be set; otherwise, the hobot_usb_cam program will exit.
+   Launch the USB camera with default parameters to query the hardware-supported formats of the device, as shown in the log below:
 
-## MIPI camera
+```text
+[hobot_usb_cam-1] [WARN] [1705548544.174669672] [hobot_usb_cam]: This device supported formats:
+[hobot_usb_cam-1] [WARN] [1705548544.174844917] [hobot_usb_cam]:        Motion-JPEG: 640 x 480 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.174903166] [hobot_usb_cam]:        Motion-JPEG: 1920 x 1080 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.174950581] [hobot_usb_cam]:        Motion-JPEG: 320 x 240 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.174996788] [hobot_usb_cam]:        Motion-JPEG: 800 x 600 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175043412] [hobot_usb_cam]:        Motion-JPEG: 1280 x 720 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175089161] [hobot_usb_cam]:        Motion-JPEG: 1024 x 576 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175135035] [hobot_usb_cam]:        YUYV 4:2:2: 640 x 480 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175180325] [hobot_usb_cam]:        YUYV 4:2:2: 1920 x 1080 (5 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175226449] [hobot_usb_cam]:        YUYV 4:2:2: 320 x 240 (30 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175272365] [hobot_usb_cam]:        YUYV 4:2:2: 800 x 600 (20 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175318697] [hobot_usb_cam]:        YUYV 4:2:2: 1280 x 720 (10 Hz)
+[hobot_usb_cam-1] [WARN] [1705548544.175365195] [hobot_usb_cam]:        YUYV 4:2:2: 1024 x 576 (15 Hz)
+```
 
-### Introduction
+a. Query the image formats supported by the USB camera. As shown in the log above, the device supports MJPEG and YUYV.
 
-To achieve environmental perception capabilities, robots often carry cameras, ToF, and other types of sensors. In order to reduce the cost of sensor adaptation and usage for users, TogetheROS.Bot wraps multiple commonly used sensors into the hobot_sensor module and abstracts them into ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program will automatically adapt to the correct sensor type. The currently supported MIPI sensor types are as follows:
+b. Therefore, only `"mjpeg"`, `"mjpeg2rgb"`, `"yuyv"`, and `"yuyv2rgb"` can be configured; otherwise, the `hobot_usb_cam` program will exit.
 
-| Index | Name    | Representational Image                     | Parameters     |support platform | Reference Link                                                |
-| ----- | ------- | ------------------------------------------ | -------------- |-----------|------------------------------------------------------------- |
-| 1    | F37    | ![F37](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W Pixel | RDK X3, RDK X3 Module | [F37](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
-| 2    | GC4663 | ![GC4663](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W Pixel | RDK X3, RDK X3 Module | [GC4663](https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963) |
-| 3    | IMX219 | ![IMX219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 800W Pixel | RDK X3, RDK X3 Module, RDK Ultra, RDK X5 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
-| 4    | IMX477 | ![IMX477](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 200W Pixel | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
-| 5    | OV5647 | ![OV5647](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W Pixel | RDK X3, RDK X3 Module, RDK X5 | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
-| 6    | IMX415 | ![IMX415](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg) | 200W Pixel | RDK X5 | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
+## MIPI Image Capture
 
-Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
+### Feature Overview
 
-### Supported Platforms
+To enable environmental perception capabilities, robotic products typically integrate sensors such as cameras and ToF modules. To reduce sensor integration and usage costs for users, TogetherROS.Bot encapsulates various commonly used sensors into the `hobot_sensor` module, which supports standard ROS image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
 
-| Platform   | System      | Function                          |
-| ------ | ------------- | --------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
 
-### Preparation
+| No. | Name   | Illustration                    | Resolution | Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | F37    | ![F37](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 2MP      | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
+| 2    | GC4663 | ![GC4663](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 4MP      | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
+| 3    | IMX219 | ![IMX219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 8MP      | RDK X3, RDK X3 Module, RDK Ultra, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 4    | IMX477 | ![IMX477](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 12.3MP   | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
+| 5    | OV5647 | ![OV5647](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 5MP      | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 6    | IMX415 | ![IMX415](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg) | 8MP      | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
 
-#### RDK
+Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
-1. Confirm that the camera is correctly connected to RDK. 
-
-    For example F37 connection RDK X3:
-    ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
-
-    For example imx219 connection RDK S100:
-    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
-
-2. RDK is flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics
-
-3. RDK has successfully installed tros.b
-
-4. Confirm that the PC can access RDK through the network
-
-### Usage
+### Prerequisites
 
 #### RDK Platform
 
-Introduce the method of acquiring and previewing images:
+1. Ensure the camera is correctly connected to the RDK. For example, the F37 camera connected to the RDK X3 is shown below:
 
-1. SSH into RDK.
+    ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
-2. Start the `hobot_sensor` node with the following command:
+    The IMX219 camera connected to the RDK S100 is shown below:
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+2. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
 
-    </TabItem>
+3. tros.b has been successfully installed on the RDK.
 
-    <TabItem value="humble" label="Humble">
+4. Confirm that your PC can access the RDK over the network.
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+### Usage Instructions
 
-    </TabItem>
+#### RDK Platform
 
-    </Tabs>
+The following describes how to capture and preview camera data:
 
-    ```shell
-    # Start the launch file
-    ros2 launch mipi_cam mipi_cam.launch.py
-    ```
+1. Log in to the RDK via SSH.
 
-3. If the following information is outputted, it means that the node has been successfully started:
+2. Start the `hobot_sensor` node using the commands below:
 
-    ```text
-    [INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-11-15-16-13-641715-ubuntu-8852
-    [INFO] [launch]: Default logging verbosity is set to INFO
-    [INFO] [mipi_cam-1]: process started with pid [8854]
-    ...
-    ```
-4. To view the camera image on the web, as raw data needs to be encoded into JPEG images, two terminals need to be launched separately: one for subscribing to MIPI data and encoding it into JPEG, and one for publishing with a webservice.
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+```
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+</TabItem>
 
-    </TabItem>
+<TabItem value="humble" label="Humble">
 
-    <TabItem value="humble" label="Humble">
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+</TabItem>
 
-    </TabItem>
+</Tabs>
 
-    </Tabs>
+```shell
+# Launch via launch file
+ros2 launch mipi_cam mipi_cam.launch.py
+```
 
-    ```shell
-    # Start encoding
-    ros2 launch hobot_codec hobot_codec_encode.launch.py
+3. If the program outputs messages similar to the following, the node has started successfully:
 
-    # Launch another terminal，and configure the tros.b environment
-    # Start websocket
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
-    ```
+```text
+[INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-11-15-16-13-641715-ubuntu-8852
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [mipi_cam-1]: process started with pid [8854]
+...
+```
 
-5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the camera's output.
-    ![web-f37-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png)
+4. To view the F37 camera image on the web: since raw data is published, JPEG encoding is required. Open two additional terminals—one to subscribe to MIPI data and encode it into JPEG, and another to publish it via a web service.
 
-6. To query the camera's intrinsic parameters on the PC (the specific data may vary depending on the calibrated camera file), use the following command and view the results:
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+```
 
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+</TabItem>
 
-      ```shell
-      root@ubuntu:~# source /opt/ros/foxy/setup.bash
-      ```
+<TabItem value="humble" label="Humble">
 
-   </TabItem>
-   <TabItem value="humble" label="Humble">
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
 
-      ```shell
-      root@ubuntu:~# source /opt/ros/humble/setup.bash
-      ```
+</TabItem>
 
-   </TabItem>
-   </Tabs>
+</Tabs>
+
+```shell
+# Start encoding
+ros2 launch hobot_codec hobot_codec_encode.launch.py
+
+# Open another terminal and configure the tros.b environment
+# Start websocket
+ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
+```
+
+5. On your PC, open a browser (Chrome/Firefox/Edge) and enter `http://IP:8000` (replace IP with the RDK's IP address). Click the "Web Display" button in the upper-left corner to view the real-time video stream output from the F37 camera.  
+![web-f37-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png)
+
+6. Query the camera intrinsic parameters on your PC (use the actual values from your camera calibration file). The command and its output are as follows:
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
    ```shell
+   root@ubuntu:~# source /opt/ros/foxy/setup.bash
+   ```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+</Tabs>
+
+    ```shell
     root@ubuntu:~# ros2 topic echo /camera_info
         header:
     stamp:
@@ -469,40 +475,41 @@ Introduce the method of acquiring and previewing images:
     - 1.0
     r:
     - 1.0
-    - 0.0- 0.0
-   - 0.0
-   - 1.0
-   - 0.0
-   - 0.0
-   - 0.0
-   - 1.0
-   p:
-   - 1685.497559
-   - 0.0
-   - 881.6396
-   - 0.0
-   - 0.0
-   - 1756.460205
-   - 526.781147
-   - 0.0
-   - 0.0
-   - 0.0
-   - 1.0
-   - 0.0
-   binning_x: 0
-   binning_y: 0
-   roi:
-   x_offset: 0
-   y_offset: 0
-   height: 0
-   width: 0
-   do_rectify: false
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    p:
+    - 1685.497559
+    - 0.0
+    - 881.6396
+    - 0.0
+    - 0.0
+    - 1756.460205
+    - 526.781147
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    binning_x: 0
+    binning_y: 0
+    roi:
+    x_offset: 0
+    y_offset: 0
+    height: 0
+    width: 0
+    do_rectify: false
 
-   ```
+    ```
 
-### Caution
+### Notes
 
-1. mipi_cam provides the calibration files for two types of cameras, F37 and GC4663. By default, it reads the calibration file for F37, `F37_calibration.yaml`. If you want to use GC4663, please change the path to the camera calibration file accordingly, as below:
+1. The `mipi_cam` package provides calibration files for two camera models: F37 and GC4663. By default, it loads the F37 calibration file `F37_calibration.yaml`. If you are using the GC4663 camera, you must change the calibration file path accordingly. Follow these steps:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
@@ -526,20 +533,21 @@ Introduce the method of acquiring and previewing images:
     </Tabs>
 
     ```shell
-    # Start the launch file
+    # Launch via launch file
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=GC4663 mipi_camera_calibration_file_path:=/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/GC4663_calibration.yaml
     ```
 
-2. Caution when plugging/unplugging the camera:
+2. Camera Plugging/Unplugging Precautions
 
-   **NEVER plug or unplug the camera module without powering off the development board first. Otherwise, it may result in damaging the camera module.**
+   **Never plug or unplug the camera while the development board is powered on—this can easily damage the camera module.**
 
-3. If you encounter any issues with the startup of the hobot_sensor node, you can troubleshoot the problems by following these steps:
-	- Check the hardware connections.
-	- Make sure you have set up the tros.b environment.
-	- Verify the parameters are correct, for more details refer to the Hobot_Sensors README.md file.
-  
-4. Due to image conflicts caused by two image streams sending images to the same topic simultaneously, the topic needs to be remapped when starting the second image stream, and an instruction to start the second camera (only for X5 and S100):
+3. If you encounter issues starting the `hobot_sensor` node, follow these troubleshooting steps:
+    - Check hardware connections.
+    - Verify that the tros.b environment has been properly sourced.
+    - Confirm that all parameters are correct; refer to [README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md) for details.
+
+4. When two image streams publish to the same topic simultaneously, image conflicts may occur. Therefore, when launching a second camera stream, you must remap the topic. Use one of the following commands to start the second camera (applicable only to X5 and S100):
+
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -562,58 +570,61 @@ Introduce the method of acquiring and previewing images:
     </Tabs>
 
     ```shell
-    # run mode
+    # Launch via run command
     ros2 run mipi_cam mipi_cam --ros-args --remap /image_raw:=/image_raw_alias
-    # launch mode
+    # Or launch via launch file
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
-    ```   
+    ```
 
-## Dual MIPI camera
 
-### Introduction
 
-To achieve environmental perception capabilities, robots often carry stereo cameras, ToF, and other types of sensors. In order to reduce the cost of sensor adaptation and usage for users, TogetheROS.Bot wraps multiple commonly used sensors into the hobot_sensor module and abstracts them into ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program will automatically adapt to the correct sensor type. The currently supported MIPI sensor types are as follows:
+## Stereo MIPI Image Capture
 
-| Type | Model | Specifications | Supported Platforms |
-| ------ | ------ | ------ | ------ |
-| Camera | SC230ai | 200W | RDK X5 |
+### Feature Overview
 
-Code repository:  (https://github.com/D-Robotics/hobot_mipi_cam.git)
+To enable stereo perception of the environment, robotic products often integrate stereo cameras, ToF sensors, or similar devices. To reduce sensor integration and usage costs for developers, TogetherROS.Bot encapsulates multiple commonly used sensors into the abstracted `hobot_sensor` module, which supports standard ROS image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. Currently supported MIPI sensor types include:
+
+| Type      | Model     | Resolution | Supported Platforms |
+| --------- | --------- | ---------- | ------------------- |
+| Camera    | SC230ai   | 2MP        | RDK X5, RDK X5 Module, RDK S100, RDK S100P |
+| Camera    | SC132gs   | 2MP        | RDK X5, RDK X5 Module, RDK S100, RDK S100P |
+
+Repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
 ### Supported Platforms
 
-| Platform   | System      | Function                          |
-| ------ | ------------- | --------------------------------- |
-| RDK X5 | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images through Web |
+| Platform                     | OS Version             |
+| ---------------------------- | ---------------------- |
+| RDK X5, RDK X5 Module        | Ubuntu 22.04 (Humble)  |
+| RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)  |
+| RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)  |
 
-### Preparation
+### Prerequisites
+#### RDK Platform
 
-#### RDK
+1. Confirm that the camera is correctly connected to the RDK. For example, the connection method for the SC230ai stereo camera to the RDK X5 and RDK X5 Module is shown in the figure below:
 
-1. Confirm that the camera is correctly connected to RDK. 
-
-    For example, the connection between the dual camera and RDK X5 is shown in the following figure:
     ![image-X5-PI-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
 
-    For example, the sc230ai connection between the dual camera and RDK S100 is shown in the following figure:
+    The connection method for the SC230ai stereo camera to the S100 is shown in the figure below:
     ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
 
 
-2. RDK is flashed with the  Ubuntu 22.04 system image provided by D-Robotics
+2. The RDK has already been flashed with the Ubuntu 22.04 system image.
 
-3. RDK has successfully installed tros.b
+3. tros.b has been successfully installed on the RDK.
 
-4. Confirm that the PC can access RDK through the network
+4. Confirm that the PC can access the RDK over the network.
 
-### Usage
+### Usage Instructions
 
 #### RDK Platform
 
-Take the SC230ai as an example to introduce the method of acquiring and previewing images:
+The following example uses the SC230ai camera to illustrate how to acquire and preview camera data:
 
-1. SSH into RDK and determine the camera model, take `SC230ai` as an example.
+1. Log in to the RDK via SSH and confirm the camera model (using `SC230ai` as an example).
 
-2. Start the `hobot_sensor` node with the following command:
+2. Start the hobot_sensor node using the command below:
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
@@ -628,11 +639,11 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     </Tabs>
 
     ```shell
-    # Start the launch file
+    # Launch using launch file
     ros2 launch mipi_cam mipi_cam_dual_channel.launch.py
     ```
 
-3. If the following information is outputted, it means that the node has been successfully started:
+3. If the program outputs information similar to the following, it indicates that the node has started successfully:
 
     ```text
     [INFO] [launch]: All log files can be found below /root/.ros/log/2024-09-18-19-15-26-160110-ubuntu-3931
@@ -652,7 +663,8 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     [mipi_cam-1]
     ...
     ```
-4. To view the dual camera image on the web, as raw data needs to be encoded into JPEG images, need to be coded Jpeg image node,  and one for publishing with a webservice node.
+
+4. To view stereo camera images on a web browser, since raw data is published, you need a node to encode JPEG images and another node to publish them via a web service. Use the following command to launch:
 
     <Tabs groupId="tros-distro">
     <TabItem value="humble" label="Humble">
@@ -667,72 +679,73 @@ Take the SC230ai as an example to introduce the method of acquiring and previewi
     </Tabs>
 
     ```shell
-    # Start the launch file
+    # Launch using launch file
     ros2 launch mipi_cam mipi_cam_dual_channel_websocket.launch.py
     ```
 
-5. Open a web browser on the PC (Chrome/Firefox/Edge) and enter  `http://IP:8000` (IP address of the RDK) to see the real-time display of the dual camera's output.
+5. On your PC, open a browser (Chrome/Firefox/Edge), enter `http://IP:8000` (replace IP with the RDK's IP address), and click the "Web Display" button in the top-left corner to view the real-time stereo output.
     ![web-dualcamera-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg)
 
-### Caution
 
-1. Caution when plugging/unplugging the camera:
+### Notes
 
-   **NEVER plug or unplug the camera module without powering off the development board first. Otherwise, it may result in damaging the camera module.**
+1. Camera Insertion/Removal Precautions
 
-2. If you encounter any issues with the startup of the hobot_sensor node, you can troubleshoot the problems by following these steps:
-	- Check the hardware connections.
-	- Make sure you have set up the tros.b environment.
-	- Verify the parameters are correct, for more details refer to the Hobot_Sensors README.md file.
+   **Never plug or unplug the camera while the development board is powered on; otherwise, the camera module may easily be damaged.**
 
-## RGBD camera
+2. If you encounter issues when starting the hobot_sensor node, follow these troubleshooting steps:
+    - Check hardware connections.
+    - Verify that the tros.b environment has been properly configured.
+    - Ensure parameters are correct; refer to [README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md) for details.
 
-### Introduction
+## RGBD Image Capture
 
-In order to achieve environmental perception capability, robot products usually carry cameras, ToF and other types of sensors. To reduce the cost of sensor adaptation and usage for users, TogetheROS.Bot encapsulates and abstracts multiple commonly used sensors into the hobot_sensor module, which supports ROS standard image messages, custom image message output, and camera calibration data publishing. Currently supported types of RGBD sensors are as follows:
+### Feature Overview
 
-| Type | Model | Specification | Supported Platforms |
-| ------ | ------ | ------ | ---- |
-| Camera | CP3AM | 200W | RDK X3 |
+To enable environmental perception capabilities, robotic products typically integrate sensors such as cameras and ToF devices. To reduce users' sensor integration and usage costs, TogetherROS.Bot encapsulates various commonly used sensors into the hobot_sensor module, supporting standard ROS image messages, custom image message outputs, and publishing of camera calibration data. Currently supported RGBD sensor types include:
 
-Code Repository:  (https://github.com/D-Robotics/hobot_rgbd_cam.git)
+| Type      | Model | Specification | Supported Platforms |
+| --------- | ----- | ------------- | ------------------- |
+| Camera    | CP3AM | 2MP           | RDK X3              |
+
+Code repository: [https://github.com/D-Robotics/hobot_rgbd_cam.git](https://github.com/D-Robotics/hobot_rgbd_cam.git)
 
 ### Supported Platforms
 
-| Platform   | System      | Function                                           |
-| ------ | ------------- | -------------------------------------------------- |
-|RDK X3| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start RGBD camera and preview RGB and depth images on PC using rviz2 |
+| Platform | Runtime Environment                              | Example Functionality                                             |
+| -------- | ------------------------------------------------ | ----------------------------------------------------------------- |
+| RDK X3   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)       | Launch RGBD camera and preview RGB and depth images on PC via rviz2 |
 
-**Note: Only supports RDK X3, RDK X3 Module is not supported yet.**
+**Note: Only RDK X3 is supported; RDK X3 Module is not currently supported.**
 
-### Preparations
+### Prerequisites
 
 #### RDK Platform
 
-1. Make sure the camera is correctly connected to the RDK. The connection for RGBD module to RDK X3 is shown as below:
+1. Confirm that the camera is correctly connected to the RDK. The connection method for the RGBD module to the RDK X3 is shown below:
 
     ![hobot_rgbd](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
 
-    **Note: The RGBD module needs an additional adapter board to connect to RDK X3**.
-2. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+    **Note: The RGBD module requires an additional adapter board to connect to the RDK X3.**
+2. The RDK has already been flashed with either Ubuntu 20.04 or Ubuntu 22.04 system image.
 
-3. RDK has successfully installed tros.b.
+3. tros.b has been successfully installed on the RDK.
 
-4. Make sure the PC can access the RDK through the network.
+4. Confirm that the PC can access the RDK over the network.
 
-5. Install ros2 foxy version and rviz2 on the PC, using the following command:
+5. Install ROS 2 Foxy and rviz2 on the PC using the following command:
 
 ```shell
   sudo apt install ros-foxy-rviz-common ros-foxy-rviz-default-plugins ros-foxy-rviz2
 ```
 
-### Usage
+### Usage Instructions
 
-#### RDK
+#### RDK Platform
 
-Taking CP3AM as an example, the method of acquiring and previewing camera data is introduced below:
+The following example uses the CP3AM camera to illustrate how to acquire and preview camera data:
 
-1. SSH into the RDK and start the hobot_sensor node with the following command:
+1. Log in to the RDK via SSH and start the hobot_sensor node using the commands below:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
@@ -755,77 +768,79 @@ Taking CP3AM as an example, the method of acquiring and previewing camera data i
 
     </Tabs>
 
-   ```shell
-   cp -r /opt/tros/lib/rgbd_sensor/parameter .
-   # Launch the node
-   ros2 launch rgbd_sensor rgbd_sensor.launch.py
-   ```
+    ```shell
+    cp -r /opt/tros/${TROS_DISTRO}/lib/rgbd_sensor/parameter .
+    # Launch using launch file
+    ros2 launch rgbd_sensor rgbd_sensor.launch.py
+    ```
 
-2. If the program outputs the following information, it indicates that the node has been successfully launched:
+2. If the program outputs information similar to the following, it indicates that the node has started successfully:
 
-```text
-[WARN] [1654573498.706920307] [example]: [wuwl]->This is rgbd!
-sh: 1: echo: echo: I/O error
-pipeId[1], mipiIdx[1], vin_vps_mode[3]
-[ERROR]["LOG"][irs2381c_utility.c:192] 2381 enter sensor_init_setting
-[ERROR]["LOG"][irs2381c_utility.c:200] start write 2381c reg
-camera read reg: 0xa001 val:0x7
-...
-[ERROR]["LOG"][irs2381c_utility.c:207] end write 2381c reg
-HB_MIPI_InitSensor end
-HB_MIPI_SetDevAttr end
-pstHbVideoDev->vin_fd = 29
-sensorID: 634-2362-2676-68d0 
-find local calib_file
+    ```text
+    [WARN] [1654573498.706920307] [example]: [wuwl]->This is rgbd!
+    sh: 1: echo: echo: I/O error
+    pipeId[1], mipiIdx[1], vin_vps_mode[3]
+    [ERROR]["LOG"][irs2381c_utility.c:192] 2381 enter sensor_init_setting
+    [ERROR]["LOG"][irs2381c_utility.c:200] start write 2381c reg
+    camera read reg: 0xa001 val:0x7
+    ...
+    [ERROR]["LOG"][irs2381c_utility.c:207] end write 2381c reg
+    HB_MIPI_InitSensor end
+    HB_MIPI_SetDevAttr end
+    pstHbVideoDev->vin_fd = 29
+    sensorID: 634-2362-2676-68d0
+    find local calib_file
 
-find local calib_file
+    find local calib_file
 
-SDK Version: V4.4.35 build 20220525 09:27:53.
-read file(./calib-0634-2362-2676-68d0.bin), ok, file_len=132096, read_len=132096.......
-module config file(user custom) is: ./parameter/T00P11A-17.ini.
-parse calib data, data len:132096...
-sunny_degzip2 decode_len=155575.
-calib data with crc.
-parse calib data, ok.
-max roi (firstly): (0, 224, 0, 128).
-cur roi (firstly): (0, 224, 0, 128).
-HB_MIPI_InitSensor end
-HB_MIPI_SetDevAttr end
-pstHbVideoDev->vin_fd = 55
-vencChnAttr.stRcAttr.enRcMode=11
-mmzAlloc paddr = 0x1a6e6000, vaddr = 0x917e1000
-camera read reg: 0x9400 val:0x1
-...
+    SDK Version: V4.4.35 build 20220525 09:27:53.
+    read file(./calib-0634-2362-2676-68d0.bin), ok, file_len=132096, read_len=132096.......
+    module config file(user custom) is: ./parameter/T00P11A-17.ini.
+    parse calib data, data len:132096...
+    sunny_degzip2 decode_len=155575.
+    calib data with crc.
+    parse calib data, ok.
+    max roi (firstly): (0, 224, 0, 128).
+    cur roi (firstly): (0, 224, 0, 128).
+    HB_MIPI_InitSensor end
+    HB_MIPI_SetDevAttr end
+    pstHbVideoDev->vin_fd = 55
+    vencChnAttr.stRcAttr.enRcMode=11
+    mmzAlloc paddr = 0x1a6e6000, vaddr = 0x917e1000
+    camera read reg: 0x9400 val:0x1
+    ...
 
-[wuwl-StartCamera]->camT=3, ret=0.
-camera read reg: 0x3e val:0x40
-[ERROR]["vio_devop"][utils/dev_ioctl.c:121] [499334.399304]dev_node_dqbuf_ispoll[121]: failed to ioctl: dq (14 - Bad address)
-[ERROR]["vio_devop"][utils/dev_ioctl.c:189] [499334.399355]entity_node_dqbuf_ispoll[189]: dev type(9) dq failed
+    [wuwl-StartCamera]->camT=3, ret=0.
+    camera read reg: 0x3e val:0x40
+    [ERROR]["vio_devop"][utils/dev_ioctl.c:121] [499334.399304]dev_node_dqbuf_ispoll[121]: failed to ioctl: dq (14 - Bad address)
+    [ERROR]["vio_devop"][utils/dev_ioctl.c:189] [499334.399355]entity_node_dqbuf_ispoll[189]: dev type(9) dq failed
 
-[ERROR]["vio_core"][commom_grp/binding_main.c:1034] [499334.399371]comm_dq_no_data[1034]: G1 MIPI_SIF_MODULE module chn0 dq failed! maybe framedrop error_detail -14
-```[wuwl-StartCamera]->camT=1, ret=0.
-[INFO] [1654573500.226606117] [rclcpp]: [childStart]-> ret=0 !
+    [ERROR]["vio_core"][commom_grp/binding_main.c:1034] [499334.399371]comm_dq_no_data[1034]: G1 MIPI_SIF_MODULE module chn0 dq failed! maybe framedrop error_detail -14
 
-[INFO] [1654573500.226831567] [rclcpp]: [StartStream]->pthread create sucess
+    [wuwl-StartCamera]->camT=1, ret=0.
+    [INFO] [1654573500.226606117] [rclcpp]: [childStart]-> ret=0 !
 
-[INFO] [1654573500.226963854] [rclcpp]: <========>[doCapStreamLoop]->Start.
+    [INFO] [1654573500.226831567] [rclcpp]: [StartStream]->pthread create sucess
 
-[WARN] [1654573500.226998103] [rgbd_node]: [RgbdNode]->mipinode init sucess.
+    [INFO] [1654573500.226963854] [rclcpp]: <========>[doCapStreamLoop]->Start.
 
-[WARN] [1654573500.227352507] [example]: [wuwl]->rgbd init!
-[WARN] [1654573500.228502174] [example]: [wuwl]->rgbd add_node!
+    [WARN] [1654573500.226998103] [rgbd_node]: [RgbdNode]->mipinode init sucess.
 
-[INFO] [1662723985.860666547] [rgbd_node]: publish camera info.
-[INFO] [1662723985.866077156] [rgbd_node]: [pub_ori_pcl]->pub pcl w:h=24192:1,nIdx-24192:sz=24192.
-[INFO] [1662723985.876428980] [rgbd_node]: [timer_ros_pub]->pub dep w:h=224:129,sz=982464, infra w:h=224:108, sz=24192.
+    [WARN] [1654573500.227352507] [example]: [wuwl]->rgbd init!
+    [WARN] [1654573500.228502174] [example]: [wuwl]->rgbd add_node!
 
-[INFO] [1662723985.946767230] [rgbd_node]: publish camera info.
-[INFO] [1662723985.951415418] [rgbd_node]: [pub_ori_pcl]->pub pcl w:h=24192:1,nIdx-24192:sz=24192.
-[INFO] [1662723985.960161280] [rgbd_node]: [timer_ros_pub]->pub dep w:h=224:129,sz=982464, infra w:h=224:108, sz=24192.
-...
+    [INFO] [1662723985.860666547] [rgbd_node]: publish camera info.
+    [INFO] [1662723985.866077156] [rgbd_node]: [pub_ori_pcl]->pub pcl w:h=24192:1,nIdx-24192:sz=24192.
+    [INFO] [1662723985.876428980] [rgbd_node]: [timer_ros_pub]->pub dep w:h=224:129,sz=982464, infra w:h=224:108, sz=24192.
 
-```
-3. Query the current topic on the PC, and the command are as follows:
+    [INFO] [1662723985.946767230] [rgbd_node]: publish camera info.
+    [INFO] [1662723985.951415418] [rgbd_node]: [pub_ori_pcl]->pub pcl w:h=24192:1,nIdx-24192:sz=24192.
+    [INFO] [1662723985.960161280] [rgbd_node]: [timer_ros_pub]->pub dep w:h=224:129,sz=982464, infra w:h=224:108, sz=24192.
+    ...
+
+    ```
+
+3. Query current topics on the PC. The query command and its output are as follows:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -844,29 +859,31 @@ camera read reg: 0x3e val:0x40
 </TabItem>
 </Tabs>
 
-```bash
-ros2 topic list
-```
-   The result are as follows:
+    ```bash
+    ros2 topic list
+    ```
 
-```text
-/rgbd_CP3AM/depth/image_rect_raw
+    Output:
 
-/rgbd_CP3AM/depth/color/points
+    ```text
+    /rgbd_CP3AM/depth/image_rect_raw
 
-/rgbd_CP3AM/color/camera_info
+    /rgbd_CP3AM/depth/color/points
 
-/rgbd_CP3AM/aligned_depth_to_color/color/points
+    /rgbd_CP3AM/color/camera_info
 
-/rgbd_CP3AM/infra/image_rect_raw
+    /rgbd_CP3AM/aligned_depth_to_color/color/points
 
-/rgbd_CP3AM/color/image_rect_raw
+    /rgbd_CP3AM/infra/image_rect_raw
 
-/parameter_events
+    /rgbd_CP3AM/color/image_rect_raw
 
-/rosout
-```
-4. Subscribe to topics and preview camera data on a PC.
+    /parameter_events
+
+    /rosout
+    ```
+
+4. Subscribe to topics on the PC and preview camera data
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -889,11 +906,11 @@ ros2 topic list
     ros2 run rviz2 rviz2
     ```
 
-    Click the "add" button in the rviz2 interface to add topics published by rgbd_sensor (refer to the rgbd_CP3AM related topics indicated in section 3). To subscribe to point cloud data, modify the "Fixed Frame" option in the Global Options of rviz2 configuration to "depth". Then you can view real-time point cloud information. In the point topic configuration, select "points" as the point type.
+    In the rviz2 interface, click the "Add" button and add the topics published by the rgbd_sensor (refer to the rgbd_CP3AM-related topics listed in Section 3). To visualize point cloud data, change the "Fixed Frame" option under Global Options in rviz2 configuration to "depth". Then, in the point cloud topic configuration, select "points" as the point type.
 
     ![hobot_rgbd_sensor](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png)
 
-5. Query camera intrinsics on a PC.
+5. Query camera intrinsic parameters on the PC
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -916,9 +933,9 @@ ros2 topic list
     ros2 topic echo /rgbd_CP3AM/color/camera_info
     ```
 
-    The output result is as follows:
+    The output is as follows:
 
-   ```text
+    ```text
     header:
     stamp:
         sec: 119811
@@ -946,127 +963,121 @@ ros2 topic list
     r:
     - 1.0
     - 0.0
-    - 0.0```
-   - 0.0
-   - 1.0
-   - 0.0
-   - 0.0
-   - 0.0
-   - 1.0
-   p:
-   - 741.315308
-   - 0.0
-   - 968.865379
-   - 0.0
-   - 0.0
-   - 969.43042
-   - 546.524343
-   - 0.0
-   - 0.0
-   - 0.0
-   - 1.0
-   - 0.0
-   binning_x: 0
-   binning_y: 0
-   roi:
-   x_offset: 0
-   y_offset: 0
-   height: 0
-   width: 0
-   do_rectify: false
-   ```
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    p:
+    - 741.315308
+    - 0.0
+    - 968.865379
+    - 0.0
+    - 0.0
+    - 969.43042
+    - 546.524343
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    binning_x: 0
+    binning_y: 0
+    roi:
+    x_offset: 0
+    y_offset: 0
+    height: 0
+    width: 0
+    do_rectify: false
+    ```
 
-### Instructions
+### Notes
 
-If there is an abnormality in the startup of the hobot_sensor node, you can troubleshoot the problem using the following steps:
+If the hobot_sensor node fails to start, follow the steps below for troubleshooting:
 
 1. Check hardware connections.
-2. Check if the tros.b environment is set.
-3. Check if the parameters are correct. For specific details, please refer to the Hobot_Sensors README.md file.
+2. Verify whether the tros.b environment has been set up.
+3. Whether the parameters are correct; for details, please refer to Hobot_Sensors README.md
 
-## RealSense Image Capture
+## RealSense Image Acquisition
 
-### Feature Overview
+### Feature Introduction
 
-Stereo cameras are commonly used sensors in robotics, often serving as the "eyes" of the robot. They have diverse applications, including navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo camera models such as RealSense and Orbbec.
+Stereo cameras are commonly used sensors in robotics development and often serve as the robot's "eyes." Their applications on robots cover multiple aspects, such as navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform also supports widely available stereo cameras on the market, including RealSense, Orbbec, ZED, and other series.
 
-Currently, the usage of RealSense and Orbbec stereo cameras on ROS follows the architecture shown below. It requires platform-specific SDK library files. These SDKs provide APIs for camera initialization and configuration. On top of these SDKs, ROS wrappers are implemented, enabling the integration of stereo cameras into ROS.
+Currently, the usage of RealSense and Orbbec stereo cameras on ROS follows the architecture shown below: first, SDK library files compiled for specific hardware platforms are required. The camera SDK provides APIs for camera initialization, configuration, and other functionalities. On top of this, a ROS wrapper is implemented to enable ROS-based camera control.
 
-The general installation process for stereo camera ROS packages involves:
-1. Installing the camera's SDK library files.
-2. Installing the ROS wrapper for the camera.
+Therefore, the general installation procedure for stereo camera ROS packages is as follows: first install the camera’s SDK library files, then install the corresponding ROS wrapper package.
 
-![Stereo Camera ROS Architecture](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+![stereo-camera-ros-arch](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
-This section explains how to use a RealSense camera on the RDK platform.
+This section describes how to use RealSense cameras on the RDK platform.
+
 ### Supported Platforms
 
-| Platform              | Operating System         |
-| --------------------- | ------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5                | Ubuntu 22.04 (Humble)   |
-| RDK Ultra             | Ubuntu 20.04 (Foxy)    |
+| Platform                  | Operating System                |
+| ------------------------- | ------------------------------- |
+| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)           |
+| RDK Ultra                 | Ubuntu 20.04 (Foxy)             |
 
----
-
-### Preparation
+### Prerequisites
 
 #### RDK Platform
 
-1. Ensure your RealSense camera is functioning properly and connect it to the RDK's USB port using the provided USB cable.
-2. Verify that the RDK is flashed with the Ubuntu 20.04/Ubuntu 22.04 system image.
-3. Confirm that tros.b is successfully installed on the RDK.
-4. Ensure that your PC can access the RDK over the network.
-
----
+1. Confirm that your RealSense camera functions properly, and connect it to an RDK USB port using a USB cable.
+2. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+3. tros.b has been successfully installed on the RDK.
+4. Ensure your PC can access the RDK over the network.
 
 ### Usage Instructions
 
-To use the RealSense series cameras on the RDK platform, install RealSense SDK 2.0 and the RealSense ROS wrapper using the `apt` command.
+After installing RealSense SDK 2.0 and the RealSense ROS wrapper via `apt`, you can directly use RealSense series cameras on the RDK platform.
 
-Below are the GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper. This guide references these repositories, which also contain more detailed instructions for advanced use cases:
+Below are the GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper. This tutorial is based on these repositories; users can refer to them for more detailed instructions.
 
-- RealSense SDK 2.0: [GitHub Repository](https://github.com/IntelRealSense/librealsense)
-- RealSense ROS wrapper: [GitHub Repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development)
+- RealSense SDK 2.0: https://github.com/IntelRealSense/librealsense  
+- RealSense ROS wrapper: https://github.com/IntelRealSense/realsense-ros/tree/ros2-development  
 
-#### 1. Log in to the RDK via Serial Port or SSH and Verify the ROS Version
+#### 1. Log into the RDK via serial console or SSH and confirm the ROS distribution
 
 <Tabs groupId="tros-distro">
-
 <TabItem value="foxy" label="Foxy">
 
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-# Print the ROS version environment variable
-echo $ROS_DISTRO
+   ```shell
+   # Set up the tros.b environment
+   source /opt/tros/setup.bash
+   # Print the ROS distribution environment variable
+   echo $ROS_DISTRO
    ```
-</TabItem> 
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
    ```shell
-# Configure the tros.b environment
-source /opt/tros/humble/setup.bash
-# Print the ROS version environment variable
-echo $ROS_DISTRO
+   # Set up the tros.b environment
+   source /opt/tros/humble/setup.bash
+   # Print the ROS distribution environment variable
+   echo $ROS_DISTRO
    ```
 
 </TabItem>
 </Tabs>
 
-#### 2. Install RealSense SDK 2.0 and RealSense ROS2 Wrapper
+#### 2. Install RealSense SDK 2.0 and RealSense ROS2 wrapper via apt
 
-```bash
+```shell
 # Install RealSense SDK 2.0
-sudo apt-get install ros-$ROS_DISTRO-librealsense2* -y 
+sudo apt-get install ros-$ROS_DISTRO-librealsense2* -y
 # Install RealSense ROS2 wrapper
 sudo apt-get install ros-$ROS_DISTRO-realsense2-* -y
 ```
 
-#### 3. Start the RealSense Camera
+#### 3. Launch the RealSense Camera
 
-After installation, you can start the RealSense camera using the following ROS command:
-
+After installation, launch the RealSense camera using the following ROS command:
 
 ```shell
 ros2 launch realsense2_camera rs_launch.py
@@ -1074,16 +1085,11 @@ ros2 launch realsense2_camera rs_launch.py
 
 ![realsense-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
 
-You can use the `ros2 topic list` command to view the topics published by the RealSense camera. When started with default parameters, the RealSense camera will only enable the depth and RGB data streams.
-
+You can use `ros2 topic list` to view topics published by RealSense. By default, launching the camera with default parameters only enables the depth and RGB data streams.
 
 ![realsense-basic-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
 
-
-The RealSense ROS wrapper provides numerous configurable parameters. For example:  
-- Setting `enable_infra1:=true` enables the camera's left IR data stream.  
-- Setting `pointcloud.enable:=true` enables the point cloud data stream.
-
+The RealSense ROS wrapper offers many configurable parameters. For example, setting `enable_infra1:=true` and `pointcloud.enable:=true` will enable the left IR stream and point cloud stream:
 
 ```shell
 ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
@@ -1093,23 +1099,20 @@ ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable
 
 ![realsense-image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
 
-Additionally, RealSense provides several services that can be viewed using the `ros2 service list` command. For example, you can use these services to query the camera's serial number, firmware version, and other information.
-
+Additionally, RealSense exposes several services, which you can list using `ros2 service list`. For instance, you can query the camera’s serial number, firmware version, and other information via a service call:
 
 ```shell
 ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
 ```
-For more details on topics and service configurations, refer to the RealSense ROS wrapper's [GitHub repository](https://github.com/IntelRealSense/realsense-ros/tree/ros2-development).
 
+For more details about available topics and services, please refer to the RealSense ROS wrapper GitHub repository.
 
+#### 4. Depth-to-RGB Alignment
 
-#### 4. Depth and RGB Alignment
-
-In practical applications, it's often necessary to align the depth map with the color image. RealSense provides corresponding launch methods to achieve this.
-
+In practical applications, it is often necessary to align the depth map with the color image. RealSense provides a dedicated launch option for this purpose:
 
 ```shell
-ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true 
+ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true
 ```
 
 ![realsense-d2c-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
@@ -1118,166 +1121,161 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 5. Displaying Images and Point Clouds
 
-There are multiple ways to display images and point clouds from the RealSense camera. Refer to [2.2 Data Visualization](./demo_render.md) for details.  
-
-For example, you can use `rviz2` on a PC to display the data. Ensure that the PC can access the RDK over the network. Note that since data is transmitted over the network, this method may cause significant load and result in lag or stuttering.
-
+There are multiple ways to visualize RealSense images and point clouds. Please refer to [Section 5.2.2 Data Visualization](./demo_render.md). For example, you can use `rviz2` on your PC to display the data. This method requires your PC to have network access to the RDK. However, since data is transmitted over the network, high bandwidth usage may cause lag or stuttering.
 
 ![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
-It is recommended to directly read data on the RDK to verify if the output stream is functioning correctly. You can use `ros2 topic echo topic_name` to print the data or write code to subscribe to the relevant topics.
-
+We recommend directly reading the data on the RDK to verify whether the data streams are functioning correctly. You can either print data using `ros2 topic echo <topic_name>` or write code to subscribe to the relevant topics.
 
 ![realsense-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
 
+## Orbbec Camera Image Acquisition
 
-## Orbbec camera
+### Feature Introduction
 
-### Introduction
+Stereo cameras are commonly used sensors in robotics development and often serve as the robot's "eyes." Their applications on robots cover multiple aspects, such as navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform also supports widely available stereo cameras on the market, including RealSense, Orbbec, ZED, and other series.
 
-Stereo cameras are commonly used sensors in robot development, often serving as the "eyes" of robots. Applications of stereo cameras in robots cover various aspects, such as navigation and obstacle avoidance, target recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo cameras on the market, including the RealSense, Orbbec, ZED, and other series.
+Currently, the usage of RealSense and Orbbec stereo cameras on ROS follows the architecture shown below: first, SDK library files compiled for specific hardware platforms are required. The camera SDK provides APIs for camera initialization, configuration, and other functionalities. On top of this, a ROS wrapper is implemented to enable ROS-based camera control.
 
-Currently, the use of RealSense and Orbbec stereo cameras on ROS follows the architecture described below. Firstly, SDK library files compiled for different hardware platforms are required. The camera SDK provides APIs for camera startup and settings. Based on this, ROS wrapping is performed to enable ROS to call the camera.
-
-Therefore, the general installation process for the stereo camera ROS package is: first install the camera's SDK library files, then install the camera's ROS wrapper package.
+Therefore, the general installation procedure for stereo camera ROS packages is as follows: first install the camera’s SDK library files, then install the corresponding ROS wrapper package.
 
 ![stereo-camera-ros-arch](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
 
-This section introduces the usage of Orbbec cameras on the RDK platform.
+This section describes how to use Orbbec cameras on the RDK platform.
 
 ### Supported Platforms
 
-| Platform | Operating Mode |
-| -------- | -------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5 | Ubuntu 22.04 (Humble) |
+| Platform                  | Operating System                |
+| ------------------------- | ------------------------------- |
+| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)           |
 
-### Preparations
+### Prerequisites
 
 #### RDK Platform
 
-1. Ensure that the Orbbec camera is functioning properly and connect the USB cable to the <font color="red"><b>USB3.0</b></font> slot of the RDK (currently, USB2.0 may have issues with startup).
-2. The RDK has Ubuntu 20.04/Ubuntu 22.04 system images burned onto it.
-3. The RDK has successfully installed tros.b.
-4. Confirm that the PC can access the RDK via the network.
+1. Confirm that your Orbbec camera functions properly, and connect it to an RDK **<font color="red"><b>USB 3.0</b></font>** port (currently, USB 2.0 ports may cause startup failures).
+2. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+3. tros.b has been successfully installed on the RDK.
+4. Ensure your PC can access the RDK over the network.
 
-### Usage
+### Usage Instructions
 
-Currently, Orbbec cameras do not support direct installation of SDK library files and ROS wrapper packages using apt commands. Instead, source code must be downloaded and compiled before they can be run on the RDK platform.
+Currently, Orbbec cameras do not support direct installation of the SDK library and ROS wrapper package via `apt`. You must download the source code and compile it before running on the RDK platform.
 
-Here are the GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper. This tutorial is also based on these repositories, and users can refer to the more detailed tutorials in these repositories.
+Below are the GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper. This tutorial is based on these repositories; users can refer to them for more detailed instructions.
 
-- Orbbec SDK: https://github.com/orbbec/OrbbecSDK
-- Orbbec ROS2 wrapper: https://github.com/orbbec/OrbbecSDK_ROS2
+- Orbbec SDK: https://github.com/orbbec/OrbbecSDK  
+- Orbbec ROS2 wrapper: https://github.com/orbbec/OrbbecSDK_ROS2  
 
-#### 1. Log in to the RDK via serial port or SSH and confirm the ROS version.
+#### 1. Log into the RDK via serial console or SSH and confirm the ROS distribution
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-# Print the ROS version environment variable
-echo $ROS_DISTRO
-```
+   ```shell
+   # Set up the tros.b environment
+   source /opt/tros/setup.bash
+   # Print the ROS distribution environment variable
+   echo $ROS_DISTRO
+   ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure the tros.b environment
-source /opt/tros/humble/setup.bash
-# Print the ROS version environment variable
-echo $ROS_DISTRO
-```
+   ```shell
+   # Set up the tros.b environment
+   source /opt/tros/humble/setup.bash
+   # Print the ROS distribution environment variable
+   echo $ROS_DISTRO
+   ```
 
 </TabItem>
 </Tabs>
 
-#### 2. Download the Orbbec ROS2 wrapper source code for compilation.
+#### 2. Download and compile the Orbbec ROS2 wrapper source code
 
 ```shell
-# First, create a ros workspace
+# First, create a ROS workspace
 mkdir -p tros_ws/src
 cd tros_ws/src
 
-# Download the Orbbec ROS2 wrapper source code to the tros_ws/src directory
+# Download the Orbbec ROS2 wrapper source code into the tros_ws/src directory
 git clone https://github.com/orbbec/OrbbecSDK_ROS2.git
 ```
 
-Note that the OrbbecSDK_ROS2 repository already contains the SDK library files for the Orbbec camera, located in the `OrbbecSDK_ROS2/orbbec_camera/SDK` directory. The `arm64` version is required for compilation on the RDK platform.
+Note: The `OrbbecSDK_ROS2` repository already includes the SDK library files for Orbbec cameras, located under `OrbbecSDK_ROS2/orbbec_camera/SDK`. The RDK platform compilation process depends on the `arm64` version of these libraries.
 
-After downloading the source code, the next step is to compile it. However, compiling this program requires at least 4GB of memory, and the RDK platform may encounter memory insufficiency issues, leading to compilation failures.
+After downloading the source code, proceed with compilation. However, compiling this program requires at least 4 GB of RAM. On the RDK platform, insufficient memory may cause the compilation to fail.
 
 There are two solutions:
 
-1. Set up swap space to serve as temporary memory.
-2. Use cross-compilation, compiling on a PC and running on the RDK.
+1. Set up a swap space to act as temporary memory.
+2. Use cross-compilation: compile on a PC and run on the RDK.
 
-The advantage of Solution 1 is simplicity and direct compilation on the RDK platform, but the disadvantage is slower compilation speed due to limited RDK platform performance. For example, compilation on the RDK X3 platform takes about 30 minutes. The advantage of Solution 2 is faster compilation speed, but the disadvantage is the complexity of setting up the cross-compilation environment. This tutorial introduces the implementation of Solution 1, and Solution 2 can be referenced in the tutorial: [Cross-compilation Environment Deployment](https://developer.d-robotics.cc/forumDetail/112555549341653662).
+Solution 1 is straightforward and allows direct compilation on the RDK platform. However, due to the limited performance of the RDK platform, compilation is relatively slow—for example, it takes about 30 minutes on the RDK X3 platform. Solution 2 offers faster compilation but involves a more complex setup for the cross-compilation environment. This tutorial covers implementing Solution 1; for Solution 2, please refer to the guide: [Cross-compilation Environment Setup](https://developer.d-robotics.cc/forumDetail/112555549341653662).
 
-Below is how to set up swap space:
+Below is how to configure swap space:
 
 ```shell
-# Create a 4GB swap file in the /swapfile directory
+# Create a 4GB swap file at /swapfile
 sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
-# For security reasons, set the permissions of the swap file to allow only the root user to read and write
+# For security reasons, set permissions so only root can read and write to the swap file
 sudo chmod 600 /swapfile
-# Use the mkswap command to format the file as swap space
+# Format the file as swap space using mkswap
 sudo mkswap /swapfile
-# Use the swapon command to enable the swap file
+# Enable the swap file using swapon
 sudo swapon /swapfile
 ```
 
 ![swapfile](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png)
 
-After setting up the swap space, you can use `swapon --show`, `free -h`, or `htop` commands to check the current swap usage. For example, using the `htop` command:
+After setting up the swap space, you can check its current usage with commands such as `swapon --show`, `free -h`, or `htop`. For instance, using `htop`:
 
 ![htop-swap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png)
 
-This setting is only temporary and will be lost after a power cycle. If you want the swap space to be used after a system reboot, you can either re-execute `sudo swapon /swapfile` or add it to the `/etc/fstab` file.
+This configuration is temporary—it will be lost after a reboot. To persistently enable the swap file after system restarts, either re-execute `sudo swapon /swapfile` manually or add it to the `/etc/fstab` file.
 
 ```shell
-# Open /etc/fstab using vim
+# Open /etc/fstab with vim
 sudo vim /etc/fstab
-# Add the following line, save and exit
+# Add the following line, then save and exit
 /swapfile none swap sw 0 0
-# Execute sync to flush the cache and ensure all data is correctly written to disk
+# Run sync to flush caches and ensure all data is properly written to disk
 sync
 ```
 
 ![etc-fstab](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png)
 
-To delete the swap space, you can execute the following commands.
+To remove the swap space later, execute the following commands:
 
 ```shell
-# Use the swapoff command to disable the swap file
+# Disable the swap file using swapoff
 sudo swapoff /swapfile
 # Delete the swap file
 sudo rm -rf /swapfile
-# If the swap file entry was added in /etc/fstab, remove it
+# If you added an entry for the swap file in /etc/fstab, remove that line:
 sudo vim /etc/fstab
-# Delete the following line
+# Delete the following line:
 /swapfile none swap sw 0 0
 ```
 
-After setting up the swap space, you can proceed with the compilation.
+After enabling swap space as described above, you can proceed with compilation.
 
 ```shell
-# Return to the ros workspace
+# Return to the ROS workspace
 cd tros_ws
-# Execute colcon to build, which may take a while, please be patient
+# Execute colcon build (this takes a while—please be patient)
 colcon build
 ```
 
-Compilation results on the RDK X3 platform:
+Compilation result on the RDK X3 platform:
 
 ![orbbec-ros-colcon-build](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png)
 
-#### 3. Start the Orbbec camera.
+#### 3. Launching the Orbbec Camera
 
-After compilation, the Orbbec camera can be started through ROS commands. OrbbecSDK_ROS2 has launch files for all Orbbec cameras, including the Astra series, Dabai series, and Gemini series. Simply use the corresponding launch file to start. This tutorial takes the Gemini2 camera as an example.
+Once compilation finishes, you can launch the Orbbec camera via ROS commands. The `OrbbecSDK_ROS2` package includes launch files for all Orbbec camera series, including Astra, Dabai, and Gemini. Simply use the corresponding launch file to start your camera. This tutorial uses the Gemini2 camera as an example.
 
 ```shell
 cd tros_ws
@@ -1287,28 +1285,28 @@ ros2 launch orbbec_camera gemini2.launch.py
 
 ![orbbec-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png)
 
-You can use `ros2 topic list` to view the topics published by Gemini2. With default parameters, starting the Gemini2 camera will enable the camera's depth data stream, RGB data stream, IR data stream, and point cloud data stream.
+You can use `ros2 topic list` to view topics published by the Gemini2 camera. By default, launching the Gemini2 camera enables depth, RGB, IR, and point cloud data streams.
 
 ![orbbec-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png)
 
-The Orbbec ROS2 wrapper offers numerous configurable parameters. For instance, setting `enable_point_cloud:=false` and `enable_colored_point_cloud:=false` will disable the camera's point cloud data streams.
+The Orbbec ROS2 wrapper provides many configurable parameters. For example, setting `enable_point_cloud:=false` and `enable_colored_point_cloud:=false` disables the point cloud data stream.
 
-Moreover, the Orbbec camera activates several services, which can be viewed using `ros2 service list`. These services allow for querying the camera's SDK version, adjusting or querying exposure time and gain, enabling or disabling the laser, among other functionalities. For example:
+Additionally, the Orbbec camera exposes several services, which you can inspect using `ros2 service list`. These services allow querying the SDK version, retrieving or setting exposure time and gain, enabling/disabling the laser emitter, etc. Examples:
 
 ```shell
-# Query SDK Version
+# Query SDK version
 ros2 service call /camera/get_sdk_version orbbec_camera_msgs/srv/GetString '{}'
-# Disable Color Camera Auto Exposure
+# Disable color camera auto-exposure
 ros2 service call /camera/set_color_auto_exposure std_srvs/srv/SetBool '{data: false}'
-# Enable Laser
+# Enable laser
 ros2 service call /camera/set_laser_enable std_srvs/srv/SetBool '{data: true}'
 ```
 
-For more detailed settings regarding topics and services, please refer to the Orbbec ROS2 wrapper's GitHub repository.
+For more details about available topics and services, please refer to the Orbbec ROS2 wrapper GitHub repository.
 
 #### 4. Depth and RGB Alignment
 
-In practical applications, it is often necessary to align the depth map of a stereo camera with its color image. Orbbec provides a corresponding launch configuration for this purpose.
+In practical applications, it's often necessary to align the depth map from a stereo camera with the RGB image. Orbbec provides a dedicated launch option for this purpose.
 
 ```shell
 cd tros_ws
@@ -1320,52 +1318,53 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 #### 5. Displaying Images and Point Clouds
 
-There are multiple methods to display Orbbec's images and point clouds. For reference, see [2.2 Data Visualization](./demo_render.md). For instance, you can use `rviz2` on a PC to display the data, but note that this requires the PC to access the RDK via the network, which can be demanding and may lead to lag.
+There are multiple ways to visualize images and point clouds from the Orbbec camera. Please refer to [Section 5.2.2: Data Visualization](./demo_render.md). For example, you can use `rviz2` on a PC to display the data. This approach requires ensuring that your PC can access the RDK over the network. However, since data is transmitted over the network, this method may introduce noticeable latency or stuttering.
 
 ![orbbec-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 
-It is recommended to read the data directly on the RDK to verify the data flow. You can use `ros2 topic echo topic_name` to print data or write code to subscribe to the corresponding topics.
+We recommend directly reading the data on the RDK itself to verify whether the streams are functioning correctly. You can print data using `ros2 topic echo <topic_name>` or write custom code to subscribe to relevant topics.
 
 ![orbbec-topic-echo.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
 
-## ZED camera
 
-### Introduction
+## ZED Camera Image Acquisition
 
-Stereo cameras are commonly used sensors in robot development, often serving as the "eyes" of robots. Their applications in robotics span various aspects, including navigation and obstacle avoidance, object recognition, 3D reconstruction, and human-robot interaction. The RDK platform supports popular stereo cameras on the market, such as RealSense, Orbbec, and ZED series cameras.
+### Feature Overview
 
-Code Repository: [https://github.com/D-Robotics/hobot_zed_cam](https://github.com/D-Robotics/hobot_zed_cam)
+Stereo cameras are commonly used sensors in robotics development, often serving as the "eyes" of a robot. Applications of stereo cameras in robotics include navigation and obstacle avoidance, object recognition, 3D reconstruction, human-robot interaction, and more. The RDK platform supports popular stereo cameras on the market, such as RealSense, Orbbec, and ZED series.
 
-This section introduces how to use the ZED camera on the RDK platform.
+Code repository: [https://github.com/D-Robotics/hobot_zed_cam](https://github.com/D-Robotics/hobot_zed_cam)
+
+This section describes how to use the ZED camera on the RDK platform.
 
 ### Supported Platforms
 
-| Platform | Operating System |
-| -------- | ---------------- |
-| RDK X5   | Ubuntu 22.04 (Humble) |
+| Platform               | Runtime Environment     |
+| ---------------------- | ----------------------- |
+| RDK X5, RDK X5 Module  | Ubuntu 22.04 (Humble)   |
 
-### Preparation
+### Prerequisites
 
 #### RDK Platform
 
-1. Ensure that the ZED camera is functioning properly and connect it to the RDK via a USB cable.
-2. The RDK should have Ubuntu 22.04 system image flashed onto it.
-3. The RDK should have `tros.b` installed successfully.
-4. Ensure that the PC can access the RDK via the network.
+1. Ensure your ZED camera works properly and connect it to an RDK USB port via a USB cable.
+2. Confirm that the RDK has been flashed with the Ubuntu 22.04 system image.
+3. Verify that tros.b has been successfully installed on the RDK.
+4. Ensure your PC can access the RDK over the network.
 
-### Usage
+### Usage Instructions
 
-1. Log in to the RDK via SSH and start the ZED camera using the following commands:
+1. Log into the RDK via SSH and launch the ZED camera using the following commands:
 
 ```shell
-# Configure the tros.b environment
+# Source the tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Launch the ZED camera to publish stereo image data
+# Launch the ZED camera and publish stereo image data
 ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 ```
 
-2. If the program outputs information similar to the following, it indicates that the node has been successfully launched:
+2. If the program outputs messages similar to the following, the node has launched successfully:
 
 ```shell
 [anypub_stereo_imgs-1] [INFO] [0946684888.710715101] [pub_stereo_imgs_nv12_node]: => connected to camera sn: 38085162[/dev/video0]
@@ -1384,6 +1383,6 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 [anypub_stereo_imgs-1] [INFO] [0946684888.883419384] [pub_stereo_imgs_nv12_node]: => rectify img size: [1280, 640]
 ```
 
-3. Open a web browser on the PC (`Chrome/Firefox/Edge`), enter `IP:8000` (where IP is the IP address of the RDK), and click on the web display in the top left corner to view the real-time ZED camera feed.
+3. On your PC, open a browser (Chrome/Firefox/Edge), navigate to `IP:8000` (replace IP with the RDK’s actual IP address), and click the Web Display button in the top-left corner to view the live ZED camera feed.
 
-![ZED Camera Real-Time Feed](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)
+![ZED Camera Live Feed](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)
