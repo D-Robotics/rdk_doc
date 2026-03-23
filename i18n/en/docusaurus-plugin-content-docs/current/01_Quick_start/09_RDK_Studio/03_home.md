@@ -99,11 +99,11 @@ RDK Studio for Windows is now officially released. For friends using Linux and M
 
 </TabItem>
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 
-RDK Studio for Windows is now officially released. For friends using Linux and Mac, please wait a bit—the developers are typing at lightning speed!
+RDK Studio for Windows is now officially released. For friends using Linux and macOS, please wait a bit—the developers are typing at lightning speed!
 
 :::
 

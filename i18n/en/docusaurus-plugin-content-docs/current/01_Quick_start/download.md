@@ -157,7 +157,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
   <tbody>
     <tr>
       <td>📄 **Specifications**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/d_robotics_rdk_x5_en_v1_1.pdf">RDK X5 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/drobotics_rdk_x5_module_en_v1_2.pdf">RDK X5 Module Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module Specifications</a></td>
@@ -223,7 +223,7 @@ Complete specification materials for RDK X3/X5 related products, accessories and
   <tbody>
     <tr>
       <td>📄 **Development Board Specifications**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/d_robotics_rdk_x5_en_v1_1.pdf">RDK X5 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
       <td>Development board detailed technical specifications and product description</td>
     </tr>
@@ -240,7 +240,7 @@ Complete specification materials for RDK X3/X5 related products, accessories and
       <td>Camera module technical specifications and interface details</td>
     </tr>
     <tr>
-      <td rowspan="2">👁️ **Stereo Camera Module**</td>
+      <td rowspan="3">👁️ **Stereo Camera Module**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK Stereo Camera Module</a></td>
       <td>-</td>
       <td>Dual camera module for stereo vision applications</td>
@@ -254,6 +254,12 @@ Complete specification materials for RDK X3/X5 related products, accessories and
       <td>
       Used in scenarios such as robotic vision, machine vision inspection, and real-time motion monitoring.
       </td>
+    </tr>
+    <tr>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_RDK_stereo_camera_gs130wi_en_v1_1.pdf">RDK Stereo Camera  
+       GS130WI</a></td>
+      <td> - </td>
+      <td>Used in applications such as robot vision, machine vision inspection, and motion posture sensing.</td>
     </tr>
     <tr>
       <td>🔌 **Camera Adapter**</td>

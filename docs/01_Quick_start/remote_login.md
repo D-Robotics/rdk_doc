@@ -197,9 +197,9 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=4
 
 ![image-Cmdline-Linux](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/linux_login_01.gif)
 
-## 局域网构造
+## LAN access
 
-对于上述各步骤登录，始终需要保持串口线链接，使用下面命令实现局域网访问
+对于上述各步骤登录，始终需要保持串口线连接，使用下面命令实现局域网访问
 
 ```bash
 sudo nmcli device wifi rescan # 扫描wifi⽹络
@@ -209,4 +209,4 @@ sudo wifi_connect "SSID" "PASSWD" # 连接指定wifi
 
 上述命令成功后，会出现`successfully xxx`
 
-最后板卡端使用`ifconfig`便可获得板卡IP地址，便可拔掉串口线，使用前文SSH登录进行远程链接
+最后板卡端使用`ifconfig`便可获得板卡IP地址，便可拔掉串口线，使用前文SSH登录进行远程连接。

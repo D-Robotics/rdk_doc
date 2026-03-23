@@ -31,7 +31,7 @@ RDK S100 套件目前提供 Ubuntu 22.04 系统镜像，可支持 Desktop 桌面
    
    - Windows 系统下载：xburn-gui_1.1.9_x64-setup.exe
    - Linux 系统下载：xburn-gui_1.1.9_amd64.deb
-   - Mac 系统下载：xburn-gui_1.1.9_universal.dmg
+   - macOS 下载：xburn-gui_1.1.9_universal.dmg
 
 
 
