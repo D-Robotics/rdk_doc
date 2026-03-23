@@ -297,9 +297,13 @@ uncertainty_th=-0.10
 # topic
 stereo_image_topic=/image_combine_raw
 camera_info_topic=/image_combine_raw/right/camera_info
+left_camera_info_topic=/image_combine_raw/left/camera_info
 depth_image_topic="~/stereonet_depth"
 depth_camera_info_topic="~/stereonet_depth/camera_info"
+rectify_left_camera_info_topic="~/rectify_left_image/camera_info"
+rectify_right_camera_info_topic="~/rectify_right_image/camera_info"
 pointcloud2_topic="~/stereonet_pointcloud2"
+publish_pcd_enabled=True
 rectify_left_image_topic="~/rectify_left_image"
 rectify_right_image_topic="~/rectify_right_image"
 publish_rectify_bgr=False
@@ -307,6 +311,8 @@ origin_left_image_topic="~/origin_left_image"
 origin_right_image_topic="~/origin_right_image"
 publish_origin_enable=True
 visual_image_topic="~/stereonet_visual"
+publish_visual_enabled=True
+stereonet_frame_id="camera_link"
 
 # mipi cam
 use_mipi_cam=True
@@ -383,10 +389,11 @@ left_img_mask_enable=False
 
 # epipolar
 epipolar_mode=False
-epipolar_img=origin
+epipolar_img=rect
 chessboard_per_rows=20
 chessboard_per_cols=11
 chessboard_square_size=0.06
+feature_epipolar_mode=False
 
 # web
 stereonet_pub_web=True
@@ -410,9 +417,13 @@ while [[ $# -gt 0 ]]; do
     # topic
     --stereo_image_topic) stereo_image_topic=$2; shift 2 ;;
     --camera_info_topic) camera_info_topic=$2; shift 2 ;;
+    --left_camera_info_topic) left_camera_info_topic=$2; shift 2 ;;
     --depth_image_topic) depth_image_topic=$2; shift 2 ;;
+    --rectify_left_camera_info_topic) rectify_left_camera_info_topic=$2; shift 2 ;;
+    --rectify_right_camera_info_topic) rectify_right_camera_info_topic=$2; shift 2 ;;
     --depth_camera_info_topic) depth_camera_info_topic=$2; shift 2 ;;
     --pointcloud2_topic) pointcloud2_topic=$2; shift 2 ;;
+    --publish_pcd_enabled) publish_pcd_enabled=$2; shift 2 ;;
     --rectify_left_image_topic) rectify_left_image_topic=$2; shift 2 ;;
     --rectify_right_image_topic) rectify_right_image_topic=$2; shift 2 ;;
     --publish_rectify_bgr) publish_rectify_bgr=$2; shift 2 ;;
@@ -420,6 +431,8 @@ while [[ $# -gt 0 ]]; do
     --origin_right_image_topic) origin_right_image_topic=$2; shift 2 ;;
     --publish_origin_enable) publish_origin_enable=$2; shift 2 ;;
     --visual_image_topic) visual_image_topic=$2; shift 2 ;;
+    --publish_visual_enabled) publish_visual_enabled=$2; shift 2 ;;
+    --stereonet_frame_id) stereonet_frame_id=$2; shift 2 ;;
 
     # mipi cam
     --use_mipi_cam) use_mipi_cam=$2; shift 2 ;;
@@ -500,6 +513,7 @@ while [[ $# -gt 0 ]]; do
     --chessboard_per_rows) chessboard_per_rows=$2; shift 2 ;;
     --chessboard_per_cols) chessboard_per_cols=$2; shift 2 ;;
     --chessboard_square_size) chessboard_square_size=$2; shift 2 ;;
+    --feature_epipolar_mode) feature_epipolar_mode=$2; shift 2 ;;
 
     # web
     --stereonet_pub_web) stereonet_pub_web=$2; shift 2 ;;
@@ -516,12 +530,13 @@ done
 ros2 launch hobot_stereonet stereonet_model_web_visual_$stereonet_version.launch.py \
 stereo_node_name:=$stereo_node_name \
 uncertainty_th:=$uncertainty_th \
-stereo_image_topic:=$stereo_image_topic camera_info_topic:=$camera_info_topic \
+stereo_image_topic:=$stereo_image_topic camera_info_topic:=$camera_info_topic left_camera_info_topic:=$left_camera_info_topic \
 depth_image_topic:=$depth_image_topic depth_camera_info_topic:=$depth_camera_info_topic \
-pointcloud2_topic:=$pointcloud2_topic rectify_left_image_topic:=$rectify_left_image_topic \
-rectify_right_image_topic:=$rectify_right_image_topic publish_rectify_bgr:=$publish_rectify_bgr \
-origin_left_image_topic:=$origin_left_image_topic origin_right_image_topic:=$origin_right_image_topic \
-publish_origin_enable:=$publish_origin_enable visual_image_topic:=$visual_image_topic \
+rectify_left_camera_info_topic:=$rectify_left_camera_info_topic rectify_right_camera_info_topic:=$rectify_right_camera_info_topic \
+pointcloud2_topic:=$pointcloud2_topic publish_pcd_enabled:=$publish_pcd_enabled \
+rectify_left_image_topic:=$rectify_left_image_topic rectify_right_image_topic:=$rectify_right_image_topic publish_rectify_bgr:=$publish_rectify_bgr \
+origin_left_image_topic:=$origin_left_image_topic origin_right_image_topic:=$origin_right_image_topic publish_origin_enable:=$publish_origin_enable \
+visual_image_topic:=$visual_image_topic publish_visual_enabled:=$publish_visual_enabled \
 use_mipi_cam:=$use_mipi_cam mipi_image_width:=$mipi_image_width mipi_image_height:=$mipi_image_height \
 mipi_image_framerate:=$mipi_image_framerate mipi_frame_ts_type:=$mipi_frame_ts_type \
 mipi_gdc_enable:=$mipi_gdc_enable mipi_lpwm_enable:=$mipi_lpwm_enable mipi_rotation:=$mipi_rotation \
@@ -541,6 +556,7 @@ camera_cx:=$camera_cx camera_cy:=$camera_cy camera_fx:=$camera_fx camera_fy:=$ca
 left_img_mask_enable:=$left_img_mask_enable \
 epipolar_mode:=$epipolar_mode epipolar_img:=$epipolar_img \
 chessboard_per_rows:=$chessboard_per_rows chessboard_per_cols:=$chessboard_per_cols chessboard_square_size:=$chessboard_square_size \
+feature_epipolar_mode:=$feature_epipolar_mode \
 stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format \
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
