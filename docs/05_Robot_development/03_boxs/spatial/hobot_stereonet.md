@@ -75,6 +75,18 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
+- 如果以上指令无法将程序更新到最新版本，则需要将apt源文件修改为beta源：
+
+```bash
+# 修改为beta源，执行以下命令：
+sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5-beta  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
+apt update
+
+# 如果需要重新改回为正式源，则执行以下命令：
+sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
+apt update
+```
+
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::

@@ -64,7 +64,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 ### 4.2. 硬件连接
 
 1. 模组背后开关设置为`EXT`模式，不要在`LPWM`模式
-2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[3.1.1 管脚定义与应用](http://localhost:3000/rdk_doc/Basic_Application/01_40pin_user_sample/40pin_define)
+2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[3.1.1 管脚定义与应用](https://developer.d-robotics.cc/rdk_doc/Basic_Application/01_40pin_user_sample/40pin_define)
 
 ![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png)
 
