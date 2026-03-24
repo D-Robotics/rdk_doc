@@ -117,7 +117,7 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
-- 最新线材做了升级，注意线材是带有方向的，CAM端接入相机，RDK端接入开发板
+- 最新线材做了升级，注意线材是带有方向的，CAM端接入相机，RDK端接入开发板。（白色和黑色线材均能正常使用，两种线材随机发货）
 
 ![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
 

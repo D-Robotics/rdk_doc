@@ -117,7 +117,7 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
-- The latest cable has been upgraded. Note that the cable is directional: connect the CAM end to the camera and the RDK end to the development board.
+- The latest cable has been upgraded. Note that the cable is directional: connect the CAM end to the camera and the RDK end to the development board.(White and black wires are both functional and will be shipped at random.)
 
 ![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
 
