@@ -4,6 +4,13 @@ sidebar_position: 9
 
 # 1.9.10 版本更新
 
+## RDK Studio-v0.3.21
+
+### 新增功能
+
+新增 OpenClaw 配置模块。
+
+
 ## RDK Studio-v0.3.19
 
 ### 新增功能
