@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# 1.9.8 NodeHub
+# 1.9.9 NodeHub
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

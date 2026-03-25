@@ -322,5 +322,14 @@
   "sidebar.tutorialSidebar.category.1.9 RDK Studio 使用指南.link.generated-index.description": {
     "message": "RDK Studio User Guide",
     "description": "The generated-index page description for category 1.9 RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9.7 配置 OpenClaw": {
+    "message": "1.9.7 Configure OpenClaw",
+    "description": "The label for category 1.9.7 配置 OpenClaw in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9.7 配置 OpenClaw.link.generated-index.description": {
+    "message": "Here you can directly install and configure OpenClaw.",
+    "description": "The generated-index page description for category 1.9.7 配置 OpenClaw in sidebar tutorialSidebar"
   }
 }
+
