@@ -579,7 +579,7 @@ bash run_stereo.sh
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 1，看看哪种情况能输出正确的结果
+# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
 </TabItem>
@@ -596,7 +596,7 @@ bash run_stereo.sh --stereonet_version v2.4
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 1，看看哪种情况能输出正确的结果
+# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 1 或 --mipi_channel 1 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
 </TabItem>
