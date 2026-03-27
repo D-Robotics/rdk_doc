@@ -9,27 +9,29 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Overview
 
-Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding a safe way for a mobile robot to move from point A to point B. Nav2 can also be applied to other robot navigation applications, such as dynamic point tracking, which requires dynamic path planning, motor speed calculation, and obstacle avoidance.
+Nav2 (Navigation2) is the built-in navigation framework in ROS 2, designed to find a safe way for mobile robots to move from point A to point B. Nav2 can also be applied to other robotic navigation applications, such as dynamic waypoint tracking, which involves dynamic path planning, calculating motor velocities, obstacle avoidance, and more.
 
-[SLAM Mapping](./slam) explains how to run SLAM algorithms for mapping. This section introduces how to use Nav2 for navigation based on the created map. Similarly, use Gazebo on the PC to create a virtual environment and a car, use Rviz2 to set the navigation destination, and run the Nav2 program for navigation using the RDK.
+The [SLAM Mapping](./slam) section explains how to run SLAM algorithms to create a map. This section describes how to use Nav2 for navigation based on an existing map. Similarly, we use Gazebo to create a virtual environment and robot car on a PC, set the navigation goal using Rviz2, and run the Nav2 program on the RDK for navigation.
 
 ## Supported Platforms
 
-| Platform                | Execution      | Function             |
-| ----------------------- | -------------- | --------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start the simulation environment on the PC and start the navigation function on the RDK, and finally display the navigation effect through Rviz2 |
+| Platform                | Execution Method                                                                 | Example Functionality                                                                                                                                              |
+| ----------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)                                       | Launch the simulation environment on the PC, start navigation on the RDK, and visualize the navigation results using Rviz2                                          |
+| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                                                            | Launch the simulation environment on the PC, start navigation on the RDK, and visualize the navigation results using Rviz2                                          |
+| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                                                            | Launch the simulation environment on the PC, start navigation on the RDK, and visualize the navigation results using Rviz2                                          |
 
-## Preparation
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. The RDK has been flashed with the  Ubuntu 20.04/22.04 image provided by D-Robotics.
+1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
 
-2. The RDK has successfully installed tros.b.
+2. tros.b has been successfully installed on the RDK.
 
-3. After tros.b is successfully installed, install Nav2.
+3. After successfully installing tros.b, install Nav2.
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -52,13 +54,17 @@ Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding 
  </TabItem>
  </Tabs>
 
-4. The PC on the same network segment as the RDK has installed Ubuntu 20.04/22.04 system, ROS2 desktop version, simulation environment Gazebo, and data visualization tool Rviz2.
+:::caution **Note**
+**If the `sudo apt update` command fails or returns an error, refer to the FAQ section [Common Issues](../../08_FAQ/01_hardware_and_system.md), specifically `Q10: How to handle failures or errors when running apt update?` for solutions.**
+:::
+
+4. A PC on the same network segment as the RDK, with Ubuntu 20.04/Ubuntu 22.04, ROS 2 Desktop, the Gazebo simulation environment, and the visualization tool Rviz2 already installed.
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04 system and [ROS2 Foxy Desktop Full](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3 related packages. Installation commands:
+   - Ubuntu 20.04 and [ROS 2 Foxy Desktop](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - After successfully installing ROS 2 on the PC, install Gazebo and Turtlebot3-related packages as follows:
 
     ```bash
     sudo apt-get install ros-foxy-gazebo-*
@@ -70,8 +76,8 @@ Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding 
  </TabItem>
  <TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04 system and [ROS2 Humble Desktop Full](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3 related packages. Installation commands:
+   - Ubuntu 22.04 and [ROS 2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - After successfully installing ROS 2 on the PC, install Gazebo and Turtlebot3-related packages as follows:
 
     ```bash
     sudo apt-get install ros-humble-gazebo-*
@@ -83,13 +89,13 @@ Nav2 (Navigation2) is a built-in navigation framework in ROS2, aimed at finding 
  </TabItem>
  </Tabs>
 
-## User Guide
+## Usage Instructions
 
-### RDK
+### RDK Platform
 
-This section describes how to set up a simulation environment on the PC, how to set the navigation destination, and how to run the navigation function with RDK and view the navigation result.
+This section describes how to set up a simulation environment on the PC, configure the navigation goal, run navigation functionality on the RDK, and observe the navigation results.
 
-1. Start the gazebo simulation environment on the **PC**.
+1. **On the PC**, launch the Gazebo simulation environment:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -113,16 +119,21 @@ This section describes how to set up a simulation environment on the PC, how to 
    ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
    ```
 
-   The simulation environment is shown in the following image:
+   :::info
+   If startup fails with the error `[ERROR] [gzclient-2]: process has died`, run the command `source /usr/share/gazebo/setup.sh` before relaunching.
+   :::
+
+   The simulation environment appears as shown below:
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
 
-2. Start the navigation function on the **RDK**.
+2. **On the RDK**, launch the navigation functionality:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
    ```bash
+   # Configure tros.b environment
    source /opt/tros/setup.bash
    ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
    ```
@@ -132,6 +143,7 @@ This section describes how to set up a simulation environment on the PC, how to 
    <TabItem value="humble" label="Humble">
 
    ```bash
+   # Configure tros.b environment
    source /opt/tros/humble/setup.bash
    ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
    ```
@@ -140,7 +152,7 @@ This section describes how to set up a simulation environment on the PC, how to 
 
    </Tabs>
 
-3. Start the Rviz2 tool on the **PC**.
+3. **On the PC**, launch the Rviz2 tool:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -163,30 +175,29 @@ This section describes how to set up a simulation environment on the PC, how to 
    ros2 launch nav2_bringup rviz_launch.py
    ```
 
-   The Rviz2 interface is shown in the following image:
+   The Rviz2 interface appears as shown below:
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz.png)
 
-4. Set the initial position and orientation of the robot in Rviz2.
+4. Set the robot's initial pose and orientation in Rviz2:
 
-   After Rviz2 is launched, the robot does not know where it is initially. By default, Nav2 waits for the user to provide an approximate initial position for the robot. Refer to the robot's position in Gazebo and find that position on the map. Set the initial position of the robot by clicking the "2D Pose Estimate" button in Rviz2 and then clicking on the estimated position of the robot on the map. The initial movement direction of the robot can be set by dragging the clicked position forward. The process is shown in the following image:
+   After launching Rviz2, the robot initially does not know its location. By default, Nav2 waits for the user to provide an approximate starting position. Observe the robot’s position in Gazebo and locate it on the map. Click the "2D Pose Estimate" button in Rviz2, then click on the estimated robot position on the map to set its initial pose. Drag forward from the clicked point to define the robot’s initial heading direction, as illustrated below:
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_init.png)
 
-   Once the initial position of the robot is set, the coordinate transformation tree will be established and Nav2 will be fully activated and ready. The robot and point cloud can be seen at this time.
+   Once the initial pose is set, the transform tree is completed, and Nav2 becomes fully active and ready. At this point, you should see the robot and its point cloud data.
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_start.png)
 
-5. Set the destination in Rviz2.
+5. Set a navigation goal in Rviz2:
 
-   Click the "Navigation2 Goal" button and select a destination.Here is the translation of the Chinese parts in the content, while preserving the original format and content:
+   Click the "Navigation2 Goal" button and select a destination.
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_goal.png)
 
-   Now you can see the robot is moving.
+   You will now see the robot moving toward the goal.
+## Results Analysis
 
-## Result Analysis
-
-The navigation effect is shown in the figure below:
+The navigation performance is shown in the figure below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_nav2.gif)

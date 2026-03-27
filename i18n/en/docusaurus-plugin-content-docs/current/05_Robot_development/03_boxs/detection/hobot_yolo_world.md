@@ -8,45 +8,47 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-YOLO-World is an advanced open-vocabulary object detection algorithm capable of efficiently detecting various novel category targets in a zero-shot manner based on the variation of input text.
+YOLO-World is an advanced open-vocabulary object detection method capable of efficiently detecting various novel object categories in a zero-shot manner by adapting to input text changes.
 
 Code Repository: (https://github.com/D-Robotics/hobot_yolo_world)
 
-Application Scenarios: The robust zero-shot detection capability of YOLO-World endows it with enhanced generalization, making it applicable in domains such as autonomous driving, smart home, and other fields.
+Application Scenarios: YOLO-World’s powerful zero-shot detection capability grants it strong generalization ability, making it suitable for applications such as autonomous driving, smart homes, geological surveying, and more.
+
 
 ## Supported Platforms
 
-| Platform                            | System | Function                                     |
-| ----------------------------------- | -------------- | -------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| Platform                             | Runtime Mode     | Example Functionality                                                 |
+| ------------------------------------ | ---------------- | --------------------------------------------------------------------- |
+| RDK X5, RDK X5 Module                | Ubuntu 22.04 (Humble) | Launch MIPI/USB camera or local image replay, and display inference results via a web browser |
 
-## Algorithm Information
+## Algorithm Details
 
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| yoloworldv2 | X5 | 1×640x640x3 | 7.0 |
+| Model         | Platform | Input Size      | Inference FPS |
+| ------------- | -------- | --------------- | ------------- |
+| yoloworldv2   | X5       | 1×640×640×3     | 7.0           |
 
-## Preparation
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. RDK has flashed the  Ubuntu 22.04 system image provided by D-Robotics.
+1. The RDK has been flashed with the Ubuntu 22.04 system image.
 
-2. RDK has successfully installed TogetheROS.Bot.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. RDK has installed the MIPI or USB camera.
+3. An MIPI or USB camera has been installed on the RDK.
 
-4. Confirm that the PC is able to access the RDK via the network.
+4. Ensure your PC can access the RDK over the network.
 
-## Usage
+## Usage Guide
 
-YOLO-World (hobot_yolo_world) package subscribes to images published by the sensor package. It has the capability to alter the detection categories based on variations in the input text. The text features are sourced from a local feature library, which is queried through the input text to match corresponding features. These features are then inputted into the model for inference. The websocket package is used to render and display the images and corresponding algorithm results on a PC browser.
+The YOLO-World (`hobot_yolo_world`) package subscribes to images published by the sensor package. Additionally, YOLO-World supports dynamically changing detection categories based on input text. Text features are sourced from a local feature library—input text queries corresponding features, which are then fed into the model for inference. After inference, algorithm messages are published and rendered in a web browser on the PC via the websocket package, displaying both the original sensor images and corresponding algorithm results.
 
-### RDK
 
-**Use MIPI Camera to Publish Images**
+### RDK Platform
+
+**Publish Images Using an MIPI Camera**
 
 <Tabs groupId="tros-distro">
 
@@ -58,13 +60,13 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
@@ -72,7 +74,7 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 
 </Tabs>
 
-**Use USB Camera to Publish Images**
+**Publish Images Using a USB Camera**
 
 <Tabs groupId="tros-distro">
 
@@ -84,14 +86,13 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
@@ -99,7 +100,7 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 
 </Tabs>
 
-**Use Local Image Offline**
+**Use Local Image Replay**
 
 <Tabs groupId="tros-distro">
 
@@ -111,13 +112,13 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# Configure the local playback image.
+# Configure local image replay
 export CAM_TYPE=fb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
@@ -125,9 +126,9 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 
 </Tabs>
 
-## Result analysis
+## Result Analysis
 
-The following information is outputted in the terminal:
+The following output appears in the terminal:
 
 ```shell
 [hobot_yolo_world-3] [WARN] [0000003710.693524477] [hobot_yolo_world]: This is hobot yolo world!
@@ -162,35 +163,35 @@ The following information is outputted in the terminal:
 [hobot_yolo_world-3] [WARN] [0000003718.707619939] [hobot_yolo_world]: Sub img fps: 1.00, Smart fps: 1.00, pre process time ms: 39, infer time ms: 121, post process time ms: 6
 ```
 
-You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
+Open a browser on your PC and navigate to `http://IP:8000` to view the rendered images and algorithm results (replace `IP` with the RDK's IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
 
 
+## Advanced Usage
 
-## Advance
-If you want to modify the text features, you can utilize the tools to generate them locally. [Usage](https://github.com/D-Robotics/hobot_yolo_world/tree/develop/tool).
+If you wish to modify the local text features, you can generate them locally using the provided tools. [Usage Instructions](https://github.com/D-Robotics/hobot_yolo_world/blob/develop/tool/README_cn.md).
 
 ```bash
-# Copy the configuration file required for generating the text features from the installation path of tros.b.
+# Copy the required tool files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/tool/ .
 
-# Download the model
+# Download and extract the model
 wget http://archive.d-robotics.cc/models/yoloworld_encode_text/huggingclip_text_encode.tar.gz
 sudo tar -xf huggingclip_text_encode.tar.gz -C tool
 
 cd tool/
 
 # Install dependencies
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ```bash
-# Modify the 'class.list'
+# Modify the vocabulary in class.list
 
-# Generate text features embeddings
-python3 main.py
+# Generate local vocabulary embeddings
+python main.py
 
-# Copy new text features embeddings
+# Copy the new vocabulary feature file
 mv offline_vocabulary_embeddings.json ../config/
 ```

@@ -2,89 +2,99 @@
 sidebar_position: 1
 ---
 
-# 5.4.1 SLAM
+# 5.4.1 SLAM Mapping
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-SLAM (Simultaneous Localization and Mapping) is a technique used to simultaneously estimate the location of a robot and create a map of its environment. In this chapter, we will use ROS2 SLAM-Toolbox to perform mapping on a simulated car in Gazebo, and observe the mapping results through Rviz2. The SLAM-Toolbox runs on the RDK, while Gazebo and Rviz2 run on a PC in the same network as the RDK.
+SLAM stands for Simultaneous Localization and Mapping.  
+This section uses ROS2's SLAM-Toolbox as the mapping algorithm. We control a robot car in Gazebo to build a map and observe the mapping results via Rviz2.  
+SLAM-Toolbox runs on the RDK, while Gazebo and Rviz2 run on a PC connected to the same network segment as the RDK.
 
 ## Supported Platforms
 
-| Platform | System | Function |
-| -------- | ---------------- | -------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the simulation environment on the PC and perform SLAM mapping on the RDK, finally display the mapping results using Rviz2. |
+| Platform                          | Runtime Environment                     |
+| --------------------------------- | --------------------------------------- |
+| RDK X3, RDK X3 Module             | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module             | Ubuntu 22.04 (Humble)                   |
+| RDK S100, RDK S100P               | Ubuntu 22.04 (Humble)                   |
+| RDK Ultra                         | Ubuntu 20.04 (Foxy)                     |
 
-## Preparation
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. The RDK has been flashed with the  Ubuntu 20.04/22.04 image provided by D-Robotics.
+1. The RDK has been flashed with either Ubuntu 20.04 or Ubuntu 22.04 system image.
 
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. After the successful installation of tros.b, install the SLAM-Toolbox:
+3. After successful installation of tros.b, install SLAM-Toolbox:
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
     ```bash
     sudo apt-get install ros-foxy-slam-toolbox
     ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
     ```bash
     sudo apt-get install ros-humble-slam-toolbox
     ```
 
- </TabItem>
- </Tabs>
+</TabItem>
+</Tabs>
 
-:::caution
-If the installation fails and the error is as follows:
+:::info
+If the installation fails with an error like:
 
- ```bash
-   The following packages have unmet dependencies:
-    ros-foxy-slam-toolbox : Depends: ros-foxy-nav2-map-server but it is not going to be installed
-   E: Unable to correct problems, you have held broken packages.
- ```
+```bash
+  The following packages have unmet dependencies:
+   ros-foxy-slam-toolbox : Depends: ros-foxy-nav2-map-server but it is not going to be installed
+  E: Unable to correct problems, you have held broken packages.
+```
 
-Please execute the following command before installing:
- 
-   apt update
+Please run the following commands before attempting installation again:
 
-   sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
+```bash
+apt update
+sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
+```
 :::
 
-4. The PC, which is in the same network as the RDK, has been installed with Ubuntu 20.04, ROS2 Foxy Desktop version, Gazebo simulation environment, and the data visualization tool Rviz2.
+:::caution **Note**
+**If the `sudo apt update` command fails or reports errors, please refer to the FAQ section [Common Issues](/docs/08_FAQ/01_hardware_and_system.md), specifically `Q10: How to resolve failures or errors when running apt update?`**
+:::
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+4. On a PC within the same network segment as the RDK, ensure that Ubuntu 20.04/Ubuntu 22.04, ROS2 Desktop, the Gazebo simulation environment, and the visualization tool Rviz2 are already installed.
 
-   - Ubuntu 20.04 system and [ROS2 Foxy Desktop Full](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3 related packages. Installation commands:
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-   ```shell
+   - Ubuntu 20.04 and [ROS2 Foxy Desktop](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - After successfully installing ROS2 on the PC, install Gazebo and Turtlebot3-related packages as follows:
+
+    ```bash
     sudo apt-get install ros-foxy-gazebo-*
     sudo apt install ros-foxy-turtlebot3
     sudo apt install ros-foxy-turtlebot3-bringup
     sudo apt install ros-foxy-turtlebot3-simulations
     sudo apt install ros-foxy-teleop-twist-keyboard
-   ```
+    ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04 system and [ROS2 Humble Desktop Full](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3 related packages. Installation commands:
+   - Ubuntu 22.04 and [ROS2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - After successfully installing ROS2 on the PC, install Gazebo and Turtlebot3-related packages as follows:
 
-    ```shell
+    ```bash
     sudo apt-get install ros-humble-gazebo-*
     sudo apt install ros-humble-turtlebot3
     sudo apt install ros-humble-turtlebot3-bringup
@@ -92,14 +102,14 @@ Please execute the following command before installing:
     sudo apt install ros-humble-teleop-twist-keyboard
     ```
 
- </TabItem>
- </Tabs>
+</TabItem>
+</Tabs>
 
-## Usage
+## Usage Instructions
 
-### RDK
+### RDK Platform
 
-This section introduces how to use RDK to run SLAM and observe mapping effect using PC.
+This section describes how to run the SLAM algorithm on the RDK and observe the mapping results on the PC.
 
 Start the simulation environment on the PC:
 
@@ -125,10 +135,14 @@ export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
 
-The simulation environment is shown in the figure below:
+:::info
+If startup fails with the error `[ERROR] [gzclient-2]: process has died`, please run `source /usr/share/gazebo/setup.sh` before launching again.
+:::
+
+The simulation environment appears as shown below:  
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/gazebo.jpg)
 
-Open another console on the PC and start Rviz2 to observe the mapping effect:
+Open another terminal on the PC and launch Rviz2 to visualize the mapping process:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -151,7 +165,7 @@ source /opt/ros/humble/setup.bash
 ros2 launch turtlebot3_bringup rviz2.launch.py
 ```
 
-After opening Rviz2, the "map" visualization option needs to be added to display the built map. The steps are as follows:
+After opening Rviz2, add the "Map" visualization display to show the generated map. Follow the steps illustrated below:  
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg)
 
 Run SLAM-Toolbox on the RDK:
@@ -160,6 +174,7 @@ Run SLAM-Toolbox on the RDK:
 <TabItem value="foxy" label="Foxy">
 
 ```bash
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -168,6 +183,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -176,10 +192,11 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```bash
+# Launch SLAM launch file
 ros2 launch slam_toolbox online_sync_launch.py
 ```
 
-Open another console on the PC and start the control tool to control the movement of the robot car with the keyboard. The control method can be found in the log printed on the console:
+Open another terminal on the PC and launch the teleoperation tool to control the robot using your keyboard. Refer to the instructions printed in the terminal for control details—these will not be repeated here:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -202,20 +219,21 @@ source /opt/ros/humble/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-Control the robot car to move. As the robot car detects more environmental information with the radar, the SLAM algorithm also builds the environmental map, which can be observed in Rviz2.
+Control the robot's movement. As the robot's LiDAR detects more environmental information, the SLAM algorithm simultaneously constructs a map of the environment, which can be observed in Rviz2.  
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)
 
 ## Result Analysis
 
-The terminal output of running on the RDK board is as follows:
+The terminal output when running on the RDK board is as follows:
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-10-06-40-34-204213-ubuntu-5390
 [INFO] [launch]: Default logging verbosity is set to INFO
-```[INFO] [sync_slam_toolbox_node-1]: process started with pid [5392]
+[INFO] [sync_slam_toolbox_node-1]: process started with pid [5392]
 [sync_slam_toolbox_node-1] [INFO] [1654843239.403931058] [slam_toolbox]: Node using stack size 40000000
 [sync_slam_toolbox_node-1] [INFO] [1654843240.092340814] [slam_toolbox]: Using solver plugin solver_plugins::CeresSolver
 [sync_slam_toolbox_node-1] [INFO] [1654843240.096554433] [slam_toolbox]: CeresSolver: Using SCHUR_JACOBI preconditioner.
 [sync_slam_toolbox_node-1] Info: clipped range threshold to be within minimum and maximum range!
 [sync_slam_toolbox_node-1] [WARN] [1654843589.431524393] [slam_toolbox]: maximum laser range setting (20.0 m) exceeds the capabilities of the used Lidar (3.5 m)
 [sync_slam_toolbox_node-1] Registering sensor: [Custom Described Lidar]
+```

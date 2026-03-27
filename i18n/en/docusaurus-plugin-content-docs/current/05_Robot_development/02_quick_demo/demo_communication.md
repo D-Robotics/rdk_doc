@@ -1,44 +1,59 @@
 ---
 sidebar_position: 5
 ---
-# 5.2.5 Communication
 
-## Zero-copy
+# 5.2.5 Data Communication
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-### Introduction
+## Zero-Copy
 
-TogetheROS.Bot provides a flexible and efficient zero-copy function that can significantly reduce the communication latency and CPU usage of large-sized data. By integrating the performance_test tool, tros.b can easily evaluate the performance difference before and after enabling zero-copy. The performance_test tool can configure parameters such as sub count, message size, and QoS to facilitate the evaluation of communication performance in different scenarios. The main performance indicators are as follows:
+### Feature Introduction
 
-- Latency: The time it takes for a message to be transmitted from pub to sub.
-- CPU usage: The percentage of CPU usage by communication activities.
-- Resident memory: Includes heap allocated memory, shared memory, and stack memory used for system internals.
-- Sample statistics: Includes the number of messages sent, received, and lost.
+TogetheROS.Bot provides a flexible and efficient zero-copy feature that can significantly reduce communication latency and CPU usage for large-sized data. By integrating the performance_test tool, tros.b enables convenient evaluation of performance differences before and after enabling zero-copy. The performance_test tool supports configuration of parameters such as the number of subscribers, message size, QoS settings, etc., facilitating performance assessment under various scenarios. Key performance metrics include:
 
-Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-Robotics/rclcpp), [https://github.com/D-Robotics/rcl_interfaces](https://github.com/D-Robotics/rcl_interfaces)
+- **Latency**: Transmission time of a message from publisher to subscriber.
+- **CPU Usage**: Percentage of CPU utilization caused by communication activities.
+- **Resident Memory**: Includes heap-allocated memory, shared memory, and stack memory used internally by the system.
+- **Sample Statistics**: Includes the number of messages sent, received, and lost in each experiment.
+
+Code repositories:
+  - [https://github.com/D-Robotics/rclcpp](https://github.com/D-Robotics/rclcpp)
+  - [https://github.com/D-Robotics/rcl_interfaces](https://github.com/D-Robotics/rcl_interfaces)
+  - [https://github.com/D-Robotics/benchmark](https://github.com/D-Robotics/benchmark)
+
+:::info
+- The tros.b Foxy version introduces the "zero-copy" feature based on ROS2 Foxy.
+- The tros.b Humble version utilizes the native "zero-copy" feature provided by ROS2 Humble.
+:::
 
 ### Supported Platforms
 
-| Platform    | System      | Function                       |
-| ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5, RDK S100 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Show zero-copy performance test results |
+| Platform                          | Operating System                     |
+| --------------------------------- | ------------------------------------ |
+| RDK X3, RDK X3 Module             | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100   | Ubuntu 22.04 (Humble)                |
+
+:::caution
+***The RDK Ultra platform supports zero-copy data communication, but the zero-copy performance benchmarking package is not yet available.***
+:::
 
 ### Preparation
 
 #### RDK
 
-1. Before starting the test, adjust the RDK to performance mode to ensure the accuracy of the test results. Use the following commands:
+1. Before testing, switch the RDK to performance mode to ensure accurate test results. Use the following command:
 
    ```bash
-   echo performance > /sys/class/devfreq/devfreq0/governor
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
 
-2. The performance_test package is already installed in RDK. Install it using the command:
+   For more configuration details, refer to the [System Configuration](/System_configuration/) section.
+
+2. Ensure the performance_test tool package is installed on the RDK. Installation commands:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -59,11 +74,15 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
    </TabItem>
    </Tabs>
 
+:::caution **Note**
+**If the `sudo apt update` command fails or returns an error, refer to the FAQ section [Common Issues](/docs/08_FAQ/01_hardware_and_system.md), specifically `Q10: How to handle failures or errors when running apt update?` for solutions.**
+:::
+
 ### Usage Guide
 
 #### RDK Platform
 
-1. Test the transmission of 4M data without enabling zero-copy. Use the following command:
+1. Run a 4MB data transmission test without zero-copy enabled, using the following command:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -84,7 +103,7 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
  </TabItem>
  </Tabs>
 
-    **Test results are shown below**:
+    **Test results are as follows**:
 
     ```dotnetcli
     run time
@@ -124,7 +143,7 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
     Maximum runtime reached. Exiting.
     ```
 
-2. Start the 4M data transfer test with zero-copy (use --zero-copy parameter), the command is as follows:
+2. Run a 4MB data transmission test with zero-copy enabled (using the `--zero-copy` argument), using the following command:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
@@ -149,65 +168,77 @@ Code repositories: [https://github.com/D-Robotics/rclcpp](https://github.com/D-R
  </TabItem>
  </Tabs>
 
-    **Test results are shown below**:
-   ```dotnetcli
-   run time
+    **Test results are as follows**:
 
-   +--------------+-----------+--------+----------+
-   | T_experiment | 30.554773 | T_loop | 1.000084 |
-   +--------------+-----------+--------+----------+
+    ```dotnetcli
+    run time
 
-   samples                                              latency
+    +--------------+-----------+--------+----------+
+    | T_experiment | 30.554773 | T_loop | 1.000084 |
+    +--------------+-----------+--------+----------+
 
-   +------+------+------+-----------+---------------+   +----------+----------+----------+----------+
-   | recv | sent | lost | data_recv | relative_loss |   | min      | max      | mean     | variance |
-   +------+------+------+-----------+---------------+   +----------+----------+----------+----------+
-   | 99   | 99   | 0    | 418701472 | 0.000000      |   | 0.000146 | 0.000381 | 0.000195 | 0.000000 |
-   +------+------+------+-----------+---------------+   +----------+----------+----------+----------+
+    samples                                              latency
 
-   publisher loop                                       subscriber loop
+    +------+------+------+-----------+---------------+   +----------+----------+----------+----------+
+    | recv | sent | lost | data_recv | relative_loss |   | min      | max      | mean     | variance |
+    +------+------+------+-----------+---------------+   +----------+----------+----------+----------+
+    | 99   | 99   | 0    | 418701472 | 0.000000      |   | 0.000146 | 0.000381 | 0.000195 | 0.000000 |
+    +------+------+------+-----------+---------------+   +----------+----------+----------+----------+
 
-   +----------+----------+----------+----------+        +----------+----------+----------+----------+
-   | min      | max      | mean     | variance |        | min      | max      | mean     | variance |
-   +----------+----------+----------+----------+        +----------+----------+----------+----------+
-   | 0.009812 | 0.009895 | 0.009877 | 0.000000 |        | 0.000000 | 0.000000 | 0.000000 | 0.000000 |
-   +----------+----------+----------+----------+        +----------+----------+----------+----------+
+    publisher loop                                       subscriber loop
 
-   system usage
+    +----------+----------+----------+----------+        +----------+----------+----------+----------+
+    | min      | max      | mean     | variance |        | min      | max      | mean     | variance |
+    +----------+----------+----------+----------+        +----------+----------+----------+----------+
+    | 0.009812 | 0.009895 | 0.009877 | 0.000000 |        | 0.000000 | 0.000000 | 0.000000 | 0.000000 |
+    +----------+----------+----------+----------+        +----------+----------+----------+----------+
 
-   +------------+-----------+---------+--------+--------+----------+--------+--------+
-   | utime      | stime     | maxrss  | ixrss  | idrss  | isrss    | minflt | majflt |
-   +------------+-----------+---------+--------+--------+----------+--------+--------+
-   | 8727113000 | 307920000 | 46224   | 0      | 0      | 0        | 6440   | 0      |
-   +------------+-----------+---------+--------+--------+----------+--------+--------+
-   | nswap      | inblock   | oublock | msgsnd | msgrcv | nsignals | nvcsw  | nivcsw |
-   +------------+-----------+---------+--------+--------+----------+--------+--------+
-   | 0          | 0         | 0       | 0      | 0      | 0        | 9734   | 2544   |
-   +------------+-----------+---------+--------+--------+----------+--------+--------+
+    system usage
 
-   Maximum runtime reached. Exiting.
-   ```
+    +------------+-----------+---------+--------+--------+----------+--------+--------+
+    | utime      | stime     | maxrss  | ixrss  | idrss  | isrss    | minflt | majflt |
+    +------------+-----------+---------+--------+--------+----------+--------+--------+
+| 8727113000 | 307920000 | 46224   | 0      | 0      | 0        | 6440   | 0      |
+    +------------+-----------+---------+--------+--------+----------+--------+--------+
+    | nswap      | inblock   | oublock | msgsnd | msgrcv | nsignals | nvcsw  | nivcsw |
+    +------------+-----------+---------+--------+--------+----------+--------+--------+
+    | 0          | 0         | 0       | 0      | 0      | 0        | 9734   | 2544   |
+    +------------+-----------+---------+--------+--------+----------+--------+--------+
+
+    Maximum runtime reached. Exiting.
+    ```
 
 ### Result Analysis
 
-The performance_test tool can output various types of statistical results. We mainly compare the differences in latency and system usage:
+The `performance_test` tool can output various types of statistical results. Below, we primarily compare differences in latency and system resource usage:
 
-**latency**
+**Latency**  
+The average communication latencies with "zero-copy" disabled and enabled are 4.546 ms and 0.195 ms, respectively. This clearly shows that the "zero-copy" feature significantly reduces communication latency.
 
-The mean latency for communication with "zero-copy" enabled and disabled are 4.546ms and 0.195ms, respectively. It can be seen that "zero-copy" significantly reduces communication latency.
+**System Usage**
 
-**system usage**
+```dotnetcli
+  +------------------+---------------+-------------------+--------+--------+----------+------------------+---------------------+
+  | utime            | stime         | maxrss            | ixrss  | idrss  | isrss    | minflt           | majflt              |
+  +------------------+---------------+-------------------+--------+--------+----------+------------------+---------------------+
+  | Userspace time (Hz) | System time (Hz) | Resident memory size (Bytes) | 0      | 0      | 0        | Minor page faults    | Major page faults       |
+  +------------------+---------------+-------------------+--------+--------+----------+------------------+---------------------+
+  | nswap            | inblock       | oublock           | msgsnd | msgrcv | nsignals | nvcsw            | nivcsw              |
+  +------------------+---------------+-------------------+--------+--------+----------+------------------+---------------------+
+  | 0                | 0             | 0                 | 0      | 0      | 0        | Voluntary context switches | Involuntary context switches |
+  +------------------+---------------+-------------------+--------+--------+----------+------------------+---------------------+
+```
 
-| Communication Method     | Latency     | utime+stime | maxrss | minflt | majflt | nvcsw | nivcsw |
-| ------------------------ | ----------- | ----------- | ------ | ------ | ------ | ------| ------ |
-| Non-"zero-copy"           | 0.004546    | 23242551000 | 65092  | 11578  | 2      | 9885  | 7193   |
-| "zero-copy"               | 0.000381    | 9035033000  | 46224  | 6440   | 0      | 9734  | 2544   |
+| Communication Method | Latency  | utime+stime | maxrss | minflt | majflt | nvcsw | nivcsw |
+| ---------------------| ---------| ------------|--------|--------|--------|-------|--------|
+| Non-"zero-copy"      | 0.004546 | 23242551000 | 65092  | 11578  |   2    | 9885  |  7193  |
+| "Zero-copy"          | 0.000381 | 9035033000  | 46224  | 6440   |   0    | 9734  |  2544  |
 
-Comparing the two methods, we can see that:
+Comparison reveals the following:
 
-- The sum of utime and stime in the "zero-copy" method is significantly lower than in the non-"zero-copy" method, indicating that "zero-copy" consumes less CPU resources.
-- The maxrss in the "zero-copy" method is lower than in the non-"zero-copy" method, indicating that "zero-copy" occupies less memory.
-- The minflt and majflt in the "zero-copy" method are significantly lower than in the non-"zero-copy" method, indicating that "zero-copy" communication has less jitter.
-- The nvcsw and nivcsw in the "zero-copy" method are significantly lower than in the non-"zero-copy" method, indicating that "zero-copy" communication has less jitter.
+- The sum of `utime` and `stime` for "zero-copy" is significantly lower than that of non-"zero-copy", indicating that "zero-copy" consumes less CPU resources.
+- The `maxrss` value for "zero-copy" is lower than that of non-"zero-copy", indicating that "zero-copy" uses less memory.
+- Both `minflt` and `majflt` counts for "zero-copy" are significantly lower than those of non-"zero-copy", suggesting that "zero-copy" exhibits less communication jitter.
+- Both `nvcsw` and `nivcsw` counts for "zero-copy" are significantly lower than those of non-"zero-copy", further indicating reduced communication jitter with "zero-copy".
 
-Overall, for large data communication, the "zero-copy" method is clearly superior to the non-"zero-copy" method in terms of CPU consumption, memory usage, and communication latency jitter.
+In summary, for large-data communication, "zero-copy" demonstrates clear advantages over non-"zero-copy" in terms of CPU consumption, memory usage, and communication latency jitter.

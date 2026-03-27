@@ -3,39 +3,54 @@ sidebar_position: 4
 ---
 # Visual Inertial Odometry Algorithm
 
-
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Overview
 
-Visual Inertial Odometry (VIO) is an algorithm that combines camera and Inertial Measurement Unit (IMU) data to achieve robot localization. VIO positioning algorithm has the advantages of low cost and wide applicability. It can effectively compensate for the failure scenarios such as obstruction and multi-path interference in satellite positioning in outdoor environments. Excellent and robust VIO algorithm is the key to achieve high-precision outdoor navigation positioning.
+Visual Inertial Odometry (VIO) is an algorithm that fuses data from cameras and Inertial Measurement Units (IMUs) to achieve robot localization. VIO offers advantages such as low cost and broad environmental applicability, effectively compensating for GNSS signal degradation scenarios like occlusion and multipath interference in outdoor environments. A robust and high-performance VIO algorithm is key to achieving high-precision outdoor navigation and localization.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_vio_rviz.jpeg)
 
-Code Repository:  (https://github.com/D-Robotics/hobot_vio.git)
+Code repository: (https://github.com/D-Robotics/hobot_vio.git)
 
 ## Supported Platforms
 
-| Platform                       | System | Function                                            |
-| ------------------------------ | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Use realsense camera images and IMU data as algorithm inputs; Algorithm outputs robot motion trajectory that can be visualized in rviz2 on PC. |
+| Platform                  | Runtime Environment                        | Example Functionality                                                                                                               |
+| ------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Uses RealSense camera images and IMU data as algorithm inputs; outputs the robot’s trajectory, which can be visualized in rviz2 on a PC |
+| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)                      | Uses RealSense camera images and IMU data as algorithm inputs; outputs the robot’s trajectory, which can be visualized in rviz2 on a PC |
+| RDK Ultra                 | Ubuntu 20.04 (Foxy)                        | Uses RealSense camera images and IMU data as algorithm inputs; outputs the robot’s trajectory, which can be visualized in rviz2 on a PC |
 
 ## Prerequisites
 
-1. RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+1. The RDK has been flashed with either Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetheROS.Bot and the RealSense ROS2 package have been successfully installed on the RDK.
+3. A RealSense camera is connected to the RDK's USB 3.0 port.
+4. Ensure your PC can access the RDK over the network.
 
-2. TogetheROS.Bot and Realsense ROS2 Package have been successfully installed on RDK.
+## Usage Instructions
 
-3. Realsense camera is connected to the USB 3.0 interface of RDK.
+The algorithm subscribes to image and IMU data from the RealSense camera as inputs, computes the camera trajectory, and publishes the resulting motion trajectory via ROS2 topics. The trajectory can be visualized using rviz2 on a PC. The input and output topics are listed below:
 
-4. Confirm that the PC can access RDK through the network.
+### Input Topics
 
-## Usage
+| Parameter Name | Type          | Description                                                                                                                              | Required | Default Value                                                                                   |
+| -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| path_config    | std::string   | Path to the VIO algorithm configuration file                                                                                             | Yes      | `/opt/tros/${TROS_DISTRO}/lib/hobot_vio/config/realsenseD435i.yaml`                              |
+| image_topic    | std::string   | Topic name for image data subscribed by the VIO algorithm                                                                                | Yes      | /camera/infra1/image_rect_raw                                                                   |
+| imu_topic      | std::string   | Topic name for IMU data subscribed by the VIO algorithm                                                                                  | Yes      | /camera/imu                                                                                     |
+| sample_gap     | std::string   | Processing frequency of the VIO algorithm: 1 means every frame is used for trajectory calculation, 2 means every second frame, etc.     | Yes      | 2                                                                                               |
 
-The algorithm subscribes to the images and IMU data from the realsense camera as inputs. After processing, it calculates the trajectory information of the camera and publishes the camera's motion trajectory using the ROS2 topic mechanism. The trajectory result can be viewed in the rviz2 software on the PC. 
+### Output Topic
+
+| Topic Name                    | Type                | Description                       |
+| ----------------------------- | ------------------- | --------------------------------- |
+| horizon_vio/horizon_vio_path  | nav_msgs::msg::Path | Robot motion trajectory output by the VIO algorithm |
+
+Launch command:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -64,7 +79,7 @@ ros2 launch hobot_vio hobot_vio.launch.py
 
 ## Result Analysis
 
-After starting the algorithm example on RDK, output the following information on the terminal. First, start the realsense node to publish images and IMU data. Then, the algorithm enters the initialization process, waiting for the user to move the camera to complete initialization. After initialization is completed, the algorithm starts outputting positioning coordinates:
+After launching the algorithm example on the RDK, the terminal displays the following logs. First, the RealSense node starts publishing image and IMU data. Then, the algorithm enters its initialization phase, during which the user must translate the camera to complete initialization. Once initialized, the algorithm begins outputting localization coordinates:
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2023-07-07-19-48-31-464088-ubuntu-562910
@@ -124,3 +139,4 @@ After starting the algorithm example on RDK, output the following information on
 [hobot_vio-1] KF feats: 33
 [hobot_vio-1] 47.407 ms all consumed
 [hobot_vio-1] travel(m): 0.042
+```

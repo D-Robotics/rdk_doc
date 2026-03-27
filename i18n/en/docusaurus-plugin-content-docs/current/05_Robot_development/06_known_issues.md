@@ -4,10 +4,10 @@ sidebar_position: 7
 
 # 5.6 Known Issues
 
-1. **Problem Description: A small amount of black edges appear on the image border.**
+1. **Issue Description: Slight black borders appear at the image edges.**
 
-        ![problem_description](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/magicbox/zh/black_border.jpg)
+         ![problem_description](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/magicbox/zh/black_border.jpg)
 
-    - **Cause Analysis**: This phenomenon is not caused by issues with the camera hardware or calibration, but is a normal occurrence during distortion correction and stereo rectification. The current parameter configuration is designed to retain as large a field of view (FOV) as possible, which may result in a small area with no effective pixel data at the image edges.
-    - **Scope of Impact**: Does not affect image quality or algorithm performance.
-    - **Improvement Plan**: This will be improved in subsequent software versions by optimizing correction parameters or implementing an automatic cropping strategy. The improvement will be delivered through a software version upgrade.
+    - Root Cause: This phenomenon is not caused by camera hardware issues or calibration errors. Instead, it is a normal occurrence during distortion correction and stereo rectification. The current parameter configuration prioritizes preserving a larger field of view (FOV), which may result in small regions without valid pixels at the image edges.  
+    - Impact: This does not affect camera image quality or algorithm performance.  
+    - Fix Plan: Future software versions will improve this issue by optimizing rectification parameters or implementing automatic cropping strategies. Users are advised to upgrade to the latest software version when available.

@@ -2,41 +2,43 @@
 sidebar_position: 8
 ---
 
-# 5.2.8 Text to Speech
+# 5.2.8 Text-to-Speech
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-This section describes how to convert a text into a speech and play it through an audio output interface.
+This section describes how to convert a piece of text into speech signals and play them through an audio output interface.
 
-Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
+Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 ## Supported Platforms
 
-| Platform | System | Function               |
-| -------- | ---------------- | ------------------------------ |
-| RDK X3, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech, and play them out |
+| Platform | Runtime Environment | Example Functionality |
+| ------- | ------------ | ------------------------------ |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech data, and then play the audio |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech data, and then play the audio |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech data, and then play the audio |
 
-**Note: Only supports RDK X3, RDK X3 Module is not supported yet.**
+**Note: Only RDK X3 is supported; RDK X3 Module is currently unsupported. RDK S100 supports only USB audio devices.**
 
-## Preparation
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. RDK has been flashed with  Ubuntu 20.04/22.04 system image provided by D-Robotics.
-2. TogetheROS.Bot has been successfully installed on RDK.
-3. An audio driver board compatible with D-Robotics has been obtained, and the environment has been set up according to [Smart Voice section](../03_boxs/audio/hobot_audio.md)
-4. Connect the audio board's headphone interface with headphones or speakers.
+1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. An RDK-compatible audio driver board is available, and the environment has been set up according to the [Smart Audio chapter](../03_boxs/audio/hobot_audio.md).
+4. Headphones or speakers are connected to the headphone jack of the audio board.
 
-## Usage
+## Usage Instructions
 
-### RDK
+### RDK Platform
 
-1. For the first run, you need to download the models file and extract it. The commands are as follows:
+1. On first run, you need to download and extract the model files using the following commands:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
@@ -60,26 +62,37 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
     </Tabs>
 
     ```bash
-    wget http://archive.d-robotics.cc/tros/tts-model/tts_model.tar.gz
+    wget http://archive.d-robotics.cc/tts-model/tts_model.tar.gz
     sudo tar -xf tts_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_tts/
     ```
 
-2. Run the following command to check if the audio device is normal:
+:::caution **Note**
+**If the `sudo apt update` command fails or returns an error, refer to the FAQ section [Common Issues](../../08_FAQ/01_hardware_and_system.md), specifically Q10: "How to resolve issues when `apt update` fails or returns errors?"**
+:::
+
+2. Run the following command to check whether the audio device is functioning properly:
 
     ```bash
     root@ubuntu:~# ls /dev/snd/
     by-path  controlC0  pcmC0D0c  pcmC0D1p  timer
     ```
 
-    If a similar audio playback device like `pcmC0D1p` appears, it means the device is working fine.
+    If an audio playback device such as `pcmC0D1p` appears, the device is working correctly.
 
-    :::caution
-    When using the audio board for the first time, you need to use `srpi-config` for configuration, otherwise the audio device will not be recognized.
-   
-    For the configuration method, refer to the RDK User Manual [Audio Adapter Board](/i18n/en/docusaurus-plugin-content-docs/current/07_Advanced_development/01_hardware_development/rdk_x3/hardware.md)
-    :::
+    <Tabs groupId="board_type">
+    <TabItem value="rdk_x3" label="RDK_X3">
 
-3. Start the hobot_tts program.
+    When using the audio board for the first time, you must configure it using `srpi-config`. For configuration instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
+
+    </TabItem>
+    <TabItem value="rdk_x5" label="RDK_X5">
+
+    When using the audio board for the first time, you must configure it using `srpi-config`. For configuration instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md).
+    
+    </TabItem>
+    </Tabs>
+
+3. Launch the hobot_tts program:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
@@ -102,16 +115,17 @@ Code repository:  (https://github.com/D-Robotics/hobot_tts.git)
 
     </Tabs>
 
-   ```bash
-   # Disable debug information
-   export GLOG_minloglevel=1
+    ```bash
+    # Suppress debug log messages
+    export GLOG_minloglevel=1
 
-   ros2 run hobot_tts hobot_tts
-   ```
+    ros2 run hobot_tts hobot_tts
+    ```
 
-Note: If the audio playback device is not `pcmC0D1p`, you need to use the `playback_device` parameter to specify the playback audio device. For example, if the audio playback device is `pcmC1D1p`, the launch command should be: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`
+    Note: If your audio playback device is not `pcmC0D1p`, you must specify the correct playback device using the `playback_device` parameter. For example, if the playback device is `pcmC1D1p`, use the following launch command:  
+    `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`
 
-4. Open a new terminal and use the echo command to publish a topic
+4. Open a new terminal and publish a message to the topic using the echo command:
 
   <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
@@ -135,11 +149,11 @@ Note: If the audio playback device is not `pcmC0D1p`, you need to use the `playb
   </Tabs>
 
    ```bash
-   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""Do you know the horizon? Yes, I know the horizon. It is a line that extends from the ground to the sky, defining the boundary between the ground and the sky.""}"
+   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""Do you know D-Robotics? Yes, I know D-Robotics. It is a line stretching from the ground to the sky, defining the boundary between earth and sky.""}"
    ```
 
-5. You can hear the playback sound from your headphones or speakers.
+5. You should hear the audio played through your headphones or speakers.
 
 ## Notes
 
-Currently, only Chinese and English text content are supported. Do not publish text messages in other languages.
+Currently, only Chinese and English text content are supported. Do **not** publish text messages in other languages.

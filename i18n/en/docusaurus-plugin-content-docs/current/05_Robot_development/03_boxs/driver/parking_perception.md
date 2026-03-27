@@ -1,84 +1,94 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
-# Road Structuring
-
+# Road Surface Structuring
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The parking_perception package is a road structuring algorithm based on hobot_dnn package, which uses BPU for model inference to obtain algorithm results.
-This package supports subscribing to topics of type sensors/msg/image directly, and supports inferring from local images offline. The algorithm information will be published through topics and the results will be rendered and visualized on the web page. It also supports saving the rendered images in the result directory during program execution.
+The `parking_perception` package is an example implementation of a road surface structuring algorithm developed based on the `hobot_dnn` package. It leverages the BPU for model inference to obtain algorithmic results.  
+This package supports directly subscribing to topics of type `sensors/msg/image`, as well as performing inference using locally stored images. While publishing algorithmic results via ROS topics, it simultaneously renders visualizations on a web page and optionally saves the rendered images to the `result` directory under the program's working path.
 
-The supported object detection categories are as follows:
+Supported object detection classes by the algorithm are as follows:
 
-| Category      | Description |
-| ------------- | ----------- |
-| cyclist       | Cyclist     |
-| person        | Pedestrian  |
-| rear          | Rear        |
-| vehicle       | Vehicle     |
-| parking_lock  | Parking lock|
+| Class         | Description |
+| ------------ | ----------- |
+| cyclist      | Cyclist     |
+| person       | Pedestrian  |
+| rear         | Rear of vehicle |
+| vehicle      | Car         |
+| parking_lock | Parking lock |
 
-The supported semantic segmentation categories are as follows:
- 
-| Category         | Description |
-| ---------------- | ----------- |
-| road             | Road        |
-| background       | Background  |
-| lane_marking     | Lane marking|
-| sign_line        | Sign line   |
-| parking_lane     | Parking lane|
-| parking_space    | Parking space|
-| parking_rod      | Parking rod |
-| parking_lock     | Parking lock|
+Supported semantic segmentation classes by the algorithm are as follows:
 
-Code repository:  (https://github.com/D-Robotics/parking_perception.git)
+| Class           | Description     |
+| --------------- | --------------- |
+| road            | Road            |
+| background      | Background      |
+| lane_marking    | Lane markings   |
+| sign_line       | Sign lines      |
+| parking_lane    | Parking space lines |
+| parking_space   | Parking area    |
+| parking_rod      | Parking rod     |
+| parking_lock    | Parking lock    |
 
-Application scenario: The outdoor parking area detection algorithm is based on semantic segmentation, which identifies parking areas in the images and can achieve automatic parking. It is mainly used in the field of autonomous driving.
+Code repository: (https://github.com/D-Robotics/parking_perception.git)
 
-Car parking space search case: [Car Parking Space Search](../../apps/parking_search)
+Application scenario: The outdoor parking area detection algorithm is based on semantic segmentation to identify parking regions in images, enabling automatic parking functionality, primarily applied in the field of autonomous driving.
+
+Example use case – Vehicle parking space search: [5.4.8 Vehicle Parking Space Search](../../apps/parking_search)
 
 ## Supported Platforms
 
-| Platform             | System | Function                                            |
-| -------------------- | ---------------- | ------------------------------------------------------------|
-| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
+| Platform                  | OS/Runtime Environment | Example Features                                                     |
+| ------------------------- | ---------------------- | -------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera or local image playback; inference results rendered on web UI and/or saved locally |
+| X86                       | Ubuntu 20.04 (Foxy)    | · Launch local image playback; inference results rendered on web UI and/or saved locally |
 
-## Preparation
+## Algorithm Details
 
-### RDK
+| Model                | Platform | Input Size     | Inference FPS |
+| -------------------- | -------- | -------------- | ------------- |
+| parking_perception   | X3       | 1x3x640x320    | 103.52        |
 
-1. The RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+## Prerequisites
 
-2. The RDK has successfully installed TogetheROS.Bot.
+### RDK Platform
 
-## Usage
+1. The RDK device has been flashed with either Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
 
-The package publishes algorithm messages that include semantic segmentation and object detection information, and users can subscribe to these messages for application development.
+### X86 Platform
 
-### RDK
+1. The X86 environment has been set up with Ubuntu 20.04 system image.
+2. tros.b has been successfully installed in the X86 environment.
 
-**Publishing images from MIPI camera**
+## Usage Guide
+
+The package publishes custom messages containing both semantic segmentation and object detection results. Users can subscribe to these messages for application development.
+
+### RDK Platform
+
+**Publish images from MIPI camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Set up ROS2 environment
 source /opt/tros/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
@@ -87,16 +97,16 @@ ros2 launch parking_perception parking_perception.launch.py
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Set up ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
@@ -104,22 +114,22 @@ ros2 launch parking_perception parking_perception.launch.py
 
 </Tabs>
 
-**Publishing images from USB camera**
+**Publish images from USB camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Set up ROS2 environment
 source /opt/tros/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from tros installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
@@ -128,16 +138,16 @@ ros2 launch parking_perception parking_perception.launch.py
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Set up ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from tros installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
@@ -145,22 +155,22 @@ ros2 launch parking_perception parking_perception.launch.py
 
 </Tabs>
 
-**Using a single image offline**
+**Use a single local image for inference (frame-by-frame playback)**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Set up ROS2 environment
 source /opt/tros/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from tros installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configure the local playback image.
+# Configure frame-by-frame (local image) mode
 export CAM_TYPE=fb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
@@ -169,28 +179,45 @@ ros2 launch parking_perception parking_perception.launch.py
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Set up ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from tros installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configure the local playback image.
+# Configure frame-by-frame (local image) mode
 export CAM_TYPE=fb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
 </TabItem>
 
 </Tabs>
+### X86 Platform
+
+**Using a single replay image**
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/setup.bash
+
+# Copy the required configuration files for running the example from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
+
+# Configure the replay image
+export CAM_TYPE=fb
+
+# Launch the launch file
+ros2 launch parking_perception parking_perception.launch.py 
+```
 
 ## Result Analysis
 
-**Using a MIPI camera to publish images**
+**Publishing images using an MIPI camera**
 
-After the package is initialized, the following information will be displayed in the terminal:
+After package initialization, the following information is output in the running terminal:
 
 ```
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-08-02-06-46-55-605266-ubuntu-3669
@@ -224,9 +251,9 @@ After the package is initialized, the following information will be displayed in
 [parking_perception-3] [WARN] [1662036458.237841548] [parking_perception]: input fps: 29.73, out fps: 29.73
 ```
 
-**Using single image offline**
+**Using a single replay image**
 
-The result of inference reading a local image offline in the example will be rendered on the image. On the PC-side browser, you can view the image and algorithm rendering effect by entering http://IP:8000 (IP is the IP address of the RDK), and open the settings in the upper right corner of the interface.
+In this example, the inference result from reading a local image will be rendered onto the image itself. To view the rendered image and algorithm visualization, open a browser on your PC and navigate to `http://IP:8000` (replace "IP" with the RDK's IP address), then click the settings icon in the upper-right corner of the interface.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png)
 
@@ -234,8 +261,8 @@ Select the "Full Image Segmentation" option to display the rendering effect.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_2.png)
 
-From the visualization result, we can see that the parking area and driving area in the outdoor scene are effectively segmented, distinguishing the parking lane from the driving lane, and the object detection task also locates the vehicles in the distance.
+From the visualization results, we can observe that in outdoor scenarios, parking areas and driving lanes are effectively segmented, distinguishing between parking lane markings and driving lane markings. Additionally, the object detection task successfully locates distant vehicles.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png)
 
-When "dump_render_img" is set to "1", the rendering effect will be saved in the "result" directory at the current path.
+When "dump_render_img" is set to "1", the rendered results are saved under the `result` directory in the current path.
