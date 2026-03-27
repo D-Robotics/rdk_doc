@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout gh-pages branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           fetch-depth: 0   # 拉取完整历史，保证可以 push
