@@ -122,7 +122,7 @@ log_level:=info
 - mipi_out_format:=nv12 设置图像格式，支持nv12/bgr8
 - log_level:=info 日志等级，info等级可以打印标定参数，如果不需要显示那么多信息，则设置为warn
 
-2. 程序运行成功会打印如下日志，包括相机全部的标定参，目前双目标定采用鱼眼模式，可以参考[OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html)的介绍：
+2. 程序运行成功会打印如下日志，包括相机全部的标定参数，目前双目标定采用鱼眼模式，可以参考[OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html)的介绍：
 
 ![LH_IMU_cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png)
 
