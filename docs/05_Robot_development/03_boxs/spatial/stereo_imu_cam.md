@@ -64,7 +64,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 ### 4.2. 硬件连接
 
 1. 模组背后开关设置为`EXT`模式，不要在`LPWM`模式
-2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[3.1.1 管脚定义与应用](https://developer.d-robotics.cc/rdk_doc/Basic_Application/01_40pin_user_sample/40pin_define)
+2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[3.1.1 管脚定义与应用](/docs/03_Basic_Application/01_40pin_user_sample/40pin_define.md)
 
 ![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png)
 
@@ -146,7 +146,7 @@ ros2 topic list -v
 
 ### 5.1. 启动指令
 
-- 参考[双目深度算法](https://developer.d-robotics.cc/rdk_doc/Robot_development/boxs/spatial/hobot_stereonet)，里面有双目算法的相关介绍和启动指令介绍
+- 参考[双目深度算法](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md)，里面有双目算法的相关介绍和启动指令介绍
 - 本相机启动指令为：
 
 ```bash
