@@ -592,6 +592,9 @@ bash run_stereo.sh --stereonet_version v2.4 --mipi_rotation 0.0
 # 搭配132GS相机
 bash run_stereo.sh --stereonet_version v2.4
 
+# S100还支持大分辨率模型，以132GS相机为例，启动指令如下
+bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
+
 # 注意：
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
@@ -639,7 +642,7 @@ rviz2
 
 - stereonet_version控制启动不同版本的算法
   - RDK X5可以设置为`v2.0`、`v2.1`、`v2.2`、`v2.3`、`v2.4_int16`、`v2.4_int8`、`v2.5_int16`、`v2.5_int16_96`、`v2.5_int16_544_448`、`v2.5_int16_544_448_96`
-  - RDK S100可以设置为`v2.1`、`v2.4`
+  - RDK S100可以设置为`v2.1`、`v2.4`、`v2.4_1280_704`
 - stereo_node_name控制ros节点的名称
 - uncertainty_th为置信度阈值，只有带置信度的模型并且设置为正数时才会生效，如果需要开启，建议设置为`0.10`
 - stereo_image_topic/camera_info_topic为ros节点需要接收的话题名称，分别为双目图像和对应的相机参数
@@ -916,7 +919,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 - 然后，启动双目算法，开启另一个终端执行：
 
 ```bash
-bash run_stereo.sh --use_mipi_cam False
+bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_right_raw/camera_info
 ```
 
 - 通过网页端查看深度图，在浏览器输入 http://ip:8000 (ip为RDK对应的ip地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
@@ -925,10 +928,10 @@ bash run_stereo.sh --use_mipi_cam False
 
 ### 6.1. 订阅话题
 
-| 默认名称（参数可调）                 | 消息类型                     | 说明                                       |
-| ------------------------------------ | ---------------------------- | ------------------------------------------ |
-| /image_combine_raw                   | sensor_msgs::msg::Image      | 左右目上下拼接的图像，用于模型推理         |
-| /image_right_raw/camera_info（可选） | sensor_msgs::msg::CameraInfo | 相机标定参数，用于视差图和深度图之间的转换 |
+| 默认名称（参数可调）                         | 消息类型                     | 说明                                       |
+| -------------------------------------------- | ---------------------------- | ------------------------------------------ |
+| /image_combine_raw                           | sensor_msgs::msg::Image      | 左右目上下拼接的图像，用于模型推理         |
+| /image_combine_raw/right/camera_info（可选） | sensor_msgs::msg::CameraInfo | 相机标定参数，用于视差图和深度图之间的转换 |
 
 ### 6.2. 发布话题
 
