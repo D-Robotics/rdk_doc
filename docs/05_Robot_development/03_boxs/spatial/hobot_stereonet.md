@@ -75,6 +75,18 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
+- 如果以上指令无法将程序更新到最新版本，则需要将apt源文件修改为beta源：
+
+```bash
+# 修改为beta源，执行以下命令：
+sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5-beta  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
+apt update
+
+# 如果需要重新改回为正式源，则执行以下命令：
+sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
+apt update
+```
+
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
@@ -285,9 +297,13 @@ uncertainty_th=-0.10
 # topic
 stereo_image_topic=/image_combine_raw
 camera_info_topic=/image_combine_raw/right/camera_info
+left_camera_info_topic=/image_combine_raw/left/camera_info
 depth_image_topic="~/stereonet_depth"
 depth_camera_info_topic="~/stereonet_depth/camera_info"
+rectify_left_camera_info_topic="~/rectify_left_image/camera_info"
+rectify_right_camera_info_topic="~/rectify_right_image/camera_info"
 pointcloud2_topic="~/stereonet_pointcloud2"
+publish_pcd_enabled=True
 rectify_left_image_topic="~/rectify_left_image"
 rectify_right_image_topic="~/rectify_right_image"
 publish_rectify_bgr=False
@@ -295,6 +311,8 @@ origin_left_image_topic="~/origin_left_image"
 origin_right_image_topic="~/origin_right_image"
 publish_origin_enable=True
 visual_image_topic="~/stereonet_visual"
+publish_visual_enabled=True
+stereonet_frame_id="camera_link"
 
 # mipi cam
 use_mipi_cam=True
@@ -371,10 +389,11 @@ left_img_mask_enable=False
 
 # epipolar
 epipolar_mode=False
-epipolar_img=origin
+epipolar_img=rect
 chessboard_per_rows=20
 chessboard_per_cols=11
 chessboard_square_size=0.06
+feature_epipolar_mode=False
 
 # web
 stereonet_pub_web=True
@@ -398,9 +417,13 @@ while [[ $# -gt 0 ]]; do
     # topic
     --stereo_image_topic) stereo_image_topic=$2; shift 2 ;;
     --camera_info_topic) camera_info_topic=$2; shift 2 ;;
+    --left_camera_info_topic) left_camera_info_topic=$2; shift 2 ;;
     --depth_image_topic) depth_image_topic=$2; shift 2 ;;
+    --rectify_left_camera_info_topic) rectify_left_camera_info_topic=$2; shift 2 ;;
+    --rectify_right_camera_info_topic) rectify_right_camera_info_topic=$2; shift 2 ;;
     --depth_camera_info_topic) depth_camera_info_topic=$2; shift 2 ;;
     --pointcloud2_topic) pointcloud2_topic=$2; shift 2 ;;
+    --publish_pcd_enabled) publish_pcd_enabled=$2; shift 2 ;;
     --rectify_left_image_topic) rectify_left_image_topic=$2; shift 2 ;;
     --rectify_right_image_topic) rectify_right_image_topic=$2; shift 2 ;;
     --publish_rectify_bgr) publish_rectify_bgr=$2; shift 2 ;;
@@ -408,6 +431,8 @@ while [[ $# -gt 0 ]]; do
     --origin_right_image_topic) origin_right_image_topic=$2; shift 2 ;;
     --publish_origin_enable) publish_origin_enable=$2; shift 2 ;;
     --visual_image_topic) visual_image_topic=$2; shift 2 ;;
+    --publish_visual_enabled) publish_visual_enabled=$2; shift 2 ;;
+    --stereonet_frame_id) stereonet_frame_id=$2; shift 2 ;;
 
     # mipi cam
     --use_mipi_cam) use_mipi_cam=$2; shift 2 ;;
@@ -488,6 +513,7 @@ while [[ $# -gt 0 ]]; do
     --chessboard_per_rows) chessboard_per_rows=$2; shift 2 ;;
     --chessboard_per_cols) chessboard_per_cols=$2; shift 2 ;;
     --chessboard_square_size) chessboard_square_size=$2; shift 2 ;;
+    --feature_epipolar_mode) feature_epipolar_mode=$2; shift 2 ;;
 
     # web
     --stereonet_pub_web) stereonet_pub_web=$2; shift 2 ;;
@@ -504,12 +530,13 @@ done
 ros2 launch hobot_stereonet stereonet_model_web_visual_$stereonet_version.launch.py \
 stereo_node_name:=$stereo_node_name \
 uncertainty_th:=$uncertainty_th \
-stereo_image_topic:=$stereo_image_topic camera_info_topic:=$camera_info_topic \
+stereo_image_topic:=$stereo_image_topic camera_info_topic:=$camera_info_topic left_camera_info_topic:=$left_camera_info_topic \
 depth_image_topic:=$depth_image_topic depth_camera_info_topic:=$depth_camera_info_topic \
-pointcloud2_topic:=$pointcloud2_topic rectify_left_image_topic:=$rectify_left_image_topic \
-rectify_right_image_topic:=$rectify_right_image_topic publish_rectify_bgr:=$publish_rectify_bgr \
-origin_left_image_topic:=$origin_left_image_topic origin_right_image_topic:=$origin_right_image_topic \
-publish_origin_enable:=$publish_origin_enable visual_image_topic:=$visual_image_topic \
+rectify_left_camera_info_topic:=$rectify_left_camera_info_topic rectify_right_camera_info_topic:=$rectify_right_camera_info_topic \
+pointcloud2_topic:=$pointcloud2_topic publish_pcd_enabled:=$publish_pcd_enabled \
+rectify_left_image_topic:=$rectify_left_image_topic rectify_right_image_topic:=$rectify_right_image_topic publish_rectify_bgr:=$publish_rectify_bgr \
+origin_left_image_topic:=$origin_left_image_topic origin_right_image_topic:=$origin_right_image_topic publish_origin_enable:=$publish_origin_enable \
+visual_image_topic:=$visual_image_topic publish_visual_enabled:=$publish_visual_enabled \
 use_mipi_cam:=$use_mipi_cam mipi_image_width:=$mipi_image_width mipi_image_height:=$mipi_image_height \
 mipi_image_framerate:=$mipi_image_framerate mipi_frame_ts_type:=$mipi_frame_ts_type \
 mipi_gdc_enable:=$mipi_gdc_enable mipi_lpwm_enable:=$mipi_lpwm_enable mipi_rotation:=$mipi_rotation \
@@ -529,6 +556,7 @@ camera_cx:=$camera_cx camera_cy:=$camera_cy camera_fx:=$camera_fx camera_fy:=$ca
 left_img_mask_enable:=$left_img_mask_enable \
 epipolar_mode:=$epipolar_mode epipolar_img:=$epipolar_img \
 chessboard_per_rows:=$chessboard_per_rows chessboard_per_cols:=$chessboard_per_cols chessboard_square_size:=$chessboard_square_size \
+feature_epipolar_mode:=$feature_epipolar_mode \
 stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format \
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
@@ -551,7 +579,7 @@ bash run_stereo.sh
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 1，看看哪种情况能输出正确的结果
+# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
 </TabItem>
@@ -564,11 +592,14 @@ bash run_stereo.sh --stereonet_version v2.4 --mipi_rotation 0.0
 # 搭配132GS相机
 bash run_stereo.sh --stereonet_version v2.4
 
+# S100还支持大分辨率模型，以132GS相机为例，启动指令如下
+bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
+
 # 注意：
 # 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 # 如果左右目相机顺序不正确，有两个方法调整：
 # 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 1，看看哪种情况能输出正确的结果
+# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 1 或 --mipi_channel 1 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
 </TabItem>
@@ -611,7 +642,7 @@ rviz2
 
 - stereonet_version控制启动不同版本的算法
   - RDK X5可以设置为`v2.0`、`v2.1`、`v2.2`、`v2.3`、`v2.4_int16`、`v2.4_int8`、`v2.5_int16`、`v2.5_int16_96`、`v2.5_int16_544_448`、`v2.5_int16_544_448_96`
-  - RDK S100可以设置为`v2.1`、`v2.4`
+  - RDK S100可以设置为`v2.1`、`v2.4`、`v2.4_1280_704`
 - stereo_node_name控制ros节点的名称
 - uncertainty_th为置信度阈值，只有带置信度的模型并且设置为正数时才会生效，如果需要开启，建议设置为`0.10`
 - stereo_image_topic/camera_info_topic为ros节点需要接收的话题名称，分别为双目图像和对应的相机参数
@@ -652,7 +683,7 @@ rviz2
 - epipolar_mode控制是否开启基于棋盘格的极线对齐检测
 - epipolar_img控制使用`origin`原图还是使用`rect`图
 - chessboard_per_rows/chessboard_per_cols/chessboard_square_size控制棋盘格内点数和棋盘格方块大小（单位m）
-- feature_epipolar_mode制是否开启基于ORB特征点的极线对齐检测
+- feature_epipolar_mode控制是否开启基于ORB特征点的极线对齐检测
 
 - infer_thread_num控制推理线程数，默认是2个推理线程，多线程推理帧率高，但latency较大。可以改为1，单线程推理帧率稍低，但latency也低
 
@@ -888,7 +919,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 - 然后，启动双目算法，开启另一个终端执行：
 
 ```bash
-bash run_stereo.sh --use_mipi_cam False
+bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_right_raw/camera_info
 ```
 
 - 通过网页端查看深度图，在浏览器输入 http://ip:8000 (ip为RDK对应的ip地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
@@ -897,10 +928,10 @@ bash run_stereo.sh --use_mipi_cam False
 
 ### 6.1. 订阅话题
 
-| 默认名称（参数可调）                 | 消息类型                     | 说明                                       |
-| ------------------------------------ | ---------------------------- | ------------------------------------------ |
-| /image_combine_raw                   | sensor_msgs::msg::Image      | 左右目上下拼接的图像，用于模型推理         |
-| /image_right_raw/camera_info（可选） | sensor_msgs::msg::CameraInfo | 相机标定参数，用于视差图和深度图之间的转换 |
+| 默认名称（参数可调）                         | 消息类型                     | 说明                                       |
+| -------------------------------------------- | ---------------------------- | ------------------------------------------ |
+| /image_combine_raw                           | sensor_msgs::msg::Image      | 左右目上下拼接的图像，用于模型推理         |
+| /image_combine_raw/right/camera_info（可选） | sensor_msgs::msg::CameraInfo | 相机标定参数，用于视差图和深度图之间的转换 |
 
 ### 6.2. 发布话题
 
