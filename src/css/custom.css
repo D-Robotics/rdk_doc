@@ -49,6 +49,44 @@
   color: #999;
 }
 
+/* 表格样式 - 确保表格占满屏幕宽度 */
+.table-wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+table.no-wrap-table,
+.no-wrap-table {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-collapse: collapse !important;
+  display: table !important;
+}
+
+.no-wrap-table th,
+.no-wrap-table td {
+  white-space: nowrap;
+  padding: 8px 12px;
+}
+
+/* 确保表格容器的父元素也占满宽度 */
+.table-wrapper > * {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 覆盖Docusaurus/Infima默认的表格宽度限制 */
+div.table-wrapper table,
+div.table-wrapper table.no-wrap-table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
 /* Dify Chatbot Styles - Based on Official Documentation */
 #dify-chatbot-bubble-button {
   background-color: var(--dify-chatbot-bubble-button-bg-color) !important;
@@ -75,7 +113,7 @@
   width: 600px !important;
   height: 500px !important;
   border: none !important;
-  background-color: #ffffff !important; /* Restored white background */
+  background-color: #ffffff !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
   border-radius: 12px !important;
   overflow: hidden !important;
