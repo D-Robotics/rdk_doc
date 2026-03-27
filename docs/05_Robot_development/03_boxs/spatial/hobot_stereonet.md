@@ -683,7 +683,7 @@ rviz2
 - epipolar_mode控制是否开启基于棋盘格的极线对齐检测
 - epipolar_img控制使用`origin`原图还是使用`rect`图
 - chessboard_per_rows/chessboard_per_cols/chessboard_square_size控制棋盘格内点数和棋盘格方块大小（单位m）
-- feature_epipolar_mode制是否开启基于ORB特征点的极线对齐检测
+- feature_epipolar_mode控制是否开启基于ORB特征点的极线对齐检测
 
 - infer_thread_num控制推理线程数，默认是2个推理线程，多线程推理帧率高，但latency较大。可以改为1，单线程推理帧率稍低，但latency也低
 
