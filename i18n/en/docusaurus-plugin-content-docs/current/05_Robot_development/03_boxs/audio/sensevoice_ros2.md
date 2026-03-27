@@ -134,13 +134,13 @@ result_str:向后退,
 
 ```
 
-The default topic name for the smart audio messages published by hobot_audio is: **/audio_smart** and **/audio_asr**, and the `ros2 topic list` result is:
+The default topic name for the smart audio messages published by hobot_audio is: **/audio_smart** and **/asr_text**, and the `ros2 topic list` result is:
 
 ```shell
 $ ros2 topic list
 /audio_smart
-/audio_asr
+/asr_text
 ```
-The `/audio_asr` topic requires a specific wake word "你好，地瓜机器人" to generate output. The result of `ros2 topic echo /asr_text` is:
+The `/asr_text` topic requires a specific wake word "你好，地瓜机器人" to generate output. The result of `ros2 topic echo /asr_text` is:
 
 ![Execution Result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg)

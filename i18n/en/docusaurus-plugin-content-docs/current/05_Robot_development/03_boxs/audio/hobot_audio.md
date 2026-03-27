@@ -118,12 +118,12 @@ If no devices are detected, please check the device connection again.
    <Tabs groupId="board_type">
    <TabItem value="rdk_x3" label="RDK_X3">
 
-   For the configuration method, refer to the RDK User Manual [RDK X3 Waveshare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)
+   For the configuration method, refer to the RDK User Manual [RDK X3 Waveshare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)
 
    </TabItem>
    <TabItem value="rdk_x5" label="RDK_X5">
 
-   For the configuration method, refer to the RDK User Manual [RDK X5 WaveShare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/02_audio/rdk_x5/audio_driver_hat2_rev2.md)
+   For the configuration method, refer to the RDK User Manual [RDK X5 WaveShare Audio Drive](/i18n/en/docusaurus-plugin-content-docs/current/03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)
    
    </TabItem>
    </Tabs>
