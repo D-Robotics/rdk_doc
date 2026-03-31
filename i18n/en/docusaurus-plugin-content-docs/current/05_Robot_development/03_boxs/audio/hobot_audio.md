@@ -118,7 +118,7 @@ If no devices are detected, recheck all connections.
     <Tabs groupId="board_type">
     <TabItem value="rdk_x3" label="RDK_X3">
 
-    The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](/docs/03_Basic_Application/02_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
+    The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
 
     </TabItem>
     <TabItem value="rdk_x5" label="RDK_X5">
