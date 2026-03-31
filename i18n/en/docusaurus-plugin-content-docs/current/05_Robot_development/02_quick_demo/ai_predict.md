@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 This section introduces how to use the model inference feature: input a local image for inference, obtain the rendered image, and save it locally.
 
-Finally, we demonstrate the combined inference and fusion results of multiple algorithms from TROS application algorithms, including [Human Detection](../03_boxs/body/mono2d_body_detection.md), [Age Recognition](../03_boxs/body/mono_face_age_detection.md), [Facial Landmark Detection](../03_boxs/body/mono_face_landmarks_detection.md), [Hand Landmark Detection](../03_boxs/body/hand_lmk_detection.md), and [Hand Gesture Recognition](../03_boxs/body/hand_gesture_detection.md). The example uses input from an MIPI/USB camera or local image playback, with inference results visualized via a web interface.
+Finally, we demonstrate the combined inference and fusion results of multiple algorithms from TROS application algorithms, including [Human Detection and Tracking](../03_boxs/body/mono2d_body_detection.md), [Face Age Detection](../03_boxs/body/mono_face_age_detection.md), [Face 106 Landmarks Detection](../03_boxs/body/mono_face_landmarks_detection.md), [Hand Keypoint Detection](../03_boxs/body/hand_lmk_detection.md), and [Gesture Recognition](../03_boxs/body/hand_gesture_detection.md). The example uses input from an MIPI/USB camera or local image playback, with inference results visualized via a web interface.
 
 Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-Robotics/hobot_dnn)
 
