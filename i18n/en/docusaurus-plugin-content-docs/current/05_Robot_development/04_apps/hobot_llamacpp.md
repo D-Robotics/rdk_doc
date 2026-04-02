@@ -43,15 +43,31 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 - Connect a USB speaker with microphone (or a wired headset if your RDK product has a 3.5mm audio jack). After connecting, verify that the audio device is recognized properly:
 
+        
 ```bash
 root@ubuntu:~# ls /dev/snd/
 
 by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  timer
 ```
 
-The audio device name shown above should typically be "plughw:0,0".
+The audio device name shown in the figure should be "plughw:0,0".
+
+<Tabs groupId="tros-distro">
+<TabItem value="x5" label="RDK X5 Audio Connection">
+
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
+
+</TabItem>
+
+<TabItem value="s100" label="RDK S100 Audio Connection">
+
+
+![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
+
+</TabItem>
+
+</Tabs>
 
 ### Usage Guide
 

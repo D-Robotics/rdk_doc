@@ -43,6 +43,7 @@ import TabItem from '@theme/TabItem';
 
 - RDK 设备外接 usb 音箱含麦克风扬声器（部分RDK 产品包含3.5 mm 耳机孔, 可接入有线耳机体验）插入后检测音频设备是否正常:
 
+        
 ```bash
 root@ubuntu:~# ls /dev/snd/
 
@@ -51,12 +52,23 @@ by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  ti
 
 如图显示的音频设备名应为 "plughw:0,0"。
 
+<Tabs groupId="tros-distro">
+<TabItem value="x5" label="RDK X5 音频连接">
+
+
+
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
 
-RDK S100音频连接图：
+</TabItem>
+
+<TabItem value="s100" label="RDK S100 音频连接">
+
+
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
+</TabItem>
 
+</Tabs>
 
 ### 使用说明
 
