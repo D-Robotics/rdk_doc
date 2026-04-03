@@ -95,7 +95,7 @@ Quick access to high-frequency ops, reducing page switching.
 - Uninstall OpenClaw: Remove OpenClaw and its config. This cannot be undone.
 
 
-<img 
-      src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/openclaw/en/tool_box.png" 
-      style={{ width: '100%', height: 'auto' }}
-    />
+        <img 
+            src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/openclaw/en/tool_box.png" 
+            style={{ width: '100%', height: 'auto' }}
+        />
