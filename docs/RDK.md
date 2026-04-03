@@ -40,7 +40,7 @@ sidebar_position: 0
 - RDK Ultra
 - RDK S100
 
-搭配 TogetheROS.Bot 机器人中间件，RDK 套件可以帮助发者快速搭建机器人原型，开展评测和验证工作。
+搭配 TogetheROS.Bot 机器人中间件，RDK 套件可以帮助开发者快速搭建机器人原型，开展评测和验证工作。
 
 本文将详细说明 RDK X系列套件的使用方法，包括开发环境搭建、示例教程的运行、应用程序的开发、系统镜像的定制等方面内容。无论您选择使用哪种硬件，本文所介绍的内容都将为您提供一致的使用体验。
 
@@ -106,8 +106,7 @@ sidebar_position: 0
 本章节提供 RDK OS 中常用的命令用法，其中 RDK 专属命令可以帮助用户获取、查询系统的一些关键信息。
 
 **十、版本发布记录**
-记录了 RDK OS 的版本发布信息，包括版本号、发布日期、更新内容等，
-帮助用户了解系统的更新和变更。
+记录了 RDK OS 的版本发布信息，包括版本号、发布日期、更新内容等，帮助用户了解系统的更新和变更。
 
 ## 生态项目对接支持
 
@@ -130,7 +129,7 @@ sidebar_position: 0
 5. 产品路线协同沟通（如涉及）  
 
 👉 项目对接入口：  
-[地瓜生态项目对接交流](https://horizonrobotics.feishu.cn/share/base/form/shrcnbJ7HdsqdQtS8W1AER0MLfe)
+[地瓜生态项目对接交流](https://horizonrobotics.feishu.cn/share/base/form/shrcnpxBa3PjdjFmtxZS3tBXw0e)
 
 :::note 说明
 本入口适用于明确的项目或商业落地需求。  
@@ -184,7 +183,7 @@ sidebar_position: 0
 - GPU 桌面稳定性提升
 - Wi-Fi 驱动升级至 2025_0410，提升无线稳定性
 - 闪连接口增强：
-- - 支持在 macOS 系统上使用
+- - 支持在 macOS 上使用
 - - 新增 RDK Studio 链接 U 盘功能
 - hobot-dnn-rdkx5 与 hobot-vio-rdkx5 库已发布至 PyPI
 - Bug 修复

@@ -96,6 +96,9 @@ Answers common questions and issues users may encounter when using the developer
 **9. Appendix**  
 Provides commonly used commands in RDK OS, including RDK-specific commands for querying key system information.
 
+**10. Release Notes**
+It records the release information of the RDK OS, including the version number, release date, update content, etc., to help users understand the system updates and changes.
+
 ## Release Notes
 
 ### RDK X5

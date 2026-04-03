@@ -3,65 +3,68 @@ sidebar_position: 1
 ---
 # mobilenet_unet
 
-
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Function Introduction
 
-The mobilenet_unet segmentation algorithm example uses images as input and performs algorithm inference using BPU. It publishes segmentation result messages.
+The mobilenet_unet segmentation algorithm example takes images as input, performs inference using the BPU, and publishes messages containing segmentation results.
 
-The mobilenet_unet model is trained on the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and the Onnx model. It supports segmentation of categories such as humans, vehicles, road surfaces, and road signs.
+mobilenet_unet is an ONNX model trained on the [Cityscapes](https://www.cityscapes-dataset.com/) dataset, supporting segmentation of categories such as pedestrians, vehicles, roads, and road signs.
 
-Code repository:  (https://github.com/D-Robotics/hobot_dnn)
+Code repository: https://github.com/D-Robotics/hobot_dnn
 
-Applications: mobilenet_unet, composed of MobileNet and UNet, can segment images at the pixel level. It can be used for road recognition, remote sensing map analysis, medical image diagnosis, and other functions. It is mainly applied in the fields of autonomous driving, geological detection, and medical image analysis.
+Application scenarios: mobilenet_unet combines MobileNet and UNet architectures to enable pixel-level image segmentation. It can be used for road recognition, remote sensing map analysis, medical image diagnosis, and similar tasks, primarily applied in autonomous driving, geological inspection, and medical imaging analysis.
 
-Background Blur Example： https://github.com/rusito-23/mobile_unet_segmentation
+Background blur example: https://github.com/rusito-23/mobile_unet_segmentation
 
 ## Supported Platforms
 
-| Platform | System | Function                     |
-| -------- | ------------ | ---------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | - Start MIPI/USB cameras or local image and save the rendered results offline. |
+| Platform                | Runtime Environment                     | Example Features                                                   |
+| ----------------------- | --------------------------------------- | ------------------------------------------------------------------ |
+| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera or local image playback; rendered results saved locally |
+| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   | · Start MIPI/USB camera or local image playback; rendered results saved locally |
+| RDK S100, RDK S100P      | Ubuntu 22.04 (Humble)                   | · Start MIPI/USB camera or local image playback; rendered results saved locally |
+| X86                     | Ubuntu 20.04 (Foxy)                     | · Use local image playback; rendered results saved locally         |
 
 ## Algorithm Information
 
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| mobilenet_unet | X3 | 1x3x1024x2048 | 24.34 |
-| mobilenet_unet | X5 | 1x3x224x224 | 50.33 |
-| deeplabv3 | S100 | 1x3x224x224 | 14.70 |
+| Model           | Platform | Input Size       | Inference FPS |
+| --------------- | -------- | ---------------- | ------------- |
+| mobilenet_unet  | X3       | 1x3x1024x2048    | 24.34         |
+| mobilenet_unet  | X5       | 1x3x224x224      | 50.33         |
+| deeplabv3       | S100     | 1x3x224x224      | 14.70         |
 
-## Preparation
+## Prerequisites
 
-### RDK
+### RDK Platforms
 
-1. The RDK platform has been flashed with the provided  Ubuntu 20.04/22.04 system image.
+1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera is installed on the RDK. If no camera is available, you can evaluate the algorithm by feeding local JPEG/PNG images.
 
-2. TogetheROS.Bot has been successfully installed on the RDK platform.
+### X86 Platform
 
-3. A MIPI or USB camera has been installed on the RDK platform. If there is no camera available, the algorithm's effects can be experienced by using local JPEG/PNG images offline.
+1. The X86 environment has been set up with Ubuntu 20.04 system image.
+2. tros.b has been successfully installed in the X86 environment.
 
-## Usage
+## Usage Guide
 
-### RDK
+### RDK Platforms
 
-#### Use the Camera to Publish Images 
+#### Publishing Images via Camera
 
-##### Use a MIPI Camera to Publish Images 
+##### Using MIPI Camera
 
-The mobilenet_unet segmentation example subscribes to images published by the sensor package. After inference, it publishes algorithm messages and saves the rendered images automatically in the running directory. The saved images are named in the format of `render_frameid_timestampInSeconds_timestampInNanoseconds.jpg`.
+The mobilenet_unet segmentation example subscribes to images published by the sensor package, performs inference, publishes algorithm messages, and automatically saves rendered images in the current working directory. Rendered images are named as `render_frameid_timestamp_sec_timestamp_nsec.jpg`.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -70,7 +73,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -79,20 +82,20 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=1 dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-##### Use a USB Camera to Publish Images 
+##### Using USB Camera
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -101,7 +104,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -110,22 +113,22 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=1 dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-#### Use local images offline
+#### Feeding Local Images
 
-The mobilenet_unet segmentation example uses local JPEG/PNG format images for feedback. After inference, the rendered images of the algorithm results are stored in the local running path.
+The mobilenet_unet segmentation example feeds local JPEG/PNG images, performs inference, and saves the rendered result images in the current working directory.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -134,7 +137,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -144,15 +147,47 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
 ```
 
-## Analysis of Results
+### X86 Platform
 
-### Use a Camera to Publishing Images 
+#### Feeding Local Images
 
-The output shows the following information:
+The mobilenet_unet segmentation example feeds local JPEG/PNG images, performs inference, and saves the rendered result images in the current working directory.
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Set up tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# Set up tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
+```
+
+## Result Analysis
+
+### Publishing Images via Camera
+
+The following output appears in the terminal:
 
 ```shell
 [example-3] [WARN] [1655095719.035374293] [example]: Create ai msg publisher with topic_name: hobot_dnn_detection
@@ -160,25 +195,25 @@ The output shows the following information:
 [example-3] [WARN] [1655095720.693716453] [img_sub]: Sub img fps 6.85
 [example-3] [WARN] [1655095721.072909861] [example]: Smart fps 5.85
 [example-3] [WARN] [1655095721.702680885] [img_sub]: Sub img fps 3.97
-[example-3] [WARN] [1655095722.486407545] [example]: Smart fps 3.54
-[example-3] [WARN] [1655095722.733431396] [img_sub]: Sub img fps 4.85
-[example-3] [WARN] [1655095723.888407681] [example]: Smart fps 4.28
-[example-3] [WARN] [1655095724.069835983] [img_sub]: Sub img fps 3.74
-[example-3] [WARN] [1655095724.900725522] [example]: Smart fps 3.95
-[example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91
 ```
+[example-3] [WARN] [1655095722.486407545] [example]: Smart fps 3.54  
+[example-3] [WARN] [1655095722.733431396] [img_sub]: Sub img fps 4.85  
+[example-3] [WARN] [1655095723.888407681] [example]: Smart fps 4.28  
+[example-3] [WARN] [1655095724.069835983] [img_sub]: Sub img fps 3.74  
+[example-3] [WARN] [1655095724.900725522] [example]: Smart fps 3.95  
+[example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91  
 
-The log output shows that the topic used for publishing the algorithm inference results is `hobot_dnn_detection`, and the topic used for subscribing to the images is `/hbmem_img`. The frame rate at which the images are published will adapt according to the algorithm inference output frame rate. Additionally, rendering the semantic segmentation results on the RDK and saving the images in the running path will cause a decrease in frame rate.
+The output log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The image publishing frame rate adaptively adjusts according to the algorithm's inference output frame rate. Additionally, semantic segmentation results are rendered on the RDK, and the resulting images are saved to the execution path, which reduces the frame rate.
 
-Original image:
+Original image:  
 ![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg)
 
-Rendered image:
+Rendered image:  
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_web.jpeg)
 
-### Use Local Images Offline
+### Using Local Images for Replay
 
-The output shows the following information:
+The following messages appear in the terminal output:
 
 ```shell
 [example-1] [INFO] [1654769881.171005839] [dnn]: The model input 0 width is 2048 and height is 1024
@@ -194,6 +229,6 @@ The output shows the following information:
 [example-1] [INFO] [1654769881.995920396] [UnetPostProcess]: Draw result to file: render_unet_feedback_0_0.jpeg
 ```
 
-The log shows that the algorithm performs inference using the input image `config/raw_unet.jpeg`, and the rendered image is stored with the file `render_unet_feedback_0_0.jpeg`. The rendered image looks like this:
+The output log indicates that the algorithm performs inference using the input image `config/raw_unet.jpeg`, and saves the rendered result as `render_unet_feedback_0_0.jpeg`. The rendered image appears as follows:
 
 ![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg)

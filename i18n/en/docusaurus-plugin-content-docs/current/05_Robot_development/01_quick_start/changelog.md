@@ -5,215 +5,281 @@ sidebar_position: 6
 
 ## tros-humble
 
+### Version: 2.4.6 (2026-02-02)
+
+Feature Changes (`RDK S100` platform):
+- Adapted to system version `V4.0.5` and `OE` version `V3.7.0`.
+
+
 ### Version: 2.4.5 (2025-10-28)
-Bug Fixes (**RDK X5** Platform):
-- Fixed the bug of image resize acceleration with vse in the [**hobot_cv**](/docs/05_Robot_development/02_quick_demo/demo_cv.md) image processing acceleration module.
-- Fixed the incorrect inference latency statistics in the on-board model inference framework [**dnn_node**](https://github.com/D-Robotics/hobot_dnn.git).
-- Fixed the runtime loading failure caused by incorrect installation paths of `ros component so` in modules such as MIPI image capture and algorithm packages.
-- Optimized the configuration of [Image Codec](/docs/05_Robot_development/02_quick_demo/hobot_codec.md), removed invalid configuration parameters, and added debug-specific configuration parameters.
+
+Bug Fixes (`RDK X5` platform):
+
+- Fixed a bug in the image processing acceleration module [`hobot_cv`](../02_quick_demo/demo_cv.md) where VSE-accelerated image resizing failed.
+- Fixed incorrect inference latency statistics in the on-device model inference framework [`dnn_node`](https://github.com/D-Robotics/hobot_dnn.git).
+- Fixed runtime loading failures caused by incorrect installation paths of `ros component so` files for MIPI image capture and algorithm modules.
+- Optimized [image codec](../02_quick_demo/hobot_codec.md) configurations: removed invalid parameters and added debug-specific configuration parameters.
+
 
 ### Version: 2.4.4 (2025-10-24)
-New Features (**RDK S100** Platform):
-- Added **ROI** inference mode to the on-board algorithm inference framework [**dnn_node**](https://github.com/D-Robotics/hobot_dnn.git); the number of output `output tensor` is `output_size x roi_size`.
-- Added the algorithm example of [Human Detection and Tracking (Ultralytics YOLO Pose)](/docs/05_Robot_development/03_boxs/body/mono2d_yolo_pose.md).
-- Added the algorithm example of [Human Instance Tracking](/docs/05_Robot_development/03_boxs/body/reid.md): extracts human features based on the `reid` model, and stores, manages and queries features via the `SQlite` database. Disabled the ROI-based human tracking mode of the human detection and tracking node `mono2d_body_detection` in the launch file; restricted the input ROI size to be less than 3.5 times the actual model input size.
-- Added the algorithm example of [Hand Keypoint and Gesture Recognition (mediapipe)](/docs/05_Robot_development/03_boxs/body/hand_lmk_gesture_mediapipe.md), which implements basic palm detection, pre/post-processing, and `ai msg` publishing. Supports MIPI cameras, USB cameras, and local image playback; supports zero-copy and non-zero-copy image acquisition.
-- Added the algorithm example of [DeepSeek Large Language Model](/docs/05_Robot_development/03_boxs/generate/hobot_xlm.md), supporting human-machine dialogue. **RDK S100** and **RDK S100P** added support for the `DeepSeek_R1_Distill_Qwen_1.5B` and `DeepSeek_R1_Distill_Qwen_7B` models.
+
+New Features (`RDK S100` platform):
+
+- The on-device algorithm inference framework [`dnn_node`](https://github.com/D-Robotics/hobot_dnn.git) now supports `ROI` inference mode, where the number of output tensors equals `output_size × roi_size`.
+- Added a new algorithm example: [Human Detection and Tracking (Ultralytics YOLO Pose)](../03_boxs/body/mono2d_yolo_pose.md).
+- Added a new algorithm example: [Human Instance Tracking](../03_boxs/body/reid.md), which extracts human features using a `reid` model and stores, manages, and queries these features via an `SQLite` database. The launch file disables the `ROI`-based human tracking mode in the `mono2d_body_detection` node and restricts input `ROI` dimensions to less than 3.5× the actual model input size.
+- Added a new algorithm example: [Hand Keypoint and Gesture Recognition (MediaPipe)](../03_boxs/body/hand_lmk_gesture_mediapipe.md). This implements basic palm detection, pre/post-processing, and `ai msg` publishing; supports MIPI cameras, USB cameras, and local image replay; and supports both zero-copy and non-zero-copy image acquisition methods.
+- Added a new algorithm example: [DeepSeek Large Language Model](../03_boxs/generate/hobot_xlm.md), supporting human-robot dialogue. The `RDK S100` and `RDK S100P` platforms now support the `DeepSeek_R1_Distill_Qwen_1.5B` and `DeepSeek_R1_Distill_Qwen_7B` models.
+
 
 ### Version: 2.4.3 (2025-09-15)
-New Features (**RDK X5** Platform):
-- [MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) supports multi-channel image capture startup.
-- [Stereo MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) supports the `sc132gs` stereo camera.
+
+New Features (`RDK X5` platform):
+
+- [MIPI Image Capture](../02_quick_demo/demo_sensor.md) now supports multi-channel image acquisition.
+- [Stereo MIPI Image Capture](../02_quick_demo/demo_sensor.md) now supports the `sc132gs` stereo camera.
+
 
 ### Version: 2.4.2 (2025-08-29)
-New Features (**RDK S100** Platform):
-- [MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) supports the `230ai` stereo module.
-- [Object Detection YOLO](/docs/05_Robot_development/03_boxs/detection/yolo.md) supports the `yolo11` and `yolov12` algorithms; added scripts for startup in `component` mode, supporting 4K image capture for inference via `mipi cam`.
-- [EdgeSAM Segment Anything](/docs/05_Robot_development/03_boxs/segmentation/mono_edgesam.md) added `edgesam` for model inference, `nv12` format data input, and padding for segmentation results (for co-visualization in stereo depth cases).
-- Added the [Text-Image Feature Retrieval Algorithm](/docs/05_Robot_development/03_boxs/function/hobot_clip.md) for text-image feature extraction and retrieval.
-- Added the [DOSOD Algorithm](/docs/05_Robot_development/03_boxs/detection/hobot_dosod.md): added the self-developed open-vocabulary detection DOSOD edge deployment package, and a re-parameterization quantization method for custom modification of detection categories in the DOSOD model.
-- Added [Stereo OCC](/docs/05_Robot_development/03_boxs/spatial/dstereo_occupancy.md), integrating the self-developed stereo OCC network.
-- [Vision-Language Model](/docs/05_Robot_development/04_apps/hobot_llamacpp.md) added adaptation for the `smolvlm2` model (supporting image playback and subscription mode), and the ability to output complete topics after LLM model inference.
-- Added the [Stereo Depth Estimation Algorithm](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md).
+
+New Features (`RDK S100` platform):
+
+- [MIPI Image Capture](../02_quick_demo/demo_sensor.md) now supports the `230ai` stereo module.
+- [YOLO Object Detection](../03_boxs/detection/yolo.md) now supports `yolo11` and `yolov12` algorithms; added scripts to launch via `component` mode, supporting 4K image inference from `mipi cam`.
+- The [EdgeSAM Everything Segmentation](../03_boxs/segmentation/mono_edgesam.md) algorithm now uses `edgesam` for model inference, supports `nv12` format input, and adds padding to segmentation results for joint visualization in stereo depth examples.
+- Added a new algorithm: [Text-to-Image Feature Retrieval](../03_boxs/function/hobot_clip.md) for extracting and retrieving text-image features.
+- Added a new algorithm: [DOSOD](../03_boxs/detection/hobot_dosod.md), including Diguas self-developed open-vocabulary detection DOSOD edge deployment package and a reparameterized quantization method for customizing detection categories in DOSOD models.
+- Added a new algorithm: [Stereo OCC](../03_boxs/spatial/dstereo_occupancy.md), integrating Diguas stereo `OCC` network.
+- The [Vision-Language Model](../04_apps/hobot_llamacpp.md) algorithm now supports the `smolvlm2` model, with image replay and subscription modes; added capability to publish complete topics after `llm` model inference completes.
+- Added a new algorithm: [Stereo Depth Estimation](../03_boxs/spatial/hobot_stereonet.md).
+
 
 ### Version: 2.4.1 (2025-07-30)
-New Features (**RDK X5** Platform):
-- [MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) supports the `imx415` module.
-- [EdgeSAM Segment Anything](/docs/05_Robot_development/03_boxs/segmentation/mono_edgesam.md) added `edgesam` for model inference, `nv12` format data input, and padding for segmentation results (for co-visualization in stereo depth cases).
-- Added the [Human Instance Tracking Algorithm](/docs/05_Robot_development/03_boxs/body/reid.md): extracts human features based on the `reid` model, and stores, manages and queries features via the `SQlite` database.
-- Added the [Stereo OCC Algorithm](/docs/05_Robot_development/03_boxs/spatial/dstereo_occupancy.md), integrating the self-developed stereo OCC network.
-- [Vision-Language Model](/docs/05_Robot_development/04_apps/hobot_llamacpp.md) added adaptation for the `smolvlm2` model (supporting image playback and subscription mode), and the ability to output complete topics after LLM model inference.
+
+New Features (`RDK X5` platform):
+
+- [MIPI Image Capture](../02_quick_demo/demo_sensor.md) now supports the `imx415` module.
+- The [EdgeSAM Everything Segmentation](../03_boxs/segmentation/mono_edgesam.md) algorithm now uses `edgesam` for model inference, supports `nv12` format input, and adds padding to segmentation results for joint visualization in stereo depth examples.
+- Added a new algorithm: [Human Instance Tracking](../03_boxs/body/reid.md), which extracts human features using a `reid` model and stores, manages, and queries these features via an `SQLite` database.
+- Added a new algorithm: [Stereo OCC](../03_boxs/spatial/dstereo_occupancy.md), integrating Diguas stereo `OCC` network.
+- The [Vision-Language Model](../04_apps/hobot_llamacpp.md) now supports the `smolvlm2` model, with image replay and subscription modes; added capability to publish complete topics after `llm` model inference completes.
+
 
 ### Version: 2.4.0 (2025-05-12)
+
 New Features:
-- Supported the **RDK S100** platform.
+
+- Added support for the `RDK S100` platform.
 
 ### Version: 2.3.3 (2025-04-30)
+
 New Features:
-- Supported the **RDK X5 Module** platform.
-- Added an open-source [ASR Solution](/docs/05_Robot_development/03_boxs/audio/sensevoice_ros2.md) based on `sensevoice_cpp`, supporting push of command words and ASR data.
-- Optimized the post-processing latency of the [Stereo Depth Estimation Algorithm](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md) and added the V2.3 model version.
-- Added an edge-side [Vision-Language Model](/docs/05_Robot_development/04_apps/hobot_llamacpp.md) algorithm example based on `llama.cpp`.
+
+- Added support for the `RDK X5 Module` platform.
+- Added an open-source [ASR solution based on `sensevoice_cpp`](../03_boxs/audio/sensevoice_ros2.md), supporting keyword and ASR data streaming.
+- Optimized post-processing time for the [Stereo Depth Estimation](../03_boxs/spatial/hobot_stereonet.md) algorithm and added the V2.3 model version.
+- Added a new edge-side [Vision-Language Model](../04_apps/hobot_llamacpp.md) algorithm example based on `llama.cpp`.
+
 
 ### Version: 2.3.2 (2025-01-15)
+
 Feature Changes:
-- Updated the stereo model of the [Stereo Depth Estimation Algorithm](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md) to optimize depth estimation performance.
-- Optimized the processing flow and web-side visualization effect of the [Multi-Channel Video Analysis](/docs/05_Robot_development/04_apps/video_boxs.md) algorithm application example.
-- Removed non-startable launch files from the [Stereo Auxiliary Package](https://github.com/D-Robotics/hobot_stereonet_utils).
+
+- Updated the stereo model in [Stereo Depth Estimation](../03_boxs/spatial/hobot_stereonet.md) to improve depth estimation accuracy.
+- Optimized the workflow and web-based visualization effects in the [Multi-Stream Video Analysis](../04_apps/video_boxs.md) algorithm example.
+- Removed some non-functional launch files from the [Stereo Utility Package](https://github.com/D-Robotics/hobot_stereonet_utils).
 
 New Features:
-- Added [ZED Camera Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) to start the ZED camera for stereo image acquisition (as input for the stereo depth estimation algorithm).
-- Added the [DOSOD Algorithm](/docs/05_Robot_development/03_boxs/detection/hobot_dosod.md) and the self-developed open-vocabulary detection DOSOD edge deployment package.
+
+- Added [ZED Camera Image Capture](../02_quick_demo/demo_sensor.md) to acquire stereo images as input for stereo depth estimation algorithms.
+- Added the [DOSOD algorithm](../03_boxs/detection/hobot_dosod.md), including Diguas self-developed open-vocabulary detection DOSOD edge deployment package.
 
 Bug Fixes:
-- Fixed the crash caused by box out-of-bounds in the post-processing of the [yolov8-seg Image Segmentation](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md) algorithm.
-- Fixed incorrect frame rate statistics in the [Image Codec](/docs/05_Robot_development/02_quick_demo/hobot_codec.md) module.
-- Fixed the i2c detection issue in [Stereo MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) and added lpwm switch configuration.
+- Fixed a crash in the post-processing of the [yolov8-seg Image Segmentation](../03_boxs/segmentation/yolov8_seg.md) algorithm caused by bounding boxes exceeding image boundaries.
+- Fixed incorrect frame rate statistics in [Image Codec](../02_quick_demo/hobot_codec.md).
+- Fixed I2C detection issues in [Stereo MIPI Image Capture](../02_quick_demo/demo_sensor.md) and added LPWM switch configuration.
+
 
 ### Version: 2.3.1 (2024-11-20)
+
 Feature Changes:
-- Upgraded the dependent `opencv` version from 3.4.5 to 4.5.4 (the latest release for Ubuntu 22.04).
+
+- Upgraded the dependent `opencv` version from 3.4.5 to 4.5.4 (the latest release version used in Ubuntu 22.04).
 
 New Features:
-- [Image Publishing Tool](/docs/05_Robot_development/02_quick_demo/demo_tool.md) supports publishing `bgr/rgb` format message data and configuring the frame_id of published messages.
-- [Human Detection and Tracking Algorithm](/docs/05_Robot_development/03_boxs/body/mono2d_body_detection.md) supports configuring subscribed message topics and running in component mode; the algorithm preprocessing supports inference after scaling input images; the launch script supports compressed image playback and configuring image paths.
-- Fixed incorrect inference latency calculation in multi-threaded inference of the [On-Board Algorithm Model Inference and Deployment Framework](https://github.com/D-Robotics/hobot_dnn.git); added support for configuring the number of tasks in the configuration file.
-- [Image Codec Node](/docs/05_Robot_development/02_quick_demo/hobot_codec.md) uses the frame_id of subscribed image messages as the frame_id of output image messages and supports publish frame drop control.
-- [Gesture Recognition Algorithm](/docs/05_Robot_development/03_boxs/body/hand_gesture_detection.md) supports configuring post-processing thresholds at startup and dynamic gesture recognition.
-- Added the [Human Face Age Detection Algorithm](/docs/05_Robot_development/03_boxs/body/mono_face_age_detection.md) for human age detection.
-- Added the [Human Face 106 Keypoint Detection Algorithm](/docs/05_Robot_development/03_boxs/body/mono_face_landmarks_detection.md) for detecting 106 facial keypoint information.
-- Added the [Perception Message Fusion Node](https://github.com/D-Robotics/tros_perception_fusion): subscribes to multiple topics of type [PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg), performs time alignment and data deduplication, and fuses them into a single topic for publication. See [Multi-Algorithm Inference](/docs/05_Robot_development/02_quick_demo/ai_predict.md) for application.
-- Added the [Perception Message Filter Node](https://github.com/D-Robotics/tros_lowpass_filter): adopts the OneEuroFilter strategy to smooth points and bounding boxes, used for position correction of detection boxes and keypoint data (human body, face, hand, etc.) in perception results to fix jitter issues. See [Multi-Algorithm Inference](/docs/05_Robot_development/02_quick_demo/ai_predict.md) for application.
-- Added the [Stereo Auxiliary Package](https://github.com/D-Robotics/hobot_stereonet_utils) for acquisition of stereo images and depth images.
-- Added the [Multi-Channel Video Analysis](/docs/05_Robot_development/04_apps/video_boxs.md) algorithm application example: pulls multi-channel H264 and H265 streams via the RTSP protocol for inference and visualizes perception results on the web side.
+
+- The [Image Publisher Tool](../02_quick_demo/demo_tool.md) now supports publishing `bgr/rgb` format message data and configuring the `frame_id` of published messages.
+- The [Human Detection and Tracking Algorithm](../03_boxs/body/mono2d_body_detection.md) now supports configurable subscription topics, `component` mode execution, input image scaling during preprocessing, and launch scripts that support compressed image replay with configurable image paths.
+- The [On-Device Algorithm Model Inference and Deployment Framework](https://github.com/D-Robotics/hobot_dnn.git) fixed incorrect inference time calculation in multi-threaded inference and added support for configuring task counts in config files.
+- The [Image Codec Node](../02_quick_demo/hobot_codec.md) now uses the `frame_id` from subscribed image messages as the output message `frame_id` and supports frame-dropping control.
+- The [Gesture Recognition Algorithm](../03_boxs/body/hand_gesture_detection.md) now supports configurable post-processing thresholds at startup and dynamic gesture recognition.
+- Added a new algorithm: [Face Age Detection](../03_boxs/body/mono_face_age_detection.md) for estimating human age.
+- Added a new algorithm: [106-Face Landmark Detection](../03_boxs/body/mono_face_landmarks_detection.md) for detecting 106 facial landmarks.
+- Added a new [Perception Message Fusion Node](https://github.com/D-Robotics/tros_perception_fusion) to subscribe to multiple topics of type [PerceptionTargets](https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg), perform time alignment and deduplication, and publish a fused topic. See [Multi-Algorithm Inference](../02_quick_demo/ai_predict.md) for usage reference.
+- Added a new [Perception Message Filtering Node](https://github.com/D-Robotics/tros_lowpass_filter) using the OneEuroFilter strategy to smooth points and bounding boxes, correcting jitter in detection results for humans, faces, hands, etc. See [Multi-Algorithm Inference](../02_quick_demo/ai_predict.md) for usage reference.
+- Added a new [Stereo Utility Package](https://github.com/D-Robotics/hobot_stereonet_utils) for capturing stereo and depth images.
+- Added a new [Multi-Stream Video Analysis](../04_apps/video_boxs.md) algorithm example that pulls multiple H.264/H.265 streams via RTSP, performs inference, and visualizes perception results on the web.
 
 Bug Fixes:
-- Fixed the startup failure of the `imx219` module in [MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md).
-- Added hand box expansion in the preprocessing of the [Hand Keypoint Detection Algorithm](/docs/05_Robot_development/03_boxs/body/hand_lmk_detection.md) to resolve incorrect keypoint output by the algorithm.
+
+- Fixed startup failure of the `imx219` module in [MIPI Image Capture](../02_quick_demo/demo_sensor.md).
+- Added hand bounding box expansion in the preprocessing of the [Hand Keypoint Detection Algorithm](../03_boxs/body/hand_lmk_detection.md) to resolve incorrect keypoint outputs.
+
 
 ### Version: 2.3.0 (2024-09-19)
+
 New Features:
-- Supported the **RDK X5** platform.
-- Added [Stereo MIPI Image Capture](/docs/05_Robot_development/02_quick_demo/demo_sensor.md) for data acquisition.
-- Added reference algorithms for `yolov8` and `yolov10` [Object Detection](/docs/05_Robot_development/03_boxs/detection/yolo.md), and `yolov8-seg` [Image Segmentation](/docs/05_Robot_development/03_boxs/segmentation/yolov8_seg.md) in the algorithm repository.
-- Added the [YOLO-World Algorithm](/docs/05_Robot_development/03_boxs/detection/hobot_yolo_world.md) to the algorithm repository for open-vocabulary input detection.
-- Added the [Optical Flow Estimation Algorithm](/docs/05_Robot_development/03_boxs/function/mono_pwcnet.md) to the algorithm repository for optical flow detection.
-- Added the [Segment Anything Algorithm](/docs/05_Robot_development/03_boxs/segmentation/mono_mobilesam.md) to the algorithm repository for universal segmentation.
-- Added the [Text-Image Feature Retrieval Algorithm](/docs/05_Robot_development/03_boxs/function/hobot_clip.md) to the algorithm repository for text-image feature extraction and retrieval.
-- Added the [Stereo Depth Estimation Algorithm](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md) to the algorithm repository, implementing vision-based depth estimation.
+
+- Added support for the `RDK X5` platform.
+- Added [Stereo MIPI Image Capture](../02_quick_demo/demo_sensor.md) to data acquisition.
+- Added reference algorithms to the algorithm repository: `yolov8` and `yolov10` for [Object Detection](../03_boxs/detection/yolo.md), and `yolov8-seg` for [Image Segmentation](../03_boxs/segmentation/yolov8_seg.md).
+- Added the [YOLO-World Algorithm](../03_boxs/detection/hobot_yolo_world.md) for open-vocabulary object detection.
+- Added the [Optical Flow Estimation Algorithm](../03_boxs/function/mono_pwcnet.md) for optical flow detection.
+- Added the [Everything Segmentation Algorithm](../03_boxs/segmentation/mono_mobilesam.md) for universal segmentation.
+- Added the [Text-to-Image Feature Retrieval Algorithm](../03_boxs/function/hobot_clip.md) for text-image feature extraction and retrieval.
+- Added the [Stereo Depth Estimation Algorithm](../03_boxs/spatial/hobot_stereonet.md) for vision-based depth estimation.
+
 
 ### Version: 2.2.0 (2024-04-11)
+
 Feature Changes:
-- Adapted to Ubuntu 22.04 and ROS2 Humble based on TROS Foxy 2.1.3.
-- Changed the TROS installation path from `/opt/tros` to `/opt/tros/humble`, aligning with the directory hierarchy and naming of ROS2 installation paths.
-- Discontinued the `tros-ros-base` installation package (including ROS2 core packages such as rclcpp, rclpy, ros2cli); uses standard ROS2 distribution packages, and dependent ROS2 Humble packages are installed automatically when installing TROS Humble.
-- Adopted ROS2 FastDDS zero-copy communication for modules involving image data (data acquisition, image codec, algorithm examples, etc.).
-- Changed the QoS Reliability for zero-copy communication from `RMW_QOS_POLICY_RELIABILITY_RELIABLE` (rclcpp::QoS()) to `RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT` (rclcpp::SensorDataQoS()) to avoid potential stability risks in zero-copy mode.
-- Refactored `hobot_dnn` to use the underlying on-board inference framework `libdnn` instead of `easydnn`.
-- Upgraded the speech algorithm SDK in `hobot_audio` to use the underlying on-board inference framework `libdnn` instead of `easydnn`.
-- Adapted `hobot_trigger` to ROS2 Humble rosbag2.
+
+- Based on TROS Foxy 2.1.3, adapted to Ubuntu 22.04 and ROS2 Humble.
+- Changed the TROS installation path from `/opt/tros` to `/opt/tros/humble` to align with ROS2’s directory structure and naming convention.
+- Discontinued the `tros-ros-base` installation package (which included core ROS2 packages like rclcpp, rclpy, ros2cli); standard ROS2 distribution packages are now used, and ROS2 Humble dependencies are automatically installed when installing TROS Humble.
+- Enabled ROS2 FastDDS zero-copy communication for modules handling image data, including data acquisition, image codec, and algorithm examples.
+- Changed the QoS Reliability policy for zero-copy communication from `RMW_QOS_POLICY_RELIABILITY_RELIABLE` (`rclcpp::QoS()`) to `RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT` (`rclcpp::SensorDataQoS()`) to mitigate potential stability risks with zero-copy.
+- Refactored `hobot_dnn` to use the lower-level on-device inference framework `libdnn`, replacing `easydnn`.
+- Upgraded the speech algorithm SDK in `hobot_audio` to use the lower-level on-device inference framework `libdnn`, replacing `easydnn`.
+- Adapted `hobot_trigger` to ROS2 Humble’s rosbag2.
 
 New Features:
-- Added bloom compilation and packaging scripts to `robot_dev_config` for compiling and packaging TROS on the ARM platform.
-- Added the `frame_ts_type` configuration item to the `hobot_mipi_cam` node, supporting `realtime` (for calculating communication latency) and `sensor` (default, for sensor timestamp synchronization) parameters.
-- Added the `hobot_shm` node for configuring the ROS2 zero-copy environment.
+- Added Bloom compilation and packaging scripts in `robot_dev_config` for compiling and packaging TROS on ARM platforms.
+- Added a `frame_ts_type` configuration option to the `hobot_mipi_cam` node, supporting `realtime` (for communication latency measurement) and `sensor` (default, for sensor timestamp synchronization).
+- Added a new `hobot_shm` node for configuring the ROS2 zero-copy environment.
 
 Bug Fixes:
 - Fixed compatibility issues introduced by compiler upgrades.
-- Fixed path dependency issues in compiling some ROS2 packages on the board.
+- Fixed path dependency issues in on-device compilation of certain ROS2 packages.
 
 ## tros-foxy
 
 ### Version: 2.1.3 (2024-03-11)
+
 Feature Changes:
-- Changed the data type of JPEG-compressed images from `sensor_msgs::msg::Image` to the standard `sensor_msgs::msg::CompressedImage`, supporting viewing TROS-published JPEG images with tools such as Foxglove and ROS2 RQT (involving hobot_websocket, hobot_codec, hobot_image_publisher, hobot_usb_cam modules).
-- Unified the use of the `jpeg/mjpeg` configuration item to specify publishing/subscribing JPEG-compressed images; removed the `jpeg-compressed/mjpeg-compressed` configuration items (involving hobot_codec and hobot_usb_cam modules).
-- Introduced the `TROS_DISTRO` environment variable for indicating the TROS distribution; the value of `TROS_DISTRO` is empty after executing `source /opt/tros/setup.bash`/`source /opt/tros/local_setup.bash`. Changed the configuration file path for modules such as hobot_codec, hobot_audio, hobot_mipi_cam, and hobot_usb_cam from `/opt/tros/lib` to `/opt/tros/${TROS_DISTRO}/lib`.
+
+- Changed the data type for JPEG-compressed images from `sensor_msgs::msg::Image` to the standard `sensor_msgs::msg::CompressedImage`, enabling tools like Foxglove and ROS2 rqt to view JPEG images published by TROS. Affects modules: hobot_websocket, hobot_codec, hobot_image_publisher, hobot_usb_cam.
+- Unified JPEG/MJPEG configuration options for publishing/subscribing JPEG-compressed images; removed `jpeg-compressed`/`mjpeg-compressed` options. Affects modules: hobot_codec and hobot_usb_cam.
+- Introduced the environment variable `TROS_DISTRO` to indicate the TROS distribution. After running `source /opt/tros/setup.bash` or `source /opt/tros/local_setup.bash`, `TROS_DISTRO` is empty. Configuration file paths for modules like hobot_codec, hobot_audio, hobot_mipi_cam, and hobot_usb_cam changed from `/opt/tros/lib` to `/opt/tros/${TROS_DISTRO}/lib`.
+
 
 ### Version: 2.1.2 (2024-01-19)
+
 New Features:
+
 - Refactored `hobot_usb_cam` to support more format configurations and transcoding.
-- Updated the speech SDK in `hobot_audio` to support both 2-mic and 4-mic microphone boards; added the `micphone_name` configuration for device ID.
+- Updated the voice SDK in `hobot_audio` to support both 2-mic and 4-mic microphone boards; added `micphone_name` configuration for device ID.
 
 Bug Fixes:
-- Fixed the incorrect step field setting in data messages sent by the `hobot_rgbd_cam` node.
-- Updated the audio playback function call in `hobot_tts` to resolve playback failures on new system versions.
-- Removed the config device tree file from `hobot_llm` and updated the README; the ION memory size can be set via command-line tools on new system versions.
+
+- Fixed incorrect `step` field settings in data messages sent by the `hobot_rgbd_cam` node.
+- Updated audio playback function calls in `hobot_tts` to resolve playback failures on newer system versions.
+- Removed the config device tree file from `hobot_llm` and updated the README; ION memory size can now be set via command-line tools on newer system versions.
 
 ### Version: 2.1.1 (2023-11-03)
+
 New Features:
-- Added the `hobot_chatbot` node: calls the intelligent speech, large language model, and text-to-speech modules to implement on-board voice chat functionality.
+
+- Added the `hobot_chatbot` node, integrating smart voice, large language models, and text-to-speech modules to enable on-device voice chat functionality.
 
 Bug Fixes:
-- Fixed the application exit caused by specific characters in the text-to-speech `hobot_tts` node.
+
+- Fixed an issue in the text-to-speech `hobot_tts` node where certain characters caused the application to exit unexpectedly.
 
 ### Version: 2.1.0 (2023-09-14)
+
 Feature Changes:
-- Updated `tros-ros-base` to the latest ROS2 Foxy source code, compatible with the latest ROS2 Foxy packages.
-- Only `source /opt/tros/setup.bash` is required to use ROS2 Foxy packages; no more script-based soft link creation.
+- Updated `tros-ros-base` to the latest ROS2 Foxy source code, ensuring compatibility with the newest ROS2 Foxy packages.  
+- When using ROS2 Foxy packages, simply run `source /opt/tros/setup.bash`; creating symbolic links via scripts is no longer required.
 
 New Features:
-- Added a parameter to the text-to-speech `hobot_tts` node for specifying the audio playback device.
-- Added the large language model `hobot_llm` node for edge-side LLM experience.
-- Added the `jpeg-compressed` configuration item to the `in_format` parameter of the [Image Codec](/docs/05_Robot_development/02_quick_demo/hobot_codec.md) `hobot_codec` node, and the subscribed topic data type is selected based on the configuration item.
+
+- The text-to-speech node `hobot_tts` now supports a new parameter to specify the audio playback device.
+- Added a large language model (LLM) node `hobot_llm`, enabling on-device LLM experiences.
+- The image codec node `hobot_codec` now includes a new `in_format` configuration option: `jpeg-compressed`. The subscribed topic data type is automatically selected based on this configuration.
 
 Bug Fixes:
-- Fixed the incorrect step field setting in RGB format data messages sent by the MIPI image capture `hobot_mipi_cam` node.
+
+- Fixed an incorrect `step` field setting in RGB format data messages sent by the MIPI camera node `hobot_mipi_cam`.
 
 ### Version: 2.0.2 (2023-08-28)
+
 Feature Changes:
-- Changed the ROS2 source configured during tros.b installation (`/etc/apt/sources.list.d/ros2.list`) to the Tsinghua mirror source, resolving slow installation and failure of ROS2 packages.
+
+- During tros.b installation, the configured ROS2 apt source (`/etc/apt/sources.list.d/ros2.list`) has been switched to Tsinghua University’s mirror, resolving slow download speeds and installation failures for ROS2 packages.
 
 New Features:
-- Added permission check when configuring the environment via tros.b startup scripts (`source /opt/tros/setup.bash` and `source /opt/tros/local_setup.bash`). Automatically switches to the root account if the current account does not have root privileges, resolving tros.b usage failures due to insufficient permissions.
-- Added audio device ID parameter configuration to the intelligent speech algorithm `hobot_audio` node for easy secondary development.
-- Added the ability to send tasks to the Trigger module via std_msg topics in the event trigger `hobot_trigger` node, standardizing the Trigger configuration method.
+
+- Added permission checks when sourcing tros.b environment setup scripts (`source /opt/tros/setup.bash` and `source /opt/tros/local_setup.bash`). If the current user lacks root privileges, the system will automatically prompt and switch to a root account, preventing tros.b usage failures due to insufficient permissions.
+- The intelligent audio algorithm node `hobot_audio` now supports configuring an audio device ID parameter, facilitating secondary development.
+- The event-trigger node `hobot_trigger` now supports task assignment to the Trigger module via standard `std_msgs` topics, standardizing Trigger configuration methods.
 
 Bug Fixes:
-- Fixed the processing failure of simultaneous crop&resize in the image acceleration processing `hobot_cv` node.
-- Fixed the error log output during startup of the MIPI image capture `hobot_mipi_cam` node.
-- Fixed the invalid configuration of the launch file for the data visualization message conversion `hobot_visualization` node.
+
+- Fixed an issue where the accelerated image processing node `hobot_cv` failed during simultaneous crop & resize operations.
+- Resolved erroneous error logs output by the MIPI camera node `hobot_mipi_cam` upon startup.
+- Fixed invalid launch file configurations for the data visualization message conversion node `hobot_visualization`.
 
 ### Version: 2.0-Release (2.0.1) (2023-06-10)
+
 Feature Changes:
-- Upgraded the speech algorithm to optimize ASR (Automatic Speech Recognition) performance.
-- Optimized the `model_name` configuration item of algorithm examples: automatically parses the `model_name` configuration from the model file, resolving model loading failures caused by incorrect parameter configuration and improving the ease of secondary development for algorithms.
-- Removed the nav2 package from the tros.b installation package; users can install the latest ROS2 nav2 package directly on the RDK via the `apt` command, resolving stability issues with the old nav2 version.
+
+- Upgraded voice algorithms to improve ASR (Automatic Speech Recognition) performance.
+- Optimized the `model_name` configuration in algorithm examples: `model_name` is now automatically parsed from the model file, preventing model loading failures caused by incorrect manual configuration and improving ease of secondary development.
+- Removed the Nav2 package from the tros.b installer. Users should now directly install the latest ROS2 Nav2 package on RDK using `apt`, resolving stability issues present in older Nav2 versions.
 
 New Features:
-- Added support for the **RDK Ultra** platform.
-- Added nodes such as `hobot_trigger` and `hobot_visalization` for Trigger event triggering and rosbag data acquisition/visualization, helping users locate, reproduce and visualize perception, planning and control issues in robot scenarios. Users can also perform secondary development to implement data triggering, recording and real-time transmission.
-- The USB image capture node automatically adapts to the device ID of USB cameras, lowering the threshold for using USB cameras.
-- Added the Visual Inertial Odometry (VIO) algorithm node: implements a low-cost, high-robustness high-precision robot positioning algorithm based on vision.
-- Added the text-to-speech `hobot_tts` node for converting text to speech for broadcast.
-- Added the LiDAR object detection algorithm `hobot_centerpoint` node.
-- Added the BEV perception algorithm `hobot_bev` node.
-- Added the stereo depth estimation algorithm `hobot_stereonet` node.
+
+- Added support for the `RDK Ultra` platform.
+- Introduced new nodes including `hobot_trigger` and `hobot_visualization` for triggering events, capturing, and visualizing rosbag data—helping users diagnose, reproduce, and visualize perception and planning/control issues in robotic scenarios. Users can also extend these nodes for custom data-triggering, recording, and real-time transmission features.
+- The USB camera capture node now auto-detects USB camera device IDs, lowering the barrier to using USB cameras.
+- Added a Visual Inertial Odometry (VIO) algorithm node, enabling low-cost, robust, high-precision robot localization based on visual inputs.
+- Added a text-to-speech node `hobot_tts` to convert text into spoken audio.
+- Added a LiDAR-based object detection algorithm node `hobot_centerpoint`.
+- Added a Bird’s-Eye View (BEV) perception algorithm node `hobot_bev`.
+- Added a stereo depth estimation algorithm node `hobot_stereonet`.
 
 Bug Fixes:
-- Upgraded easydnn (v1.6.1) and dnn (v1.18.4) for **RDK X3**, fixing operator crash issues and adding support for more operators.
+
+- Upgraded `easydnn` (v1.6.1) and `dnn` (v1.18.4) on `RDK X3`, fixing operator crashes and adding support for more operators.
 - Fixed incorrect depth data published by the RGBD image capture node.
 
 Other Updates:
-- Optimized the human detection and tracking algorithm node to support adaptive output of algorithm perception result coordinates based on input image resolution.
-- Fixed the compilation failure caused by incorrect path in the orb_slam3 algorithm compilation script.
+
+- Optimized the human detection and tracking algorithm node to adaptively scale output coordinates based on input image resolution.
+- Fixed a compilation failure in the ORB-SLAM3 algorithm caused by an incorrect script path.
 
 ### Version: 2.0-Beta (2.0.0) (2023-05-29)
-2.0-Beta (2.0.0) is the first 2.x version of tros.b. Users of the [1.x version of tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) are recommended to upgrade to the 2.x version.
+
+Version 2.0-Beta (2.0.0) is the first release in the 2.x series of tros.b. Users of [tros.b 1.x](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) are recommended to upgrade to the 2.x series.
 
 Feature Changes:
-- Changed the code hosting platform from GitLab to GitHub for easier secondary development by more developers.
-- Integrated a more efficient package management mechanism to speed up version upgrades and simplify robot application installation.
+
+- Migrated the code hosting platform from GitLab to GitHub to facilitate broader community participation in secondary development.
+- Integrated a more efficient package management mechanism to accelerate version upgrades and simplify robot application deployment.
 
 New Features:
-- Supported the new core board development kit **RDK X3 Module**.
-- Added speech ASR recognition result output to `hobot_audio` for easy development of speech applications.
+
+- Added support for the new core board development kit: RDK X3 Module.
+- Enhanced `hobot_audio` to output ASR recognition results, simplifying voice application development.
 
 Bug Fixes:
-- Fixed the crash of the MobileNet_SSD model post-processing built into `dnn_node` in multi-threaded scenarios.
-- Fixed the model inference failure with DDR input in `dnn_node` on the X86 platform.
-- Fixed the compilation failure of `hobot_codec` and `hobot_image_publisher` on the X86 platform.
+
+- Fixed a crash in the post-processing stage of the built-in MobileNet_SSD model within `dnn_node` under multi-threaded conditions.
+- Resolved model inference failures in `dnn_node` on x86 platforms when using DDR as input.
+- Fixed compilation failures of `hobot_codec` and `hobot_image_publisher` on x86 platforms.
 
 Other Updates:
-- Updated the launch scripts of examples: applications reference the launch scripts of dependent modules and configure parameters.
-- Updated the D-Robotics logo on the display side of websocket.
+
+- Updated example launch scripts to reference dependent modules’ launch files and configure parameters accordingly.
+- Updated the D-Robotics logo displayed on the WebSocket frontend.

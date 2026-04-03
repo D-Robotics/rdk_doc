@@ -28,8 +28,8 @@ import TabItem from '@theme/TabItem';
 
 应用场景：人体检测和跟踪算法是人体运动视觉分析的重要组成部分，可实现人体姿态分析以及人流量统计等功能，主要应用于人机交互、游戏娱乐等领域。
 
-姿态检测案例：[4.3. 姿态检测](../../apps/fall_detection)    
-小车人体跟随案例：[4.4. 小车人体跟随](../../apps/car_tracking)  
+姿态检测案例：[5.4.3 姿态检测](../../apps/fall_detection)    
+小车人体跟随案例：[5.4.4 小车人体跟随](../../apps/car_tracking)  
 基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台

@@ -16,7 +16,11 @@ import TabItem from '@theme/TabItem';
 :::warning 注意
 
 - RDK Studio 支持使用读卡器和闪连两种方式进行烧录，其中，闪连方式使用 USB 2.0 接口，烧录速度较慢，因此推荐使用读卡器方式以获得更快的烧录体验。
+<<<<<<< HEAD
 - 如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加 RDK 设备](../09_RDK_Studio/04_Device_management/01_hardware_resource.md)。
+=======
+- 如果您的存储设备已完成过系统烧录，可跳过此章节直接进行[添加 RDK 设备](../09_RDK_Studio/05_Device_management/01_hardware_resource.md)。
+>>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276
 :::
 
 ## 烧录准备

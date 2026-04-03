@@ -5,7 +5,7 @@ sidebar_position: 1
 
 This chapter mainly introduces the complete deployment method of the D-Robotics algorithm toolchain development environment.
 
-## RDK-X3
+## RDK-X3 
 
 ### Instructions for Using Deliverables {#deliverables_instructions}
 
@@ -14,9 +14,9 @@ Before deploying the algorithm toolchain environment, please download the **Embe
 Unpack the SDK source code package of the algorithm toolchain:
 
 ```bash
-// The sample version is v1.0.0
+// The sample version is v2.6.6
 
-wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+wget -c ftp://vrftp.horizon.ai/Open_Explorer_gcc_9.3.0/2.6.6/horizon_xj3_open_explorer_v2.6.6_py38_20240717.tar.gz
 
 // More model conversion examples, available for download as needed!
 //wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
@@ -31,20 +31,35 @@ Extract the algorithm toolchain SDK source code package:
 ```bash
   // The sample version is v1.0.0
 
-  tar -xvf Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz
+  tar -xvf horizon_xj3_open_explorer_v2.6.6_py38_20240717.tar.gz
 ```
 
 The directory structure after unpacking is as follows:
 
--   **ai_benchmark**: This directory provides evaluation examples for common classification, detection, and segmentation models, including performance evaluation and accuracy evaluation.
-
--   **horizon_runtime_sample**: This directory provides on-board examples for fixed-point models.
-
--   **package**: This directory contains some basic libraries and components for running the released artifacts.
-
-    1. The ``board`` folder contains the executable program at the board side.
-
-    2. The ``host`` folder contains the environment dependencies, tool dependencies, and libdnn libraries and headers related to model inference in the x86 development environment.
+```
+├── bsp
+│  ├── tools
+│  └── resolve.sh
+└── ddk
+   ├── package  # This directory contains basic libraries and components required for the release to run
+   │   ├── board
+   │   │   ├── hrt_tools  # Contains the source code and executables for hrt_model_exec and hrt_bin_dump
+   │   │   └── install.sh # One-click installation script to install hrt tools to a specified development board
+   │   └── host
+   │       ├── ai_toolchain
+   │       ├── host_package
+   │       ├── hrt_tools
+   │       ├── install.sh
+   │       └── resolve.sh  # Used to download cross-compilation tools, torch, and other dependencies
+   └── samples
+       ├── ai_benchmark  # Provides evaluation examples for common classification, detection, and segmentation models, including performance and accuracy evaluation
+       ├── ai_toolchain # Provides a series of examples related to model algorithms
+       │   ├── horizon_model_convert_sample
+       │   ├── horizon_model_train_sample
+       │   ├── horizon_runtime_sample
+       │   └── model_zoo
+       └── model_zoo -> ai_toolchain/model_zoo
+```
 
 
 
@@ -201,8 +216,8 @@ Board deployment requires you to update the board image to the latest version ac
 
 #### Preparation of Supplementary Files
 
-Some supplementary tools of the algorithm toolchain are not included in the system image. These tools have been placed in the ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/`` package. 
-Enter the ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/board`` directory and execute the installation script.
+Some supplementary tools of the algorithm toolchain are not included in the system image. These tools have been placed in the ``horizon_xj3_open_explorer_vX.X.X-XXXXX/ddk/package/`` package. 
+Enter the ``horizon_xj3_open_explorer_vX.X.X-XXXXX/ddk/package/board/`` directory and execute the installation script.
 The command is as follows:
 
 ```bash
@@ -210,7 +225,7 @@ The command is as follows:
   bash install_xj3.sh ${board_ip}
 
   // For RDK Ultra development board, execute the command
-  bash install_ultra.sh ${board_ip}
+  bash install.sh ${board_ip}
 ```
 :::info Note
 
@@ -232,9 +247,9 @@ Before deploying the algorithm toolchain environment, please download D-Robotics
 Download the Embedded Application Development Sample Deliverables Package:
 
 ```bash
-  // Example version: V1.2.6
+  // Example version: V1.2.8
 
-  wget -c ftp://oeftp@sunrise.horizon.cc:10021/runtime_package/Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://x5ftp@vrftp.horizon.ai/OpenExplorer/v1.2.8_release/horizon_x5_open_explorer_v1.2.8-py310_20240926.tar.gz --ftp-password=x5ftp@123$%
 
   // More model conversion examples—download as needed!
   //wget -c ftp://oeftp@sunrise.horizon.cc:10021/model_convert_sample/horizon_model_convert_sample.tar.xz --ftp-password=Oeftp~123$%
@@ -245,22 +260,37 @@ Download the Embedded Application Development Sample Deliverables Package:
 Extract the algorithm toolchain SDK source code package:
 
 ```bash
-  // Example version: V1.2.6
+  // Example version: V1.2.8
 
-  tar -xvf Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz
+  tar -xvf horizon_x5_open_explorer_v1.2.8-py310_20240926.tar.gz
 ```
 
 The extracted directory structure is as follows:
 
--   **ai_benchmark**: Contains evaluation examples for common classification, detection, and segmentation models, including both performance and accuracy evaluations.
-
--   **horizon_runtime_sample**: Provides on-board examples for fixed-point models.
-
--   **package**: Contains basic libraries and components required for running the deliverables.
-
-    1. The ``board`` folder contains executable programs for the target board.
-
-    2. The ``host`` folder contains environment dependencies, tool dependencies, and libdnn libraries and header files related to model inference for the x86 development environment.
+```
+├── package  # This directory contains basic libraries and components required for the release to run
+│   ├── board
+│   │   ├── hrt_tools  # Contains the source code and executables for hrt_model_exec and hrt_bin_dump
+│   │   └── install.sh # One-click installation script to install hrt tools to a specified development board
+│   └── host
+│       ├── ai_toolchain
+│       ├── host_package
+│       ├── hrt_tools
+│       ├── install.sh
+│       └── resolve.sh  # Used to download cross-compilation tools, torch, and other dependencies
+├── README-CN
+├── README-EN
+├── resolve_all.sh # One-click script to download all downloadable dependencies in the OE package
+├── run_docker.sh # Docker image startup script
+└── samples
+    ├── ai_benchmark  # Provides evaluation examples for common classification, detection, and segmentation models, including performance and accuracy evaluation
+    ├── ai_toolchain # Provides a series of examples related to model algorithms
+    │   ├── horizon_model_convert_sample
+    │   ├── horizon_model_train_sample
+    │   ├── horizon_runtime_sample
+    │   └── model_zoo
+    └── model_zoo -> ai_toolchain/model_zoo
+```
 
 
 ### Host Setup
@@ -319,7 +349,7 @@ Each image must be pulled before its first use.
 - Pull command example:
 
   ```bash
-    docker pull openexplorer/ai_toolchain_ubuntu_20_x5_cpu:v1.2.6
+    docker pull openexplorer/ai_toolchain_ubuntu_20_x5_cpu:v1.2.8
   ```
 
 Then run the following command to start the Docker container.
@@ -329,7 +359,7 @@ Then run the following command to start the Docker container.
   ```bash
     // Command to run the Docker image
 
-    export version=v1.2.6
+    export version=v1.2.8
 
     export ai_toolchain_package_path=/home/users/xxx/ai_toolchain_package
 
@@ -345,7 +375,7 @@ Then run the following command to start the Docker container.
   ```bash
     // Command to run the Docker image
 
-    export version=v1.2.6
+    export version=v1.2.8
 
     export ai_toolchain_package_path=/home/users/xxx/ai_toolchain_package
 
@@ -408,8 +438,8 @@ If the `hb_mapper` tool has successfully output logs, it indicates that the envi
 
 For board deployment, you need to follow the flashing instructions to update the development board image to the latest version. For upgrade procedures, please refer to the [**Install System**](../../../01_Quick_start/install_os/rdk_x5.md) section. After completing the upgrade, simply copy the relevant supplementary files onto the development board.
 
-Some supplementary tools of the algorithm toolchain are not included in the system image. These tools are already provided in the ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/`` installation package.  
-Navigate to ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/board`` and execute the install script.  
+Some supplementary tools of the algorithm toolchain are not included in the system image. These tools are already provided in the ``horizon_x5_open_explorer_vX.X.X-XXXXXXX/package/`` installation package.  
+Navigate to ``horizon_x5_open_explorer_vX.X.X-XXXXXXX/package/board/`` and execute the install script.  
 Run the following command:
 
 ```bash

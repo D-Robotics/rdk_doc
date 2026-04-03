@@ -2,125 +2,176 @@
 sidebar_position: 5
 ---
 
-# 5.4.5 Gesture Control The Car
+# 5.4.5 Car Gesture Control
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Overview
 
-The app allows you to control a robot's movements using hand gestures, including left and right rotation and forward and backward translation. The app consists of MIPI image capture, human detection and tracking, hand keypoint detection, gesture recognition, gesture control strategy, image encoding and decoding, and web display. The workflow is shown in the following diagram:
+The Car Gesture Control app enables controlling a robot car's movement through hand gestures, including left/right rotation and forward/backward translation. The app consists of the following modules: MIPI image acquisition, human detection and tracking, hand keypoint detection, gesture recognition, gesture control strategy, image encoding/decoding, and a web-based visualization interface. The workflow is illustrated in the diagram below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl_workflow.jpg)
 
-The supported control gestures, their corresponding functionalities, and examples of the gestures are as follows:
+Supported control gestures, their corresponding functions, and example gestures are listed below:
 
-| Control Gesture      | Function | Gesture Action Example                                              |
-| -------------------- | ------------- | ------------------------------------------------------------------- |
-| 666 Gesture/Awesome  | Move forward  | ![image-awesome](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-awesome.jpeg)   |
-| yeah/Victory         | Move backward | ![image-victory](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-victory.jpeg)   |
-| Thumb Right          | Turn right    | ![image-thumbright](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbright.jpeg) |
-| Thumb Left           | Turn left     | ![image-thumbleft](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbleft.jpeg) |
+| Control Gesture             | Gesture Function | Example Gesture                                                           |
+| --------------------------- | ---------------- | ------------------------------------------------------------------------- |
+| "666" Gesture / Awesome     | Move Forward     | ![image-awesome](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-awesome.jpeg)       |
+| Yeah / Victory              | Move Backward    | ![image-victory](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-victory.jpeg)       |
+| Thumb Right                 | Turn Right       | ![image-thumbright](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbright.jpeg) |
+| Thumb Left                  | Turn Left        | ![image-thumbleft](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/image-thumbleft.jpeg)   |
 
-The app is demonstrated using a virtual car in the PC Gazebo simulation environment, but the control commands can also be directly used to control a physical robot.
+This app uses a virtual robot car in the Gazebo simulation environment on a PC as an example. The published control commands can also be directly applied to control a physical robot car.
 
-Code repository:  (https://github.com/D-Robotics/gesture_control)
+Code repository: (https://github.com/D-Robotics/gesture_control)
 
 ## Supported Platforms
 
-| Platform                            | System | Function                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5      | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)   | Start MIPI/USB camera to capture images, perform gesture recognition and control, and finally show the control effect through Gazebo           |
+| Platform                    | Runtime Environment                             | Example Functionality                                                                                      |
+| --------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module       | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)      | Launch MIPI/USB camera to capture images, perform gesture recognition and control, and visualize results in Gazebo |
+| RDK X5, RDK X5 Module       | Ubuntu 22.04 (Humble)                           | Launch MIPI/USB camera to capture images, perform gesture recognition and control, and visualize results in Gazebo |
+| RDK Ultra                   | Ubuntu 20.04 (Foxy)                             | Launch MIPI/USB camera to capture images, perform gesture recognition and control, and visualize results in Gazebo |
 
-## Preparation
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. RDK is flashed the  Ubuntu 20.04/22.04 system image.
+1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera has been installed on the RDK.
+4. A PC on the same network segment as the RDK (either wired or connected to the same Wi-Fi; the first three segments of the IP address must match). The PC must have the following environment installed:
 
-2. TogetheROS.Bot successfully installed on RDK.
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-3. MIPI or USB camera installed on RDK.
+- Ubuntu 20.04 system and [ROS 2 Foxy Desktop](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+- Gazebo and Turtlebot3-related packages. Installation commands:
 
-4. PC on the same network segment as RDK (wired or connected to the same wireless network with the first three segments of the IP address matching). The PC needs to have the following software installed:
+```shell
+sudo apt-get install ros-foxy-gazebo-*
+sudo apt install ros-foxy-turtlebot3
+sudo apt install ros-foxy-turtlebot3-simulations
+```
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   - Ubuntu 20.04 system and [ROS2 Foxy Desktop Full](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3 related packages. Installation commands:
+- Ubuntu 22.04 system and [ROS 2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+- Gazebo and Turtlebot3-related packages. Installation commands:
 
-   ```shell
-   sudo apt-get install ros-foxy-gazebo-*
-   sudo apt install ros-foxy-turtlebot3
-   sudo apt install ros-foxy-turtlebot3-simulations
-   ```
+```shell
+sudo apt-get install ros-humble-gazebo-*
+sudo apt install ros-humble-turtlebot3
+sudo apt install ros-humble-turtlebot3-simulations
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+</Tabs>
 
-   - Ubuntu 22.04 system and [ROS2 Humble Desktop Full](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3 related packages. Installation commands:
+## Usage Instructions
 
-    ```shell
-    sudo apt-get install ros-humble-gazebo-*
-    sudo apt install ros-humble-turtlebot3
-    sudo apt install ros-humble-turtlebot3-simulations
-    ```
+### RDK Platform
 
- </TabItem>
- </Tabs>
+After launching the Car Gesture Control app, use the following gestures to control the robot car:
+- "666 Gesture / Awesome" → Move forward  
+- "Yeah / Victory" → Move backward  
+- "Thumb Right" → Turn right  
+- "Thumb Left" → Turn left  
 
-## Instructions
+Note: Turning left/right refers to rotating toward the user’s left/right direction (i.e., the direction indicated by the thumb).
 
-### RDK
+After the app starts, you can view the images published by the sensor and corresponding algorithm results rendered in a web browser on your PC by navigating to `http://IP:8000` (replace "IP" with the RDK’s actual IP address).
 
-After running the car gesture control app, use the "666/Awesome" gesture to make the car move forward, use the "yeah/Victory" gesture to make the car move backward, use the "ThumbRight" gesture to make the car turn right, and use the "ThumbLeft" gesture to make the car turn left. The directions for turning left and right are based on the direction of the person's left and right (the direction of the thumb).
+**Launch the simulation environment on the PC:**
 
-Once the app is launched, you can view the images published by the sensor and the corresponding algorithm results on the PC browser (enter  `http://IP:8000` in the browser, where IP is the IP address of the RDK).
-
-Launch the simulation environment on the PC:
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
 ```shell
 source /opt/ros/foxy/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+```shell
 export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 
-After successful launch, the car in the simulation environment will look like this:
+After successful launch, the simulated robot car appears as follows in Gazebo:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
 
-**Publishing Images from the MIPI Camera**
+**Publish images using an MIPI camera**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# Configure the TogetherROS.Bot environment
 source /opt/tros/setup.bash
 
-# Copy the necessary configuration files for running the example from the installation path of tros.b.
-cp -r /opt/tros/lib/mono2d_body_detection/config/ .
-cp -r /opt/tros/lib/hand_lmk_detection/config/ .
-cp -r /opt/tros/lib/hand_gesture_detection/config/ .
+# Copy required configuration files for running the example from the TogetherROS.Bot installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
-# Configure the MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
 # Launch the launch file
 ros2 launch gesture_control gesture_control.launch.py
 ```
 
-**Publishing Images from the USB Camera**
+</TabItem>
+
+<TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Configure the TogetherROS.Bot environment
+source /opt/tros/humble/setup.bash
+
+# Copy required configuration files for running the example from the TogetherROS.Bot installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch the launch file
+ros2 launch gesture_control gesture_control.launch.py
+```
+
+</TabItem>
+
+</Tabs>
+
+**Publish images using a USB camera**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```shell
+# Configure the TogetherROS.Bot environment
 source /opt/tros/setup.bash
 
-# Copy the necessary configuration files for running the example from the installation path of tros.b.
-cp -r /opt/tros/lib/mono2d_body_detection/config/ .
-cp -r /opt/tros/lib/hand_lmk_detection/config/ .
-cp -r /opt/tros/lib/hand_gesture_detection/config/ .
+# Copy required configuration files for running the example from the TogetherROS.Bot installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
 # Configure USB camera
 export CAM_TYPE=usb
@@ -129,9 +180,32 @@ export CAM_TYPE=usb
 ros2 launch gesture_control gesture_control.launch.py
 ```
 
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```shell
+# Configure the TogetherROS.Bot environment
+source /opt/tros/humble/setup.bash
+
+# Copy required configuration files for running the example from the TogetherROS.Bot installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Launch the launch file
+ros2 launch gesture_control gesture_control.launch.py
+```
+
+</TabItem>
+</Tabs>
+
 ## Result Analysis
 
-The terminal output on the RDK shows the following information:
+The RDK runtime terminal outputs the following information:
 
 ```shell
 [gesture_control-7] [WARN] [1652965757.159500951] [GestureControlEngine]: frame_ts_ms: 3698315358, track_id: 2, tracking_sta: 1, gesture: 14
@@ -142,11 +216,11 @@ The terminal output on the RDK shows the following information:
 [gesture_control-7] [WARN] [1652965757.232207513] [GestureControlEngine]: do move, direction: 0, step: 0.500000
 ```
 
-The above log snippet shows the processing results of controlling the movement of the car through gestures. The value of tracking_sta is 1, indicating that gesture control is enabled, while a value of 0 indicates gesture recognition.
+The log above captures a segment of processing results where the robot car is controlled via hand gestures. Here, `tracking_sta` value of 1 indicates that the system is in gesture control mode, while a `tracking_sta` value of 0 means a gesture has been recognized.
 
-Starting from the timestamp frame_ts_ms: 3698315358, the car is controlled to move forward at a speed of 0.5m/s using the 666 gesture (gesture: 14) (do move, direction: 0, step: 0.500000).
+Starting from the timestamp `frame_ts_ms: 3698315358`, the robot car is controlled using the "666" gesture (`gesture: 14`) to move forward at a speed of 0.5 m/s (`do move, direction: 0, step: 0.500000`).
 
-On the PC, the command `ros2 topic list` can be used in the terminal to query the topic information of the RDK:
+On the PC side, you can use the command `ros2 topic list` in the terminal to query the topics published by the RDK:
 
 ```shell
 $ ros2 topic list
@@ -161,9 +235,12 @@ $ ros2 topic list
 /rosout
 ```
 
-Among them, `/image` is the image captured by the MIPI sensor and encoded in JPEG format, `/hobot_hand_gesture_detection` is the algorithm message published by the RDK containing gesture recognition information, and `/cmd_vel` is the motion control command published by the RDK.
+Among these:
+- `/image` is the JPEG-encoded image published by the RDK after capturing from the MIPI sensor.
+- `/hobot_hand_gesture_detection` is the algorithm message published by the RDK containing hand gesture recognition results.
+- `/cmd_vel` is the motion control command published by the RDK.
 
-On the PC, the command `ros2 topic echo /cmd_vel` can be used in the terminal to view the motion control command published by the RDK:
+On the PC side, you can use the command `ros2 topic echo /cmd_vel` in the terminal to view the motion control commands published by the RDK:
 
 ```shell
 linear:
@@ -186,6 +263,6 @@ angular:
 ---
 ```
 
-The car moves according to the gestures in the PC simulation environment, and the simulated car movement is as follows:
+In the PC-side simulation environment, the robot car moves according to the hand gestures. The simulated motion effect is shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_gesture_control/gesture_ctrl.gif)

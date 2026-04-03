@@ -8,78 +8,80 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Overview
 
-YOLO detection algorithm example uses images as input, performs algorithm inference using BPU, and publishes algorithm messages containing object categories and detection boxes. Currently, it supports four versions: YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、Ultralytics YOLO11、YOLO12.
+The YOLO object detection algorithm example takes images as input, leverages the BPU for inference, and publishes algorithm messages containing detected object classes and bounding boxes. Currently supported versions include YOLOv2, YOLOv3, Ultralytics YOLOv5, YOLOv5x, Ultralytics YOLOv8, YOLOv10, YOLOv11, and YOLOv12.
 
-Since all YOLOs after YOLOv8 are based on the Ultralytics algorithm framework, the Parser of YOLOv8 can be used. The relevant bin model can be found on GitHub⭐️ : Get it [RDK_Model_Zoo](https://github.com/D-Robotics/rdk_model_zoo).
+The models are trained on the [COCO dataset](http://cocodataset.org/) and support detection of 80 object categories, including people, animals, fruits, vehicles, and more.
 
-The model is trained using the [COCO dataset](http://cocodataset.org/), and the supported object detection types include humans, animals, fruits, and vehicles, totaling 80 types. 
+You can also use the Ultralytics package to train models on custom datasets. (https://docs.ultralytics.com/en/modes/train)
 
-You can also use the Ultralytics software package to train on custom datasets. (https://docs.ultralytics.com/zh/modes/train)
+Code repository: (https://github.com/D-Robotics/hobot_dnn)
 
-Code repository:  (https://github.com/D-Robotics/hobot_dnn)
+Application scenarios: As a representative single-stage object detection algorithm, the YOLO series offers advantages such as high speed and strong generalization capability. It enables applications like garbage recognition and vehicle detection, and is widely used in autonomous driving, smart homes, and similar fields.
 
-Use cases: As a representative algorithm in single-stage object detection, the YOLO series has the advantages of fast speed and good generalization, and can be used for garbage recognition, vehicle detection, and other functions, mainly applied in autonomous driving, smart home, and other fields.
-
-Car Detection Example： (https://github.com/JunshengFu/vehicle-detection)  
-Fall Down Detection Example： (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-and-LiteFlowNet)
+Vehicle detection example: (https://github.com/JunshengFu/vehicle-detection)  
+Fall detection example: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-and-LiteFlowNet)
 
 ## Supported Platforms
 
-| Platform              | System | Supported Algorithms | Function                                            |
-| --------------------- | ---------------- | -------------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB cameras and display results through web<br/>· Use local data offline, and save results |
+| Platform              | OS/Runtime Environment         | Supported Algorithms               | Example Features                                                                 |
+| --------------------- | ------------------------------ | ---------------------------------- | -------------------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5               | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)          | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
+| RDK Ultra             | Ubuntu 20.04 (Foxy)            | yolov5x                            | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)          | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
+| X86                   | Ubuntu 20.04 (Foxy)            | yolov2/yolov3                      | · Use local image/video replay; rendered results saved locally                   |
 
-## Algorithm Information
+## Algorithm Performance
 
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| yolov2 | X3 | 1x608x608x3 | 12.60 |
-| yolov3 | X3 | 1x416x416x3 | 11.71 |
-| yolov5 | X3 | 1x512x512x3 | 32.62 |
-| yolov2 | X5 | 1x608x608x3 | 38.33 |
-| yolov3 | X5 | 1x416x416x3 | 31.28 |
-| yolov5 | X5 | 1x512x512x3 | 10.37 |
-| yolov8n | X5 | 1x3x640x640 | 140.46 |
-| yolov10n | X5 | 1x3x640x640 | 36.47 |
-| yolov11m | X5 | 1x3x640x640 | 28.95 |
-| yolov12m | X5 | 1x3x640x640 | 74 |
-| yolov2 | S100 | 1x3x608x608 | 226.19 |
-| yolov3 | S100 | 1x3x416x416 | 212.55 |
-| yolov5 | S100 | 1x3x672x672 | 62.24 |
-| yolov8n | S100 | 1x3x640x640 | 506.57 |
-| yolov10n | S100 | 1x3x640x640 | 494.10 |
-| yolov11m | S100 | 1x3x640x640 | 162.46 |
-| yolo12n | S100 | 1x3x640x640 | 42.66 |
+| Model     | Platform | Input Size       | Inference FPS |
+| --------- | -------- | ---------------- | ------------- |
+| yolov2    | X3       | 1x608x608x3      | 12.60         |
+| yolov3    | X3       | 1x416x416x3      | 11.71         |
+| yolov5    | X3       | 1x512x512x3      | 32.62         |
+| yolov2    | X5       | 1x608x608x3      | 38.33         |
+| yolov3    | X5       | 1x416x416x3      | 31.28         |
+| yolov5    | X5       | 1x512x512x3      | 10.37         |
+| yolov8n   | X5       | 1x3x640x640      | 140.46        |
+| yolov10n  | X5       | 1x3x640x640      | 36.47         |
+| yolov11m  | X5       | 1x3x640x640      | 28.95         |
+| yolov12m  | X5       | 1x3x640x640      | 74            |
+| yolov2    | S100     | 1x3x608x608      | 226.19        |
+| yolov3    | S100     | 1x3x416x416      | 212.55        |
+| yolov5    | S100     | 1x3x672x672      | 62.24         |
+| yolov8n   | S100     | 1x3x640x640      | 506.57        |
+| yolov10n  | S100     | 1x3x640x640      | 494.10        |
+| yolov11m  | S100     | 1x3x640x640      | 162.46        |
+| yolo12n   | S100     | 1x3x640x640      | 42.66         |
 
-## Preparations
+## Prerequisites
 
-### RDK
+### RDK Platforms
 
-1. RDK has been burned with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera is installed on the RDK. If no camera is available, you can evaluate the algorithm using local JPEG/PNG images or MP4/H.264/H.265 video files via replay.
+4. Ensure your PC can access the RDK over the network.
 
-2. RDK has successfully installed TogetheROS.Bot.
+### X86 Platform
 
-3. RDK has installed MIPI or USB cameras. If there is no camera available, the algorithm can be experienced offline by local JPEG/PNG images or MP4, H.264, and H.265 videos.
+1. The X86 environment has been set up with Ubuntu 20.04 system image.
+2. tros.b has been successfully installed on the X86 system.
 
-4. Confirm that the PC can access the RDK through the network.
+## Usage Guide
 
-## Usage
+### RDK Platforms
 
-### RDK
+#### Using MIPI Camera for Image Publishing
 
-#### Use MIPI Cameras to Publish Images 
-
-YOLOv2 object detection algorithm example subscribes to images published by a MIPI camera and publish algorithm msg after inference. It displays published images and corresponding results on PC browsers through the websocket package.
+The YOLOv2 object detection example subscribes to images published by the MIPI camera, performs inference, and publishes algorithm messages. Results—including annotated images—are rendered and displayed in a web browser on the PC via the websocket package.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -88,7 +90,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -97,22 +99,22 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-#### Use USB Camera to Publish Images
+#### Using USB Camera for Image Publishing
 
-YOLOv2 object detection algorithm example subscribes to images published by a USB camera, publishes algorithm msg after inference, and displays published images and corresponding results on PC browsers through the websocket package.
+The YOLOv2 object detection example subscribes to images published by the USB camera, performs inference, and publishes algorithm messages. Results—including annotated images—are rendered and displayed in a web browser on the PC via the websocket package.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -121,7 +123,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -130,22 +132,22 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-#### Use Local Data Offline
+#### Using Local Image Replay
 
-YOLOv2 object detection algorithm uses local JPEG/PNG images offline. After inference, the rendered images of the results are stored in the local path.
+The YOLOv2 object detection example uses local JPEG/PNG images for replay. After inference, the annotated results are saved as images in the current working directory.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -154,7 +156,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Set up tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -163,17 +165,137 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2, YOLO series are also supported. The algorithm can be switched using the config_file parameter in the startup command. For example, to use the YOLOv3, the startup configuration should be `dnn_example_config_file:="config/yolov3workconfig.json"`, and for the YOLOv5 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov5workconfig.json"`, and for the YOLOv8 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov8workconfig.json"`, and for the YOLOv10 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov10workconfig.json"`, and for the YOLOv11 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov11workconfig.json"`, and for the YOLOv12 algorithm, the startup configuration should be `dnn_example_config_file:="config/yolov12workconfig.json"`.
+In addition to YOLOv2, other YOLO-series algorithms are also supported. You can switch algorithms by specifying the `config_file` parameter in the launch command. For example:
+- To use YOLOv3: `dnn_example_config_file:="config/yolov3workconfig.json"`
+- To use YOLOv5: `dnn_example_config_file:="config/yolov5workconfig.json"`
+- To use YOLOv8: `dnn_example_config_file:="config/yolov8workconfig.json"`
+- To use YOLOv10: `dnn_example_config_file:="config/yolov10workconfig.json"`
+- To use YOLOv11: `dnn_example_config_file:="config/yolov11workconfig.json"`
+- To use YOLOv12: `dnn_example_config_file:="config/yolov12workconfig.json"`
+
+### RDK Ultra Platform
+
+#### Using MIPI Camera for Image Publishing
+
+The YOLOv5x object detection example subscribes to images published by the MIPI camera, performs inference, and publishes algorithm messages. Results—including annotated images—are rendered and displayed in a web browser on the PC via the websocket package.
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Set up tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov5xworkconfig.json dnn_example_image_width:=672 dnn_example_image_height:=672
+```
+
+#### Publish images using a USB camera
+
+The YOLOv5x object detection algorithm example subscribes to images published by a USB camera. After inference, it publishes algorithm messages, and renders both the published images and corresponding algorithm results in a web browser on a PC via the websocket package.
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov5xworkconfig.json dnn_example_image_width:=672 dnn_example_image_height:=672
+```
+
+#### Feed local images
+
+The YOLOv5x object detection algorithm example feeds local JPEG/PNG images, performs inference, and saves the rendered result image (with detection overlays) to the current working directory.
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov5xworkconfig.json dnn_example_image:=config/target.jpg
+```
+
+### X86 Platform
+
+#### Feed local images
+
+The YOLOv2 object detection algorithm example feeds local JPEG/PNG images, performs inference, and saves the rendered result image (with detection overlays) to the current working directory.
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
+```
+
+In addition to YOLOv2, YOLOv3 is also supported; YOLOv5 is not currently supported. Use the `config_file` parameter in the launch command to switch algorithms—for example, to use YOLOv3, specify `dnn_example_config_file:="config/yolov3workconfig.json"`.
 
 ## Result Analysis
 
-###  Use a Camera to Publish Images
+### Publishing images from a camera
 
-The terminal output during execution shows the following information:
+The following output appears in the terminal:
 
 ```text
 [example-3] [WARN] [1655095347.608475236] [example]: Create ai msg publisher with topic_name: hobot_dnn_detection
@@ -186,15 +308,15 @@ The terminal output during execution shows the following information:
 [example-3] [WARN] [1655095351.011915729] [example]: Smart fps 11.30
 ```
 
-The log shows that the topic for publishing the inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`.
+The log shows that the topic for publishing inference results is `hobot_dnn_detection`, and the subscribed image topic is `/hbmem_img`.
 
-You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
+Enter `http://IP:8000` in a web browser on your PC to view the rendered image and algorithm results (replace IP with the RDK's IP address):
 
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg)
 
-### Use Local Data Offline
+### Feeding local images
 
-The terminal output during execution shows the following information:
+The following output appears in the terminal:
 
 ```text
 [example-1] [INFO] [1654925067.952159234] [PostProcessBase]: out box size: 8
@@ -208,6 +330,6 @@ The terminal output during execution shows the following information:
 [example-1] [INFO] [1654925067.952743463] [PostProcessBase]: det rect: 54.0955 256.68 88.6269 266.159, det type: book, score:0.307426
 ```
 
-The log shows that the algorithm infers 8 targets from the input image and outputs the coordinates of the object detection boxes (the order of the coordinates is the top-left x and y coordinates and the bottom-right x and y coordinates of the bounding box) and the object categories. The rendered image file is saved as render_feedback_0_0.jpeg, and the rendering effect is shown below:
+The log indicates that the algorithm detected 8 objects from the input image and output their bounding box coordinates (in the order of top-left x, top-left y, bottom-right x, bottom-right y) along with their class labels. The rendered image is saved as `render_feedback_0_0.jpeg`. Rendered image result:
 
 ![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg)

@@ -16,9 +16,9 @@ sidebar_position: 1
 下载嵌入式应用开发Sample交付包：
 
 ```bash
-  // 示例版本为 V1.0.0
+  // 示例版本为 V2.6.6
 
-  wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://vrftp.horizon.ai/Open_Explorer_gcc_9.3.0/2.6.6/horizon_xj3_open_explorer_v2.6.6_py38_20240717.tar.gz
 
   // 更多模型转换示例，根据需要进行下载！
   //wget -c ftp://oeftp@sdk.d-robotics.cc/RDK/rdk-x3-ultra/horizon_model_convert_sample.tar.gz --ftp-password=Oeftp~123$%
@@ -29,23 +29,37 @@ sidebar_position: 1
 解压算法工具链SDK源码包：
 
 ```bash
-  // 示例版本为 V1.0.0
+  // 示例版本为 V2.6.6
 
-  tar -xvf Ai_Toolchain_Package-release-v1.1.57-OE-v1.0.0.tar.xz
+  tar -xvf horizon_xj3_open_explorer_v2.6.6_py38_20240717.tar.gz
 ```
 
 解压后的目录结构如下：
 
--   **ai_benchmark**: 目录下提供了常见的分类、检测和分割模型的评测示例，包括性能评测和精度评测两部分。
-
--   **horizon_runtime_sample**: 目录下提供了定点模型的上板示例。
-
--   **package**: 目录下包含了发布物运行的一些基础库和组件
-
-    1. ``board`` 文件夹下为板端可执行程序。
-
-    2. ``host`` 文件夹下为x86开发环境下的环境依赖、工具依赖以及模型推理相关的libdnn库和头文件。
-
+```
+├──bsp
+│  ├── tools
+│  └── resolve.sh
+└──ddk
+   ├── package  # 目录下包含了发布物运行的一些基础库和组件
+   │   ├── board
+   │   │   ├── hrt_tools  # 包含 hrt_model_exec 和 hrt_bin_dump 的源码和可执行文件
+   │   │   └── install.sh # 一键安装脚本，可以一键将hrt工具安装到指定的开发板
+   │   └── host
+   │       ├── ai_toolchain
+   │       ├── host_package
+   │       ├── hrt_tools
+   │       ├── install.sh
+   │       └── resolve.sh  # 用于下载交叉编译工具、torch等依赖
+   └── samples
+       ├── ai_benchmark  # 提供了常见的分类、检测和分割模型的评测示例，包括性能评测和精度评测两部分
+       ├── ai_toolchain # 提供了一系列模型算法的相关示例
+       │   ├── horizon_model_convert_sample
+       │   ├── horizon_model_train_sample
+       │   ├── horizon_runtime_sample
+       │   └── model_zoo
+       └── model_zoo -> ai_toolchain/model_zoo
+```
 
 
 ### 开发机部署{#machine_deploy}
@@ -200,13 +214,13 @@ D-Robotics 要求的Docker基础环境信息如下：
 
 #### 补充文件准备
 
-算法工具链的部分补充工具未包含在系统镜像中，这些工具已经放置在 ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/`` 安装包中，
-进入到 ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/board`` 执行install脚本。
+算法工具链的部分补充工具未包含在系统镜像中，这些工具已经放置在 ``horizon_xj3_open_explorer_vX.X.X-XXXXX/ddk/package/`` 安装包中，
+进入到 ``horizon_xj3_open_explorer_vX.X.X-XXXXX/ddk/package/board/`` 执行install脚本。
 执行命令如下：
 
 ```bash
   // 若使用RDK X3开发板，执行命令
-  bash install_xj3.sh ${board_ip}
+  bash install.sh ${board_ip}
 ```
 :::info 备注
 
@@ -229,9 +243,10 @@ D-Robotics 要求的Docker基础环境信息如下：
 下载嵌入式应用开发Sample交付包：
 
 ```bash
-  // 示例版本为 V1.2.6
+  // 示例版本为 V1.2.8
 
-  wget -c ftp://oeftp@sdk.d-robotics.cc/runtime_package/Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz --ftp-password=Oeftp~123$%
+  wget -c ftp://x5ftp@vrftp.horizon.ai/OpenExplorer/v1.2.8_release/horizon_x5_open_explorer_v1.2.8-py310_20240926.tar.gz --ftp-password=x5ftp@123$%
+
 
   // 更多模型转换示例，根据需要进行下载！
   //wget -c ftp://oeftp@sdk.d-robotics.cc/model_convert_sample/horizon_model_convert_sample.tar.xz --ftp-password=Oeftp~123$%
@@ -242,23 +257,37 @@ D-Robotics 要求的Docker基础环境信息如下：
 解压算法工具链SDK源码包：
 
 ```bash
-  // 示例版本为 V1.2.6
+  // 示例版本为 V1.2.8
 
-  tar -xvf Ai_Toolchain_Package-release-v1.23.8-OE-v1.2.6.tar.xz
+  tar -xvf horizon_x5_open_explorer_v1.2.8-py310_20240926.tar.gz
 ```
 
 解压后的目录结构如下：
 
--   **ai_benchmark**: 目录下提供了常见的分类、检测和分割模型的评测示例，包括性能评测和精度评测两部分。
-
--   **horizon_runtime_sample**: 目录下提供了定点模型的上板示例。
-
--   **package**: 目录下包含了发布物运行的一些基础库和组件
-
-    1. ``board`` 文件夹下为板端可执行程序。
-
-    2. ``host`` 文件夹下为x86开发环境下的环境依赖、工具依赖以及模型推理相关的libdnn库和头文件。
-
+```
+├── package  # 目录下包含了发布物运行的一些基础库和组件
+│   ├── board
+│   │   ├── hrt_tools  # 包含 hrt_model_exec 和 hrt_bin_dump 的源码和可执行文件
+│   │   └── install.sh # 一键安装脚本，可以一键将hrt工具安装到指定的开发板
+│   └── host
+│       ├── ai_toolchain
+│       ├── host_package
+│       ├── hrt_tools
+│       ├── install.sh
+│       └── resolve.sh  # 用于下载交叉编译工具、torch等依赖
+├── README-CN
+├── README-EN
+├── resolve_all.sh # 一键下载OE包内所有可下载的依赖项
+├── run_docker.sh # Docker 镜像启动脚本
+└── samples
+    ├── ai_benchmark  # 提供了常见的分类、检测和分割模型的评测示例，包括性能评测和精度评测两部分
+    ├── ai_toolchain # 提供了一系列模型算法的相关示例
+    │   ├── horizon_model_convert_sample
+    │   ├── horizon_model_train_sample
+    │   ├── horizon_runtime_sample
+    │   └── model_zoo
+    └── model_zoo -> ai_toolchain/model_zoo
+```
 
 ### 开发机部署
 
@@ -317,7 +346,7 @@ X5算法工具链要求的Docker基础环境信息如下：
 - 镜像拉取命令为：
 
   ```bash
-    docker pull openexplorer/ai_toolchain_ubuntu_20_x5_cpu:v1.2.6
+    docker pull openexplorer/ai_toolchain_ubuntu_20_x5_cpu:v1.2.8
   ```
 然后执行以下命令运行Docker容器。
 
@@ -326,7 +355,7 @@ X5算法工具链要求的Docker基础环境信息如下：
   ```bash
     // 运行 docker 镜像的命令
 
-    export version=v1.2.6
+    export version=v1.2.8
 
     export ai_toolchain_package_path=/home/users/xxx/ai_toolchain_package
 
@@ -342,7 +371,7 @@ X5算法工具链要求的Docker基础环境信息如下：
   ```bash
     // 运行 docker 镜像的命令
 
-    export version=v1.2.6
+    export version=v1.2.8
 
     export ai_toolchain_package_path=/home/users/xxx/ai_toolchain_package
 
@@ -406,8 +435,8 @@ X5算法工具链要求的Docker基础环境信息如下：
 
 开发板部署需要您按照刷机说明，将开发版镜像更新到最新版本，升级方法请参考[**安装系统**](../../../01_Quick_start/install_os/rdk_x5.md) 章节内容， 升级完成后，再将相关补充文件拷贝到开发板中即可。
 
-算法工具链的部分补充工具未包含在系统镜像中，这些工具已经放置在 ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/`` 安装包中，
-进入到 ``Ai_Toolchain_Package-release-vX.X.X-OE-vX.X.X/package/board`` 执行install脚本。
+算法工具链的部分补充工具未包含在系统镜像中，这些工具已经放置在 ``horizon_x5_open_explorer_vX.X.X-XXXXXXX/package/`` 安装包中，
+进入到 ``horizon_x5_open_explorer_vX.X.X-XXXXXXX/package/package/board`` 执行install脚本。
 执行命令如下：
 
 ```bash

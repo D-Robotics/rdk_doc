@@ -9,43 +9,40 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Function Introduction
+## Feature Overview
 
-The **Face 106 Landmarks Detection Example** subscribes to images and smart messages containing face bounding box information, utilizes the BPU for algorithmic inference, and publishes algorithmic messages containing face 106 keypoints information.
+The **Face 106 Landmarks Detection example** subscribes to image data and smart messages containing face bounding box information, performs algorithm inference using the BPU, and publishes algorithm messages containing face 106 landmarks information.
 
-Code Repository: (https://github.com/D-Robotics/face_landmarks_detection)
+Code repository: (https://github.com/D-Robotics/face_landmarks_detection)
 
 ## Supported Platforms
 
-| Platform                | Operating Mode                | Example Functionality                        |
-|------------------------|-------------------------------|----------------------------------------------|
-| RDK X3, RDK X3 Module  | Ubuntu 22.04 (Humble)         | Starts MIPI/USB camera and displays inference rendering results via the web |
-| RDK X5, RDK X5 Module  | Ubuntu 22.04 (Humble)         | Starts MIPI/USB camera and displays inference rendering results via the web |
+| Platform                    | Runtime Environment       | Example Functionality                                      |
+|---------------------------|---------------------------|------------------------------------------------------------|
+| RDK X3, RDK X3 Module     | Ubuntu 22.04 (Humble)     | Launch MIPI/USB camera and display inference results via Web |
+| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)     | Launch MIPI/USB camera and display inference results via Web |
 
-## Algorithm Information
+## Algorithm Details
 
-| Model Type | Platform | Input Size | Frequency (fps) |
-| ---- | ---- | ------------ | ---- |
-| faceLandmark106pts | X3 | 1×3×128x128 | 741.93 |
-| faceLandmark106pts | X5 | 1×3×128x128 | 985.75 |
+| Model                  | Platform | Input Size      | Inference FPS |
+| ---------------------- | -------- | --------------- | ------------- |
+| faceLandmark106pts     | X3       | 1×3×128×128     | 741.93        |
+| faceLandmark106pts     | X5       | 1×3×128×128     | 985.75        |
 
-## Preparation
+## Prerequisites
 
 ### RDK Platform
 
-1. The RDK has been flashed with the Ubuntu 22.04 system image.
-
-2. The RDK has successfully installed TogetheROS.Bot.
-
-3. The RDK has a MIPI or USB camera installed.
-
-4. Confirm that the PC can access the RDK via the network.
+1. RDK has been flashed with the Ubuntu 22.04 system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera has been installed on the RDK.
+4. Ensure your PC can access the RDK over the network.
 
 ## Usage Instructions
 
-The **face_landmarks_detection package** subscribes to images published by the sensor package and face bounding box detection results published by the human detection and tracking package. After inference, it publishes algorithmic messages and displays the published images and corresponding algorithmic results on a PC browser through the websocket package.
+The **Face 106 Landmarks Detection (`face_landmarks_detection`) package** subscribes to images published by the sensor package and **face bounding box detection results** published by the human detection and tracking package. After performing inference, it publishes algorithm messages, which are rendered and displayed in a web browser on the PC via the websocket package.
 
-**Using MIPI Camera to Publish Images**
+**Publishing Images Using an MIPI Camera**
 
 ```bash
 # Configure the tros.b environment
@@ -53,7 +50,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration files required for running the example from the tros.b installation path.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure MIPI camera
@@ -63,7 +60,7 @@ export CAM_TYPE=mipi
 ros2 launch face_landmarks_detection body_det_face_landmarks_det.launch.py
 ```
 
-**Using USB Camera to Publish Images**
+**Publishing Images Using a USB Camera**
 
 ```bash
 # Configure the tros.b environment
@@ -71,7 +68,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration files required for running the example from the tros.b installation path.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure USB camera
@@ -83,7 +80,7 @@ ros2 launch face_landmarks_detection body_det_face_landmarks_det.launch.py
 
 ## Result Analysis
 
-The following information is displayed in the running terminal:
+The following output appears in the terminal when running:
 
 ```shell
 [mono2d_body_detection-3] [WARN] [1731988336.541394391] [example]: This is mono2d body det example!
@@ -112,9 +109,8 @@ The following information is displayed in the running terminal:
 [mono2d_body_detection-3] [DNN] Runtime version = 1.23.10_(3.15.54 HBRT)
 ```
 
-The output log shows that the program is running successfully, with an algorithm input and output frame rate of 30fps, and the frame rate is refreshed once per second.
+The logs indicate that the program is running successfully. During inference, both input and output frame rates are 30 fps, and the FPS statistics refresh once per second.
 
-Enter http://IP:8000 in the browser on the PC to view the images and algorithm rendering effects (IP is the IP address of the RDK):
+Enter `http://IP:8000` in your PC’s web browser to view the rendered images and algorithm results (replace `IP` with the RDK’s IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/face_landmarks_det_render.png)
-
