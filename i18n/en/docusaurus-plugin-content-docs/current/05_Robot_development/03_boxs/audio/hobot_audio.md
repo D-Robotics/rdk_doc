@@ -123,7 +123,7 @@ If no devices are detected, recheck all connections.
     </TabItem>
     <TabItem value="rdk_x5" label="RDK_X5">
 
-    The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
+    The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md).
 
     </TabItem>
     </Tabs>

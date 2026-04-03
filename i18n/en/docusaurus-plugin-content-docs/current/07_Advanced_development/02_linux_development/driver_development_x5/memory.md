@@ -50,4 +50,4 @@ Three main ION regions are used in the RDK X5: `cma_reserved`, `carveout`, and `
 
 ### How to Adjust ION Region Size
 
-The RDK X5 uses the `srpi-config` tool to adjust the size of ION regions. For specific operations, please refer to the `ION memory` section in [srpi-config](../../../System_configuration/srpi-config).
+The RDK X5 uses the `srpi-config` tool to adjust the size of ION regions. For specific operations, please refer to the `ION memory` section in [srpi-config](../../../02_System_configuration/02_srpi-config.md).
