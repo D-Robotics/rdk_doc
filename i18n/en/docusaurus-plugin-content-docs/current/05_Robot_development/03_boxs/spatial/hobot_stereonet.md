@@ -88,7 +88,7 @@ apt update
 ```
 
 :::caution **Note**
-**If the `sudo apt update` command fails or returns errors, refer to the FAQ section: [`Q10: How to resolve issues when apt update fails or reports errors?`](/docs/08_FAQ/01_hardware_and_system.md).**
+**If the `sudo apt update` command fails or returns errors, refer to the FAQ section: [`Q10: How to resolve issues when apt update fails or reports errors?`](../../../08_FAQ/01_hardware_and_system.md).**
 :::
 
 ## 5. Launching the Algorithm
@@ -572,8 +572,6 @@ bash run_stereo.sh --mipi_rotation 0.0
 # With 132GS camera
 bash run_stereo.sh
 
-# The S100 also supports high-resolution models. Taking the 132GS camera as an example, the startup command is as follows:
-bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
 
 # Note:
 # You need to verify whether the RGB image displayed on the web interface is captured by the left camera. You can confirm this by covering the left camera lens.
@@ -595,6 +593,9 @@ bash run_stereo.sh --stereonet_version v2.4 --mipi_rotation 0.0
 # With 132GS camera
 bash run_stereo.sh --stereonet_version v2.4
 
+# The S100 also supports high-resolution models. Taking the 132GS camera as an example, the startup command is as follows:
+bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
+
 # Note:
 # You need to verify whether the RGB image displayed on the web interface is captured by the left camera. You can confirm this by covering the left camera lens.
 # If the left/right camera order is incorrect, you can adjust it in two ways:
@@ -609,11 +610,15 @@ bash run_stereo.sh --stereonet_version v2.4
 </Tabs>
 
 :::caution **Note**
-**If the program fails to start correctly, use `ros2 topic list -v` to check whether topics corresponding to `stereo_image_topic` and `camera_info_topic` exist.**
 
-**If the program starts successfully but depth quality is poor, please verify:  
-1. The stereo image layout follows a left-top / right-bottom arrangement;  
-2. Confirm that the left and right images satisfy epipolar alignment requirements as described below.**
+**If the program does not start correctly, you can check whether the topics corresponding to `stereo_image_topic` and `camera_info_topic` exist using `ros2 topic list -v`**
+
+**If the program starts correctly but the depth effect is poor, verify:** 
+
+**1. The stitching order of the left and right images is top-left and bottom-right;** 
+
+**2. Refer to the text below to confirm whether the left and right images meet the epipolar alignment requirements**
+
 :::
 
 - Definition of left/right cameras: <span style={{ color: 'red' }}> You must confirm whether the RGB image shown on the web interface below is captured by the left camera </span>:
