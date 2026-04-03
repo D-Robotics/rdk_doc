@@ -89,7 +89,6 @@ Quick access to high-frequency ops, reducing page switching.
 - Gateway Diagnosis: Check gateway status and write to terminal log.
 - Restart Gateway: Quick recovery after gateway abnormality.
 - Upgrade OpenClaw: Upgrade installed OpenClaw to latest version.
-- Uninstall OpenClaw: Exports the current main configuration for backup.
 - Export Configuration Snapshot: Export current main config for backup.
 - Auto Fix Configuration: Fix schema incompatibility after version upgrade.
 - Uninstall OpenClaw: Remove OpenClaw and its config. This cannot be undone.

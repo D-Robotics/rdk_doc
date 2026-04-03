@@ -43,11 +43,7 @@ import TabItem from '@theme/TabItem';
 
 :::tip
 
-<<<<<<< HEAD
 For those using Linux, please wait a moment as the documentation is being rapidly prepared.
-=======
-The RDK Studio Windows version has now been officially released. Friends using Linux and macOS, please wait a little while as our developers are rapidly typing away.
->>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276
 
 :::
 
@@ -57,11 +53,7 @@ The RDK Studio Windows version has now been officially released. Friends using L
 
 :::tip
 
-<<<<<<< HEAD
 For those using macOS, please wait a moment as the documentation is being rapidly prepared.
-=======
-The RDK Studio Windows version has now been officially released. Friends using Linux and macOS, please wait a little while as our developers are rapidly typing away.
->>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276
 
 :::
 

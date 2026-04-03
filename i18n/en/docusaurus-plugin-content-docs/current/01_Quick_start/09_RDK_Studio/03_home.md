@@ -103,11 +103,7 @@ For those using Linux, please wait a moment as the documentation is being rapidl
 
 :::tip
 
-<<<<<<< HEAD
 For those using macOS, please wait a moment as the documentation is being rapidly prepared.
-=======
-RDK Studio for Windows is now officially released. For friends using Linux and macOS, please wait a bit—the developers are typing at lightning speed!
->>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276
 
 :::
 

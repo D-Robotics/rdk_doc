@@ -13,17 +13,9 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="rdk-type">
 <TabItem value="windows" label="Windows">
 
-<<<<<<< HEAD
-:::info Note
-
-- The RDK Studio supports burning using both a card reader and quicklink method. Among these, the quicklink method uses a USB 2.0 interface and has a slower burning speed. Therefore, using the card reader method is recommended for a faster burning experience.
-
-- If your storage device has already completed the system flashing process, you can skip this chapter and proceed directly to [Adding an RDK Device](../09_RDK_Studio/04_Device_management/01_hardware_resource.md).
-=======
 :::warning Note
 - The RDK Studio supports burning using both a card reader and quicklink method. Among these, the quicklink method uses a USB 2.0 interface and has a slower burning speed. Therefore, using the card reader method is recommended for a faster burning experience.
 - If your storage device has already completed the system flashing process, you can skip this chapter and proceed directly to [Adding an RDK Device](../09_RDK_Studio/05_Device_management/01_hardware_resource.md).
->>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276
 :::
 
 ## Flashing Preparation
@@ -140,11 +132,7 @@ For those using Linux, please wait a moment as the documentation is being rapidl
 
 :::tip
 
-<<<<<<< HEAD
 For those using macOS, please wait a moment as the documentation is being rapidly prepared.
-=======
-Currently, the RDK Studio Windows system has been officially released. For friends using Linux and macOS, please wait a moment—the development team is rapidly coding!
->>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276
 
 :::
 
