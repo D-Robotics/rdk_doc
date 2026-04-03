@@ -919,7 +919,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 - 然后，启动双目算法，开启另一个终端执行：
 
 ```bash
-bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_right_raw/camera_info
+bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
 - 通过网页端查看深度图，在浏览器输入 http://ip:8000 (ip为RDK对应的ip地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
