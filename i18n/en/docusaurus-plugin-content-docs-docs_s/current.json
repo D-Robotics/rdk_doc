@@ -314,5 +314,29 @@
   "sidebar.tutorialSidebar.category.1.1 硬件简介.link.generated-index.title": {
     "message": "1.1 Hardware Introduction",
     "description": "The generated-index page title for category 1.1 硬件简介 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.7 RDK Studio 使用指南": {
+    "message": "1.7 RDK Studio User Guide",
+    "description": "The label for category 1.7 RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.7 RDK Studio 使用指南.link.generated-index.description": {
+    "message": "RDK Studio User Guide",
+    "description": "The generated-index page description for category 1.7 RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.7.5 设备管理": {
+    "message": "1.7.5 Device Management",
+    "description": "The label for category 1.7.5 设备管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.7.5 设备管理.link.generated-index.description": {
+    "message": "Here, you can add and manage devices by clicking the `+ RDK Device` in the upper right corner.",
+    "description": "The generated-index page description for category 1.7.5 设备管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.7.6 示例应用": {
+    "message": "1.7.6 Example Applications",
+    "description": "The label for category 1.7.6 示例应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.7.6 示例应用.link.generated-index.description": {
+    "message": "Here, you can directly install some simple demos to your development board.",
+    "description": "The generated-index page description for category 1.7.6 示例应用 in sidebar tutorialSidebar"
   }
 }

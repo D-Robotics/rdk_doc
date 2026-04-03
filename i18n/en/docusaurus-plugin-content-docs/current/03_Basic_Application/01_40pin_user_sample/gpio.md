@@ -45,7 +45,7 @@ sidebar_position: 2
         
         ![VScode interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
 
-    3. Execute GPIO [configuration commands](#gpio-settings).
+    3. Execute GPIO [configuration commands](#setting-method-2-log-in-to-the-development-board-and-set-the-gpio).
 
  ### Board-side VS Code Web
 
@@ -69,8 +69,7 @@ sidebar_position: 2
 
      ![VScode new terminal interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
 
- 6. Execute GPIO [configuration commands](#gpio-settings).
-
+ 6. Execute GPIO [configuration commands](#setting-method-2-log-in-to-the-development-board-and-set-the-gpio).
 
 
  ## Setting Method 2: Log in to the development board and set the GPIO

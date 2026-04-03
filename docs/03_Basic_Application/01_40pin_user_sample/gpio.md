@@ -46,9 +46,9 @@ sidebar_position: 2
         
         ![VScode界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/open_vscode_terminal.png)
 
-    3.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
+    3.  执行 GPIO [设置命令](#设置方式二登录开发板)。
 
- ### 板端 VS Code Web
+### 板端 VS Code Web
 
     1. 点击应用空间图标，查看更多应用。
 
@@ -70,14 +70,10 @@ sidebar_position: 2
 
         ![VScode 新建终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/03_Basic_Application/rdk_studio/vscode_open_terminal.png)
 
-    6.  执行 GPIO [设置命令](./gpio.md#gpio-设置)。
+    6.  执行 GPIO [设置命令](#设置方式二登录开发板)。
 
 
-
-
-
-
-## 设置方式二：登录开发板设置 GPIO
+## 设置方式二：登录开发板
 
 ### 导入 GPIO Python 库
 

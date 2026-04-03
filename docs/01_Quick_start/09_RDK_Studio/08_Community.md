@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 1.9.7 社区
+# 1.9.8 社区
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -28,7 +28,11 @@ RDK Studio 提供了地瓜机器人社区直达访问，无需手动打开浏览
 
 :::tip
 
+<<<<<<< HEAD:docs/01_Quick_start/09_RDK_Studio/08_Community.md
+使用 Linux 的小伙伴们，稍微等等文档正在火速编写中。
+=======
 目前RDK Studio Windows系统已正式出炉，使用 Linux 和 macOS 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+>>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276:docs/01_Quick_start/09_RDK_Studio/07_Community.md
 
 :::
 
@@ -40,7 +44,11 @@ RDK Studio 提供了地瓜机器人社区直达访问，无需手动打开浏览
 
 :::tip
 
+<<<<<<< HEAD:docs/01_Quick_start/09_RDK_Studio/08_Community.md
+使用 macOS 的小伙伴们，稍微等等文档正在火速编写中。
+=======
 目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 macOS 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+>>>>>>> 0a90dfb55eedceeb6bc2af1259ef8695bc0eb276:docs/01_Quick_start/09_RDK_Studio/07_Community.md
 
 :::
 
