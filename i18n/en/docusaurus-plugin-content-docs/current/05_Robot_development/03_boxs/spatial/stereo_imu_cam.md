@@ -126,7 +126,7 @@ Parameter explanations:
 - `mipi_out_format:=nv12`: Sets output image format (supports `nv12`/`bgr8`).
 - `log_level:=info`: Sets logging level. At `info` level, calibration parameters are printed. Use `warn` to suppress excessive logs.
 
-2. Upon successful execution, the program prints logs containing all camera calibration parameters. Currently, fisheye stereo calibration is used. For details, refer to [OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html).
+2. If the program runs successfully, it will print the following log containing all the camera calibration parameters. Currently, the fisheye mode is used for stereo calibration. For details, refer to [OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html).
 
 ![LH_IMU_cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png)
 

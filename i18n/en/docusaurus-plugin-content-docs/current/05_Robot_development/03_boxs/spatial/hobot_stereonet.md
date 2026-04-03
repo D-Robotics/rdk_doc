@@ -75,8 +75,20 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
+- If the above instructions fail to update the program to the latest version, you need to modify the apt source file to the beta source:
+
+```bash
+# To switch to the beta source, execute the following commands:
+sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5-beta  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
+apt update
+
+# To switch back to the official release source, execute the following commands:
+sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
+apt update
+```
+
 :::caution **Note**
-**If the `sudo apt update` command fails or returns errors, refer to the FAQ section: [`Q10: How to resolve issues when apt update fails or reports errors?`](/docs/08_FAQ/01_hardware_and_system.md).**
+**If the `sudo apt update` command fails or returns errors, refer to the FAQ section: [`Q10: How to resolve issues when apt update fails or reports errors?`](../../../08_FAQ/01_hardware_and_system.md).**
 :::
 
 ## 5. Launching the Algorithm
@@ -284,9 +296,13 @@ uncertainty_th=-0.10
 # topic
 stereo_image_topic=/image_combine_raw
 camera_info_topic=/image_combine_raw/right/camera_info
+left_camera_info_topic=/image_combine_raw/left/camera_info
 depth_image_topic="~/stereonet_depth"
 depth_camera_info_topic="~/stereonet_depth/camera_info"
+rectify_left_camera_info_topic="~/rectify_left_image/camera_info"
+rectify_right_camera_info_topic="~/rectify_right_image/camera_info"
 pointcloud2_topic="~/stereonet_pointcloud2"
+publish_pcd_enabled=True
 rectify_left_image_topic="~/rectify_left_image"
 rectify_right_image_topic="~/rectify_right_image"
 publish_rectify_bgr=False
@@ -294,6 +310,8 @@ origin_left_image_topic="~/origin_left_image"
 origin_right_image_topic="~/origin_right_image"
 publish_origin_enable=True
 visual_image_topic="~/stereonet_visual"
+publish_visual_enabled=True
+stereonet_frame_id="camera_link"
 
 # mipi cam
 use_mipi_cam=True
@@ -370,10 +388,11 @@ left_img_mask_enable=False
 
 # epipolar
 epipolar_mode=False
-epipolar_img=origin
+epipolar_img=rect
 chessboard_per_rows=20
 chessboard_per_cols=11
 chessboard_square_size=0.06
+feature_epipolar_mode=False
 
 # web
 stereonet_pub_web=True
@@ -397,9 +416,13 @@ while [[ $# -gt 0 ]]; do
     # topic
     --stereo_image_topic) stereo_image_topic=$2; shift 2 ;;
     --camera_info_topic) camera_info_topic=$2; shift 2 ;;
+    --left_camera_info_topic) left_camera_info_topic=$2; shift 2 ;;
     --depth_image_topic) depth_image_topic=$2; shift 2 ;;
+    --rectify_left_camera_info_topic) rectify_left_camera_info_topic=$2; shift 2 ;;
+    --rectify_right_camera_info_topic) rectify_right_camera_info_topic=$2; shift 2 ;;
     --depth_camera_info_topic) depth_camera_info_topic=$2; shift 2 ;;
     --pointcloud2_topic) pointcloud2_topic=$2; shift 2 ;;
+    --publish_pcd_enabled) publish_pcd_enabled=$2; shift 2 ;;
     --rectify_left_image_topic) rectify_left_image_topic=$2; shift 2 ;;
     --rectify_right_image_topic) rectify_right_image_topic=$2; shift 2 ;;
     --publish_rectify_bgr) publish_rectify_bgr=$2; shift 2 ;;
@@ -407,6 +430,8 @@ while [[ $# -gt 0 ]]; do
     --origin_right_image_topic) origin_right_image_topic=$2; shift 2 ;;
     --publish_origin_enable) publish_origin_enable=$2; shift 2 ;;
     --visual_image_topic) visual_image_topic=$2; shift 2 ;;
+    --publish_visual_enabled) publish_visual_enabled=$2; shift 2 ;;
+    --stereonet_frame_id) stereonet_frame_id=$2; shift 2 ;;
 
     # mipi cam
     --use_mipi_cam) use_mipi_cam=$2; shift 2 ;;
@@ -503,12 +528,13 @@ done
 ros2 launch hobot_stereonet stereonet_model_web_visual_$stereonet_version.launch.py \
 stereo_node_name:=$stereo_node_name \
 uncertainty_th:=$uncertainty_th \
-stereo_image_topic:=$stereo_image_topic camera_info_topic:=$camera_info_topic \
+stereo_image_topic:=$stereo_image_topic camera_info_topic:=$camera_info_topic left_camera_info_topic:=$left_camera_info_topic \
 depth_image_topic:=$depth_image_topic depth_camera_info_topic:=$depth_camera_info_topic \
-pointcloud2_topic:=$pointcloud2_topic rectify_left_image_topic:=$rectify_left_image_topic \
-rectify_right_image_topic:=$rectify_right_image_topic publish_rectify_bgr:=$publish_rectify_bgr \
-origin_left_image_topic:=$origin_left_image_topic origin_right_image_topic:=$origin_right_image_topic \
-publish_origin_enable:=$publish_origin_enable visual_image_topic:=$visual_image_topic \
+rectify_left_camera_info_topic:=$rectify_left_camera_info_topic rectify_right_camera_info_topic:=$rectify_right_camera_info_topic \
+pointcloud2_topic:=$pointcloud2_topic publish_pcd_enabled:=$publish_pcd_enabled \
+rectify_left_image_topic:=$rectify_left_image_topic rectify_right_image_topic:=$rectify_right_image_topic publish_rectify_bgr:=$publish_rectify_bgr \
+origin_left_image_topic:=$origin_left_image_topic origin_right_image_topic:=$origin_right_image_topic publish_origin_enable:=$publish_origin_enable \
+visual_image_topic:=$visual_image_topic publish_visual_enabled:=$publish_visual_enabled \
 use_mipi_cam:=$use_mipi_cam mipi_image_width:=$mipi_image_width mipi_image_height:=$mipi_image_height \
 mipi_image_framerate:=$mipi_image_framerate mipi_frame_ts_type:=$mipi_frame_ts_type \
 mipi_gdc_enable:=$mipi_gdc_enable mipi_lpwm_enable:=$mipi_lpwm_enable mipi_rotation:=$mipi_rotation \
@@ -528,8 +554,8 @@ camera_cx:=$camera_cx camera_cy:=$camera_cy camera_fx:=$camera_fx camera_fy:=$ca
 left_img_mask_enable:=$left_img_mask_enable \
 epipolar_mode:=$epipolar_mode epipolar_img:=$epipolar_img \
 chessboard_per_rows:=$chessboard_per_rows chessboard_per_cols:=$chessboard_per_cols chessboard_square_size:=$chessboard_square_size \
+feature_epipolar_mode:=$feature_epipolar_mode \
 stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format \
-codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
 #### (4) Execute the stereo algorithm launch command
@@ -546,13 +572,14 @@ bash run_stereo.sh --mipi_rotation 0.0
 # With 132GS camera
 bash run_stereo.sh
 
+
 # Note:
 # You need to verify whether the RGB image displayed on the web interface is captured by the left camera. You can confirm this by covering the left camera lens.
 # If the left/right camera order is incorrect, you can adjust it in two ways:
 # Method 1: Swap the MIPI cables.
 # Method 2: Add one of the following parameter sets to the command above: 
 #           --mipi_channel 0 --mipi_channel2 2 
-#        or --mipi_channel 2 --mipi_channel2 1,
+#        or --mipi_channel 2 --mipi_channel2 0,
 #        and check which configuration yields the correct result.
 ```
 
@@ -566,13 +593,16 @@ bash run_stereo.sh --stereonet_version v2.4 --mipi_rotation 0.0
 # With 132GS camera
 bash run_stereo.sh --stereonet_version v2.4
 
+# The S100 also supports high-resolution models. Taking the 132GS camera as an example, the startup command is as follows:
+bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
+
 # Note:
 # You need to verify whether the RGB image displayed on the web interface is captured by the left camera. You can confirm this by covering the left camera lens.
 # If the left/right camera order is incorrect, you can adjust it in two ways:
 # Method 1: Swap the MIPI cables.
 # Method 2: Add one of the following parameter sets to the command above: 
 #           --mipi_channel 0 --mipi_channel2 2 
-#        or --mipi_channel 2 --mipi_channel2 1,
+#        or --mipi_channel 2 --mipi_channel2 0,
 #        and check which configuration yields the correct result.
 ```
 
@@ -580,11 +610,15 @@ bash run_stereo.sh --stereonet_version v2.4
 </Tabs>
 
 :::caution **Note**
-**If the program fails to start correctly, use `ros2 topic list -v` to check whether topics corresponding to `stereo_image_topic` and `camera_info_topic` exist.**
 
-**If the program starts successfully but depth quality is poor, please verify:  
-1. The stereo image layout follows a left-top / right-bottom arrangement;  
-2. Confirm that the left and right images satisfy epipolar alignment requirements as described below.**
+**If the program does not start correctly, you can check whether the topics corresponding to `stereo_image_topic` and `camera_info_topic` exist using `ros2 topic list -v`**
+
+**If the program starts correctly but the depth effect is poor, verify:** 
+
+**1. The stitching order of the left and right images is top-left and bottom-right;** 
+
+**2. Refer to the text below to confirm whether the left and right images meet the epipolar alignment requirements**
+
 :::
 
 - Definition of left/right cameras: <span style={{ color: 'red' }}> You must confirm whether the RGB image shown on the web interface below is captured by the left camera </span>:
@@ -618,7 +652,7 @@ The `run_stereo.sh` script supports numerous configurable parameters. Below are 
 
 - **stereonet_version**: Controls which version of the algorithm to launch.
   - For **RDK X5**, options include: `v2.0`, `v2.1`, `v2.2`, `v2.3`, `v2.4_int16`, `v2.4_int8`, `v2.5_int16`, `v2.5_int16_96`, `v2.5_int16_544_448`, `v2.5_int16_544_448_96`
-  - For **RDK S100**, options include: `v2.1`, `v2.4`
+  - For **RDK S100**, options include: `v2.1`, `v2.4`,`v2.4_1280_704`
 - **stereo_node_name**: Specifies the ROS node name.
 - **uncertainty_th**: Confidence threshold. Only effective for models that output confidence and when set to a positive value. If enabled, it is recommended to set this to `0.10`.
 - **stereo_image_topic** / **camera_info_topic**: Names of the ROS topics the node subscribes to, for stereo images and corresponding camera info, respectively.
@@ -659,7 +693,7 @@ The `run_stereo.sh` script supports numerous configurable parameters. Below are 
 - **epipolar_mode**: Enables epipolar alignment verification using a chessboard pattern.
 - **epipolar_img**: Specifies whether to use the `origin` (original) or `rect` (rectified) images.
 - **chessboard_per_rows** / **chessboard_per_cols** / **chessboard_square_size**: Define the number of inner corners per row/column and square size (in meters) of the chessboard.
-- **feature_epipolar_mode**: Enables epipolar alignment verification using ORB feature points.
+- **feature_epipolar_mode**: Controls whether to enable epipolar alignment detection based on ORB feature points.
 
 - **infer_thread_num**: Number of inference threads. Default is 2 threads, which yields higher FPS but higher latency. Setting to 1 reduces FPS slightly but also reduces latency.
 
@@ -897,7 +931,7 @@ Note that each ZED camera has a unique SN code. When using your own device, plea
 - Next, launch the stereo algorithm by opening another terminal and executing:
 
 ```bash
-bash run_stereo.sh --use_mipi_cam False
+bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_right_raw/camera_info
 ```
 
 - View the depth map via the web interface by entering http://ip:8000 in your browser (replace "ip" with the actual IP address of your RDK). For instructions on viewing **point clouds** and **saving images**, please refer to the relevant settings described above.
@@ -909,7 +943,7 @@ bash run_stereo.sh --use_mipi_cam False
 | Default Name (adjustable via parameters)      | Message Type                  | Description                                           |
 | --------------------------------------------- | ----------------------------- | ----------------------------------------------------- |
 | /image_combine_raw                            | sensor_msgs::msg::Image       | Vertically stacked left-right images used for model inference |
-| /image_right_raw/camera_info (optional)       | sensor_msgs::msg::CameraInfo  | Camera calibration parameters for disparity-depth conversion |
+| /image_combine_raw/right/camera_info (optional)       | sensor_msgs::msg::CameraInfo  | Camera calibration parameters for disparity-depth conversion |
 
 ### 6.2. Published Topics
 
