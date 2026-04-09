@@ -1,9 +1,0 @@
-{
-  "label": "1.2.3.5 Using the XBurn tool to burn the NAND firmware",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "slug": "/install_os/RDK X5/05_XBurn",
-    "description": "XBurn is an official image flashing tool that can be used to flash the RDK X5 NAND firmware. It provides an intuitive graphical interface, allowing users to complete the flashing process in just a few clicks—very convenient."
-  }
-}
