@@ -43,17 +43,17 @@ import TabItem from '@theme/TabItem';
 
 :::tip
 
-The RDK Studio Windows version has now been officially released. Friends using Linux and Mac, please wait a little while as our developers are rapidly typing away.
+For those using Linux, please wait a moment as the documentation is being rapidly prepared.
 
 :::
 
 </TabItem>
 
-<TabItem value="mac" label="Mac">
+<TabItem value="macOS" label="macOS">
 
 :::tip
 
-The RDK Studio Windows version has now been officially released. Friends using Linux and Mac, please wait a little while as our developers are rapidly typing away.
+For those using macOS, please wait a moment as the documentation is being rapidly prepared.
 
 :::
 

@@ -1,7 +1,35 @@
 ---
 sidebar_position: 9
 ---
-# 1.9.9 Version Release
+# 1.9.10 Version Release
+
+## RDK Studio-v0.3.21
+
+### New Features
+
+Added OpenClaw application configuration module.
+
+## RDK Studio-v0.3.19
+
+### New Features
+
+1. New examples added to the sample application module
+   - TROS YOLOv8-Seg
+   - TROS DOSOD
+   - TROS Fall Detection
+   - TROS Face Landmarks Detection
+   - TROS Face Age Detection
+
+### Key Bug Fixes
+
+1. Fixed RDK OS upgrade error
+2. Fixed issue where devices were displayed repeatedly in the device list under sample applications
+
+### Optimizations
+
+1. Optimized the sample available/unavailable indicator
+2. Optimized the display method of version update records
+3. Optimized content display during interface scaling
 
 ## RDK Studio-v0.3.18
 

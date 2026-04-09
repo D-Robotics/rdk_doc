@@ -87,11 +87,11 @@ sudo cyclictest -l50000000 -m -S -p90 -i200 -h400
 
 ### 实时内核启用命令
 
-要在RDK X5上启用实时内核。
+要在RDK X5上启用实时内核，需要修改`/boot/boot.cmd`文件：
 
-需要修改`/boot/boot.cmd`文件，将`imagefile="Image"`改为`imagefile="Image-rt"`，到`/boot/`目录下执行`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
-
-重启系统，即可切换到实时内核。
+1. 将`imagefile="Image"`改为`imagefile="Image-rt"`。
+2. 到`/boot/`目录下执行`mkimage -C none -A arm -T script -d boot.cmd boot.scr`。
+3. 重启系统，即可切换到实时内核。
 
 切换回标准内核，需要将`imagefile="Image-rt"`改为`imagefile="Image"`，其他步骤同上。
 

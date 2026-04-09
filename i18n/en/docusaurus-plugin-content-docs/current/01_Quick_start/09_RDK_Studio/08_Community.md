@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 1.9.7 Community
+# 1.9.8 Community
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -28,17 +28,17 @@ Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Qui
 
 :::tip
 
-The RDK Studio Windows version has been officially released. For those using Linux and Mac, please wait a little longer—our developers are typing away at full speed.
+The RDK Studio Windows version has been officially released. For those using Linux and macOS, please wait a little longer—our developers are typing away at full speed.
 
 :::
 
 </TabItem>
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 
-The RDK Studio Windows version has been officially released. For those using Linux and Mac, please wait a little longer—our developers are typing away at full speed.
+The RDK Studio Windows version has been officially released. For those using Linux and macOS, please wait a little longer—our developers are typing away at full speed.
 
 :::
 

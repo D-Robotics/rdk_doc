@@ -9,39 +9,37 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-This section introduces how to experience Large Language Model (LLM) on RDK S100.
+This section describes how to experience on-device Large Language Models (LLMs) on the RDK S100 series platform.
 
-Code repository:  (https://github.com/D-Robotics/hobot_xlm.git)
+Code repository: (https://github.com/D-Robotics/hobot_xlm.git)
 
 ## Supported Platforms
 
-| Platform                       | System | Function |
-| ------------------------------ | -------------- | ---------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble)   | Edge-side LLM Experience |
+| Platform                        | Runtime Environment | Example Functionality     |
+| ------------------------------- | ------------------- | -------------------------- |
+| RDK S100, RDK S100P             | Ubuntu 22.04 (Humble) | On-device LLM Experience   |
 
-**Note: Only supports RDK X3 and RDK X3 Module with 4GB RAM version.**
+## Algorithm Details
 
-## Al
-
-| Model Type | Param | Token Length | Quant Method | Platform | Prefill eval (tokens/s) | Eval (tokens/s) |
-| ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
-| Deepseek-R1 | 1.5B | 1024 | Q8 | S100 | 635.24 | 17.05 |
-| Deepseek-R1 | 7B | 1024 | Q8 | S100 | 279.17 | 3.72 |
-| Deepseek-R1 | 1.5B | 1024 | Q8 | S100P | 1326.40 | 26.52 |
-| Deepseek-R1 | 7B | 1024 | Q8 | S100P | 468.86 | 6.68 |
+| Model          | Parameters | Token Length | Quantization | Platform | Prefill eval (tokens/s) | Eval (tokens/s) |
+| -------------- | ---------- | ------------ | ------------ | -------- | ----------------------- | --------------- |
+| Deepseek-R1    | 1.5B       | 1024         | Q8           | S100     | 635.24                  | 17.05           |
+| Deepseek-R1    | 7B         | 1024         | Q8           | S100     | 279.17                  | 3.72            |
+| Deepseek-R1    | 1.5B       | 1024         | Q8           | S100P    | 1326.40                 | 26.52           |
+| Deepseek-R1    | 7B         | 1024         | Q8           | S100P    | 468.86                  | 6.68            |
 
 ## Preparation
 
-### RDK
+### System Setup
 
-1. RDK has been flashed with the provided  Ubuntu 22.04 system image.
-2. RDK has successfully installed TogetheROS.Bot.
+1. The RDK has been flashed with the Ubuntu 22.04 system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-### Download Model
+### Model Download
 
-Before running the program, you need to download the model file and extract it, the commands are as follows:
+Before running the program, you need to download the model files using the following commands:
 
 #### DeepSeek_R1_Distill_Qwen_1.5B
 
@@ -55,16 +53,17 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_1.5B
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_7B_1024.hbm --ftp-password=Oeftp~123$%
 ```
 
-### 系统配置
+### System Configuration
 
-- Setup the the maximum of ION.
+- Maximize ION memory allocation to meet large-model inference requirements:
 
 ```shell
 /usr/hobot/bin/hb_switch_ion.sh bpu_first
 reboot
 ```
 
-- Setup the performance mode. `Attention：only RDK S100P support performance mode.`
+- Set performance mode (`Note: Only RDK S100P supports performance mode`):
+
 ```shell
 devmem 0x2b047000 32 0x99
 devmem 0x2b047004 32 0x99
@@ -72,41 +71,52 @@ devmem 0x2b047004 32 0x99
 
 ## Usage
 
+Currently, two interaction methods are provided:  
+1. Direct terminal-based text chat.  
+2. Subscribing to text messages and publishing results as text topics.
+
 #### Terminal Interaction
 
 ```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 ```bash
 lib=/opt/tros/humble/lib/hobot_xlm/lib
 export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
+# config contains example model configuration files
 cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
 ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
 ```
 
-After the program starts, you can chat directly with the robot in the current terminal.
+After launching the program, you can directly chat with the robot in the current terminal.
 
-The support type of model: `DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。RDK S100 is not support Qwen 7B。
+Supported model types are `"DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepSeek_R1_Distill_Qwen_7B"`. Note that the 7B model is only compatible with RDK S100P.
 
-#### Subscribe and Publish Messages
+#### Subscription/Publishing Interaction
 
-1. Start hobot_llm
+1. Launch `hobot_llm`:
 
     ```bash
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
     ```bash
     lib=/opt/tros/humble/lib/hobot_xlm/lib
     export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
+    # config contains example model configuration files
     cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
-2. Open a new terminal to subscribe
+    Supported model types are `"DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepSeek_R1_Distill_Qwen_7B"`. Note that the 7B model is only compatible with RDK S100P.
+
+2. Open a new terminal and subscribe to the output topic:
 
     ```bash
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -114,19 +124,20 @@ The support type of model: `DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Dist
     ros2 topic echo /tts_text
     ```
 
-3. Open a new terminal to publish
+3. Open another new terminal and publish a message:
 
     ```bash
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
     ```bash
-    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""简单描述人工智能的发展""}"
+    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: \"Briefly describe the development of artificial intelligence\"}"
     ```
 
-After sending the message, you can check the output result in the subscribed terminal.
+After sending the message, you can view the output in the terminal subscribed to the result topic.
 
-## Result
+## Example Output
 
 ```bash
 [UCP]: log level = 3
@@ -162,54 +173,54 @@ After sending the message, you can check the output result in the subscribed ter
 [DNN] HBTL_EXT_DNN log level:6
 [DNN]: 3.6.1_(4.2.7post0.dev202307211111+6aaae37 HBRT)
 [WARN] [1757949705.795194210] [xlm_node]: model init successed!
-板端大模型多轮对话交互demo，请输入你的问题并按下回车
-- 退出请输入Ctrl C
-- 清除缓存请输入reset
-[User] <<< 简单描述人工智能的发展
+On-device large language model multi-turn dialogue demo. Please enter your question and press Enter.
+- Press Ctrl+C to exit.
+- Type "reset" to clear conversation history.
+[User] <<< Briefly describe the development of artificial intelligence
 [Assistant] >>> ...
 
-人工智能（AI）的发展可以分为几个主要阶段：
 
-1. **早期AI**：
-   - **人工智能**：最初用于特定任务，如游戏和客服。
-   - **机器学习**：1950年代，计算机开始学习，如自动识别和语音识别。
-   - **专家系统**：1970年代，如“维基”系统，模拟人类专家。
+The development of Artificial Intelligence (AI) can be divided into several key stages:
 
-2. **计算机视觉**：
-   - **图像识别**：1980年代，计算机识别简单的图像，如手写数字。
-   - **自然语言处理**：1990年代，如维基百科的自动搜索和编辑。
+1. **Early AI**:
+   - **Artificial Intelligence**: Initially applied to specific tasks such as gaming and customer service.
+   - **Machine Learning**: In the 1950s, computers began learning tasks like automatic recognition and speech recognition.
+   - **Expert Systems**: In the 1970s, systems like "MYCIN" simulated human experts.
 
-3. **深度学习**：
-   - **神经网络**：1980年代，神经网络用于处理复杂数据。
-   - **卷积神经网络（CNN）**：1990年代，用于图像识别，如自动驾驶汽车。
-   - **深度学习**：2010年代，如GPT和BERT，用于自然语言处理。
+2. **Computer Vision**:
+   - **Image Recognition**: In the 1980s, computers recognized simple images, such as handwritten digits.
+   - **Natural Language Processing**: In the 1990s, systems enabled automated search and editing (e.g., early Wikipedia bots).
 
-4. **强化学习**：
-   - **机器人控制**：1980年代，机器人学习动作。
-   - **自动驾驶**：2010年代，如自动驾驶汽车。
+3. **Deep Learning**:
+   - **Neural Networks**: In the 1980s, neural networks started processing complex data.
+   - **Convolutional Neural Networks (CNNs)**: In the 1990s, CNNs were used for image recognition, e.g., in autonomous vehicles.
+   - **Modern Deep Learning**: In the 2010s, models like GPT and BERT revolutionized natural language processing.
 
-5. **深度学习和神经网络**：
-   - **图像识别**：如分类、分割和生成。
-   - **自然语言处理**：如文本生成、翻译和对话。
-   - **语音识别**：如转录和语音合成。
+4. **Reinforcement Learning**:
+   - **Robotics Control**: Since the 1980s, robots learned actions through trial and error.
+   - **Autonomous Driving**: In the 2010s, reinforcement learning powered self-driving cars.
 
-6. **AI应用**：
-   - **医疗**：如诊断和药物研发。
-   - **交通**：如自动驾驶和交通管理系统。
-   - **教育**：如智能学习系统。
-   - **金融**：如自动交易和风险管理。
+5. **Advanced Deep Learning & Neural Networks**:
+   - **Image Recognition**: Tasks include classification, segmentation, and generation.
+   - **Natural Language Processing**: such as text generation, translation, and dialogue.  
+   - **Speech Recognition**: such as transcription and speech synthesis.
 
-7. **伦理和挑战**：
-   - **隐私问题**：数据泄露和隐私侵犯。
-   - **伦理争议**：如算法偏见和隐私问题。
+6. **AI Applications**:  
+   - **Healthcare**: such as diagnosis and drug discovery.  
+   - **Transportation**: such as autonomous driving and traffic management systems.  
+   - **Education**: such as intelligent learning systems.  
+   - **Finance**: such as automated trading and risk management.
 
-8. **未来展望**：
-   - **AI芯片**：用于训练和推理。
-   - **边缘AI**：在设备上运行，减少数据传输。
-   - **多模态AI**：结合视觉、听觉等多模态数据。
-   - **人类助手**：如聊天机器人和生命支持系统。
+7. **Ethics and Challenges**:  
+   - **Privacy Issues**: data breaches and privacy violations.  
+   - **Ethical Concerns**: such as algorithmic bias and privacy issues.
 
-AI将继续在多个领域发展，推动技术进步和社会变革。
-Performance prefill: 1113.04tokens/s    decode: 20.22tokens/s
+8. **Future Outlook**:  
+   - **AI Chips**: used for training and inference.  
+   - **Edge AI**: running on devices to reduce data transmission.  
+   - **Multimodal AI**: integrating multimodal data such as vision and audio.  
+   - **Human Assistants**: such as chatbots and life-support systems.
+
+AI will continue to advance across multiple domains, driving technological progress and societal transformation.  
+Performance prefill: 1113.04 tokens/s    decode: 20.22 tokens/s
 ```
-

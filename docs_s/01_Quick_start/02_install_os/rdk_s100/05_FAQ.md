@@ -73,7 +73,7 @@ Q2. **ubuntu24.04 系统需要安装驱动**
    4. 点击[下载](https://archive.d-robotics.cc/downloads/software_tools/download_tools/)最新的 `Xburn` 工具
    5. 安装并启动 `Xburn` 烧录工具。
 
-## 使用 MacOS 系统笔记本串口乱码问题
+## 使用 MacOS 笔记本串口乱码问题
 
 以 MacOs 版本 15.0(芯片 M3)为例，MACOS 系统默认串口驱动以 921600 波特率连接 CH340N 会出现乱码，需要安装最新的 CH340N 的驱动，操作如下：
 

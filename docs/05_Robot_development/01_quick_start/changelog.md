@@ -20,6 +20,12 @@ sidebar_position: 6
 - 'mipi_cam'重构从获取码流到消息发布的videobuff管理和拼接线程。修改拼接图片的标定信息的topic，"image_combine_raw/left/camera_info"和"image_combine_raw/right/camera_info"。重构X5的eeprom的读处理。X5增加子目录的发布。增加联合132gs的imu数据发布。
 
 
+### 版本号：2.4.6 (2026-02-02)
+
+功能变更（`RDK S100`平台）：
+- 适配`V4.0.5`版本系统和`V3.7.0`版本`OE`。
+
+
 ### 版本号：2.4.5 (2025-10-28)
 
 问题修复（`RDK X5`平台）：

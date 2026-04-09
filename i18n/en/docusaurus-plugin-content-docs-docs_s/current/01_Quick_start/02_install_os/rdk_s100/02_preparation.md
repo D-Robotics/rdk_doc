@@ -29,4 +29,4 @@ Take xburn-gui_1.1.9 as an example:
    
    - For Windows: Download xburn-gui_1.1.9_x64-setup.exe
    - For Linux: Download xburn-gui_1.1.9_amd64.deb
-   - For Mac: Download xburn-gui_1.1.9_universal.dmg
+   - For macOS: Download xburn-gui_1.1.9_universal.dmg

@@ -159,6 +159,5 @@ Execute the `simple_pwm.py` program to start the GPIO read/write program.
   ```
 
 
-
 </TabItem>
 </Tabs>

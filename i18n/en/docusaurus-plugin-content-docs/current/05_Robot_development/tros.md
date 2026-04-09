@@ -2,52 +2,54 @@
 sidebar_position: 0
 ---
 
-# TogetheROS.Bot
-TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and developers. It aims to unleash the intelligent potential of robot scenarios, enabling developers and commercial customers to develop robots efficiently and conveniently, and create competitive intelligent robot products.
+# Introduction to TogetheROS.Bot  
+TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and ecosystem developers, aiming to unlock the intelligent potential of robotic applications and empower ecosystem developers and commercial customers to efficiently and conveniently develop competitive intelligent robot products.
 
-TogetheROS.Bot supports running on the RDK platform while also providing a simulator version for operation on X86 platforms. The RDK platform covers all the functions shown in the diagram below, while the X86 platform supports experiencing partial functionalities through image replay methods, improving user algorithm development and verification efficiency, and enabling quick migration to the RDK platform.
+TogetheROS.Bot supports execution on the RDK platform and also provides a simulator version that runs on x86 platforms. The RDK platform encompasses all functionalities shown in the diagram below, while the x86 platform supports experiencing certain features via image replay, thereby improving the efficiency of algorithm development and validation and enabling rapid migration to the RDK platform.
 
 ![TROS-Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png)
 
-The code of TogetheROS.Bot is hosted on GitHub under the D-Robotics organization link: [D-Robotics](https://github.com/D-Robotics).
+The source code of TogetheROS.Bot is hosted on GitHub under the [D-Robotics organization](https://github.com/D-Robotics).
 
-## Communication
-Communication is D-Robotics's optimized and extended communication component on ROS2 Foxy/Humble version.
+## Communication Component
 
-Main Features include:
+Communication is a functional enhancement and extension built upon the core communication components of ROS2 Foxy and Humble versions.
 
-The blue sections indicate the modules optimized and added by D-Robotics, and the main features of TogetheROS.Bot are as follows:
+Key features are as follows:
 
-- Provide "hobot_sensor" to adapt to commonly used robot sensors, saving development time and focusing on core competitiveness.
-- Provide "hobot_dnn" to simplify on-board algorithm model inference and deployment, unlocking BPU computing power and lowering the threshold for intelligent algorithm usage.
-- Provide "hobot_codec" to accelerate video encoding and decoding through a combination of software and hardware, saving CPU resources and improving parallel processing capability.
-- Provide "hobot_cv" to enhance the performance of common computer vision operators through a combination of software and hardware, saving CPU resources and improving runtime efficiency.
-- Provide "hobot Render" for web-based and HDMI dynamic visualization, real-time rendering of algorithm results (limited to web-based), facilitating display and debugging.
-- Add "zero-copy" inter-process zero-copy communication mechanism to reduce data transmission latency and system resource consumption.
-- Enhance middleware software debugging and performance tuning tools, improve problem localization efficiency, and facilitate system performance optimization.
-- Fully compatible with ROS2 Foxy/Humble version, facilitating the reuse of ROS2 toolkits and speeding up prototype verification.
-- Support minimal and modular pruning, facilitating deployment in resource-constrained embedded products as needed.
+The blue sections indicate optimized or newly added modules. The main features of TogetheROS.Bot include:
 
-## Boxs
-Boxs is an intelligent algorithm package launched by D-Robotics for robot manufacturers and developers based on TogetheROS.Bot. It aims to improve the efficiency of integrating and implementing robot intelligent algorithms based on the D-Robotics robot operating system.
+- Provides “hobot_sensor” to support commonly used robot sensors, saving development time and allowing focus on core competencies  
+- Provides “hobot_dnn” to simplify on-device algorithm model inference and deployment, unleashing BPU computing power and lowering the barrier to using intelligent algorithms  
+- Provides “hobot_codec” combining software and hardware to accelerate video encoding/decoding, conserving CPU resources and enhancing parallel processing capabilities  
+- Provides “hobot_cv” combining software and hardware to boost performance of common computer vision operators, conserving CPU resources and improving runtime efficiency  
+- Provides “hobot Render” with dynamic visualization capabilities for both Web and HDMI outputs, enabling real-time rendering of algorithm results (Web only), facilitating demonstration and debugging  
+- Introduces a “zero-copy” inter-process zero-copy communication mechanism to reduce data transmission latency and lower system resource consumption  
+- Enriches middleware debugging and performance tuning tools to improve issue localization efficiency and facilitate system performance optimization  
+- Maintains full API compatibility with ROS2 Foxy/Humble versions, enabling seamless reuse of the rich ROS tool ecosystem and accelerating prototype validation  
+- Supports minimal and modular customization, making it easy to deploy on resource-constrained embedded products according to specific requirements  
 
-- Image detection algorithms such as FCOS, YOLO, FasterRCNN, Efficientdet, Mobilenet_ssd;
-- Image classification models such as Mobilenet
-- Semantic segmentation models such as Unet
-- Application algorithm models such as human detection and tracking, gesture recognition, human hand keypoint detection, monocular height network, monocular 3D detection, speech processing,VIO,etc.
+## Boxs Algorithm Repository
 
-## Apps
-Apps are algorithm application examples developed based on the D-Robotics robot operating system's Communication and Boxs. They aim to establish a complete chain of image input, perception, strategy, etc., demonstrate application effects, and accelerate the development efficiency of customer demos.
+Boxs is an intelligent algorithm package introduced by D-Robotics for robot manufacturers and ecosystem developers based on TogetheROS.Bot, designed to enhance the efficiency of integrating and deploying intelligent algorithms on robots powered by the D-Robotics RDK robot operating system.
 
-## Common Term Definitions
+- Image detection algorithms such as FCOS, YOLO, FasterRCNN, EfficientDet, and Mobilenet_SSD  
+- Image classification models such as Mobilenet  
+- Semantic segmentation models such as Unet  
+- Application-oriented algorithms including human detection and tracking, gesture recognition, hand keypoint detection, monocular height estimation network, monocular 3D detection, speech processing, etc.
 
-| Term                             | Definition                                               |
-| ---------------------------------| --------------------------------------------------------|
-| zero-copy                        | Inter-process zero-copy communication method             |
-| BPU                              | BPU-based model inference function encapsulation             |
-| hobot dnn                        | Encapsulation of BPU-based model inference functionality |
-| SLAM                              | Simultaneous Localization and Mapping |
-| DOA                               | Direction of Arrival                     |
-| ASR                               | Automatic Speech Recognition             |
-| TogetheROS.Bot                    | Together Robot Operating System for robot    |
-| tros.b                            | TogetheROS.Bot abbreviation               |
+## Apps Application Examples
+
+Apps are algorithm application examples developed based on the Communication component and Boxs of the D-Robotics RDK robot operating system, aiming to establish an end-to-end pipeline covering image input, perception, decision-making, and other modules, demonstrate application outcomes, and accelerate customer demo development.
+
+## Glossary of Common Terms
+
+| Term                              | Definition                                                  |
+| ----------------------------------| -----------------------------------------------------------|
+| zero-copy                         | Zero-copy inter-process communication method                |
+| hobot dnn                         | BPU-based model inference functionality encapsulation       |
+| SLAM                              | Simultaneous Localization and Mapping                        |
+| DOA                               | Direction of Arrival (sound source localization)            |
+| ASR                               | Automatic Speech Recognition                                |
+| TogetheROS.Bot                    | TogetheROS.Bot Robot Operating System                       |
+| tros.b                            | Abbreviation for TogetheROS.Bot                             |

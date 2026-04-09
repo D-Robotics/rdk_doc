@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 1.9.7 社区
+# 1.9.8 社区
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -28,7 +28,7 @@ RDK Studio 提供了地瓜机器人社区直达访问，无需手动打开浏览
 
 :::tip
 
-目前RDK Studio Windows系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+使用 Linux 的小伙伴们，稍微等等文档正在火速编写中。
 
 :::
 
@@ -36,11 +36,11 @@ RDK Studio 提供了地瓜机器人社区直达访问，无需手动打开浏览
 
 
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 
-目前 RDK Studio Windows 系统已正式出炉，使用 Linux 和 Mac 的小伙伴们，稍微等等开发小哥正在火速敲键盘
+使用 macOS 的小伙伴们，稍微等等文档正在火速编写中。
 
 :::
 
