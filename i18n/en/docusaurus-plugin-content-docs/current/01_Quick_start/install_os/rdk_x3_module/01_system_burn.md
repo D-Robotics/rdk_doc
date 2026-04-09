@@ -129,7 +129,7 @@ See [Flashing with RDK Studio](../../09_RDK_Studio/04_flashing.md).
 
 #### Rufus
 
-Same steps as [RDK X3 — Using Rufus](../rdk_x3/01_system_burn.md#using-rufus).
+Same steps as [RDK X3 — Using Rufus](../rdk_x3/01_system_burn.md#using-rufus-x3).
 
 
 ### Flashing eMMC {#x3md-emmc-system-burn}
@@ -260,7 +260,7 @@ At **Select storage device**, choose the USB drive. See [Flashing with RDK Studi
 
 ##### Rufus
 
-In Rufus, pick that drive letter; other steps match [RDK X3 — Using Rufus](../rdk_x3/01_system_burn.md#using-rufus).
+In Rufus, pick that drive letter; other steps match [RDK X3 — Using Rufus](../rdk_x3/01_system_burn.md#using-rufus-x3).
 
 <img 
           src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/install_os_260408/en/x3/rufus_select_device.png" 

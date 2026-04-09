@@ -67,7 +67,7 @@ Double-click the package, then drag the app icon into **Applications**.
     style={{ width: '100%', height: 'auto', align:'center'}}
 />
 
-### Using Rufus {#using-rufus}
+### Using Rufus
 
 - Supports **local image** only.
 - Windows only.
@@ -124,7 +124,7 @@ Double-click the downloaded `.exe` to install and launch the app.
 
 RDK Studio can flash the OS and manage the device on Windows, Linux, and macOS. See [Flashing with RDK Studio](../../09_RDK_Studio/04_flashing.md).
 
-### Using Rufus
+### Using Rufus{#using-rufus-x3}
 
 #### Hardware
 
