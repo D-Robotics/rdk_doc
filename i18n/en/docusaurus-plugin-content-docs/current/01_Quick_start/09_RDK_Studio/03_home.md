@@ -93,17 +93,17 @@ The last item in the bottom left corner displays the RDK Studio tool version.
 
 :::tip
 
-RDK Studio for Windows is now officially released. For friends using Linux and Mac, please wait a bit—the developers are typing at lightning speed!
+For those using Linux, please wait a moment as the documentation is being rapidly prepared.
 
 :::
 
 </TabItem>
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 
-RDK Studio for Windows is now officially released. For friends using Linux and Mac, please wait a bit—the developers are typing at lightning speed!
+For those using macOS, please wait a moment as the documentation is being rapidly prepared.
 
 :::
 

@@ -3,59 +3,73 @@ sidebar_position: 2
 ---
 # Monocular 3D Indoor Detection
 
-
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The mono3d_indoor_detection package is an example of indoor object 3D detection algorithm based on the hobot_dnn package. It uses the 3D detection model and indoor data on the D-Robotics's RDK to perform model inference using BPU and obtain the inference results.
+The `mono3d_indoor_detection` package is an example implementation of an indoor object 3D detection algorithm developed based on the `hobot_dnn` package. It leverages the BPU to perform model inference on RDK using a 3D detection model and indoor data, thereby producing inference results.
 
-Compared to 2D object detection, which can only recognize the object category and bounding box, 3D object detection can identify the precise position and orientation of the object. For example, in navigation the rich information provided by 3D object detection algorithms can help the planning and control robot achieve better effects.
+Compared with 2D object detection—which can only identify object categories and bounding boxes—3D object detection provides precise object positions and orientations. For instance, in navigation and obstacle avoidance scenarios, the rich information provided by 3D object detection algorithms helps the planning and control module achieve better obstacle avoidance performance.
 
-The supported indoor object detection categories of the algorithm include: charging docks, trash cans, and slippers.
+The supported indoor object categories for detection include: charging dock, trash can, and slippers.
 
-The detection results for each category include:
+The detection result for each category includes:
 
-- Length, width, height: The length, width, and height of the three-dimensional object (i.e. hexahedron), measured in meters.
+- **Length, Width, Height**: Dimensions (in meters) of the 3D object (i.e., a cuboid).
 
-- Orientation: The orientation of the object relative to the camera, measured in radians. The range is from -π to π, representing the angle between the camera coordinate system x-axis and the object's forward direction in the camera coordinate system.
+- **Rotation**: The orientation of the object relative to the camera, measured in radians within the range [-π, π]. This represents the angle between the object’s forward direction and the x-axis of the camera coordinate system.
 
-- Depth information: The distance from the camera to the object, measured in meters.
+- **Depth**: Distance from the camera to the object, in meters.
 
-Code repository:  (https://github.com/D-Robotics/mono3d_indoor_detection)
+Code Repository: [https://github.com/D-Robotics/mono3d_indoor_detection](https://github.com/D-Robotics/mono3d_indoor_detection)
 
-Applications: The monocular 3D indoor detection algorithm can directly identify the exact position and orientation of objects in images, enabling object posture recognition. It is mainly used in autonomous driving, smart home, and other fields.
+Application Scenarios: The monocular 3D indoor detection algorithm directly identifies the exact position and orientation of objects in images, enabling object pose recognition. It is primarily applied in autonomous driving, smart homes, and similar fields.
+
+Monocular 3D Vehicle Detection Example: [https://github.com/RayXie29/Kaggle-Peking-University-Baidu-Autonomous-Driving-32-place-solution](https://github.com/RayXie29/Kaggle-Peking-University-Baidu-Autonomous-Driving-32-place-solution)
 
 ## Supported Platforms
 
-| Platform              | System | Function                                       |
-| --------------------- | ---------------- | ----------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start MIPI/USB camera/local data and save the inference rendering result locally |
+| Platform              | Runtime Environment                    | Example Functionality                                               |
+| --------------------- | -------------------------------------- | ------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch MIPI/USB camera and display rendered inference results via Web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)                  | Launch MIPI/USB camera and display rendered inference results via Web |
+| X86                   | Ubuntu 20.04 (Foxy)                    | • Play back local images; save rendered inference results locally    |
 
-## Preparation
+## Algorithm Details
 
-### RDK
+| Model      | Platform | Input Size     | Inference FPS |
+| ---------- | -------- | -------------- | ------------- |
+| centernet  | X3       | 1x3x512x960    | 85.93         |
+| centernet  | X5       | 1x3x512x960    | 196.33        |
 
-1. RDK has been flashed with the  Ubuntu 20.04/22.04 system system image provided by D-Robotics.
+## Prerequisites
 
-2. TogetheROS.Bot has been successfully installed on the RDK.
+### RDK Platform
 
-## Usage
+1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on RDK.
 
-Because the 3D detection model is related to camera parameters, different cameras need to adjust the parameters accordingly.
+### X86 Platform
 
-The mono3d_indoor_detection algorithm package uses local image input for inference. After the inference, it can detect object categories and 3D positioning information, and publish the algorithm message for 3D information. Users can subscribe to the 3D detection result message for application development.
+1. The X86 environment has been configured with Ubuntu 20.04 system image.
+2. tros.b has been successfully installed in the X86 environment.
 
-### RDK
+## Usage Guide
+
+Since the 3D detection model is related to camera parameters, adjustments are required for different cameras.
+
+The `mono3d_indoor_detection` example package performs detection inference by reading local images. After inference, it outputs object categories and 3D localization information, and publishes algorithm messages containing 3D detection results. Users can subscribe to these messages for application development.
+
+### RDK Platform
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -64,7 +78,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -73,16 +87,29 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono3d_indoor_detection/config/ .
 
-# Start the launch file
+# Launch the launch file
+ros2 launch mono3d_indoor_detection mono3d_indoor_detection.launch.py 
+```
+
+### X86 Platform
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+
+# Copy required configuration files from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono3d_indoor_detection/config/ .
+
+# Launch the launch file
 ros2 launch mono3d_indoor_detection mono3d_indoor_detection.launch.py 
 ```
 
 ## Result Analysis
 
-After processing one frame of image data, the mono3d_indoor_detection package outputs the following information:
+After processing one frame of image data, the `mono3d_indoor_detection` package outputs the following information in the terminal:
 
 ```shell
 [mono3d_indoor_detection-1] [INFO] [1662612553.868256257] [mono3d_detection]: target type: trash_can
@@ -107,8 +134,8 @@ After processing one frame of image data, the mono3d_indoor_detection package ou
 [mono3d_indoor_detection-1] [INFO] [1662612553.869126765] [mono3d_detection]: target type: score, value: 0.875521
 ```
 
-The log displays the processing result of a frame. The result shows that the target type in the subscribed algorithm message is trash_can, and it also provides the 3D coordinates, distance, and rotation angle information of the trash_can.
+The log excerpt above shows the processing results for one frame. It indicates that the `target type` field in the subscribed algorithm message is `trash_can`, along with its 3D dimensions, distance, and rotation angle.
 
-The rendered result of a local image (which can be replaced by modifying the feed_image field in mono3d_indoor_detection.launch.py) is saved as an image in the result directory of the program. The corresponding inference result and rendering information of the image are as follows:
+Rendered results from processing local images (the input image can be changed by modifying the `feed_image` field in `mono3d_indoor_detection.launch.py`) are saved as images in the `result` directory under the program's working directory. The corresponding inference and rendering results are shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg)

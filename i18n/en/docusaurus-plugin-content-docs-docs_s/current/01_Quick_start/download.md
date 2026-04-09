@@ -4,18 +4,18 @@ sidebar_position: 6
 
 # 1.6 Resource Summary
 
-## System Images and Tools
+## system software
 
 | Name                                                                                   | Latest Version | Upload Date | Documentation                                                             |
 | -------------------------------------------------------------------------------------- | -------------- | ----------- | ------------------------------------------------------------------------- |
-| [System Image](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)            | V4.0.4-beta    | 2025-10-24  | System image.                                                             |
+| [System Image](https://archive.d-robotics.cc/downloads/os_images/rdk_s100/)            | V4.0.5    | 2026-03-05  | System image.                                                             |
 
 
 
 ## Tools Download
 | Name                                                                                   | Latest Version | Upload Date | Documentation                                                             |
 | -------------------------------------------------------------------------------------- | -------------- | ----------- | ------------------------------------------------------------------------- |
-| [D-Navigation](https://archive.d-robotics.cc/downloads/software_tools/download_tools/) | V2.4.1         | 2025-09-01  | System image flashing tool, including versions for windows-x64, linux-x64, and darwin-arm64. |
+| [Xburn](https://archive.d-robotics.cc/downloads/software_tools/download_tools/) | V1.1.9      | 2026-02-09 | System image burning tool, including versions for windows-x64, linux-x64, and darwin-arm64. |
 | [hbplayer](https://archive.d-robotics.cc/downloads/hobotplayer/hbplayerv2.7.zip) | V2.7      | 2026-01-27 | Image viewing tool. |
 | [MCU Cross Compilation Toolchain](https://archive.d-robotics.cc/downloads/software_tools/mcu_toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2) | -      | 2026-01-27 | MCU Cross Compilation Toolchain. |
 | [CH340 Serial Port Driver](https://archive.d-robotics.cc/downloads/software_tools/serial_to_usb_drivers/CH34x_Install_Windows_v3_4.zip) | V3.4      | 2026-03-17 | Serial port driver. |
@@ -56,7 +56,7 @@ sidebar_position: 6
 
 | Name                                                                                                            | Version   | Upload Date   | Documentation                                                  |
 | --------------------------------------------------------------------------------------------------------------- | ------ | ---------- | --------------------------------------------------------- |
-| [RDK S100 Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_en_v1_1.pdf)    | V1.1 | 2025-12-16 | Product specifications, features, dimensions, and model details. |                |
+| [RDK S100 Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100/d_robotics_rdk_s100_board_en_v1_2.pdf)    | V1.2 | 2026-02-10 | Product specifications, features, dimensions, and model details. |                |
 
 ### RDK S100 Camera Expansion Board
 
@@ -69,3 +69,84 @@ sidebar_position: 6
 | Name                                                                                                            | Version   | Upload Date   | Documentation                                                  |
 |  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- | ------------------------------------------------------------- |
 | [MCU Port Expansion Board Specifications](https://archive.d-robotics.cc/downloads/en/hardware/rdk_s100/rdk_s100_mcu_port_expansion_board/d_robotics_rdk_s100_mcu_port__expansion_board_en_v1_1.pdf)            | V1.1 | 2025-12-16 | Product specifications, features, dimensions, and model details.   |
+
+
+## Certification Materials
+
+:::tip Certification Master Repository  
+📁 [Certification](https://archive.d-robotics.cc/downloads/certification/) - Contains certification documents for all products  
+:::
+
+<div class="table-wrapper">
+<table class="no-wrap-table">
+  <thead>
+    <tr>
+      <th>🏷️ **Product Name**</th>
+      <!-- <th>🇪🇺 **CE RED**</th> -->
+      <th>🇪🇺 **CE EMC**</th>
+      <!-- <th>🇺🇸 **FCC**</th>
+      <th>🇯🇵 **MIC**</th>
+      <th>🇨🇳 **SRRC**</th>
+      <th>🇰🇷 **KCC**</th> -->
+      <th>🇬🇧 **UKCA**</th>
+      <th>🇪🇺 **RoHS**</th>
+      <!-- <th>🇹🇭 **NBTC**</th>
+      <th>🇲🇾 **SIRIM**</th> --> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**RDK S100**</td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/CE-RED210115.pdf">📄 CE RED</a></td> -->
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/CE/AOC_CE.pdf">📄 CE EMC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/FCC/FCC_EMC_Report.pdf">📄 FCC</a></td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/D-ROBOTICS%20211-241225%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td> -->
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td> -->
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/UKCA/AOC_UK.pdf">📄 UKCA</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/ROHS/2501Y83065E_RDK_S100_ROHS.pdf">📄 RoHS</a></td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/NBTC.pdf">📄 NBTC</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SIRIM.pdf">📄 SIRIM</a></td> -->
+    </tr>
+    <tr>
+      <td>**RDK S100 SIP**</td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/CE/C03-2402T78337E-RF%20C2%20RED%20210115.pdf">📄 CE RED</a></td> -->
+      <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_SIP/FCC/S100_SIP_FCC_EMC_Report.pdf">📄 FCC</a></td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td> -->
+      <!-- <td>-</td> -->
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_SIP/UKCA/C34-AOC2502V68690E_for_UK.pdf">📄 UKCA</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_SIP/ROHS/2501Y83065E-M1.pdf">📄 RoHS</a></td>
+      <!-- <td>-</td>
+      <td>-</td> -->
+    </tr>
+    <tr>
+      <td>**RDK S100 MCU Port Expansion Board**</td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/CE/C03-%202402T78342E-RF%20C2%20RED%20210115.pdf">📄 CE RED</a></td> -->
+      <!-- <td>-</td> -->
+      <td>-</td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
+      <td>-</td>
+      <!-- <td>-</td> -->
+      <td>-</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_MCU_Board/ROHS/2501Y83067E_CNAS.PDF">📄 RoHS</a></td>
+      <!-- <td>-</td>
+      <td>-</td> -->
+    </tr>
+    <tr>
+      <td>**RDK S100 Camera Expansion Board**</td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/CE/AOC_CE.pdf">📄 CE EMC</a></td>
+      <!-- <td>-</td> -->
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/FCC/RDK S100_Camera_Expansion_Board_FCC_EMC_Report.pdf">📄 FCC</a></td>
+      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
+      <!-- <td>-</td> -->
+      <!-- <td>-</td> -->
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/UKCA/AOC_UK.pdf">📄 UKCA</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/ROHS/2501Y83066E_CNAS.PDF">📄 RoHS</a></td>
+      <!-- <td>-</td>
+      <td>-</td> -->
+    </tr>
+  </tbody>
+</table>
+</div>

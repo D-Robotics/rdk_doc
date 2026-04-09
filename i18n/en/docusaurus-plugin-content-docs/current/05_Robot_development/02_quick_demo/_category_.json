@@ -1,8 +1,4 @@
 {
-  "label": "5.2 Function Experience",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "slug": "/quick_demo"
-  }
+  "label": "5.2 Functional Experience",
+  "position": 3
 }

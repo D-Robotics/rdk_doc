@@ -340,9 +340,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
 
     如 imx219 摄像头的接入RDK S100方式如下图：
-    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
 
-    如 imx219 摄像头的接入RDK S100方式如下图：
     ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
 
 2. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
@@ -355,9 +353,9 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 #### RDK平台
 
-下面以 F37 为例，介绍摄像头数据获取和预览的方法：
+下面介绍摄像头数据获取和预览的方法：
 
-1. 通过 SSH 登录RDK，确定摄像头型号，这里以`F37`为例，确定相机标定文件的读取路径，这里以`/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml`为例
+1. 通过 SSH 登录RDK
 
 2. 并通过下述命令启动 hobot_sensor 节点
 
@@ -384,7 +382,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     ```shell
     # launch 方式启动
-    ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37 mipi_camera_calibration_file_path:=/opt/tros/${TROS_DISTRO}/lib/mipi_cam/config/F37_calibration.yaml
+    ros2 launch mipi_cam mipi_cam.launch.py
     ```
 
 3. 如程序输出如下信息，说明节点已成功启动
@@ -423,7 +421,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     # 启动编码
     ros2 launch hobot_codec hobot_codec_encode.launch.py
 
-    # 再起一个终端
+    # 再起一个终端，并且配置tros.b环境
     # 启动websocket
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
@@ -611,8 +609,6 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     如SC230ai 双目摄像头的接入S100方式如下图：
     ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
 
-    如SC230ai 双目摄像头的接入S100方式如下图：
-    ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
 
 2. RDK已烧录好Ubuntu 22.04系统镜像
 
@@ -1127,7 +1123,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 5. 图像和点云的显示
 
-要显示RealSense的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示RealSense的图像和点云，有多种方式，可参考[5.2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 ![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
@@ -1324,7 +1320,7 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 #### 5. 图像和点云的显示
 
-要显示Orbbec的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示Orbbec的图像和点云，有多种方式，可参考[5.2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 ![orbbec-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 ---
-# 7.2.6 Applying Real-Time Kernel
+# 7.2.6 Applying Real-Time Kernel 
 
 This chapter aims to describe how to enable real-time kernel (Preempt-RT kernel) on `RDK X3` and `RDK X3 Module`, and provide the corresponding commands for users to use. Real-time kernel is an operating system kernel that can provide more precise and reliable response time, and is commonly used in applications with high time sensitivity requirements, such as robot control and industrial automation. The following are the related commands for enabling and disabling real-time kernel, as well as some common use cases and testing methods.
 
@@ -79,3 +79,26 @@ The meaning of each field in the `cyclictest` output is as follows:
 - `Act`: Actual latency for the current test cycle in microseconds.
 - `Avg`: Average latency for the current test cycle in microseconds.
 - `Max`: Maximum latency for the current test cycle in microseconds.
+
+
+## X5 Series Boards
+
+### Real-Time Kernel Enablement Commands
+
+To enable the real-time kernel on the RDK X5, you need to modify the `/boot/boot.cmd` file:
+
+1. Change `imagefile="Image"` to `imagefile="Image-rt"`.
+2. Navigate to the `/boot/` directory and execute `mkimage -C none -A arm -T script -d boot.cmd boot.scr`.
+3. Reboot the system to switch to the real-time kernel.
+
+To switch back to the standard kernel, change `imagefile="Image-rt"` back to `imagefile="Image"`, following the same steps as above.
+
+:::info Note
+
+The default Linux kernel does not support real-time capabilities. To achieve low latency and deterministic responses, the PREEMPT-RT patch (e.g., patch-6.1.83-rt28) must be introduced to enable real-time kernel functionality.
+
+An official precompiled real-time kernel version is provided to simplify the build process, but the following should be noted:
+- This version is a community-maintained derivative branch, not the official mainline kernel‌;
+- It has not undergone large-scale industrial application validation, so developers must assess its stability and compatibility independently;
+- There are potential risks associated with using this version, and it is recommended to deploy it only in scenarios where thorough testing and validation have been conducted, and the associated risks are deemed acceptable.
+:::

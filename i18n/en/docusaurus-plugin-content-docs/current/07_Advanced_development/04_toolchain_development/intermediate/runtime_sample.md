@@ -486,7 +486,7 @@ The example logs mainly use vlog in glog. In the basic_samples of the example co
 
 #### Model Inference DNN API Logs
 
-For the configuration of model inference DNN API logs, please refer to the "Configuration Information" section in the "Model Inference DNN API Usage Instructions" document.
+For the configuration of model inference DNN API logs, please refer to the "Configuration Information" section in the "Algorithm Toolchain Manual" document.
 
 ## Public model performance accuracy evaluation instructions
 
@@ -538,7 +538,9 @@ The example package provides performance and accuracy evaluation examples for co
 :::tip Tip
 
 To obtain the ai_benchmark example package for public model accuracy and performance evaluation, please refer to the [Deliverables Instructions](../intermediate/environment_config.md).
-:::#### Example Code Package Structure
+:::
+
+#### Example Code Package Structure
 
 ```bash
   ai_benchmark/code                     # Example source code folder

@@ -15,6 +15,9 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Dify Chatbot Official CSS Variables */
+  --dify-chatbot-bubble-button-bg-color: #FF5125;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -44,4 +47,81 @@
   margin-left: 3rem;
   font-size: 0.9em;
   color: #999;
+}
+
+/* 表格样式 - 确保表格占满屏幕宽度 */
+.table-wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+table.no-wrap-table,
+.no-wrap-table {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-collapse: collapse !important;
+  display: table !important;
+}
+
+.no-wrap-table th,
+.no-wrap-table td {
+  white-space: nowrap;
+  padding: 8px 12px;
+}
+
+/* 确保表格容器的父元素也占满宽度 */
+.table-wrapper > * {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 覆盖Docusaurus/Infima默认的表格宽度限制 */
+div.table-wrapper table,
+div.table-wrapper table.no-wrap-table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Dify Chatbot Styles - Based on Official Documentation */
+#dify-chatbot-bubble-button {
+  background-color: var(--dify-chatbot-bubble-button-bg-color) !important;
+  box-shadow: 0 0 0 0 rgba(255, 81, 37, 0.7) !important;
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 81, 37, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 81, 37, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 81, 37, 0);
+  }
+}
+
+#dify-chatbot-bubble-window {
+  width: 600px !important;
+  height: 500px !important;
+  border: none !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+#dify-chatbot-bubble-window iframe {
+  transform: scale(0.9);
+  transform-origin: top left;
+  width: 105.3% !important;
+  height: 105.3% !important;
 }

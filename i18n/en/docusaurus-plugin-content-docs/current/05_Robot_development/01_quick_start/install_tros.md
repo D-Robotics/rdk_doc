@@ -8,20 +8,20 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-This section introduces how to use apt to install TogetheROS.Bot on RDK.
+This section describes how to install TogetheROS.Bot using `apt` on both RDK and X86 platforms.
 
-## RDK
+## RDK Platform
 
-Prerequisites
+Prerequisites:
 
-- The [Environment Setup](./preparation.md) has been completed.
-- RDK has installed the Ubuntu operating system.
-- The RDK can access the internet normally.
-- The RDK can be accessed remotely via SSH.
+- Completed the steps in the [Environment Preparation](./preparation.md) section
+- Ubuntu OS is already installed on the RDK
+- The RDK has normal internet access
+- The RDK supports remote SSH access
 
-:::info 📋 System Version Confirmation and Download
+:::info 📋 Confirm System Version and Download
 
-Before installing TogetheROS, please confirm the system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download.md)
+Before installing TogetheROS, confirm your system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download.md)
 
 :::
 
@@ -29,18 +29,18 @@ Before installing TogetheROS, please confirm the system version and download the
 <Tabs groupId="tros-distro">
 <TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
 
-Note for RDK X3 platform:
+**Note for RDK X3 platform users:**
 
 :::caution Attention
-- **2.x version tros.b only supports 2.x version system images，[1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)[Chinese Only] only supports 1.x version systems.**  
-- **If you are using a 1.x version system image, you need to [upgrade the system](./preparation.md) to version 2.x.**
-- **For the method of checking system and tros.b version numbers and detailed instructions, please refer to [FAQs](../../../current/08_FAQ/03_applications_and_examples.md).**
+- **tros.b version 2.x only supports system images of version 2.x; [tros.b version 1.x](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) only supports system version 1.x.**
+- **If you are using a system image of version 1.x, you must [upgrade your system](./preparation) to version 2.x.**
+- **For instructions on checking system and tros.b versions and further details, please see the [FAQs](../../08_FAQ/03_applications_and_examples.md).**
 :::
 
-| Dependency    | 1.x tros.b  | 2.x tros.b |
-| -----------| ------------| ------------|
-| 1.x System Image |       √     |       x     |
-| 2.x System Image |       x     |       √     |
+| Dependency        | tros.b 1.x | tros.b 2.x |
+| ------------------| ---------- | ---------- |
+| System Image 1.x  |      √     |      x     |
+| System Image 2.x  |      x     |      √     |
 
 </TabItem>
 <TabItem value="RDK S100" label="RDK S100">
@@ -48,11 +48,11 @@ Note for RDK X3 platform:
 </TabItem>
 </Tabs>
 
-### Installation
+### Installing tros.b
 
-**Note: The IP address of the RDK used here is 10.64.61.241. Replace it with your IP address during installation.**
+**Note: The RDK IP used here is 10.64.61.241. Replace it with your actual RDK IP during installation.**
 
-Login to the RDK
+Log into the RDK:
 
 ```shell
 ssh root@10.64.61.241
@@ -79,41 +79,42 @@ sudo apt install tros-humble
 </TabItem>
 </Tabs>
 
-:::caution Attension
-- **If the `sudo apt update` command fails or reports an error, please refer to `Q10: How to handleapt updatecommand failure or errors?` in the [FAQs](../../08_FAQ/01_hardware_and_system.md) section for resolution.**
-- **If you encounter the error `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).' after running the installation command, please execute the command `apt --fix-broken install` to install the related dependencies before installing tros.b.**
+:::caution **Attention**
+- **If the `sudo apt update` command fails or returns an error, refer to the [FAQ](../../08_FAQ/01_hardware_and_system.md) section titled `Q10: How to resolve failures or errors when running apt update?`**
+- **If after running the installation command you receive the message `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install required dependencies before proceeding with the tros.b installation.**
 :::
 
-After the installation is complete, check the files in the /opt directory
+After installation, check the contents of the `/opt` directory:
 
 ```bash
 root@ubuntu:/userdata# ls /opt/
 hobot  tros
 ```
-The tros.b is installed in the /opt directory.
 
-### Upgrade tros.b
+You can see that tros.b has been installed under the `/opt` directory.
 
-Taking RDK installation as an example, the X86 Ubuntu upgrade method is consistent with that of RDK.  
+### Upgrading tros.b
 
-Login to RDK:
+The following example uses the RDK platform; the upgrade procedure for X86 Ubuntu is identical.
+
+Log into the RDK:
 
 ```shell
 ssh root@10.64.61.241
 ```
 
-Upgrade tros.b deb package:
+Upgrade the tros.b deb package:
 
-```shell
+```bash
 sudo apt update
 sudo apt upgrade
 ```
 
-:::caution Attension
-- **If the `sudo apt update` command fails or reports an error, please refer to `Q10: How to handleapt updatecommand failure or errors?` in the [FAQs](../../08_FAQ/01_hardware_and_system.md) section for resolution.**
+:::caution **Attention**
+**If the `sudo apt update` command fails or returns an error, refer to the [FAQ](../../08_FAQ/01_hardware_and_system.md) section titled `Q10: How to resolve failures or errors when running apt update?`**
 :::
 
-### Check the current version of tros.b
+### Checking the Current tros.b Version
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -132,11 +133,7 @@ Description: TogetheROS Bot
 
 ```
 
-It can be seen that the current version of tros.b has been upgraded to version 2.0.0.
-
-
-
-
+You can see that the current tros.b version has been upgraded to version 2.0.0.
 
 </TabItem>
 <TabItem value="humble" label="Humble">
@@ -149,70 +146,62 @@ Priority: optional
 Section: misc
 Maintainer: zhuo <zhuo.wang@d-robotics.cc>
 Installed-Size: 44.0 kB
-Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tros-humble-audio-msg, tros-humble-   audio-tracking, tros-humble-base, tros-humble-body-tracking, tros-humble-dnn-benchmark-example, tros-humble-dnn-   node, tros-humble-dnn-node-example, tros-humble-dnn-node-sample, tros-humble-elevation-net, tros-humble-gesture-   control, tros-humble-hand-gesture-detection, tros-humble-hand-lmk-detection, tros-humble-hbm-img-msgs, tros-humb   le-hobot-audio, tros-humble-hobot-chatbot, tros-humble-hobot-codec, tros-humble-hobot-cv, tros-humble-hobot-fall   down-detection, tros-humble-hobot-hdmi, tros-humble-hobot-image-publisher, tros-humble-hobot-llm, tros-humble-ho   bot-mot, tros-humble-hobot-shm, tros-humble-hobot-tts, tros-humble-hobot-usb-cam, tros-humble-hobot-vio, tros-hu   mble-hobot-visualization, tros-humble-img-msgs, tros-humble-imu-sensor, tros-humble-line-follower-model, tros-hu   mble-line-follower-perception, tros-humble-mipi-cam, tros-humble-mono2d-body-detection, tros-humble-mono2d-trash   -detection, tros-humble-mono3d-indoor-detection, tros-humble-parking-perception, tros-humble-parking-search, tro   s-humble-rgbd-sensor, tros-humble-websocket, tros-humble-ros-workspace
+Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tros-humble-audio-msg, tros-humble-audio-tracking, tros-humble-base, tros-humble-body-tracking, tros-humble-dnn-benchmark-example, tros-humble-dnn-node, tros-humble-dnn-node-example, tros-humble-dnn-node-sample, tros-humble-elevation-net, tros-humble-gesture-control, tros-humble-hand-gesture-detection, tros-humble-hand-lmk-detection, tros-humble-hbm-img-msgs, tros-humble-hobot-audio, tros-humble-hobot-chatbot, tros-humble-hobot-codec, tros-humble-hobot-cv, tros-humble-hobot-falldown-detection, tros-humble-hobot-hdmi, tros-humble-hobot-image-publisher, tros-humble-hobot-llm, tros-humble-hobot-mot, tros-humble-hobot-shm, tros-humble-hobot-tts, tros-humble-hobot-usb-cam, tros-humble-hobot-vio, tros-humble-hobot-visualization, tros-humble-img-msgs, tros-humble-imu-sensor, tros-humble-line-follower-model, tros-humble-line-follower-perception, tros-humble-mipi-cam, tros-humble-mono2d-body-detection, tros-humble-mono2d-trash-detection, tros-humble-mono3d-indoor-detection, tros-humble-parking-perception, tros-humble-parking-search, tros-humble-rgbd-sensor, tros-humble-websocket, tros-humble-ros-workspace
 Download-Size: 5,546 B
 APT-Manual-Installed: yes
 APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk jammy/main arm64 Packages
 Description: TogetheROS Bot
 
 ```
-It can be seen that the current version of tros.b has been upgraded to version 2.2.0.
 
+You can see that the current tros.b version has been upgraded to version 2.2.0.
 
-:::caution 注意
-- The `Version` displayed in the query is the actual installed version of `tros.b`. This example uses version `2.2.0` for illustration.
-- For detailed release version information of `tros.b`, please refer to the [Version Release Notes](./changelog.md)。
+:::caution Note
+- The displayed `Version` number indicates the actual installed version of `tros.b`. This example illustrates version `2.2.0`.
+- For detailed release information about `tros.b`, see the [Release Notes](./changelog).
 :::
-
 
 </TabItem>
 </Tabs>
 
-## X86 Platform Setup
+## X86 Platform
 
-### Prerequisites:
+Prerequisites:
 
-- The [Environment Setup](./preparation.md) has been completed.
-- The system is Ubuntu 20.04 with active internet access.
+- Completed the steps in the [Environment Preparation](./preparation.md) section
+- Running Ubuntu 20.04 with normal internet access
 
----
+1. Set locale and enable the universe repository:
 
-### 1. Set Locale and Enable Universe Repository
-Run the following commands to configure the locale and enable the universe software repository:
+   ```bash
+   sudo apt update && sudo apt install locales
+   sudo locale-gen en_US en_US.UTF-8
+   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+   export LANG=en_US.UTF-8
 
-```bash
-sudo apt update && sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-export LANG=en_US.UTF-8
+   sudo apt install software-properties-common
+   sudo add-apt-repository universe
+   ```
 
-sudo apt install software-properties-common
-sudo add-apt-repository universe
-```
-### 2. Download GPG Keys and Add Source Lists
+2. Download the GPG key file and add the repository list:
 
-Run the following commands to download the required GPG keys and add the appropriate source lists:
+   ```bash
+   sudo apt update && sudo apt install curl
 
-```bash
-sudo apt update && sudo apt install curl
+   sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
+   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo tee /etc/apt/sources.list.d/sunrise.list > /dev/null
 
-sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo tee /etc/apt/sources.list.d/sunrise.list > /dev/null
+   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+   ```
 
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-```
-### 3. Update Package Sources and Install `tros.b`
-
-Run the commands below to update package sources and install the `tros.b` package:
-
+3. Update repository information and install tros.b:
 ```bash
 sudo apt update
 sudo apt install tros
 ```
+
 :::caution
-- **If your X86 platform already has `tros.b` version 1.x installed, please use the command `sudo apt remove tros` to uninstall it before installing `tros.b` version 2.x.**  
-- **For details on how to check the version of `tros.b`, refer to the [FAQs](/docs/08_FAQ/03_applications_and_examples.md).**
-
+- **If you have already installed tros.b version 1.x on your x86 platform, please first remove it using the command `sudo apt remove tros` before installing tros.b version 2.x**.
+- **For instructions on how to check the tros.b version number, please refer to the [FAQs](../../08_FAQ/03_applications_and_examples.md)**.
 :::
-

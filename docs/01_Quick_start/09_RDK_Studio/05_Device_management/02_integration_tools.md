@@ -16,14 +16,13 @@ import TabItem from '@theme/TabItem';
 
 点击终端图标，会自动弹出 Windows 终端，输入用户密码即可自动连接。
 
-:::info 提示
+   :::info 提示
 
-默认密码与登录用户名相同：
-- root-root
-- sunrise-sunrise
-  
-:::
-  
+   - 用户名：root-密码：root
+   - 用户名：sunrise-密码：sunrise
+
+   :::
+
 ![RDK_Studio终端界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace_terminal.png)
 
 ## VS Code使用
@@ -41,11 +40,11 @@ import TabItem from '@theme/TabItem';
 ## Node-RED 使用{#node-red}
 
 1. 点击应用空间图标，查看更多应用。
-   
+
    ![应用空间界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
-   
+
 2. 点击安装 Node-RED，用于运行 `示例应用` 中的示例。
-   
+
    ![下载界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_application_nodered_install.png)
 
 3. Jupyter 等需要安装功能，可以按需安装。
@@ -53,7 +52,7 @@ import TabItem from '@theme/TabItem';
     ![RDK_Studio](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_applicationspace.png)
 
 4. 点击空白处退出应用空间。
-   
+
 </TabItem>
 
 <TabItem value="linux" label="Linux">
@@ -68,7 +67,7 @@ import TabItem from '@theme/TabItem';
 
 
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 

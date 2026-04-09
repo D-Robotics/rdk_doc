@@ -61,9 +61,9 @@ This document summarizes the download resources related to the D-Robotics RDK su
     </tr>
     <tr>
       <td>🔬 **OpenExplore**</td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/251934919646096384">RDK X5 OpenExplore</a></td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/136488103547258769">RDK X3 OpenExplore</a></td>
-      <td><a href="https://developer.d-robotics.cc/forumDetail/118363912788935318">RDK Ultra OpenExplore</a></td>
+      <td>[RDK X5 OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-x5)</td>
+      <td>[RDK X3 OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-x3)</td>
+      <td>[RDK Ultra OpenExplore](../07_Advanced_development/04_toolchain_development/intermediate/environment_config.md#rdk-ultra)</td>
       <td>Contains numerous conversion examples and source code, used with Docker on x86 development machines</td>
     </tr>
     <tr>
@@ -157,7 +157,7 @@ This document summarizes the download resources related to the D-Robotics RDK su
   <tbody>
     <tr>
       <td>📄 **Specifications**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/d_robotics_rdk_x5_en_v1_1.pdf">RDK X5 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/drobotics_rdk_x5_module_en_v1_2.pdf">RDK X5 Module Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3_module/RDK%20X3%20MD.pdf">RDK X3 Module Specifications</a></td>
@@ -223,7 +223,7 @@ Complete specification materials for RDK X3/X5 related products, accessories and
   <tbody>
     <tr>
       <td>📄 **Development Board Specifications**</td>
-      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDX%20X5.pdf">RDK X5 Specifications</a></td>
+      <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/d_robotics_rdk_x5_en_v1_1.pdf">RDK X5 Specifications</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x3/RDK%20X3.pdf">RDK X3 Specifications</a></td>
       <td>Development board detailed technical specifications and product description</td>
     </tr>
@@ -240,7 +240,7 @@ Complete specification materials for RDK X3/X5 related products, accessories and
       <td>Camera module technical specifications and interface details</td>
     </tr>
     <tr>
-      <td rowspan="2">👁️ **Stereo Camera Module**</td>
+      <td rowspan="3">👁️ **Stereo Camera Module**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5/RDK%20Stereo%20Camera%20Module.pdf">RDK Stereo Camera Module</a></td>
       <td>-</td>
       <td>Dual camera module for stereo vision applications</td>
@@ -254,6 +254,12 @@ Complete specification materials for RDK X3/X5 related products, accessories and
       <td>
       Used in scenarios such as robotic vision, machine vision inspection, and real-time motion monitoring.
       </td>
+    </tr>
+    <tr>
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_RDK_stereo_camera_gs130wi_en_v1_1.pdf">RDK Stereo Camera  
+       GS130WI</a></td>
+      <td> - </td>
+      <td>Used in applications such as robot vision, machine vision inspection, and motion posture sensing.</td>
     </tr>
     <tr>
       <td>🔌 **Camera Adapter**</td>
@@ -376,21 +382,6 @@ Providing comprehensive hardware design support materials for module customers t
 
   <div class="doc-card">
     <div class="doc-header">
-      <span class="doc-icon">📋</span>
-      <h4>Module Brief Specifications</h4>
-    </div>
-    <div class="doc-content">
-      <p><strong>File:</strong>drobotics_rdk_x5_md_brief_v0p5.pdf</p>
-      <p><strong>Content:</strong>Concise product introduction including key features, applications, and core advantages.</p>
-      <p><strong>Use Case:</strong>For initial market promotion, project proposals, or preliminary customer understanding.</p>
-      <div class="doc-link">
-        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/drobotics_rdk_x5_md_brief_v0p5.pdf" className="download-link">📥 Module Brief Introduction</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-card">
-    <div class="doc-header">
       <span class="doc-icon">🔋</span>
       <h4>Module Typical Scenario Power Consumption Introduction</h4>
     </div>
@@ -400,6 +391,36 @@ Providing comprehensive hardware design support materials for module customers t
       <p><strong>Use Case:</strong>Used to illustrate the typical power consumption of the module, helping customers complete power consumption assessment during the whole machine design phase.</p>
       <div class="doc-link">
         <a href="https://archive.d-robotics.cc/downloads/en/hardware/rdk_x5_module/RDK X5 Module Typical Scenario Power Consumption V1P0-EN.xlsx" className="download-link">📥 Module Typical Scenario Power Consumption Introduction</a>
+      </div>
+    </div>
+  </div>
+
+<div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">🌡️</span>
+      <h4>Thermal Design Guide</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Thermal Design Guide V1P0</p>
+      <p><strong>Content:</strong> This document provides thermal design guidelines for the RDK X5 Module, offering thermal simulation support and heat dissipation design recommendations.</p>
+      <p><strong>Use Case:</strong> The RDK X5 Module Thermal Design Guide assists users in developing reliable system-level thermal solutions.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Thermal Design Guide V1P0.pdf" className="download-link">📥 Thermal Design Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-header">
+      <span class="doc-icon">📝</span>
+      <h4>Hardware Design Checklist</h4>
+    </div>
+    <div class="doc-content">
+      <p><strong>File:</strong> RDK X5 Module Hardware Design Checklist V1P0</p>
+      <p><strong>Content:</strong> This document serves as a guide for customers to verify hardware design, ensuring compliance and completeness to enhance design success rates.</p>
+      <p><strong>Use Case:</strong> Serves as key guidance prior to hardware design to ensure functional reliability and manufacturing feasibility.</p>
+      <div class="doc-link">
+        <a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5_module/RDK X5 Module Hardware Design Checklist V1P0.xlsx" className="download-link">📥 Hardware Design Checklist</a>
       </div>
     </div>
   </div>
@@ -579,9 +600,9 @@ Providing comprehensive hardware design support materials for module customers t
       <td>Backup download source to prevent conditions from restricting code retrieval from GitHub.</td>
     </tr>
     <tr>
-      <td>🎯 **RDK Studio**</td>
+      <td><img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/image.png" alt="icon" width="8%"/>  **RDK Studio**</td>
       <td><a href="https://developer.d-robotics.cc/rdkstudio">Visit Official Website</a></td>
-      <td>RDK Studio provides RDK users with rich features and convenience, including device management, quick demo access, and quick access to community forums. Board support: Perfect support for the use of the RDK full range of boards, which can help users manage all the RDK boards in their hands. System update: Provides a new board upgrade method, one-click access to the latest RDK OS, and a data cable can quickly complete the board upgrade.</td>
+      <td>RDK Studio provides device connection and management, quick AI sample experience, and fast access to the community forum. Board Support: Perfectly supports the use of the entire RDK series of boards, helping users manage all their RDK boards. System Updates: Offers a brand-new board upgrade method—users can obtain the latest RDK OS with one click and quickly complete board upgrades using just a data cable.</td>
     </tr>
     <tr>
       <td>🔄 **hbupdate**</td>
@@ -590,7 +611,7 @@ Providing comprehensive hardware design support materials for module customers t
     </tr>
     <tr>
       <td>💾 **Image Burning Tool**</td>
-      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a></td>
+      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a><br/><a href="https://developer.d-robotics.cc/en/rdkstudio">RDK Studio</a></td>
       <td>Software tool for writing image files to SD cards, supporting multiple image formats.</td>
     </tr>
     <tr>
@@ -678,7 +699,7 @@ Providing comprehensive hardware design support materials for module customers t
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/FCC/D-ROBOTICS 2BGUG-RDKX5M FCC Grant - DSS.PDF">📄 FCC Grant - DSS.pdf</a><br/><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/FCC/D-ROBOTICS 2BGUG-RDKX5M FCC Grant - DTS.PDF">📄 FCC Grant - DTS.pdf</a><br/><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/FCC/D-ROBOTICS 2BGUG-RDKX5M FCC Grant - NII.PDF">📄 FCC Grant - NII.pdf</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/MIC/D-ROBOTICS 211-250814 MIC Radio Certificate.pdf">📄 MIC</a></td>
       <td>-</td>
-      <td>-</td>
+       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/KCC/RDKX5MD108064_KCC.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/UKCA/AOC for UKCA 证书.pdf">📄 UKCA</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5_MD/ROHS/AOC 2501X28112E-13.pdf">📄 RoHS</a></td>
       <td>-</td>
@@ -753,5 +774,5 @@ System source code is hosted on [D-Robotics GitHub](https://github.com/d-robotic
 If you encounter any issues during use, you can get help through the following methods:
 
 - 🌐 [Developer Community](https://developer.d-robotics.cc/en)
-- 📧 Technical Support Email
+- 📧 [Technical Support Email](mailto:developer@d-robotics.cc)
 - 📱 Official Technical Discussion Group

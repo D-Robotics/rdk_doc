@@ -8,47 +8,60 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The FCOS detection algorithm example uses images as input and utilizes BPU for inference.The result in the messages contain target categories and detection boxes.
+The FCOS object detection algorithm example takes images as input, performs inference using the BPU, and publishes intelligent messages containing object categories and bounding boxes.
 
-FCOS is an open-source Onnx model developed by D-Robotics, trained using the [COCO dataset](http://cocodataset.org/). It supports various types of object detection, including humans, animals, fruits, and vehicles, totaling 80 types.
+FCOS is an open-source ONNX model provided by D-Robotics, trained on the [COCO dataset](http://cocodataset.org/). It supports 80 object categories, including people, animals, fruits, vehicles, and more.
 
-Code repository:  (https://github.com/D-Robotics/hobot_dnn)
+Code repository: (https://github.com/D-Robotics/hobot_dnn)
 
-Application scenarios: FCOS is a one-stage object detection algorithm capable of pedestrian and vehicle detection. It is mainly used in autonomous driving and smart home fields.
+Application scenarios: Introduced in 2019, FCOS is a single-stage object detection algorithm capable of pedestrian detection, vehicle detection, and similar tasks. It is primarily used in autonomous driving, smart homes, and related fields.
+
+Multispectral object detection example: (https://github.com/hdjsjyl/Multispectral-FCOS)
 
 ## Supported Platforms
 
-| Platform          | System | Function                                       |
-| ----------------- | ---------------- | ----------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK X5 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)       | - Launch MIPI/USB camera and display via web interface<br/>- Use local data to save results offline |
+| Platform              | Runtime Environment     | Example Features                                                     |
+| --------------------- | ------------------------ | -------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)    | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
+| X86                   | Ubuntu 20.04 (Foxy)      | · Use local image/video replay; rendered results saved locally        |
 
-## Preparation
+## Algorithm Details
 
-### RDK
+| Model | Platform | Input Size     | Inference FPS |
+| ----- | -------- | -------------- | ------------- |
+| fcos  | X3       | 1x3x512x512    | 74.91         |
+| fcos  | X5       | 1x3x512x512    | 258.92        |
 
-1. The RDK platform is flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+## Prerequisites
 
-2. TogetheROS.Bot has been successfully installed on the RDK platform.
+### RDK Platform
 
-3. A MIPI or USB camera has been installed on the RDK platform. If no camera is available, the algorithm effects can be experienced through local data using JPEG/PNG format or MP4, H.264, and H.265 video.
+1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera is installed on the RDK. If no camera is available, you can evaluate the algorithm using local JPEG/PNG images or MP4/H.264/H.265 video files via replay.
+4. Ensure your PC can access the RDK over the network.
 
-4. Ensure that the PC can access the RDK platform via the network.
+### X86 Platform
 
-## Usage
+1. The X86 environment has been configured with an Ubuntu 20.04 system image.
+2. TogetherROS.Bot (`tros.b`) has been successfully installed on the X86 system.
 
-### RDK
+## Usage Guide
 
-#### Use a MIPI camera to publish images
+### RDK Platform
 
-The FCOS target detection algorithm example subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. The WebSocket package is used to display the published images and corresponding algorithm results on a PC web browser.
+#### Publishing Images Using an MIPI Camera
+
+The FCOS object detection example subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. Results are rendered and displayed in a web browser on the PC via the websocket package.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -57,7 +70,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -66,20 +79,20 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
-#### Use a USB camera to publish images
+#### Publishing Images Using a USB Camera
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -88,7 +101,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -97,22 +110,22 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
-#### Use local data offline
+#### Using Local Image Replay
 
-The FCOS object detection algorithm example uses local JPEG/PNG format images. The inferred images with algorithm results are stored in the running path.
+The FCOS object detection example replays local JPEG/PNG images, performs inference, and saves the rendered result images in the current working directory.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -121,7 +134,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -130,7 +143,21 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Start the launch file
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
+```
+
+### X86 Platform
+
+#### Using Local Image Replay
+
+The FCOS object detection example replays local JPEG/PNG images, performs inference, and saves the rendered result images in the local working directory.
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
 ```
 
@@ -138,7 +165,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 ### Publishing Images Using a Camera
 
-The terminal output shows the following information:
+The terminal output shows the following logs:
 
 ```text
 [example-3] [WARN] [1655092908.847609539] [example]: Create ai msg publisher with topic_name: hobot_dnn_detection
@@ -158,15 +185,17 @@ The terminal output shows the following information:
 
 ```
 
-The log output shows that the topic for publishing the inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The frame rate of the subscribed images and algorithm inference output is approximately 30fps.
+The log indicates that:
+- The topic for publishing inference results is `hobot_dnn_detection`.
+- The topic for subscribing to input images is `/hbmem_img`.
+- Both the input image subscription rate and the algorithm inference output rate are approximately 30 FPS.
 
-To view the image and algorithm rendering effect on the PC browser, enter http://IP:8000 (where IP is the IP address of the RDK):
+Enter `http://IP:8000` in your PC’s web browser to view the rendered images and algorithm results (replace `IP` with the RDK’s IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_web.jpeg)
+### Using Local Images for Feedback Injection
 
-### Use local data offline
-
-The terminal output shows the following information:
+The terminal outputs the following information when running:
 
 ```text
 [example-1] [INFO] [1654766336.839353395] [PostProcessBase]: out box size: 6
@@ -178,6 +207,6 @@ The terminal output shows the following information:
 [example-1] [INFO] [1654766336.839823755] [PostProcessBase]: det rect: 165.691 339.25 237.475 366.896, det type: book, score:0.500648
 ```
 
-The log output shows that the algorithm infers 6 targets from the input image and outputs the coordinates of the detection boxes (the coordinates are in the order of the top left x and y coordinates of the bounding box, and the bottom right x and y coordinates) and their corresponding classes. The image is named render_feedback_0_0.jpeg, and the sample is as follows:
+The output log indicates that the algorithm inferred six objects from the input image and provided the bounding box coordinates (in the order of top-left x, top-left y, bottom-right x, and bottom-right y) along with their corresponding categories. The rendered image is saved as `render_feedback_0_0.jpeg`. Rendered image result:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_feedback.jpeg)

@@ -8,39 +8,71 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-Prerequisite: TogetheROS.Bot installed successfully
+Prerequisite: TogetheROS.Bot has been successfully installed.
 
-The interfaces of tros.b and the ROS2 Foxy/Humble version are fully compatible and can reuse the ROS2 rich tool package. Here we take the installation and use of the ROS2 foxy version ros-foxy-image-transport as an example to introduce how to use the ROS package in tros.b.
+tros.b is fully compatible with ROS2 Foxy/Humble APIs and can reuse the rich set of ROS2 tools. Here, we demonstrate how to use ROS packages in tros.b by installing and using the ROS2 `image_transport` package as an example.
 
-## Installing ROS2 package
+## Installing ROS2 Packages
 
-### 1. Add ROS2 apt source
+### 1 Add ROS apt Repository
 
-When installing tros.b, ROS2 apt source is automatically added, so there is no need to manually add it.
+When installing tros.b, the ROS apt repository has already been added automatically—no manual addition is required.
 
-Update apt repository
+Update the apt repository:
 
 ```shell
 sudo apt update
 ```
 
-### 2. Install packages
+:::caution **Note**
+**If the `sudo apt update` command fails or returns an error, please refer to the FAQ section [Common Issues](../../08_FAQ/01_hardware_and_system.md), specifically `Q10: How to handle failures or errors when running apt update?` for solutions.**
+:::
 
-```shell
+### 2 Install Packages
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
 sudo apt install ros-foxy-image-transport
 sudo apt install ros-foxy-image-transport-plugins
 ```
 
-## Using ROS2 package
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-Same as using ROS2
+```bash
+sudo apt install ros-humble-image-transport
+sudo apt install ros-humble-image-transport-plugins
+```
 
-```shell
+</TabItem>
+</Tabs>
+
+## Using ROS2 Packages
+
+Usage is identical to standard ROS2:
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
 source /opt/tros/setup.bash
 ros2 run image_transport list_transports
 ```
 
-The running result is as follows, showing the supported image formats by image_transport package.
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+</Tabs>
+
+The output below shows the image formats supported by the `image_transport` package:
 
 ```shell
 root@ubuntu:/opt/tros# ros2 run image_transport list_transports
@@ -52,7 +84,7 @@ image_transport/theora
 
 Details:
 ----------
-```"image_transport/compressed"
+"image_transport/compressed"
  - Provided by package: compressed_image_transport
  - Publisher:
       This plugin publishes a CompressedImage using either JPEG or PNG compression.
@@ -86,3 +118,4 @@ Details:
 
  - Subscriber:
       This plugin decodes a video packet stream encoded using Theora.
+```

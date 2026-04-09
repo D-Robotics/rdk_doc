@@ -1,74 +1,70 @@
 ---
 sidebar_position: 8
 ---
-# Hand Keypoints and Gesture Recognition (Mediapipe)
+# Hand Keypoints and Gesture Recognition (MediaPipe)
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The hand keypoint detection algorithm example subscribes to images and smart messages containing hand bounding box information, uses BPU for algorithm inference, and publishes algorithm messages containing hand keypoints and gesture information.
+This hand keypoints detection algorithm example subscribes to image data and smart messages containing hand bounding box information, performs inference using the BPU, and publishes algorithm messages containing hand keypoints and gesture information.
 
-The hand keypoint indices are shown in the following diagram:
+Hand keypoint indices are shown in the figure below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg)
 
-Code Repositories:
+Code repositories:
 
- (https://github.com/D-Robotics/palm_detection_mediapipe)
+(https://github.com/D-Robotics/palm_detection_mediapipe)
 
- (https://github.com/D-Robotics/hand_landmarks_mediapipe)
+(https://github.com/D-Robotics/hand_landmarks_mediapipe)
 
-The gesture recognition categories supported by the algorithm, along with their corresponding numerical values in the algorithm message (Attribute member, type "gesture"), are as follows:
+The gesture recognition categories supported by the algorithm, along with their corresponding numeric values in the algorithm message (`Attribute` member with type `"gesture"`), are listed below:
 
-| Gesture    | Description   | Value |
-| ---------- | ------------- | ----- |
-| ThumbUp    | Thumbs up     | 2     |
-| Victory    | "V" gesture   | 3     |
-| Mute       | mute gesture  | 4     |
-| Palm       | Palm          | 5     |
-| Okay       | OK gesture    | 11    |
-| ThumbLeft  | Thumb left    | 12    |
-| ThumbRight | Thumb right   | 13    |
-| Awesome    | "666" gesture | 14    |
+| Gesture       | Description     | Value |
+| ------------- | --------------- | ----- |
+| ThumbUp       | Thumbs up       | 2     |
+| Victory       | "V" sign        | 3     |
+| Mute          | "Shh" gesture   | 4     |
+| Palm          | Open palm       | 5     |
+| Okay          | OK gesture      | 11    |
+| ThumbLeft     | Thumb left      | 12    |
+| ThumbRight    | Thumb right     | 13    |
+| Awesome       | "666" gesture   | 14    |
 
-Application scenarios: Gesture recognition algorithms integrate hand keypoint detection, gesture analysis, and other technologies, enabling computers to interpret human gestures as corresponding commands. It can be used for gesture control, sign language translation, and other functions, primarily in the fields of smart homes, smart cabins, smart wearables, etc.
+Application scenarios: The gesture recognition algorithm integrates hand keypoint detection and gesture analysis technologies, enabling computers to interpret human gestures as corresponding commands. This supports functionalities such as gesture control and sign language translation, primarily applied in smart homes, intelligent cockpits, wearable devices, and similar domains.
 
-Example of gesture-controlled car: [Car Gesture Control](../../apps/car_gesture_control)
+Example use case – Gesture-controlled robot car: [Robot Car Gesture Control](../../04_apps/car_gesture_control.md)
 
 ## Supported Platforms
 
-| Platform                             | System | Function                                 |
-| -------------------------------- | ------------ | ----------------------------------------------- |
-| RDK S100 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference results via web |
+| Platform                   | Execution Mode             | Example Functionality                                      |
+| -------------------------- | -------------------------- | ---------------------------------------------------------- |
+| RDK S100, RDK S100P        | Ubuntu 22.04 (Humble)      | Launch MIPI/USB camera and render inference results via web |
 
 ## Algorithm Information
 
-| Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
-| mediapipe | S100 | 224x224 | 1114 |
+| Model     | Platform | Input Resolution | Inference FPS |
+| --------- | -------- | ---------------- | ------------- |
+| MediaPipe | S100     | 224×224          | 1114          |
 
-## Preparations
+## Prerequisites
 
-### RDK
+### RDK Platform
 
-1. RDK is flashed with  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+1. RDK has been flashed with the Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera has been installed on the RDK.
+4. Ensure your PC can access the RDK over the network.
 
-2. TogetheROS.Bot has been successfully installed on RDK.
+## Usage Instructions
 
-3. The RDK is installed with a MIPI or USB camera.
+The `hand_landmarks_mediapipe` package subscribes to images published by the sensor package and hand bounding box detection results published by the human detection and tracking package. After performing inference, it publishes algorithm messages. These results, together with the original images, are rendered and displayed in a web browser on the PC via the websocket package.
 
-4. Confirm that the PC can access the RDK through the network.
-
-## Usage
-
-The gesture recognition package (hand_landmarks_mediapipe) subscribes to the hand key point detection package and publishes the hand key point detection results. After inference, it publishes the algorithm message. The WebSocket package is used to display the images and corresponding algorithm results on the PC browser.
-
-
-**Use MIPI Camera to Publish Images**
+**Publishing Images Using an MIPI Camera**
 
 ```bash
 # Configure the tros.b environment
@@ -76,18 +72,18 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/palm_detection_mediapipe/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_landmarks_mediapipe/config/ .
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 ```
 
-**Use USB Camera to Publish Images**
+**Publishing Images Using a USB Camera**
 
 ```bash
 # Configure the tros.b environment
@@ -95,18 +91,18 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/palm_detection_mediapipe/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_landmarks_mediapipe/config/ .
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 ```
 
-**Use local image**
+**Replaying Local Images**
 
 ```bash
 # Configure the tros.b environment
@@ -114,20 +110,20 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```bash
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/palm_detection_mediapipe/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_landmarks_mediapipe/config/ .
 
-# Configuring local image
+# Configure local image replay
 export CAM_TYPE=fb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py publish_image_source:=config/example.jpg publish_image_format:=jpg publish_output_image_w:=640 publish_output_image_h:=480
 ```
 
-## Analysis of Results
+## Result Analysis
 
-The following information will be displayed in the terminal output:
+The following messages appear in the terminal output during execution:
 
 ```shell
 [palm_detection_mediapipe-4] [DNN]: 3.7.3_(4.2.11 HBRT)
@@ -149,8 +145,8 @@ The following information will be displayed in the terminal output:
 [hand_landmarks_mediapipe-3] [WARN] [1757389278.811834846] [mono2d_hand_lmk]: SharedMemImgProcess Recved img encoding: nv12, h: 480, w: 640, step: 640, index: 64, stamp: 1757389278_810957877, data size: 460800, comm delay [0.8710]ms
 ```
 
-The output log shows that the program runs successfully, with a single inference time of 0.87ms after initialization.
+The log output indicates successful program execution. After initialization, each inference takes approximately 0.87 ms.
 
-Enter http://IP:8000 in a PC browser to view the images and algorithm rendering effects (IP is the RDK's IP address):
+Enter `http://IP:8000` in your PC's web browser to view the rendered images and algorithm results (replace `IP` with the RDK’s IP address):
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg)

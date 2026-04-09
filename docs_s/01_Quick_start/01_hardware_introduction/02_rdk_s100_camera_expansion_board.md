@@ -4,7 +4,9 @@ sidebar_position: 4
 
 # 1.1.2 相机扩展板
 
-![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png)
+<!-- ![image-rdk_100_camera_expansion_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_camera_expansion_board.png) -->
+
+![image-rdk_100_camera_expansion_board](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_smooth_hole_support_board.png)
 
 RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜机器人 RDK S100 系列开发者套件的核心扩展模块。Camera 扩展板基于 RDK S100 Camera Expansion Connector 进行二次开发，提供了 2 个 MIPI 相机接口和 4 个 GMSL 相机接口。
 
@@ -62,7 +64,7 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | J2001 | DC 电源输入   | SW2200 | MIPI 相机接口功能切换开关 |
 | J2100 | GMSL 相机接口 | SW2201 | MIPI 相机接口电平切换开关 |
 
-### 组装说明
+### 相机安装说明
 
 | 型号                        | 硬件接口        | 功能切换 SW2200 | 电平切换 SW2201       |
 |-----------------------------|------------------|------------------|------------------------|
@@ -74,6 +76,7 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 | Intel RealSense D457        | J2100             | -                | -                      |
 | Intel RealSense D435i       | USB               | -                | -                      |
 
+### 组装说明
 
 :::danger
 
@@ -82,8 +85,27 @@ RDK S100 Camera Expansion Board（以下简称“Camera 扩展板”）是地瓜
 
 :::
 
+:::warning 相机扩展板说明
+
+请根据实际产品查看对应的扩展板组装视频。
+- 螺纹柱扩展板：支撑柱内壁带螺纹
+- 光孔柱扩展板：支撑柱内壁光滑无螺纹
+
+    <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image_rdk_s100_camera_expansion_board_suppport_location.png" alt="支撑柱位置图片" width="40%" />
+
+:::
+
+#### 螺纹柱扩展板组装说明
+
 <video controls width="90%" preload="metadata">
   <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide.mp4" type="video/mp4" />
+  您的浏览器不支持 video 标签。
+</video>
+
+#### 光孔柱扩展板组装说明
+
+<video controls width="90%" preload="metadata">
+  <source src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/video/camera_expansion_board_assembly_guide_smooth_hole_support.mp4" type="video/mp4" />
   您的浏览器不支持 video 标签。
 </video>
 
@@ -175,3 +197,6 @@ MIPI 相机接口连接器的第 5 引脚支持 LPWM 和 MCLK(24MHz)两种功能
 ## 适配模组
 
 参考[7.1.2 配件清单](../../07_Advanced_development/01_hardware_development/02_accessory.md)
+
+
+[def]: http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/image-rdk_100_smooth_hole_support_board.png

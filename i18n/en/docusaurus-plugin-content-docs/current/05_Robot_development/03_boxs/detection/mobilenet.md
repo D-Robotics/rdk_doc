@@ -8,47 +8,65 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The MobileNet_SSD detection algorithm uses images as input, performs inference using BPU, and publishes messages that include target categories and detection boxes.
+The MobileNet_SSD object detection algorithm example takes images as input, performs inference using the BPU, and publishes algorithm messages containing object categories and bounding boxes.
 
-MobileNet_SSD is a caffe model obtained from  (https://github.com/chuanqi305/MobileNet-SSD), trained using the VOC dataset (http://host.robots.ox.ac.uk/pascal/VOC/voc2012/). It supports 20 types of target detection, including humans, animals, fruits, and vehicles.
+Mobilenet_SSD is a Caffe model obtained from (https://github.com/chuanqi305/MobileNet-SSD), trained on the [VOC dataset](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/). It supports detection of 20 object categories, including people, animals, fruits, vehicles, and more.
 
-Code repository:  (https://github.com/D-Robotics/hobot_dnn)
+Code repository: (https://github.com/D-Robotics/hobot_dnn)
 
-Application scenarios: MobileNet_SSD is an object detection algorithm based on MobileNet, which has the advantages of fast speed and easy deployment. It can achieve functions such as object detection and garbage recognition, and is mainly used in the fields of autonomous driving and smart home.
+Application scenarios: MobileNet_SSD is an object detection algorithm based on MobileNet, offering advantages such as high speed and ease of deployment. It enables functionalities like object detection and waste recognition, and is primarily applied in fields such as autonomous driving and smart homes.
+
+Face detection example: (https://github.com/bruceyang2012/Face-detection-with-mobilenet-ssd)    
+License plate detection example: (https://github.com/soonhahwang/Mobilenet-SSD-to-detect-Licence-Plate)
 
 ## Supported Platforms
 
-| Platform                 | System | Function                                             |
-| ------------------------ | ---------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module, RDK X5    | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)     | · Start the MIPI/USB camera and display the inference through the web<br/>· Use local data to save the results offline |
+| Platform              | Runtime Environment     | Example Features                                                     |
+| --------------------- | ----------------------- | -------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video playback; rendered results saved locally |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)   | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video playback; rendered results saved locally |
+| X86                   | Ubuntu 20.04 (Foxy)     | · Use local image/video playback; rendered results saved locally     |
 
-## Preparation
+## Algorithm Information
 
-### RDK
+| Model           | Platform | Input Size    | Inference FPS |
+| --------------- | -------- | ------------- | ------------- |
+| ssd_mobilenet   | X3       | 1x3x300x300   | 141.60        |
+| ssd_mobilenet   | X5       | 1x3x300x300   | 453.98        |
 
-1. RDK has burned the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+## Prerequisites
 
-2. RDK has successfully installed TogetheROS.Bot.
+### RDK Platform
 
-3. RDK has installed a MIPI or USB camera. If there is no camera available, the algorithm can be experienced by local JPEG/PNG images or MP4, H.264, and H.265 videos offline.
+1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
 
-4. Confirm that the PC can access the RDK through the network.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-## Usage
+3. An MIPI or USB camera is installed on the RDK. If no camera is available, you can experience the algorithm by replaying local JPEG/PNG images or MP4, H.264, and H.265 video files.
 
-### RDK
+4. Ensure your PC can access the RDK over the network.
 
-#### Use MIPI Camera to Publish Images
+### X86 Platform
 
-The MobileNet_SSD detection algorithm subscribes to the images published by the sensor package, performs inference, and publishes algorithm messages. The algorithm messages and corresponding images are displayed on the PC browser using the websocket package.
+1. The X86 environment has been set up with Ubuntu 20.04 system image.
+
+2. tros.b has been successfully installed on the X86 system.
+
+## Usage Guide
+
+### RDK Platform
+
+#### Publishing Images Using MIPI Camera
+
+The MobileNet_SSD object detection example subscribes to images published by the sensor package, performs inference, publishes algorithm messages, and renders both images and detection results in a web browser on the PC via the websocket package.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -57,7 +75,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -66,20 +84,20 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/mobilenet_ssd_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
-#### Use USB Camera to Publish Images
+#### Publishing Images Using USB Camera
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -88,7 +106,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -97,22 +115,22 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/mobilenet_ssd_workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
-#### Use Local Images offline
+#### Replaying Local Images
 
-The MobileNet_SSD detection algorithm example uses local JPEG/PNG images offline. After inference, the results are stored in the local path.
+The MobileNet_SSD object detection example replays local JPEG/PNG images, performs inference, and saves the rendered result images to the current working directory.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -121,7 +139,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -130,15 +148,29 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Start the launch file
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_ssd_workconfig.json dnn_example_image:=config/target.jpg
+```
+
+### X86 Platform
+
+#### Replaying Local Images
+
+The MobileNet_SSD object detection example replays local JPEG/PNG images, performs inference, and saves the rendered result images to the current working directory.
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_ssd_workconfig.json dnn_example_image:=config/target.jpg
 ```
 
 ## Result Analysis
 
-### Use Camera to Publish Images 
+### Using Camera to Publish Images
 
-The following information is displayed in the terminal output:
+The terminal outputs the following logs during execution:
 
 ```shell
 [example-3] [WARN] [1655095279.473675326] [example]: Create ai msg publisher with topic_name: hobot_dnn_detection
@@ -151,24 +183,26 @@ The following information is displayed in the terminal output:
 [example-3] [WARN] [1655095282.744084511] [example]: Smart fps 30.00
 ```
 
-The log shows that the topic for publishing inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The frame rate of the subscribed images and the algorithm inference output is approximately 30fps.
+The log indicates that the algorithm publishes inference results on the topic `hobot_dnn_detection` and subscribes to images on the topic `/hbmem_img`. Both the subscribed image stream and the inference output run at approximately 30 FPS.
 
-To view the image and algorithm, input http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
+Enter `http://IP:8000` in your PC’s web browser to view the rendered images and detection results (replace "IP" with the RDK’s actual IP address):
 
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/mobilenet_ssd_render_web.jpeg)
 
-### Use Local Images offline
+### Replaying Local Images
 
-The following information is displayed in the terminal output:
+The terminal outputs the following logs during execution:
 
 ```shell
 [example-1] [INFO] [1654930510.201326806] [example]: Output from image_name: config/target.jpg, frame_id: feedback, stamp: 0.0
-[example-1] [INFO] [1654930510.201485092] [PostProcessBase]: outputs size: 12
-[example-1] [INFO] [1654930510.201581047] [PostProcessBase]: out box size: 2
-[example-1] [INFO] [1654930510.201672794] [PostProcessBase]: det rect: 227.27 101.873 299.219 223.667, det type: pottedplant, score:0.995207
-[example-1] [INFO] [1654930510.201778415] [PostProcessBase]: det rect: 62.3792 155.731 221.676 223.179, det type: sofa, score:0.982129
 ```
+[example-1] [INFO] [1654930510.201485092] [PostProcessBase]: outputs size: 12  
+[example-1] [INFO] [1654930510.201581047] [PostProcessBase]: out box size: 2  
+[example-1] [INFO] [1654930510.201672794] [PostProcessBase]: det rect: 227.27 101.873 299.219 223.667, det type: pottedplant, score:0.995207  
+[example-1] [INFO] [1654930510.201778415] [PostProcessBase]: det rect: 62.3792 155.731 221.676 223.179, det type: sofa, score:0.982129  
 
-The log shows that the algorithm infers 2 targets from the input image and outputs the coordinates of the bounding boxes (the order of the output coordinates is the top-left x and y coordinates, and the bottom-right x and y coordinates) and the class. The image is named render_feedback_0_0.jpeg, and the rendering effect is:
+```
+The output log shows that the algorithm inferred two objects from the input image and output the bounding box coordinates (the coordinate order corresponds to the top-left x and y, and bottom-right x and y of each detection box) along with their categories. The rendered image is saved as "render_feedback_0_0.jpeg". Rendered image result:
 
 ![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/mobilenet_ssd_render_feedback.jpeg)
+```

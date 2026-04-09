@@ -15,13 +15,13 @@ The Model Zoo GitHub repository is here: https://github.com/D-Robotics/rdk_model
 
 Through this repository, developers can access the following resources:
 
-1. **Diverse DiGua Heterogeneous Models**: The repository contains a variety of DiGua heterogeneous models that can be directly deployed on the boards and are suitable for various scenarios. These general-purpose models cover fields such as image classification, object detection, semantic segmentation, and natural language processing, provided as .bin files. All models are carefully selected and optimized for high performance.
+1. **Diverse D-Robotics Heterogeneous Models**: The repository contains a variety of D-Robotics heterogeneous models that can be directly deployed on the boards and are suitable for various scenarios. These general-purpose models cover fields such as image classification, object detection, semantic segmentation, and natural language processing, provided as .bin files. All models are carefully selected and optimized for high performance.
 2. **Detailed Usage Guides**: Each model comes with a Jupyter Notebook, which includes a detailed model introduction, usage instructions, sample code, and comments to help developers get started quickly. For some models, we also provide performance evaluation reports and tuning suggestions to facilitate customization and optimization according to specific needs.
 3. **Integrated Development Tools**: We provide a set of Python interfaces, `bpu_infer_lib`, for developers to quickly deploy models on RDK series development boards. By studying the Jupyter Notebooks provided with each model, including data preprocessing scripts and inference methods, developers can quickly master the use of this interface, greatly simplifying the model development and deployment process.
 
 ## Environment Setup
 
-First, prepare the corresponding RDK development board according to your branch, and visit the DiGua Robotics official website to complete [hardware preparation, driver installation, software download, and image flashing](https://developer.d-robotics.cc/rdk_doc/Quick_start/install_os/rdk_x3). For X3 and X5 images, please select version 3.0.0 or above.
+First, prepare the corresponding RDK development board according to your branch, and visit the D-Robotics official website to complete [hardware preparation, driver installation, software download, and image flashing](https://developer.d-robotics.cc/rdk_doc/Quick_start/install_os/rdk_x3). For X3 and X5 images, please select version 3.0.0 or above.
 
 After completing hardware connection and network configuration, use MobaXTerm to [remotely log in to the development board](https://developer.d-robotics.cc/rdk_doc/Quick_start/remote_login). Configure the [network connection](https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth) for the board.
 

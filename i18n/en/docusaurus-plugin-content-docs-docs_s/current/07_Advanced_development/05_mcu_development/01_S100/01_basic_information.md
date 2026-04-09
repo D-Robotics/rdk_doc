@@ -67,11 +67,11 @@ The first compilation will download the toolchain from the official ARM website 
 ```shell
 # Compile MCU1 Debug version
 cd mcu/Build/FreeRtos_mcu1
-python build_freertos.py s100_sip_B debug
+python build_freertos.py lite matrix B s100 mcu1 gcc debug
 
 # Compile MCU1 Release version
 cd mcu/Build/FreeRtos_mcu1
-python build_freertos.py s100_sip_B release
+python build_freertos.py lite matrix B s100 mcu1 gcc release
 ```
 
 ## Compilation Success Indication
@@ -197,10 +197,21 @@ The MCU currently supports several debug features via sysfs, including checking 
 2. **System uptime (`taskcounter`)**: Shows the duration (in seconds) since the MCU was started.
 3. **MCU version (`mcu_version`)**: Displays MCU version information, including whether it's a debug or release build and the compilation timestamp.
 4. **SBL version (`sbl_version`)**: Shows SBL version information and compilation timestamp. This is only available under `remoteproc_mcu0`.
-5. **MCU serial logs**: Allows viewing MCU serial logs. `remoteproc_mcu0` corresponds to MCU0 logs, and `remoteproc_mcu1` corresponds to MCU1 logs.
-6. **MCU CPU loads (`cpuloads`)**: Provides task status, priority, remaining stack, execution count (FreeRTOS tick count), and CPU usage for MCU0/MCU1 tasks, aiding debugging. Retrieving `cpuloads` data involves significant data copying to the sysfs output buffer, resulting in a 1-second delay. This feature is only available when MCU0/MCU1 is powered on.
+5. **MCU CPU loads (`cpuloads`)**: Provides task status, priority, remaining stack, execution count (FreeRTOS tick count), and CPU usage for MCU0/MCU1 tasks, aiding debugging. Retrieving `cpuloads` data involves significant data copying to the sysfs output buffer, resulting in a 1-second delay. This feature is only available when MCU0/MCU1 is powered on.
+6. Firmware name: This is the firmware name for MCU1 when MCU0 starts MCU1 under the remoteproc framework. When MCU0 starts MCU1, Linux will look for the corresponding file in the board's /lib/firmware directory to load it to the appropriate location.
 
-:::info
+7. Node name: For example, mcu0 is soc:remoteproc_mcu0; mcu1 is soc:remoteproc_mcu1.
+
+8. State: Refers to the status of the remoteproc subsystem. When starting MCU1, the process goes through the MCU0 remoteproc node, so it will change to running state. When MCU1 is not started, the state is offline.
+
+9. Recovery node: Indicates whether coredump register information can be obtained when the MCU crashes. This function is normally enabled. If you need to use this feature, please refer to the [MCU ramdump section](./13_mcu_ramdump.md).
+
+10. uevent node: Indicates the device type, which is DEVTYPE=remoteproc.
+
+11. timesync node: Required for time synchronization between master and slave devices. MCU does not support this function.
+
+:::info 
+
 The information shown in the images may vary with version updates. The examples provided here are for reference only.
 :::
 
@@ -220,13 +231,9 @@ The information shown in the images may vary with version updates. The examples 
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/sbl_version.png)
 
-5. MCU serial log retrieval:
+5. mcu cpuloads(`cpuloads`):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log.png)  
-
-6. Obtain MCU CPU loads, as shown below:
-
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/cpuload.jpg)
+ ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/cpuload.jpg)
 
 ## MCU UART Usage
 If the RDK-S100 uses the following connection method, the MCU UART and Acore UART share the same serial port. Check it yourself via: Device Manager → Ports → MCU-COM, Baud Rate 921600.
@@ -249,23 +256,9 @@ fastboot flash MCU_b "xxx/MCU_S100_SIP_V2.0.img"
 ```
 
 #### Flashing on a Blank Board
-**For blank board flashing, please refer to the following tool-based flashing method.**
+**For blank board flashing, please use the Xburn tool to flash the specified region and specify `miniboot_flash`.**
 
-### Tool-Based Flashing
-1. When you can successfully enter Uboot, configure as follows:
-   1. Select "Uboot" for "Download Mode";
-   2. Select "eMMC" for "Storage Medium";
-   3. Select "Secure" for "Type";
-   4. For "Image Directory", choose the folder containing `img_packages` and `xmodem_tools`;
-   5. Select the appropriate "Acore UART Port" based on your actual setup;
-   6. Set "Baud Rate" to "921600";
-   7. Click the small arrow next to "Other Settings", then click "Partition Selection" and check only "miniboot_flash".
-
-  ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_uboot-en.png)
-
-2. If you cannot enter Uboot normally, select "USB" for download mode—no need to specify UART port or baud rate. Keep all other settings consistent with the Uboot scenario:
-
-  ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/mcu_usb-en.png)
+For information about flashing a specified region using the Xburn tool, please refer to the [Specified Region Flashing](../../../01_Quick_start/02_install_os/rdk_s100/03_xburn/01_windows.md#flashing-specific-partitions-with-xburn) section.
 
 ## MCU1 Undefined/Abort Exception Handling Principle
 
@@ -362,7 +355,11 @@ int main(void)
 ```
 
 ## MCU Log Overview
-The MCU provides basic logging functionality, primarily used for debugging and runtime status recording. The current version of the Log module supports formatted string output, enabling developers to quickly locate issues and inspect variable states during debugging.
+The MCU provides basic log output functionality, primarily used for debugging and runtime status recording. The current version of the Log module supports outputting information through formatted strings, making it easier for developers to quickly locate issues and view variable status during debugging. On the Acore side, log information for MCU0 and MCU1 can be viewed through the two nodes `/proc/remoteproc_mcu0` and `/proc/remoteproc_mcu1`.
+
+Taking obtaining MCU1 serial port log information as an example, as shown in the following figure:
+
+![mcu log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/05_mcu_development/01_S100/basic_information/log2.png)
 
 Currently supported format specifiers in MCU logs include:
 - %s —— String  

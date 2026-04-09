@@ -27,7 +27,7 @@ RDK X5 provides various functional interfaces, including Ethernet, USB, camera, 
 
 | No. | Function                       | No. | Function                  | No. | Function                  |
 | --- | ------------------------------ | --- | ------------------------- | --- | ------------------------- |
-| 1   | Power Interface (USB Type C)   | 2   | RTC Battery Interface     | 3   | QuickLink Port (USB Type C) |
+| 1   | Power Interface (USB Type C)   | 2   | RTC Battery Interface<br/>(The pin closer to PWR is B+, the other pin is GND)     | 3   | QuickLink Port (USB Type C) |
 | 4   | Debug Serial Port (Micro USB)  | 5   | Dual MIPI Camera Ports    | 6   | Gigabit Ethernet Port with PoE |
 | 7   | 4 USB 3.0 Type A Ports         | 8   | High-Speed CAN FD Interface | 9   | 40-pin GPIO Interface           |
 | 10  | HDMI Display Interface         | 11  | Multi-standard Headphone Jack | 12 | Onboard Wi-Fi Antenna     |
@@ -380,7 +380,7 @@ The board supports both onboard and external antennas for wireless networking. T
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-The development board supports both onboard and external antennas for wireless networking. The onboard antenna is sufficient for most scenarios. If the board is enclosed in a metal casing, connect an external antenna to the port near Interface 12 to enhance signal strength.
+The wireless network of the development board uses an external antenna configuration, requiring the external antenna to be connected to the core board to enhance signal strength.
 
 </TabItem>
 </Tabs>

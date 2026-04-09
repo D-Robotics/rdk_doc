@@ -3,6 +3,13 @@ sidebar_position: 4
 ---
 # 2.4 Thermal Control and CPU Frequency Management
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+
+
 :::info Note
 The following information does not apply to the `RDK Ultra` development board.
 :::
@@ -41,11 +48,11 @@ For example, to set the shutdown temperature to 105 degrees Celsius:
 echo 105000 > /sys/devices/virtual/thermal/thermal_zone0/trip_point_2_temp
 ```
 
-Please note that the above configuration will be reset to the default values after a system restart. To ensure persistent configuration, these commands can be added to the startup scripts for automatic configuration.  
+Please note that the above configuration will be reset to the default values after a system restart. To ensure persistent configuration, these commands can be added to the startup scripts for automatic configuration.
 
-### CPU Frequency Management  
+### CPU Frequency Management
 
-The Linux kernel comes with a built-in cpufreq subsystem to control CPU frequency and frequency control policies.  
+The Linux kernel comes with a built-in cpufreq subsystem to control CPU frequency and frequency control policies.
 
 Navigate to the directory `/sys/devices/system/cpu/cpufreq/policy0` and run `ls`. You will see the following files in the directory:
 
@@ -82,15 +89,20 @@ The Linux kernel used in the RDK system supports the following types of frequenc
 
 - Schedutil: Introduced starting from Linux kernel version 4.7. This policy utilizes CPU utilization information provided by the scheduler to adjust the frequency. It is similar in effect to the ondemand policy but is more precise and natural because the scheduler has the best knowledge of CPU usage.
 
+Users can set the frequency scaling policy in the following two ways:
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="Login to the RDK">
+
 Users can control the CPU frequency scaling policy by modifying the corresponding settings in the directory `/sys/devices/system/cpu/cpufreq/policy0`.
 
-For example, to set the CPU to run in performance mode:  
+For example, to set the CPU to run in performance mode:
 
 ```shell
 sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
 ```
 
-Or to set the CPU to run at a fixed frequency (1 GHz):  
+Or to set the CPU to run at a fixed frequency (1 GHz):
 
 ```shell
 sudo bash -c "echo userspace > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
@@ -111,7 +123,7 @@ The development board uses the CPU Freq driver to manage the CPU operating state
 sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
 ```
 
-The development board provides an overclocking feature in the system, which can increase the maximum CPU frequency from 1.2 GHz to 1.5 GHz. Use the following command to configure it:  
+The development board provides an overclocking feature in the system, which can increase the maximum CPU frequency from 1.2 GHz to 1.5 GHz. Use the following command to configure it:
 
 ```bash
 sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
@@ -120,7 +132,7 @@ sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
 The CPU frequency configured using the above command only takes effect during the current session. It will revert to the default configuration after a device reboot.
 
 :::info NOTE
-CPU overclocking increases chip power consumption and heat generation. If stability issues occur, you can disable the overclocking feature using the following command:  
+CPU overclocking increases chip power consumption and heat generation. If stability issues occur, you can disable the overclocking feature using the following command:
 
 ```bash
 sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
@@ -128,10 +140,76 @@ sudo bash -c 'echo 0 > /sys/devices/system/cpu/cpufreq/boost'
 
 :::
 
-You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:  
+You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:
 
-![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)  
+![image-20220714113732289](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20220714113732289.png)
 
+</TabItem>
+
+<TabItem value="rdk-studio" label="Log in with RDK Studio">
+
+The Performance Node tool in RDK Studio provides system hardware monitoring and real-time performance control capabilities. It combines detailed data monitoring with dynamic performance tuning to help users fully understand and manage their computer's operational status.
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. Use RDK Studio to add devices. Refer to [Add RDK Device](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+2. Click the application space icon to view more applications.
+
+    ![Application Space Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+3. Click to install Performance Node onto the development board.
+
+    ![Download Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/en/performance-node-install.png)
+
+4. Performance Node monitoring display:
+
+    - **CPU Performance Interface:**
+
+        ![CPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - Click on the CPU label above to enable/disable the corresponding CPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+    - **BPU/GPU Performance Interface:**
+
+        ![BPU/GPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+
+        - Click on the BPU/GPU label above to enable/disable the corresponding BPU/GPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+    - **Memory Performance Interface: Displays used and available memory.**
+
+        ![Memory Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+
+          - Click the button in the upper right corner for area zoom and restore.
+          - Click the download button to save the current performance interface as an image.
+
+    - **Disk Performance Interface: Displays used and available disk space.**
+
+        ![Disk Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+5. Performance Monitoring Settings:
+
+   ![Settings Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - Set Sampling Interval: The default sampling interval is 1000ms. After entering the interval time, click `Current sampling interval 1000ms, click to modify` to complete the interval time setting.
+   - CPU Frequency Scaling Mode: Click `performance (CPU frequency scaling mode, click to switch)` to switch the CPU frequency scaling mode.
+   - Interface Switching: The default is vertical screen interface. Click `Click to go to horizontal screen interface` to switch to horizontal display.
+
+      ![Horizontal Screen Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+
+</TabItem>
+</Tabs>
 
 ## X5 Thermal Control
 :::info Note
@@ -238,11 +316,11 @@ scaling_min_freq                    // The lowest frequency available for the CP
 scaling_setspeed                    // A file that should be used to switch the governor to 'userspace' before use. Echo a value to this file to switch the frequency.
 ```
 
-Currently supported frequencies include:  
+Currently supported frequencies include:
 ```shell
 cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
 300000 600000 1200000 1500000
-```  
+```
 
 
 The Linux kernel used by the RDK system supports the following types of scaling strategies:
@@ -253,6 +331,11 @@ The Linux kernel used by the RDK system supports the following types of scaling 
 - Conservative: It is similar to the ondemand strategy. It periodically checks the load and adjusts the frequency accordingly. When the load is low, it adjusts to the minimum frequency that can meet the current load requirements. However, when the load is high, it gradually increases the frequency instead of immediately setting it to the highest performance state.
 - Userspace: It exposes the control interface through sysfs to allow users to customize their own strategies. Users can manually adjust the frequency in the user space.
 - Schedutil: This is a strategy introduced in Linux-4.7 that adjusts the frequency based on the CPU utilization information provided by the scheduler. It has similar effects to the ondemand strategy but is more accurate and natural (as the scheduler has the best understanding of CPU usage).
+
+Users can set the frequency scaling policy in the following two ways:
+
+<Tabs groupId="tool-type">
+<TabItem value="login" label="Login to the RDK">
 
 Users can control the CPU scaling strategy by modifying the corresponding settings under the directory `/sys/devices/system/cpu/cpufreq/policy0`.
 
@@ -271,23 +354,23 @@ sudo bash -c "echo 1000000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_set
 
 ### CPU Overclocking
 
-The development board uses the CPU Freq driver to manage the CPU operating state. The default mode is the `schedutil` mode, where the CPU frequency is dynamically adjusted based on the load to save power. Users can switch to the `performance` mode to make the CPU always run at the highest frequency using the following command:  
+The development board uses the CPU Freq driver to manage the CPU operating state. The default mode is the `schedutil` mode, where the CPU frequency is dynamically adjusted based on the load to save power. Users can switch to the `performance` mode to make the CPU always run at the highest frequency using the following command:
 
 ```bash
 echo performance >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 ```
 
-The development board provides an overclocking feature in the system, which can increase the maximum CPU frequency from 1.5GHz to 1.8GHz. The configuration commands are as follows:  
+The development board provides an overclocking feature in the system, which can increase the maximum CPU frequency from 1.5GHz to 1.8GHz. The configuration commands are as follows:
 
 ```bash
 echo 1 >/sys/devices/system/cpu/cpufreq/boost
 echo performance >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 ```
 
-The CPU frequency configured using the above commands only takes effect during the current session. If the device is rebooted, the configuration will revert to the default settings.  
+The CPU frequency configured using the above commands only takes effect during the current session. If the device is rebooted, the configuration will revert to the default settings.
 
 :::info Note
-CPU overclocking increases chip power consumption and heat. If stability issues occur, the overclocking feature can be disabled using the following command:  
+CPU overclocking increases chip power consumption and heat. If stability issues occur, the overclocking feature can be disabled using the following command:
 
 ```bash
 echo 0 >/sys/devices/system/cpu/cpufreq/boost
@@ -296,14 +379,14 @@ echo 0 >/sys/devices/system/cpu/cpufreq/boost
 :::
 
 :::info Note
-Overclocking is only supported on X5H; it is not available on X5M. The chip type can be checked using the following command. For example, the following query shows the chip is X5M:  
+Overclocking is only supported on X5H; it is not available on X5M. The chip type can be checked using the following command. For example, the following query shows the chip is X5M:
 
 ```bash
 cat /sys/class/socinfo/soc_name
 X5M
 ```
 
-If the chip type is identified as `X5U` (i.e., `X5 UNKNOWN`), it usually indicates that the chip is an early production version, and the corresponding identifier has not been burned into its eFUSE. Therefore, the accurate chip model cannot be read through software and requires manual identification based on the chip's silk print information.  
+If the chip type is identified as `X5U` (i.e., `X5 UNKNOWN`), it usually indicates that the chip is an early production version, and the corresponding identifier has not been burned into its eFUSE. Therefore, the accurate chip model cannot be read through software and requires manual identification based on the chip's silk print information.
 
 ![image-20251029-114153](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20251029-114153.png)
 
@@ -313,10 +396,77 @@ For such chips, overclocking restrictions are not enabled, meaning overclocking 
 
 - System stability cannot be guaranteed; there may be risks of abnormal operation or reduced lifespan.
 
-It is recommended to use this feature only during the research and development phase for testing and not to rely on overclocking for mass production.  
+It is recommended to use this feature only during the research and development phase for testing and not to rely on overclocking for mass production.
 
 :::
 
-You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:  
+You can use the `sudo hrut_somstatus` command to view the current chip operating frequency, temperature, and other status information:
 
 ![image-20240829171934000](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/image-20240829171934000.png)
+
+</TabItem>
+
+<TabItem value="rdk-studio" label="Log in with RDK Studio">
+
+The Performance Node tool in RDK Studio provides system hardware monitoring and real-time performance control capabilities. It combines detailed data monitoring with dynamic performance tuning to help users fully understand and manage their computer's operational status.
+
+:::info Note
+
+- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio user guide: [Click to view](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
+
+:::
+
+1. Use RDK Studio to add devices. Refer to [Add RDK Device](../01_Quick_start/09_RDK_Studio/05_Device_management/01_hardware_resource.md).
+2. Click the application space icon to view more applications.
+
+    ![Application Space Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/en/rdk_studio_left_menu_device_manage_hr_add_device_application_space_download.png)
+
+3. Click to install Performance Node onto the development board.
+
+    ![Download Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/en/performance-node-install.png)
+
+4. Performance Node monitoring display:
+
+    - **CPU Performance Interface:**
+
+        ![CPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-CPU.png)
+
+        - Click on the CPU label above to enable/disable the corresponding CPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+    - **BPU/GPU Performance Interface:**
+
+        ![BPU/GPU Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-BPU-GPUpng.png)
+
+        - Click on the BPU/GPU label above to enable/disable the corresponding BPU/GPU performance display.
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+    - **Memory Performance Interface: Displays used and available memory.**
+
+        ![Memory Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-memory.png)
+
+          - Click the button in the upper right corner for area zoom and restore.
+          - Click the download button to save the current performance interface as an image.
+
+    - **Disk Performance Interface: Displays used and available disk space.**
+
+        ![Disk Performance Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-disk.png)
+
+        - Click the button in the upper right corner for area zoom and restore.
+        - Click the download button to save the current performance interface as an image.
+
+5. Performance Monitoring Settings:
+
+   ![Settings Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-operation.png)
+
+   - Set Sampling Interval: The default sampling interval is 1000ms. After entering the interval time, click `Current sampling interval 1000ms, click to modify` to complete the interval time setting.
+   - CPU Frequency Scaling Mode: Click `performance (CPU frequency scaling mode, click to switch)` to switch the CPU frequency scaling mode.
+   - Interface Switching: The default is vertical screen interface. Click `Click to go to horizontal screen interface` to switch to horizontal display.
+
+      ![Horizontal Screen Interface](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/02_System_configuration/image/cpu_frequency/rdk_studio/performance-node-row.png)
+
+</TabItem>
+</Tabs>

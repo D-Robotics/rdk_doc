@@ -14,50 +14,39 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Windows" label="Windows">
 
 1. 点击右上角 `+ RDK设备`，进入选择连接类型界面。
-   
+
    ![+ RDK 设备界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device.png)
 
 
 2. 点击 “选择连接类型” 后面的问号图标，弹出连接方式导览窗口，指导用户根据所选连接类型进行设备连接，点击 `下一步` 可查看后续内容，也可点击 `上一步` 再次查看之前的提示，查看全部导览内容后点击 `结束导览` 关闭弹窗，也可随时点击右上角 ` × ` 直接关闭弹窗。
-  
+
    ![导览窗口界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_help.png)
 
 3. 此处以 “创建网线连接” 为例，点击选中连接类型，点击 `下一步` ，进入选择网络界面。
-    
+
     :::warning
     - 此处务必选择正确的<font color="red">以太网</font>，错选可能导致电脑本身网络无法连接。
     - 可通过以下方法确认正确的网络：拔出网线再重新连接，会自动匹配正确的以太网。
-  
+
     :::
 
    ![选择网络界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_choosenet.png)
 
-    :::tip 提示
-    
-      仅RDK X5 的 Type-C 接口支持通过闪连方式添加设备，此处选择闪连方式添加设备请提前执行以下步骤：
-      1. 开发板网络 IP 确认  
-       以 RDK X5 的 3.0 版本镜像为例（切勿使用Beta版本镜像），Type-C 网卡所对应的IP网段为192.168.128.10，其他版本镜像可以先选用其他连接方式，使用 `ifconfig` 命令进行查看 IP。
-      2. 个人PC网络的设置  
-       打开控制面板——>网络和Internet——>网络和共享中心——>左侧更改适配器设置——>找到板卡的以太网（PS：将板卡与电脑的连接线拔插多次即可知道哪个是开发板的以太网）——>右键选择属性，按照下图方式填写。
-    
-            ![r03XYBKpQH.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/configuration_wizard/r03XYBKpQH.png)
-
-     :::
 
 4. 点击 `下一步` ，进入选择用户类型界面，此处设置登录到 RDK 设备的用户类型，可选择 “sunrise（普通用户权限）” 或 “root（超级用户权限）”。
-    
-    
+
+
    ![选择用户类型界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_usertype.png)
 
 
 5. 点击 `下一步` ，进入 WIFI 无线网络连接界面为 RDK 设备连接网络，展开选项列表选择想要连接的网络，填写密码。
-   
-   
+
+
    :::warning
     如选择 “创建WIFI连接方式” 添加设备，需确保笔记本与 RDK 设备连接至同一局域网。
    :::
-   
-   
+
+
    ![WIFI无线网络连接界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_net.png)
 
 
@@ -74,7 +63,7 @@ import TabItem from '@theme/TabItem';
 
 7. 点击 `确认`，成功添加 RDK 设备，在列表页面显示设备卡片及信息。
 
-    
+
    ![设备卡列表界面](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/rdk_studio_left_menu_device_manage_hr_add_device_success.png)
 
 :::tip 提示
@@ -97,7 +86,7 @@ import TabItem from '@theme/TabItem';
 
 
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="macOS">
 
 :::tip
 

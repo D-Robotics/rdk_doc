@@ -8,40 +8,44 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/DOSOD] is an advanced open-vocabulary object detection algorithm capable of efficiently detecting various novel category targets in a zero-shot manner.
+DOSOD (Decoupled Open-Set Object Detector) [https://github.com/D-Robotics-AI-Lab/DOSOD] is Digua's self-developed open-vocabulary object detection method. By leveraging input textual features for reparameterization, it enables zero-shot modification of object detection categories—a key distinction from conventional detectors.
 
-Code Repository: (https://github.com/D-Robotics/hobot_dosod)
+Code repository: (https://github.com/D-Robotics/hobot_dosod)
 
-Application Scenarios: The robust zero-shot detection capability of DOSOD endows it with enhanced generalization, making it applicable in domains such as autonomous driving, smart home, and other fields.
+Application scenarios: DOSOD’s powerful zero-shot detection capability grants it superior generalization performance, making it suitable for applications such as autonomous driving, smart homes, and geological inspection.
 
 ## Supported Platforms
 
-| Platform                            | System | Function                                     |
-| ----------------------------------- | -------------- | -------------------------------------------------------- |
-| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local video and display inference rendering results via web      |
+| Platform                     | Runtime Environment | Example Functionality                                      |
+| ---------------------------- | ------------------- | ---------------------------------------------------------- |
+| RDK X5, RDK X5 Module        | Ubuntu 22.04 (Humble) | Launch MIPI/USB camera or local image replay, and display inference results via web browser |
+| RDK S100, RDK S100P          | Ubuntu 22.04 (Humble) | Launch MIPI/USB camera or local image replay, and display inference results via web browser |
 
-## Preparation
+## Algorithm Details
 
-### RDK
+| Model    | Platform | Input Size      | Inference FPS |
+| -------- | -------- | --------------- | ------------- |
+| DOSOD-l  | X5       | 1×640×640×3     | 12            |
+| DOSOD-l  | S100     | 1×640×640×3     | 44.89         |
 
-1. RDK has flashed the Ubuntu 22.04 system image provided by D-Robotics.
+## Prerequisites
 
-2. RDK has successfully installed TogetheROS.Bot.
+### RDK Platform
 
-3. RDK has installed the MIPI or USB camera.
+1. The RDK has been flashed with the Ubuntu 22.04 system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. An MIPI or USB camera has been installed on the RDK.
+4. Ensure your PC can access the RDK over the network.
 
-4. Confirm that the PC is able to access the RDK via the network.
+## Usage Guide
 
-## Usage
+The DOSOD (`hobot_dosod`) package subscribes to images published by the sensor package, performs model inference, publishes algorithm messages after inference, and renders both the original images and corresponding algorithm results in a web browser on the PC via the websocket package.
 
-DOSOD (hobot_dosod) package subscribes to images published by the sensor package. It has the capability to alter the detection categories by parameterizing the model. The websocket package is used to render and display the images and corresponding algorithm results on a PC browser.
+### RDK Platform
 
-### RDK
-
-**Use MIPI Camera to Publish Images**
+**Publish images using an MIPI camera**
 
 <Tabs groupId="tros-distro">
 
@@ -53,13 +57,13 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
@@ -67,7 +71,7 @@ ros2 launch hobot_dosod dosod.launch.py
 
 </Tabs>
 
-**Use USB Camera to Publish Images**
+**Publish images using a USB camera**
 
 <Tabs groupId="tros-distro">
 
@@ -79,14 +83,13 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
@@ -94,7 +97,7 @@ ros2 launch hobot_dosod dosod.launch.py
 
 </Tabs>
 
-**Use Local Image Offline**
+**Publish locally replayed images**
 
 <Tabs groupId="tros-distro">
 
@@ -106,13 +109,13 @@ source /opt/tros/humble/setup.bash
 ```
 
 ```shell
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 
-# Configure the local playback image.
+# Configure local image replay
 export CAM_TYPE=fb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
@@ -120,9 +123,14 @@ ros2 launch hobot_dosod dosod.launch.py
 
 </Tabs>
 
-## Result analysis
+In addition to setting the camera type, you can also modify the model and its configuration:
 
-The following information is outputted in the terminal:
+- **X5**: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` and the category vocabulary configuration to `dosod_vocabulary_file_name:="config/offline_vocabulary.json"`.
+- **S100**: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"` and the category vocabulary configuration to `dosod_vocabulary_file_name:="config/offline_vocabulary.json"`.
+
+## Result Analysis
+
+The following output appears in the terminal upon execution:
 
 ```shell
 [INFO] [launch]: All log files can be found below /root/.ros/log/2025-01-08-11-03-34-125542-ubuntu-9125
@@ -184,50 +192,48 @@ webserver has launch
 [hobot_dosod-3]  nms_top_k: 50
 [hobot_dosod-3]  is_homography: 0
 [hobot_dosod-3]  trigger_mode: 0
-[hobot_dosod-3]  class_mode: 0
-[hobot_dosod-3]  task_num: 2
-[hobot_dosod-3]  roi: 0
-[hobot_dosod-3]  y_offset: 950
-[hobot_dosod-3]  ai_msg_pub_topic_name: /hobot_dosod
-[hobot_dosod-3]  ros_img_sub_topic_name: /image
-[hobot_dosod-3] [WARN] [1736305415.836617477] [hobot_dosod]: model_file_name_: config/dosod_mlp3x_l_rep-int8.bin, task_num: 2
-[hobot_dosod-3] [BPU_PLAT]BPU Platform Version(1.3.6)!
-[hobot_dosod-3] [HBRT] set log level as 0. version = 3.15.54.0
-[hobot_dosod-3] [DNN] Runtime version = 1.23.10_(3.15.54 HBRT)
-[hobot_image_pub-1] [WARN] [1736305416.129590859] [image_pub_node]: parameter:
-[hobot_image_pub-1] image_source: ./config/000000160864.jpg
-[hobot_image_pub-1] source_image_w: 960
-[hobot_image_pub-1] source_image_h: 544
-[hobot_image_pub-1] output_image_w: 1920
-[hobot_image_pub-1] output_image_h: 1080
-[hobot_image_pub-1] fps: 10
-[hobot_image_pub-1] is_shared_mem: 1
-[hobot_image_pub-1] is_loop: 1
-[hobot_image_pub-1] is_compressed_img_pub: 0
-[hobot_image_pub-1] image_format: jpg
-[hobot_image_pub-1] pub_encoding: nv12pub_name_mode: 0
-[hobot_image_pub-1] msg_pub_topic_name: /hbmem_img
-[hobot_image_pub-1] [WARN] [1736305416.130613275] [hobot_image_pub]: Enabling zero-copy
-[hobot_codec_republish-2] [WARN] [1736305416.348757530] [hobot_codec_encoder]: Loaned messages are only safe with const ref subscription callbacks. If you are using any other kind of subscriptions, set the ROS_DISABLE_LOANED_MESSAGES environment variable to 1 (the default).
-[hobot_codec_republish-2] [WARN] [1736305416.349073988] [HobotVenc]: init_pic_w_: 1920, init_pic_h_: 1080, alined_pic_w_: 1920, alined_pic_h_: 1088, aline_w_: 16, aline_h_: 16
-[hobot_dosod-3] [A][DNN][packed_model.cpp:247][Model](2025-01-08,11:03:36.664.601) [HorizonRT] The model builder version = 1.24.3
-[hobot_dosod-3] [WARN] [1736305417.323044552] [hobot_dosod]: Get model name: 3x-l_epoch_100_rep-coco80-without-nms from load model.
-[hobot_dosod-3] [WARN] [1736305417.323560635] [hobot_dosod]: Create ai msg publisher with topic_name: /hobot_dosod
-[hobot_dosod-3] [WARN] [1736305417.350238969] [hobot_dosod]: Create img hbmem_subscription with topic_name: /hbmem_img
-[hobot_dosod-3] [WARN] [1736305417.445453471] [dosod]: Loaned messages are only safe with const ref subscription callbacks. If you are using any other kind of subscriptions, set the ROS_DISABLE_LOANED_MESSAGES environment variable to 1 (the default).
-[hobot_codec_republish-2] [WARN] [1736305417.453916388] [hobot_codec_encoder]: sub nv12 1920x1088, fps: 11.4504, pub jpeg, fps: 11.4504, comm delay [0.0833]ms, codec delay [13.5833]ms
-[hobot_dosod-3] [W][DNN]bpu_model_info.cpp:491][Version](2025-01-08,11:03:37.311.128) Model: 3x-l_epoch_100_rep-coco80-without-nms. Inconsistency between the hbrt library version 3.15.54.0 and the model build version 3.15.55.0 detected, in order to ensure correct model results, it is recommended to use compilation tools and the BPU SDK from the same OpenExplorer package.
-[hobot_dosod-3] [WARN] [1736305418.846408168] [hobot_dosod]: Sub img fps: 12.95, Smart fps: 12.67, pre process time ms: 12, infer time ms: 78, post process time ms: 8
-[hobot_dosod-3] [WARN] [1736305419.857350566] [hobot_dosod]: Sub img fps: 9.97, Smart fps: 10.88, pre process time ms: 11, infer time ms: 91, post process time ms: 8
-[hobot_dosod-3] [WARN] [1736305420.858769504] [hobot_dosod]: Sub img fps: 10.04, Smart fps: 9.99, pre process time ms: 13, infer time ms: 100, post process time ms: 7
-[hobot_dosod-3] [WARN] [1736305421.860964318] [hobot_dosod]: Sub img fps: 9.99, Smart fps: 9.99, pre process time ms: 14, infer time ms: 100, post process time ms: 7
+[hobot_dosod-3]  class_mode: 0  
+[hobot_dosod-3]  task_num: 2  
+[hobot_dosod-3]  roi: 0  
+[hobot_dosod-3]  y_offset: 950  
+[hobot_dosod-3]  ai_msg_pub_topic_name: /hobot_dosod  
+[hobot_dosod-3]  ros_img_sub_topic_name: /image  
+[hobot_dosod-3] [WARN] [1736305415.836617477] [hobot_dosod]: model_file_name_: config/dosod_mlp3x_l_rep-int8.bin, task_num: 2  
+[hobot_dosod-3] [BPU_PLAT]BPU Platform Version(1.3.6)!  
+[hobot_dosod-3] [HBRT] set log level as 0. version = 3.15.54.0  
+[hobot_dosod-3] [DNN] Runtime version = 1.23.10_(3.15.54 HBRT)  
+[hobot_image_pub-1] [WARN] [1736305416.129590859] [image_pub_node]: parameter:  
+[hobot_image_pub-1] image_source: ./config/000000160864.jpg  
+[hobot_image_pub-1] source_image_w: 960  
+[hobot_image_pub-1] source_image_h: 544  
+[hobot_image_pub-1] output_image_w: 1920  
+[hobot_image_pub-1] output_image_h: 1080  
+[hobot_image_pub-1] fps: 10  
+[hobot_image_pub-1] is_shared_mem: 1  
+[hobot_image_pub-1] is_loop: 1  
+[hobot_image_pub-1] is_compressed_img_pub: 0  
+[hobot_image_pub-1] image_format: jpg  
+[hobot_image_pub-1] pub_encoding: nv12pub_name_mode: 0  
+[hobot_image_pub-1] msg_pub_topic_name: /hbmem_img  
+[hobot_image_pub-1] [WARN] [1736305416.130613275] [hobot_image_pub]: Enabling zero-copy  
+[hobot_codec_republish-2] [WARN] [1736305416.348757530] [hobot_codec_encoder]: Loaned messages are only safe with const ref subscription callbacks. If you are using any other kind of subscriptions, set the ROS_DISABLE_LOANED_MESSAGES environment variable to 1 (the default).  
+[hobot_codec_republish-2] [WARN] [1736305416.349073988] [HobotVenc]: init_pic_w_: 1920, init_pic_h_: 1080, alined_pic_w_: 1920, alined_pic_h_: 1088, aline_w_: 16, aline_h_: 16  
+[hobot_dosod-3] [A][DNN][packed_model.cpp:247][Model](2025-01-08,11:03:36.664.601) [HorizonRT] The model builder version = 1.24.3  
+[hobot_dosod-3] [WARN] [1736305417.323044552] [hobot_dosod]: Get model name: 3x-l_epoch_100_rep-coco80-without-nms from load model.  
+[hobot_dosod-3] [WARN] [1736305417.323560635] [hobot_dosod]: Create ai msg publisher with topic_name: /hobot_dosod  
+[hobot_dosod-3] [WARN] [1736305417.350238969] [hobot_dosod]: Create img hbmem_subscription with topic_name: /hbmem_img  
+[hobot_dosod-3] [WARN] [1736305417.445453471] [dosod]: Loaned messages are only safe with const ref subscription callbacks. If you are using any other kind of subscriptions, set the ROS_DISABLE_LOANED_MESSAGES environment variable to 1 (the default).  
+[hobot_codec_republish-2] [WARN] [1736305417.453916388] [hobot_codec_encoder]: sub nv12 1920x1088, fps: 11.4504, pub jpeg, fps: 11.4504, comm delay [0.0833]ms, codec delay [13.5833]ms  
+[hobot_dosod-3] [W][DNN]bpu_model_info.cpp:491][Version](2025-01-08,11:03:37.311.128) Model: 3x-l_epoch_100_rep-coco80-without-nms. Inconsistency between the hbrt library version 3.15.54.0 and the model build version 3.15.55.0 detected, in order to ensure correct model results, it is recommended to use compilation tools and the BPU SDK from the same OpenExplorer package.  
+[hobot_dosod-3] [WARN] [1736305418.846408168] [hobot_dosod]: Sub img fps: 12.95, Smart fps: 12.67, pre process time ms: 12, infer time ms: 78, post process time ms: 8  
+[hobot_dosod-3] [WARN] [1736305419.857350566] [hobot_dosod]: Sub img fps: 9.97, Smart fps: 10.88, pre process time ms: 11, infer time ms: 91, post process time ms: 8  
+[hobot_dosod-3] [WARN] [1736305420.858769504] [hobot_dosod]: Sub img fps: 10.04, Smart fps: 9.99, pre process time ms: 13, infer time ms: 100, post process time ms: 7  
+[hobot_dosod-3] [WARN] [1736305421.860964318] [hobot_dosod]: Sub img fps: 9.99, Smart fps: 9.99, pre process time ms: 14, infer time ms: 100, post process time ms: 7  
 ```
-
-You can view the image and algorithm rendering effects by entering http://IP:8000 in the browser on the PC (where IP is the IP address of the RDK):
+Enter `http://IP:8000` in your PC browser to view the image and algorithm rendering results (replace IP with the RDK's IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg)
 
 
-
-## Advance
-If you want to modify the target text, you can re-parameter the model. [DOSOD Deployment to RDK X5](https://horizonrobotics.feishu.cn/docx/MZgtdSDzNoHyOjxFSQbcRoVDnEj).
+## Advanced Usage  
+If you wish to modify custom categories, please refer to the [Model Re-parameterization Method](https://horizonrobotics.feishu.cn/docx/MZgtdSDzNoHyOjxFSQbcRoVDnEj).

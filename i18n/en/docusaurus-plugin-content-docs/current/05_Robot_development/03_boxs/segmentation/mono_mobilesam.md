@@ -1,62 +1,67 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
-# MobileSAM Segment Anything
-
+# MobileSAM Segmentation Everything
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The mono mobile sam package is a usage example based on Mobile SAM quantification deployment. The image data comes from local image feedback and subscribed image msg. SAM relies on the input of the detection box for segmentation, and segments the targets in the detection box without specifying the category information of the targets, only providing the box. The algorithm information will be published through topics and the results will be rendered and visualized on the web page. It also supports saving the rendered images in the result directory during program execution.
+The `mono_mobilesam` package provides a usage example based on quantized deployment of Mobile SAM. Image data comes from either local image replay or subscribed image messages. SAM requires bounding box input to perform segmentation—it segments objects within the provided bounding boxes without needing any class information, only the box coordinates. The algorithm results are published via ROS topics and visualized on a web page.
 
-In this example, we provide two deployment methods:
--Regular box for segmentation: A detection box in the center of the image is fixed for segmentation.
--Subscription box for segmentation: Subscribe to the detection box information output by the upstream detection network and segment the information in the box.
+In this example, we provide two deployment modes:
+- **Fixed-box segmentation**: A fixed detection box (centered in the image) is used for segmentation.
+- **Subscribed-box segmentation**: Subscribes to detection boxes output by an upstream detection network and segments objects within those boxes.
 
-Code repository:  (https://github.com/D-Robotics/mono_mobilesam.git)
+Code repository: [https://github.com/D-Robotics/mono_mobilesam.git](https://github.com/D-Robotics/mono_mobilesam.git)
 
-Application scenario: Combining detection boxes for obstacle segmentation, water stain area segmentation, etc.
+Application scenarios: Obstacle segmentation, water stain area segmentation, etc., when combined with detection boxes.
 
 ## Supported Platforms
 
-| Platform             | System | Function                                            |
-| -------------------- | ---------------- | ------------------------------------------------------------|
-| RDK X5 | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local image offline, inference rendering results displayed/saved locally on the Web| 
+| Platform              | Runtime Environment | Example Features                                                     |
+| --------------------- | ------------------- | -------------------------------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera or local image replay; inference results rendered on Web or saved locally |
 
-## Preparation
+## Algorithm Details
 
-### RDK
+| Model       | Platform | Input Size     | Inference FPS |
+| ----------- | -------- | -------------- | ------------- |
+| mobilesam   | X5       | 1×3×384×384    | 6.6           |
 
-1. The RDK has burned the  Ubuntu 22.04 system image provided by D-Robotics.
+## Prerequisites
 
-2. The RDK has successfully installed TogetheROS.Bot.
+### RDK Platform
 
-## Usage
+1. RDK has been flashed with the Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
 
-The package publishes algorithm messages that include semantic segmentation and object detection information, and users can subscribe to these messages for application development.
+## Usage Guide
 
-### RDK
+The package publishes algorithm messages containing both semantic segmentation and object detection information. Users can subscribe to these messages for application development.
 
-**Publishing images from MIPI camera**
+### RDK Platform
+
+**Publish images from MIPI camera**
 
 <Tabs groupId="tros-distro">
+
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Configure ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_mobilesam/config/ .
 
-# Configuring MIPI camera
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Start the launch file
+# Launch the launch file
 ros2 launch mono_mobilesam sam.launch.py 
 ```
 
@@ -64,22 +69,23 @@ ros2 launch mono_mobilesam sam.launch.py
 
 </Tabs>
 
-**Publishing images from USB camera**
+**Publish images from USB camera**
 
 <Tabs groupId="tros-distro">
+
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Configure ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_mobilesam/config/ .
 
-# Configuring USB camera
+# Configure USB camera
 export CAM_TYPE=usb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch mono_mobilesam sam.launch.py 
 ```
 
@@ -87,22 +93,23 @@ ros2 launch mono_mobilesam sam.launch.py
 
 </Tabs>
 
-**Using a single image offline**
+**Use single replay image**
 
 <Tabs groupId="tros-distro">
+
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b environment
+# Configure ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# Copy the configuration file required for running the example from the installation path of tros.b.
+# Copy required configuration files for the example from the tros installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_mobilesam/config/ .
 
-# Configure the local playback image.
+# Configure replay image
 export CAM_TYPE=fb
 
-# Start the launch file
+# Launch the launch file
 ros2 launch mono_mobilesam sam.launch.py 
 ```
 
@@ -112,9 +119,9 @@ ros2 launch mono_mobilesam sam.launch.py
 
 ## Result Analysis
 
-**Using a MIPI camera to publish images**
+**Publish images from MIPI camera**
 
-After the package is initialized, the following information will be displayed in the terminal:
+After initializing the package, the following logs appear in the terminal:
 
 ```
 [INFO] [launch]: All log files can be found below .ros/log/1970-01-02-22-39-09-001251-buildroot-22955
@@ -169,24 +176,22 @@ After the package is initialized, the following information will be displayed in
 [mono_mobilesam-3] [WARN] [0000167952.295540585] [mono_mobilesam]: Smart fps: 5.00, pre process time ms: 35, infer time ms: 150, post process time ms: 21
 ```
 
-**Using single image offline**
-
-The result will be rendered on web. On the PC-side browser, you can view the image and algorithm rendering effect by entering http://IP:8000 (IP is the IP address of the RDK), and open the settings in the upper right corner of the interface.
+In this example, inference results are rendered on a web page. Open a browser on your PC and navigate to `http://IP:8000` (replace IP with your RDK's IP address) to view the image and algorithm visualization. Click the settings icon in the top-right corner of the interface and enable the "Full-image Segmentation" option to display the rendering effect.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
 
-## Advance
+## Advanced Usage
 
-If you need to adjust the size of the detection box, you can refer to the following method for verification. What's more, the detection results of the other dnn detection node can be used as the input for Sam.
+To adjust the detection box size, refer to the method below. More importantly, you can use detection results from an upstream detection node as input for SAM.
 
-Start the launch file with cancel regular box mode, sam_is_regular_box:=0.
+Run SAM with fixed-box mode disabled (`sam_is_regular_box:=0`):
 ```shell
 ros2 launch mono_mobilesam sam.launch.py sam_is_regular_box:=0
 ```
 
-Publish ai msg in another terminal.
+In another terminal, publish an AI message topic:
 ```shell
 ros2 topic pub /hobot_dnn_detection ai_msgs/msg/PerceptionTargets '{"targets": [{"rois": [{"rect": {"x_offset": 96, "y_offset": 96, "width": 192, "height": 96}, "type": "anything"}]}] }'
 ```
 
-Explanation: The topic name published here is "/hobot_dnn_detection". The starting point of the detection box is (96, 96), with a width of 192 and a height of 96. The starting and ending points of the detection box should not exceed the size of the input image. Please check while using it.
+Explanation: The published topic name is `/hobot_dnn_detection`. The detection box starts at coordinate (96, 96) with width 192 and height 96. Note that the box coordinates must not exceed the input image dimensions—please pay attention to this in actual usage.

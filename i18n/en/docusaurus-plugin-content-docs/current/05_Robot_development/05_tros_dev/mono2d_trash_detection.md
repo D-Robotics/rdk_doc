@@ -2,124 +2,121 @@
 sidebar_position: 5
 ---
 
-# 5.5.5 Garbage Detection
+# 5.5.5 Trash Detection
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Introduction
+## Feature Introduction
 
-The mono2d_trash_detection package is an example of 2D garbage object detection algorithm developed based on the hobot_dnn package. Unlike previous functionality demonstrations, this example will demonstrate how to train models based on open-source frameworks, convert models using the D-Robotics toolchain, and deploy the algorithm in the D-Robotics Robot Operating System.
+The `mono2d_trash_detection` package is a 2D trash object detection algorithm example developed based on the `hobot_dnn` package. Unlike previous functional demonstrations, this example uses a 2D trash detection task to illustrate the complete workflow: training a model using an open-source framework, converting the model with D-Robotics toolchains, and deploying the algorithm end-to-end on the D-Robotics RDK robotic operating system.
 
-This package supports subscribing to topics of type sensors/msg/Image directly and supports inferring using local images. The algorithm information is published through topics and the results are rendered and visualized on a web page. When inferring with local images, the rendered images are saved in the current directory.
+This package supports directly subscribing to topics of type `sensors/msg/Image`, as well as performing inference on local images. While publishing algorithm results via ROS topics, it simultaneously renders visualizations on a web page. When processing local images, the rendered output will be saved in the current directory.
 
-Code repository:  (https://github.com/D-Robotics/mono2d_trash_detection.git)
+Code repository: (https://github.com/D-Robotics/mono2d_trash_detection.git)
 
-Application scenarios: Indoor and outdoor garbage detection, identifying garbage in scenes, can be used with robots for garbage finding and picking (in combination with robotic arms) in APP design.
+Application scenarios: Indoor and outdoor trash detection—identifying trash in scenes for applications such as robotic trash searching or trash collection (in conjunction with robotic arms).
 
-This package uses the open-source framework [PaddlePaddle](https://github.com/PaddlePaddle/PaddleDetection.git) and the [PPYOLO](https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.5) model for garbage detection task design and training. The specific model configuration is [ppyolo_r18vd_coco.yml](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.5/configs/ppyolo/ppyolo_r18vd_coco.yml).
+## Algorithm Overview
 
-The supported object detection categories for the algorithm are as follows:
+This package leverages the [PaddlePaddle](https://github.com/PaddlePaddle/PaddleDetection.git) open-source framework and utilizes the [PPYOLO](https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.5) model for trash detection task design and training. The specific model configuration used is [ppyolo_r18vd_coco.yml](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.5/configs/ppyolo/ppyolo_r18vd_coco.yml).
+
+The supported object detection categories are as follows:
 
 | Category | Description | Data Type |
-| -------- | ----------- | -------- |
-| Trash    | Garbage box | Roi      |
+| -------- | ----------- | --------- |
+| trash    | Trash bounding box | Roi |
 
 ## Supported Platforms
 
-| Platform         | System | Function                                             |
-| ---------------- | -------------- | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image inference, render and display results on the web/save locally |
+| Platform                | Runtime Environment                        | Example Features                                                                 |
+| ----------------------- | ------------------------------------------ | -------------------------------------------------------------------------------- |
+| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | • Launch MIPI/USB camera or local image replay; inference results displayed on Web or saved locally |
+| X86                     | Ubuntu 20.04 (Foxy)                        | • Launch local image replay; inference results displayed on Web or saved locally  |
 
-## Preparation
+## Prerequisites
 
-Since we do not consider the internal structure information of the algorithm model during deployment, we only focus on the pre-processing and post-processing steps of the algorithm. The pre-processing steps include image reading and image resizing, while the post-processing steps include detection header decoders and non-maximum suppression (NMS). These pre-processing and post-processing methods are consistent across most similar models and have strong universality. Therefore, the basic deployment package can be used for quick deployment.
+During deployment, we do not consider internal model architecture details but focus instead on pre- and post-processing stages. Pre-processing includes operations like image loading and resizing, while post-processing involves detection head decoding and Non-Maximum Suppression (NMS). These pre- and post-processing methods are largely consistent across similar models and thus highly reusable, enabling rapid deployment via base deployment packages.
 
-The D-Robotics Robot Operating System provides the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) deployment package for rapid deployment of basic algorithms. The currently supported common algorithms include image classification, 2D object detection, and semantic segmentation. Among them, 2D object detection integrates Fasterrcnn, Fcos, yolov2, yolov3, yolov5, SSD, and efficientnet for user selection.
+D-Robotics RDK provides the [`dnn_node_example`](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) deployment package for quick integration of fundamental algorithms. Currently supported common algorithms include image classification, 2D object detection, and semantic segmentation. Specifically for 2D object detection, integrated models include Faster R-CNN, FCOS, YOLOv2, YOLOv3, YOLOv5, SSD, and EfficientDet for user selection.
 
-In this example, the [dnn_node_example](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) is used to adapt custom detection models by replacing the D-Robotics cross-compiled model, post-processing configuration files, and detection category configuration files.
+This example utilizes [`dnn_node_example`](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) and adapts it to a custom detection model by replacing the D-Robotics cross-compiled model, post-processing configuration file, and detection class label file.
 
-If the pre-processing and post-processing steps are different from the above models and cannot be adapted quickly, the custom deployment method can refer to the [dnn_node_sample](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) example.
+If your model’s pre- or post-processing differs significantly from the above and cannot be quickly adapted, please refer to the [`dnn_node_sample`](https://github.com/D-Robotics/hobot_dnn/tree/develop/dnn_node_example) example for custom deployment guidance.
 
-### RDK
+### RDK Platform
 
-1. The RDK has been flashed with the  Ubuntu 20.04/22.04 system image provided by D-Robotics.
+1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+2. TogetherROS.Bot has been successfully installed on the RDK.
+3. Obtain the D-Robotics cross-compiled model (e.g., [`ppyolo_trashdet_416x416_nv12.bin`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin) in this example).
+4. Post-processing configuration file (e.g., [`ppyoloworkconfig.json`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
+5. Detection class label file (e.g., [`trash_coco.list`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example).
 
-2. TogetheROS.Bot has been successfully installed on the RDK.
+### X86 Platform
 
-3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin)) in this example.4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
+1. The X86 environment has been set up with Ubuntu 20.04 system image.
+2. tros.b has been successfully installed in the X86 environment.
+3. Obtain the cross-compiled model (e.g., [`ppyolo_trashdet_416x416_nv12.bin`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin) in this example).
+4. Post-processing configuration file (e.g., [`ppyoloworkconfig.json`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
+5. Detection class label file (e.g., [`trash_coco.list`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example).
 
-5. Detection category configuration file (such as [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
+## Post-Processing Configuration File Explanation
 
-### X86
-
-1. X86 environment has been configured with Ubuntu 20.04 system image.
-
-2. Tros.b has been successfully installed on the X86 environment.
-
-3. Obtain the D-Robotics cross-compiled model (such as [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin) in this example).
-
-4. Post-processing configuration file (such as [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example).
-
-5. Detection category configuration file (such as [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example).
-
-## Post-processing Configuration
-
-The config_file configuration file is in JSON format. In this example, the file is [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json). The specific configuration is as follows:
+The `config_file` is in JSON format. This example uses [`ppyoloworkconfig.json`](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json), with the following structure:
 
 ```bash
-  {
-    "model_file": the path to the model file
+{
+  "model_file": Path to the model file,
 
-    "model_name": the name of the model
+  "model_name": Model name,
 
-    "dnn_Parser": the choice of built-in post-processing algorithm. In this example, "yolov3" is used.
+  "dnn_Parser": Specifies the built-in post-processing algorithm. This example uses the same parser as YOLOv3, so it is set to "yolov3",
 
-    "model_output_count": the number of output branches of the model
+  "model_output_count": Number of model output branches,
 
-    "class_num": the number of detection categories
+  "class_num": Number of detection classes,
 
-    "cls_names_list": the specific labels of detection categories
+  "cls_names_list": Specific class labels for detection,
 
-    "strides": the stride of each output branch
+  "strides": Stride value for each output branch,
 
-    "anchors_table": the preset anchor ratios
+  "anchors_table": Predefined anchor ratios,
 
-    "score_threshold": the confidence score threshold
+  "score_threshold": Confidence score threshold,
 
-    "nms_threshold": the IOU threshold for NMS post-processing
+  "nms_threshold": IOU threshold for NMS post-processing,
 
-    "nms_top_k": the number of selected boxes for NMS post-processing
-  }
+  "nms_top_k": Maximum number of bounding boxes retained after NMS
+}
 ```
 
-Note: The actual size of each preset anchor is anchors_table x strides.
+Note: The actual anchor sizes are calculated as `anchors_table × strides`.
 
-## Usage
+## Usage Guide
 
-Complete algorithm development and deployment workflow diagram:
+Complete algorithm development and deployment workflow:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
 
-The first step, Paddle model training, and the second step, toolchain model conversion, will be introduced in the links below. Here, we will mainly introduce the on-board deployment process.
+Steps 1 (Paddle model training) and 2 (toolchain model conversion) are covered in the links below. This document focuses primarily on on-device deployment procedures.
 
-Model training: [PPYOLO Trash Detection + RDK Deployment (Part 1)](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
+Model Training: [PPYOLO Trash Detection + RDK Deployment (Part 1)](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
 
-Model conversion: [PPYOLO Trash Detection + RDK Deployment (Part 2)](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
+Model Conversion: [PPYOLO Trash Detection + RDK Deployment (Part 2)](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
 
-The package publishes algorithm messages that include semantic segmentation and object detection information, which users can subscribe to for application development.
+The package publishes algorithm messages containing both semantic segmentation and object detection information. Users can subscribe to these messages for application development.
 
-### RDK
+### RDK Platform
 
-**Publish Images using MIPI camera**
+**Publish images using a MIPI camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -128,7 +125,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -137,8 +134,8 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the required configuration files from the tros installation path.
-cp -r /opt/tros/lib/mono2d_trash_detection/config/ .
+# Copy required configuration files from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
 
 # Configure MIPI camera
 export CAM_TYPE=mipi
@@ -147,13 +144,13 @@ export CAM_TYPE=mipi
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-**Publish Images using USB camera**
+**Publish images using a USB camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -162,7 +159,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -171,8 +168,8 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the required configuration files from the tros installation path.
-cp -r /opt/tros/lib/mono2d_trash_detection/config/ .
+# Copy required configuration files from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
 
 # Configure USB camera
 export CAM_TYPE=usb
@@ -181,7 +178,39 @@ export CAM_TYPE=usb
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-**Use A Local Image Offline**
+**Use a single local image for replay**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
+# Copy the configuration files required to run the example from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
+
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_image:=config/trashDet0028.jpg
+```
+
+### X86 Platform
+
+**Using a single replay image**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -205,18 +234,18 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the configuration files needed for running the example from the installation path of tros.
-cp -r /opt/tros/lib/mono2d_trash_detection/config/ .
+# Copy the configuration files required to run the example from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
 
-# Launch the launch file
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_image:=config/trashDet0028.jpg
+# Run the trash detection package and save the rendered image locally
+ros2 run dnn_node_example example --ros-args -p feed_type:=0 -p image:=config/trashDet0028.jpg -p image_type:=0 -p dump_render_img:=1 -p dnn_example_config_file:=config/ppyoloworkconfig.json
 ```
 
 ## Result Analysis
 
-**Using mipi camera to publish images**
+**Publishing images using an MIPI camera**
 
-After package initialization, the following information will be output to the terminal:
+After package initialization, the following messages appear in the terminal:
 
 ```shell
 [example-3] [WARN] [1665644838.299475772] [example]: This is dnn node example!
@@ -236,7 +265,7 @@ After package initialization, the following information will be output to the te
 [example-3] [BPU_PLAT]BPU Platform Version(1.3.1)!
 [example-3] [HBRT] set log level as 0. version = 3.14.5
 [example-3] [DNN] Runtime version = 1.9.7_(3.14.5 HBRT)
-```[example-3] [WARN] [1665644838.688580704] [dnn]: Run default SetOutputParser.
+[example-3] [WARN] [1665644838.688580704] [dnn]: Run default SetOutputParser.
 [example-3] [WARN] [1665644838.688758775] [dnn]: Set output parser with default dnn node parser, you will get all output tensors and should parse output_tensors in PostProcess.
 [example-3] [WARN] [1665644838.691224728] [example]: Create ai msg publisher with topic_name: ai_msg_mono2d_trash_detection
 [example-3] [WARN] [1665644838.698936232] [example]: Create img hbmem_subscription with topic_name: /hbmem_img
@@ -248,13 +277,13 @@ After package initialization, the following information will be output to the te
 [example-3] [WARN] [1665644844.995728928] [example]: Sub img fps: 29.79, Smart fps: 29.73, infer time ms: 36, post process time ms: 6
 ```
 
-The result is as below：
+Real-time running effect:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif)
 
-**Use A Local Image Offline**
+**Using a single replay image**
 
-After initializing the package, output the following information on the terminal:
+After package initialization, the following messages appear in the terminal:
 
 ```shell
 [example-1] [INFO] [1665646256.967568866] [dnn]: The model input 0 width is 416 and height is 416
@@ -277,6 +306,6 @@ After initializing the package, output the following information on the terminal
 [example-1] [WARN] [1665646257.071375688] [ImageUtils]: Draw result to file: render_feedback_0_0.jpeg
 ```
 
-The result is as below：
+Local rendering result:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg)

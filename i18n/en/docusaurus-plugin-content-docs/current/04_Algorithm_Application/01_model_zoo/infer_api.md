@@ -43,13 +43,13 @@ inf = bpu_infer_lib.Infer(True)
 
 <font color='Blue'>[Function Description]</font>
 
-The load_model function is a member of the Infer object, used to load a DiGua BPU heterogeneous model.
+The load_model function is a member of the Infer object, used to load a D-Robotics BPU heterogeneous model.
 
 <font color='Blue'>[Parameter Description]</font>  
 
 | Parameter Name | Type | Description |
 | -------------- | ---- | ----------- |
-| model_path | string | Path to the DiGua BPU heterogeneous model .bin file |
+| model_path | string | Path to the D-Robotics BPU heterogeneous model .bin file |
 
 <font color='Blue'>[Usage]</font> 
 
@@ -148,7 +148,7 @@ inf.read_input automatically checks the data type and shape of the input numpy a
 
 <font color='Blue'>[Function Description]</font>
 
-The forward function is a member of the Infer object, typically used after reading model inputs to perform inference with the DiGua BPU heterogeneous model.
+The forward function is a member of the Infer object, typically used after reading model inputs to perform inference with the D-Robotics BPU heterogeneous model.
 
 <font color='Blue'>[Parameter Description]</font>  
 
