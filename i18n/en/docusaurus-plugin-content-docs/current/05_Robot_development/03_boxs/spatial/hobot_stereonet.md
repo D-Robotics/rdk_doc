@@ -931,7 +931,7 @@ Note that each ZED camera has a unique SN code. When using your own device, plea
 - Next, launch the stereo algorithm by opening another terminal and executing:
 
 ```bash
-bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_right_raw/camera_info
+bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
 - View the depth map via the web interface by entering http://ip:8000 in your browser (replace "ip" with the actual IP address of your RDK). For instructions on viewing **point clouds** and **saving images**, please refer to the relevant settings described above.
