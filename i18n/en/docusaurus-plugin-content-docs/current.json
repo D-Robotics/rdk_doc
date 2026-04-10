@@ -291,6 +291,14 @@
     "message": "3.6.3 Multimedia Interface Usage Instructions",
     "description": "The label for category 3.6.3 多媒体接口使用说明 in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.1.9. RDK Studio 使用指南": {
+    "message": "1.9. RDK Studio User Guide",
+    "description": "The label for category 1.9. RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.9. RDK Studio 使用指南.link.generated-index.description": {
+    "message": "RDK Studio User Guide",
+    "description": "The generated-index page description for category 1.9. RDK Studio 使用指南 in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.1.9.5 设备管理": {
     "message": "1.9.5 Device Management",
     "description": "The label for category 1.9.5 设备管理 in sidebar tutorialSidebar"
@@ -315,6 +323,42 @@
     "message": " RDK Ultra（C++）",
     "description": "The label for category  RDK Ultra（C++） in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.1.2.1 RDK X3": {
+    "message": "1.2.1 RDK X3",
+    "description": "The label for category 1.2.1 RDK X3 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.2 RDK X3 Module": {
+    "message": "1.2.2 RDK X3 Module",
+    "description": "The label for category 1.2.2 RDK X3 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3 RDK X5": {
+    "message": "1.2.3 RDK X5",
+    "description": "The label for category 1.2.3 RDK X5 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具": {
+    "message": "1.2.3.5 Using the XBurn Tool",
+    "description": "The label for category 1.2.3.5 使用 XBurn 工具 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具.link.generated-index.description": {
+    "message": "XBurn is the official image burning tool provided for flashing RDK X5 NAND firmware. It features an intuitive graphical interface, allowing users to complete the flashing process in just a few clicks, making it very convenient.",
+    "description": "The generated-index page description for category 1.2.3.5 使用 XBurn 工具 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.4 RDK X5 Module": {
+    "message": "1.2.4 RDK X5 Module",
+    "description": "The label for category 1.2.4 RDK X5 Module in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.5 RDK Ultra": {
+    "message": "1.2.5 RDK Ultra",
+    "description": "The label for category 1.2.5 RDK Ultra in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具烧录 NAND 固件": {
+    "message": "1.2.3.5 Using the XBurn tool to burn the NAND firmware",
+    "description": "The label for category 1.2.3.5 使用 XBurn 工具烧录 NAND 固件 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.3.5 使用 XBurn 工具烧录 NAND 固件.link.generated-index.description": {
+    "message": "XBurn is the officially provided image burning tool used for flashing RDK X5 NAND firmware. It offers an intuitive graphical interface that allows users to complete the burning process with just a few clicks, making it very convenient.",
+    "description": "The generated-index page description for category 1.2.3.5 使用 XBurn 工具烧录 NAND 固件 in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.1.9 RDK Studio 使用指南": {
     "message": "1.9 RDK Studio User Guide",
     "description": "The label for category 1.9 RDK Studio 使用指南 in sidebar tutorialSidebar"
@@ -332,4 +376,3 @@
     "description": "The generated-index page description for category 1.9.7 配置 OpenClaw in sidebar tutorialSidebar"
   }
 }
-

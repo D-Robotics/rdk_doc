@@ -130,7 +130,7 @@ The RDK S100 supports backing up specific partitions via Xburn. The supported ba
 
 #### Backing Up Specific Partitions with Xburn
 
-Example: Backing up `miniboot_flash` only.
+Take the specified backup `miniboot_flash` as an example.
 
 Configuration steps:
 
@@ -149,7 +149,8 @@ Configuration steps:
 
    :::warning Note
 
-   Backing up the entire storage medium data can be time-consuming. Please wait patiently for the backup to finish.
+   - Backing up the entire storage medium data can be time-consuming. Please wait patiently for the backup to finish.
+   - The backup image format is `.img`. When burning, you need to select a file in `.simg` format; simply replace the `.img` extension of the backup image file with `.simg`.
 
    :::
 

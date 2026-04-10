@@ -60,6 +60,7 @@ There are two methods for flashing the system: "Using Local Image" and "Download
    
    :::warning
    - You can identify the storage device here using the following method: Unplug the storage device and click the refresh button to see which device option disappears from the list; then reconnect the storage device, click the refresh button, and select the storage device that changes (appears/disappears) with the plug/unplug operation.
+   - When burning an RDK device to eMMC or an onboard SD card, you can perform the burning by [mapping the boot medium as a USB drive]. During the burning process, in the "Select storage device" step, be sure to choose the USB drive mapped from the boot medium.
    - Flashing the system will <font color="red">erase all data on the storage device</font>. Please ensure you select the correct storage device!
    :::
 
@@ -100,6 +101,7 @@ If you already have the target image locally, please go directly to [Selecting a
    
    :::warning
    - You can identify the storage device here using the following method: Unplug the storage device and click the refresh button to see which device option disappears from the list; then reconnect the storage device, click the refresh button, and select the storage device that changes (appears/disappears) with the plug/unplug operation.
+   - When burning an RDK device to eMMC or an onboard SD card, you can perform the burning by [mapping the boot medium as a USB drive]. During the burning process, in the "Select storage device" step, be sure to choose the USB drive mapped from the boot medium.
    - Flashing the system will <font color="red">erase all data on the storage device</font>. Please ensure you select the correct storage device!
    :::
 

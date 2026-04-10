@@ -23,22 +23,46 @@ Download the `sunrise5_winusb.zip` compressed package and proceed with the drive
 
 **Verify Driver Installation**
 
-1. In the development board's uboot command line, enter `fastboot 0` to put the board into fastboot mode:
+1. Connect the serial port. For the first connection, you need to install the CH340 serial port driver. The driver can be obtained from the [Tool Download](../../../download.md#tools-download) section in the resource summary.
+2. After the driver is installed, the Device Manager will correctly recognize the serial port board, as shown in the figure below:  
 
-   ```bash
-   Hit any key to stop autoboot:  0
-   Hobot$
-   Hobot$
-   Hobot$ fastboot 0
-   ```
+   ![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png)  
+
+3. Download the remote connection tool [Mobaxterm](https://mobaxterm.mobatek.net/download.html).  
+
+4. Open the `MobaXterm` tool, click `Session`, then select `Serial`. Configure the port number, for example, `COM3`. The actual serial port number used should match the one recognized by the PC. After completing the settings, click `OK`.  
+
+   The serial port configuration parameters are as follows:  
+
+   | Configuration Item      | Value  |
+   | ----------------------- | ------ |
+   | Baud rate               | 921600 |
+   | Data bits               | 8      |
+   | Parity                  | None   |
+   | Stop bits               | 1      |
+   | Flow Control            | None   |  
+
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/mobaxterm_2.png)  
+
+5. After powering on the development board, immediately press and hold the space bar to enter the uboot command line mode. Type `fastboot 0` to make the development board enter fastboot mode:  
+
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/mobaxterm_4.png)
 
 2. After successfully installing the driver, the Device Manager will show an Android Device, as shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok-en.jpg" 
+   style={{ width: '52%', height: 'auto', align:'center'}}
+   />
 
    If the driver installation is unsuccessful, the Device Manager will indicate an unknown device named USB download gadget, as shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usb-driver1.png" 
+   style={{ width: '41%', height: 'auto', align:'center'}}
+   />
 
 ## System Flashing
 
@@ -151,7 +175,7 @@ The RDK S100 supports backing up specific partitions via Xburn. The supported ba
 
 #### Backing Up Specific Partitions with Xburn
 
-Example: Backing up `miniboot_flash` specifically.
+Take the specified backup `miniboot_flash` as an example.
 
 Configuration method is as follows:
 
@@ -170,7 +194,8 @@ Configuration method is as follows:
 
    :::warning Note
 
-   Backing up the entire storage medium data takes a long time. Please wait patiently for the backup to finish.
+   - Backing up the entire storage medium data takes a long time. Please wait patiently for the backup to finish.
+   - The backup image format is `.img`. When burning, you need to select a file in `.simg` format; simply replace the `.img` extension of the backup image file with `.simg`.
 
    :::
 

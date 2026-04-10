@@ -27,21 +27,52 @@ usb 驱动下载（可[点击此处下载](https://archive.d-robotics.cc/downloa
 
 **验证驱动安装**
 
-1. 在开发板的 uboot 命令行下输入 fastboot 0，让开发板进入 fastboot 模式：
 
-   ```bash
-   Hit any key to stop autoboot:  0
-   Hobot$
-   Hobot$
-   Hobot$ fastboot 0
-   ```
-2. 成功安装驱动后，设备管理器会显示 Android Device 设备，如下图：
+1. 连接串口，首次连接需要安装 CH340 串口驱动，驱动程序可从资源汇总的[工具下载](../../../download.md#工具下载)获取。
+2. 驱动安装完成后，设备管理器可正常识别串口板端口，如下图：
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png)
+   <!-- ![image-20220416105939067](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/remote_login/image-20220416105939067.png" 
+   style={{ width: '60%', height: 'auto', align:'center'}}
+   />
+   
+   
+3. 下载远程连接工具 [Mobaxterm](https://mobaxterm.mobatek.net/download.html)。
+
+3. 打开`MobaXterm`工具，点击`Session`，然后选择`Serial`，配置端口号，例如`COM3`，实际使用的串口号以 PC 识别到的串口号为准，设置完成后点击 `OK`。
+
+   串口配置参数如下：
+
+   | 配置项               | 参数值 |
+   | -------------------- | ------ |
+   | 波特率（Baud rate）  | 921600 |
+   | 数据位（Data bits）  | 8      |
+   | 奇偶校验（Parity）   | None   |
+   | 停止位（Stop bits）  | 1      |
+   | 流控（Flow Control） | 无     |
+   
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/mobaxterm_2.png)
+
+4. 开发板上电后立刻长按空格键，进入 uboot 命令行模式，输入 fastboot 0，让开发板进入 fastboot 模式：
+
+   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/mobaxterm_4.png)
+
+5. 成功安装驱动后，设备管理器会显示 Android Device 设备，如下图：
+
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-ok.png" 
+   style={{ width: '60%', height: 'auto', align:'center'}}
+   />
 
    如果未成功安装驱动时，设备管理器会提示存在 USB download gadget 的未知设备，如下图：
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png)
+   <!-- ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png) -->
+   <img 
+   src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-usbdriver-no.png" 
+   style={{ width: '41%', height: 'auto', align:'center'}}
+   />
 
 
 ## 系统烧录
@@ -169,7 +200,7 @@ RDK S100 支持通过 Xburn 备份指定区域，支持的备份区域如下
 
 #### 使用 Xburn 指定区域备份
 
-以指定烧录 `miniboot_flash` 为例
+以指定备份 `miniboot_flash` 为例
 
 设置方法如下：
 
@@ -191,7 +222,8 @@ RDK S100 支持通过 Xburn 备份指定区域，支持的备份区域如下
 
    :::warning 注意
 
-   对于整个存储介质数据备份，耗时较长，请耐心等待备份结束。
+   - 对于整个存储介质数据备份，耗时较长，请耐心等待备份结束。
+   - 备份镜像格式为 `.img` 格式，烧录时需要选择 `.simg` 格式的文件，直接将备份镜像文件的后缀 `.img` 替换为 `.simg` 即可。
 
    :::
 

@@ -18,6 +18,9 @@ sidebar_position: 6
 | [Xburn](https://archive.d-robotics.cc/downloads/software_tools/download_tools/) | V1.1.9      | 2026-02-09 | System image burning tool, including versions for windows-x64, linux-x64, and darwin-arm64. |
 | [hbplayer](https://archive.d-robotics.cc/downloads/hobotplayer/hbplayerv2.7.zip) | V2.7      | 2026-01-27 | Image viewing tool. |
 | [MCU Cross Compilation Toolchain](https://archive.d-robotics.cc/downloads/software_tools/mcu_toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2) | -      | 2026-01-27 | MCU Cross Compilation Toolchain. |
+| [CH340 Serial Port Driver](https://archive.d-robotics.cc/downloads/software_tools/serial_to_usb_drivers/CH34x_Install_Windows_v3_4.zip) | V3.4      | 2026-03-17 | Serial port driver. |
+
+
 
 ## Hardware Documentation
 

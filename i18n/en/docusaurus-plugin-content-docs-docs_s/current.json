@@ -84,10 +84,10 @@
     "description": "The label for category 4.3 模型仓库示例 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.5. 机器人应用开发": {
-    "message": "5. Robotics Application",
+    "message": "5. Robotics Application Development",
     "description": "The label for category 5. 机器人应用开发 in sidebar tutorialSidebar"
   },
-   "sidebar.tutorialSidebar.category.5. 机器人应用开发.link.generated-index.description": {
+  "sidebar.tutorialSidebar.category.5. 机器人应用开发.link.generated-index.description": {
     "message": "Robotics Application Development",
     "description": "The generated-index page description for category 5. 机器人应用开发 in sidebar tutorialSidebar"
   },
@@ -338,5 +338,13 @@
   "sidebar.tutorialSidebar.category.1.7.6 示例应用.link.generated-index.description": {
     "message": "Here, you can directly install some simple demos to your development board.",
     "description": "The generated-index page description for category 1.7.6 示例应用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.5.3.4 应用算法": {
+    "message": "5.3.4 Application Algorithms",
+    "description": "The label for category 5.3.4 应用算法 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.2.1 S100": {
+    "message": "1.2.1 S100",
+    "description": "The label for category 1.2.1 S100 in sidebar tutorialSidebar"
   }
 }
