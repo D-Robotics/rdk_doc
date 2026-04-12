@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 3.2.1 bpu 示例介绍
+# bpu 示例介绍
 
 ## 示例简介
 bpu 是一个位于 /app/cdev_demo 目录中的 **C 语言接口** 开发代码示例，用于演示如何用 c 语言来调用 bpu 已经支持的模型。参考这个示例，用户可以理解并开发相关应用。
@@ -67,7 +67,7 @@ root@ubuntu:/app/cdev_demo/bpu/src/bin# tree
 
 (2) 搭配摄像头进行 yolov5 的推理  
 
-在 `root@ubuntu:/app/cdev_demo/bpu/src/bin` 目录使用 `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0 ` 命令。
+在 `root@ubuntu:/app/cdev_demo/bpu/src/bin#` 目录使用 `./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0 ` 命令。
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/yolov5s_672x672_nv12.bin -m 0
 Opened DRM device: /dev/dri/card0
@@ -97,7 +97,7 @@ Camera 0:
 (3) 解码 h264 之后，通过 fcos 模型进行推理  
 
 
-在 `root@ubuntu:/app/cdev_demo/bpu/src/bin` 目录使用 `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080 ` 命令。
+在 `root@ubuntu:/app/cdev_demo/bpu/src/bin#` 目录使用 `./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080 ` 命令。
 ```
 root@ubuntu:/app/cdev_demo/bpu/src/bin# ./sample -f /app/model/basic/fcos_512x512_nv12.bin -m 1 -i 1080p_.h264 -w 1920 -h 1080
 Opened DRM device: /dev/dri/card0

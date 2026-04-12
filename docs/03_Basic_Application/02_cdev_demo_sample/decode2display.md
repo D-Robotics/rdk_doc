@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 3.2.2 decode2display 示例介绍
+# decode2display 示例介绍
 
 ## 示例简介
 decode2display 是一个位于 `/app/cdev_demo` 目录中的 **C 语言接口** 开发代码示例，用于演示如何使用 c 语言进行解码并显示到屏幕的程序。参考这个示例，用户可以理解并开发相关应用。
@@ -183,7 +183,7 @@ decode2display sample -- An example of streaming video decoding to the display
 
 ### FAQ
 __Q：__ API 有更详细的说明吗？\
-__A：__ 可以到 [解码模块 API](../06_multi_media_sp_dev_api/multi_media_api/cdev_multimedia_api_x3/decoder_api.md) 位置进行查询。
+__A：__ 可以到 [解码模块 API](../06_multi_media_sp_dev_api/RDK_X5/cdev_multimedia_api_x5/decoder_api.md) 位置进行查询。
 
 
 __Q：__ 为什么要使用 systemctl stop lightdm\
