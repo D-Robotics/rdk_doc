@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 3.2.4 vio_capture 示例介绍
+# vio_capture 示例介绍
 
 ## 示例简介
 vio_capture 是一个位于 /app/cdev_demo 中的 C 语言开发代码示例 \

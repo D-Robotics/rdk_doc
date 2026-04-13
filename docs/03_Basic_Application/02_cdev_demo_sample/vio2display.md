@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 3.2.5 vio2display 示例介绍
+# vio2display 示例介绍
 
 ## 示例简介
 vio2display 是一个位于 /app/cdev_demo 目录中的 **C 语言接口** 开发代码示例，用于演示如何使用 c 语言打开摄像头，并将摄像头采集的数据呈现在显示器上。参考这个示例，用户可以理解并开发相关应用。
