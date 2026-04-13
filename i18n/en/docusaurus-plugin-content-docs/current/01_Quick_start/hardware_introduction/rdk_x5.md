@@ -377,10 +377,20 @@ Do not hot-swap the TF card during use, as it may cause system abnormalities or 
 
 The board supports both onboard and external antennas for wireless networking. The onboard antenna is sufficient for most scenarios. If the board is enclosed in a metal casing, connect an external antenna to the port near Interface 12 to enhance signal strength.
 
+Antenna Interface Specifications:
+
+- Interface Type: IPEX 1st Generation
+- Frequency: Supports 2.4GHz/5GHz Wi‑Fi Transmission
+
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
 The wireless network of the development board uses an external antenna configuration, requiring the external antenna to be connected to the core board to enhance signal strength.
+
+Antenna Interface Specifications:
+
+- Interface Type: IPEX 1st Generation
+- Frequency: Supports 2.4GHz/5GHz Wi‑Fi Transmission
 
 </TabItem>
 </Tabs>
