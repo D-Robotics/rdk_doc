@@ -43,12 +43,14 @@ import TabItem from '@theme/TabItem';
 
 | 平台                             | 运行方式     | 示例功能                                        |
 | -------------------------------- | ------------ | ----------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过web展示推理渲染结果 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过web展示推理渲染结果 |
 
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
 | ---- | ---- | ------------ | ---- |
+| mediapipe | X5 | 224x224 | 911.98 |
 | mediapipe | S100 | 224x224 | 1114 |
 
 ## 准备工作
@@ -62,6 +64,13 @@ import TabItem from '@theme/TabItem';
 3. RDK已安装MIPI或者USB摄像头。
 
 4. 确认PC机能够通过网络访问RDK。
+
+5. 安装功能包
+
+```shell
+apt install tros-humble-palm-detection-mediapipe
+apt install tros-humble-hand-landmarks-mediapipe
+```
 
 ## 使用介绍
 

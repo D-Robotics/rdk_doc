@@ -140,7 +140,7 @@ By default, the **sensevoice_ros2** package publishes intelligent voice messages
 ```shell
 $ ros2 topic list
 /audio_smart
-/audio_asr
+/asr_text
 ```
 
 The **/audio_asr** topic only produces output after hearing the specific wake-up phrase “Hello, Digua Robot.” The result of `ros2 topic echo /asr_text` is shown below:
