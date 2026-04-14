@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 3.1.1 管脚定义与应用
+# 管脚定义与应用
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
