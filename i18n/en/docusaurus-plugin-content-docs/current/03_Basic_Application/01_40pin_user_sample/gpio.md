@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# 3.1.2 Using GPIO
+# Using GPIO
 
 
 
@@ -494,7 +494,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     main()
 ```
-:::
+
 ### Introduction to `hb_gpioinfo` Tool
 The `hb_gpioinfo` tool is a GPIO helper tool adapted for the X5 platform. It is used to view the mapping relationship between `PinName` and `PinNum` on the current development board.
 

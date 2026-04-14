@@ -61,6 +61,11 @@ Example use case – Gesture-controlled robot car: [Robot Car Gesture Control](.
 2. TogetherROS.Bot has been successfully installed on the RDK.
 3. An MIPI or USB camera has been installed on the RDK.
 4. Ensure your PC can access the RDK over the network.
+5. Install the necessary packages:
+```shell
+apt install tros-humble-palm-detection-mediapipe
+apt install tros-humble-hand-landmarks-mediapipe
+```
 
 ## Usage Instructions
 

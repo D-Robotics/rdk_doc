@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# 3.1.3 Using PWM
+# Using PWM
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

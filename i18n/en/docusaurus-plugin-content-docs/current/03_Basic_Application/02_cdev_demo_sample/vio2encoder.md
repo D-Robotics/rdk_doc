@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 3.2.6 vio2encoder Sample Introduction
+# vio2encoder Sample Introduction
 
 ## Sample Overview
 vio2encoder is a **C language interface** development code sample located in the `/app/cdev_demo` directory, demonstrating how to open the camera using C language and encode the data collected by the camera. By referring to this sample, users can understand and develop related applications.

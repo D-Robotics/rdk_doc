@@ -135,7 +135,7 @@ result_str:Move backward,
 
 ```
 
-By default, the **sensevoice_ros2** package publishes intelligent voice messages to the topics **/audio_smart** and **/audio_asr**. Running `ros2 topic list` yields:
+By default, the **sensevoice_ros2** package publishes intelligent voice messages to the topics **/audio_smart** and **/audio_text**. Running `ros2 topic list` yields:
 
 ```shell
 $ ros2 topic list
@@ -143,6 +143,6 @@ $ ros2 topic list
 /asr_text
 ```
 
-The **/audio_asr** topic only produces output after hearing the specific wake-up phrase “Hello, Digua Robot.” The result of `ros2 topic echo /asr_text` is shown below:
+The **/audio_text** topic only produces output after hearing the specific wake-up phrase “Hello, Digua Robot.” The result of `ros2 topic echo /asr_text` is shown below:
 
 ![Execution Result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg)

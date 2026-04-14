@@ -98,6 +98,8 @@ const getCustomTitle = (permalink: string, locale: string): string | null => {
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/pydev_vio_demo$/, title: '3.6.2 Reference Examples (python)' },
       { pattern: /^\/rdk_doc\/en\/Basic_Application\/multi_media_sp_dev_api\/pydev_multimedia_api_x3$/, title: '3.6.3 RDK X3/X5 Multimedia Interface User Guide' },
      
+      { pattern: /^\/rdk_doc\/en\/Basic_Development$/, title: '4. Algorithm Application Development' },
+
       { pattern: /^\/rdk_doc\/en\/Robot_development$/, title: '5. Robotics Application' },
       { pattern: /^\/rdk_doc\/en\/Robot_development\/boxs\/generate\/hobot_xlm$/, title: 'DeepSeek large language model' },
 

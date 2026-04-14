@@ -10,6 +10,57 @@ sidebar_position: 1
 > - After updating the system, please use the `rdk-miniboot-update` command to update the NAND firmware to the latest version.  
 > - Official new images are released regularly, containing the latest feature optimizations and bug fixes. Users can either download and install the latest image or update the system online.
 
+### Version: 3.5.0
+
+#### Version Information
+
+- **System Version**: RDKOS V3.5.0  
+- **Release Date**: April 2026  
+- **Platform**: RDK X5  
+
+#### Version Update Overview
+
+**1. Comprehensive Upgrade of Algorithm Inference Architecture**  
+
+  - Starting from version 3.5.0, Python algorithm inference, object detection, semantic segmentation, and other modules have been uniformly upgraded to the **hbm_runtime** interface. This interface, implemented using pybind11, provides efficient access to the libdnn C++ library and supports high-performance model loading and neural network inference.  
+
+**2. Comprehensive Refactoring of Python Examples**  
+
+  - Based on the new **hbm_runtime** interface, all examples in `/app/pydev_demo/` have been **completely rewritten** to ensure interface consistency, optimal performance, and simpler usage.  
+
+**3. Synchronized Updates to Official Documentation**  
+
+  - The RDK documentation has been **fully revised** based on **hbm_runtime** and the new examples in `/app/pydev_demo/`, fully aligning with the latest version.  
+
+**4. HDMI Timing Optimization**  
+
+  - Optimized HDMI timing parameters, significantly improving **multi-resolution compatibility and display stability**.  
+
+**5. GPU Desktop Experience Optimization**  
+
+  - Fixed related bugs, resolving issues such as GPU mouse cursor residue and the inability to use the VLC tool.  
+
+**6. Synchronization with the Latest SDK Version**  
+
+  - Integrated all latest cumulative updates, optimizations, and stability enhancements from the upstream SDK.  
+
+**7. Multimedia Example Fixes**  
+
+  - Fixed known issues in `/app/multimedia_samples` to improve runtime stability.  
+
+**8. API Enhancements**  
+
+  - Added `sp_open_camera_v3` to the C++ interface.  
+  - Added the `open_cam` method to the Python Camera object.  
+  - Supports configuring cropping parameters when opening the camera.  
+
+**9. New Hardware Support**  
+
+  - Added support for the **Horned Sung Audio Subboard**.  
+  - Added interface support for **BMI08x and ICM42688 IMU sensors**.
+
+---
+
 ### Version: 3.4.1
 
 #### Version Information

@@ -530,6 +530,11 @@ Video: https://www.youtube.com/watch?v=daliyPZNoLM&list=PLSxjn4YS2IuFUWcLGj2_uuC
 
 The development board supports both onboard and external antennas for wireless networking. In most cases, the onboard antenna can meet the user's needs. However, when the development board is installed with a metal casing, an external antenna needs to be connected to Interface 11 to enhance signal strength.
 
+Antenna Interface Specifications:
+
+- Interface Type: IPEX 1st Generation
+- Frequency: Supports 2.4GHz Wi‑Fi Transmission
+
 :::tip 
 To convert the onboard antenna to an external antenna, use the following command: `sed -i 's/trace/cable/g' /etc/init.d/hobot-wifi`. Restart the system for the changes to take effect.
 
@@ -541,6 +546,11 @@ To revert to the onboard antenna, use the following command: `sed -i 's/cable/tr
 <TabItem value="x3md" label="RDK X3 Module">
 
 The development board supports both on-board and external antenna configurations for wireless networking. In most cases, the on-board antenna can meet the usage requirements. However, when the development board is installed with a metal housing, an external antenna needs to be connected to enhance signal strength.
+
+Antenna Interface Specifications:
+
+- Interface Type: IPEX 1st Generation
+- Frequency: Supports 2.4GHz Wi‑Fi Transmission
 
 ![rdk_x3_module_wifi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/rdk_x3_module_wifi.jpg)
 

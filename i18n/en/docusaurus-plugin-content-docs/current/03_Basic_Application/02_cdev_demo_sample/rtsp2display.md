@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 3.2.3 rtsp2display Example Introduction
+# rtsp2display Example Introduction
 
 ## Example Overview
 rtsp2display is a **C language interface** development code example located in `/app/cdev_demo`, demonstrating how to obtain H.264 stream from RTSP video stream, and achieve real-time video playback on embedded device screens through hardware decoding (SP_Decoder), video processing (SP_VPS), and display module (SP_Display). Core functionalities include:
@@ -29,6 +29,7 @@ Navigate to `/app/cdev_demo/rtsp2display` location, you can see the rtsp2display
 root@ubuntu:/app/cdev_demo/rtsp2display# tree
 .
 ├── Makefile
+├── live555MediaServer
 └── rtsp2display.c
 ```
 
@@ -38,6 +39,7 @@ We can directly use make in this directory to compile the rtsp2display executabl
 root@ubuntu:/app/cdev_demo/rtsp2display# tree
 .
 ├── Makefile
+├── live555MediaServer
 ├── rtsp2display
 ├── rtsp2display.c
 └── rtsp2display.o
@@ -48,7 +50,7 @@ root@ubuntu:/app/cdev_demo/rtsp2display# tree
 
 - **First** we need to prepare the input data. Here we can copy existing data from the board, such as the 1920x1080.h264 file from `/opt/tros/humble/lib/hobot_codec/config/1920x1080.h264` directory to the current directory for separate operation without affecting the original data.
 - **Second** we use `systemctl stop lightdm` to stop the display service.
-- **Then** start live555MediaServer. Here we can copy live555MediaServer from `/app/pydev_demo/08_decode_rtsp_stream` location to the current directory and run it in the background.
+- **Then** open live555MediaServer in the current directory and run it in the background.
 
 - **Next** we use `sudo ./rtsp2display -i rtsp://127.0.0.1/1920x1080.h264 -t tcp` command. The default execution result is to decode the h264 file transmitted via rtsp and display it on the connected monitor.
 
@@ -56,7 +58,6 @@ root@ubuntu:/app/cdev_demo/rtsp2display# tree
 
 ```
 root@ubuntu:/app/cdev_demo/rtsp2display# cp /opt/tros/humble/lib/hobot_codec/config/1920x1080.h264 ./
-root@ubuntu:/app/cdev_demo/rtsp2display# cp /app/pydev_demo/08_decode_rtsp_stream/live555MediaServer ./
 root@ubuntu:/app/cdev_demo/rtsp2display# ./live555MediaServer &
         version 1.01 (LIVE555 Streaming Media library version 2020.07.09).
 Play streams from this server using the URL

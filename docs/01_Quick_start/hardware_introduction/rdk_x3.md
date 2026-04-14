@@ -459,6 +459,13 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=8
 
 开发板的无线网络支持板载和外置天线两种配置，通常情况下板载天线可以满足使用需求。当开发板安装金属材质外壳后，需要连接外置天线到（接口11），以增强信号强度。
 
+天线接口规格：
+
+- 接口类型： IPEX 1 代
+- 频率：支持 2.4GHz Wi‑Fi 传输
+
+
+
 :::tip
 通过以下命令可以将板载天线转化为外置天线 sed -i 's/trace/cable/g' /etc/init.d/hobot-wifi ，重启后生效。
 使用以下命令 sed -i 's/cable/trace/g' /etc/init.d/hobot-wifi 重启后进行复原。
@@ -469,6 +476,11 @@ Video: https://www.bilibili.com/video/BV1rm4y1E73q/?p=8
 <TabItem value="x3md" label="RDK X3 Module">
 
 RDK X3 Module无板载天线，通常情况下需要连接外置天线，以增强信号强度。
+
+天线接口规格：
+
+- 接口类型： IPEX 1 代
+- 频率：支持 2.4GHz Wi‑Fi 传输
 
 ![rdk_x3_module_wifi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/hardware_interface/rdk_x3_module_wifi.jpg)
 
