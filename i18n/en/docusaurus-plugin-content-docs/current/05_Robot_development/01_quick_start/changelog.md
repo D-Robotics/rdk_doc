@@ -5,6 +5,20 @@ sidebar_position: 6
 
 ## tros-humble
 
+### Version: 2.5.2 (2026-03-17)
+
+New Features (`RDK X5` Platform):
+- Added epipolar alignment detection for binocular depth estimation algorithm; adjusted subscribed messages to "image_combine_raw/left/camera_info" and "image_combine_raw/right/camera_info" according to hobot_mipi_cam.
+- Binocular OCC algorithm now supports MIPI cameras.
+- Object detection algorithm supports `yolo26`.
+- Added configuration options for `sensevoice_ros2` algorithm, supporting Chinese-English mode configuration.
+- Added human hand keypoint and gesture recognition algorithms based on `palm_detection_mediapipe` and `hand_landmarks_mediapipe`.
+
+Feature Changes (`RDK X5` Platform):
+- Adapted system version: RDK 3.5.0 (Linux SDK V1.1.2)
+- Refactored 'mipi_cam' videobuff management and stitching threads from bitstream acquisition to message publishing. Modified the calibration info topics for stitched images to "image_combine_raw/left/camera_info" and "image_combine_raw/right/camera_info". Refactored EEPROM read processing for X5. Added subdirectory publishing for X5. Added IMU data publishing in conjunction with 132gs.
+
+
 ### Version: 2.4.6 (2026-02-02)
 
 Feature Changes (`RDK S100` platform):
