@@ -6,8 +6,8 @@
 <title data-rh="true">RDK X系列历史发布 | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/rdk_doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/rdk_doc/Release_Note/release_note"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="RDK X系列历史发布 | RDK DOC"><meta data-rh="true" name="description" content="RDK X5"><meta data-rh="true" property="og:description" content="RDK X5"><link data-rh="true" rel="icon" href="/rdk_doc/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/rdk_doc/Release_Note/release_note"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/Release_Note/release_note" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/en/Release_Note/release_note" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/rdk_doc/Release_Note/release_note" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"RDK X系列历史发布","item":"https://developer.d-robotics.cc/rdk_doc/Release_Note/release_note"}]}</script><script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script>
 <script src="/rdk_doc/js/dify-config.js"></script>
 <script src="https://rdk.d-robotics.cc/embed.min.js" id="MltLQTHPb5EeP7uz" defer="defer"></script><link rel="stylesheet" href="/rdk_doc/assets/css/styles.297132a0.css">
-<script src="/rdk_doc/assets/js/runtime~main.52ce523a.js" defer="defer"></script>
-<script src="/rdk_doc/assets/js/main.accbf765.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/runtime~main.811395b3.js" defer="defer"></script>
+<script src="/rdk_doc/assets/js/main.ea381d3f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -22,14 +22,72 @@
 <li>官方会定期发布新版镜像，这些镜像包含了最新的功能优化和问题修复。用户既可以通过下载最新镜像进行安装，也可以直接通过在线升级方式获取系统更新。</li>
 </ul>
 </blockquote>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="版本号341">版本号：3.4.1<a href="#版本号341" class="hash-link" aria-label="版本号：3.4.1的直接链接" title="版本号：3.4.1的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="版本号350">版本号：3.5.0<a href="#版本号350" class="hash-link" aria-label="版本号：3.5.0的直接链接" title="版本号：3.5.0的直接链接">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本信息">版本信息<a href="#版本信息" class="hash-link" aria-label="版本信息的直接链接" title="版本信息的直接链接">​</a></h4>
+<ul>
+<li><strong>系统版本</strong>：RDKOS V3.5.0</li>
+<li><strong>发布日期</strong>：2026 年 4 月</li>
+<li><strong>适配平台</strong>：RDK X5</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本更新概述">版本更新概述<a href="#版本更新概述" class="hash-link" aria-label="版本更新概述的直接链接" title="版本更新概述的直接链接">​</a></h4>
+<p><strong>1. 算法推理架构全面升级</strong></p>
+<ul>
+<li>自 3.5.0 版本起，Python 算法推理、目标检测、语义分段等模块统一升级为 <strong>hbm_runtime</strong> 接口。该接口基于 pybind11 实现，提供对 libdnn C++ 库的高效访问，支持高性能模型加载与神经网络推理。</li>
+</ul>
+<p><strong>2. Python 示例全面重构</strong></p>
+<ul>
+<li>基于新版 <strong>hbm_runtime</strong> 接口，对 <code>/app/pydev_demo/</code> 下所有示例完成<strong>全量重写</strong>，确保接口统一、性能最优、使用更简洁。</li>
+</ul>
+<p><strong>3. 官方文档同步更新</strong></p>
+<ul>
+<li>RDK 文档已基于 <strong>hbm_runtime</strong> 与 <code>/app/pydev_demo/</code> 全新示例完成<strong>全面修订</strong>，与最新版本完全对齐。</li>
+</ul>
+<p><strong>4. HDMI 时序优化</strong></p>
+<ul>
+<li>优化 HDMI Timing 参数，大幅提升<strong>多分辨率兼容性与显示稳定性</strong>。</li>
+</ul>
+<p><strong>5. GPU 桌面体验优化</strong></p>
+<ul>
+<li>修复相关BUG，解决GPU鼠标残留，VLC工具无法使用等问题。</li>
+</ul>
+<p><strong>6. 同步 SDK 最新版本</strong></p>
+<ul>
+<li>集成上游 SDK 全部最新累积更新、优化与稳定性增强。</li>
+</ul>
+<p><strong>7. 多媒体示例修复</strong></p>
+<ul>
+<li>修复 <code>/app/multimedia_samples</code> 中已知问题，提升运行稳定性。</li>
+</ul>
+<p><strong>8. API 功能完善</strong></p>
+<ul>
+<li>
+<p>C++ 接口新增 <code>sp_open_camera_v3</code></p>
+</li>
+<li>
+<p>Python Camera 对象新增 <code>open_cam</code> 方法</p>
+</li>
+<li>
+<p>支持打开相机时同步配置裁剪参数</p>
+</li>
+</ul>
+<p><strong>9. 新增硬件支持</strong></p>
+<ul>
+<li>
+<p>支持<strong>幻尔音频子板</strong></p>
+</li>
+<li>
+<p>新增对于 BMI08x 和 ICM42688 两款 <strong>IMU 传感器的接口支持</strong></p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="版本号341">版本号：3.4.1<a href="#版本号341" class="hash-link" aria-label="版本号：3.4.1的直接链接" title="版本号：3.4.1的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本信息-1">版本信息<a href="#版本信息-1" class="hash-link" aria-label="版本信息的直接链接" title="版本信息的直接链接">​</a></h4>
 <ul>
 <li><strong>系统版本</strong>：RDKOS V3.4.1</li>
 <li><strong>发布日期</strong>：2025 年 12 月</li>
 <li><strong>适配平台</strong>：RDK X5</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本更新概述">版本更新概述<a href="#版本更新概述" class="hash-link" aria-label="版本更新概述的直接链接" title="版本更新概述的直接链接">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本更新概述-1">版本更新概述<a href="#版本更新概述-1" class="hash-link" aria-label="版本更新概述的直接链接" title="版本更新概述的直接链接">​</a></h4>
 <p>本次 RDK OS 版本已全面对齐并同步最新底层平台软件 X5 SDK 1.1.1。相比上一版本（基于 X5 SDK 1.0.17），此次更新融合了过去半年内的功能增强、稳定性修复与性能优化。在完成适配、验证与系统裁剪后，各项核心能力均已完整集成至 RDK OS。
 在延续 RDK Ubuntu 22.04 与 TROS 机器人操作系统 体验的基础上，本版本为开发者提供了与最新 SDK 保持一致的更完善的平台支持与一致的运行体验。</p>
 <p><strong>（1）系统与启动稳定性</strong></p>
@@ -40,7 +98,7 @@
 <p><strong>（2）媒体链路与显示适配</strong></p>
 <ul>
 <li><strong>媒体链路大规模修复</strong>：涵盖 ISP、VIO、编码/解码等模块的稳定性增强和异常场景问题修复。</li>
-<li><strong>示例程序（Samples）全面清理与补齐</strong>：更新接口调用方式、补齐缺失示例、提高可用  性。</li>
+<li><strong>示例程序（Samples）全面清理与补齐</strong>：更新接口调用方式、补齐缺失示例、提高可用性。</li>
 <li><strong>HDMI 输出能力增强</strong>：改进多分辨率支持与兼容性，提升显示稳定性。</li>
 <li><strong>LCD 全尺寸适配</strong>：<!-- -->
 <ul>
@@ -62,19 +120,19 @@
 <p><strong>（5）TogetheROS</strong></p>
 <ul>
 <li><strong>修复图像处理加速模块</strong>：hobot_cv 使用 vse 加速图像 resize 的 bug。</li>
-<li><strong>修复板端模型推理框架</strong>：hobot_dnn 统计推理延迟错误的问题。</li>
+<li><strong>修复板端模型推理框架</strong>：hobot_dnn  统计推理延迟错误的问题。</li>
 <li><strong>修复 mipi cam 和算法等模块</strong>：ros component so 安装路径错误导致的运行时加载失败的问题。</li>
 <li><strong>优化图像编解码模块</strong>：hobot_codec 的配置，删除无效的配置参数，增加用于 debug 的配置参数。</li>
 </ul>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="版本号333">版本号：3.3.3<a href="#版本号333" class="hash-link" aria-label="版本号：3.3.3的直接链接" title="版本号：3.3.3的直接链接">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本信息-1">版本信息<a href="#版本信息-1" class="hash-link" aria-label="版本信息的直接链接" title="版本信息的直接链接">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本信息-2">版本信息<a href="#版本信息-2" class="hash-link" aria-label="版本信息的直接链接" title="版本信息的直接链接">​</a></h4>
 <ul>
 <li><strong>系统版本</strong>：RDKOS V3.3.3</li>
 <li><strong>发布日期</strong>：2025 年 10 月</li>
 <li><strong>适配平台</strong>：RDK X5</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本更新概述-1">版本更新概述<a href="#版本更新概述-1" class="hash-link" aria-label="版本更新概述的直接链接" title="版本更新概述的直接链接">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="版本更新概述-2">版本更新概述<a href="#版本更新概述-2" class="hash-link" aria-label="版本更新概述的直接链接" title="版本更新概述的直接链接">​</a></h4>
 <p><strong>（1）系统与驱动更新</strong></p>
 <ul>
 <li><strong>新增 御光-SC132GS 双目摄像头模组驱动</strong></li>
@@ -222,7 +280,7 @@
 <li>优化 Desktop 菜单栏布局，精简选项</li>
 <li>默认开启蓝牙功能</li>
 <li>增加后处理的 C++ 接口，提高后处理效率</li>
-<li>使用 udisk2 自动挂载 U 盘，解决 NTFS 文件系统自动挂载后不能访问的问题</li>
+<li>使用 udisk2 自动挂载 U 盘，解决 NTFS 文件系统自动挂载后不能访 问的问题</li>
 <li>支持用户保留 VNC 密码文件</li>
 <li>VNC 服务默认不自动开启，可减少系统资源消耗。用户可通过 <code>srpi-config</code> 工具打开</li>
 <li>RDK X3 v2.1 和 RDK Module 开发板 CPU 正常模式下最高运行在 1.5GHz，超频后最高 1.8GHz</li>
@@ -253,7 +311,7 @@
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="其他更新-1">其他更新<a href="#其他更新-1" class="hash-link" aria-label="其他更新的直接链接" title="其他更新的直接链接">​</a></h4>
 <ul>
-<li>优化已有功能，修复已知问题和漏洞，提升操作系统稳定性和 性能</li>
+<li>优化已有功能，修复已知问题和漏洞，提升操作系统稳定性和性能</li>
 <li>修订文档和帮助文档，提供更全面、准确的技术资料和指南</li>
 <li>提供更低层 API，方便开发者进行二次开发和集成</li>
 </ul>
@@ -300,7 +358,7 @@
 <li>新增 rtsp 拉流解码 C 语言示例。</li>
 <li>新增 hobot_cv 图片 padding 与 nv12 处理。</li>
 <li>优化 hobot_codec 输出日志。</li>
-<li>优化 hobot_sensor，新增多款摄像头支持。</li>
+<li>优化 hobot_sensor ，新增多款摄像头支持。</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="v112">V1.1.2<a href="#v112" class="hash-link" aria-label="V1.1.2的直接链接" title="V1.1.2的直接链接">​</a></h4>
 <ul>
@@ -313,7 +371,7 @@
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="v111">V1.1.1<a href="#v111" class="hash-link" aria-label="V1.1.1的直接链接" title="V1.1.1的直接链接">​</a></h4>
 <ul>
-<li>优化视觉、图像模块报错 提示。</li>
+<li>优化视觉、图像模块报错提示。</li>
 <li>优化智能语音算法示例。</li>
 <li>新增声源定位 DOA 应用示例。</li>
 <li>集成 Navigation2 源码。</li>
@@ -339,7 +397,7 @@
 <li>新增 hobot_cv neon 加速滤波功能。</li>
 <li>hobot_dnn 修复推理输出帧率错误。</li>
 <li>支持人体检测等算法摄像头类型选择。</li>
-<li>hobot_codec 修复图片 step 参数错误。</li>
+<li>hobot_codec 修复图片 step  参数错误。</li>
 <li>系统软件新增 restart_network 命令。</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="v104">V1.0.4<a href="#v104" class="hash-link" aria-label="V1.0.4的直接链接" title="V1.0.4的直接链接">​</a></h4>
@@ -384,6 +442,6 @@
 <li>mono2d_body_detection 优化性能统计与 Log。</li>
 <li>hand_lmk_detection 修复内存泄漏与推理性能。</li>
 <li>hand_gesture_detection 修复多手检测问题并优化性能。</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2026-04-14T06:29:23.000Z" itemprop="dateModified">2026年4月14日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/Appendix/linux-command-manual/cmd_zip"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">zip</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#rdk-x5" class="table-of-contents__link toc-highlight">RDK X5</a><ul><li><a href="#版本号341" class="table-of-contents__link toc-highlight">版本号：3.4.1</a><ul><li><a href="#版本信息" class="table-of-contents__link toc-highlight">版本信息</a></li><li><a href="#版本更新概述" class="table-of-contents__link toc-highlight">版本更新概述</a></li></ul></li><li><a href="#版本号333" class="table-of-contents__link toc-highlight">版本号：3.3.3</a><ul><li><a href="#版本信息-1" class="table-of-contents__link toc-highlight">版本信息</a></li><li><a href="#版本更新概述-1" class="table-of-contents__link toc-highlight">版本更新概述</a></li><li><a href="#tros-更新说明v243" class="table-of-contents__link toc-highlight">TROS 更新说明（V2.4.3）</a></li><li><a href="#获取方式" class="table-of-contents__link toc-highlight">获取方式</a></li></ul></li><li><a href="#tros算法升级--版本号323" class="table-of-contents__link toc-highlight">TROS算法升级 &amp; 版本号：3.2.3</a><ul><li><a href="#镜像更新" class="table-of-contents__link toc-highlight">镜像更新</a></li><li><a href="#系统层更新" class="table-of-contents__link toc-highlight">系统层更新</a></li><li><a href="#应用层更新" class="table-of-contents__link toc-highlight">应用层更新</a></li></ul></li><li><a href="#双目算法升级--版本号311" class="table-of-contents__link toc-highlight">双目算法升级 &amp; 版本号：3.1.1</a><ul><li><a href="#核心功能亮点" class="table-of-contents__link toc-highlight">核心功能亮点</a></li><li><a href="#问题修复与优化" class="table-of-contents__link toc-highlight">问题修复与优化</a></li></ul></li><li><a href="#版本号310" class="table-of-contents__link toc-highlight">版本号：3.1.0</a><ul><li><a href="#新增功能" class="table-of-contents__link toc-highlight">新增功能</a></li><li><a href="#优化改进" class="table-of-contents__link toc-highlight">优化改进</a></li></ul></li><li><a href="#版本号301" class="table-of-contents__link toc-highlight">版本号：3.0.1</a><ul><li><a href="#新增功能-1" class="table-of-contents__link toc-highlight">新增功能</a></li><li><a href="#优化改进-1" class="table-of-contents__link toc-highlight">优化改进</a></li></ul></li><li><a href="#版本号300" class="table-of-contents__link toc-highlight">版本号：3.0.0</a></li></ul></li><li><a href="#rdk-x3" class="table-of-contents__link toc-highlight">RDK X3</a><ul><li><a href="#版本号300-1" class="table-of-contents__link toc-highlight">版本号：3.0.0</a><ul><li><a href="#新增功能-2" class="table-of-contents__link toc-highlight">新增功能</a></li></ul></li><li><a href="#版本号210" class="table-of-contents__link toc-highlight">版本号：2.1.0</a><ul><li><a href="#新增功能-3" class="table-of-contents__link toc-highlight">新增功能</a></li><li><a href="#优化改进-2" class="table-of-contents__link toc-highlight">优化改进</a></li><li><a href="#问题修复" class="table-of-contents__link toc-highlight">问题修复</a></li><li><a href="#其他更新" class="table-of-contents__link toc-highlight">其他更新</a></li></ul></li><li><a href="#版本号200" class="table-of-contents__link toc-highlight">版本号：2.0.0</a><ul><li><a href="#开放源代码" class="table-of-contents__link toc-highlight">开放源代码</a></li><li><a href="#支持-rdk-x3-module" class="table-of-contents__link toc-highlight">支持 RDK X3 Module</a></li><li><a href="#其他更新-1" class="table-of-contents__link toc-highlight">其他更新</a></li></ul></li><li><a href="#版本号100" class="table-of-contents__link toc-highlight">版本号：1.0.0</a></li></ul></li><li><a href="#togetherosbot" class="table-of-contents__link toc-highlight">TogetheROS.Bot</a><ul><li><a href="#togetheros-v2x" class="table-of-contents__link toc-highlight">TogetheROS-V2.x</a></li><li><a href="#togetheros-v1x" class="table-of-contents__link toc-highlight">TogetheROS-V1.x</a><ul><li><a href="#v116" class="table-of-contents__link toc-highlight">V1.1.6</a></li><li><a href="#v115" class="table-of-contents__link toc-highlight">V1.1.5</a></li><li><a href="#v114" class="table-of-contents__link toc-highlight">V1.1.4</a></li><li><a href="#v113" class="table-of-contents__link toc-highlight">V1.1.3</a></li><li><a href="#v112" class="table-of-contents__link toc-highlight">V1.1.2</a></li><li><a href="#v111" class="table-of-contents__link toc-highlight">V1.1.1</a></li><li><a href="#v110" class="table-of-contents__link toc-highlight">V1.1.0</a></li><li><a href="#v105" class="table-of-contents__link toc-highlight">V1.0.5</a></li><li><a href="#v104" class="table-of-contents__link toc-highlight">V1.0.4</a></li><li><a href="#v103" class="table-of-contents__link toc-highlight">V1.0.3</a></li><li><a href="#v102" class="table-of-contents__link toc-highlight">V1.0.2</a></li><li><a href="#v101" class="table-of-contents__link toc-highlight">V1.0.1</a></li></ul></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 D-Robotics.</div></div></div></footer></div>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->于 <b><time datetime="2026-04-14T06:45:45.000Z" itemprop="dateModified">2026年4月14日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/rdk_doc/Appendix/linux-command-manual/cmd_zip"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">zip</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#rdk-x5" class="table-of-contents__link toc-highlight">RDK X5</a><ul><li><a href="#版本号350" class="table-of-contents__link toc-highlight">版本号：3.5.0</a><ul><li><a href="#版本信息" class="table-of-contents__link toc-highlight">版本信息</a></li><li><a href="#版本更新概述" class="table-of-contents__link toc-highlight">版本更新概述</a></li></ul></li><li><a href="#版本号341" class="table-of-contents__link toc-highlight">版本号：3.4.1</a><ul><li><a href="#版本信息-1" class="table-of-contents__link toc-highlight">版本信息</a></li><li><a href="#版本更新概述-1" class="table-of-contents__link toc-highlight">版本更新概述</a></li></ul></li><li><a href="#版本号333" class="table-of-contents__link toc-highlight">版本号：3.3.3</a><ul><li><a href="#版本信息-2" class="table-of-contents__link toc-highlight">版本信息</a></li><li><a href="#版本更新概述-2" class="table-of-contents__link toc-highlight">版本更新概述</a></li><li><a href="#tros-更新说明v243" class="table-of-contents__link toc-highlight">TROS 更新说明（V2.4.3）</a></li><li><a href="#获取方式" class="table-of-contents__link toc-highlight">获取方式</a></li></ul></li><li><a href="#tros算法升级--版本号323" class="table-of-contents__link toc-highlight">TROS算法升级 &amp; 版本号：3.2.3</a><ul><li><a href="#镜像更新" class="table-of-contents__link toc-highlight">镜像更新</a></li><li><a href="#系统层更新" class="table-of-contents__link toc-highlight">系统层更新</a></li><li><a href="#应用层更新" class="table-of-contents__link toc-highlight">应用层更新</a></li></ul></li><li><a href="#双目算法升级--版本号311" class="table-of-contents__link toc-highlight">双目算法升级 &amp; 版本号：3.1.1</a><ul><li><a href="#核心功能亮点" class="table-of-contents__link toc-highlight">核心功能亮点</a></li><li><a href="#问题修复与优化" class="table-of-contents__link toc-highlight">问题修复与优化</a></li></ul></li><li><a href="#版本号310" class="table-of-contents__link toc-highlight">版本号：3.1.0</a><ul><li><a href="#新增功能" class="table-of-contents__link toc-highlight">新增功能</a></li><li><a href="#优化改进" class="table-of-contents__link toc-highlight">优化改进</a></li></ul></li><li><a href="#版本号301" class="table-of-contents__link toc-highlight">版本号：3.0.1</a><ul><li><a href="#新增功能-1" class="table-of-contents__link toc-highlight">新增功能</a></li><li><a href="#优化改进-1" class="table-of-contents__link toc-highlight">优化改进</a></li></ul></li><li><a href="#版本号300" class="table-of-contents__link toc-highlight">版本号：3.0.0</a></li></ul></li><li><a href="#rdk-x3" class="table-of-contents__link toc-highlight">RDK X3</a><ul><li><a href="#版本号300-1" class="table-of-contents__link toc-highlight">版本号：3.0.0</a><ul><li><a href="#新增功能-2" class="table-of-contents__link toc-highlight">新增功能</a></li></ul></li><li><a href="#版本号210" class="table-of-contents__link toc-highlight">版本号：2.1.0</a><ul><li><a href="#新增功能-3" class="table-of-contents__link toc-highlight">新增功能</a></li><li><a href="#优化改进-2" class="table-of-contents__link toc-highlight">优化改进</a></li><li><a href="#问题修复" class="table-of-contents__link toc-highlight">问题修复</a></li><li><a href="#其他更新" class="table-of-contents__link toc-highlight">其他更新</a></li></ul></li><li><a href="#版本号200" class="table-of-contents__link toc-highlight">版本号：2.0.0</a><ul><li><a href="#开放源代码" class="table-of-contents__link toc-highlight">开放源代码</a></li><li><a href="#支持-rdk-x3-module" class="table-of-contents__link toc-highlight">支持 RDK X3 Module</a></li><li><a href="#其他更新-1" class="table-of-contents__link toc-highlight">其他更新</a></li></ul></li><li><a href="#版本号100" class="table-of-contents__link toc-highlight">版本号：1.0.0</a></li></ul></li><li><a href="#togetherosbot" class="table-of-contents__link toc-highlight">TogetheROS.Bot</a><ul><li><a href="#togetheros-v2x" class="table-of-contents__link toc-highlight">TogetheROS-V2.x</a></li><li><a href="#togetheros-v1x" class="table-of-contents__link toc-highlight">TogetheROS-V1.x</a><ul><li><a href="#v116" class="table-of-contents__link toc-highlight">V1.1.6</a></li><li><a href="#v115" class="table-of-contents__link toc-highlight">V1.1.5</a></li><li><a href="#v114" class="table-of-contents__link toc-highlight">V1.1.4</a></li><li><a href="#v113" class="table-of-contents__link toc-highlight">V1.1.3</a></li><li><a href="#v112" class="table-of-contents__link toc-highlight">V1.1.2</a></li><li><a href="#v111" class="table-of-contents__link toc-highlight">V1.1.1</a></li><li><a href="#v110" class="table-of-contents__link toc-highlight">V1.1.0</a></li><li><a href="#v105" class="table-of-contents__link toc-highlight">V1.0.5</a></li><li><a href="#v104" class="table-of-contents__link toc-highlight">V1.0.4</a></li><li><a href="#v103" class="table-of-contents__link toc-highlight">V1.0.3</a></li><li><a href="#v102" class="table-of-contents__link toc-highlight">V1.0.2</a></li><li><a href="#v101" class="table-of-contents__link toc-highlight">V1.0.1</a></li></ul></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">友情链接</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">古月居<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">联系我们</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://space.bilibili.com/437998606" target="_blank" rel="noopener noreferrer" class="footer__link-item">BiLiBiLi<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 D-Robotics.</div></div></div></footer></div>
 </body>
 </html>
