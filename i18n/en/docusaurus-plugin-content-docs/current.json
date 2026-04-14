@@ -374,5 +374,45 @@
   "sidebar.tutorialSidebar.category.1.9.7 配置 OpenClaw.link.generated-index.description": {
     "message": "Here you can directly install and configure OpenClaw.",
     "description": "The generated-index page description for category 1.9.7 配置 OpenClaw in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.2 参考示例(C语言)": {
+    "message": "3.2 Reference Example (C Language)",
+    "description": "The label for category 3.2 参考示例(C语言) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.3 参考示例(Python) ": {
+    "message": "3.3 Reference Example (Python) ",
+    "description": "The label for category 3.3 参考示例(Python)  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK X5": {
+    "message": "RDK X5",
+    "description": "The label for category RDK X5 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK X3": {
+    "message": "RDK X3",
+    "description": "The label for category RDK X3 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK X3 / X3 MD": {
+    "message": "RDK X3 / X3 MD",
+    "description": "The label for category RDK X3 / X3 MD in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.3.6 API 说明 ": {
+    "message": "3.6 API Documentation ",
+    "description": "The label for category 3.6 API 说明  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Python 接口": {
+    "message": "Python Interface",
+    "description": "The label for category Python 接口 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C++ 接口": {
+    "message": "C++ Interface",
+    "description": "The label for category C++ 接口 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.RDK Ultra": {
+    "message": "RDK Ultra",
+    "description": "The label for category RDK Ultra in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.多媒体接口使用说明": {
+    "message": "Multimedia Interface Usage Instructions",
+    "description": "The label for category 多媒体接口使用说明 in sidebar tutorialSidebar"
   }
 }
