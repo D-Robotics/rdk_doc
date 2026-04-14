@@ -122,8 +122,10 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     ros2 run hobot_tts hobot_tts
     ```
 
-    Note: If your audio playback device is not `pcmC0D1p`, you must specify the correct playback device using the `playback_device` parameter. For example, if the playback device is `pcmC1D1p`, use the following launch command:  
-    `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`
+    Note: If the audio playback device is not `pcmC0D1p`, you need to specify the playback device using the `playback_device` parameter. For example, if the audio playback device is `pcmC1D1p`, the startup command is:  
+`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`  
+For a USB device, the startup command is:  
+`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
 
 4. Open a new terminal and publish a message to the topic using the echo command:
 

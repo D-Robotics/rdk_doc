@@ -28,7 +28,7 @@ Fall detection example: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3
 | Platform              | OS/Runtime Environment         | Supported Algorithms               | Example Features                                                                 |
 | --------------------- | ------------------------------ | ---------------------------------- | -------------------------------------------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5               | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)          | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)          | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
 | RDK Ultra             | Ubuntu 20.04 (Foxy)            | yolov5x                            | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
 | RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)          | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Launch MIPI/USB camera and display inference results via web<br/>· Use local image/video replay; rendered results saved locally |
 | X86                   | Ubuntu 20.04 (Foxy)            | yolov2/yolov3                      | · Use local image/video replay; rendered results saved locally                   |
@@ -47,6 +47,7 @@ Fall detection example: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3
 | yolov10n  | X5       | 1x3x640x640      | 36.47         |
 | yolov11m  | X5       | 1x3x640x640      | 28.95         |
 | yolov12m  | X5       | 1x3x640x640      | 74            |
+| yolo26n   | X5       | 1x3x640x640      | 67.48         |
 | yolov2    | S100     | 1x3x608x608      | 226.19        |
 | yolov3    | S100     | 1x3x416x416      | 212.55        |
 | yolov5    | S100     | 1x3x672x672      | 62.24         |
@@ -176,6 +177,7 @@ In addition to YOLOv2, other YOLO-series algorithms are also supported. You can 
 - To use YOLOv10: `dnn_example_config_file:="config/yolov10workconfig.json"`
 - To use YOLOv11: `dnn_example_config_file:="config/yolov11workconfig.json"`
 - To use YOLOv12: `dnn_example_config_file:="config/yolov12workconfig.json"`
+- To use YOLOv26: `dnn_example_config_file:="config/yolo26workconfig.json"`
 
 ### RDK Ultra Platform
 
