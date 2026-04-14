@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 3.2.2 decode2display Sample Introduction
+# decode2display Sample Introduction
 
 ## Sample Overview
 decode2display is a **C language interface** development code example located in the `/app/cdev_demo` directory, demonstrating how to use C language for decoding and displaying to the screen. By referring to this example, users can understand and develop related applications.
@@ -183,7 +183,7 @@ This Sample is implemented based on the spcdev interface. It parses the paramete
 
 ### FAQ
 __Q:__ Is there more detailed documentation for the API?\
-__A:__ You can check at the [Decoding Module API](../06_multi_media_sp_dev_api/multi_media_api/cdev_multimedia_api_x3/decoder_api.md) location.
+__A:__ You can check at the [Decoding Module API](../06_multi_media_sp_dev_api/RDK_X5/cdev_multimedia_api_x5/decoder_api.md) location.
 
 __Q:__ Why use `systemctl stop lightdm`?\
 __A:__ We can also use windows for display, but it consumes too many resources, which may cause lag or stuttering. Displaying directly to the monitor provides a more intuitive effect.

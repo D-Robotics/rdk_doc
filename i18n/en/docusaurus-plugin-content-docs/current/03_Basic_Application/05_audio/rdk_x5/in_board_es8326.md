@@ -84,6 +84,6 @@ Under normal circumstances, you should be able to hear the recently recorded sou
 
 
 ## FAQ
-1. [How to distinguish between USB sound card and on-board sound card](../../../08_FAQ/04_multimedia.md)
+[How to distinguish between USB sound card and on-board sound card](../../../08_FAQ/04_multimedia.md)
 
 [For more questions, see this link](../../../08_FAQ/04_multimedia.md)

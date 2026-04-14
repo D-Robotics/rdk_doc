@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 3.2.4 vio_capture Sample Introduction
+# vio_capture Sample Introduction
 
 ## Sample Overview
 vio_capture is a C language development code sample located in `/app/cdev_demo` \
