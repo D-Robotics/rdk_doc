@@ -128,13 +128,13 @@ Do not use a computer USB port to power the board. Insufficient power may cause 
 
 The development board includes a debug serial port (No. 4) for serial login and debugging functions. Configure the parameters in the serial tool on your computer as follows:
 
-- **Baud rate**: 115200  
-- **Data bits**: 8  
-- **Parity**: None  
-- **Stop bits**: 1  
-- **Flow control**: None  
+- **Baud rate**: 115200
+- **Data bits**: 8
+- **Parity**: None
+- **Stop bits**: 1
+- **Flow control**: None
 
-To connect, use a Micro USB cable to link the board's Interface 4 to your PC.  
+To connect, use a Micro USB cable to link the board's Interface 4 to your PC.
 For first-time use, you may need to install the CH340 driver on your computer. Search for `CH340 serial port driver` to download and install it.
 
 During the kernel boot stage, the baud rate configuration is defined in the `/boot/boot.cmd` file.
@@ -144,19 +144,21 @@ After modifying the serial port settings, you need to regenerate the boot.scr fi
 ```bash
 mkimage -C none -A arm -T script -d boot.cmd boot.scr
 ```
+
+*Note:* If the development board's debug serial port is connected to a Linux/Ubuntu environment, and `brltty` is installed on the Linux/Ubuntu system, `brltty` may preempt the CH340 driver, causing the debug serial port to be unrecognized. `brltty` scans for USB devices connected to the system (such as CH340, CP2102, FT232, etc.) using udev rules. Once a device is detected, it attempts to "preempt" control of it, causing the debug serial port to be unrecognized. Therefore, if a debug serial port recognition problem occurs, first check if `brltty` is installed on the system. If `brltty` exists, it is recommended to uninstall it using the `apt remove brltty` command.
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
 The development board includes a debug serial port (No. 22) for serial login and debugging functions. Configure the parameters in the serial tool on your computer as follows:
 
-- **Baud rate**: 921600 
-- **Data bits**: 8  
-- **Parity**: None  
-- **Stop bits**: 1  
-- **Flow control**: None  
+- **Baud rate**: 921600
+- **Data bits**: 8
+- **Parity**: None
+- **Stop bits**: 1
+- **Flow control**: None
 
-To connect, use a Micro USB cable to link the board's Interface 4 to your PC.  
+To connect, use a Micro USB cable to link the board's Interface 4 to your PC.
 For first-time use, you may need to install the CH340 driver on your computer. Search for `CH340 serial port driver` to download and install it.
 
 During the kernel boot stage, the baud rate configuration is defined in the `/boot/boot.cmd` file.
@@ -167,12 +169,14 @@ After modifying the serial port settings, you need to regenerate the boot.scr fi
 mkimage -C none -A arm -T script -d boot.cmd boot.scr
 ```
 
+*Note:* If the development board's debug serial port is connected to a Linux/Ubuntu environment, and `brltty` is installed on the Linux/Ubuntu system, `brltty` may preempt the CH340 driver, causing the debug serial port to be unrecognized. `brltty` scans for USB devices connected to the system (such as CH340, CP2102, FT232, etc.) using udev rules. Once a device is detected, it attempts to "preempt" control of it, causing the debug serial port to be unrecognized. Therefore, if a debug serial port recognition problem occurs, first check if `brltty` is installed on the system. If `brltty` exists, it is recommended to uninstall it using the `apt remove brltty` command.
+
 </TabItem>
 </Tabs>
 
 ## Ethernet Port
 
-The development board features a Gigabit Ethernet port (No. 6) supporting 1000BASE-T and 100BASE-T standards. By default, it uses a static IP configuration with the address `192.168.127.10`.  
+The development board features a Gigabit Ethernet port (No. 6) supporting 1000BASE-T and 100BASE-T standards. By default, it uses a static IP configuration with the address `192.168.127.10`.
 To verify the board's IP address, log in via the serial port and use the `ifconfig` command to check the configuration of the `eth0` interface.
 
 Additionally, this port supports PoE (Power over Ethernet), allowing simultaneous data and power transmission via a single Ethernet cable for easier installation.
@@ -182,13 +186,13 @@ Additionally, this port supports PoE (Power over Ethernet), allowing simultaneou
 <Tabs groupId="rdk-type">
 <TabItem value="x5" label="RDK X5">
 
-The development board includes an HDMI display (Interface 10) that supports a maximum resolution of 1080p. Using the HDMI interface, the board can output the Ubuntu system desktop (on the Ubuntu Server version, it displays the logo).  
+The development board includes an HDMI display (Interface 10) that supports a maximum resolution of 1080p. Using the HDMI interface, the board can output the Ubuntu system desktop (on the Ubuntu Server version, it displays the logo).
 The HDMI interface also supports real-time display of camera and network stream images.
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-The development board includes an HDMI display (Interface 21) that supports a maximum resolution of 1080p. Using the HDMI interface, the board can output the Ubuntu system desktop (on the Ubuntu Server version, it displays the logo).  
+The development board includes an HDMI display (Interface 21) that supports a maximum resolution of 1080p. Using the HDMI interface, the board can output the Ubuntu system desktop (on the Ubuntu Server version, it displays the logo).
 The HDMI interface also supports real-time display of camera and network stream images.
 
 </TabItem>
@@ -263,13 +267,13 @@ The development board provides two MIPI CSI interfaces (No. 5) for connecting up
 | 2   | OV5647  | 5 MP       |     |                    |
 | 2   | IMX477  | 12 MP      |     |                    |
 
- 
+
 
 The camera module is connected to the development board via a 22-pin same-direction flexible cable, with the metal side of the cable inserted into the connector facing away from the black buckle.
 
 After installation, users can use the i2cdetect command to confirm whether the module's I2C address can be detected normally.
 
-Query the I2C device address of the Camera Sensor on the mipi_host0 interface near the Ethernet port:   
+Query the I2C device address of the Camera Sensor on the mipi_host0 interface near the Ethernet port:
 
 ```shell
 echo 353 > /sys/class/gpio/export
@@ -281,7 +285,7 @@ echo 1 > /sys/class/gpio/gpio353/value
 i2cdetect -y -r 6
 ```
 
-Query the I2C device address of the Camera Sensor on the mipi_host2 interface far from the network port:  
+Query the I2C device address of the Camera Sensor on the mipi_host2 interface far from the network port:
 
 ```shell
 echo 351 > /sys/class/gpio/export
@@ -293,19 +297,19 @@ echo 1 > /sys/class/gpio/gpio351/value
 i2cdetect -y -r 4
 ```
 
-When the I2C device address of the Camera Sensor is successfully detected, the following print can be seen (taking the detection of IMX219 on the interface mipi_host2 as an example, it can be observed that the address 10 is printed):  
+When the I2C device address of the Camera Sensor is successfully detected, the following print can be seen (taking the detection of IMX219 on the interface mipi_host2 as an example, it can be observed that the address 10 is printed):
 
 ```shell
 root@ubuntu:~# i2cdetect -y -r 4
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                         -- -- -- -- -- -- -- -- 
-10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-70: -- -- -- -- -- -- -- --    
+00:                         -- -- -- -- -- -- -- --
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
 ```
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
@@ -320,7 +324,7 @@ The development board provides 2 22-pin MIPI CSI interfaces (No. 10 and 9) for c
 
 The IO voltage (interface No. 18) should be set to 3.3V.
 
-Connect the camera module to the board using an FFC (Flat Flex Cable) with the blue side facing upwards.  
+Connect the camera module to the board using an FFC (Flat Flex Cable) with the blue side facing upwards.
 After installation, use the `i2cdetect` command to check if the I2C address of the module can be detected.
 
 </TabItem>
@@ -405,8 +409,8 @@ The RDK X5 provides a CAN FD interface for CAN and CAN FD communication. Refer t
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-The RDK X5 Module development board provides a CAN FD interface (interface No. 15) and a CAN termination resistor switch (interface No. 14). 
-For high-speed communication, both termination resistors should be enabled to prevent signal reflections and improve noise immunity. 
+The RDK X5 Module development board provides a CAN FD interface (interface No. 15) and a CAN termination resistor switch (interface No. 14).
+For high-speed communication, both termination resistors should be enabled to prevent signal reflections and improve noise immunity.
 This setup supports both CAN and CAN FD communication. For detailed information, please refer to the relevant documentation. [CAN使用](../../07_Advanced_development/01_hardware_development/rdk_x5/can.md)
 
 </TabItem>
@@ -465,22 +469,22 @@ The following values indicate the maximum load current supported by a single int
 <Tabs groupId="rdk-type">
 <TabItem value="x5" label="RDK X5">
 
-| Interface  | Power Capacity | 
-| --- | ------ | 
-| CAN Interface | 500mA @ 3.3V | 
-| DSI Interface | 500mA @ 3.3V | 
-| 40Pin Interface | 1A @ 3.3V/1A @ 5V | 
-| USB3 Interface | 1A @ 5V | 
+| Interface  | Power Capacity |
+| --- | ------ |
+| CAN Interface | 500mA @ 3.3V |
+| DSI Interface | 500mA @ 3.3V |
+| 40Pin Interface | 1A @ 3.3V/1A @ 5V |
+| USB3 Interface | 1A @ 5V |
 
 </TabItem>
 <TabItem value="x5md" label="RDK X5 Module">
 
-| Interface  | Power Capacity | 
-| --- | ------ | 
-| CAN Interface | 500mA @ 3.3V | 
-| DSI Interface | 500mA @ 3.3V | 
-| 40Pin Interface | 1A @ 3.3V/1A @ 5V | 
-| USB3 Interface | 1A @ 5V |  
+| Interface  | Power Capacity |
+| --- | ------ |
+| CAN Interface | 500mA @ 3.3V |
+| DSI Interface | 500mA @ 3.3V |
+| 40Pin Interface | 1A @ 3.3V/1A @ 5V |
+| USB3 Interface | 1A @ 5V |
 
 </TabItem>
 </Tabs>
