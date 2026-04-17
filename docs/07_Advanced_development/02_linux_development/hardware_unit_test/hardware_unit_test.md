@@ -1,4 +1,4 @@
-# 7.2.3 硬件单元测试
+# 7.2.4 硬件单元测试
 本章介绍如何进行X3硬件单元测试，所用到的程序和脚本请从 [点击](https://archive.d-robotics.cc/downloads/unittest/sample_base_test.tar.gz) 下载。
 ### 测试程序使用方法
 1. 将`sample_base_test.tar.gz`上传到X3板端，建议将其放到`/userdate`或者`/app`目录下。
