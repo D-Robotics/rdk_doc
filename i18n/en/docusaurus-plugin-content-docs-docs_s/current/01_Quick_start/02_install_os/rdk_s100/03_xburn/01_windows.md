@@ -8,6 +8,15 @@ sidebar_position: 1
 
 Use a Type-C data cable to connect the USB port of the PC to the Type-C port of the development board.
 
+:::warning Note
+
+Please ensure that the Type-C data cable is of high quality to guarantee the stability of the burning process.
+1. It should have a shielding layer.
+2. The shorter the length, the better.
+3. It should have high data transmission quality.
+
+:::
+
 ## Driver Download and Installation
 
 Before using the flashing tool, Windows users need to confirm whether the driver has been installed.

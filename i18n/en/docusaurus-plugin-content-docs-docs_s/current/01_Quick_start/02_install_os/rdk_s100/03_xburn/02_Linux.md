@@ -8,6 +8,15 @@ sidebar_position: 2
 
 Use a Type-C data cable to connect the USB port of your PC to the Type-C port of the development board.
 
+:::warning Note
+
+Please ensure that the Type-C data cable is of high quality to guarantee the stability of the burning process.
+1. It should have a shielding layer.
+2. The shorter the length, the better.
+3. It should have high data transmission quality.
+
+:::
+
 ## Install Required Tools
 
 Ubuntu users can install the tools using the following commands:
