@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 3.1.2 GPIO应用
+# GPIO应用
 
 
 
