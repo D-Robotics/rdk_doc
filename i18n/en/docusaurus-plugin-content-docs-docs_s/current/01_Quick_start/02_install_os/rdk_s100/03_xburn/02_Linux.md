@@ -35,7 +35,7 @@ sudo apt install dfu-util
 
 :::warning Note
 
-- Currently, **you need to set the SW3 switch to the ↑ position** to boot from the onboard eMMC. Booting from an M.2 NVMe SSD is not supported yet.
+- Currently, you need to set the **SW3 switch to [[Boot from onboard eMMC]](../../../01_hardware_introduction/01_rdk_s100.md#boot-device-selection-sw3)**; booting from an M.2 NVMe SSD is not supported at this time.
 - The Xburn tool on Windows PC requires successful [driver installation](#driver-download-and-installation) before use. Ensure the driver is installed successfully before proceeding.
 
 :::

@@ -81,7 +81,7 @@ Download the `sunrise5_winusb.zip` compressed package and proceed with the drive
 
 :::warning Note
 
-- Currently, **the SW3 switch must be set to the ↑ position** to boot from the onboard eMMC. Booting from an M.2 NVMe SSD is not supported at this time.
+- Currently, you need to set the **SW3 switch to [[Boot from onboard eMMC]](../../../01_hardware_introduction/01_rdk_s100.md#boot-device-selection-sw3)**; booting from an M.2 NVMe SSD is not supported at this time.
 - The Xburn tool on Windows PC can only be used after successfully [installing the driver](#driver-download-and-installation). Please ensure the driver is installed successfully before use.
 
 :::

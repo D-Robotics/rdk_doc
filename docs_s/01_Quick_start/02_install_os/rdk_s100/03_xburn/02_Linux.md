@@ -38,7 +38,7 @@ sudo apt install dfu-util
 
 :::warning 注意
 
-- 目前**需要将 SW3 拨至 ↑ 位置**，使用板载 eMMC 来启动，暂时不支持从 M.2 NVMe 固态硬盘启动。
+- 目前需要将 **SW3开关拨至 [[从板载 eMMC 启动]](../../../01_hardware_introduction/01_rdk_s100.md#系统启动盘选择-sw3)**，暂时不支持从 M.2 NVMe 固态硬盘启动。
 - windows pc 上 Xburn 工具 需要在[驱动安装](#驱动下载与安装)成功后才能使用，使用前请确保驱动安装成功。
 
 :::
