@@ -16,7 +16,7 @@ Code repository: (https://github.com/D-Robotics/sensevoice_ros2.git)
 
 Application scenarios: The intelligent voice algorithm can recognize custom-defined command words from audio input and interpret spoken content as corresponding commands or transcribe it into text. This enables functionalities such as voice control and speech-to-text translation, primarily applied in smart home systems, intelligent vehicle cockpits, wearable smart devices, and similar domains.
 
-Example: Voice-controlled robot car movement — [5.4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
+Example: Voice-controlled robot car movement - [5.4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
 
 ## Supported Platforms
 
@@ -45,9 +45,9 @@ Example: Voice-controlled robot car movement — [5.4.6 Voice-Controlled Robot C
 :::caution **Note**
 **If the `sudo apt update` command fails or returns an error, please refer to the FAQ section [Common Issues](../../../08_FAQ/01_hardware_and_system.md), specifically Q10: "How to resolve failures or errors when running `apt update`?"**
 :::
-   
-4. The audio board is properly connected to the RDK X5’s 3.5mm headset jack.
-5. A USB speaker is correctly connected to the RDK X5’s USB port.
+
+4. The audio board is properly connected to the RDK X5's 3.5mm headset jack.
+5. A USB speaker is correctly connected to the RDK X5's USB port.
 
 ## Usage Guide
 
@@ -78,7 +78,6 @@ To run the **sensevoice_ros2** package on the RDK:
 
    ```shell
    # Configure the TogetheROS.Bot environment
-   
    source /opt/tros/humble/setup.bash
 
    # Launch the launch file
@@ -91,7 +90,7 @@ To run the **sensevoice_ros2** package on the RDK:
 
 ## Result Analysis
 
-When running on the Sunrise X3 board, the terminal outputs the following logs:
+When running on the RDK board, the terminal outputs the following logs:
 
 ```text
 alsa_device_init, snd_pcm_open. handle((nil)), name(plughw:0,0), direct(1), mode(0)
@@ -104,12 +103,11 @@ Periods = 4
 was set period_size = 512
 was set buffer_size = 2048
 alsa_device_init. hwparams(0xaaaad12484a0), swparams(0xaaaad124a7a0)
-
 ```
 
 The above log indicates successful initialization and opening of the audio device, confirming that audio capture is functioning normally.
 
-When a user speaks the command words “Move forward,” “Turn left,” “Turn right,” and “Move backward” sequentially near the microphone, the voice algorithm processes the audio intelligently and outputs the recognition results as shown below:
+When a user speaks the command words "Move forward," "Turn left," "Turn right," and "Move backward" sequentially near the microphone, the voice algorithm processes the audio intelligently and outputs the recognition results as shown below:
 
 ```text
 cost time :769 ms
@@ -132,17 +130,16 @@ cost time :737 ms
 result_str:Move backward,
 [WARN] [1745810618.857481535] [sensevoice_ros2]: asr msg:Move backward,
 result_str:Move backward,
-
 ```
 
-By default, the **sensevoice_ros2** package publishes intelligent voice messages to the topics **/audio_smart** and **/audio_text**. Running `ros2 topic list` yields:
+By default, the **sensevoice_ros2** package publishes intelligent voice messages to the topics **/audio_smart** and **/asr_text**. Running `ros2 topic list` yields:
 
 ```shell
 $ ros2 topic list
 /audio_smart
-/asr_text 
+/asr_text
 ```
 
-The **/audio_text** topic only produces output after hearing the specific wake-up phrase “Hello, Digua Robot.” The result of `ros2 topic echo /asr_text` is shown below:
+The **/asr_text** topic only produces output after hearing the specific wake-up phrase "Hello, Digua Robot." The result of `ros2 topic echo /asr_text` is shown below:
 
 ![Execution Result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg)
