@@ -1,35 +1,35 @@
 ---
 sidebar_position: 1
 ---
-# 鏅鸿兘璇煶
+# 智能语音
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## 鍔熻兘浠嬬粛
+## 功能介绍
 
-鏅鸿兘璇煶绠楁硶閲囩敤鏈湴绂荤嚎妯″紡锛岃闃呴煶棰戞暟鎹悗閫佺粰BPU澶勭悊锛岀劧鍚庡彂甯?*鍞ら啋銆佸懡浠よ瘝璇嗗埆**銆?*澹版簮瀹氫綅DOA瑙掑害淇℃伅**浠ュ強**璇煶ASR璇嗗埆缁撴灉**绛夋秷鎭€傛櫤鑳借闊冲姛鑳界殑瀹炵幇瀵瑰簲浜嶵ogetheROS.Bot鐨?*hobot_audio** package锛岄€傜敤浜嶳DK閰嶅鐨勭幆褰㈠拰绾垮舰鍥涢害闃靛垪銆?
+智能语音算法采用本地离线模式，订阅音频数据后送给BPU处理，然后发布**唤醒、命令词识别**、**声源定位DOA角度信息**以及**语音ASR识别结果**等消息。智能语音功能的实现对应于TogetheROS.Bot的**hobot_audio** package，适用于RDK配套的环形和线形四麦阵列。
 
-浠ｇ爜浠撳簱锛?(https://github.com/D-Robotics/hobot_audio.git)
+代码仓库： (https://github.com/D-Robotics/hobot_audio.git)
 
-搴旂敤鍦烘櫙锛氭櫤鑳借闊崇畻娉曡兘澶熻瘑鍒煶棰戜腑鐨勫敜閱掕瘝浠ュ強鑷畾涔夌殑鍛戒护璇嶏紝骞跺皢璇煶鍐呭瑙ｈ涓哄搴旀寚浠ゆ垨杞寲涓烘枃瀛楋紝鍙疄鐜拌闊虫帶鍒朵互鍙婅闊崇炕璇戠瓑鍔熻兘锛屼富瑕佸簲鐢ㄤ簬鏅鸿兘瀹跺眳銆佹櫤鑳藉骇鑸便€佹櫤鑳界┛鎴磋澶囩瓑棰嗗煙銆?
+应用场景：智能语音算法能够识别音频中的唤醒词以及自定义的命令词，并将语音内容解读为对应指令或转化为文字，可实现语音控制以及语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
-璇煶鎺у埗灏忚溅杩愬姩妗堜緥锛歔4.6 璇煶鎺у埗灏忚溅杩愬姩](../../apps/car_audio_control)
+语音控制小车运动案例：[4.6 语音控制小车运动](../../apps/car_audio_control)
 
-## 鏀寔骞冲彴
+## 支持平台
 
-| 骞冲彴   | 杩愯鏂瑰紡     | 绀轰緥鍔熻兘                           |
+| 平台   | 运行方式     | 示例功能                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 鍚姩闊抽妯″潡绠楁硶锛屽苟鍦ㄧ粓绔樉绀虹粨鏋?| 
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 鍚姩闊抽妯″潡绠楁硶锛屽苟鍦ㄧ粓绔樉绀虹粨鏋?| 
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
 
-## 鍑嗗宸ヤ綔
+## 准备工作
 
-1. RDK宸茬儳褰曞ソUbuntu 20.04/Ubuntu 22.04绯荤粺闀滃儚銆?
-2. RDK宸叉垚鍔熷畨瑁匱ogetheROS.Bot銆?
-3. RDK宸叉垚鍔熷畨瑁呮櫤鑳借闊崇畻娉曞寘锛屽畨瑁呭懡浠わ細
+1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+2. RDK已成功安装TogetheROS.Bot。
+3. RDK已成功安装智能语音算法包，安装命令：
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -50,125 +50,127 @@ import TabItem from '@theme/TabItem';
    </TabItem>
    </Tabs>
 
-:::caution **娉ㄦ剰**
-**濡傛灉`sudo apt update`鍛戒护鎵ц澶辫触鎴栨姤閿欙紝璇锋煡鐪媅甯歌闂](/docs/08_FAQ/01_hardware_and_system.md)绔犺妭鐨刞Q10: apt update 鍛戒护鎵ц澶辫触鎴栨姤閿欏浣曞鐞嗭紵`瑙ｅ喅銆?*
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
-4. 鎸夌収浠ヤ笅鏂规硶鍦≧DK涓婃帴濂界幆褰㈡垨绾垮舰鍥涢害闊抽鏉裤€?
+4. 按照以下方法在RDK上接好环形或线形四麦音频板。
 
-### 杩炴帴闊抽鏉?
+### 连接音频板
 
-#### 鎺ュ彛杩炴帴
+#### 接口连接
 
-#### 鐜舰楹﹀厠椋庨樀鍒?
+#### 环形麦克风阵列
 
-鐜舰楹﹀厠椋庢澘涓轰竴浣撳寲璁捐锛屽疄鐗╁涓嬪浘锛?
+环形麦克风板为一体化设计，实物如下图：
 
 ![cir_mic_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cir_mic_board.png)
 
-璐拱閾炬帴濡備笅锛?
+购买链接如下：
 
  (https://www.waveshare.net/shop/Audio-Driver-HAT.htm)
 
-杩炴帴姝ラ锛?
+连接步骤：
 
-1. 灏嗛害鍏嬮鏉胯繛鎺ュ埌RDK X3 40PIN GPIO 鎺ュ彛涓婏紝杩炴帴鍚庡疄鐗╁涓嬪浘锛?
+1. 将麦克风板连接到RDK X3 40PIN GPIO 接口上，连接后实物如下图：
 
    ![circle_mic_full](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 
-2. 鎺ヤ笂鐢垫簮锛岀綉绾跨瓑銆?
+2. 接上电源，网线等。
 
-#### 绾垮舰楹﹀厠椋庨樀鍒?
+#### 线形麦克风阵列
 
-绾垮舰楹﹀厠椋庨樀鍒楃敱闊抽杞帴鏉垮拰绾垮舰楹﹀厠椋庢澘涓ら儴鍒嗙粍鎴愶紝瀹炵墿鍥惧拰杩炴帴璇存槑濡備笅锛?
+线形麦克风阵列由音频转接板和线形麦克风板两部分组成，实物图和连接说明如下：
 
-闊抽杞帴鏉?
+音频转接板:
 
 ![connect_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/connect_board.jpg)
 
-绾垮舰楹﹀厠椋庢澘锛?
+线形麦克风板：
 
 ![line_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg)
 
-1. 棣栧厛闇€瑕佸皢RDK X3涓庨煶棰戣浆鎺ユ澘杩炴帴锛屼簩鑰呭紩鑴氫笌寮曡剼鍧囧簲瀵归綈锛岃繛鎺ュ疄鐗╁浘濡備笅锛?
+1. 首先需要将RDK X3与音频转接板连接，二者引脚与引脚均应对齐，连接实物图如下：
 
    ![link](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg)
 
-2. 鍏舵锛岄渶瑕佸皢RDK X3涓庨害鍏嬮闃靛垪鎷鹃煶鏉胯繛鎺ワ紝杞帴鏉?FPC 鎺ュ彛閫氳繃15pin 寮傞潰FFC绾跨紗鎺ュ叆鍒伴害鍏嬮闃靛垪鎷鹃煶鏉匡紝绾跨紗閲戞墜鎸囧簲鏈濅笅锛岃繛鎺ュ疄鐗╁浘濡備笅锛?
+2. 其次，需要将RDK X3与麦克风阵列拾音板连接，转接板 FPC 接口通过15pin 异面FFC线缆接入到麦克风阵列拾音板，线缆金手指应朝下，连接实物图如下：
 
    ![link_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg)
 
-3. 鎺ヤ笂AEC鐨勭嚎銆?
+3. 接上AEC的线。
 
    ![mic_line](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/mic_line.jpg)
 
-4. 鎺ヤ笂鐢垫簮锛岀綉绾跨瓑銆?
+4. 接上电源，网线等。
 
-#### 涓婄數妫€鏌?
+#### 上电检查
 
-灏哛DK涓庨害鍏嬮闃靛垪鎺ュソ涔嬪悗涓婄數锛屽湪涓插彛涓婁娇鐢ㄦ寚浠i2cdetect -r -y 0`鍙互妫€鏌ヨ澶囩殑鎺ュ叆鎯呭喌锛岃嫢鎴愬姛鎺ュソ锛岄粯璁ゅ彲浠ュ湪I2C涓婅鍙栧埌涓変釜鍦板潃銆傚涓嬪浘锛?
+将RDK与麦克风阵列接好之后上电，在串口上使用指令`i2cdetect -r -y 0`可以检查设备的接入情况，若成功接好，默认可以在I2C上读取到三个地址。如下图：
 
 ![detect_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg)
 
-鑻ユ病妫€娴嬪埌锛岃閲嶆柊妫€鏌ヨ澶囩殑杩炴帴銆?
+若没检测到，请重新检查设备的连接。
 
-#### 閰嶇疆闊抽鏉?
+#### 配置音频板
 
     <Tabs groupId="board_type">
     <TabItem value="rdk_x3" label="RDK_X3">
 
-    棣栨浣跨敤闊抽鏉块渶瑕佷娇鐢╜srpi-config`杩涜閰嶇疆锛岄厤缃柟娉曞弬鑰僐DK鐢ㄦ埛鎵嬪唽[RDK X3寰洩Audio Drive](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)绔犺妭銆?
+    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)章节。
+
     </TabItem>
     <TabItem value="rdk_x5" label="RDK_X5">
 
-    棣栨浣跨敤闊抽鏉块渶瑕佷娇鐢╜srpi-config`杩涜閰嶇疆锛岄厤缃柟娉曞弬鑰僐DK鐢ㄦ埛鎵嬪唽[RDK X5寰洩Audio Drive](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)绔犺妭銆?
+    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
+
     </TabItem>
     </Tabs>
 
-## 浣跨敤浠嬬粛
+## 使用介绍
 
-鏅鸿兘璇煶hobot_audio package寮€濮嬭繍琛屼箣鍚庯紝浼氫粠楹﹀厠椋庨樀鍒楅噰闆嗛煶棰戯紝骞朵笖灏嗛噰闆嗗埌鐨勯煶棰戞暟鎹€佸叆璇煶鏅鸿兘绠楁硶SDK妯″潡鍋氭櫤鑳藉鐞嗭紝杈撳嚭鍞ら啋浜嬩欢銆佸懡浠よ瘝銆丄SR缁撴灉绛夋櫤鑳戒俊鎭紝鍏朵腑鍞ら啋浜嬩欢銆佸懡浠よ瘝閫氳繃`audio_msg::msg::SmartAudioData`绫诲瀷娑堟伅鍙戝竷锛孉SR缁撴灉閫氳繃`std_msgs::msg::String`绫诲瀷娑堟伅鍙戝竷銆?
+智能语音hobot_audio package开始运行之后，会从麦克风阵列采集音频，并且将采集到的音频数据送入语音智能算法SDK模块做智能处理，输出唤醒事件、命令词、ASR结果等智能信息，其中唤醒事件、命令词通过`audio_msg::msg::SmartAudioData`类型消息发布，ASR结果通过`std_msgs::msg::String`类型消息发布。
 
-鍏蜂綋娴佺▼濡備笅鍥撅細
+具体流程如下图：
 
 ![hobot_audio](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_audio.jpg)
 
-鏅鸿兘璇煶鍔熻兘鏀寔瀵瑰師濮嬮煶棰戣繘琛岄檷鍣箣鍚庤繘琛孉SR璇嗗埆锛岄粯璁ょ殑鍞ら啋璇嶅拰鍛戒护璇嶅畾涔夊湪鏅鸿兘璇煶鍔熻兘浠ｇ爜妯″潡鏍圭洰褰曚笅*config/hrsc/cmd_word.json*鏂囦欢锛岄粯璁や负锛?
+智能语音功能支持对原始音频进行降噪之后进行ASR识别，默认的唤醒词和命令词定义在智能语音功能代码模块根目录下*config/hrsc/cmd_word.json*文件，默认为：
 
 ```json
 {
     "cmd_word": [
-        "鍦扮摐浣犲ソ",
-        "鍚戝墠璧?,
-        "鍚戝悗閫€",
-        "鍚戝乏杞?,
-        "鍚戝彸杞?,
-        "鍋滄杩愬姩"
+        "地瓜你好",
+        "向前走",
+        "向后退",
+        "向左转",
+        "向右转",
+        "停止运动"
     ]
 }
 ```
 
-鍞ら啋璇嶄互鍙婂懡浠よ瘝鐢ㄦ埛鍙互鏍规嵁闇€瑕侀厤缃紝鑻ユ洿鏀瑰敜閱掕瘝鏁堟灉鍙兘浼氫笌榛樿鐨勫敜閱掕瘝鍛戒护璇嶆晥鏋滄湁宸紓銆傛帹鑽愬敜閱掕瘝浠ュ強鍛戒护璇嶄娇鐢ㄤ腑鏂囷紝鏈€濂芥槸鏈楁湕涓婂彛鐨勮瘝璇紝涓旇瘝璇暱搴︽帹鑽愪娇鐢?~5涓瓧銆?
+唤醒词以及命令词用户可以根据需要配置，若更改唤醒词效果可能会与默认的唤醒词命令词效果有差异。推荐唤醒词以及命令词使用中文，最好是朗朗上口的词语，且词语长度推荐使用3~5个字。
 
-鍙﹀锛屾櫤鑳借闊冲姛鑳芥敮鎸佽緭鍑哄０婧愬畾浣嶇殑DOA瑙掑害淇℃伅锛屽崟浣嶄负瑙掑害锛岀幆褰㈤害鍏嬮闃靛垪鍙栧€艰寖鍥达細0搴~360搴︼紝绾垮舰楹﹀厠椋庨樀鍒楀彇鍊艰寖鍥达細0搴~180搴︺€?
+另外，智能语音功能支持输出声源定位的DOA角度信息，单位为角度，环形麦克风阵列取值范围：0度\~360度，线形麦克风阵列取值范围：0度\~180度。
 
-瑙掑害鐨勭浉瀵逛綅缃叧绯讳笌楹﹀厠椋庣殑瀹夎浣嶇疆寮虹浉鍏筹紝鐜舰楹﹀厠椋庨樀鍒桪OA瑙掑害绀烘剰鍥惧涓嬶細
+角度的相对位置关系与麦克风的安装位置强相关，环形麦克风阵列DOA角度示意图如下：
 
 ![doa_circle](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
 
-绾垮舰楹﹀厠椋庨樀鍒桪OA瑙掑害绀烘剰鍥惧涓嬶細
+线形麦克风阵列DOA角度示意图如下：
 
 ![doa_line](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
 
-RDK鏉跨杩愯hobot_audio package锛?
+RDK板端运行hobot_audio package：
 
-1. 鎷疯礉閰嶇疆鏂囦欢
+1. 拷贝配置文件
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # 閰嶇疆tros.b鐜
+    # 配置tros.b环境
     source /opt/tros/setup.bash
     ```
 
@@ -176,7 +178,7 @@ RDK鏉跨杩愯hobot_audio package锛?
  <TabItem value="humble" label="Humble">
 
     ```bash
-    # 閰嶇疆tros.b鐜
+    # 配置tros.b环境
     source /opt/tros/humble/setup.bash
     ```
 
@@ -184,13 +186,13 @@ RDK鏉跨杩愯hobot_audio package锛?
  </Tabs>
 
    ```shell
-   # 浠巘ros.b鐨勫畨瑁呰矾寰勪腑鎷疯礉鍑鸿繍琛岀ず渚嬮渶瑕佺殑閰嶇疆鏂囦欢锛岃嫢宸叉嫹璐濆垯鍙拷鐣?
+   # 从tros.b的安装路径中拷贝出运行示例需要的配置文件，若已拷贝则可忽略
    cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_audio/config/ .
    ```
 
-1. 纭閰嶇疆鏂囦欢
+1. 确认配置文件
 
-   閰嶇疆鏂囦欢 *config/audio_config.json* 榛樿閰嶇疆濡備笅锛?
+   配置文件 *config/audio_config.json* 默认配置如下：
 
    ```json
    {
@@ -209,24 +211,24 @@ RDK鏉跨杩愯hobot_audio package锛?
    }
    ```
 
-   闇€瑕佺‘璁ょ殑閰嶇疆鏈夛細楹﹀厠椋庤澶囧彿锛岄害鍏嬮闃靛垪绫诲瀷锛屼互鍙婃槸鍚﹂渶瑕佸彂甯傾SR缁撴灉銆?
-   - **楹﹀厠椋庤澶囧彿**閫氳繃`micphone_name`瀛楁璁剧疆锛岄粯璁や负"hw:0,0"锛岃〃绀洪煶棰戣澶嘋ard0 Device0锛岃澶囧彿鍙€氳繃鍛戒护 `ls /dev/snd` 鏌ョ湅濡傦細"pcmC0D1c"锛涙渶鍚庡瓧姣峜琛ㄧずcapture璁惧锛孋0琛ㄧずCard0锛孌1琛ㄧずDevice1锛屼慨鏀瑰弬鏁颁负"hw:0,1"銆?
-   - **楹﹀厠椋庨樀鍒楃被鍨?*閫氳繃`mic_type`瀛楁璁剧疆锛岄粯璁ゅ€间负`0`锛岃〃绀虹幆褰㈤害鍏嬮闃靛垪銆傚鏋滀娇鐢ㄧ嚎褰㈤害鍏嬮闃靛垪锛岄渶瑕佷慨鏀硅瀛楁涓篳1`銆?
-   - **ASR杈撳嚭**閫氳繃`asr_mode`瀛楁璁剧疆锛岄粯璁ゅ€间负`0`锛岃〃绀轰笉杈撳嚭ASR缁撴灉銆傝嫢瑕佸紑鍚疉SR缁撴灉杈撳嚭锛岄渶瑕佸皢璇ュ瓧娈垫敼涓篳1`鎴朻2`锛屽叾涓璥1`琛ㄧず鍞ら啋鍚庤繘琛屼竴娆SR璇嗗埆骞跺彂甯冪粨鏋滐紝`2`琛ㄧず涓€鐩磋繘琛孉SR璇嗗埆骞跺彂甯冪粨鏋溿€?
+   需要确认的配置有：麦克风设备号，麦克风阵列类型，以及是否需要发布ASR结果。
+   - **麦克风设备号**通过`micphone_name`字段设置，默认为"hw:0,0"，表示音频设备Card0 Device0，设备号可通过命令 `ls /dev/snd` 查看如："pcmC0D1c"；最后字母c表示capture设备，C0表示Card0，D1表示Device1，修改参数为"hw:0,1"。
+   - **麦克风阵列类型**通过`mic_type`字段设置，默认值为`0`，表示环形麦克风阵列。如果使用线形麦克风阵列，需要修改该字段为`1`。
+   - **ASR输出**通过`asr_mode`字段设置，默认值为`0`，表示不输出ASR结果。若要开启ASR结果输出，需要将该字段改为`1`或`2`，其中`1`表示唤醒后进行一次ASR识别并发布结果，`2`表示一直进行ASR识别并发布结果。
 
-2. 閰嶇疆tros.b鐜鍜屽惎鍔ㄥ簲鐢?
+2. 配置tros.b环境和启动应用
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   # 閰嶇疆tros.b鐜
+   # 配置tros.b环境
    source /opt/tros/setup.bash
 
-   # 灞忚斀璋冨紡鎵撳嵃淇℃伅
+   # 屏蔽调式打印信息
    export GLOG_minloglevel=3
 
-   #鍚姩launch鏂囦欢
+   #启动launch文件
    ros2 launch hobot_audio hobot_audio.launch.py
    ```
 
@@ -235,13 +237,13 @@ RDK鏉跨杩愯hobot_audio package锛?
 <TabItem value="humble" label="Humble">
 
    ```shell
-   # 閰嶇疆tros.b鐜
+   # 配置tros.b环境
    source /opt/tros/humble/setup.bash
 
-   # 灞忚斀璋冨紡鎵撳嵃淇℃伅
+   # 屏蔽调式打印信息
    export GLOG_minloglevel=3
 
-   #鍚姩launch鏂囦欢
+   #启动launch文件
    ros2 launch hobot_audio hobot_audio.launch.py
    ```
 
@@ -249,9 +251,9 @@ RDK鏉跨杩愯hobot_audio package锛?
 
 </Tabs>
 
-## 缁撴灉鍒嗘瀽
+## 结果分析
 
-鍦ㄦ棴鏃3鏉跨杩愯缁堢杈撳嚭濡備笅淇℃伅锛?
+在旭日X3板端运行终端输出如下信息：
 
 ```text
 alsa_device_init, snd_pcm_open. handle((nil)), name(hw:0,0), direct(1), mode(0)
@@ -267,38 +269,38 @@ alsa_device_init. hwparams(0x557d6e4fa0), swparams(0x557d6e5210)
 
 ```
 
-浠ヤ笂log鏄剧ず锛岄煶棰戣澶囧垵濮嬪寲鎴愬姛锛屽苟涓旀墦寮€浜嗛煶棰戣澶囷紝鍙甯搁噰闆嗛煶棰戙€?
+以上log显示，音频设备初始化成功，并且打开了音频设备，可正常采集音频。
 
-褰撲汉渚濇鍦ㄩ害鍏嬮鏃佽竟璇村嚭鈥滃湴鐡滀綘濂解€濄€佲€滃悜鍓嶈蛋鈥濄€佲€滃悜宸﹁浆鈥濄€佲€滃悜鍙宠浆鈥濄€佲€滃悜鍚庨€€鈥濆懡浠よ瘝锛岃闊崇畻娉晄dk缁忚繃鏅鸿兘澶勭悊鍚庤緭鍑鸿瘑鍒粨鏋滐紝log鏄剧ず濡備笅锛?
+当人依次在麦克风旁边说出“地瓜你好”、“向前走”、“向左转”、“向右转”、“向后退”命令词，语音算法sdk经过智能处理后输出识别结果，log显示如下：
 
 ```text
 recv hrsc sdk event wakeup success, wkp count is 1
 [WARN] [1657869437.600230208] [hobot_audio]: recv event:0
 recv hrsc sdk doa data: 100
-recv hrsc sdk command data: 鍚戝墠璧?
-[WARN] [1657869443.870029101] [hobot_audio]: recv cmd word:鍚戝墠璧?
+recv hrsc sdk command data: 向前走
+[WARN] [1657869443.870029101] [hobot_audio]: recv cmd word:向前走
 recv hrsc sdk doa data: 110
-recv hrsc sdk command data: 鍚戝乏杞?
-[WARN] [1657869447.623147766] [hobot_audio]: recv cmd word:鍚戝乏杞?
+recv hrsc sdk command data: 向左转
+[WARN] [1657869447.623147766] [hobot_audio]: recv cmd word:向左转
 recv hrsc sdk doa data: 100
-recv hrsc sdk command data: 鍚戝彸杞?
-[WARN] [1657869449.865822772] [hobot_audio]: recv cmd word:鍚戝彸杞?
+recv hrsc sdk command data: 向右转
+[WARN] [1657869449.865822772] [hobot_audio]: recv cmd word:向右转
 recv hrsc sdk doa data: 110
-recv hrsc sdk command data: 鍚戝悗閫€
-[WARN] [1657869452.313969277] [hobot_audio]: recv cmd word:鍚戝悗閫€
+recv hrsc sdk command data: 向后退
+[WARN] [1657869452.313969277] [hobot_audio]: recv cmd word:向后退
 
 ```
 
-log鏄剧ず锛岃瘑鍒埌璇煶鍛戒护璇嶁€滃悜鍓嶈蛋鈥濄€佲€滃悜宸﹁浆鈥濄€佲€滃悜鍙宠浆鈥濄€佲€滃悜鍚庨€€鈥濓紝骞朵笖杈撳嚭DOA鐨勮搴︿俊鎭紝濡傗€渞ecv hrsc sdk doa data: 110鈥濆瓧娈佃〃绀篋OA瑙掑害涓?10搴︺€?
+log显示，识别到语音命令词“向前走”、“向左转”、“向右转”、“向后退”，并且输出DOA的角度信息，如“recv hrsc sdk doa data: 110”字段表示DOA角度为110度。
 
-hobot_audio榛樿鍙戝竷鐨勬櫤鑳借闊虫秷鎭瘽棰樺悕涓猴細**/audio_smart**,  鍦ㄥ彟涓€涓粓绔墽琛屼娇鐢╜ros2 topic list`鍛戒护鍙互鏌ヨ鍒版topic淇℃伅锛?
+hobot_audio默认发布的智能语音消息话题名为：**/audio_smart**,  在另一个终端执行使用`ros2 topic list`命令可以查询到此topic信息：
 
 ```shell
 $ ros2 topic list
 /audio_smart
 ```
 
-鑻ュ紑鍚疉SR杈撳嚭锛屽彂甯冩秷鎭瘽棰樹负锛?*/audio_asr**锛宍ros2 topic list`缁撴灉涓猴細
+若开启ASR输出，发布消息话题为：**/audio_asr**，`ros2 topic list`结果为：
 
 ```shell
 $ ros2 topic list
