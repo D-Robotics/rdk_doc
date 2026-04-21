@@ -7,28 +7,19 @@ This chapter aims to describe how to enable real-time kernel (Preempt-RT kernel)
 
 ## Command to Enable Real-Time Kernel
 
-To enable real-time kernel on RDK X3, please execute the following commands:
+To enable real-time kernel on RDK, you need to modify the `/boot/boot.cmd` file:
 
-```bash
-sudo apt update
-sudo apt install hobot-kernel-headers=2.0.0-01~rt hobot-boot=2.0.2-01~rt hobot-bpu-drivers=2.0.0-01~rt
-sudo reboot
-```
+1. Change `imagefile="Image"` to `imagefile="Image-rt"`.
+2. Navigate to the `/boot/` directory and execute `mkimage -C none -A arm -T script -d boot.cmd boot.scr`.
+3. Reboot the system to switch to the real-time kernel.
 
-These commands will install kernel headers, kernel files, drivers, and BPU drivers that are compatible with real-time kernel. After completion, restart the system to make the changes effective. You can use the `uname -a` command to see the kernel version information with `PREEMPT RT` indication.
+You can use the `uname -a` command to see the kernel version information with `PREEMPT RT` indication.
 
 ![image-20230914142401210](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/07_Advanced_development/02_linux_development/image/realtime_kernel/image-20230914142401210.png)
 
 ## Command to Restore to Standard Kernel
 
-If you need to restore to the standard kernel, you can execute the following commands:
-
-```bash
-sudo apt install hobot-kernel-headers hobot-boot hobot-bpu-drivers
-sudo reboot
-```
-
-These commands will uninstall the components related to the real-time kernel and install the components corresponding to the standard kernel. After completion, restart the system to switch back to the standard kernel.
+To switch back to the standard kernel, change `imagefile="Image-rt"` back to `imagefile="Image"`
 
 ## Real-Time Performance Testing
 
@@ -79,19 +70,6 @@ The meaning of each field in the `cyclictest` output is as follows:
 - `Act`: Actual latency for the current test cycle in microseconds.
 - `Avg`: Average latency for the current test cycle in microseconds.
 - `Max`: Maximum latency for the current test cycle in microseconds.
-
-
-## X5 Series Boards
-
-### Real-Time Kernel Enablement Commands
-
-To enable the real-time kernel on the RDK X5, you need to modify the `/boot/boot.cmd` file:
-
-1. Change `imagefile="Image"` to `imagefile="Image-rt"`.
-2. Navigate to the `/boot/` directory and execute `mkimage -C none -A arm -T script -d boot.cmd boot.scr`.
-3. Reboot the system to switch to the real-time kernel.
-
-To switch back to the standard kernel, change `imagefile="Image-rt"` back to `imagefile="Image"`, following the same steps as above.
 
 :::info Note
 
