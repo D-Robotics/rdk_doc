@@ -24,21 +24,12 @@ Click the ![Link Icon](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Qui
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-The RDK Studio Windows version has been officially released. For those using Linux and macOS, please wait a little longer—our developers are typing away at full speed.
-
-:::
-
-</TabItem>
 
 <TabItem value="mac" label="macOS">
 
 :::tip
 
-The RDK Studio Windows version has been officially released. For those using Linux and macOS, please wait a little longer—our developers are typing away at full speed.
+The RDK Studio Windows version has been officially released. For macOS users, please wait a little longer—our developers are typing away at full speed.
 
 :::
 

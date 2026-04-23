@@ -17,9 +17,9 @@ import TabItem from '@theme/TabItem';
 
 ## 下载安装
 
-1. 下载 RDK Studio ([下载链接](https://developer.d-robotics.cc/rdkstudio))，点击下载后，页面会滚动到底部下载位置，选择对应系统的安装包，建议选用 User Installer。
-
-    ![RDK Studio安装包下载图片](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/download_icon.png)  
+1. RDK Studio 下载链接：
+- [点此下载 windows 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
+- [点此下载 macOS 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
 
 2. 安装包下载完成后打开文件位置进入安装包保存路径，双击 “.exe” 安装文件，开始安装 RDK Studio。
    
@@ -31,15 +31,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-使用 Linux 的小伙伴们，稍微等等文档正在火速编写中。
-
-:::
-
-</TabItem>
 
 
 

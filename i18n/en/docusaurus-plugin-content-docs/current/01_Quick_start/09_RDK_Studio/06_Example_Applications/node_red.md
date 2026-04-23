@@ -39,15 +39,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-For those using Linux, please wait a moment as the documentation is being rapidly prepared.
-
-:::
-
-</TabItem>
 
 <TabItem value="macOS" label="macOS">
 

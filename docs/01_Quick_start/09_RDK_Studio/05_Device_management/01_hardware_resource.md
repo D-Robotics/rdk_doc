@@ -74,15 +74,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-目前RDK Studio Windows系统已正式出炉，使用Linux和Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
-
-:::
-
-</TabItem>
 
 
 
@@ -90,7 +81,7 @@ import TabItem from '@theme/TabItem';
 
 :::tip
 
-目前RDK Studio Windows系统已正式出炉，使用Linux和Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
+目前RDK Studio Windows系统已正式出炉，使用Mac的小伙伴们，稍微等等开发小哥正在火速敲键盘
 
 :::
 

@@ -31,17 +31,12 @@ RDK X5 支持 SD 卡单独烧录和 SD 卡在板烧录两种方式，可借助 P
 ### RDK Studio 工具
 
 - 支持使用 “本地已有镜像” 和 “烧录时在线下载镜像” 两种方式。
-- 支持 Windows、Linux、Mac 系统。
+- 支持 Windows、Mac 系统。
 - 支持 SD 卡单独烧录和 SD 卡在板烧录。
 
-#### 下载地址
-
-        [[点击此处]](https://developer.d-robotics.cc/rdkstudio) 进入 RDK Studio 下载页面，根据使用平台选择安装包版本，建议选用 User Installer。
-
-        <img 
-          src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/install_os_260408/zh/x5/studio_download.PNG" 
-          style={{ width: '100%', height: 'auto', align:'center'}}
-        />
+#### RDK Studio 下载链接
+- [点此下载 windows 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
+- [点此下载 macOS 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
 
 #### 安装方法
 
@@ -49,16 +44,6 @@ RDK X5 支持 SD 卡单独烧录和 SD 卡在板烧录两种方式，可借助 P
 
 双击下载的 `.exe` 安装包文件即可自动安装完成并打开应用。
 
-
-
-**Linux 系统**
-
-在安装包目录中的终端执行 `sudo dpkg -i` 安装包命令即可等待完成安装，安装示例如图所示。
-
-<img 
-    src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/install_os_260408/zh/x5/studio_install_linux.JPEG" 
-    style={{ width: '100%', height: 'auto', align:'center'}}
-/>
 
 **Mac 系统**
 
