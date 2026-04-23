@@ -30,7 +30,7 @@ RDK X5 supports **SD in a reader** or **SD in-board** flashing with **RDK Studio
 ### RDK Studio
 
 - **Local image** or **download while flashing**.
-- Windows, Linux, macOS.
+- Windows, macOS.
 - SD in reader or SD in-board.
 
 #### RDK Studio Download Links

@@ -31,10 +31,10 @@ RDK X5 支持 SD 卡单独烧录和 SD 卡在板烧录两种方式，可借助 P
 ### RDK Studio 工具
 
 - 支持使用 “本地已有镜像” 和 “烧录时在线下载镜像” 两种方式。
-- 支持 Windows、Linux、Mac 系统。
+- 支持 Windows、Mac 系统。
 - 支持 SD 卡单独烧录和 SD 卡在板烧录。
 
-#### - RDK Studio 下载链接：
+#### RDK Studio 下载链接：
 - [点此下载 windows 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
 - [点此下载 macOS 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
 

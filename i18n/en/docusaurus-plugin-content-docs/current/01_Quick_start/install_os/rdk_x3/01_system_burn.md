@@ -30,7 +30,7 @@ RDK X3 can flash Ubuntu with **RDK Studio** or **Rufus** on a PC.
 ### RDK Studio
 
 - Supports **local image** or **download while flashing**.
-- Windows, Linux, and macOS.
+- Windows and macOS.
 
 #### RDK Studio Download Links
 - [Click here to download Windows version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)

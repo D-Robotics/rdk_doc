@@ -28,7 +28,7 @@ RDK X3 Module can flash Ubuntu with **RDK Studio** or **Rufus**.
 ### RDK Studio
 
 - **Local image** or **download while flashing**.
-- Windows, Linux, macOS.
+- Windows,macOS.
 - microSD flashing.
 - eMMC flashing via **UMS**.
 

@@ -28,7 +28,7 @@ RDK X3 Module 可借助 PC 端工具 **RDK Studio** 和 **Rufus** 来完成 Ubun
 ### RDK Studio 工具
 
 - 支持使用 “本地已有镜像” 和 “烧录时在线下载镜像” 两种方式。
-- 支持 Windows、Linux、Mac 系统。
+- 支持 Windows、Mac 系统。
 - 支持 Micro SD 存储卡烧录。
 - 支持 eMMC 烧录，采用 UMS 方式。
 

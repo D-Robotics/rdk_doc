@@ -29,7 +29,7 @@ RDK X5 Module supports **SD in reader**, **SD in-board**, and **eMMC** flashing 
 ### RDK Studio
 
 - **Local image** or **download while flashing**.
-- Windows, Linux, macOS.
+- Windows,  macOS.
 
 #### RDK Studio Download Links
 - [Click here to download Windows version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
