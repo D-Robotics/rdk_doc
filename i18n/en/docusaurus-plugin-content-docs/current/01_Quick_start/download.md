@@ -600,18 +600,13 @@ Providing comprehensive hardware design support materials for module customers t
       <td>Backup download source to prevent conditions from restricting code retrieval from GitHub.</td>
     </tr>
     <tr>
-      <td><img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/rdk_studio/image.png" alt="icon" width="8%"/>  **RDK Studio**</td>
-      <td><a href="https://developer.d-robotics.cc/rdkstudio">Visit Official Website</a></td>
-      <td>RDK Studio provides device connection and management, quick AI sample experience, and fast access to the community forum. Board Support: Perfectly supports the use of the entire RDK series of boards, helping users manage all their RDK boards. System Updates: Offers a brand-new board upgrade method—users can obtain the latest RDK OS with one click and quickly complete board upgrades using just a data cable.</td>
-    </tr>
-    <tr>
       <td>🔄 **hbupdate**</td>
       <td><a href="https://archive.d-robotics.cc/downloads/hbupdate">Click to Visit</a></td>
       <td>hbupdate is a professional tool for burning operating system images and minimal boot images for RDK development boards.</td>
     </tr>
     <tr>
       <td>💾 **Image Burning Tool**</td>
-      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a><br/><a href="https://developer.d-robotics.cc/en/rdkstudio">RDK Studio</a></td>
+      <td><a href="https://developer.d-robotics.cc/api/v1/static/fileData/1650948745611.rar">Rufus</a><br/><a href="https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe">RDK Studio Windows </a><br/><a href="https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg">RDK Studio Windows macOS </a></td>
       <td>Software tool for writing image files to SD cards, supporting multiple image formats.</td>
     </tr>
     <tr>

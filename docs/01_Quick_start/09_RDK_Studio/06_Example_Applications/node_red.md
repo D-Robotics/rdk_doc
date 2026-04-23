@@ -40,17 +40,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-使用 Linux 的小伙伴们，稍微等等文档正在火速编写中。
-
-:::
-
-</TabItem>
-
-
 
 <TabItem value="mac" label="macOS">
 

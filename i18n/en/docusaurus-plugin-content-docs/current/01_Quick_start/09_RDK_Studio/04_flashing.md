@@ -118,16 +118,6 @@ If you already have the target image locally, please go directly to [Selecting a
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-For those using Linux, please wait a moment as the documentation is being rapidly prepared.
-
-:::
-
-</TabItem>
-
 
 
 <TabItem value="mac" label="macOS">

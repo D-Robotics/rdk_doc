@@ -152,7 +152,9 @@ The Performance Node tool in RDK Studio provides system hardware monitoring and 
 
 :::info Note
 
-- RDK Studio download link: [Click to download](https://developer.d-robotics.cc/en/rdkstudio)
+- RDK Studio Download Links
+    - [Click here to download Windows version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
+    - [Click here to download macOS version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
 - RDK Studio user guide: [Click to view](../01_Quick_start/09_RDK_Studio/01_rdk_studio.md)
 
 :::

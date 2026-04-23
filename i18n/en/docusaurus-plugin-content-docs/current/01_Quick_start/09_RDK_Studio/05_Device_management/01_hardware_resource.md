@@ -73,16 +73,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 
-<TabItem value="linux" label="Linux">
-
-:::tip
-
-The RDK Studio Windows system is now officially released. Linux and macOS users, please hold tight—our developers are typing away as fast as they can!
-
-:::
-
-</TabItem>
-
 
 
 <TabItem value="macOS" label="macOS">
