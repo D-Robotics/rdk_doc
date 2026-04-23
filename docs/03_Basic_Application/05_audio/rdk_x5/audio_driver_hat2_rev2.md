@@ -108,7 +108,7 @@ by-path  controlC0  controlC1  pcmC0D0p  pcmC0D1c  pcmC1D0c  pcmC1D0p  timer
   该音频板的回采信号映射在录音通道 7 和 8 。需使用 8 通道录音命令（如果使用同一个 I2S ，需要保持通道数、位深、采样率对齐，这款转接板根据拨码开关固定了一路 I2S）：
 
   ```shell
-  tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 512 -n 4 -t 5
+  tinycap ./8chn_test.wav -D 0 -d 1 -c 8 -b 16 -r 48000 -p 256 -n 4 -t 5
   ```
 
 - **同时启动格式对齐的8通道音频播放**
