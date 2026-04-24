@@ -256,7 +256,7 @@ Complete specification materials for RDK X3/X5 related products, accessories and
       </td>
     </tr>
     <tr>
-      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/d_robotics_rdk_RDK_stereo_camera_gs130wi_en_v1_1.pdf">RDK Stereo Camera  
+      <td><a href="https://archive.d-robotics.cc/downloads/hardware/rdk_x5/2026.04.09_RDK Stereo Camera GS130WI_en_v1_1.pdf">RDK Stereo Camera  
        GS130WI</a></td>
       <td> - </td>
       <td>Used in applications such as robot vision, machine vision inspection, and motion posture sensing.</td>
