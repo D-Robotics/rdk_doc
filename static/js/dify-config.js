@@ -1,5 +1,5 @@
 window.difyChatbotConfig = {
-  token: 'MltLQTHPb5EeP7uz', // 默认中文 Token
+  token: 'rJYrxmxmjOkjEx2c', // 默认中文 Token
   baseUrl: 'https://rdk.d-robotics.cc',
   inputs: {},
   systemVariables: {},
@@ -8,7 +8,7 @@ window.difyChatbotConfig = {
 
 // Auto-switch token based on language
 (function() {
-  const cnToken = 'MltLQTHPb5EeP7uz';
+  const cnToken = 'rJYrxmxmjOkjEx2c';
   const enToken = 'YJZVeswIhH8pRFbp';
 
   // Check if URL contains /en/ indicating English locale
@@ -225,7 +225,6 @@ window.difyChatbotConfig = {
       mutation.addedNodes.forEach((node) => {
         if (node.tagName === 'IFRAME' && node.id === 'dify-chatbot-bubble-window') {
           if (node.src && node.src.startsWith('http://')) {
-            console.warn('[Dify] Mixed Content Prevention: Switching iframe to HTTPS');
             node.src = node.src.replace(/^http:\/\//, 'https://');
           }
         }
