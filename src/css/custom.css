@@ -87,41 +87,12 @@ div.table-wrapper table.no-wrap-table {
   max-width: 100% !important;
 }
 
-/* Dify Chatbot Styles - Based on Official Documentation */
+/* Dify Chatbot Styles */
 #dify-chatbot-bubble-button {
-  background-color: var(--dify-chatbot-bubble-button-bg-color) !important;
-  box-shadow: 0 0 0 0 rgba(255, 81, 37, 0.7) !important;
-  animation: pulse-orange 2s infinite;
-}
-
-@keyframes pulse-orange {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 81, 37, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(255, 81, 37, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 81, 37, 0);
-  }
+  background-color: #1C64F2 !important;
 }
 
 #dify-chatbot-bubble-window {
-  width: 600px !important;
-  height: 500px !important;
-  border: none !important;
-  background-color: #ffffff !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-}
-
-#dify-chatbot-bubble-window iframe {
-  transform: scale(0.9);
-  transform-origin: top left;
-  width: 105.3% !important;
-  height: 105.3% !important;
+  width: 24rem !important;
+  height: 40rem !important;
 }

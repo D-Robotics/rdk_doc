@@ -40,7 +40,7 @@ const config = {
     },
     {
       src: "https://rdk.d-robotics.cc/embed.min.js",
-      id: "MltLQTHPb5EeP7uz",
+      id: "rJYrxmxmjOkjEx2c",
       defer: true,
     },
   ],
