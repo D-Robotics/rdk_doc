@@ -226,7 +226,8 @@ RDK S100 支持通过 Xburn 备份指定区域，支持的备份区域如下
    - 点击开始升级，设备上电并等待操作完成
 
    - 操作完成后，打开 `img_packages/disk/`，查看备份镜像文件 `miniboot_flash_backup.img`
-      ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-xburn-partition.png)
+   
+      ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-xburn-backup_partition.png)
 
 
    :::warning 注意
