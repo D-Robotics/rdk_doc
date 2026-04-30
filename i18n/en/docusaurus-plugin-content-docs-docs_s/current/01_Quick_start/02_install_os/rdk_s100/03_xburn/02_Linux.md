@@ -154,7 +154,8 @@ Configuration steps:
    - Click `Start Upgrade`, power on the device, and wait for the operation to complete.
 
    - After completion, navigate to the `img_packages/disk/` folder to view the backup image file `miniboot_flash_backup.img`.
-      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-xburn-backup_partition_image.png)
+   
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-xburn-backup_partition_image-en.png)
 
    :::warning Note
 

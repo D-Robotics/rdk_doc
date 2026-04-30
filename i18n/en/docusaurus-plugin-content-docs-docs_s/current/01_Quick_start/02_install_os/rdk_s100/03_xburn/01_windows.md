@@ -198,8 +198,9 @@ Configuration method is as follows:
 
    - Click Start Upgrade, power on the device, and wait for the operation to complete
 
-   - After the operation is complete, open `img_packages/disk/` and check for the backup image file `miniboot_flash_backup.img`
-      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-xburn-backup_partition_image.png)
+   - After the operation is complete, open `img_packages/disk/` and check for the backup image file `miniboot_flash_backup.img`.
+   
+      ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/image-S100-xburn-backup_partition_image-en.png)
 
    :::warning Note
 
