@@ -33,8 +33,8 @@ RDK X3 can flash Ubuntu with **RDK Studio** or **Rufus** on a PC.
 - Windows and macOS.
 
 #### RDK Studio Download Links
-- [Click here to download Windows version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
-- [Click here to download macOS version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
+- [Click here to download](https://developer.d-robotics.cc/en/rdkstudio)
+
 #### Installation
 
 **Windows**
@@ -105,7 +105,7 @@ Double-click the downloaded `.exe` to install and launch the app.
 
 ### Using RDK Studio
 
-RDK Studio can flash the OS and manage the device on Windows, Linux, and macOS. See [Flashing with RDK Studio](../../09_RDK_Studio/04_flashing.md).
+RDK Studio can flash the OS and manage the device. See [Login RDK Studio and Flash System](https://developer.d-robotics.cc/rdk_studio_doc/en/category/2-quick-start).
 
 ### Using Rufus{#using-rufus-x3}
 

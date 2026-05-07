@@ -30,11 +30,10 @@ RDK X3 Module 可借助 PC 端工具 **RDK Studio** 和 **Rufus** 来完成 Ubun
 - 支持使用 “本地已有镜像” 和 “烧录时在线下载镜像” 两种方式。
 - 支持 Windows、Mac 系统。
 - 支持 Micro SD 存储卡烧录。
-- 支持 eMMC 烧录，采用 UMS 方式。
+<!-- - 支持 eMMC 烧录，采用 UMS 方式。 -->
 
 #### RDK Studio 下载链接
-- [点此下载 windows 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
-- [点此下载 macOS 版本](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
+- [点此下载](https://developer.d-robotics.cc/rdkstudio)
 
 #### 安装方法
 
@@ -112,7 +111,7 @@ RDK X3 Module 可借助 PC 端工具 **RDK Studio** 和 **Rufus** 来完成 Ubun
 
 #### 使用 RDK Studio 工具
 
-RDK Studio 工具提供烧录系统功能，并且可以连接设备并进行管理，支持在 Windows、Linux、Mac 平台上使用，详细步骤参见 [使用 RDK Studio 烧录系统](../../09_RDK_Studio/04_flashing.md)。
+RDK Studio 工具提供烧录系统功能，并且可以连接设备并进行管理，详细步骤参见 [登录 RDK Studio 并烧录系统](https://developer.d-robotics.cc/rdk_studio_doc/category/2-quick-start)。
 
 #### 使用 Rufus 工具
 
@@ -236,14 +235,14 @@ RDK Studio 工具提供烧录系统功能，并且可以连接设备并进行管
 
 
 
-##### 使用 RDK Studio 工具
+<!-- ##### 使用 RDK Studio 工具
 
-烧录时，在 “选择存储设备” 步骤中选择识别到的标准 U 盘，烧录步骤参见 [使用 RDK Studio 烧录系统](../../09_RDK_Studio/04_flashing.md)。
+烧录时，在 “选择存储设备” 步骤中选择识别到的标准 U 盘，烧录步骤参见 [登录 RDK Studio 并烧录系统](https://developer.d-robotics.cc/rdk_studio_doc/category/2-quick-start)。
 
 <img
       src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/install_os_260408/zh/x3/studio_select_storage_refresh.png"
       style={{ width: '100%', height: 'auto', align: 'center' }}
-    />
+    /> -->
 
 ##### 使用 Rufus 工具
 

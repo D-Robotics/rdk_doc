@@ -30,11 +30,10 @@ RDK X3 Module can flash Ubuntu with **RDK Studio** or **Rufus**.
 - **Local image** or **download while flashing**.
 - Windows,macOS.
 - microSD flashing.
-- eMMC flashing via **UMS**.
+<!-- - eMMC flashing via **UMS**. -->
 
 #### RDK Studio Download Links
-- [Click here to download Windows version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
-- [Click here to download macOS version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
+- [Click here to download](https://developer.d-robotics.cc/en/rdkstudio)
 
 #### Installation
 
@@ -233,14 +232,14 @@ Before flashing on **Windows**, confirm drivers as follows.
 
 
 
-##### RDK Studio
+<!-- ##### RDK Studio
 
 At **Select storage device**, choose the USB drive. See [Flashing with RDK Studio](../../09_RDK_Studio/04_flashing.md).
 
 <img
       src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/install_os_260408/en/x3_module/studio_select_storage_refresh.png"
       style={{ width: '100%', height: 'auto', align: 'center' }}
-    />
+    /> -->
 
 ##### Rufus
 

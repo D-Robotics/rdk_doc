@@ -31,11 +31,11 @@ RDK X5 supports **SD in a reader** or **SD in-board** flashing with **RDK Studio
 
 - **Local image** or **download while flashing**.
 - Windows, macOS.
-- SD in reader or SD in-board.
+- SD in reader.
 
 #### RDK Studio Download Links
-- [Click here to download Windows version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22%20Setup.exe)
-- [Click here to download macOS version](https://rdkstudio.bj.bcebos.com/rdkstudio/lastversion/RDKStudio-0.3.22-arm64.dmg)
+- [Click here to download](https://developer.d-robotics.cc/en/rdkstudio)
+
 #### Installation
 
 **Windows**
@@ -106,7 +106,7 @@ Double-click the `.exe` to install and launch.
 
 See [Flashing with RDK Studio](../../09_RDK_Studio/04_flashing.md).
 
-#### SD in-board
+<!-- #### SD in-board
 
 1. Insert the SD card, connect USB Type-C to the PC, **hold Sleep** (next to the headphone jack), power on, wait **5 s**—the board enters flashing mode.
 
@@ -120,7 +120,7 @@ See [Flashing with RDK Studio](../../09_RDK_Studio/04_flashing.md).
         <img
             src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/01_Quick_start/image/install_os/install_os_260408/en/x3_module/studio_select_storage_refresh.png"
             style={{ width: '100%', height: 'auto', align: 'center' }}
-            />
+            /> -->
 
 ### Rufus
 
