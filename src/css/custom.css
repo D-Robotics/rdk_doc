@@ -96,3 +96,51 @@ div.table-wrapper table.no-wrap-table {
   width: 24rem !important;
   height: 40rem !important;
 }
+
+/* 普通链接样式（不包含标题 h1–h6 内的链接）— 经典文档蓝 */
+.markdown a {
+  color: #0969da;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: auto;
+  transition: color 0.2s ease;
+}
+
+.markdown a:hover {
+  color: #0550ae;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.markdown a[href^="http"]::after {
+  content: "↗";
+  margin-left: 0.2em;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+/* 正文标题内的锚点链接沿用标题样式，不套用正文链接色与外链图标 */
+.markdown :is(h1, h2, h3, h4, h5, h6) a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  transition: none;
+}
+
+.markdown :is(h1, h2, h3, h4, h5, h6) a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown :is(h1, h2, h3, h4, h5, h6) a[href^="http"]::after {
+  content: none;
+}
+
+[data-theme='dark'] .markdown a {
+  color: #58a6ff;
+}
+
+[data-theme='dark'] .markdown a:hover {
+  color: #79b8ff;
+} 
