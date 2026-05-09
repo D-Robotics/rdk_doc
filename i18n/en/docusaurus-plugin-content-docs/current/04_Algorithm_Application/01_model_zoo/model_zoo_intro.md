@@ -6,80 +6,83 @@ sidebar_position: 1
 
 ## Product Introduction
 
-This product is the model sample repository (Model Zoo) for the RDK series development boards, designed to provide developers with a rich variety of models that can be directly deployed on the boards.
+RDK Model Zoo is a collection of BPU (Brain Processing Unit) model examples and tools provided by D-Robotics for the RDK series development boards, designed for model deployment and intelligent application development, helping developers quickly get started with BPU and run through the model inference workflow.
 
-:::tip Tip
+The repository includes BPU-runnable models covering multiple intelligent application domains such as image classification, object detection, instance segmentation, pose estimation, OCR, and multimodal, and provides complete reference implementations from **original model (PyTorch/ONNX) → quantization conversion → inference execution → result parsing → example verification**, helping users understand and use BPU capabilities at minimal cost.
 
-The Model Zoo GitHub repository is here: https://github.com/D-Robotics/rdk_model_zoo
+:::tip
+
+Model Zoo GitHub repository: https://github.com/D-Robotics/rdk_model_zoo
+
 :::
 
-Through this repository, developers can access the following resources:
+:::info
 
-1. **Diverse D-Robotics Heterogeneous Models**: The repository contains a variety of D-Robotics heterogeneous models that can be directly deployed on the boards and are suitable for various scenarios. These general-purpose models cover fields such as image classification, object detection, semantic segmentation, and natural language processing, provided as .bin files. All models are carefully selected and optimized for high performance.
-2. **Detailed Usage Guides**: Each model comes with a Jupyter Notebook, which includes a detailed model introduction, usage instructions, sample code, and comments to help developers get started quickly. For some models, we also provide performance evaluation reports and tuning suggestions to facilitate customization and optimization according to specific needs.
-3. **Integrated Development Tools**: We provide a set of Python interfaces, `bpu_infer_lib`, for developers to quickly deploy models on RDK series development boards. By studying the Jupyter Notebooks provided with each model, including data preprocessing scripts and inference methods, developers can quickly master the use of this interface, greatly simplifying the model development and deployment process.
+RDK Model Zoo is a community-driven open-source project. We highly welcome developers to contribute new model examples, optimize existing code, or improve documentation. If you have any suggestions for improvement, please join us by submitting a Pull Request (PR)!
 
-## Environment Setup
+:::
 
-First, prepare the corresponding RDK development board according to your branch, and visit the D-Robotics official website to complete [hardware preparation, driver installation, software download, and image flashing](https://developer.d-robotics.cc/rdk_doc/Quick_start/install_os/rdk_x3). For X3 and X5 images, please select version 3.0.0 or above.
+## Branch and Hardware Platform Mapping
 
-After completing hardware connection and network configuration, use MobaXTerm to [remotely log in to the development board](https://developer.d-robotics.cc/rdk_doc/Quick_start/remote_login). Configure the [network connection](https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth) for the board.
+Model Zoo provides corresponding branches by hardware platform. Directory structure, inference interfaces, and system requirements differ across branches:
 
-Install the required Python libraries using pip:
+| Target Hardware | Branch | Python Inference Interface | Entry Point |
+| :--- | :--- | :--- | :--- |
+| RDK X5 | [`rdk_x5`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_x5) | `hbm_runtime` | `samples/vision/<sample>/README.md` |
+| RDK X5 (legacy demos) | [`rdk_x5_legacy`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_x5_legacy) | `bpu_infer_lib_x5` / `hobot_dnn.pyeasy_dnn` | Target demo directory README |
+| RDK X3 | [`rdk_x3`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_x3) | `bpu_infer_lib_x3` / `hobot_dnn.pyeasy_dnn` | `demos/<task>/<demo>/README.md` |
+| RDK S Series | [`rdk_s`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_s) | `hbm_runtime` | `samples/<domain>/<sample>/README.md` |
 
-1. bpu_infer_lib
+## Branch Descriptions
 
-For RDK X5:
-```
-pip install bpu_infer_lib_x5 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc
-```
+### rdk_x5
 
-For RDK X3:
-```
-pip install bpu_infer_lib_x3 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc 
-```
+The main delivery branch for RDK X5, requiring system version RDK OS >= 3.5.0.
 
-2. jupyterlab
-```
-pip install jupyterlab
-```
+- Python samples uniformly use the `hbm_runtime` interface, C++ samples use the `hb_dnn` interface
+- Organized by `samples/vision/<model>` in a standardized structure
+- Includes model download, conversion configs, Python/C++ runtime, evaluation tools, and test data
 
-Then, use the following command to clone the Model Zoo repository:
-```
-git clone https://github.com/D-Robotics/rdk_model_zoo
-```
+### rdk_x5_legacy
 
-Note: The default branch after cloning is the RDK X5 branch. If you are using another RDK series development board, please use the `git checkout` command to switch branches. For example, to switch to the RDK X3 branch, run:
+The legacy RDK X5 demo archive branch, used only for historical compatibility and old demo lookup.
 
-```
-git checkout rdk_x3
-```
+- Organized by `demos/<task>/<demo>`
+- Different demos use different inference interfaces (`bpu_infer_lib_x5` or the board-builtin `hobot_dnn.pyeasy_dnn`), as specified in each target directory's README
 
-After cloning, enter the Model Zoo directory:
-```
-cd rdk_model_zoo
-```
+:::caution
 
-Then start Jupyter Lab with the following command (replace the IP address with the actual IP used to log in to the board):
-```
-jupyter lab --allow-root --ip 10.112.148.68
-```
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/jupyter_start.png)
+`bpu_infer_lib_x5` and `hobot_dnn.pyeasy_dnn` have poor support for featuremap input models. If you need to use featuremap input models, please use `hbm_runtime` from the `rdk_x5` branch.
 
-After running the command, you will see the above log. Hold Ctrl and left-click the link shown in the image to enter Jupyter Lab (as shown below). Double-click `demos` to select and experience models in the RDK Model Zoo.
+:::
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter-en.png)
+### rdk_x3
 
+Dedicated branch for RDK X3 devices.
 
+- Organized by `demos/<task>/<demo>`
+- Includes image classification, object detection, and instance segmentation examples
+- The inference interface is chosen based on the target directory README, including `bpu_infer_lib_x3` and the board-builtin `hobot_dnn.pyeasy_dnn`
 
-## User Guide
+:::caution
 
-After selecting a model's notebook in Jupyter Lab, you will see an interface similar to the following:
+`bpu_infer_lib_x3` and `hobot_dnn.pyeasy_dnn` have poor support for featuremap input models.
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage-en.png)
+:::
 
-Taking the YOLO World model as an example, simply click the double triangle button shown above to run all cells. Scroll down to see the results:
+Some demos support Jupyter Notebook interactive experience.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage_res.png)
+### rdk_s
 
-You can also run cells one by one by pressing Shift + Enter to execute the current cell and move to the next.
+Dedicated branch for RDK S100 / S600 series boards, requiring system version RDK OS >= 4.0.5.
+
+- Organized by domain, including vision and speech examples
+- The inference interface is `hbm_runtime` (same name as RDK X5, different underlying dependency: S series is based on `libhbucp`, X5 is based on `libdnn`)
+- Legacy demos for the RDK S series are retained in the [RDK Model Zoo S](https://github.com/d-Robotics/rdk_model_zoo_s) repository
+
+## Detailed Usage Guides by Platform
+
+- RDK X3 usage guide: [4.1.2 RDK X3 Model Zoo Usage Guide](./rdk_x3_guide.md)
+- RDK X5 usage guide: [4.1.3 RDK X5 Model Zoo Usage Guide](./rdk_x5_guide.md)
+- RDK S Series usage guide: [4.1.4 RDK S Model Zoo Usage Guide](./rdk_s_guide.md)
+- Inference interface reference: [4.1.5 Inference Interface Reference](./infer_api_ref.md)

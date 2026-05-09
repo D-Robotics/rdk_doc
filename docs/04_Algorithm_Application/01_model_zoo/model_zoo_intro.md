@@ -2,83 +2,87 @@
 sidebar_position: 1
 ---
 
-# 4.1.1 ModelZoo概述
+# 4.1.1 Model Zoo 概述
 
 ## 产品介绍
 
-本产品为 RDK 系列开发板的模型样例总仓（Model Zoo），旨在为开发者提供能直接上板部署的，丰富多样的模型案例。
+RDK Model Zoo 是 D-Robotics（地瓜机器人）面向 RDK 系列开发板提供的 BPU（智能计算架构 Brain Processing Unit）模型示例与工具集合，面向模型部署和智能应用开发，用于帮助开发者快速上手 BPU、跑通模型推理流程。
 
-:::tip Tip
+仓库中收录了覆盖图像分类、目标检测、实例分割、姿态估计、OCR、多模态等多个智能应用领域的 BPU 可运行模型，并提供从 **原始模型（PyTorch/ONNX）→ 定点量化转换 → 推理运行 → 结果解析 → 示例验证** 的完整参考实现，帮助用户以最小成本理解并使用 BPU 能力。
 
-Model Zoo的github仓在这里：https://github.com/D-Robotics/rdk_model_zoo
+:::tip
+
+Model Zoo GitHub 仓库地址：https://github.com/D-Robotics/rdk_model_zoo
+
 :::
 
-通过该仓库，开发者可以访问以下资源：
+:::info
 
-1. **多样化的地瓜异构模型**：仓库中包含了各类可直接上板部署，适用与多种场景、通用性较强的地瓜异构模型，包括但不限于图像分类、目标检测、语义分割、自然语言处理等领域的.bin模型。这些模型经过精心挑选和优化，具有高效的性能。
-2. **详细的使用指南**：每个模型都配有一个Jupyter Notebook，其中附带详细的模型介绍、使用说明、示例代码和注释，帮助开发者快速上手。同时，对于部分模型，我们还提供了模型的性能评估报告和调优建议，方便开发者根据具体需求进行定制和优化。
-3. **集成的开发工具**：我们为开发者提供了可在RDK 系列开发板上快速部署模型的一套python接口，bpu_infer_lib，通过学习仓库内模型配备的Jupyter Notebook，如数据预处理脚本和推理方法，开发者能快速掌握对该接口的使用，大大简化了模型开发和部署的流程。
+RDK Model Zoo 是一个社区开源共建项目。我们非常欢迎开发者贡献新的模型示例、优化现有代码或完善文档。如果您有任何改进建议，欢迎通过 Pull Request (PR) 的方式参与共建！
 
-## 环境准备
+:::
 
-开发者首先根据所在分支，准备一块对应的RDK 开发板，并前往地瓜机器人官网完成[硬件准备、驱动安装、软件下载、和镜像烧录](https://developer.d-robotics.cc/rdk_doc/Quick_start/install_os/rdk_x3)。对于X3和X5的镜像，请选择3.0.0以上的版本。
+## 分支与硬件平台对应关系
 
-在完成硬件连接和网络配置后，使用MobaXTerm[远程登录开发板](https://developer.d-robotics.cc/rdk_doc/Quick_start/remote_login)。对开发板进行[网络连接](https://developer.d-robotics.cc/rdk_doc/System_configuration/network_blueteeth)。
+Model Zoo 按硬件平台提供对应分支，不同分支的目录结构、推理接口和系统要求有所不同：
 
-使用pip完成相应python库的安装：
+| 目标硬件 | 对应分支 | Python 推理接口 | 使用入口 |
+| :--- | :--- | :--- | :--- |
+| RDK X5 | [`rdk_x5`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_x5) | `hbm_runtime` | `samples/vision/<sample>/README.md` |
+| RDK X5（历史 demo） | [`rdk_x5_legacy`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_x5_legacy) | `bpu_infer_lib_x5` / `hobot_dnn.pyeasy_dnn` | 目标 demo 目录 README |
+| RDK X3 | [`rdk_x3`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_x3) | `bpu_infer_lib_x3` / `hobot_dnn.pyeasy_dnn` | `demos/<task>/<demo>/README.md` |
+| RDK S 系列 | [`rdk_s`](https://github.com/D-Robotics/rdk_model_zoo/tree/rdk_s) | `hbm_runtime` | `samples/<domain>/<sample>/README.md` |
 
-1. bpu_infer_lib
+## 分支说明
 
-如使用RDK X5：
-```
-pip install bpu_infer_lib_x5 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc
-```
+### rdk_x5
 
-如使用RDK X3：
-```
-pip install bpu_infer_lib_x3 -i http://sdk.d-robotics.cc:8080/simple/ --trusted-host sdk.d-robotics.cc 
-```
+RDK X5 的主交付分支，需系统版本 RDK OS >= 3.5.0。
 
-2. jupyterlab
-```
-pip install jupyterlab
-```
+- Python sample 统一使用 `hbm_runtime` 接口，C++ sample 使用 `hb_dnn` 接口
+- 目录按 `samples/vision/<model>` 规范化组织
+- 包含模型下载、转换配置、Python/C++ runtime、评测工具和测试数据
 
-随后即可使用如下命令拉取Model Zoo仓库：
-```
-git clone https://github.com/D-Robotics/rdk_model_zoo
-```
+### rdk_x5_legacy
 
-注：这里git clone拉下来的分支默认为RDK X5分支，如实际使用的开发板为RDK系列的其他产品，请使用git checkout命令进行切换，这里以X3为例，如想切换至RDK X3对应的分支，请执行如下命令：
+原 RDK X5 历史 demo 归档分支，仅用于历史兼容和旧 demo 查询。
 
-```
-git checkout rdk_x3
-```
+- 目录按 `demos/<task>/<demo>` 组织
+- 不同 demo 使用不同的推理接口（`bpu_infer_lib_x5` 或板端自带的 `hobot_dnn.pyeasy_dnn`），以目标目录 README 为准
 
-拉取完成后，使用如下命令进入Model Zoo目录：
-```
-cd rdk_model_zoo
-```
+:::caution
 
-随后使用如下命令进入Jupyter Lab（注：ip地址为板子实际登录时使用的ip）:
-```
-jupyter lab --allow-root --ip 10.112.148.68
-```
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/jupyter_start.png)
+`bpu_infer_lib_x5` 和 `hobot_dnn.pyeasy_dnn` 对 featuremap 输入模型支持不佳。如需使用 featuremap 输入模型，请使用 `rdk_x5` 分支的 `hbm_runtime`。
 
-使用命令后，会出现以上日志，按住Ctrl，鼠标左键点击上图所示的链接，即可进入Jupyter Lab（如下图所示），双击demos后，即可选择模型体验RDK Model Zoo。
+:::
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/into_jupyter-en.png)
+### rdk_x3
 
+RDK X3 设备专用分支。
 
-## 使用指南
+- 目录按 `demos/<task>/<demo>` 组织
+- 包含图像分类、目标检测、实例分割等示例
+- 推理接口按目标目录 README 选择，包含 `bpu_infer_lib_x3` 与板端自带的 `hobot_dnn.pyeasy_dnn`
 
-在Jupyter Lab中选择一个模型的notebook进入后，开发者会进入到类似如下的界面：
+:::caution
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage.png)
+`bpu_infer_lib_x3` 和 `hobot_dnn.pyeasy_dnn` 对 featuremap 输入模型支持不佳。
 
-这里以yolo world模型为例，用户只需要点击上图中的双三角按钮，即可运行全部cell。鼠标拖动到下方，即可看到结果展示：
+:::
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/04_Algorithm_Application/03_model_zoo/image/basic_usage_res.png)
+部分 demo 支持 Jupyter Notebook 交互式体验。
 
-开发者也可以选择逐cell运行，此时只需要按下Shift + Enter，即可完成当前cell运行，并跳转至下一个cell。
+### rdk_s
+
+RDK S100 / S600 系列板卡专用分支，需系统版本 RDK OS >= 4.0.5。
+
+- 按领域组织 sample，包含视觉和语音示例
+- 推理接口为 `hbm_runtime`（与 RDK X5 同名，底层依赖不同：S 系列基于 `libhbucp`，X5 基于 `libdnn`）
+- RDK S 系列的历史 demo 保留在 [RDK Model Zoo S](https://github.com/d-Robotics/rdk_model_zoo_s) 仓库
+
+## 各平台详细使用说明
+
+- RDK X3 使用说明请参考 [4.1.2 RDK X3 Model Zoo 使用说明](./rdk_x3_guide.md)
+- RDK X5 使用说明请参考 [4.1.3 RDK X5 Model Zoo 使用说明](./rdk_x5_guide.md)
+- RDK S 系列使用说明请参考 [4.1.4 RDK S Model Zoo 使用说明](./rdk_s_guide.md)
+- 推理接口参考请查阅 [4.1.5 推理接口参考](./infer_api_ref.md)
