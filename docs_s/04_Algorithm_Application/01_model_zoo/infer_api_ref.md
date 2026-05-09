@@ -1,0 +1,1 @@
+D:/20_Dev_Projects/21_RDK_MODEL_ZOO/rdk_model_zooo_mccc/rdk_doc/docs/04_Algorithm_Application/01_model_zoo/infer_api_ref.md

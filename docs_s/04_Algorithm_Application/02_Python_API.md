@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 id: python-api
 title: Python 接口手册
-sidebar_label: 4.1 Python 接口
+sidebar_label: 4.2 Python 接口
 ---
 ## 简介（Overview）
 hbm_runtime是基于pybind11的Python绑定接口，用于访问和操作libhbucp/libdnn C++ 库，提供高性能的神经网络模型加载和推理功能。
