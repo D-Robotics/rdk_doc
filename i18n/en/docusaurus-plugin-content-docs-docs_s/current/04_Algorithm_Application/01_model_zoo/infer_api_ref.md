@@ -1,1 +1,0 @@
-D:/20_Dev_Projects/21_RDK_MODEL_ZOO/rdk_model_zooo_mccc/rdk_doc/i18n/en/docusaurus-plugin-content-docs/current/04_Algorithm_Application/01_model_zoo/infer_api_ref.md
