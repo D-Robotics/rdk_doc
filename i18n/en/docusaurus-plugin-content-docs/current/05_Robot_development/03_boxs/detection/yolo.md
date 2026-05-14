@@ -14,7 +14,7 @@ The YOLO object detection algorithm example takes images as input, leverages the
 
 The models are trained on the [COCO dataset](http://cocodataset.org/) and support detection of 80 object categories, including people, animals, fruits, vehicles, and more.
 
-You can also use the Ultralytics package to train models on custom datasets. (https://docs.ultralytics.com/en/modes/train)
+You can also use the Ultralytics package to train models on custom datasets. (https://docs.ultralytics.com/modes/train)
 
 Code repository: (https://github.com/D-Robotics/hobot_dnn)
 
