@@ -597,7 +597,7 @@ Repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.co
 | ---------------------------- | ---------------------- |
 | RDK X5, RDK X5 Module        | Ubuntu 22.04 (Humble)  |
 | RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)  |
-| RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)  |
+
 
 ### Prerequisites
 #### RDK Platform
