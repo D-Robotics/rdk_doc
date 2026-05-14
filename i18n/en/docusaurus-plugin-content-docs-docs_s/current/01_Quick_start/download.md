@@ -84,10 +84,10 @@ sidebar_position: 6
       <th>🏷️ **Product Name**</th>
       <!-- <th>🇪🇺 **CE RED**</th> -->
       <th>🇪🇺 **CE EMC**</th>
-      <!-- <th>🇺🇸 **FCC**</th>
-      <th>🇯🇵 **MIC**</th>
-      <th>🇨🇳 **SRRC**</th>
-      <th>🇰🇷 **KCC**</th> -->
+      <th>🇺🇸 **FCC**</th>
+      <!-- <th>🇯🇵 **MIC**</th> -->
+      <!-- <th>🇨🇳 **SRRC**</th>-->
+      <th>🇰🇷 **KCC**</th> 
       <th>🇬🇧 **UKCA**</th>
       <th>🇪🇺 **RoHS**</th>
       <!-- <th>🇹🇭 **NBTC**</th>
@@ -102,7 +102,7 @@ sidebar_position: 6
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/FCC/FCC_EMC_Report.pdf">📄 FCC</a></td>
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/D-ROBOTICS%20211-241225%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/SRRC.pdf">📄 SRRC</a></td> -->
-      <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/KCC.pdf">📄 KCC</a></td> -->
+      <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/KCC/KS1E55Y.pdf">📄 KCC</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/UKCA/AOC_UK.pdf">📄 UKCA</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100/ROHS/2501Y83065E_RDK_S100_ROHS.pdf">📄 RoHS</a></td>
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X5/NBTC.pdf">📄 NBTC</a></td>
@@ -115,7 +115,7 @@ sidebar_position: 6
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_SIP/FCC/S100_SIP_FCC_EMC_Report.pdf">📄 FCC</a></td>
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/MIC/D-ROBOTICS%20211-240607%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3/SRRC/SRRC_Approval_RDK_X3.pdf">📄 SRRC</a></td> -->
-      <!-- <td>-</td> -->
+      <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_SIP/UKCA/C34-AOC2502V68690E_for_UK.pdf">📄 UKCA</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_SIP/ROHS/2501Y83065E-M1.pdf">📄 RoHS</a></td>
       <!-- <td>-</td>
@@ -128,7 +128,7 @@ sidebar_position: 6
       <td>-</td>
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
       <td>-</td>
-      <!-- <td>-</td> -->
+      <td>-</td>
       <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_MCU_Board/ROHS/2501Y83067E_CNAS.PDF">📄 RoHS</a></td>
       <!-- <td>-</td>
@@ -141,7 +141,7 @@ sidebar_position: 6
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/FCC/RDK S100_Camera_Expansion_Board_FCC_EMC_Report.pdf">📄 FCC</a></td>
       <!-- <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_X3_MD/MIC/D-ROBOTICS%20211-240608%20MIC%20Radio%20Certificate.pdf">📄 MIC</a></td> -->
       <!-- <td>-</td> -->
-      <!-- <td>-</td> -->
+      <td>-</td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/UKCA/AOC_UK.pdf">📄 UKCA</a></td>
       <td><a href="https://archive.d-robotics.cc/downloads/certification/RDK_S100/RDK_S100_Camera_Board/ROHS/2501Y83066E_CNAS.PDF">📄 RoHS</a></td>
       <!-- <td>-</td>
