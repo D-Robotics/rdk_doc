@@ -75,9 +75,9 @@ Use the command `srpi-config` to set ION memory size to 1.6GB and configure the 
 
 - For RDK S100, refer to:
 
-  1) `srpi-config` usage guide: [Performance Options](../../../02_System_configuration/02_srpi-config.md#performance-options)
+  1) `srpi-config` usage guide: [Performance Options](https://developer.d-robotics.cc/rdk_doc/en/rdk_s/System_configuration/srpi-config#performance-options)
 
-  2) CPU frequency scaling method: [CPU Frequency Management](../../../02_System_configuration/04_frequency_management.md#cpu-frequency-management-1)
+  2) CPU frequency scaling method: [CPU Frequency Management](https://developer.d-robotics.cc/rdk_doc/en/rdk_s/System_configuration/frequency_management#cpu-frequency-management)
 
 ## Usage Instructions
 
