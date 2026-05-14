@@ -674,7 +674,7 @@ cpu占用为单核百分比，耗时统计单位为ms
 
 ### 功能介绍
 
-实现图像的nv12,gbr24之间的转换。
+实现图像的nv12,bgr24之间的转换。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -682,7 +682,7 @@ cpu占用为单核百分比，耗时统计单位为ms
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,gbr24之间的转换 |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,bgr24之间的转换 |
 
 ### 准备工作
 
