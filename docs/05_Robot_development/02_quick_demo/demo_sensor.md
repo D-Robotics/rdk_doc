@@ -394,7 +394,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ...
     ```
 
-4. Web端查看 F37 摄像头图像，由于发布原始数据，需要编码JPEG图像，另起两个终端：一个进行订阅 MIPI 数据编码为JPEG，一个用webservice发布
+4. Web端查看摄像头图像，由于发布原始数据，需要编码JPEG图像，另起两个终端：一个进行订阅 MIPI 数据编码为JPEG，一个用webservice发布
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
