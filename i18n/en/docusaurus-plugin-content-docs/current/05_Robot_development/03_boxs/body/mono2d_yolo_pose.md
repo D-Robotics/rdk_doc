@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Feature Introduction
 
-This example uses [yolo-pose](https://docs.ultralytics.com/en/tasks/pose/) for human detection and tracking. It subscribes to image topics, performs algorithm inference using the BPU (Brain Processing Unit), publishes messages containing detected human bounding boxes and keypoints, and implements multi-object tracking (MOT) to track the detected bounding boxes.
+This example uses [yolo-pose](https://docs.ultralytics.com/tasks/pose) for human detection and tracking. It subscribes to image topics, performs algorithm inference using the BPU (Brain Processing Unit), publishes messages containing detected human bounding boxes and keypoints, and implements multi-object tracking (MOT) to track the detected bounding boxes.
 
 The supported detection categories and their corresponding data types in the algorithm message are as follows:
 
