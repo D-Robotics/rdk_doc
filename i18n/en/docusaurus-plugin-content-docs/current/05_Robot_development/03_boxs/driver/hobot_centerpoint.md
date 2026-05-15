@@ -22,7 +22,6 @@ Code repository: (https://github.com/D-Robotics/hobot_centerpoint)
 
 | Platform            | Runtime Environment       | Example Functionality                                      |
 | ------------------- | ------------------------- | ---------------------------------------------------------- |
-| RDK Ultra           | Ubuntu 20.04 (Foxy)       | Uses local point cloud playback and displays rendered inference results via web |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble)     | Uses local point cloud playback and displays rendered inference results via web |
 
 ## Prerequisites
