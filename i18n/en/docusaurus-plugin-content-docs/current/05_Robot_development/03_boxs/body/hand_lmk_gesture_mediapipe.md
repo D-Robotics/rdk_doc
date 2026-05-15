@@ -71,19 +71,6 @@ apt install tros-humble-hand-landmarks-mediapipe
 
 The `hand_landmarks_mediapipe` package subscribes to images published by the sensor package and hand bounding box detection results published by the human detection and tracking package. After performing inference, it publishes algorithm messages. These results, together with the original images, are rendered and displayed in a web browser on the PC via the websocket package.
 
-1. Confirm that the PC can access the RDK through the network.
-
-2. Install Packages
-
-```shell
-apt install tros-humble-palm-detection-mediapipe
-apt install tros-humble-hand-landmarks-mediapipe
-```
-
-## Usage
-
-The gesture recognition package (hand_landmarks_mediapipe) subscribes to the hand key point detection package and publishes the hand key point detection results. After inference, it publishes the algorithm message. The WebSocket package is used to display the images and corresponding algorithm results on the PC browser.
-
 
 **Use MIPI Camera to Publish Images**
 

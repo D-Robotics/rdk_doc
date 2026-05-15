@@ -78,7 +78,7 @@ sudo apt install tros-humble-hobot-llamacpp
 
     1) `srpi-config`使用指南[Performance Options](/docs_s/02_System_configuration/02_srpi-config.md#performance-options)
 
-    2) CPU调频方法: [CPU频率管理](/docs_s/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
+    2) CPU调频方法: [CPU频率管理](/docs_s/02_System_configuration/04_frequency_management.md)
 
 ## 使用方式
 
