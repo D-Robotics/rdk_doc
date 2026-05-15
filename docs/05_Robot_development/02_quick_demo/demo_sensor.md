@@ -23,8 +23,6 @@ import TabItem from '@theme/TabItem';
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
 | RDK Ultra | Ubuntu 20.04 (Foxy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
