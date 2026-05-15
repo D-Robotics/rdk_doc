@@ -67,17 +67,9 @@ sudo apt install tros-humble-hobot-llamacpp
 
 Use the command `srpi-config` to set ION memory size to 1.6GB and configure the CPU to run at its maximum frequency after reboot.
 
-- For RDK X5, refer to:
-  
-  1) `srpi-config` usage guide: [Performance Options](../../../02_System_configuration/02_srpi-config.md#performance-options)
+- ION Setting: `2.2 srpi-config Configuration Tool User Guide`
 
-  2) CPU frequency scaling method: [CPU Frequency Management](../../../02_System_configuration/04_frequency_management.md#cpu-frequency-management-1)
-
-- For RDK S100, refer to:
-
-  1) `srpi-config` usage guide: [Performance Options](https://developer.d-robotics.cc/rdk_doc/en/rdk_s/System_configuration/srpi-config#performance-options)
-
-  2) CPU frequency scaling method: [CPU Frequency Management](https://developer.d-robotics.cc/rdk_doc/en/rdk_s/System_configuration/frequency_management#cpu-frequency-management)
+- CPU Setting: `2.4 Thermal Control and CPU Frequency Management`
 
 ## Usage Instructions
 
