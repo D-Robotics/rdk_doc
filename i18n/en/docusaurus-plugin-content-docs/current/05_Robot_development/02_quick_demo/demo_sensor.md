@@ -24,9 +24,8 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 | RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   |
 | RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                   |
 | RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   |
-| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                   |
-| RDK Ultra               | Ubuntu 20.04 (Foxy)                     |
-| X86                     | Ubuntu 20.04 (Foxy)                     |
+
+
 
 ### Prerequisites
 
@@ -40,11 +39,6 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 
 4. Ensure your PC can access the RDK over the network.
 
-#### X86 Platform
-
-1. Ensure your USB camera functions properly and connect it to a USB port on your PC or server.
-
-2. Confirm that your X86 platform runs Ubuntu 20.04 and that tros.b has been successfully installed.
 
 ### Usage (Default `usb_pixel_format` is `mjpeg`)
 
