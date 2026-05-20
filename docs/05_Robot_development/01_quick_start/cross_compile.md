@@ -172,7 +172,9 @@ robot_dev_config的tag号（版本信息），请查看[版本发布记录](/doc
 
 ### 系统要求
 
-必须为Ubuntu 20.04 64位系统，也可使用RDK平台交叉编译docker镜像，但编译和运行必须都在docker中进行
+必须为Ubuntu 20.04 64位系统，也可使用RDK平台交叉编译docker镜像，但编译和运行必须都在docker中进行。
+
+**注意！X86平台仅支持2.0.0版本TogetheROS.Bot。**
 
 ### 系统设置
 
