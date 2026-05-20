@@ -27,9 +27,7 @@ Food classification example: https://github.com/frotms/Chinese-and-Western-Food-
 | ---------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------- |
 | RDK X3, RDK X3 Module        | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
 | RDK X5, RDK X5 Module        | Ubuntu 22.04 (Humble)          | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
-| RDK Ultra                    | Ubuntu 20.04 (Foxy)            | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
 | RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)          | · Launch MIPI/USB camera and display inference results via web browser<br/>· Use local image/video replay; rendered results saved locally |
-| X86                          | Ubuntu 20.04 (Foxy)            | · Use local image/video replay; rendered results saved locally                                        |
 
 ## Algorithm Details
 

@@ -734,7 +734,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=fb
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-ros2 launch hobot_visualization hobot_vis_render.launch.py
+ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_file:=config/yolov2workconfig.json
 ```
 
 Meanwhile, log in via SSH to another terminal and record topic data on the board:

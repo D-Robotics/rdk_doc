@@ -739,7 +739,7 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=fb
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-ros2 launch hobot_visualization hobot_vis_render.launch.py
+ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_file:=config/yolov2workconfig.json
 ```
 
 同时，利用ssh登录另一个终端，在板端记录话题信息：

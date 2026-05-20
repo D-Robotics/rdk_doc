@@ -24,9 +24,8 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 | RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   |
 | RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                   |
 | RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   |
-| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)                   |
-| RDK Ultra               | Ubuntu 20.04 (Foxy)                     |
-| X86                     | Ubuntu 20.04 (Foxy)                     |
+
+
 
 ### Prerequisites
 
@@ -40,11 +39,6 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 
 4. Ensure your PC can access the RDK over the network.
 
-#### X86 Platform
-
-1. Ensure your USB camera functions properly and connect it to a USB port on your PC or server.
-
-2. Confirm that your X86 platform runs Ubuntu 20.04 and that tros.b has been successfully installed.
 
 ### Usage (Default `usb_pixel_format` is `mjpeg`)
 
@@ -324,7 +318,7 @@ To enable environmental perception capabilities, robotic products typically inte
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
 | 1    | F37    | ![F37](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 2MP      | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
 | 2    | GC4663 | ![GC4663](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 4MP      | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
-| 3    | IMX219 | ![IMX219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 8MP      | RDK X3, RDK X3 Module, RDK Ultra, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 3    | IMX219 | ![IMX219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg) | 8MP      | RDK X3, RDK X3 Module,  RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
 | 4    | IMX477 | ![IMX477](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 12.3MP   | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
 | 5    | OV5647 | ![OV5647](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 5MP      | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
 | 6    | IMX415 | ![IMX415](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg) | 8MP      | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
@@ -597,7 +591,7 @@ Repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.co
 | ---------------------------- | ---------------------- |
 | RDK X5, RDK X5 Module        | Ubuntu 22.04 (Humble)  |
 | RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)  |
-| RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)  |
+
 
 ### Prerequisites
 #### RDK Platform

@@ -68,17 +68,9 @@ sudo apt install tros-humble-hobot-llamacpp
 
 使用命令`srpi-config`修改ION memory大小为1.6GB，重启后设置CPU为最高频率。
 
-  - RDK X5 参考: 
-  
-    1) `srpi-config`使用指南[Performance Options](/docs/02_System_configuration/02_srpi-config.md#performance-options)
+- ION 大小配置参考: 手册 `2.2 srpi-config 工具配置` 
 
-    2) CPU调频方法: [CPU频率管理](/docs/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
-
-  - RDK S100 参考: 
-
-    1) `srpi-config`使用指南[Performance Options](/docs_s/02_System_configuration/02_srpi-config.md#performance-options)
-
-    2) CPU调频方法: [CPU频率管理](/docs_s/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
+- CPU 频率配置参考：手册 `2.4 Thermal和CPU频率管理`
 
 ## 使用方式
 
