@@ -186,7 +186,13 @@ webserver has launch
 [INFO] [websocket-4]: process started with pid [702603]
 ```
 
-输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行
+输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行。
+
+:::info
+如果输出log显示如下告警信息：
+[HobotVdec]: findSPSPPSVPS fail. ret: -1, nSPSLen: 0, nLen: 59
+并且PC端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
+:::
 
 在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
 
