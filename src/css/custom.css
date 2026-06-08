@@ -143,4 +143,38 @@ div.table-wrapper table.no-wrap-table {
 
 [data-theme='dark'] .markdown a:hover {
   color: #79b8ff;
-} 
+}
+
+/* 归档说明横幅 - 显眼纯色背景、加大加粗 */
+div[class*="announcementBar"]:not([class*="announcementBarClose"]):not([class*="announcementBarPlaceholder"]) {
+  --docusaurus-announcement-bar-height: auto;
+  min-height: 32px;
+  padding: 4px 0;
+  background: #ff5125 !important;
+  color: #ffffff !important;
+}
+
+div[class*="announcementBarContent"] {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+div[class*="announcementBarContent"] .announcement-bar-link {
+  color: #0969da;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 2px;
+  transition: color 0.2s ease;
+}
+
+div[class*="announcementBarContent"] .announcement-bar-link:hover {
+  color: #0550ae;
+}
+
+div[class*="announcementBarContent"] .announcement-bar-link::after {
+  content: " ↗";
+  font-size: 0.85em;
+}
