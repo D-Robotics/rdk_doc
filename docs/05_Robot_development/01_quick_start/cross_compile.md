@@ -118,6 +118,9 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 
 
 ```shell
+## 安装和配置lfs
+sudo apt install git-lfs
+git lfs install
 cd /mnt/test/cc_ws/tros_ws
 ## 获取配置文件
 git clone https://github.com/D-Robotics/robot_dev_config.git -b jazzy 
