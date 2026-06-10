@@ -102,6 +102,18 @@ const config = {
       minHeadingLevel: 2,
       maxHeadingLevel: 5,
     },
+      announcementBar: {
+        id: "archive_notice_20260608",
+        content: (() => {
+          if (process.env.DOCUSAURUS_CURRENT_LOCALE === "en") {
+            return 'The content of this manual has been migrated to the <a class="announcement-bar-link" href="https://d-robotics.github.io/rdk_doc_center/en/" target="_blank" rel="noopener noreferrer">new resource center</a>. This page will be archived and no longer maintained starting June 10, 2026.';
+          }
+          return '本手册内容已迁移至全新的 <a class="announcement-bar-link" href="https://developer.d-robotics.cc/rdk_doc_center/" target="_blank" rel="noopener noreferrer">资料中心</a>，此页面于 2026 年 6 月 10 日起进入归档状态，停止维护。';
+        })(),
+        backgroundColor: "#ff5125",
+        textColor: "#ffffff",
+        isCloseable: false,
+      },
       navbar: {
         title: "D-Robotics",
         logo: {
