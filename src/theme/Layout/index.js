@@ -44,8 +44,8 @@ export default function Layout(props) {
       <PageMetadata title={title} description={description} />
 
       <SkipToContent />
-      <AnnouncementBar />
       <Navbar />
+      <AnnouncementBar />
 
       <div
         id={SkipToContentFallbackId}

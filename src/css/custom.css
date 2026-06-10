@@ -145,12 +145,15 @@ div.table-wrapper table.no-wrap-table {
   color: #79b8ff;
 }
 
-/* 归档说明横幅 - 显眼纯色背景、加大加粗 */
+/* 归档说明横幅 - 固定在导航栏下方 */
 div[class*="announcementBar"]:not([class*="announcementBarClose"]):not([class*="announcementBarPlaceholder"]) {
   --docusaurus-announcement-bar-height: auto;
-  min-height: 32px;
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  z-index: calc(var(--ifm-z-index-fixed) - 1);
+  min-height: 35px;
   padding: 4px 0;
-  background: #ff5125 !important;
+  background: red !important;
   color: #ffffff !important;
 }
 
@@ -158,11 +161,11 @@ div[class*="announcementBarContent"] {
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.3;
-  color: #ffffff;
+  color: #000000;
 }
 
 div[class*="announcementBarContent"] .announcement-bar-link {
-  color: #0969da;
+  color: white;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.15em;
