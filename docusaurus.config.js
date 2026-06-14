@@ -106,9 +106,9 @@ const config = {
         id: "archive_notice_20260608",
         content: (() => {
           if (process.env.DOCUSAURUS_CURRENT_LOCALE === "en") {
-            return 'The content of this manual has been migrated to the <a class="announcement-bar-link" href="https://d-robotics.github.io/rdk_doc_center/en/" target="_blank" rel="noopener noreferrer">new resource center</a>. This page will be archived and no longer maintained starting June 10, 2026.';
+            return 'This manual has been migrated to the new <a class="announcement-bar-link" href="https://d-robotics.github.io/rdk_doc_center/en/" target="_blank" rel="noopener noreferrer">Resource Center</a>. Effective June 10, 2026, this page will be archived and no longer updated or maintained. <br/>All historical content remains accessible for viewing and reference. For the latest documents and technical resources, please visit our new <a class="announcement-bar-link" href="https://d-robotics.github.io/rdk_doc_center/en/" target="_blank" rel="noopener noreferrer">Resource Center</a>.';
           }
-          return '本手册内容已迁移至全新的 <a class="announcement-bar-link" href="https://developer.d-robotics.cc/rdk_doc_center/" target="_blank" rel="noopener noreferrer">资料中心</a>，此页面于 2026 年 6 月 10 日起进入归档状态，停止维护。';
+          return '本手册已迁移至全新<a class="announcement-bar-link" href="https://developer.d-robotics.cc/rdk_doc_center/" target="_blank" rel="noopener noreferrer">资料中心</a>。自 2026 年 6 月 10 日起，当前页面正式归档，不再进行内容更新与运维。<br/>历史内容均可正常浏览、查阅与使用，如需获取最新文档与技术资料，建议您前往全新<a class="announcement-bar-link" href="https://developer.d-robotics.cc/rdk_doc_center/" target="_blank" rel="noopener noreferrer">资料中心</a>查看。';
         })(),
         backgroundColor: "#ff5125",
         textColor: "#ffffff",
