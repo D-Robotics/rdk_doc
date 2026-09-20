@@ -1,6 +1,11 @@
 ---
 sidebar_position: 1
+slug: /legacy/rdk_s/Advanced_development/toolchain_development/LLM_Toolchain
 ---
+
+<Head>
+  <meta name="robots" content="noindex, nofollow" />
+</Head>
 
 # 7.4.2 LLM Toolchain
 

@@ -1,6 +1,11 @@
 ---
 sidebar_position: 1
+slug: /legacy/rdk_s/Advanced_development/toolchain_development/overview
 ---
+
+<Head>
+  <meta name="robots" content="noindex, nofollow" />
+</Head>
 
 # 7.4.1 算法工具链
 

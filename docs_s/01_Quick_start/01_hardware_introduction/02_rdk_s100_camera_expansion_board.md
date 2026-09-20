@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
+slug: /legacy/rdk_s/Quick_start/hardware_introduction/rdk_s100_camera_expansion_board
 ---
+
+<Head>
+  <meta name="robots" content="noindex, nofollow" />
+</Head>
 
 # 1.1.2 相机扩展板
 

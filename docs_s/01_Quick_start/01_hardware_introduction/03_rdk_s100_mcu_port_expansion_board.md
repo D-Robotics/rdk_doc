@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
+slug: /legacy/rdk_s/Quick_start/hardware_introduction/rdk_s100_mcu_port_expansion_board
 ---
+
+<Head>
+  <meta name="robots" content="noindex, nofollow" />
+</Head>
 
 # 1.1.3 MCU 接口扩展板
 

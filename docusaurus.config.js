@@ -88,6 +88,10 @@ const config = {
         showLastUpdateTime: true,
       },
     ],
+    // 旧站 /rdk_doc/ 路径跳转到新资料中心对应页面（add by ql for url redirect 2026-09-20）
+    // 用自定义插件按语言区分目标地址（官方 client-redirects 的 redirects 不支持按 locale 区分 to），
+    // 规则与目标地址见 plugins/legacy-redirects.js
+    "./plugins/legacy-redirects.js",
   ],
   markdown: {
     mermaid: true,
