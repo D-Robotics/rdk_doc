@@ -1,0 +1,4 @@
+# 归档页面（/legacy/）不参与搜索引擎收录
+User-agent: *
+Disallow: /rdk_doc/rdk_s/legacy/
+Disallow: /rdk_doc/en/rdk_s/legacy/
