@@ -10,43 +10,45 @@ const fs = require('fs-extra');
 // from 是相对“各语言版本站点根”的路径（默认语言 build/、英文 build/en/，baseUrl 由部署层映射），
 // 与旧站 URL 一一对应：from=/rdk_s/... → 旧站 /rdk_doc/rdk_s/...（英文 /rdk_doc/en/rdk_s/...）。
 // to 按 locale 区分；某语言缺省表示该语言不生成跳转。
+// to 只带 p= 产品参数、不写 v= 版本参数：新站会按产品取最新版本（版本列表首项），
+// 这样新站后续发新版本时跳转永远指向最新，无需回来改这里的 v 值。
 const REDIRECTS = [
   {
     from: '/rdk_s/Quick_start/hardware_introduction/rdk_s100',
     to: {
       'zh-Hans':
-        'https://developer.d-robotics.cc/rdk_s_doc/01_Quick_start/01_hardware_introduction/01_rdk_s100/01_rdk_s100_kit?v=4.0.5&p=RDK+S100',
+        'https://developer.d-robotics.cc/rdk_s_doc/01_Quick_start/01_hardware_introduction/01_rdk_s100/01_rdk_s100_kit?p=RDK+S100',
     },
   },
   {
     from: '/rdk_s/Quick_start/hardware_introduction/rdk_s100_camera_expansion_board',
     to: {
       'zh-Hans':
-        'https://developer.d-robotics.cc/rdk_s_doc/01_Quick_start/01_hardware_introduction/01_rdk_s100/02_rdk_s100_camera_expansion_board?v=4.0.5&p=RDK+S100',
-      en: 'https://developer.d-robotics.cc/rdk_s_doc/en/01_Quick_start/01_hardware_introduction/01_rdk_s100/02_rdk_s100_camera_expansion_board?v=4.0.5&p=RDK+S100',
+        'https://developer.d-robotics.cc/rdk_s_doc/01_Quick_start/01_hardware_introduction/01_rdk_s100/02_rdk_s100_camera_expansion_board?p=RDK+S100',
+      en: 'https://developer.d-robotics.cc/rdk_s_doc/en/01_Quick_start/01_hardware_introduction/01_rdk_s100/02_rdk_s100_camera_expansion_board?p=RDK+S100',
     },
   },
   {
     from: '/rdk_s/Quick_start/hardware_introduction/rdk_s100_mcu_port_expansion_board',
     to: {
       'zh-Hans':
-        'https://developer.d-robotics.cc/rdk_s_doc/Quick_start/hardware_introduction/rdk_s100/rdk_s100_mcu_port_expansion_board?v=4.0.5&p=RDK+S100',
-      en: 'https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/hardware_introduction/rdk_s100/rdk_s100_mcu_port_expansion_board?v=4.0.5&p=RDK+S100',
+        'https://developer.d-robotics.cc/rdk_s_doc/Quick_start/hardware_introduction/rdk_s100/rdk_s100_mcu_port_expansion_board?p=RDK+S100',
+      en: 'https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/hardware_introduction/rdk_s100/rdk_s100_mcu_port_expansion_board?p=RDK+S100',
     },
   },
   {
     from: '/rdk_s/Advanced_development/toolchain_development/LLM_Toolchain',
     to: {
       'zh-Hans':
-        'https://developer.d-robotics.cc/rdk_s_doc/Advanced_development/toolchain_development/LLM_Toolchain/rdk_s100/s100_LLM_Toolchain?v=4.0.5&p=RDK+S100',
-      en: 'https://developer.d-robotics.cc/rdk_s_doc/en/Advanced_development/toolchain_development/LLM_Toolchain/rdk_s100/s100_LLM_Toolchain?v=4.0.5&p=RDK+S100',
+        'https://developer.d-robotics.cc/rdk_s_doc/Advanced_development/toolchain_development/LLM_Toolchain/rdk_s100/s100_LLM_Toolchain?p=RDK+S100',
+      en: 'https://developer.d-robotics.cc/rdk_s_doc/en/Advanced_development/toolchain_development/LLM_Toolchain/rdk_s100/s100_LLM_Toolchain?p=RDK+S100',
     },
   },
   {
     from: '/rdk_s/Advanced_development/toolchain_development/overview',
     to: {
       'zh-Hans':
-        'https://developer.d-robotics.cc/rdk_s_doc/Advanced_development/toolchain_development/algorithm_toolchain?v=4.0.5&p=RDK+S100',
+        'https://developer.d-robotics.cc/rdk_s_doc/Advanced_development/toolchain_development/algorithm_toolchain?p=RDK+S100',
     },
   },
 ];
