@@ -2688,8 +2688,7 @@ module.exports = function legacyRedirects() {
         const to = r.to[locale];
         if (!to) continue;
         const filePath = path.join(outDir, r.from.replace(/^\/+/, ''), 'index.html');
-        // 未被迁移到 /legacy/ 的旧文档仍在原路由上时，不覆盖（保持文档可访问）
-        if (fs.existsSync(filePath)) continue;
+        // 直接覆盖：旧文档仍长期保留在仓库，但原路由一律生成跳转页（不再依赖 /legacy/ 迁移腾空路由）
         await fs.outputFile(filePath, renderRedirectPage(to));
       }
     },
