@@ -2661,6 +2661,29 @@ const REDIRECTS = [
       'zh-Hans': 'https://developer.d-robotics.cc/rdk_x_doc/03_Basic_Application/05_audio/rdk_x5'
     },
   },
+  // T9 旧站活页面补 redirect（IA 2026-09-23 复核发现：原列在「44 条死 URL 移除」清单里，实测为旧站仍在线 200 活页，剔出移除、改走 redirect）
+  // 注：Ultra 版 pydev_multimedia_api_ultra 新站已无对应页，暂不配（待 TW/产品定落点）。
+  {
+    from: '/Quick_start/install_os/rdk_x5',
+    to: {
+      'zh-Hans': 'https://developer.d-robotics.cc/rdk_x_doc/Quick_start/system-burn/overview',
+      en: 'https://developer.d-robotics.cc/rdk_x_doc/en/Quick_start/system-burn/overview',
+    },
+  },
+  {
+    from: '/Quick_start/install_os/rdk_x3',
+    to: {
+      'zh-Hans': 'https://developer.d-robotics.cc/rdk_x_doc/install_os/rdk_x3',
+      en: 'https://developer.d-robotics.cc/rdk_x_doc/en/install_os/rdk_x3',
+    },
+  },
+  {
+    from: '/Basic_Application/multi_media_sp_dev_api/multi_media_api/pydev_multimedia_api_x3',
+    to: {
+      'zh-Hans': 'https://developer.d-robotics.cc/rdk_x_doc/03_Basic_Application/06_multi_media_sp_dev_api/RDK_X3/pydev_multimedia_api_x3',
+      en: 'https://developer.d-robotics.cc/rdk_x_doc/en/03_Basic_Application/06_multi_media_sp_dev_api/RDK_X3/pydev_multimedia_api_x3',
+    },
+  },
 ];
 
 // 与官方 client-redirects 生成的跳转页同构（meta refresh + canonical + JS 兜底）
