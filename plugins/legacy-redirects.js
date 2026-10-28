@@ -10,6 +10,7 @@ const fs = require('fs-extra');
 
 // from 是相对"各语言版本站点根"的路径（默认语言 build/、英文 build/en/，baseUrl 由部署层映射），
 // 与旧站 URL 一一对应：from=/rdk_s/... → 旧站 /rdk_doc/rdk_s/...（英文 /rdk_doc/en/rdk_s/...）。
+// from 也可以写成 { 'zh-Hans': ..., en: ... }，只给某语言时仅该语言生成跳转页。
 // to 按 locale 区分；某语言缺省表示该语言不生成跳转。
 // 430 条有曝光页：目标用精确路径（旧 rdk_doc → rdk_x_doc/rdk_s_doc/tros_doc），
 // 不带 ?p= 参数；路径本身已定位到具体页面，且无版本号、天然最新。
@@ -20,6 +21,13 @@ const fs = require('fs-extra');
 // ?v=4.0.5&p=RDK+S100 形态不一致，会导致统计口径分裂。
 const REDIRECTS = [
 
+  // 站点根。中文根 /rdk_doc/ 的 301 由部署层负责，英文根 /rdk_doc/en/ 一直没有承接：
+  // 它至今 200 返回冻结的旧站英文首页，是旧站曝光和点击最高的单个 URL。
+  // from 按语言写，只生成英文那份（build/en/index.html），不覆盖中文的 build/index.html。
+  {
+    from: { en: '/' },
+    to: { en: 'https://d-robotics.github.io/rdk_doc_center/en/' },
+  },
   {
     from: '/rdk_s/Quick_start/hardware_introduction/rdk_s100',
     to: {
@@ -2714,8 +2722,9 @@ module.exports = function legacyRedirects() {
       const locale = path.basename(path.resolve(outDir)) === 'en' ? 'en' : 'zh-Hans';
       for (const r of REDIRECTS) {
         const to = r.to[locale];
-        if (!to) continue;
-        const filePath = path.join(outDir, r.from.replace(/^\/+/, ''), 'index.html');
+        const from = typeof r.from === 'string' ? r.from : r.from[locale];
+        if (!to || !from) continue;
+        const filePath = path.join(outDir, from.replace(/^\/+/, ''), 'index.html');
         // 直接覆盖：旧文档仍长期保留在仓库，但原路由一律生成跳转页（不再依赖 /legacy/ 迁移腾空路由）
         await fs.outputFile(filePath, renderRedirectPage(to));
       }
